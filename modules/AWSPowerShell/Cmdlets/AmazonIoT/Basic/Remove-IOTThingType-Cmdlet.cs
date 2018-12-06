@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified thing type . You cannot delete a thing type if it has things
+    /// Deletes the specified thing type. You cannot delete a thing type if it has things
     /// associated with it. To delete a thing type, first mark it as deprecated by calling
     /// <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a>
     /// to change the thing type on any associated thing, and finally use <a>DeleteThingType</a>

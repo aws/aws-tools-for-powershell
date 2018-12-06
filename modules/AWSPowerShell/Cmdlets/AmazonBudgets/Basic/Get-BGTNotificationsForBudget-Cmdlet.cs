@@ -28,7 +28,7 @@ using Amazon.Budgets.Model;
 namespace Amazon.PowerShell.Cmdlets.BGT
 {
     /// <summary>
-    /// Lists the notifications associated with a budget.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the notifications that are associated with a budget.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "BGTNotificationsForBudget")]
     [OutputType("Amazon.Budgets.Model.Notification")]
@@ -65,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of results to return in response.</para>
+        /// <para>An optional integer that represents how many entries a paginated response contains.
+        /// The maximum is 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -79,7 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The pagination token that indicates the next set of results to retrieve.</para>
+        /// <para>The pagination token that you include in your request to indicate the next set of
+        /// results that you want to retrieve.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

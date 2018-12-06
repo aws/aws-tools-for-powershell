@@ -94,8 +94,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentUpdate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -147,8 +146,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentManagedAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -202,8 +200,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DNSAvailability",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -250,8 +247,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -305,8 +301,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -361,8 +356,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -420,8 +414,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -475,8 +468,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -530,8 +522,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -583,8 +574,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StorageLocation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -636,8 +626,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -692,8 +681,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -747,8 +735,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationTemplate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -805,8 +792,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.EnvironmentName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -860,8 +846,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -913,8 +898,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -963,8 +947,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Applications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1013,7 +996,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1061,8 +1043,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1109,8 +1090,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1159,8 +1139,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentHealth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1193,7 +1172,15 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxItems",
+        "forceMaxResultSize": "true",
+        "maxResultSize": 1000,
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [],
         "byNameMembers": []
@@ -1207,7 +1194,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentManagedActionHistory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1216,7 +1202,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "MaxRecords",
+          "resultLimitMember": "MaxItems",
           "forceMaxResultSize": "true",
           "maxResultSize": 1000,
           "resultsTruncatedMember": ""
@@ -1255,8 +1241,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentManagedActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1307,8 +1292,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentResources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1375,7 +1359,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1456,7 +1439,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1506,8 +1488,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesHealth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1556,8 +1537,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1604,8 +1584,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailableSolutionStacks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1654,7 +1633,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1704,8 +1682,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1759,8 +1736,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1820,8 +1796,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentInfo",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1880,8 +1855,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AppServer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: GetFirstAssignedParameterValue(\"EnvironmentId\", \"EnvironmentName\")",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1938,8 +1912,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentInfo",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1992,8 +1965,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentCNAMEs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SourceEnvironmentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2050,8 +2022,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2105,8 +2076,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2158,8 +2128,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationResourceLifecycle",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2214,8 +2183,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2272,8 +2240,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2332,8 +2299,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2387,8 +2353,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2442,8 +2407,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

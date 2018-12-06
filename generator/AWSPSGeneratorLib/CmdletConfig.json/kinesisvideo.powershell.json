@@ -67,8 +67,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -122,8 +121,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -177,8 +175,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -227,8 +224,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataEndpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -277,7 +273,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Streams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -334,8 +329,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -384,8 +378,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Tag",
         "passThruTypeName": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "requiresPassThruGeneration": "true",
@@ -439,8 +432,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TagKeyList",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -494,8 +486,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataRetention",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -549,8 +540,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

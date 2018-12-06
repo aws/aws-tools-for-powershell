@@ -64,7 +64,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -107,7 +106,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Streams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

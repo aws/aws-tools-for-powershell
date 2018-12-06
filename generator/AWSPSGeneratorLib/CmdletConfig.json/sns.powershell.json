@@ -105,8 +105,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TopicArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -159,8 +158,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IfPhoneNumberIsOptedOut",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -209,8 +207,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -266,8 +263,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformApplication",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -324,8 +320,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformEndpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -378,8 +373,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Topic",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -392,7 +386,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
         },
@@ -432,8 +426,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EndpointArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -486,8 +479,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformApplication",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PlatformApplicationArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -538,8 +530,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Topic",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TopicArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -592,8 +583,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -641,8 +631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformApplicationAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -690,8 +679,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMSAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -739,8 +727,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -786,8 +773,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -835,7 +821,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointsByPlatformApplication",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -882,7 +867,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PhoneNumbersOptedOut",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -929,7 +913,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformApplications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -976,7 +959,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscriptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1023,7 +1005,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionsByTopic",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1070,7 +1051,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Topics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1119,8 +1099,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InPhoneNumber",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PhoneNumber",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1175,8 +1154,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1229,8 +1207,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TopicArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1285,8 +1262,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EndpointArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1341,8 +1317,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlatformApplicationAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PlatformApplicationArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1397,8 +1372,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMSAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Attribute",
         "passThruTypeName": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "requiresPassThruGeneration": "true",
@@ -1454,8 +1428,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SubscriptionArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1509,8 +1482,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TopicArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1564,8 +1536,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1618,8 +1589,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SubscriptionArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

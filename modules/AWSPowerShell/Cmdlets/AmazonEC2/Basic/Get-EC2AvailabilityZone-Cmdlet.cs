@@ -54,12 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>message</code> - Information about the Availability Zone.</para></li><li><para><code>region-name</code> - The name of the region for the Availability Zone (for
         /// example, <code>us-east-1</code>).</para></li><li><para><code>state</code> - The state of the Availability Zone (<code>available</code> |
-        /// <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</para></li></ul>
+        /// <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</para></li><li><para><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter ZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of one or more Availability Zones.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ZoneIds")]
+        public System.String[] ZoneId { get; set; }
         #endregion
         
         #region Parameter ZoneName
@@ -90,6 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            if (this.ZoneId != null)
+            {
+                context.ZoneIds = new List<System.String>(this.ZoneId);
+            }
             if (this.ZoneName != null)
             {
                 context.ZoneNames = new List<System.String>(this.ZoneName);
@@ -113,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.ZoneIds != null)
+            {
+                request.ZoneIds = cmdletContext.ZoneIds;
             }
             if (cmdletContext.ZoneNames != null)
             {
@@ -183,6 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public List<System.String> ZoneIds { get; set; }
             public List<System.String> ZoneNames { get; set; }
         }
         

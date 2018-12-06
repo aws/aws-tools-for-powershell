@@ -66,12 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>A unique value (for example, a date-time stamp) that ensures that the request can't
         /// be replayed.</para><para>If the value of <code>CallerReference</code> is new (regardless of the content of
-        /// the <code>DistributionConfig</code> object), CloudFront creates a new distribution.</para><para>If <code>CallerReference</code> is a value you already sent in a previous request
-        /// to create a distribution, and if the content of the <code>DistributionConfig</code>
-        /// is identical to the original request (ignoring white space), CloudFront returns the
-        /// same the response that it returned to the original request.</para><para>If <code>CallerReference</code> is a value you already sent in a previous request
-        /// to create a distribution but the content of the <code>DistributionConfig</code> is
-        /// different from the original request, CloudFront returns a <code>DistributionAlreadyExists</code>
+        /// the <code>DistributionConfig</code> object), CloudFront creates a new distribution.</para><para>If <code>CallerReference</code> is a value that you already sent in a previous request
+        /// to create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code>
         /// error.</para>
         /// </para>
         /// </summary>
@@ -447,10 +443,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String[] TrustedSigners_Item { get; set; }
         #endregion
         
+        #region Parameter OriginGroups_Item
+        /// <summary>
+        /// <para>
+        /// <para>The items (origin groups) in a distribution.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_OriginGroups_Items")]
+        public Amazon.CloudFront.Model.OriginGroup[] OriginGroups_Item { get; set; }
+        #endregion
+        
         #region Parameter Origins_Item
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains origins for this distribution.</para>
+        /// <para>A complex type that contains origins or origin groups for this distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -705,10 +712,21 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.Int32 TrustedSigners_Quantity { get; set; }
         #endregion
         
+        #region Parameter OriginGroups_Quantity
+        /// <summary>
+        /// <para>
+        /// <para>The number of origin groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity")]
+        public System.Int32 OriginGroups_Quantity { get; set; }
+        #endregion
+        
         #region Parameter Origins_Quantity
         /// <summary>
         /// <para>
-        /// <para>The number of origins for this distribution.</para>
+        /// <para>The number of origins or origin groups for this distribution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -984,6 +1002,12 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (ParameterWasBound("Logging_IncludeCookie"))
                 context.DistributionConfigWithTags_DistributionConfig_Logging_IncludeCookies = this.Logging_IncludeCookie;
             context.DistributionConfigWithTags_DistributionConfig_Logging_Prefix = this.Logging_Prefix;
+            if (this.OriginGroups_Item != null)
+            {
+                context.DistributionConfigWithTags_DistributionConfig_OriginGroups_Items = new List<Amazon.CloudFront.Model.OriginGroup>(this.OriginGroups_Item);
+            }
+            if (ParameterWasBound("OriginGroups_Quantity"))
+                context.DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity = this.OriginGroups_Quantity;
             if (this.Origins_Item != null)
             {
                 context.DistributionConfigWithTags_DistributionConfig_Origins_Items = new List<Amazon.CloudFront.Model.Origin>(this.Origins_Item);
@@ -1308,6 +1332,41 @@ namespace Amazon.PowerShell.Cmdlets.CF
             if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CustomErrorResponses != null)
             {
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.CustomErrorResponses = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_CustomErrorResponses;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
+            }
+            Amazon.CloudFront.Model.OriginGroups requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups = null;
+            
+             // populate OriginGroups
+            bool requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroupsIsNull = true;
+            requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups = new Amazon.CloudFront.Model.OriginGroups();
+            List<Amazon.CloudFront.Model.OriginGroup> requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Item = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_OriginGroups_Items != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Item = cmdletContext.DistributionConfigWithTags_DistributionConfig_OriginGroups_Items;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Item != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups.Items = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Item;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroupsIsNull = false;
+            }
+            System.Int32? requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Quantity = null;
+            if (cmdletContext.DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Quantity = cmdletContext.DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity.Value;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Quantity != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups.Quantity = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups_originGroups_Quantity.Value;
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroupsIsNull = false;
+            }
+             // determine if requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups should be set to null
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroupsIsNull)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups = null;
+            }
+            if (requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups != null)
+            {
+                requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig.OriginGroups = requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_OriginGroups;
                 requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfigIsNull = false;
             }
             Amazon.CloudFront.Model.Origins requestDistributionConfigWithTags_distributionConfigWithTags_DistributionConfig_distributionConfigWithTags_DistributionConfig_Origins = null;
@@ -2009,6 +2068,8 @@ namespace Amazon.PowerShell.Cmdlets.CF
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_Logging_Enabled { get; set; }
             public System.Boolean? DistributionConfigWithTags_DistributionConfig_Logging_IncludeCookies { get; set; }
             public System.String DistributionConfigWithTags_DistributionConfig_Logging_Prefix { get; set; }
+            public List<Amazon.CloudFront.Model.OriginGroup> DistributionConfigWithTags_DistributionConfig_OriginGroups_Items { get; set; }
+            public System.Int32? DistributionConfigWithTags_DistributionConfig_OriginGroups_Quantity { get; set; }
             public List<Amazon.CloudFront.Model.Origin> DistributionConfigWithTags_DistributionConfig_Origins_Items { get; set; }
             public System.Int32? DistributionConfigWithTags_DistributionConfig_Origins_Quantity { get; set; }
             public Amazon.CloudFront.PriceClass DistributionConfigWithTags_DistributionConfig_PriceClass { get; set; }

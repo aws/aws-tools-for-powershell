@@ -54,9 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EventsRequest_BatchItem
         /// <summary>
         /// <para>
-        /// Batch of events with endpoint id as the key
-        /// and an object of EventsBatch as value. The EventsBatch object has the PublicEndpoint
-        /// and a map of event Id's to events
+        /// A batch of events to process. Each BatchItem
+        /// consists of an endpoint ID as the key, and an EventsBatch object as the value.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

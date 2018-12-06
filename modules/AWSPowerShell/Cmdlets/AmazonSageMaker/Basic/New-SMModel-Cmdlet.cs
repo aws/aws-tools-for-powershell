@@ -67,6 +67,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMModelCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter Container
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the containers in the inference pipeline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Containers")]
+        public Amazon.SageMaker.Model.ContainerDefinition[] Container { get; set; }
+        #endregion
+        
+        #region Parameter EnableNetworkIsolation
+        /// <summary>
+        /// <para>
+        /// <para>Isolates the model container. No inbound or outbound network calls can be made to
+        /// or from the model container.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableNetworkIsolation { get; set; }
+        #endregion
+        
         #region Parameter ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -120,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
-        /// model.</para>
+        /// model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,6 +192,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Container != null)
+            {
+                context.Containers = new List<Amazon.SageMaker.Model.ContainerDefinition>(this.Container);
+            }
+            if (ParameterWasBound("EnableNetworkIsolation"))
+                context.EnableNetworkIsolation = this.EnableNetworkIsolation;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.ModelName = this.ModelName;
             context.PrimaryContainer = this.PrimaryContainer;
@@ -201,6 +229,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateModelRequest();
             
+            if (cmdletContext.Containers != null)
+            {
+                request.Containers = cmdletContext.Containers;
+            }
+            if (cmdletContext.EnableNetworkIsolation != null)
+            {
+                request.EnableNetworkIsolation = cmdletContext.EnableNetworkIsolation.Value;
+            }
             if (cmdletContext.ExecutionRoleArn != null)
             {
                 request.ExecutionRoleArn = cmdletContext.ExecutionRoleArn;
@@ -310,6 +346,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SageMaker.Model.ContainerDefinition> Containers { get; set; }
+            public System.Boolean? EnableNetworkIsolation { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String ModelName { get; set; }
             public Amazon.SageMaker.Model.ContainerDefinition PrimaryContainer { get; set; }

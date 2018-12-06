@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the directory.</para>
+        /// <para>The identifier of the directory.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more IP access control groups.</para>
+        /// <para>The identifiers of one or more IP access control groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

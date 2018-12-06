@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTJobCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter AbortConfig_CriteriaList
+        /// <summary>
+        /// <para>
+        /// <para>The list of abort criteria to define rules to abort the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.IoT.Model.AbortCriteria[] AbortConfig_CriteriaList { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -52,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Document
         /// <summary>
         /// <para>
-        /// <para>The job document.</para>
+        /// <para>The job document.</para><note><para>If the job document resides in an S3 bucket, you must use a placeholder link when
+        /// specifying the document.</para><para>The placeholder link is of the following form:</para><para><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></para><para>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket
+        /// to which you are linking.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,17 +93,26 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.Int64 PresignedUrlConfig_ExpiresInSec { get; set; }
         #endregion
         
+        #region Parameter JobExecutionsRolloutConfig_ExponentialRate
+        /// <summary>
+        /// <para>
+        /// <para>The rate of increase for a job rollout. This parameter allows you to define an exponential
+        /// rate for a job rollout.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
+        #endregion
+        
         #region Parameter TimeoutConfig_InProgressTimeoutInMinute
         /// <summary>
         /// <para>
         /// <para>Specifies the amount of time, in minutes, this device has to finish execution of this
-        /// job. A timer is started, or restarted, whenever this job's execution status is specified
-        /// as <code>IN_PROGRESS</code> with this field populated. If the job execution status
-        /// is not set to a terminal state before the timer expires, or before another job execution
-        /// status update is sent with this field populated, the status will be automatically
-        /// set to <code>TIMED_OUT</code>. Note that setting/resetting this timer has no effect
-        /// on the job execution timeout timer which may have been specified when the job was
-        /// created (<code>CreateJobExecution</code> using the field <code>timeoutConfig</code>).</para>
+        /// job. The timeout interval can be anywhere between 1 minute and 7 days (1 to 10080
+        /// minutes). The in progress timer can't be updated and will apply to all job executions
+        /// for the job. Whenever a job execution remains in the IN_PROGRESS status for longer
+        /// than this interval, the job execution will fail and switch to the terminal <code>TIMED_OUT</code>
+        /// status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PresignedUrlConfig_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Target
@@ -188,15 +220,24 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AbortConfig_CriteriaList != null)
+            {
+                context.AbortConfig_CriteriaList = new List<Amazon.IoT.Model.AbortCriteria>(this.AbortConfig_CriteriaList);
+            }
             context.Description = this.Description;
             context.Document = this.Document;
             context.DocumentSource = this.DocumentSource;
+            context.JobExecutionsRolloutConfig_ExponentialRate = this.JobExecutionsRolloutConfig_ExponentialRate;
             if (ParameterWasBound("JobExecutionsRolloutConfig_MaximumPerMinute"))
                 context.JobExecutionsRolloutConfig_MaximumPerMinute = this.JobExecutionsRolloutConfig_MaximumPerMinute;
             context.JobId = this.JobId;
             if (ParameterWasBound("PresignedUrlConfig_ExpiresInSec"))
                 context.PresignedUrlConfig_ExpiresInSec = this.PresignedUrlConfig_ExpiresInSec;
             context.PresignedUrlConfig_RoleArn = this.PresignedUrlConfig_RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             if (this.Target != null)
             {
                 context.Targets = new List<System.String>(this.Target);
@@ -220,6 +261,25 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.CreateJobRequest();
             
+            
+             // populate AbortConfig
+            bool requestAbortConfigIsNull = true;
+            request.AbortConfig = new Amazon.IoT.Model.AbortConfig();
+            List<Amazon.IoT.Model.AbortCriteria> requestAbortConfig_abortConfig_CriteriaList = null;
+            if (cmdletContext.AbortConfig_CriteriaList != null)
+            {
+                requestAbortConfig_abortConfig_CriteriaList = cmdletContext.AbortConfig_CriteriaList;
+            }
+            if (requestAbortConfig_abortConfig_CriteriaList != null)
+            {
+                request.AbortConfig.CriteriaList = requestAbortConfig_abortConfig_CriteriaList;
+                requestAbortConfigIsNull = false;
+            }
+             // determine if request.AbortConfig should be set to null
+            if (requestAbortConfigIsNull)
+            {
+                request.AbortConfig = null;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -236,6 +296,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate JobExecutionsRolloutConfig
             bool requestJobExecutionsRolloutConfigIsNull = true;
             request.JobExecutionsRolloutConfig = new Amazon.IoT.Model.JobExecutionsRolloutConfig();
+            Amazon.IoT.Model.ExponentialRolloutRate requestJobExecutionsRolloutConfig_jobExecutionsRolloutConfig_ExponentialRate = null;
+            if (cmdletContext.JobExecutionsRolloutConfig_ExponentialRate != null)
+            {
+                requestJobExecutionsRolloutConfig_jobExecutionsRolloutConfig_ExponentialRate = cmdletContext.JobExecutionsRolloutConfig_ExponentialRate;
+            }
+            if (requestJobExecutionsRolloutConfig_jobExecutionsRolloutConfig_ExponentialRate != null)
+            {
+                request.JobExecutionsRolloutConfig.ExponentialRate = requestJobExecutionsRolloutConfig_jobExecutionsRolloutConfig_ExponentialRate;
+                requestJobExecutionsRolloutConfigIsNull = false;
+            }
             System.Int32? requestJobExecutionsRolloutConfig_jobExecutionsRolloutConfig_MaximumPerMinute = null;
             if (cmdletContext.JobExecutionsRolloutConfig_MaximumPerMinute != null)
             {
@@ -283,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestPresignedUrlConfigIsNull)
             {
                 request.PresignedUrlConfig = null;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.Targets != null)
             {
@@ -375,13 +449,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoT.Model.AbortCriteria> AbortConfig_CriteriaList { get; set; }
             public System.String Description { get; set; }
             public System.String Document { get; set; }
             public System.String DocumentSource { get; set; }
+            public Amazon.IoT.Model.ExponentialRolloutRate JobExecutionsRolloutConfig_ExponentialRate { get; set; }
             public System.Int32? JobExecutionsRolloutConfig_MaximumPerMinute { get; set; }
             public System.String JobId { get; set; }
             public System.Int64? PresignedUrlConfig_ExpiresInSec { get; set; }
             public System.String PresignedUrlConfig_RoleArn { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
             public List<System.String> Targets { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }
             public System.Int64? TimeoutConfig_InProgressTimeoutInMinutes { get; set; }

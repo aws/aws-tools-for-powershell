@@ -35,6 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
+    /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
+    /// address pool created from a public IPv4 address range that you have brought to AWS
+    /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
+    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// </para><para>
     /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
     /// cannot recover an Elastic IP address that you released after it is allocated to another
     /// AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt
@@ -60,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Address
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The Elastic IP address to recover.</para>
+        /// <para>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,6 +82,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.EC2.DomainType")]
         public Amazon.EC2.DomainType Domain { get; set; }
+        #endregion
+        
+        #region Parameter PublicIpv4Pool
+        /// <summary>
+        /// <para>
+        /// <para>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select
+        /// an address from the address pool. To specify a specific address from the address pool,
+        /// use the <code>Address</code> parameter instead.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PublicIpv4Pool { get; set; }
         #endregion
         
         #region Parameter Force
@@ -109,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             context.Address = this.Address;
             context.Domain = this.Domain;
+            context.PublicIpv4Pool = this.PublicIpv4Pool;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
+            }
+            if (cmdletContext.PublicIpv4Pool != null)
+            {
+                request.PublicIpv4Pool = cmdletContext.PublicIpv4Pool;
             }
             
             CmdletOutput output;
@@ -199,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Address { get; set; }
             public Amazon.EC2.DomainType Domain { get; set; }
+            public System.String PublicIpv4Pool { get; set; }
         }
         
     }

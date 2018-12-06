@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ApiId
         /// <summary>
         /// <para>
-        /// <para>The ID for the GraphQL API</para>
+        /// <para>The ID for the GraphQL API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

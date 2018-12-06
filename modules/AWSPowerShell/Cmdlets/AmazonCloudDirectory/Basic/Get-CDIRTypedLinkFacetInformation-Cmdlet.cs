@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more
-    /// information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-    /// link</a>.
+    /// information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed
+    /// Links</a>.
     /// </summary>
     [Cmdlet("Get", "CDIRTypedLinkFacetInformation")]
     [OutputType("System.String")]

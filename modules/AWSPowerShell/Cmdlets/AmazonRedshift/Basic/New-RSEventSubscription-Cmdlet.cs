@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>A Boolean value; set to <code>true</code> to activate the subscription, set to <code>false</code>
-        /// to create the subscription but not active it. </para>
+        /// <para>A boolean value; set to <code>true</code> to activate the subscription, and set to
+        /// <code>false</code> to create the subscription but not activate it. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event categories to be published by the event notification
-        /// subscription.</para><para>Values: Configuration, Management, Monitoring, Security</para>
+        /// subscription.</para><para>Values: configuration, management, monitoring, security</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

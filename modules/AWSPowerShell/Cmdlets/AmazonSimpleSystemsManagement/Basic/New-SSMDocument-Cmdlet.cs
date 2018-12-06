@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Attachment
+        /// <summary>
+        /// <para>
+        /// <para>A list of key and value pairs that describe attachments to a version of a document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Attachments")]
+        public Amazon.SimpleSystemsManagement.Model.AttachmentsSource[] Attachment { get; set; }
+        #endregion
+        
         #region Parameter Content
         /// <summary>
         /// <para>
@@ -71,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentType
         /// <summary>
         /// <para>
-        /// <para>The type of document to create. Valid document types include: Policy, Automation,
-        /// and Command.</para>
+        /// <para>The type of document to create. Valid document types include: <code>Command</code>,
+        /// <code>Policy</code>, <code>Automation</code>, <code>Session</code>, and <code>Package</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,6 +117,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String TargetType { get; set; }
         #endregion
         
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>An optional field specifying the version of the artifact you are creating with the
+        /// document. For example, "Release 12, Update 6". This value is unique across all versions
+        /// of a document, and cannot be changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -135,11 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Attachment != null)
+            {
+                context.Attachments = new List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource>(this.Attachment);
+            }
             context.Content = this.Content;
             context.DocumentFormat = this.DocumentFormat;
             context.DocumentType = this.DocumentType;
             context.Name = this.Name;
             context.TargetType = this.TargetType;
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateDocumentRequest();
             
+            if (cmdletContext.Attachments != null)
+            {
+                request.Attachments = cmdletContext.Attachments;
+            }
             if (cmdletContext.Content != null)
             {
                 request.Content = cmdletContext.Content;
@@ -175,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.TargetType != null)
             {
                 request.TargetType = cmdletContext.TargetType;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -240,11 +276,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.AttachmentsSource> Attachments { get; set; }
             public System.String Content { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public Amazon.SimpleSystemsManagement.DocumentType DocumentType { get; set; }
             public System.String Name { get; set; }
             public System.String TargetType { get; set; }
+            public System.String VersionName { get; set; }
         }
         
     }

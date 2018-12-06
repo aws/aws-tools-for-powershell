@@ -150,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         #region Parameter TranscriptionJobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. You can't use the strings "." or ".." in the job name. The name
-        /// must be unique within an AWS account.</para>
+        /// <para>The name of the job. Note that you can't use the strings "." or ".." by themselves
+        /// as the job name. The name must also be unique within an AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

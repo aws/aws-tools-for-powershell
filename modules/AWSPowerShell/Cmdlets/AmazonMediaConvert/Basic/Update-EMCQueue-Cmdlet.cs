@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ReservationPlanSettings_Commitment
         /// <summary>
         /// <para>
-        /// The length of time that you commit to when
-        /// you set up a pricing plan contract for a reserved queue.
+        /// The length of the term of your reserved queue
+        /// pricing plan commitment.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,9 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ReservationPlanSettings_RenewalType
         /// <summary>
         /// <para>
-        /// Specifies whether the pricing plan contract
-        /// for your reserved queue automatically renews (AUTO_RENEW) or expires (EXPIRE) at the
-        /// end of the contract period.
+        /// Specifies whether the term of your reserved
+        /// queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the
+        /// end of the term. When your term is auto renewed, you extend your commitment by 12
+        /// months from the auto renew date. You can cancel this commitment.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,9 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         /// <summary>
         /// <para>
         /// Specifies the number of reserved transcode
-        /// slots (RTSs) for this queue. The number of RTS determines how many jobs the queue
-        /// can process in parallel; each RTS can process one job at a time. To increase this
-        /// number, create a replacement contract through the AWS Elemental MediaConvert console.
+        /// slots (RTS) for this queue. The number of RTS determines how many jobs the queue can
+        /// process in parallel; each RTS can process one job at a time. You can't decrease the
+        /// number of RTS in your reserved queue. You can increase the number of RTS by extending
+        /// your existing commitment with a new 12-month commitment for the larger number. The
+        /// new commitment begins when you purchase the additional capacity. You can't cancel
+        /// your commitment or revert to your original commitment after you increase the capacity.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

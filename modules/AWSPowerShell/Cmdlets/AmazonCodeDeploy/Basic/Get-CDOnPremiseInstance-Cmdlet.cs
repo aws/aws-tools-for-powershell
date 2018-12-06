@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceName
         /// <summary>
         /// <para>
-        /// <para>The name of the on-premises instance about which to get information.</para>
+        /// <para> The name of the on-premises instance about which to get information. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Creates a new database in Amazon Lightsail.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>create relational database</code> operation supports tag-based access control
+    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LSRelationalDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -159,6 +166,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String RelationalDatabaseName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -199,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.RelationalDatabaseBlueprintId = this.RelationalDatabaseBlueprintId;
             context.RelationalDatabaseBundleId = this.RelationalDatabaseBundleId;
             context.RelationalDatabaseName = this.RelationalDatabaseName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -254,6 +276,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.RelationalDatabaseName != null)
             {
                 request.RelationalDatabaseName = cmdletContext.RelationalDatabaseName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -329,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String RelationalDatabaseBlueprintId { get; set; }
             public System.String RelationalDatabaseBundleId { get; set; }
             public System.String RelationalDatabaseName { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
         }
         
     }

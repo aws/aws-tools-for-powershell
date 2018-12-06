@@ -275,6 +275,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MaintenanceTrackName { get; set; }
         #endregion
         
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The default number of days to retain a manual snapshot. If the value is -1, the snapshot
+        /// is retained indefinitely. This setting doesn't change the retention period of existing
+        /// snapshots.</para><para>The value must be either -1 or an integer between 1 and 3,653.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
@@ -363,6 +375,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.Boolean PubliclyAccessible { get; set; }
         #endregion
         
+        #region Parameter SnapshotScheduleIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the snapshot schedule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SnapshotScheduleIdentifier { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -443,6 +465,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NodeType = this.NodeType;
@@ -453,6 +477,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (ParameterWasBound("PubliclyAccessible"))
                 context.PubliclyAccessible = this.PubliclyAccessible;
+            context.SnapshotScheduleIdentifier = this.SnapshotScheduleIdentifier;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.Redshift.Model.Tag>(this.Tag);
@@ -553,6 +578,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
+            }
             if (cmdletContext.MasterUsername != null)
             {
                 request.MasterUsername = cmdletContext.MasterUsername;
@@ -580,6 +609,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.PubliclyAccessible != null)
             {
                 request.PubliclyAccessible = cmdletContext.PubliclyAccessible.Value;
+            }
+            if (cmdletContext.SnapshotScheduleIdentifier != null)
+            {
+                request.SnapshotScheduleIdentifier = cmdletContext.SnapshotScheduleIdentifier;
             }
             if (cmdletContext.Tags != null)
             {
@@ -672,6 +705,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public List<System.String> IamRoles { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NodeType { get; set; }
@@ -679,6 +713,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Int32? Port { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }
+            public System.String SnapshotScheduleIdentifier { get; set; }
             public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }

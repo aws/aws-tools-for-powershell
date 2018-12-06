@@ -28,7 +28,11 @@ using Amazon.CodeBuild.Model;
 namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Updates the webhook associated with an AWS CodeBuild build project.
+    /// Updates the webhook associated with an AWS CodeBuild build project. 
+    /// 
+    ///  <note><para>
+    ///  If you use Bitbucket for your repository, <code>rotateSecret</code> is ignored. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Update", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Webhook")]
@@ -43,10 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter BranchFilter
         /// <summary>
         /// <para>
-        /// <para>A regular expression used to determine which branches in a repository are built when
-        /// a webhook is triggered. If the name of a branch matches the regular expression, then
-        /// it is built. If it doesn't match, then it is not. If branchFilter is empty, then all
-        /// branches are built.</para>
+        /// <para>A regular expression used to determine which repository branches are built when a
+        /// webhook is triggered. If the name of a branch matches the regular expression, then
+        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,8 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter RotateSecret
         /// <summary>
         /// <para>
-        /// <para> A boolean value that specifies whether the associated repository's secret token should
-        /// be updated. </para>
+        /// <para> A boolean value that specifies whether the associated GitHub repository's secret
+        /// token should be updated. If you use Bitbucket for your repository, <code>rotateSecret</code>
+        /// is ignored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
     /// For an existing AWS CodeBuild build project that has its source code stored in a GitHub
-    /// repository, stops AWS CodeBuild from automatically rebuilding the source code every
+    /// or Bitbucket repository, stops AWS CodeBuild from rebuilding the source code every
     /// time a code change is pushed to the repository.
     /// </summary>
     [Cmdlet("Remove", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

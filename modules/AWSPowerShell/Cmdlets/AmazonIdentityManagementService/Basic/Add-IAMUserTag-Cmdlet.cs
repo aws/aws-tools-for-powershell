@@ -1,0 +1,235 @@
+/*******************************************************************************
+ *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.IdentityManagement;
+using Amazon.IdentityManagement.Model;
+
+namespace Amazon.PowerShell.Cmdlets.IAM
+{
+    /// <summary>
+    /// Adds one or more tags to an IAM user. If a tag with the same key name already exists,
+    /// then that tag is overwritten with the new value.
+    /// 
+    ///  
+    /// <para>
+    /// A tag consists of a key name and an associated value. By assigning tags to your resources,
+    /// you can do the following:
+    /// </para><ul><li><para><b>Administrative grouping and discovery</b> - Attach tags to resources to aid in
+    /// organization and search. For example, you could search for all resources with the
+    /// key name <i>Project</i> and the value <i>MyImportantProject</i>. Or search for all
+    /// resources with the key name <i>Cost Center</i> and the value <i>41200</i>. 
+    /// </para></li><li><para><b>Access control</b> - Reference tags in IAM user-based and resource-based policies.
+    /// You can use tags to restrict access to only an IAM requesting user or to a role that
+    /// has a specified tag attached. You can also restrict access to only those resources
+    /// that have a certain tag attached. For examples of policies that show how to use tags
+    /// to control access, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
+    /// Access Using IAM Tags</a> in the <i>IAM User Guide</i>.
+    /// </para></li><li><para><b>Cost allocation</b> - Use tags to help track which individuals and teams are using
+    /// which AWS resources.
+    /// </para></li></ul><note><ul><li><para>
+    /// Make sure that you have no invalid tags and that you do not exceed the allowed number
+    /// of tags per role. In either case, the entire request fails and <i>no</i> tags are
+    /// added to the role.
+    /// </para></li><li><para>
+    /// AWS always interprets the tag <code>Value</code> as a single string. If you need to
+    /// store an array, you can store comma-separated values in the string. However, you must
+    /// interpret the value in your code.
+    /// </para></li></ul></note><para>
+    /// For more information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+    /// IAM Identities</a> in the <i>IAM User Guide</i>.
+    /// </para>
+    /// </summary>
+    [Cmdlet("Add", "IAMUserTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management TagUser API operation.", Operation = new[] {"TagUser"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IdentityManagement.Model.TagUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class AddIAMUserTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
+    {
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of tags that you want to attach to the user. Each tag consists of a key name
+        /// and an associated value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter UserName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the user that you want to add tags to.</para><para>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: =,.@-</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String UserName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the UserName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-IAMUserTag (TagUser)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
+            context.UserName = this.UserName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.IdentityManagement.Model.TagUserRequest();
+            
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.UserName != null)
+            {
+                request.UserName = cmdletContext.UserName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.UserName;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.IdentityManagement.Model.TagUserResponse CallAWSServiceOperation(IAmazonIdentityManagementService client, Amazon.IdentityManagement.Model.TagUserRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Identity and Access Management", "TagUser");
+            try
+            {
+                #if DESKTOP
+                return client.TagUser(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.TagUserAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public List<Amazon.IdentityManagement.Model.Tag> Tags { get; set; }
+            public System.String UserName { get; set; }
+        }
+        
+    }
+}

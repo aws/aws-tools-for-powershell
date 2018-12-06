@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Creates or updates a policy for an Auto Scaling group. To update an existing policy,
-    /// use the existing policy name and set the parameters you want to change. Any existing
-    /// parameter not changed in an update to an existing policy is not changed in this update
-    /// request.
+    /// use the existing policy name and set the parameters to change. Any existing parameter
+    /// not changed in an update to an existing policy is not changed in this update request.
     /// 
     ///  
     /// <para>
@@ -98,10 +97,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetTrackingConfiguration_DisableScaleIn
         /// <summary>
         /// <para>
-        /// <para>Indicates whether scale in by the target tracking policy is disabled. If scale in
-        /// is disabled, the target tracking policy won't remove instances from the Auto Scaling
-        /// group. Otherwise, the target tracking policy can remove instances from the Auto Scaling
-        /// group. The default is disabled.</para>
+        /// <para>Indicates whether scaling in by the target tracking policy is disabled. If scaling
+        /// in is disabled, the target tracking policy doesn't remove instances from the Auto
+        /// Scaling group. Otherwise, the target tracking policy can remove instances from the
+        /// Auto Scaling group. The default is disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -215,11 +214,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Identifies the resource associated with the metric type. The following predefined
-        /// metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - average CPU utilization of the Auto Scaling
-        /// group</para></li><li><para><code>ASGAverageNetworkIn</code> - average number of bytes received on all network
-        /// interfaces by the Auto Scaling group</para></li><li><para><code>ASGAverageNetworkOut</code> - average number of bytes sent out on all network
-        /// interfaces by the Auto Scaling group</para></li><li><para><code>ALBRequestCountPerTarget</code> - number of requests completed per target in
-        /// an Application Load Balancer target group</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
+        /// metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - Average CPU utilization of the Auto Scaling
+        /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
+        /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in
+        /// an Application Load Balancer target group.</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
         /// and <code>ASGAverageNetworkOut</code>, the parameter must not be specified as the
         /// resource associated with the metric type is the Auto Scaling group. For predefined
         /// metric type <code>ALBRequestCountPerTarget</code>, the parameter must be specified

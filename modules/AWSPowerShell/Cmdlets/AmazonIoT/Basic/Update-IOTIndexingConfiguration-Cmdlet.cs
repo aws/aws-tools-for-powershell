@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTIndexingConfigurationCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter ThingIndexingConfiguration_ThingConnectivityIndexingMode
+        /// <summary>
+        /// <para>
+        /// <para>Thing connectivity indexing mode. Valid values are: </para><ul><li><para>STATUS – Your thing index will contain connectivity status. In order to enable thing
+        /// connectivity indexing, thingIndexMode must not be set to OFF.</para></li><li><para>OFF - Thing connectivity status indexing is disabled.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.ThingConnectivityIndexingMode")]
+        public Amazon.IoT.ThingConnectivityIndexingMode ThingIndexingConfiguration_ThingConnectivityIndexingMode { get; set; }
+        #endregion
+        
         #region Parameter ThingGroupIndexingConfiguration_ThingGroupIndexingMode
         /// <summary>
         /// <para>
@@ -54,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ThingIndexingConfiguration_ThingIndexingMode
         /// <summary>
         /// <para>
-        /// <para>Thing indexing mode. Valid values are: </para><ul><li><para>REGISTRY – Your thing index will contain only registry data.</para></li><li><para>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</para></li><li><para>OFF - Thing indexing is disabled.</para></li></ul>
+        /// <para>Thing indexing mode. Valid values are:</para><ul><li><para>REGISTRY – Your thing index will contain only registry data.</para></li><li><para>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</para></li><li><para>OFF - Thing indexing is disabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -101,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.ThingGroupIndexingConfiguration_ThingGroupIndexingMode = this.ThingGroupIndexingConfiguration_ThingGroupIndexingMode;
+            context.ThingIndexingConfiguration_ThingConnectivityIndexingMode = this.ThingIndexingConfiguration_ThingConnectivityIndexingMode;
             context.ThingIndexingConfiguration_ThingIndexingMode = this.ThingIndexingConfiguration_ThingIndexingMode;
             
             // allow further manipulation of loaded context prior to processing
@@ -141,6 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate ThingIndexingConfiguration
             bool requestThingIndexingConfigurationIsNull = true;
             request.ThingIndexingConfiguration = new Amazon.IoT.Model.ThingIndexingConfiguration();
+            Amazon.IoT.ThingConnectivityIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode = null;
+            if (cmdletContext.ThingIndexingConfiguration_ThingConnectivityIndexingMode != null)
+            {
+                requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode = cmdletContext.ThingIndexingConfiguration_ThingConnectivityIndexingMode;
+            }
+            if (requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode != null)
+            {
+                request.ThingIndexingConfiguration.ThingConnectivityIndexingMode = requestThingIndexingConfiguration_thingIndexingConfiguration_ThingConnectivityIndexingMode;
+                requestThingIndexingConfigurationIsNull = false;
+            }
             Amazon.IoT.ThingIndexingMode requestThingIndexingConfiguration_thingIndexingConfiguration_ThingIndexingMode = null;
             if (cmdletContext.ThingIndexingConfiguration_ThingIndexingMode != null)
             {
@@ -223,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.IoT.ThingGroupIndexingMode ThingGroupIndexingConfiguration_ThingGroupIndexingMode { get; set; }
+            public Amazon.IoT.ThingConnectivityIndexingMode ThingIndexingConfiguration_ThingConnectivityIndexingMode { get; set; }
             public Amazon.IoT.ThingIndexingMode ThingIndexingConfiguration_ThingIndexingMode { get; set; }
         }
         

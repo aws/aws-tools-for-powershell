@@ -78,11 +78,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The registry path of the Docker image that contains the training algorithm and algorithm-specific
         /// metadata, including the input mode. For more information about algorithms provided
         /// by Amazon SageMaker, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
-        /// For information about providing your own algorithms, see <a>your-algorithms</a>. </para>
+        /// For information about providing your own algorithms, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
+        /// Your Own Algorithms with Amazon SageMaker</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
+        #endregion
+        
+        #region Parameter EnableNetworkIsolation
+        /// <summary>
+        /// <para>
+        /// <para>Isolates the training container. No inbound or outbound network calls can be made,
+        /// except for calls between peers within a training cluster for distributed training.
+        /// If network isolation is used for training jobs that are configured to use a VPC, Amazon
+        /// SageMaker downloads and uploads customer data and model artifacts through the specifed
+        /// VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableNetworkIsolation { get; set; }
         #endregion
         
         #region Parameter HyperParameter
@@ -121,9 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training job can run. If model training
-        /// does not complete during this time, Amazon SageMaker ends the job. If value is not
-        /// specified, default value is 1 day. Maximum value is 5 days.</para>
+        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job. If value
+        /// is not specified, default value is 1 day. Maximum value is 5 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
-        /// perform tasks on your behalf. </para><para>During model training, Amazon SageMaker needs your permission to read input data from
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform
+        /// tasks on your behalf. </para><para>During model training, Amazon SageMaker needs your permission to read input data from
         /// an S3 bucket, download a Docker image that contains training code, write model artifacts
         /// to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon
         /// CloudWatch. You grant permissions for all of these tasks to an IAM role. For more
@@ -190,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
-        /// model.</para>
+        /// model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -252,6 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             PreExecutionContextLoad(context);
             
             context.AlgorithmSpecification = this.AlgorithmSpecification;
+            if (ParameterWasBound("EnableNetworkIsolation"))
+                context.EnableNetworkIsolation = this.EnableNetworkIsolation;
             if (this.HyperParameter != null)
             {
                 context.HyperParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -301,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.AlgorithmSpecification != null)
             {
                 request.AlgorithmSpecification = cmdletContext.AlgorithmSpecification;
+            }
+            if (cmdletContext.EnableNetworkIsolation != null)
+            {
+                request.EnableNetworkIsolation = cmdletContext.EnableNetworkIsolation.Value;
             }
             if (cmdletContext.HyperParameters != null)
             {
@@ -443,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
+            public System.Boolean? EnableNetworkIsolation { get; set; }
             public Dictionary<System.String, System.String> HyperParameters { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig OutputDataConfig { get; set; }

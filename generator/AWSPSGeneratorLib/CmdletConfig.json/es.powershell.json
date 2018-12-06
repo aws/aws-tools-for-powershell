@@ -66,8 +66,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TagList",
         "passThruTypeName": "Amazon.Elasticsearch.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchServiceSoftwareUpdate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -172,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -226,8 +223,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -278,8 +274,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchServiceRole",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -332,8 +327,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -381,8 +375,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomainConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -430,8 +423,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomains",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -479,8 +471,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchInstanceTypeLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -528,7 +519,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedElasticsearchInstanceOfferings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -577,7 +567,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedElasticsearchInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -626,8 +615,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CompatibleElasticsearchVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -675,7 +663,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpgradeHistory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -724,8 +711,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpgradeStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -771,8 +757,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainNames",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -820,7 +805,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchInstanceTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -867,7 +851,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -916,8 +899,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -965,8 +947,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedElasticsearchInstanceOffering",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1019,8 +1000,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TagKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1073,8 +1053,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchServiceSoftwareUpdate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1125,8 +1104,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomainConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1179,8 +1157,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

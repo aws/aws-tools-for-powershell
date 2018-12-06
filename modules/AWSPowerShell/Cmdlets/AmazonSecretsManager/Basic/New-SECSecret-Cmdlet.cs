@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// and that secret doesn't specify a AWS KMS encryption key, Secrets Manager uses the
     /// account's default AWS managed customer master key (CMK) with the alias <code>aws/secretsmanager</code>.
     /// If this key doesn't already exist in your account then Secrets Manager creates it
-    /// for you automatically. All users in the same AWS account automatically have access
-    /// to use the default CMK. Note that if an Secrets Manager API call results in AWS having
-    /// to create the account's AWS-managed CMK, it can result in a one-time significant delay
-    /// in returning the result.
+    /// for you automatically. All users and roles in the same AWS account automatically have
+    /// access to use the default CMK. Note that if an Secrets Manager API call results in
+    /// AWS having to create the account's AWS-managed CMK, it can result in a one-time significant
+    /// delay in returning the result.
     /// </para></li><li><para>
     /// If the secret is in a different AWS account from the credentials calling an API that
     /// requires encryption or decryption of the secret value then you must create and use
@@ -78,6 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// kms:Decrypt - needed only if you use a customer-managed AWS KMS key to encrypt the
     /// secret. You do not need this permission to use the account's default AWS managed CMK
     /// for Secrets Manager.
+    /// </para></li><li><para>
+    /// secretsmanager:TagResource - needed only if you include the <code>Tags</code> parameter.
+    /// 
     /// </para></li></ul><para><b>Related operations</b></para><ul><li><para>
     /// To delete a secret, use <a>DeleteSecret</a>.
     /// </para></li><li><para>

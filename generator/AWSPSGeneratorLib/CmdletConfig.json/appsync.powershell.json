@@ -13,9 +13,11 @@
     "serviceNamespace": "Amazon.AppSync"
   },
   "nonFlattenedTypeNames": [
+    "Amazon.AppSync.Model.AuthorizationConfig",
     "Amazon.AppSync.Model.DynamodbDataSourceConfig",
     "Amazon.AppSync.Model.ElasticsearchDataSourceConfig",
     "Amazon.AppSync.Model.LambdaDataSourceConfig",
+    "Amazon.AppSync.Model.RdsHttpEndpointConfig",
     "Amazon.AppSync.Model.UserPoolConfig"
   ],
   "nounMaps": {},
@@ -70,8 +72,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApiKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -125,8 +126,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -143,6 +143,60 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateFunction": {
+      "verb": "New",
+      "noun": "Function",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "FunctionConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApiId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ApiId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Function",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ApiId"
         },
         "memoryStreamParameters": []
       }
@@ -180,8 +234,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GraphqlApi",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -235,8 +288,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resolver",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -290,8 +342,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Type",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -345,8 +396,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApiKey",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -400,8 +450,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -418,6 +467,60 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteFunction": {
+      "verb": "Remove",
+      "noun": "Function",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "FunctionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "FunctionId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Function",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: FunctionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "FunctionId"
         },
         "memoryStreamParameters": []
       }
@@ -455,8 +558,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GraphqlApi",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -510,8 +612,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resolver",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FieldName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -565,8 +666,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Type",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TypeName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -620,8 +720,56 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetFunction": {
+      "verb": "Get",
+      "noun": "Function",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "FunctionConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "FunctionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Function",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -670,8 +818,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GraphqlApi",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -720,8 +867,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IntrospectionSchema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -770,8 +916,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resolver",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -820,8 +965,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaCreationStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -870,8 +1014,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Type",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -920,7 +1063,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApiKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -970,7 +1112,55 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListFunctions": {
+      "verb": "Get",
+      "noun": "FunctionList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Functions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApiId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Functions",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1018,7 +1208,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GraphqlApis",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1068,7 +1257,55 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resolvers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResolversByFunction": {
+      "verb": "Get",
+      "noun": "ResolverListByFunction",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Resolvers",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "FunctionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolversByFunction",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1118,7 +1355,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Types",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1168,8 +1404,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaCreation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1225,8 +1460,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApiKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1280,8 +1514,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1298,6 +1531,60 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateFunction": {
+      "verb": "Update",
+      "noun": "Function",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "FunctionConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "FunctionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "FunctionId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Function",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 25,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "FunctionId"
         },
         "memoryStreamParameters": []
       }
@@ -1335,8 +1622,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GraphqlApi",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1390,8 +1676,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resolver",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1445,8 +1730,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Type",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

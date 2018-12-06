@@ -49,6 +49,98 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter Capability
+        /// <summary>
+        /// <para>
+        /// <para>A list of values that you must specify before you can deploy certain applications.
+        /// Some applications might include resources that can affect permissions in your AWS
+        /// account, for example, by creating new AWS Identity and Access Management (IAM) users.
+        /// For those applications, you must explicitly acknowledge their capabilities by specifying
+        /// this parameter.</para><para>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.</para><para>The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM:
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">AWS::IAM::Group</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>,
+        /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html">AWS::IAM::Role</a>.
+        /// If the application contains IAM resources, you can specify either CAPABILITY_IAM or
+        /// CAPABILITY_NAMED_IAM. If the application contains IAM resources with custom names,
+        /// you must specify CAPABILITY_NAMED_IAM.</para><para>The following resources require you to specify CAPABILITY_RESOURCE_POLICY: <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html">AWS::Lambda::Permission</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM:Policy</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html">AWS::ApplicationAutoScaling::ScalingPolicy</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html">AWS::S3::BucketPolicy</a>,
+        /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html">AWS::SQS::QueuePolicy</a>,
+        /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html">AWS::SNS:TopicPolicy</a>.</para><para>If your application template contains any of the above resources, we recommend that
+        /// you review all permissions associated with the application before deploying. If you
+        /// don't specify this parameter for an application that requires capabilities, the call
+        /// will fail.</para><para>Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Capabilities")]
+        public System.String[] Capability { get; set; }
+        #endregion
+        
+        #region Parameter ChangeSetName
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ChangeSetName { get; set; }
+        #endregion
+        
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter RollbackConfiguration_MonitoringTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the content of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i>
+        /// Data Type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RollbackConfiguration_MonitoringTimeInMinutes")]
+        public System.Int32 RollbackConfiguration_MonitoringTimeInMinute { get; set; }
+        #endregion
+        
+        #region Parameter NotificationArn
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NotificationArns")]
+        public System.String[] NotificationArn { get; set; }
+        #endregion
+        
         #region Parameter ParameterOverride
         /// <summary>
         /// <para>
@@ -58,6 +150,32 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         [System.Management.Automation.Parameter]
         [Alias("ParameterOverrides")]
         public Amazon.ServerlessApplicationRepository.Model.ParameterValue[] ParameterOverride { get; set; }
+        #endregion
+        
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter RollbackConfiguration_RollbackTrigger
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the content of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i>
+        /// Data Type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RollbackConfiguration_RollbackTriggers")]
+        public Amazon.ServerlessApplicationRepository.Model.RollbackTrigger[] RollbackConfiguration_RollbackTrigger { get; set; }
         #endregion
         
         #region Parameter SemanticVersion
@@ -73,14 +191,36 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name or the unique ID of the stack for which you are creating a change set. AWS
-        /// CloudFormation generates the change set by comparing this stack's information with
-        /// the information that you submit, such as a modified template or different parameter
-        /// input values. </para><para>Constraints: Minimum length of 1.</para><para>Pattern: ([a-zA-Z][-a-zA-Z0-9]*)|(arn:\b(aws|aws-us-gov|aws-cn)\b:[-a-zA-Z0-9:/._+]*)</para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StackName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
+        /// API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ServerlessApplicationRepository.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter TemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The UUID returned by CreateCloudFormationTemplate.</para><para>Pattern: [0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TemplateId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -113,12 +253,38 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
+            if (this.Capability != null)
+            {
+                context.Capabilities = new List<System.String>(this.Capability);
+            }
+            context.ChangeSetName = this.ChangeSetName;
+            context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            if (this.NotificationArn != null)
+            {
+                context.NotificationArns = new List<System.String>(this.NotificationArn);
+            }
             if (this.ParameterOverride != null)
             {
                 context.ParameterOverrides = new List<Amazon.ServerlessApplicationRepository.Model.ParameterValue>(this.ParameterOverride);
             }
+            if (this.ResourceType != null)
+            {
+                context.ResourceTypes = new List<System.String>(this.ResourceType);
+            }
+            if (ParameterWasBound("RollbackConfiguration_MonitoringTimeInMinute"))
+                context.RollbackConfiguration_MonitoringTimeInMinutes = this.RollbackConfiguration_MonitoringTimeInMinute;
+            if (this.RollbackConfiguration_RollbackTrigger != null)
+            {
+                context.RollbackConfiguration_RollbackTriggers = new List<Amazon.ServerlessApplicationRepository.Model.RollbackTrigger>(this.RollbackConfiguration_RollbackTrigger);
+            }
             context.SemanticVersion = this.SemanticVersion;
             context.StackName = this.StackName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ServerlessApplicationRepository.Model.Tag>(this.Tag);
+            }
+            context.TemplateId = this.TemplateId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,9 +305,62 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
             }
+            if (cmdletContext.Capabilities != null)
+            {
+                request.Capabilities = cmdletContext.Capabilities;
+            }
+            if (cmdletContext.ChangeSetName != null)
+            {
+                request.ChangeSetName = cmdletContext.ChangeSetName;
+            }
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.NotificationArns != null)
+            {
+                request.NotificationArns = cmdletContext.NotificationArns;
+            }
             if (cmdletContext.ParameterOverrides != null)
             {
                 request.ParameterOverrides = cmdletContext.ParameterOverrides;
+            }
+            if (cmdletContext.ResourceTypes != null)
+            {
+                request.ResourceTypes = cmdletContext.ResourceTypes;
+            }
+            
+             // populate RollbackConfiguration
+            bool requestRollbackConfigurationIsNull = true;
+            request.RollbackConfiguration = new Amazon.ServerlessApplicationRepository.Model.RollbackConfiguration();
+            System.Int32? requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute = null;
+            if (cmdletContext.RollbackConfiguration_MonitoringTimeInMinutes != null)
+            {
+                requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute = cmdletContext.RollbackConfiguration_MonitoringTimeInMinutes.Value;
+            }
+            if (requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute != null)
+            {
+                request.RollbackConfiguration.MonitoringTimeInMinutes = requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute.Value;
+                requestRollbackConfigurationIsNull = false;
+            }
+            List<Amazon.ServerlessApplicationRepository.Model.RollbackTrigger> requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger = null;
+            if (cmdletContext.RollbackConfiguration_RollbackTriggers != null)
+            {
+                requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger = cmdletContext.RollbackConfiguration_RollbackTriggers;
+            }
+            if (requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger != null)
+            {
+                request.RollbackConfiguration.RollbackTriggers = requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger;
+                requestRollbackConfigurationIsNull = false;
+            }
+             // determine if request.RollbackConfiguration should be set to null
+            if (requestRollbackConfigurationIsNull)
+            {
+                request.RollbackConfiguration = null;
             }
             if (cmdletContext.SemanticVersion != null)
             {
@@ -150,6 +369,14 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.TemplateId != null)
+            {
+                request.TemplateId = cmdletContext.TemplateId;
             }
             
             CmdletOutput output;
@@ -216,9 +443,19 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public List<System.String> Capabilities { get; set; }
+            public System.String ChangeSetName { get; set; }
+            public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public List<System.String> NotificationArns { get; set; }
             public List<Amazon.ServerlessApplicationRepository.Model.ParameterValue> ParameterOverrides { get; set; }
+            public List<System.String> ResourceTypes { get; set; }
+            public System.Int32? RollbackConfiguration_MonitoringTimeInMinutes { get; set; }
+            public List<Amazon.ServerlessApplicationRepository.Model.RollbackTrigger> RollbackConfiguration_RollbackTriggers { get; set; }
             public System.String SemanticVersion { get; set; }
             public System.String StackName { get; set; }
+            public List<Amazon.ServerlessApplicationRepository.Model.Tag> Tags { get; set; }
+            public System.String TemplateId { get; set; }
         }
         
     }

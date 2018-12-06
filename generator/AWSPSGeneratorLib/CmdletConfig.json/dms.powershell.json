@@ -83,8 +83,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -141,8 +140,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -199,8 +197,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -257,8 +254,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -315,8 +311,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -373,8 +368,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -431,8 +425,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -487,8 +480,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -545,8 +537,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -603,8 +594,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -661,8 +651,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ReplicationSubnetGroupIdentifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -719,8 +708,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -775,8 +763,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -828,7 +815,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -879,7 +865,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -930,7 +915,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -981,7 +965,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1034,8 +1017,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventCategories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1087,7 +1069,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1140,7 +1121,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscriptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1191,7 +1171,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OrderableReplicationInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1242,8 +1221,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RefreshSchemasStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1293,7 +1271,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1348,7 +1325,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstanceTaskLogs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1399,7 +1375,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1452,8 +1427,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTaskAssessmentResults",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1503,7 +1477,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTasks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1554,7 +1527,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schemas",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1607,8 +1579,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TableStatistics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1660,8 +1631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1720,8 +1690,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1771,8 +1740,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1829,8 +1797,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1887,8 +1854,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1945,8 +1911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2003,8 +1968,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2059,8 +2023,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2115,8 +2078,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schemas",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2173,8 +2135,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tables",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2231,8 +2192,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2289,8 +2249,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2347,8 +2306,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTaskAssessment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2405,8 +2363,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2463,8 +2420,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

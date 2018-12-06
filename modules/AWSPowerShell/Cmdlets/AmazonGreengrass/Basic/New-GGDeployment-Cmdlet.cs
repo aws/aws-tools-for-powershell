@@ -28,7 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates a deployment.
+    /// Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to
+    /// the ''X-Amzn-Client-Token'' token and the request parameters.
     /// </summary>
     [Cmdlet("New", "GGDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateDeploymentResponse")]
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The ID of the AWS Greengrass group.
+        /// The ID of the Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

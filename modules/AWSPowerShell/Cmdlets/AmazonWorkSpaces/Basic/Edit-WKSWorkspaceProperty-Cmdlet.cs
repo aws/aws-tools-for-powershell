@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the WorkSpace.</para>
+        /// <para>The identifier of the WorkSpace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

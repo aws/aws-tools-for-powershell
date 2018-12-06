@@ -60,6 +60,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String PortfolioId { get; set; }
         #endregion
         
+        #region Parameter PortfolioShareType
+        /// <summary>
+        /// <para>
+        /// <para>The type of shared portfolios to reject. The default is to reject imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - Reject portfolios shared by the master account of
+        /// your organization.</para></li><li><para><code>IMPORTED</code> - Reject imported portfolios.</para></li><li><para><code>AWS_SERVICECATALOG</code> - Not supported. (Throws ResourceNotFoundException.)</para></li></ul><para>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk"
+        /// --portfolio-share-type AWS_ORGANIZATIONS</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.PortfolioShareType")]
+        public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PortfolioId parameter.
@@ -100,6 +113,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             
             context.AcceptLanguage = this.AcceptLanguage;
             context.PortfolioId = this.PortfolioId;
+            context.PortfolioShareType = this.PortfolioShareType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -123,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
+            }
+            if (cmdletContext.PortfolioShareType != null)
+            {
+                request.PortfolioShareType = cmdletContext.PortfolioShareType;
             }
             
             CmdletOutput output;
@@ -192,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String PortfolioId { get; set; }
+            public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
         }
         
     }

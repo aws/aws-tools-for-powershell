@@ -44,6 +44,12 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// as "*" and specifying the AWS organization ID in <code>Condition</code>, to grant
     /// permissions to all accounts in that organization.
     /// </para><para>
+    /// If you grant permissions using an organization, then accounts in that organization
+    /// must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code>
+    /// to add your account's event bus as a target. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
+    /// and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User
+    /// Guide</i>.
+    /// </para><para>
     /// The permission policy on the default event bus cannot exceed 10 KB in size.
     /// </para>
     /// </summary>

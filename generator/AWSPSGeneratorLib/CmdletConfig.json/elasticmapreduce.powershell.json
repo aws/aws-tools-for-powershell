@@ -82,8 +82,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceFleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -136,8 +135,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -190,8 +188,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobFlowSteps",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -249,8 +246,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.ElasticMapReduce.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -303,8 +299,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Steps",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -357,8 +352,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -411,8 +405,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -465,8 +458,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -514,8 +506,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobFlows",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -563,8 +554,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -614,8 +604,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Step",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -663,7 +652,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BootstrapActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -710,7 +698,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Clusters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -759,7 +746,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceFleets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -808,7 +794,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -860,7 +845,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -907,7 +891,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -956,7 +939,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Steps",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1005,8 +987,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceFleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ClusterId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1057,8 +1038,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1111,8 +1091,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1165,8 +1144,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ClusterId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1224,8 +1202,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.TagKeys",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1314,8 +1291,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobFlow",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1370,8 +1346,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TerminationProtection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobFlowId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1426,8 +1401,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VisibleToAllUsers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobFlowId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1480,8 +1454,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobFlows",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobFlowId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

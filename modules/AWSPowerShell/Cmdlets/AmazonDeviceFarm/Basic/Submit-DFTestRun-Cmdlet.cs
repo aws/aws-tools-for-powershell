@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the device pool for the run to be scheduled.</para>
+        /// <para>The ARN of the device pool for the run to be scheduled.</para><para>Either <b><code>devicePoolArn</code></b> or <b><code>deviceSelectionConfiguration</code></b> are required in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -157,6 +157,23 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Test_Filter { get; set; }
+        #endregion
+        
+        #region Parameter DeviceSelectionConfiguration_Filter
+        /// <summary>
+        /// <para>
+        /// <para>Used to dynamically select a set of devices for a test run. A filter is made up of
+        /// an attribute, an operator, and one or more values.</para><ul><li><para>Attribute: The aspect of a device such as platform or model used as the selection
+        /// criteria in a device filter.</para><para>Allowed values include:</para><ul><li><para>ARN: The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".</para></li><li><para>PLATFORM: The device platform. Valid values are "ANDROID" or "IOS".</para></li><li><para>OS_VERSION: The operating system version. For example, "10.3.2".</para></li><li><para>MODEL: The device model. For example, "iPad 5th Gen".</para></li><li><para>AVAILABILITY: The current availability of the device. Valid values are "AVAILABLE",
+        /// "HIGHLY_AVAILABLE", "BUSY", or "TEMPORARY_NOT_AVAILABLE".</para></li><li><para>FORM_FACTOR: The device form factor. Valid values are "PHONE" or "TABLET".</para></li><li><para>MANUFACTURER: The device manufacturer. For example, "Apple".</para></li><li><para>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.</para></li><li><para>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging.</para></li><li><para>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.</para></li><li><para>INSTANCE_LABELS: The label of the device instance.</para></li><li><para>FLEET_TYPE: The fleet type. Valid values are "PUBLIC" or "PRIVATE".</para></li></ul></li><li><para>Operator: The filter operator.</para><ul><li><para>The EQUALS operator is available for every attribute except INSTANCE_LABELS.</para></li><li><para>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.</para></li><li><para>The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER,
+        /// and INSTANCE_ARN attributes.</para></li><li><para>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators
+        /// are also available for the OS_VERSION attribute.</para></li></ul></li><li><para>Values: An array of one or more filter values.</para><ul><li><para>The IN and NOT operators can take a values array that has more than one element.</para></li><li><para>The other operators require an array with a single element.</para></li><li><para>In a request, the AVAILABILITY attribute takes "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY",
+        /// or "TEMPORARY_NOT_AVAILABLE" as values.</para></li></ul></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeviceSelectionConfiguration_Filters")]
+        public Amazon.DeviceFarm.Model.DeviceFilter[] DeviceSelectionConfiguration_Filter { get; set; }
         #endregion
         
         #region Parameter Radios_Gp
@@ -225,6 +242,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.Double Location_Longitude { get; set; }
         #endregion
         
+        #region Parameter DeviceSelectionConfiguration_MaxDevice
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of devices to be included in a test run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeviceSelectionConfiguration_MaxDevices")]
+        public System.Int32 DeviceSelectionConfiguration_MaxDevice { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -259,11 +287,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter Test_Parameter
         /// <summary>
         /// <para>
-        /// <para>The test's parameters, such as the following test framework parameters and fixture
-        /// settings:</para><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile, for example, "my_profile_name".</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
-        /// tags, for example, "@smoke" or "@smoke,~@wip".</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are "1.4.16", "1.6.3",
-        /// "latest", and "default".</para><ul><li><para>“latest” will run the latest Appium version supported by Device Farm (1.6.3).</para></li><li><para>For “default”, Device Farm will choose a compatible version of Appium for the device.
-        /// The current behavior is to run 1.4.16 on Android devices and iOS 9 and earlier, 1.6.3
+        /// <para>The test's parameters, such as test framework parameters and fixture settings. Parameters
+        /// are represented by name-value pairs of strings.</para><para>For all tests:</para><ul><li><para>app_performance_monitoring: Performance monitoring is enabled by default. Set this
+        /// parameter to "false" to disable it.</para></li></ul><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile, for example, "my_profile_name".</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
+        /// tags, for example, "@smoke" or "@smoke,~@wip".</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are "1.7.2", "1.7.1",
+        /// "1.6.5", "latest", and "default".</para><ul><li><para>“latest” will run the latest Appium version supported by Device Farm (1.7.2).</para></li><li><para>For “default”, Device Farm will choose a compatible version of Appium for the device.
+        /// The current behavior is to run 1.7.2 on Android devices and iOS 9 and earlier, 1.7.2
         /// for iOS 10 and later.</para></li><li><para>This behavior is subject to change.</para></li></ul></li></ul><para>For Fuzz tests (Android only):</para><ul><li><para>event_count: The number of events, between 1 and 10000, that the UI fuzz test should
         /// perform.</para></li><li><para>throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between
         /// events.</para></li><li><para>seed: A seed to use for randomizing the UI fuzz test. Using the same seed value between
@@ -431,6 +460,12 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 context.Configuration_VpceConfigurationArns = new List<System.String>(this.Configuration_VpceConfigurationArn);
             }
             context.DevicePoolArn = this.DevicePoolArn;
+            if (this.DeviceSelectionConfiguration_Filter != null)
+            {
+                context.DeviceSelectionConfiguration_Filters = new List<Amazon.DeviceFarm.Model.DeviceFilter>(this.DeviceSelectionConfiguration_Filter);
+            }
+            if (ParameterWasBound("DeviceSelectionConfiguration_MaxDevice"))
+                context.DeviceSelectionConfiguration_MaxDevices = this.DeviceSelectionConfiguration_MaxDevice;
             if (ParameterWasBound("ExecutionConfiguration_AccountsCleanup"))
                 context.ExecutionConfiguration_AccountsCleanup = this.ExecutionConfiguration_AccountsCleanup;
             if (ParameterWasBound("ExecutionConfiguration_AppPackagesCleanup"))
@@ -684,6 +719,35 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 request.DevicePoolArn = cmdletContext.DevicePoolArn;
             }
             
+             // populate DeviceSelectionConfiguration
+            bool requestDeviceSelectionConfigurationIsNull = true;
+            request.DeviceSelectionConfiguration = new Amazon.DeviceFarm.Model.DeviceSelectionConfiguration();
+            List<Amazon.DeviceFarm.Model.DeviceFilter> requestDeviceSelectionConfiguration_deviceSelectionConfiguration_Filter = null;
+            if (cmdletContext.DeviceSelectionConfiguration_Filters != null)
+            {
+                requestDeviceSelectionConfiguration_deviceSelectionConfiguration_Filter = cmdletContext.DeviceSelectionConfiguration_Filters;
+            }
+            if (requestDeviceSelectionConfiguration_deviceSelectionConfiguration_Filter != null)
+            {
+                request.DeviceSelectionConfiguration.Filters = requestDeviceSelectionConfiguration_deviceSelectionConfiguration_Filter;
+                requestDeviceSelectionConfigurationIsNull = false;
+            }
+            System.Int32? requestDeviceSelectionConfiguration_deviceSelectionConfiguration_MaxDevice = null;
+            if (cmdletContext.DeviceSelectionConfiguration_MaxDevices != null)
+            {
+                requestDeviceSelectionConfiguration_deviceSelectionConfiguration_MaxDevice = cmdletContext.DeviceSelectionConfiguration_MaxDevices.Value;
+            }
+            if (requestDeviceSelectionConfiguration_deviceSelectionConfiguration_MaxDevice != null)
+            {
+                request.DeviceSelectionConfiguration.MaxDevices = requestDeviceSelectionConfiguration_deviceSelectionConfiguration_MaxDevice.Value;
+                requestDeviceSelectionConfigurationIsNull = false;
+            }
+             // determine if request.DeviceSelectionConfiguration should be set to null
+            if (requestDeviceSelectionConfigurationIsNull)
+            {
+                request.DeviceSelectionConfiguration = null;
+            }
+            
              // populate ExecutionConfiguration
             bool requestExecutionConfigurationIsNull = true;
             request.ExecutionConfiguration = new Amazon.DeviceFarm.Model.ExecutionConfiguration();
@@ -890,6 +954,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             public System.Boolean? Configuration_Radios_Wifi { get; set; }
             public List<System.String> Configuration_VpceConfigurationArns { get; set; }
             public System.String DevicePoolArn { get; set; }
+            public List<Amazon.DeviceFarm.Model.DeviceFilter> DeviceSelectionConfiguration_Filters { get; set; }
+            public System.Int32? DeviceSelectionConfiguration_MaxDevices { get; set; }
             public System.Boolean? ExecutionConfiguration_AccountsCleanup { get; set; }
             public System.Boolean? ExecutionConfiguration_AppPackagesCleanup { get; set; }
             public System.Int32? ExecutionConfiguration_JobTimeoutMinutes { get; set; }

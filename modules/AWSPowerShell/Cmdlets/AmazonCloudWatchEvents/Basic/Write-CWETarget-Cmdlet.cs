@@ -96,6 +96,13 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// information, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
     /// Pricing</a>.
     /// </para><para>
+    /// If you are setting the event bus of another account as the target, and that account
+    /// granted permission to your account through an organization instead of directly by
+    /// the account ID, then you must specify a <code>RoleArn</code> with proper permissions
+    /// in the <code>Target</code> structure. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
+    /// and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User
+    /// Guide</i>.
+    /// </para><para>
     /// For more information about enabling cross-account events, see <a>PutPermission</a>.
     /// </para><para><b>Input</b>, <b>InputPath</b>, and <b>InputTransformer</b> are mutually exclusive
     /// and optional parameters of a target. When a rule is triggered due to a matched event:

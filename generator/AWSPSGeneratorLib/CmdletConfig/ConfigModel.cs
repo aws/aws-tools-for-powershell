@@ -1514,32 +1514,6 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         /// <summary>
-        /// Inspects the parameter token declarations to determine which
-        /// codegen pattern we should look for.
-        /// </summary>
-        public AutoIteratePattern Pattern
-        {
-            get
-            {
-                var calculatedPattern = AutoIteratePattern.None;
-
-                // page markers is a basic requirement for any iteration
-                if (!String.IsNullOrEmpty(Start) && !String.IsNullOrEmpty(Next))
-                {
-                    if (!String.IsNullOrEmpty(EmitLimit) && String.IsNullOrEmpty(TruncatedFlag))
-                        calculatedPattern = AutoIteratePattern.Pattern2;
-                    else
-                        if (!String.IsNullOrEmpty(EmitLimit) && !String.IsNullOrEmpty(TruncatedFlag))
-                            calculatedPattern = AutoIteratePattern.Pattern3;
-                        else
-                            calculatedPattern = AutoIteratePattern.Pattern1;
-                }
-
-                return calculatedPattern;
-            }
-        }
-
-        /// <summary>
         /// Returns the cross-service alias for the specified iteration parameter (start and max params
         /// only, 'itrnext' is an internal field) provided the parameter name isn't already the alias.
         /// </summary>

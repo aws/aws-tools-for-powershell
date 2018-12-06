@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Describes an activity.
+    /// 
+    ///  <note><para>
+    /// This operation is eventually consistent. The results are best effort and may not reflect
+    /// very recent updates and changes.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SFNActivity")]
     [OutputType("Amazon.StepFunctions.Model.DescribeActivityResponse")]

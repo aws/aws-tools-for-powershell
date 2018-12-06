@@ -28,7 +28,10 @@ using Amazon.CodeStar.Model;
 namespace Amazon.PowerShell.Cmdlets.CST
 {
     /// <summary>
-    /// Reserved for future use. To create a project, use the AWS CodeStar console.
+    /// Creates a project, including project resources. This action creates a project based
+    /// on a submitted project request. A set of source code files and a toolchain template
+    /// file can be included with the project request. If these are not provided, an empty
+    /// project is created.
     /// </summary>
     [Cmdlet("New", "CSTProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeStar.Model.CreateProjectResponse")]
@@ -39,10 +42,35 @@ namespace Amazon.PowerShell.Cmdlets.CST
     public partial class NewCSTProjectCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
+        #region Parameter S3_BucketKey
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 object key where the source code files provided with the project request
+        /// are stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Toolchain_Source_S3_BucketKey")]
+        public System.String S3_BucketKey { get; set; }
+        #endregion
+        
+        #region Parameter S3_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon S3 bucket name where the source code files provided with the project request
+        /// are stored.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Toolchain_Source_S3_BucketName")]
+        public System.String S3_BucketName { get; set; }
+        #endregion
+        
         #region Parameter ClientRequestToken
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>A user- or system-generated token that identifies the entity that requested project
+        /// creation. This token can be used to repeat the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The description of the project, if any.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The ID of the project to be created in AWS CodeStar.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,11 +100,45 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>The display name for the project to be created in AWS CodeStar.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Toolchain_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The service role ARN for AWS CodeStar to use for the toolchain template during stack
+        /// provisioning.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Toolchain_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter SourceCode
+        /// <summary>
+        /// <para>
+        /// <para>A list of the Code objects submitted with the project request. If this parameter is
+        /// specified, the request must also include the toolchain parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeStar.Model.Code[] SourceCode { get; set; }
+        #endregion
+        
+        #region Parameter Toolchain_StackParameter
+        /// <summary>
+        /// <para>
+        /// <para>The list of parameter overrides to be passed into the toolchain template during stack
+        /// provisioning, if any.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Toolchain_StackParameters")]
+        public System.Collections.Hashtable Toolchain_StackParameter { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -123,12 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.CST
             context.Description = this.Description;
             context.Id = this.Id;
             context.Name = this.Name;
+            if (this.SourceCode != null)
+            {
+                context.SourceCode = new List<Amazon.CodeStar.Model.Code>(this.SourceCode);
+            }
             if (this.Tag != null)
             {
                 context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
                 foreach (var hashKey in this.Tag.Keys)
                 {
                     context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
+            context.Toolchain_RoleArn = this.Toolchain_RoleArn;
+            context.Toolchain_Source_S3_BucketKey = this.S3_BucketKey;
+            context.Toolchain_Source_S3_BucketName = this.S3_BucketName;
+            if (this.Toolchain_StackParameter != null)
+            {
+                context.Toolchain_StackParameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Toolchain_StackParameter.Keys)
+                {
+                    context.Toolchain_StackParameters.Add((String)hashKey, (String)(this.Toolchain_StackParameter[hashKey]));
                 }
             }
             
@@ -163,9 +240,92 @@ namespace Amazon.PowerShell.Cmdlets.CST
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.SourceCode != null)
+            {
+                request.SourceCode = cmdletContext.SourceCode;
+            }
             if (cmdletContext.Tags != null)
             {
                 request.Tags = cmdletContext.Tags;
+            }
+            
+             // populate Toolchain
+            bool requestToolchainIsNull = true;
+            request.Toolchain = new Amazon.CodeStar.Model.Toolchain();
+            System.String requestToolchain_toolchain_RoleArn = null;
+            if (cmdletContext.Toolchain_RoleArn != null)
+            {
+                requestToolchain_toolchain_RoleArn = cmdletContext.Toolchain_RoleArn;
+            }
+            if (requestToolchain_toolchain_RoleArn != null)
+            {
+                request.Toolchain.RoleArn = requestToolchain_toolchain_RoleArn;
+                requestToolchainIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestToolchain_toolchain_StackParameter = null;
+            if (cmdletContext.Toolchain_StackParameters != null)
+            {
+                requestToolchain_toolchain_StackParameter = cmdletContext.Toolchain_StackParameters;
+            }
+            if (requestToolchain_toolchain_StackParameter != null)
+            {
+                request.Toolchain.StackParameters = requestToolchain_toolchain_StackParameter;
+                requestToolchainIsNull = false;
+            }
+            Amazon.CodeStar.Model.ToolchainSource requestToolchain_toolchain_Source = null;
+            
+             // populate Source
+            bool requestToolchain_toolchain_SourceIsNull = true;
+            requestToolchain_toolchain_Source = new Amazon.CodeStar.Model.ToolchainSource();
+            Amazon.CodeStar.Model.S3Location requestToolchain_toolchain_Source_toolchain_Source_S3 = null;
+            
+             // populate S3
+            bool requestToolchain_toolchain_Source_toolchain_Source_S3IsNull = true;
+            requestToolchain_toolchain_Source_toolchain_Source_S3 = new Amazon.CodeStar.Model.S3Location();
+            System.String requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketKey = null;
+            if (cmdletContext.Toolchain_Source_S3_BucketKey != null)
+            {
+                requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketKey = cmdletContext.Toolchain_Source_S3_BucketKey;
+            }
+            if (requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketKey != null)
+            {
+                requestToolchain_toolchain_Source_toolchain_Source_S3.BucketKey = requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketKey;
+                requestToolchain_toolchain_Source_toolchain_Source_S3IsNull = false;
+            }
+            System.String requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketName = null;
+            if (cmdletContext.Toolchain_Source_S3_BucketName != null)
+            {
+                requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketName = cmdletContext.Toolchain_Source_S3_BucketName;
+            }
+            if (requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketName != null)
+            {
+                requestToolchain_toolchain_Source_toolchain_Source_S3.BucketName = requestToolchain_toolchain_Source_toolchain_Source_S3_s3_BucketName;
+                requestToolchain_toolchain_Source_toolchain_Source_S3IsNull = false;
+            }
+             // determine if requestToolchain_toolchain_Source_toolchain_Source_S3 should be set to null
+            if (requestToolchain_toolchain_Source_toolchain_Source_S3IsNull)
+            {
+                requestToolchain_toolchain_Source_toolchain_Source_S3 = null;
+            }
+            if (requestToolchain_toolchain_Source_toolchain_Source_S3 != null)
+            {
+                requestToolchain_toolchain_Source.S3 = requestToolchain_toolchain_Source_toolchain_Source_S3;
+                requestToolchain_toolchain_SourceIsNull = false;
+            }
+             // determine if requestToolchain_toolchain_Source should be set to null
+            if (requestToolchain_toolchain_SourceIsNull)
+            {
+                requestToolchain_toolchain_Source = null;
+            }
+            if (requestToolchain_toolchain_Source != null)
+            {
+                request.Toolchain.Source = requestToolchain_toolchain_Source;
+                requestToolchainIsNull = false;
+            }
+             // determine if request.Toolchain should be set to null
+            if (requestToolchainIsNull)
+            {
+                request.Toolchain = null;
             }
             
             CmdletOutput output;
@@ -235,7 +395,12 @@ namespace Amazon.PowerShell.Cmdlets.CST
             public System.String Description { get; set; }
             public System.String Id { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.CodeStar.Model.Code> SourceCode { get; set; }
             public Dictionary<System.String, System.String> Tags { get; set; }
+            public System.String Toolchain_RoleArn { get; set; }
+            public System.String Toolchain_Source_S3_BucketKey { get; set; }
+            public System.String Toolchain_Source_S3_BucketName { get; set; }
+            public Dictionary<System.String, System.String> Toolchain_StackParameters { get; set; }
         }
         
     }

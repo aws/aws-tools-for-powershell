@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name or the Amazon Resource Name (ARN) of the instance profile associated with
-        /// the IAM role for the instance.</para><para>EC2 instances launched with an IAM role will automatically have AWS security credentials
+        /// the IAM role for the instance.</para><para>EC2 instances launched with an IAM role automatically have AWS security credentials
         /// available. You can use IAM roles with Amazon EC2 Auto Scaling to automatically enable
         /// applications running on your EC2 instances to securely access other AWS resources.
         /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">Launch
@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ID of the instance to use to create the launch configuration. The new launch configuration
-        /// derives attributes from the instance, with the exception of the block device mapping.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
+        /// derives attributes from the instance, except for the block device mapping.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
         /// and <code>InstanceType</code>.</para><para>To create a launch configuration with a block device mapping or override any other
         /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Create
         /// a Launch Configuration Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling
@@ -222,9 +222,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The tenancy of the instance. An instance with a tenancy of <code>dedicated</code>
-        /// runs on single-tenant hardware and can only be launched into a VPC.</para><para>You must set the value of this parameter to <code>dedicated</code> if want to launch
-        /// Dedicated Instances into a shared tenancy VPC (VPC with instance placement tenancy
-        /// attribute set to <code>default</code>).</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
+        /// runs on single-tenant hardware and can only be launched into a VPC.</para><para>To launch Dedicated Instances into a shared tenancy VPC (a VPC with the instance placement
+        /// tenancy attribute set to <code>default</code>), you must set the value of this parameter
+        /// to <code>dedicated</code>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
         /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
         /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
@@ -247,8 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more security groups with which to associate the instances.</para><para>If your instances are launched in EC2-Classic, you can either specify security group
-        /// names or the security group IDs. For more information about security groups for EC2-Classic,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
+        /// names or the security group IDs. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
         /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>If your instances are launched into a VPC, specify security group IDs. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>

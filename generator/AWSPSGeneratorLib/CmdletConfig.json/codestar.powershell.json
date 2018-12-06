@@ -66,8 +66,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TeamMember",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -172,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -226,8 +223,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -280,8 +276,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserProfile",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -334,8 +329,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -383,8 +377,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -432,8 +425,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TeamMember",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -484,7 +476,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Projects",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -533,7 +524,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -582,7 +572,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForProject",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -631,7 +620,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TeamMembers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -678,7 +666,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserProfiles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -727,8 +714,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -781,8 +767,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -835,8 +820,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -889,8 +873,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TeamMember",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -943,8 +926,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

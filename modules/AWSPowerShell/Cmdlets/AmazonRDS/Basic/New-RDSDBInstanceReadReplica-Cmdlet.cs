@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora MySQL 5.6 or higher</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -356,7 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier of the DB instance that will act as the source for the Read Replica.
         /// Each DB instance can have up to five Read Replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL Read Replica only if the source is running
-        /// MySQL 5.6.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
+        /// MySQL 5.6 or later.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
         /// PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same AWS Region as the Read Replica, specify a
         /// valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different AWS Region than the Read Replica, specify
@@ -414,6 +414,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("UseDefaultProcessorFeatures")]
         public System.Boolean UseDefaultProcessorFeature { get; set; }
+        #endregion
+        
+        #region Parameter VpcSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para> A list of EC2 VPC security groups to associate with the Read Replica. </para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -493,6 +504,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("UseDefaultProcessorFeature"))
                 context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -617,6 +632,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.UseDefaultProcessorFeatures = cmdletContext.UseDefaultProcessorFeatures.Value;
             }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
+            }
             
             CmdletOutput output;
             
@@ -708,6 +727,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.Boolean? UseDefaultProcessorFeatures { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

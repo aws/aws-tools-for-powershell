@@ -28,9 +28,9 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Creates a new replication configuration (or replaces an existing one, if present).
-    /// For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
-    /// Replication (CRR)</a> in the Amazon S3 Developer Guide.
+    /// Creates a replication configuration or replaces an existing one. For more information,
+    /// see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region
+    /// Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.
     /// </summary>
     [Cmdlet("Write", "S3BucketReplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

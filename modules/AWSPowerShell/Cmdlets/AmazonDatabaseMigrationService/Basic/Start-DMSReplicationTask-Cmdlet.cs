@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// 
     ///  
     /// <para>
-    /// For more information about AWS DMS tasks, see the AWS DMS user guide at <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">
-    /// Working with Migration Tasks </a></para>
+    /// For more information about AWS DMS tasks, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
+    /// with Migration Tasks </a> in the <i>AWS Database Migration Service User Guide.</i></para>
     /// </summary>
     [Cmdlet("Start", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationTask")]

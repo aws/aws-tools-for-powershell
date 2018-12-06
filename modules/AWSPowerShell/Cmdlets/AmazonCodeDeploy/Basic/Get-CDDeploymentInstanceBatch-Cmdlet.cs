@@ -28,7 +28,14 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Gets information about one or more instance that are part of a deployment group.
+    /// <note><para>
+    ///  This method works, but is considered deprecated. Use <code>BatchGetDeploymentTargets</code>
+    /// instead. 
+    /// </para></note><para>
+    ///  Returns an array of instances associated with a deployment. This method works with
+    /// EC2/On-premises and AWS Lambda compute platforms. The newer <code>BatchGetDeploymentTargets</code>
+    /// works with all compute platforms. 
+    /// </para><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceBatch")]
     [OutputType("Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse")]
@@ -36,13 +43,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse",
         "This cmdlet returns a Amazon.CodeDeploy.Model.BatchGetDeploymentInstancesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use BatchGetDeploymentTargets instead.")]
     public partial class GetCDDeploymentInstanceBatchCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of a deployment.</para>
+        /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique IDs of instances in the deployment group.</para>
+        /// <para>The unique IDs of instances of the deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

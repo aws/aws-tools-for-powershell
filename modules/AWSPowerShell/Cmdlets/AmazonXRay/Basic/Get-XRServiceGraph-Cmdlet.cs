@@ -46,11 +46,31 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time frame for which to generate a graph.</para>
+        /// <para>The end of the timeframe for which to generate a graph.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter GroupARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of a group to generate a graph based on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GroupARN { get; set; }
+        #endregion
+        
+        #region Parameter GroupName
+        /// <summary>
+        /// <para>
+        /// <para>The name of a group to generate a graph based on.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GroupName { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -88,6 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
             
             if (ParameterWasBound("EndTime"))
                 context.EndTime = this.EndTime;
+            context.GroupARN = this.GroupARN;
+            context.GroupName = this.GroupName;
             context.NextToken = this.NextToken;
             if (ParameterWasBound("StartTime"))
                 context.StartTime = this.StartTime;
@@ -110,6 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.XR
             if (cmdletContext.EndTime != null)
             {
                 request.EndTime = cmdletContext.EndTime.Value;
+            }
+            if (cmdletContext.GroupARN != null)
+            {
+                request.GroupARN = cmdletContext.GroupARN;
+            }
+            if (cmdletContext.GroupName != null)
+            {
+                request.GroupName = cmdletContext.GroupName;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -184,6 +214,8 @@ namespace Amazon.PowerShell.Cmdlets.XR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
+            public System.String GroupARN { get; set; }
+            public System.String GroupName { get; set; }
             public System.String NextToken { get; set; }
             public System.DateTime? StartTime { get; set; }
         }

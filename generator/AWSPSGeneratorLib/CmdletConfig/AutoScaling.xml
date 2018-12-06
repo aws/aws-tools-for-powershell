@@ -235,5 +235,7 @@
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.AutoScaling.Model.MixedInstancesPolicy</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

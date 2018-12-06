@@ -78,8 +78,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionOnInterconnect",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -132,8 +131,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedConnection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -188,8 +186,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -244,8 +241,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -298,8 +294,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionWithLag",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -352,8 +347,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedConnection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -406,8 +400,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -460,8 +453,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -516,8 +508,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -570,8 +561,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -624,8 +614,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BGPPeer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -681,8 +670,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -735,8 +723,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGateway",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -789,8 +776,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAssociation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -846,8 +832,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Interconnect",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -900,8 +885,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -954,8 +938,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1008,8 +991,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1062,8 +1044,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BGPPeer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1076,7 +1057,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "VirtualInterfaceId"
         },
@@ -1116,8 +1097,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1170,8 +1150,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGateway",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1224,8 +1203,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAssociation",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1278,8 +1256,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Interconnect",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1332,8 +1309,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1386,8 +1362,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterface",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1440,8 +1415,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionLoa",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1489,8 +1463,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1538,8 +1511,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionsOnInterconnect",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1587,7 +1559,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAssociations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1636,7 +1607,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAttachments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1685,7 +1655,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGateways",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1734,8 +1703,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedConnections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1783,8 +1751,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InterconnectLoa",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1832,8 +1799,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Interconnects",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1881,8 +1847,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1930,8 +1895,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Loa",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1977,8 +1941,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Locations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2026,8 +1989,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2073,8 +2035,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualGateways",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2124,8 +2085,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterfaces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2173,8 +2133,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionFromLag",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2227,8 +2186,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2281,8 +2239,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2335,8 +2292,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2389,8 +2345,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterfaceAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

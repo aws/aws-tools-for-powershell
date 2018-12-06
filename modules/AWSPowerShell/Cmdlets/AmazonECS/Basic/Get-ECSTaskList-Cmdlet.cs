@@ -78,13 +78,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The task desired status with which to filter the <code>ListTasks</code> results. Specifying
         /// a <code>desiredStatus</code> of <code>STOPPED</code> limits the results to tasks that
-        /// Amazon ECS has set the desired status to <code>STOPPED</code>, which can be useful
+        /// Amazon ECS has set the desired status to <code>STOPPED</code>. This can be useful
         /// for debugging tasks that are not starting properly or have died or finished. The default
         /// status filter is <code>RUNNING</code>, which shows tasks that Amazon ECS has set the
         /// desired status to <code>RUNNING</code>.</para><note><para>Although you can filter results based on a desired status of <code>PENDING</code>,
-        /// this does not return any results because Amazon ECS never sets the desired status
-        /// of a task to that value (only a task's <code>lastStatus</code> may have a value of
-        /// <code>PENDING</code>).</para></note>
+        /// this does not return any results. Amazon ECS never sets the desired status of a task
+        /// to that value (only a task's <code>lastStatus</code> may have a value of <code>PENDING</code>).</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

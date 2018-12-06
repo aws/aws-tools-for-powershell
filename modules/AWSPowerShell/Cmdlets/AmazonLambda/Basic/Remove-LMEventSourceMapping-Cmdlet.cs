@@ -28,14 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Removes an event source mapping. This means AWS Lambda will no longer invoke the function
-    /// for events in the associated source.
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permission for the <code>lambda:DeleteEventSourceMapping</code>
-    /// action.
-    /// </para>
+    /// Deletes an event source mapping.
     /// </summary>
     [Cmdlet("Remove", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResponse")]
@@ -49,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter UUID
         /// <summary>
         /// <para>
-        /// <para>The event source mapping ID.</para>
+        /// <para>The identifier of the event source mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

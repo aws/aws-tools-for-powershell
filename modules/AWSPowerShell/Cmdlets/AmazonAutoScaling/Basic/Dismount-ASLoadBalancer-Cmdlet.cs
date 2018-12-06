@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// Note that this operation detaches only Classic Load Balancers. If you have Application
-    /// Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
+    /// This operation detaches only Classic Load Balancers. If you have Application Load
+    /// Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
-    /// describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances
-    /// remain running.
+    /// describe the load balancer using <a>DescribeLoadBalancers</a>. The instances remain
+    /// running.
     /// </para>
     /// </summary>
     [Cmdlet("Dismount", "ASLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

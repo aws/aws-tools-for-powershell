@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
     /// Creates a core definition. You may provide the initial version of the core definition
-    /// now or use ''CreateCoreDefinitionVersion'' at a later time. AWS Greengrass groups
-    /// must each contain exactly one AWS Greengrass core.
+    /// now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must
+    /// each contain exactly one Greengrass core.
     /// </summary>
     [Cmdlet("New", "GGCoreDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateCoreDefinitionResponse")]

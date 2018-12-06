@@ -64,6 +64,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String ClusterName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to the cluster to help you categorize and organize them.
+        /// Each tag consists of a key and an optional value, both of which you define. Tag keys
+        /// can have a maximum character length of 128 characters, and tag values can have a maximum
+        /// length of 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ECS.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -94,6 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             PreExecutionContextLoad(context);
             
             context.ClusterName = this.ClusterName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ECS.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -113,6 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ClusterName != null)
             {
                 request.ClusterName = cmdletContext.ClusterName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -179,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterName { get; set; }
+            public List<Amazon.ECS.Model.Tag> Tags { get; set; }
         }
         
     }

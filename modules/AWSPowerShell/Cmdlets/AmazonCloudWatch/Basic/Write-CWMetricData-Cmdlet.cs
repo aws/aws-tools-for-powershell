@@ -28,10 +28,10 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Publishes metric data to Amazon CloudWatch. CloudWatch associates the data with the
-    /// specified metric. If the specified metric does not exist, CloudWatch creates the metric.
-    /// When CloudWatch creates a metric, it can take up to fifteen minutes for the metric
-    /// to appear in calls to <a>ListMetrics</a>.
+    /// Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data
+    /// points with the specified metric. If the specified metric does not exist, CloudWatch
+    /// creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes
+    /// for the metric to appear in calls to <a>ListMetrics</a>.
     /// 
     ///  
     /// <para>
@@ -59,11 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the
     /// time they are submitted.
     /// </para><para>
-    /// CloudWatch needs raw data points to calculate percentile statistics. These raw data
-    /// points could be published individually or as part of <code>Values</code> and <code>Counts</code>
-    /// arrays. If you publish data using statistic sets in the <code>StatisticValues</code>
-    /// field instead, you can only retrieve percentile statistics for this data if one of
-    /// the following conditions is true:
+    /// CloudWatch needs raw data points to calculate percentile statistics. If you publish
+    /// data using a statistic set instead, you can only retrieve percentile statistics for
+    /// this data if one of the following conditions is true:
     /// </para><ul><li><para>
     /// The <code>SampleCount</code> value of the statistic set is 1 and <code>Min</code>,
     /// <code>Max</code>, and <code>Sum</code> are all equal.

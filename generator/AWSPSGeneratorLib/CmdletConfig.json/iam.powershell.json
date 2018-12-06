@@ -97,8 +97,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ClientIDToOpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -157,8 +156,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleToInstanceProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -217,8 +215,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserToGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -277,8 +274,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -337,8 +333,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -395,8 +390,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -455,8 +449,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: OldPassword",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -511,8 +504,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -569,8 +561,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAlias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -629,8 +620,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -689,8 +679,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -747,8 +736,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -805,8 +793,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -864,8 +851,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -923,8 +909,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -984,8 +969,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1040,8 +1024,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1098,8 +1081,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceLinkedRole",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1154,8 +1136,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1214,8 +1195,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1274,8 +1254,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualMFADevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1332,8 +1311,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1390,8 +1368,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1448,8 +1425,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAlias",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1504,8 +1480,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1562,8 +1537,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1622,8 +1596,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1680,8 +1653,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1736,8 +1708,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1796,8 +1767,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1856,8 +1826,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1914,8 +1883,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1972,8 +1940,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2030,8 +1997,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePermissionsBoundary",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2090,8 +2056,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2148,8 +2113,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SAMLProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2206,8 +2170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2264,8 +2227,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceLinkedRole",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2322,8 +2284,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2380,8 +2341,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2438,8 +2398,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2494,8 +2453,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2550,8 +2508,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPermissionsBoundary",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2608,8 +2565,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2666,8 +2622,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualMFADevice",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SerialNumber",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2726,8 +2681,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2786,8 +2740,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2844,8 +2797,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2904,8 +2856,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2960,8 +2911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CredentialReport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3018,8 +2968,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccessKeyLastUsed",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3071,8 +3020,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAuthorizationDetails",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3122,8 +3070,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3173,8 +3120,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountSummary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3226,8 +3172,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContextKeysForCustomPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3277,8 +3222,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContextKeysForPrincipalPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3330,8 +3274,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3385,8 +3328,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3438,8 +3380,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3489,8 +3430,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3544,8 +3484,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3599,8 +3538,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3653,8 +3591,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3706,8 +3643,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3761,8 +3697,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3814,8 +3749,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3867,8 +3801,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3920,8 +3853,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceLinkedRoleDeletionStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3973,8 +3905,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4024,8 +3955,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4077,8 +4007,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4128,7 +4057,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccessKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4179,7 +4107,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAliases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4232,7 +4159,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttachedGroupPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4285,7 +4211,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttachedRolePolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4338,7 +4263,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttachedUserPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4391,8 +4315,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EntitiesForPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4444,7 +4367,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4497,7 +4419,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4548,7 +4469,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupsForUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4601,7 +4521,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProfiles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4654,7 +4573,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProfilesForRole",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4705,7 +4623,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MFADevices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4756,8 +4673,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OpenIDConnectProviders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4807,7 +4723,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4860,7 +4775,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4913,7 +4827,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4966,7 +4879,58 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Roles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListRoleTags": {
+      "verb": "Get",
+      "noun": "RoleTagList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RoleName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RoleTags",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5017,8 +4981,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProviders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5070,7 +5033,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerCertificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5121,8 +5083,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceSpecificCredentials",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5172,7 +5133,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SigningCertificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5223,7 +5183,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSHPublicKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5274,7 +5233,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5327,7 +5285,56 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListUserTags": {
+      "verb": "Get",
+      "noun": "UserTagList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UserTags",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5380,7 +5387,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualMFADevices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -5436,8 +5442,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5492,8 +5497,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePermissionsBoundary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5553,8 +5557,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5609,8 +5612,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPermissionsBoundary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5668,8 +5670,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5724,8 +5725,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ClientIDFromOpenIDConnectProvider",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5784,8 +5784,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleFromInstanceProfile",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5844,8 +5843,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserFromGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -5902,8 +5900,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5962,8 +5959,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6021,8 +6017,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultPolicyVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6077,7 +6072,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -6128,7 +6122,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrincipalPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -6144,6 +6137,226 @@
           "resultLimitMember": "MaxItems",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "TagRole": {
+      "verb": "Add",
+      "noun": "RoleTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Role",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RoleName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "TagUser": {
+      "verb": "Add",
+      "noun": "UserTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagRole": {
+      "verb": "Remove",
+      "noun": "RoleTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Role",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "RoleName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagUser": {
+      "verb": "Remove",
+      "noun": "UserTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "User",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "UserName"
         },
         "memoryStreamParameters": []
       }
@@ -6182,8 +6395,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6238,8 +6450,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6298,8 +6509,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssumeRolePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6359,8 +6569,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6417,8 +6626,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6475,8 +6683,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OpenIDConnectProviderThumbprint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6531,8 +6738,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6589,8 +6795,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleDescription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6645,8 +6850,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -6706,8 +6910,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6764,8 +6967,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6823,8 +7025,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6881,8 +7082,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -6940,8 +7140,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -7003,8 +7202,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -7061,8 +7259,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -7119,8 +7316,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

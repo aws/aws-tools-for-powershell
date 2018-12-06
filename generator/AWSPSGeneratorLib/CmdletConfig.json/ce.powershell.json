@@ -61,7 +61,47 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CostAndUsage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetCostForecast": {
+      "verb": "Get",
+      "noun": "CostForecast",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TimePeriod"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CostForecast",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -103,7 +143,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DimensionValues",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -143,7 +182,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservationCoverage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -185,7 +223,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservationPurchaseRecommendation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -227,7 +264,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservationUtilization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -269,7 +305,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

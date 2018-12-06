@@ -28,22 +28,53 @@ using Amazon.Translate.Model;
 namespace Amazon.PowerShell.Cmdlets.TRN
 {
     /// <summary>
-    /// Translates input text from the source language to the target language. You can translate
-    /// between English (en) and one of the following languages, or between one of the following
-    /// languages and English.
+    /// Translates input text from the source language to the target language. It is not necessary
+    /// to use English (en) as either the source or the target language but not all language
+    /// combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported
+    /// Language Pairs</a>.
     /// 
     ///  <ul><li><para>
     /// Arabic (ar)
     /// </para></li><li><para>
     /// Chinese (Simplified) (zh)
     /// </para></li><li><para>
+    /// Chinese (Traditional) (zh-TW)
+    /// </para></li><li><para>
+    /// Czech (cs)
+    /// </para></li><li><para>
+    /// Danish (da)
+    /// </para></li><li><para>
+    /// Dutch (nl)
+    /// </para></li><li><para>
+    /// English (en)
+    /// </para></li><li><para>
+    /// Finnish (fi)
+    /// </para></li><li><para>
     /// French (fr)
     /// </para></li><li><para>
     /// German (de)
     /// </para></li><li><para>
+    /// Hebrew (he)
+    /// </para></li><li><para>
+    /// Indonesian (id)
+    /// </para></li><li><para>
+    /// Italian (it)
+    /// </para></li><li><para>
+    /// Japanese (ja)
+    /// </para></li><li><para>
+    /// Korean (ko)
+    /// </para></li><li><para>
+    /// Polish (pl)
+    /// </para></li><li><para>
     /// Portuguese (pt)
     /// </para></li><li><para>
+    /// Russian (ru)
+    /// </para></li><li><para>
     /// Spanish (es)
+    /// </para></li><li><para>
+    /// Swedish (sv)
+    /// </para></li><li><para>
+    /// Turkish (tr)
     /// </para></li></ul><para>
     /// To have Amazon Translate determine the source language of your text, you can specify
     /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
@@ -51,31 +82,19 @@ namespace Amazon.PowerShell.Cmdlets.TRN
     /// </para>
     /// </summary>
     [Cmdlet("ConvertTo", "TRNTargetLanguage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
+    [OutputType("Amazon.Translate.Model.TranslateTextResponse")]
     [AWSCmdlet("Calls the Amazon Translate TranslateText API operation.", Operation = new[] {"TranslateText"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.Translate.Model.TranslateTextResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: SourceLanguageCode (type System.String), TargetLanguageCode (type System.String)"
+    [AWSCmdletOutput("Amazon.Translate.Model.TranslateTextResponse",
+        "This cmdlet returns a Amazon.Translate.Model.TranslateTextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class ConvertToTRNTargetLanguageCmdlet : AmazonTranslateClientCmdlet, IExecutor
     {
         
-        #region Parameter Text
-        /// <summary>
-        /// <para>
-        /// <para>The text to translate.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Text { get; set; }
-        #endregion
-        
         #region Parameter SourceLanguageCode
         /// <summary>
         /// <para>
-        /// <para>One of the supported language codes for the source text. If the <code>TargetLanguageCode</code>
-        /// is not "en", the <code>SourceLanguageCode</code> must be "en".</para><para>To have Amazon Translate determine the source language of your text, you can specify
+        /// <para>The language code for the language of the source text. The language must be a language
+        /// supported by Amazon Translate. </para><para>To have Amazon Translate determine the source language of your text, you can specify
         /// <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>,
         /// Amazon Translate will call Amazon Comprehend to determine the source language.</para>
         /// </para>
@@ -87,12 +106,35 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         #region Parameter TargetLanguageCode
         /// <summary>
         /// <para>
-        /// <para>One of the supported language codes for the target text. If the <code>SourceLanguageCode</code>
-        /// is not "en", the <code>TargetLanguageCode</code> must be "en".</para>
+        /// <para>The language code requested for the language of the target text. The language must
+        /// be a language supported by Amazon Translate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TargetLanguageCode { get; set; }
+        #endregion
+        
+        #region Parameter TerminologyName
+        /// <summary>
+        /// <para>
+        /// <para>The TerminologyNames list that is taken as input to the TranslateText request. This
+        /// has a minimum length of 0 and a maximum length of 1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TerminologyNames")]
+        public System.String[] TerminologyName { get; set; }
+        #endregion
+        
+        #region Parameter Text
+        /// <summary>
+        /// <para>
+        /// <para>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending
+        /// on your character set, this may be fewer than 5,000 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Text { get; set; }
         #endregion
         
         #region Parameter Force
@@ -126,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             
             context.SourceLanguageCode = this.SourceLanguageCode;
             context.TargetLanguageCode = this.TargetLanguageCode;
+            if (this.TerminologyName != null)
+            {
+                context.TerminologyNames = new List<System.String>(this.TerminologyName);
+            }
             context.Text = this.Text;
             
             // allow further manipulation of loaded context prior to processing
@@ -151,6 +197,10 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 request.TargetLanguageCode = cmdletContext.TargetLanguageCode;
             }
+            if (cmdletContext.TerminologyNames != null)
+            {
+                request.TerminologyNames = cmdletContext.TerminologyNames;
+            }
             if (cmdletContext.Text != null)
             {
                 request.Text = cmdletContext.Text;
@@ -164,10 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TranslatedText;
-                notes = new Dictionary<string, object>();
-                notes["SourceLanguageCode"] = response.SourceLanguageCode;
-                notes["TargetLanguageCode"] = response.TargetLanguageCode;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -224,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
         {
             public System.String SourceLanguageCode { get; set; }
             public System.String TargetLanguageCode { get; set; }
+            public List<System.String> TerminologyNames { get; set; }
             public System.String Text { get; set; }
         }
         

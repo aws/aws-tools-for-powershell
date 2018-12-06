@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Deletes a specific snapshot of a virtual private server (or <i>instance</i>).
+    /// 
+    ///  
+    /// <para>
+    /// The <code>delete instance snapshot</code> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by instanceSnapshotName. For
+    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSInstanceSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

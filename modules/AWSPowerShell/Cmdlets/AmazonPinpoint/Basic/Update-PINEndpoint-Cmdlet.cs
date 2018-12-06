@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The two-letter code for the country or region
-        /// of the endpoint. Specified as an ISO 3166-1 Alpha-2 code, such as "US" for the United
+        /// of the endpoint. Specified as an ISO 3166-1 alpha-2 code, such as "US" for the United
         /// States.
         /// </para>
         /// </summary>

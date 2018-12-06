@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>A token used for advancing to a specific page of results for your get relational database
-        /// bundles request.</para>
+        /// <para>A token used for advancing to a specific page of results for your <code>get relational
+        /// database bundles</code> request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

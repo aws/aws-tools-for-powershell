@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// as specified.
     /// </para><para>
     /// If you associate a document with an instance that already has an associated document,
-    /// the system throws the AssociationAlreadyExists exception.
+    /// the system returns the AssociationAlreadyExists exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMAssociationFromBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

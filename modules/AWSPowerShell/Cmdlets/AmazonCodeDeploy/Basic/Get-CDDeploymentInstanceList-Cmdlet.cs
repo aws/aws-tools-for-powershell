@@ -28,8 +28,14 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the instance for a deployment associated with the applicable IAM user or AWS
-    /// account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// <note><para>
+    ///  The newer BatchGetDeploymentTargets should be used instead because it works with
+    /// all compute types. <code>ListDeploymentInstances</code> throws an exception if it
+    /// is used with a compute platform other than EC2/On-premises or AWS Lambda. 
+    /// </para></note><para>
+    ///  Lists the instance for a deployment associated with the applicable IAM user or AWS
+    /// account. 
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceList")]
     [OutputType("System.String")]
@@ -39,13 +45,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "The service call response (type Amazon.CodeDeploy.Model.ListDeploymentInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use ListDeploymentTargets instead.")]
     public partial class GetCDDeploymentInstanceListCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of a deployment.</para>
+        /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

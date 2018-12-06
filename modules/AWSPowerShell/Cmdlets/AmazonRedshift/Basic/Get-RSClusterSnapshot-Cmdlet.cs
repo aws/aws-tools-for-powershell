@@ -146,6 +146,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String SnapshotType { get; set; }
         #endregion
         
+        #region Parameter SortingEntity
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SortingEntities")]
+        public Amazon.Redshift.Model.SnapshotSortingEntity[] SortingEntity { get; set; }
+        #endregion
+        
         #region Parameter StartTime
         /// <summary>
         /// <para>
@@ -269,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.OwnerAccount = this.OwnerAccount;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             context.SnapshotType = this.SnapshotType;
+            if (this.SortingEntity != null)
+            {
+                context.SortingEntities = new List<Amazon.Redshift.Model.SnapshotSortingEntity>(this.SortingEntity);
+            }
             if (ParameterWasBound("UtcStartTime"))
                 context.UtcStartTime = this.UtcStartTime;
             if (this.TagKey != null)
@@ -326,6 +341,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.SnapshotType != null)
             {
                 request.SnapshotType = cmdletContext.SnapshotType;
+            }
+            if (cmdletContext.SortingEntities != null)
+            {
+                request.SortingEntities = cmdletContext.SortingEntities;
             }
             if (cmdletContext.UtcStartTime != null)
             {
@@ -513,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String OwnerAccount { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public System.String SnapshotType { get; set; }
+            public List<Amazon.Redshift.Model.SnapshotSortingEntity> SortingEntities { get; set; }
             public System.DateTime? UtcStartTime { get; set; }
             public List<System.String> TagKeys { get; set; }
             public List<System.String> TagValues { get; set; }

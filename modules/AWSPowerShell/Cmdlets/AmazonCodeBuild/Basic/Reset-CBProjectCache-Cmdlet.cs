@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The name of the AWS CodeBuild build project that the cache will be reset for.</para>
+        /// <para>The name of the AWS CodeBuild build project that the cache is reset for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

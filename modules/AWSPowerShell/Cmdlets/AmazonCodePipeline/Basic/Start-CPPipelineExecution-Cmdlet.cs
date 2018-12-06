@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.CP
     public partial class StartCPPipelineExecutionCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientRequestToken
+        /// <summary>
+        /// <para>
+        /// <para>The system-generated unique ID used to identify a unique execution request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientRequestToken { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -80,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientRequestToken = this.ClientRequestToken;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -97,6 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             // create request
             var request = new Amazon.CodePipeline.Model.StartPipelineExecutionRequest();
             
+            if (cmdletContext.ClientRequestToken != null)
+            {
+                request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -165,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientRequestToken { get; set; }
             public System.String Name { get; set; }
         }
         

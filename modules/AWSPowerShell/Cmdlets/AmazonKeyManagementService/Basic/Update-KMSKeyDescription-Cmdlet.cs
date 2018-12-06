@@ -28,8 +28,8 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Updates the description of a customer master key (CMK). To see the description of
-    /// a CMK, use <a>DescribeKey</a>. 
+    /// Updates the description of a customer master key (CMK). To see the decription of a
+    /// CMK, use <a>DescribeKey</a>. 
     /// 
     ///  
     /// <para>

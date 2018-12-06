@@ -72,6 +72,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter DnsNameServer
+        /// <summary>
+        /// <para>
+        /// <para>A list of DNS name servers supported for the replication instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DnsNameServers")]
+        public System.String DnsNameServer { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -85,11 +96,11 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier that will be used to encrypt the content on the replication
-        /// instance. If you do not specify a value for the KmsKeyId parameter, then AWS DMS will
-        /// use your default encryption key. AWS KMS creates the default encryption key for your
-        /// AWS account. Your AWS account has a different default encryption key for each AWS
-        /// region.</para>
+        /// <para>The AWS KMS key identifier that is used to encrypt the content on the replication
+        /// instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
+        /// AWS DMS uses your default encryption key. AWS KMS creates the default encryption key
+        /// for your AWS account. Your AWS account has a different default encryption key for
+        /// each AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -221,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (ParameterWasBound("AutoMinorVersionUpgrade"))
                 context.AutoMinorVersionUpgrade = this.AutoMinorVersionUpgrade;
             context.AvailabilityZone = this.AvailabilityZone;
+            context.DnsNameServers = this.DnsNameServer;
             context.EngineVersion = this.EngineVersion;
             context.KmsKeyId = this.KmsKeyId;
             if (ParameterWasBound("MultiAZ"))
@@ -266,6 +278,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.DnsNameServers != null)
+            {
+                request.DnsNameServers = cmdletContext.DnsNameServers;
             }
             if (cmdletContext.EngineVersion != null)
             {
@@ -374,6 +390,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.Int32? AllocatedStorage { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }
             public System.String AvailabilityZone { get; set; }
+            public System.String DnsNameServers { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Boolean? MultiAZ { get; set; }

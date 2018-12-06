@@ -28,13 +28,13 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Creates or updates a lifecycle hook for the specified Auto Scaling Group.
+    /// Creates or updates a lifecycle hook for the specified Auto Scaling group.
     /// 
     ///  
     /// <para>
-    /// A lifecycle hook tells Amazon EC2 Auto Scaling that you want to perform an action
-    /// on an instance that is not actively in service; for example, either when the instance
-    /// launches or before the instance terminates.
+    /// A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance
+    /// that is not actively in service; for example, either when the instance launches or
+    /// before the instance terminates.
     /// </para><para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
@@ -140,12 +140,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter NotificationTargetARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the notification target that Amazon EC2 Auto Scaling will use to notify
-        /// you when an instance is in the transition state for the lifecycle hook. This target
-        /// can be either an SQS queue or an SNS topic. If you specify an empty string, this overrides
+        /// <para>The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you
+        /// when an instance is in the transition state for the lifecycle hook. This target can
+        /// be either an SQS queue or an SNS topic. If you specify an empty string, this overrides
         /// the current ARN.</para><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
-        /// and an email key/value pair format when sending notifications to an Amazon SNS topic.</para><para>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message.
-        /// Test messages contains the following additional key/value pair: <code>"Event": "autoscaling:TEST_NOTIFICATION"</code>.</para>
+        /// and an email key-value pair format when sending notifications to an Amazon SNS topic.</para><para>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message.
+        /// Test messages contain the following additional key-value pair: <code>"Event": "autoscaling:TEST_NOTIFICATION"</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -136,7 +136,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAnalyticsConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -181,7 +180,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketEncryption",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -226,7 +224,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketInventoryConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -271,7 +268,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketMetricsConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -316,7 +312,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -361,7 +356,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketReplication",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -406,7 +400,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketTagging",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -451,7 +444,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketWebsite",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -496,7 +488,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CORSConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -541,7 +532,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -588,7 +578,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectTagging",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -598,6 +587,50 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Key"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeletePublicAccessBlock": {
+      "verb": "Remove",
+      "noun": "PublicAccessBlock",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PublicAccessBlock",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BucketName"
         },
         "memoryStreamParameters": []
       }
@@ -636,7 +669,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -676,7 +708,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAccelerateConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -716,7 +747,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAnalyticsConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -756,7 +786,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketEncryption",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -796,7 +825,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketInventoryConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -836,7 +864,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketLocation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -876,7 +903,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketLogging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -916,7 +942,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketMetricsConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -956,7 +981,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketNotification",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -996,7 +1020,45 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetBucketPolicyStatus": {
+      "verb": "Get",
+      "noun": "BucketPolicyStatus",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PolicyStatus",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BucketPolicyStatus",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1036,7 +1098,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketReplication",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1076,7 +1137,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketRequestPayment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1116,7 +1176,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketTagging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1156,7 +1215,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketVersioning",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1196,7 +1254,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketWebsite",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1236,7 +1293,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CORSConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1276,7 +1332,84 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetObjectLegalHold": {
+      "verb": "Get",
+      "noun": "ObjectLegalHold",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LegalHold",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectLegalHold",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetObjectLockConfiguration": {
+      "verb": "Get",
+      "noun": "ObjectLockConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ObjectLockConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectLockConfiguration",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1351,7 +1484,45 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectMetadata",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetObjectRetention": {
+      "verb": "Get",
+      "noun": "ObjectRetention",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Retention",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectRetention",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1393,7 +1564,45 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectTagging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetPublicAccessBlock": {
+      "verb": "Get",
+      "noun": "PublicAccessBlock",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PublicAccessBlockConfiguration",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PublicAccessBlock",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1433,7 +1642,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAnalyticsConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1473,7 +1681,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketInventoryConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1513,7 +1720,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketMetricsConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1555,7 +1761,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Versions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1595,7 +1800,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAccelerateConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1640,7 +1844,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketAnalyticsConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1685,7 +1888,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketEncryption",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1730,7 +1932,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketInventoryConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1775,7 +1976,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketLogging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1820,7 +2020,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketMetricsConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1865,7 +2064,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketNotification",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1912,7 +2110,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -1957,7 +2154,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketReplication",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2004,7 +2200,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketRequestPayment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2065,7 +2260,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketTagging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.TagSet",
         "passThruTypeName": "Amazon.S3.Model.Tag",
@@ -2110,7 +2304,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketVersioning",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2157,7 +2350,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BucketWebsite",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2204,7 +2396,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CORSConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2251,7 +2442,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
         "passThruTypeName": "System.String",
@@ -2259,6 +2449,138 @@
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BucketName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutObjectLegalHold": {
+      "verb": "Write",
+      "noun": "ObjectLegalHold",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RequestCharged",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectLegalHold",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BucketName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutObjectLockConfiguration": {
+      "verb": "Write",
+      "noun": "ObjectLockConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RequestCharged",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectLockConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BucketName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutObjectRetention": {
+      "verb": "Write",
+      "noun": "ObjectRetention",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "RequestCharged",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ObjectRetention",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "BucketName"
         },
@@ -2298,7 +2620,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectTagging",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2308,6 +2629,50 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "Key"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutPublicAccessBlock": {
+      "verb": "Add",
+      "noun": "PublicAccessBlock",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PublicAccessBlock",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: BucketName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BucketName"
         },
         "memoryStreamParameters": []
       }
@@ -2357,7 +2722,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Object",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2404,7 +2768,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectContent",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

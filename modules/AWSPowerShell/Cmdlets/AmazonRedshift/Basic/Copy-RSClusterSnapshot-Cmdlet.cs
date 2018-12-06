@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class CopyRSClusterSnapshotCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days that a manual snapshot is retained. If the value is -1, the manual
+        /// snapshot is retained indefinitely. </para><para>The value must be either -1 or an integer between 1 and 3,653.</para><para>The default value is -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter SourceSnapshotClusterIdentifier
         /// <summary>
         /// <para>
@@ -114,6 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.SourceSnapshotClusterIdentifier = this.SourceSnapshotClusterIdentifier;
             context.SourceSnapshotIdentifier = this.SourceSnapshotIdentifier;
             context.TargetSnapshotIdentifier = this.TargetSnapshotIdentifier;
@@ -133,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             // create request
             var request = new Amazon.Redshift.Model.CopyClusterSnapshotRequest();
             
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
+            }
             if (cmdletContext.SourceSnapshotClusterIdentifier != null)
             {
                 request.SourceSnapshotClusterIdentifier = cmdletContext.SourceSnapshotClusterIdentifier;
@@ -209,6 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String SourceSnapshotClusterIdentifier { get; set; }
             public System.String SourceSnapshotIdentifier { get; set; }
             public System.String TargetSnapshotIdentifier { get; set; }

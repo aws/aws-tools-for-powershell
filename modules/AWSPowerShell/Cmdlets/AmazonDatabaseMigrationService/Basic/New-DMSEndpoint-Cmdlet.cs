@@ -207,16 +207,39 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchSettings_EndpointUri
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint for the ElasticSearch cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchSettings_EndpointUri { get; set; }
+        #endregion
+        
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para>The type of engine for the endpoint. Valid values, depending on the EndPointType,
-        /// include mysql, oracle, postgres, mariadb, aurora, aurora-postgresql, redshift, s3,
-        /// db2, azuredb, sybase, dynamodb, mongodb, and sqlserver.</para>
+        /// <para>The type of engine for the endpoint. Valid values, depending on the <code>EndPointType</code>
+        /// value, include <code>mysql</code>, <code>oracle</code>, <code>postgres</code>, <code>mariadb</code>,
+        /// <code>aurora</code>, <code>aurora-postgresql</code>, <code>redshift</code>, <code>s3</code>,
+        /// <code>db2</code>, <code>azuredb</code>, <code>sybase</code>, <code>dynamodb</code>,
+        /// <code>mongodb</code>, and <code>sqlserver</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineName { get; set; }
+        #endregion
+        
+        #region Parameter ElasticsearchSettings_ErrorRetryDuration
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of seconds that DMS retries failed API requests to the Elasticsearch
+        /// cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ElasticsearchSettings_ErrorRetryDuration { get; set; }
         #endregion
         
         #region Parameter ExternalTableDefinition
@@ -261,13 +284,24 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_ExtractDocId { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchSettings_FullLoadErrorPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The maximum percentage of records that can fail to be written before a full load operation
+        /// stops. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier that will be used to encrypt the connection parameters. If
-        /// you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your
-        /// default encryption key. AWS KMS creates the default encryption key for your AWS account.
-        /// Your AWS account has a different default encryption key for each AWS region.</para>
+        /// <para>The AWS KMS key identifier to use to encrypt the connection parameters. If you don't
+        /// specify a value for the <code>KmsKeyId</code> parameter, then AWS DMS uses your default
+        /// encryption key. AWS KMS creates the default encryption key for your AWS account. Your
+        /// AWS account has a different default encryption key for each AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -277,14 +311,26 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter MongoDbSettings_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para> The KMS key identifier that will be used to encrypt the connection parameters. If
-        /// you do not specify a value for the KmsKeyId parameter, then AWS DMS will use your
-        /// default encryption key. AWS KMS creates the default encryption key for your AWS account.
-        /// Your AWS account has a different default encryption key for each AWS region. </para>
+        /// <para>The AWS KMS key identifier that is used to encrypt the content on the replication
+        /// instance. If you don't specify a value for the <code>KmsKeyId</code> parameter, then
+        /// AWS DMS uses your default encryption key. AWS KMS creates the default encryption key
+        /// for your AWS account. Your AWS account has a different default encryption key for
+        /// each AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MongoDbSettings_KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_MessageFormat
+        /// <summary>
+        /// <para>
+        /// <para>The output format for the records created on the endpoint. The message format is <code>JSON</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.MessageFormatValue")]
+        public Amazon.DatabaseMigrationService.MessageFormatValue KinesisSettings_MessageFormat { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_NestingLevel
@@ -313,7 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password to be used to login to the endpoint database.</para>
+        /// <para>The password to be used to log in to the endpoint database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -380,6 +426,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
         #endregion
         
+        #region Parameter ElasticsearchSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) used by service to access the IAM role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ElasticsearchSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM role that DMS uses to write to the Amazon
+        /// Kinesis data stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_ServiceAccessRoleArn
         /// <summary>
         /// <para>
@@ -393,8 +460,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ServiceAccessRoleArn
         /// <summary>
         /// <para>
-        /// <para> The Amazon Resource Name (ARN) for the service access role you want to use to create
-        /// the endpoint. </para>
+        /// <para> The Amazon Resource Name (ARN) for the service access role that you want to use to
+        /// create the endpoint. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -404,12 +471,24 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter SslMode
         /// <summary>
         /// <para>
-        /// <para>The SSL mode to use for the SSL connection.</para><para>SSL mode can be one of four values: none, require, verify-ca, verify-full. </para><para>The default value is none.</para>
+        /// <para>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The SSL mode can
+        /// be one of four values: <code>none</code>, <code>require</code>, <code>verify-ca</code>,
+        /// <code>verify-full</code>. The default value is <code>none</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.DmsSslModeValue")]
         public Amazon.DatabaseMigrationService.DmsSslModeValue SslMode { get; set; }
+        #endregion
+        
+        #region Parameter KinesisSettings_StreamArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) for the Amazon Kinesis Data Streams endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KinesisSettings_StreamArn { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -436,7 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name to be used to login to the endpoint database.</para>
+        /// <para>The user name to be used to log in to the endpoint database.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -477,11 +556,20 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.DmsTransferSettings_BucketName = this.DmsTransferSettings_BucketName;
             context.DmsTransferSettings_ServiceAccessRoleArn = this.DmsTransferSettings_ServiceAccessRoleArn;
             context.DynamoDbSettings_ServiceAccessRoleArn = this.DynamoDbSettings_ServiceAccessRoleArn;
+            context.ElasticsearchSettings_EndpointUri = this.ElasticsearchSettings_EndpointUri;
+            if (ParameterWasBound("ElasticsearchSettings_ErrorRetryDuration"))
+                context.ElasticsearchSettings_ErrorRetryDuration = this.ElasticsearchSettings_ErrorRetryDuration;
+            if (ParameterWasBound("ElasticsearchSettings_FullLoadErrorPercentage"))
+                context.ElasticsearchSettings_FullLoadErrorPercentage = this.ElasticsearchSettings_FullLoadErrorPercentage;
+            context.ElasticsearchSettings_ServiceAccessRoleArn = this.ElasticsearchSettings_ServiceAccessRoleArn;
             context.EndpointIdentifier = this.EndpointIdentifier;
             context.EndpointType = this.EndpointType;
             context.EngineName = this.EngineName;
             context.ExternalTableDefinition = this.ExternalTableDefinition;
             context.ExtraConnectionAttributes = this.ExtraConnectionAttribute;
+            context.KinesisSettings_MessageFormat = this.KinesisSettings_MessageFormat;
+            context.KinesisSettings_ServiceAccessRoleArn = this.KinesisSettings_ServiceAccessRoleArn;
+            context.KinesisSettings_StreamArn = this.KinesisSettings_StreamArn;
             context.KmsKeyId = this.KmsKeyId;
             context.MongoDbSettings_AuthMechanism = this.MongoDbSettings_AuthMechanism;
             context.MongoDbSettings_AuthSource = this.MongoDbSettings_AuthSource;
@@ -586,6 +674,55 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             {
                 request.DynamoDbSettings = null;
             }
+            
+             // populate ElasticsearchSettings
+            bool requestElasticsearchSettingsIsNull = true;
+            request.ElasticsearchSettings = new Amazon.DatabaseMigrationService.Model.ElasticsearchSettings();
+            System.String requestElasticsearchSettings_elasticsearchSettings_EndpointUri = null;
+            if (cmdletContext.ElasticsearchSettings_EndpointUri != null)
+            {
+                requestElasticsearchSettings_elasticsearchSettings_EndpointUri = cmdletContext.ElasticsearchSettings_EndpointUri;
+            }
+            if (requestElasticsearchSettings_elasticsearchSettings_EndpointUri != null)
+            {
+                request.ElasticsearchSettings.EndpointUri = requestElasticsearchSettings_elasticsearchSettings_EndpointUri;
+                requestElasticsearchSettingsIsNull = false;
+            }
+            System.Int32? requestElasticsearchSettings_elasticsearchSettings_ErrorRetryDuration = null;
+            if (cmdletContext.ElasticsearchSettings_ErrorRetryDuration != null)
+            {
+                requestElasticsearchSettings_elasticsearchSettings_ErrorRetryDuration = cmdletContext.ElasticsearchSettings_ErrorRetryDuration.Value;
+            }
+            if (requestElasticsearchSettings_elasticsearchSettings_ErrorRetryDuration != null)
+            {
+                request.ElasticsearchSettings.ErrorRetryDuration = requestElasticsearchSettings_elasticsearchSettings_ErrorRetryDuration.Value;
+                requestElasticsearchSettingsIsNull = false;
+            }
+            System.Int32? requestElasticsearchSettings_elasticsearchSettings_FullLoadErrorPercentage = null;
+            if (cmdletContext.ElasticsearchSettings_FullLoadErrorPercentage != null)
+            {
+                requestElasticsearchSettings_elasticsearchSettings_FullLoadErrorPercentage = cmdletContext.ElasticsearchSettings_FullLoadErrorPercentage.Value;
+            }
+            if (requestElasticsearchSettings_elasticsearchSettings_FullLoadErrorPercentage != null)
+            {
+                request.ElasticsearchSettings.FullLoadErrorPercentage = requestElasticsearchSettings_elasticsearchSettings_FullLoadErrorPercentage.Value;
+                requestElasticsearchSettingsIsNull = false;
+            }
+            System.String requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.ElasticsearchSettings_ServiceAccessRoleArn != null)
+            {
+                requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn = cmdletContext.ElasticsearchSettings_ServiceAccessRoleArn;
+            }
+            if (requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn != null)
+            {
+                request.ElasticsearchSettings.ServiceAccessRoleArn = requestElasticsearchSettings_elasticsearchSettings_ServiceAccessRoleArn;
+                requestElasticsearchSettingsIsNull = false;
+            }
+             // determine if request.ElasticsearchSettings should be set to null
+            if (requestElasticsearchSettingsIsNull)
+            {
+                request.ElasticsearchSettings = null;
+            }
             if (cmdletContext.EndpointIdentifier != null)
             {
                 request.EndpointIdentifier = cmdletContext.EndpointIdentifier;
@@ -605,6 +742,45 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.ExtraConnectionAttributes != null)
             {
                 request.ExtraConnectionAttributes = cmdletContext.ExtraConnectionAttributes;
+            }
+            
+             // populate KinesisSettings
+            bool requestKinesisSettingsIsNull = true;
+            request.KinesisSettings = new Amazon.DatabaseMigrationService.Model.KinesisSettings();
+            Amazon.DatabaseMigrationService.MessageFormatValue requestKinesisSettings_kinesisSettings_MessageFormat = null;
+            if (cmdletContext.KinesisSettings_MessageFormat != null)
+            {
+                requestKinesisSettings_kinesisSettings_MessageFormat = cmdletContext.KinesisSettings_MessageFormat;
+            }
+            if (requestKinesisSettings_kinesisSettings_MessageFormat != null)
+            {
+                request.KinesisSettings.MessageFormat = requestKinesisSettings_kinesisSettings_MessageFormat;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.String requestKinesisSettings_kinesisSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.KinesisSettings_ServiceAccessRoleArn != null)
+            {
+                requestKinesisSettings_kinesisSettings_ServiceAccessRoleArn = cmdletContext.KinesisSettings_ServiceAccessRoleArn;
+            }
+            if (requestKinesisSettings_kinesisSettings_ServiceAccessRoleArn != null)
+            {
+                request.KinesisSettings.ServiceAccessRoleArn = requestKinesisSettings_kinesisSettings_ServiceAccessRoleArn;
+                requestKinesisSettingsIsNull = false;
+            }
+            System.String requestKinesisSettings_kinesisSettings_StreamArn = null;
+            if (cmdletContext.KinesisSettings_StreamArn != null)
+            {
+                requestKinesisSettings_kinesisSettings_StreamArn = cmdletContext.KinesisSettings_StreamArn;
+            }
+            if (requestKinesisSettings_kinesisSettings_StreamArn != null)
+            {
+                request.KinesisSettings.StreamArn = requestKinesisSettings_kinesisSettings_StreamArn;
+                requestKinesisSettingsIsNull = false;
+            }
+             // determine if request.KinesisSettings should be set to null
+            if (requestKinesisSettingsIsNull)
+            {
+                request.KinesisSettings = null;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -915,11 +1091,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String DmsTransferSettings_BucketName { get; set; }
             public System.String DmsTransferSettings_ServiceAccessRoleArn { get; set; }
             public System.String DynamoDbSettings_ServiceAccessRoleArn { get; set; }
+            public System.String ElasticsearchSettings_EndpointUri { get; set; }
+            public System.Int32? ElasticsearchSettings_ErrorRetryDuration { get; set; }
+            public System.Int32? ElasticsearchSettings_FullLoadErrorPercentage { get; set; }
+            public System.String ElasticsearchSettings_ServiceAccessRoleArn { get; set; }
             public System.String EndpointIdentifier { get; set; }
             public Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue EndpointType { get; set; }
             public System.String EngineName { get; set; }
             public System.String ExternalTableDefinition { get; set; }
             public System.String ExtraConnectionAttributes { get; set; }
+            public Amazon.DatabaseMigrationService.MessageFormatValue KinesisSettings_MessageFormat { get; set; }
+            public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
+            public System.String KinesisSettings_StreamArn { get; set; }
             public System.String KmsKeyId { get; set; }
             public Amazon.DatabaseMigrationService.AuthMechanismValue MongoDbSettings_AuthMechanism { get; set; }
             public System.String MongoDbSettings_AuthSource { get; set; }

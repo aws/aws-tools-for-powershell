@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Attaches a block storage disk to a running or stopped Lightsail instance and exposes
     /// it to the instance with the specified disk name.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>attach disk</code> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by diskName. For more information, see the
+    /// <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "LSDisk", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

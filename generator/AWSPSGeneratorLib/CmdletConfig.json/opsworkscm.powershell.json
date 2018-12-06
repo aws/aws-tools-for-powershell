@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Node",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -116,8 +115,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -168,8 +166,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Server",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -222,8 +219,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: BackupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -274,8 +270,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Server",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -326,8 +321,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -373,7 +367,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -420,7 +413,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -467,8 +459,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NodeAssociationStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -514,7 +505,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Servers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -561,8 +551,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Node",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -613,8 +602,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerEngineAttribute",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -665,8 +653,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Server",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -717,8 +704,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Maintenance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -769,8 +755,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Server",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -821,8 +806,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerEngineAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

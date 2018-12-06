@@ -28,9 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the Elastic GPUs associated with your instances. For more information about
-    /// Elastic GPUs, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html">Amazon
-    /// EC2 Elastic GPUs</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the Elastic Graphics accelerator associated with your instances. For more
+    /// information about Elastic Graphics, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html">Amazon
+    /// Elastic Graphics</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2ElasticGpu")]
     [OutputType("Amazon.EC2.Model.ElasticGpus")]
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ElasticGpuId
         /// <summary>
         /// <para>
-        /// <para>One or more Elastic GPU IDs.</para>
+        /// <para>One or more Elastic Graphics accelerator IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,8 +57,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone in which the Elastic GPU resides.</para></li><li><para><code>elastic-gpu-health</code> - The status of the Elastic GPU (<code>OK</code>
-        /// | <code>IMPAIRED</code>).</para></li><li><para><code>elastic-gpu-state</code> - The state of the Elastic GPU (<code>ATTACHED</code>).</para></li><li><para><code>elastic-gpu-type</code> - The type of Elastic GPU; for example, <code>eg1.medium</code>.</para></li><li><para><code>instance-id</code> - The ID of the instance to which the Elastic GPU is associated.</para></li></ul>
+        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone in which the Elastic Graphics
+        /// accelerator resides.</para></li><li><para><code>elastic-gpu-health</code> - The status of the Elastic Graphics accelerator
+        /// (<code>OK</code> | <code>IMPAIRED</code>).</para></li><li><para><code>elastic-gpu-state</code> - The state of the Elastic Graphics accelerator (<code>ATTACHED</code>).</para></li><li><para><code>elastic-gpu-type</code> - The type of Elastic Graphics accelerator; for example,
+        /// <code>eg1.medium</code>.</para></li><li><para><code>instance-id</code> - The ID of the instance to which the Elastic Graphics accelerator
+        /// is associated.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

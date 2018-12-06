@@ -28,17 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns a list of event source mappings you created using the <code>CreateEventSourceMapping</code>
-    /// (see <a>CreateEventSourceMapping</a>). 
-    /// 
-    ///  
-    /// <para>
-    /// For each mapping, the API returns configuration information. You can optionally specify
-    /// filters to retrieve specific event source mappings.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:ListEventSourceMappings</code>
-    /// action.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event
+    /// source mappings for a single event source.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMappingList")]
     [OutputType("Amazon.Lambda.Model.EventSourceMappingConfiguration")]
@@ -54,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter EventSourceArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream. (This parameter
-        /// is optional.)</para>
+        /// <para>The Amazon Resource Name (ARN) of the event source.</para><ul><li><para><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</para></li><li><para><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</para></li><li><para><b>Amazon Simple Queue Service</b> - The ARN of the queue.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,9 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional string. An opaque pagination token returned from a previous <code>ListEventSourceMappings</code>
-        /// operation. If present, specifies to continue the list from where the returning call
-        /// left off. </para>
+        /// <para>A pagination token returned by a previous call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -91,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of event sources to return in response.
-        /// This value must be greater than 0.</para>
+        /// <para>The maximum number of event source mappings to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

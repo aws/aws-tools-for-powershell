@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>Optional filters used to narrow down the scope of the returned Maintenance Windows.
-        /// Supported filter keys are Name and Enabled.</para>
+        /// Supported filter keys are <b>Name</b> and <b>Enabled</b>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

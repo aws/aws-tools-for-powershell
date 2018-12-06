@@ -92,6 +92,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.ImageDiskContainer[] DiskContainer { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the destination AMI of the imported image should be encrypted. The
+        /// default CMK for EBS is used unless you specify a non-default AWS Key Management Service
+        /// (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        #endregion
+        
         #region Parameter Hypervisor
         /// <summary>
         /// <para>
@@ -100,6 +113,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Hypervisor { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK)
+        /// to use when creating the encrypted AMI. This parameter is only required if you want
+        /// to use a non-default CMK; if this parameter is not specified, the default CMK for
+        /// EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag
+        /// must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias, in the form <code>alias/<i>ExampleAlias</i></code></para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
+        /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
+        /// followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
+        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.
+        /// </para></li></ul><para>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call
+        /// may appear to complete even though you provided an invalid identifier. This action
+        /// will eventually report failure. </para><para>The specified CMK must exist in the region that the AMI is being copied to. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
         #endregion
         
         #region Parameter LicenseType
@@ -251,7 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.DiskContainers = new List<Amazon.EC2.Model.ImageDiskContainer>(this.DiskContainer);
             }
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
             context.Hypervisor = this.Hypervisor;
+            context.KmsKeyId = this.KmsKeyId;
             context.LicenseType = this.LicenseType;
             context.Platform = this.Platform;
             context.RoleName = this.RoleName;
@@ -368,9 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.DiskContainers = cmdletContext.DiskContainers;
             }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
             if (cmdletContext.Hypervisor != null)
             {
                 request.Hypervisor = cmdletContext.Hypervisor;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.LicenseType != null)
             {
@@ -460,7 +505,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.EC2.Model.ImageDiskContainer> DiskContainers { get; set; }
+            public System.Boolean? Encrypted { get; set; }
             public System.String Hypervisor { get; set; }
+            public System.String KmsKeyId { get; set; }
             public System.String LicenseType { get; set; }
             public System.String Platform { get; set; }
             public System.String RoleName { get; set; }

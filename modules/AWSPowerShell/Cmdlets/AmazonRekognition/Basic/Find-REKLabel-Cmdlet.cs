@@ -66,7 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><note><para>
     /// If the object detected is a person, the operation doesn't provide the same facial
     /// details that the <a>DetectFaces</a> operation provides.
-    /// </para></note><para>
+    /// </para></note><para><code>DetectLabels</code> returns bounding boxes for instances of common object labels
+    /// in an array of objects. An <code>Instance</code> object contains a object, for the
+    /// location of the label on the image. It also includes the confidence by which the bounding
+    /// box was detected.
+    /// </para><para><code>DetectLabels</code> also returns a hierarchical taxonomy of detected labels.
+    /// For example, a detected car might be assigned the label <i>car</i>. The label <i>car</i>
+    /// has two parent labels: <i>Vehicle</i> (its parent) and <i>Transportation</i> (its
+    /// grandparent). The response returns the entire list of ancestors for a label. Each
+    /// ancestor is a unique label in the response. In the previous example, <i>Car</i>, <i>Vehicle</i>,
+    /// and <i>Transportation</i> are returned as unique labels in the response. 
+    /// </para><para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:DetectLabels</code>

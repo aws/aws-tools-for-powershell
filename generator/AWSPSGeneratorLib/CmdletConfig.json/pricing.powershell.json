@@ -66,7 +66,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Services",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -115,7 +114,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttributeValues",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -164,7 +162,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Products",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",

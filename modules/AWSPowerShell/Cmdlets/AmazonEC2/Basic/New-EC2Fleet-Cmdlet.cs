@@ -40,11 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Fleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
+    [OutputType("Amazon.EC2.Model.CreateFleetResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateFleet API operation.", Operation = new[] {"CreateFleet"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.EC2.Model.CreateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.EC2.Model.CreateFleetResponse",
+        "This cmdlet returns a Amazon.EC2.Model.CreateFleetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewEC2FleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -147,6 +146,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.FleetLaunchTemplateConfigRequest[] LaunchTemplateConfig { get; set; }
         #endregion
         
+        #region Parameter OnDemandOptions_MinTargetCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum target capacity for On-Demand Instances in the fleet. If the minimum target
+        /// capacity is not reached, the fleet launches no instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 OnDemandOptions_MinTargetCapacity { get; set; }
+        #endregion
+        
+        #region Parameter SpotOptions_MinTargetCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The minimum target capacity for Spot Instances in the fleet. If the minimum target
+        /// capacity is not reached, the fleet launches no instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 SpotOptions_MinTargetCapacity { get; set; }
+        #endregion
+        
         #region Parameter TargetCapacitySpecification_OnDemandTargetCapacity
         /// <summary>
         /// <para>
@@ -166,6 +187,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [Alias("ReplaceUnhealthyInstances")]
         public System.Boolean ReplaceUnhealthyInstance { get; set; }
+        #endregion
+        
+        #region Parameter OnDemandOptions_SingleInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that the fleet uses a single instance type to launch all On-Demand Instances
+        /// in the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean OnDemandOptions_SingleInstanceType { get; set; }
+        #endregion
+        
+        #region Parameter SpotOptions_SingleInstanceType
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that the fleet uses a single instance type to launch all Spot Instances
+        /// in the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SpotOptions_SingleInstanceType { get; set; }
         #endregion
         
         #region Parameter TargetCapacitySpecification_SpotTargetCapacity
@@ -216,13 +259,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of request. Indicates whether the EC2 Fleet only <code>requests</code> the
-        /// target capacity, or also attempts to <code>maintain</code> it. If you request a certain
-        /// target capacity, EC2 Fleet only places the required requests. It does not attempt
-        /// to replenish instances if capacity is diminished, and does not submit requests in
-        /// alternative capacity pools if capacity is unavailable. To maintain a certain target
-        /// capacity, EC2 Fleet places the required requests to meet this target capacity. It
-        /// also automatically replenishes any interrupted Spot Instances. Default: <code>maintain</code>.</para>
+        /// <para>The type of the request. By default, the EC2 Fleet places an asynchronous request
+        /// for your desired capacity, and maintains it by replenishing interrupted Spot Instances
+        /// (<code>maintain</code>). A value of <code>instant</code> places a synchronous one-time
+        /// request, and returns errors for any instances that could not be launched. A value
+        /// of <code>request</code> places an asynchronous one-time request without maintaining
+        /// capacity or submitting requests in alternative capacity pools if capacity is unavailable.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2
+        /// Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -328,12 +372,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.LaunchTemplateConfigs = new List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest>(this.LaunchTemplateConfig);
             }
             context.OnDemandOptions_AllocationStrategy = this.OnDemandOptions_AllocationStrategy;
+            if (ParameterWasBound("OnDemandOptions_MinTargetCapacity"))
+                context.OnDemandOptions_MinTargetCapacity = this.OnDemandOptions_MinTargetCapacity;
+            if (ParameterWasBound("OnDemandOptions_SingleInstanceType"))
+                context.OnDemandOptions_SingleInstanceType = this.OnDemandOptions_SingleInstanceType;
             if (ParameterWasBound("ReplaceUnhealthyInstance"))
                 context.ReplaceUnhealthyInstances = this.ReplaceUnhealthyInstance;
             context.SpotOptions_AllocationStrategy = this.SpotOptions_AllocationStrategy;
             context.SpotOptions_InstanceInterruptionBehavior = this.SpotOptions_InstanceInterruptionBehavior;
             if (ParameterWasBound("SpotOptions_InstancePoolsToUseCount"))
                 context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
+            if (ParameterWasBound("SpotOptions_MinTargetCapacity"))
+                context.SpotOptions_MinTargetCapacity = this.SpotOptions_MinTargetCapacity;
+            if (ParameterWasBound("SpotOptions_SingleInstanceType"))
+                context.SpotOptions_SingleInstanceType = this.SpotOptions_SingleInstanceType;
             if (this.TagSpecification != null)
             {
                 context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
@@ -402,6 +454,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.OnDemandOptions.AllocationStrategy = requestOnDemandOptions_onDemandOptions_AllocationStrategy;
                 requestOnDemandOptionsIsNull = false;
             }
+            System.Int32? requestOnDemandOptions_onDemandOptions_MinTargetCapacity = null;
+            if (cmdletContext.OnDemandOptions_MinTargetCapacity != null)
+            {
+                requestOnDemandOptions_onDemandOptions_MinTargetCapacity = cmdletContext.OnDemandOptions_MinTargetCapacity.Value;
+            }
+            if (requestOnDemandOptions_onDemandOptions_MinTargetCapacity != null)
+            {
+                request.OnDemandOptions.MinTargetCapacity = requestOnDemandOptions_onDemandOptions_MinTargetCapacity.Value;
+                requestOnDemandOptionsIsNull = false;
+            }
+            System.Boolean? requestOnDemandOptions_onDemandOptions_SingleInstanceType = null;
+            if (cmdletContext.OnDemandOptions_SingleInstanceType != null)
+            {
+                requestOnDemandOptions_onDemandOptions_SingleInstanceType = cmdletContext.OnDemandOptions_SingleInstanceType.Value;
+            }
+            if (requestOnDemandOptions_onDemandOptions_SingleInstanceType != null)
+            {
+                request.OnDemandOptions.SingleInstanceType = requestOnDemandOptions_onDemandOptions_SingleInstanceType.Value;
+                requestOnDemandOptionsIsNull = false;
+            }
              // determine if request.OnDemandOptions should be set to null
             if (requestOnDemandOptionsIsNull)
             {
@@ -443,6 +515,26 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotOptions_spotOptions_InstancePoolsToUseCount != null)
             {
                 request.SpotOptions.InstancePoolsToUseCount = requestSpotOptions_spotOptions_InstancePoolsToUseCount.Value;
+                requestSpotOptionsIsNull = false;
+            }
+            System.Int32? requestSpotOptions_spotOptions_MinTargetCapacity = null;
+            if (cmdletContext.SpotOptions_MinTargetCapacity != null)
+            {
+                requestSpotOptions_spotOptions_MinTargetCapacity = cmdletContext.SpotOptions_MinTargetCapacity.Value;
+            }
+            if (requestSpotOptions_spotOptions_MinTargetCapacity != null)
+            {
+                request.SpotOptions.MinTargetCapacity = requestSpotOptions_spotOptions_MinTargetCapacity.Value;
+                requestSpotOptionsIsNull = false;
+            }
+            System.Boolean? requestSpotOptions_spotOptions_SingleInstanceType = null;
+            if (cmdletContext.SpotOptions_SingleInstanceType != null)
+            {
+                requestSpotOptions_spotOptions_SingleInstanceType = cmdletContext.SpotOptions_SingleInstanceType.Value;
+            }
+            if (requestSpotOptions_spotOptions_SingleInstanceType != null)
+            {
+                request.SpotOptions.SingleInstanceType = requestSpotOptions_spotOptions_SingleInstanceType.Value;
                 requestSpotOptionsIsNull = false;
             }
              // determine if request.SpotOptions should be set to null
@@ -548,7 +640,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FleetId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -607,10 +699,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.FleetExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfigs { get; set; }
             public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
+            public System.Int32? OnDemandOptions_MinTargetCapacity { get; set; }
+            public System.Boolean? OnDemandOptions_SingleInstanceType { get; set; }
             public System.Boolean? ReplaceUnhealthyInstances { get; set; }
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }
+            public System.Int32? SpotOptions_MinTargetCapacity { get; set; }
+            public System.Boolean? SpotOptions_SingleInstanceType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }
             public System.Int32? TargetCapacitySpecification_OnDemandTargetCapacity { get; set; }

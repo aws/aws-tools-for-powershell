@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// The Amazon ECS API follows an eventual consistency model, due to the distributed nature
     /// of the system supporting the API. This means that the result of an API command you
     /// run that affects your Amazon ECS resources might not be immediately visible to all
-    /// subsequent commands you run. You should keep this in mind when you carry out an API
-    /// command that immediately follows a previous API command.
+    /// subsequent commands you run. Keep this in mind when you carry out an API command that
+    /// immediately follows a previous API command.
     /// </para><para>
     /// To manage eventual consistency, you can do the following:
     /// </para><ul><li><para>
@@ -114,6 +114,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32 Count { get; set; }
         #endregion
         
+        #region Parameter EnableECSManagedTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+        /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnableECSManagedTags")]
+        public System.Boolean EnableECSManagedTag { get; set; }
+        #endregion
+        
         #region Parameter Overrides_ExecutionRoleArn
         /// <summary>
         /// <para>
@@ -139,7 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your task.</para>
+        /// <para>The launch type on which to run your task. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -152,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>An array of placement constraint objects to use for the task. You can specify up to
         /// 10 constraints per task (including constraints in the task definition and those specified
-        /// at run time).</para>
+        /// at runtime).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -174,19 +189,35 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlatformVersion
         /// <summary>
         /// <para>
-        /// <para>The platform version on which to run your task. If one is not specified, the latest
-        /// version is used by default.</para>
+        /// <para>The platform version the task should run. A platform version is only specified for
+        /// tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code>
+        /// platform version is used by default. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PlatformVersion { get; set; }
         #endregion
         
+        #region Parameter PropagateTag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to propagate the tags from the task definition or the service to
+        /// the task. If no value is specified, the tags are not propagated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PropagateTags")]
+        [AWSConstantClassSource("Amazon.ECS.PropagateTags")]
+        public Amazon.ECS.PropagateTags PropagateTag { get; set; }
+        #endregion
+        
         #region Parameter AwsvpcConfiguration_SecurityGroup
         /// <summary>
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used. There is a limit of 5 security
+        /// group, the default security group for the VPC is used. There is a limit of five security
         /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
@@ -198,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter StartedBy
         /// <summary>
         /// <para>
-        /// <para>An optional tag specified when a task is started. For example if you automatically
+        /// <para>An optional tag specified when a task is started. For example, if you automatically
         /// trigger a task to run a batch process job, you could apply a unique identifier for
         /// that job to your task with the <code>startedBy</code> parameter. You can then identify
         /// which tasks belong to that job by filtering the results of a <a>ListTasks</a> call
@@ -221,6 +252,20 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         [System.Management.Automation.Parameter]
         [Alias("NetworkConfiguration_AwsvpcConfiguration_Subnets")]
         public System.String[] AwsvpcConfiguration_Subnet { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The metadata that you apply to the task to help you categorize and organize them.
+        /// Each tag consists of a key and an optional value, both of which you define. Tag keys
+        /// can have a maximum character length of 128 characters, and tag values can have a maximum
+        /// length of 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ECS.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter TaskDefinition
@@ -279,6 +324,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             context.Cluster = this.Cluster;
             if (ParameterWasBound("Count"))
                 context.Count = this.Count;
+            if (ParameterWasBound("EnableECSManagedTag"))
+                context.EnableECSManagedTags = this.EnableECSManagedTag;
             context.Group = this.Group;
             context.LaunchType = this.LaunchType;
             context.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
@@ -305,7 +352,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
             }
             context.PlatformVersion = this.PlatformVersion;
+            context.PropagateTags = this.PropagateTag;
             context.StartedBy = this.StartedBy;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ECS.Model.Tag>(this.Tag);
+            }
             context.TaskDefinition = this.TaskDefinition;
             
             // allow further manipulation of loaded context prior to processing
@@ -330,6 +382,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Count != null)
             {
                 request.Count = cmdletContext.Count.Value;
+            }
+            if (cmdletContext.EnableECSManagedTags != null)
+            {
+                request.EnableECSManagedTags = cmdletContext.EnableECSManagedTags.Value;
             }
             if (cmdletContext.Group != null)
             {
@@ -444,9 +500,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.PlatformVersion = cmdletContext.PlatformVersion;
             }
+            if (cmdletContext.PropagateTags != null)
+            {
+                request.PropagateTags = cmdletContext.PropagateTags;
+            }
             if (cmdletContext.StartedBy != null)
             {
                 request.StartedBy = cmdletContext.StartedBy;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TaskDefinition != null)
             {
@@ -518,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
+            public System.Boolean? EnableECSManagedTags { get; set; }
             public System.String Group { get; set; }
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }
@@ -529,7 +594,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
             public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
             public System.String PlatformVersion { get; set; }
+            public Amazon.ECS.PropagateTags PropagateTags { get; set; }
             public System.String StartedBy { get; set; }
+            public List<Amazon.ECS.Model.Tag> Tags { get; set; }
             public System.String TaskDefinition { get; set; }
         }
         

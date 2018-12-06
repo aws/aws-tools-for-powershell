@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The ID of the AWS Greengrass group.
+        /// The ID of the Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

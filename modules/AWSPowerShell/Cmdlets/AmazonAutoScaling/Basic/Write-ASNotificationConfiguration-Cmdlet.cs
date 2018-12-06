@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
     /// SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User
     /// Guide</i>.
     /// </para>
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter NotificationType
         /// <summary>
         /// <para>
-        /// <para>The type of event that will cause the notification to be sent. For details about notification
-        /// types supported by Amazon EC2 Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</para>
+        /// <para>The type of event that causes the notification to be sent. For more information about
+        /// notification types supported by Amazon EC2 Auto Scaling, see <a>DescribeAutoScalingNotificationTypes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TopicARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
+        /// topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

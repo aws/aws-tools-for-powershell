@@ -81,8 +81,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -136,8 +135,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AddUserToGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Username",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -189,8 +187,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfirmSignUp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -242,8 +239,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreateUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -295,8 +291,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteUser",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -348,8 +343,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteUserAttributes",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -401,8 +395,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DisableProviderForUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -454,8 +447,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DisableUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -507,8 +499,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnableUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -562,8 +553,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ForgetDevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeviceKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -617,8 +607,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetDevice",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -665,8 +654,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -715,8 +703,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InitiateAuth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -768,8 +755,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LinkProviderForUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -831,7 +817,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListDevices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -889,7 +874,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListGroupsForUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -937,7 +921,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListUserAuthEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -987,8 +970,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RemoveUserFromGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Username",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1040,8 +1022,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResetUserPassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1095,8 +1076,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RespondToAuthChallenge",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1148,8 +1128,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SetUserMFAPreference",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1201,8 +1180,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SetUserSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1254,8 +1232,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateAuthEventFeedback",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1309,8 +1286,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateDeviceStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeviceKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1362,8 +1338,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateUserAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1417,8 +1392,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserGlobalSignOut",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Username",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1470,8 +1444,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SoftwareToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1523,8 +1496,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1578,8 +1550,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1631,8 +1602,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ForgotPassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1684,8 +1654,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SignUp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1739,8 +1708,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1794,8 +1762,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1849,8 +1816,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1902,8 +1868,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1955,8 +1920,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2008,8 +1972,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2063,8 +2026,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2118,8 +2080,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2173,8 +2134,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProviderName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2228,8 +2188,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2283,8 +2242,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2338,8 +2296,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserAttributes",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2391,8 +2348,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2446,8 +2402,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ClientId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2501,8 +2456,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolDomain",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Domain",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2556,8 +2510,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2606,8 +2559,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2654,8 +2606,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RiskConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2704,8 +2655,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2752,8 +2702,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2800,8 +2749,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2850,8 +2798,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2900,8 +2847,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeviceKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2953,8 +2899,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3006,8 +2951,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CSVHeader",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3056,8 +3000,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3106,8 +3049,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3156,8 +3098,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProviderByIdentifier",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3204,8 +3145,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3252,8 +3192,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UICustomization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3302,8 +3241,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3350,8 +3288,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserAttributeVerificationCode",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3398,8 +3335,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolMfaConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3448,8 +3384,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SignOut",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3503,8 +3438,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Auth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3566,7 +3500,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Devices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3622,7 +3555,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3670,7 +3602,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProviders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3718,7 +3649,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3774,7 +3704,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3822,7 +3751,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClients",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3870,7 +3798,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPools",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3926,7 +3853,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3984,7 +3910,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UsersInGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -4032,8 +3957,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfirmationCode",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4087,8 +4011,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ToAuthChallenge",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4140,8 +4063,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RiskConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4193,8 +4115,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UICustomization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4248,8 +4169,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserMFAPreference",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4301,8 +4221,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolMfaConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4354,8 +4273,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4407,8 +4325,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Up",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4462,8 +4379,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4517,8 +4433,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4570,8 +4485,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AuthEventFeedback",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4625,8 +4539,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeviceKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4680,8 +4593,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4735,8 +4647,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4790,8 +4701,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4843,8 +4753,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4896,8 +4805,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserPoolId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4949,8 +4857,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5004,8 +4911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SoftwareToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -5054,8 +4960,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserAttribute",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

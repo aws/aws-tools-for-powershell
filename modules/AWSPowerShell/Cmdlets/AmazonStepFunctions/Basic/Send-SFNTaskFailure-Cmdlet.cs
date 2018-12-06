@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Error
         /// <summary>
         /// <para>
-        /// <para>An arbitrary error code that identifies the cause of the failure.</para>
+        /// <para>The error code of the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

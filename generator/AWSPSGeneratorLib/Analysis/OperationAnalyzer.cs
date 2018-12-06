@@ -94,43 +94,6 @@ namespace AWSPowerShellGenerator.Analysis
         }
 
         /// <summary>
-        /// Helper to indicate if codegen should emit an iteration pattern
-        /// </summary>
-        public bool GenerateIterationCode
-        {
-            get
-            {
-                var autoIteration = AutoIterateSettings;
-                if (autoIteration == null)
-                    return false;
-
-                var pattern = autoIteration.Pattern;
-
-                if (pattern == AutoIteration.AutoIteratePattern.None
-                        || autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName))
-                    return false;
-
-                switch (pattern)
-                {
-                    case AutoIteration.AutoIteratePattern.Pattern1:
-                        return AreRequestFieldsPresent(AnalyzedParameters, autoIteration.Start)
-                            && AreResultFieldsPresent(ReturnType, autoIteration.Next);
-
-                    case AutoIteration.AutoIteratePattern.Pattern2:
-                        return AreRequestFieldsPresent(AnalyzedParameters, autoIteration.Start, autoIteration.EmitLimit)
-                            && AreResultFieldsPresent(ReturnType, autoIteration.Next);
-
-                    case AutoIteration.AutoIteratePattern.Pattern3:
-                        return AreRequestFieldsPresent(AnalyzedParameters, autoIteration.Start, autoIteration.EmitLimit)
-                            && AreResultFieldsPresent(ReturnType, autoIteration.Next, autoIteration.TruncatedFlag);
-
-                    default:
-                        return false;
-                }
-            }
-        }
-
-        /// <summary>
         /// The iteration code pattern that should be generated for the operation, if any.
         /// </summary>
         public AutoIteration.AutoIteratePattern IterationPattern
@@ -138,7 +101,33 @@ namespace AWSPowerShellGenerator.Analysis
             get
             {
                 var autoIteration = AutoIterateSettings;
-                return autoIteration != null ? autoIteration.Pattern : AutoIteration.AutoIteratePattern.None;
+
+                //If autoiteration has configured field names for at least Start (input parameter idicating the pagination token) and Next
+                //(output value idicating the next pagination token) and the Start parameter is actually present in the input type
+                //and the Next value is present in the returned type
+                if (autoIteration != null && !autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName) &&
+                    !String.IsNullOrEmpty(autoIteration.Start) && !String.IsNullOrEmpty(autoIteration.Next) &&
+                    AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.Start) && AreResultFieldsPresent(ReturnType, autoIteration.Next))
+                {
+                    //If autoiteration also has configured a field name for EmitLimit (input parameter idicating the max number of items
+                    //to be returned by the service) and the EmitLimit parameter is actually present in the input type
+                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit) &&
+                        AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
+                    {
+                        //If autoiteration also has configured a field name for TruncatedFlag (output value idicating if more data is availabe
+                        //but was not returned due to pagination) and the TruncatedFlag value is present in the returned type
+                        if (!String.IsNullOrEmpty(autoIteration.TruncatedFlag) && AreResultFieldsPresent(ReturnType, autoIteration.TruncatedFlag))
+                        {
+                            return AutoIteration.AutoIteratePattern.Pattern3;
+                        }
+                        else
+                            return AutoIteration.AutoIteratePattern.Pattern2;
+                    }
+                    else
+                        return AutoIteration.AutoIteratePattern.Pattern1;
+                }
+
+                return AutoIteration.AutoIteratePattern.None;
             }
         }
 

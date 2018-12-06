@@ -71,8 +71,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -123,8 +122,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComputeEnvironment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -175,8 +173,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobQueue",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -229,8 +226,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComputeEnvironment",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ComputeEnvironment",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -283,8 +279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobQueue",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobQueue",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -337,8 +332,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobDefinition",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -389,7 +383,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComputeEnvironments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -438,7 +431,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -485,7 +477,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobQueues",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -534,8 +525,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -583,7 +573,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -632,8 +621,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -686,8 +674,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -738,8 +725,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: JobId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -792,8 +778,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComputeEnvironment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -846,8 +831,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobQueue",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

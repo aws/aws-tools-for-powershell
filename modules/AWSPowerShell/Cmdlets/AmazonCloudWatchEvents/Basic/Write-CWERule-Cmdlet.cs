@@ -50,6 +50,21 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// However, CloudWatch Events uses an exact match in event patterns and rules. Be sure
     /// to use the correct ARN characters when creating event patterns so that they match
     /// the ARN syntax in the event you want to match.
+    /// </para><para>
+    /// In CloudWatch Events, it is possible to create rules that lead to infinite loops,
+    /// where a rule is fired repeatedly. For example, a rule might detect that ACLs have
+    /// changed on an S3 bucket, and trigger software to change them to the desired state.
+    /// If the rule is not written carefully, the subsequent change to the ACLs fires the
+    /// rule again, creating an infinite loop.
+    /// </para><para>
+    /// To prevent this, write the rules so that the triggered actions do not re-fire the
+    /// same rule. For example, your rule could fire only if ACLs are found to be in a bad
+    /// state, instead of after any change. 
+    /// </para><para>
+    /// An infinite loop can quickly cause higher than expected charges. We recommend that
+    /// you use budgeting, which alerts you when charges exceed your specified limit. For
+    /// more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing
+    /// Your Costs with Budgets</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

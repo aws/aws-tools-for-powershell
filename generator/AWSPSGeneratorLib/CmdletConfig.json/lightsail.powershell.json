@@ -79,8 +79,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -133,8 +132,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disk",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -187,8 +185,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesToLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -241,8 +238,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTlsCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -295,8 +291,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -349,8 +344,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancePublicPorts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -366,6 +360,112 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "InstanceName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CopySnapshot": {
+      "verb": "Copy",
+      "noun": "Snapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TargetSnapshotName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "TargetSnapshotName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Snapshot",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "TargetSnapshotName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateCloudFormationStack": {
+      "verb": "New",
+      "noun": "CloudFormationStack",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Instances"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CloudFormationStack",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Instances"
         },
         "memoryStreamParameters": []
       }
@@ -403,8 +503,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disk",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -457,8 +556,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiskFromSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -511,8 +609,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiskSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -565,8 +662,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -579,7 +675,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DomainName"
         },
@@ -619,8 +715,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainEntry",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -673,8 +768,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -727,8 +821,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesFromSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -781,8 +874,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -835,8 +927,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPair",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -849,7 +940,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyPairName"
         },
@@ -889,8 +980,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -943,8 +1033,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTlsCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -997,8 +1086,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1051,8 +1139,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseFromSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1105,8 +1192,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1159,8 +1245,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disk",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1213,8 +1298,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiskSnapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1267,8 +1351,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1321,8 +1404,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainEntry",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1375,8 +1457,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instance",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1429,8 +1510,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceSnapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1483,8 +1563,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPair",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1537,8 +1616,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1600,8 +1678,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTlsCertificate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1654,8 +1731,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1708,8 +1784,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseSnapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1762,8 +1837,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disk",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1816,8 +1890,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesFromLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1870,8 +1943,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1922,8 +1994,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultKeyPair",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1939,6 +2010,59 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ExportSnapshot": {
+      "verb": "Export",
+      "noun": "Snapshot",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "SourceSnapshotName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Snapshot",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "SourceSnapshotName"
         },
         "memoryStreamParameters": []
       }
@@ -1974,7 +2098,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ActiveNames",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2023,7 +2146,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Blueprints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2072,7 +2194,52 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bundles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetCloudFormationStackRecords": {
+      "verb": "Get",
+      "noun": "CloudFormationStackRecord",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CloudFormationStackRecords",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CloudFormationStackRecords",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2121,8 +2288,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disk",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2168,7 +2334,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Disks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2217,8 +2382,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiskSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2264,7 +2428,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiskSnapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2313,8 +2476,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2360,7 +2522,54 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domains",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetExportSnapshotRecords": {
+      "verb": "Get",
+      "noun": "ExportSnapshotRecord",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ExportSnapshotRecords",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ExportSnapshotRecords",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2409,8 +2618,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2458,8 +2666,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceAccessDetails",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2507,8 +2714,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceMetricData",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2556,8 +2762,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancePortStates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2603,7 +2808,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2652,8 +2856,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2699,7 +2902,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceSnapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2748,8 +2950,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2797,8 +2998,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPair",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2844,7 +3044,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPairs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2893,8 +3092,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2942,8 +3140,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerMetricData",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2989,7 +3186,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3038,8 +3234,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTlsCertificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3087,8 +3282,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Operation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3134,7 +3328,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Operations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3183,7 +3376,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OperationsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3230,8 +3422,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Regions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3279,8 +3470,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3326,7 +3516,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseBlueprints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3373,7 +3562,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseBundles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3422,7 +3610,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3471,8 +3658,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseLogEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3520,8 +3706,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseLogStreams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3569,8 +3754,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseMasterUserPassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3618,8 +3802,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseMetricData",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3667,7 +3850,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3714,7 +3896,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3763,8 +3944,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3810,7 +3990,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseSnapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3859,8 +4038,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIp",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3906,7 +4084,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIps",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3955,8 +4132,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPair",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4007,8 +4183,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VpcPeered",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4056,8 +4231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancePublicPorts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4108,8 +4282,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vpc",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4162,8 +4335,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancePublicPorts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4216,8 +4388,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4270,8 +4441,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4324,8 +4494,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StaticIp",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4378,8 +4547,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4432,8 +4600,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4495,8 +4662,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4549,8 +4715,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4566,6 +4731,59 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "RelationalDatabaseName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "TagResource": {
+      "verb": "Add",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceName"
         },
         "memoryStreamParameters": []
       }
@@ -4601,8 +4819,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vpc",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4618,6 +4835,59 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagResource": {
+      "verb": "Remove",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Operations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "PageToken",
+          "responseMember": "NextPageToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceName"
         },
         "memoryStreamParameters": []
       }
@@ -4655,8 +4925,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainEntry",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4709,8 +4978,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttribute",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4763,8 +5031,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4817,8 +5084,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RelationalDatabaseParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

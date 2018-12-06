@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more resources to tag. For example, ami-1a2b3c4d.</para>
+        /// <para>The IDs of one or more resources, separated by spaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

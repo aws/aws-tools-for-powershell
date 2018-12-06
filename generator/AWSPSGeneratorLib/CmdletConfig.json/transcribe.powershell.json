@@ -67,8 +67,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TranscriptionJobName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -175,8 +173,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: VocabularyName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -228,8 +225,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -278,8 +274,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -326,7 +321,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TranscriptionJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -374,7 +368,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vocabularies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -422,8 +415,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -475,8 +467,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

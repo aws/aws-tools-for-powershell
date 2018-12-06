@@ -80,9 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Defines how to assemble the results of the transform job as a single S3 object. You
         /// should select a format that is most convenient to you. To concatenate the results
         /// in binary format, specify <code>None</code>. To add a newline character at the end
-        /// of every transformed record, specify <code>Line</code>. To assemble the output in
-        /// RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.</para><para>For information about the <code>RecordIO</code> format, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data
-        /// Format</a>.</para>
+        /// of every transformed record, specify <code>Line</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Compressing data helps save on storage space. If your transform data is compressed,
-        /// specify the compression type.and Amazon SageMaker will automatically decompress the
-        /// data for the transform job accordingly. The default value is <code>None</code>.</para>
+        /// specify the compression type. Amazon SageMaker automatically decompresses the data
+        /// for the transform job accordingly. The default value is <code>None</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,8 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformOutput_KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The AWS Key Management Service (AWS KMS) key for Amazon S3 server-side encryption
-        /// that Amazon SageMaker uses to encrypt the transformed data.</para><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
+        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
+        /// the model artifacts at rest using Amazon S3 server-side encryption. The <code>KmsKeyId</code>
+        /// can be any of the following formats: </para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// KMS Key Alias</para><para><code>"alias/ExampleAlias"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key Alias</para><para><code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></para></li></ul><para>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon
         /// S3 for your role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed
         /// Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i></para><para>The KMS key policy must grant permission to the IAM role that you specify in your
         /// <code>CreateTramsformJob</code> request. For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
@@ -202,9 +201,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// (without metadata). The value in <code>MaxPayloadInMB</code> must be greater or equal
         /// to the size of a single record. You can approximate the size of a record by dividing
         /// the size of your dataset by the number of records. Then multiply this value by the
-        /// number of records you want in a mini-batch. It is recommended to enter a value slightly
-        /// larger than this to ensure the records fit within the maximum payload size. The default
-        /// value is <code>6</code> MB. For an unlimited payload size, set the value to <code>0</code>.</para>
+        /// number of records you want in a mini-batch. We recommend to enter a slightly larger
+        /// value than this to ensure the records fit within the maximum payload size. The default
+        /// value is <code>6</code> MB. </para><para>For cases where the payload might be arbitrarily large and is transmitted using HTTP
+        /// chunked encoding, set the value to <code>0</code>. This feature only works in supported
+        /// algorithms. Currently, Amazon SageMaker built-in algorithms do not support this feature.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -313,9 +314,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformResources_VolumeKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of a AWS Key Management Service key that Amazon SageMaker
-        /// uses to encrypt data on the storage volume attached to the ML compute instance(s)
-        /// that run the batch transform job.</para>
+        /// <para>The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt
+        /// data on the storage volume attached to the ML compute instance(s) that run the batch
+        /// transform job. The <code>VolumeKmsKeyId</code> can be any of the following formats:</para><ul><li><para>// KMS Key ID</para><para><code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>// Amazon Resource Name (ARN) of a KMS Key</para><para><code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

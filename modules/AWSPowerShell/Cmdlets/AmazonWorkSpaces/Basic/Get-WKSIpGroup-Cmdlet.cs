@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more IP access control groups.</para>
+        /// <para>The identifiers of one or more IP access control groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -57,16 +57,20 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>
         /// <para>The maximum number of items to return.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxResults")]
-        public System.Int32 MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
+        /// <para>If you received a <code>NextToken</code> from a previous call that was paginated,
+        /// provide this token to receive the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,30 +116,35 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             // create request and set iteration invariants
             var request = new Amazon.WorkSpaces.Model.DescribeIpGroupsRequest();
-            
             if (cmdletContext.GroupIds != null)
             {
                 request.GroupIds = cmdletContext.GroupIds;
             }
-            if (cmdletContext.MaxResults != null)
-            {
-                request.MaxResults = cmdletContext.MaxResults.Value;
-            }
             
-            // Initialize loop variant and commence piping
+            // Initialize loop variants and commence piping
             System.String _nextMarker = null;
-            bool _userControllingPaging = false;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
-                _userControllingPaging = true;
             }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _continueIteration = true;
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -144,7 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                     {
                         
                         var response = CallAWSServiceOperation(client, request);
-                        
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Result;
                         notes = new Dictionary<string, object>();
@@ -155,13 +163,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                             ServiceResponse = response,
                             Notes = notes
                         };
+                        int _receivedThisCall = response.Result.Count;
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.Result.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
                         _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
                     }
                     catch (Exception e)
                     {
@@ -169,8 +183,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                     }
                     
                     ProcessOutput(output);
-                    
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
             finally
             {
@@ -223,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> GroupIds { get; set; }
-            public System.Int32? MaxResults { get; set; }
+            public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }
         

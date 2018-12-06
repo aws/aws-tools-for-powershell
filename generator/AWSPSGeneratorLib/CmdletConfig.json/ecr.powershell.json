@@ -73,8 +73,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CheckLayerAvailability",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -125,8 +124,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteImage",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -182,8 +180,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetImage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -234,8 +231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LayerUpload",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -289,8 +285,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -344,8 +339,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -408,8 +402,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -463,8 +456,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -518,7 +510,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Images",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -570,7 +561,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repositories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -622,8 +612,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AuthorizationToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -672,8 +661,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DownloadUrlForLayer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -722,8 +710,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -772,8 +759,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicyPreview",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -822,8 +808,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -872,8 +857,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LayerUpload",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -927,7 +911,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Images",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -979,8 +962,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Image",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1036,8 +1018,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1102,8 +1083,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1157,8 +1137,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicyPreview",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

@@ -96,8 +96,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCWithHostedZone",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -171,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceRecordSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -232,8 +230,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -293,8 +290,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -352,8 +348,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZone",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -413,8 +408,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -485,8 +479,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -546,8 +539,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -607,8 +599,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -668,8 +659,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -729,8 +719,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCAssociationAuthorization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -790,8 +779,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: HealthCheckId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -851,8 +839,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZone",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -912,8 +899,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfig",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -973,8 +959,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1034,8 +1019,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1095,8 +1079,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1156,8 +1139,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCAssociationAuthorization",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1228,8 +1210,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCFromHostedZone",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1287,8 +1268,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountLimit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1343,8 +1323,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Change",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1397,8 +1376,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CheckerIpRanges",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1451,8 +1429,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoLocation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1507,8 +1484,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1561,8 +1537,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheckCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1617,8 +1592,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheckLastFailureReason",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1673,8 +1647,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheckStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1729,8 +1702,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZone",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1783,8 +1755,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZoneCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1839,8 +1810,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZoneLimit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1895,8 +1865,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1951,8 +1920,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2007,8 +1975,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSetLimit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2063,8 +2030,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2119,8 +2085,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2173,8 +2138,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstanceCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2227,8 +2191,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoLocations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2281,7 +2244,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthChecks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2337,7 +2299,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZones",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2393,8 +2354,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfigs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2463,8 +2423,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceRecordSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2517,7 +2476,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2573,8 +2531,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2629,8 +2586,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2683,8 +2639,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2750,8 +2705,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstancesByHostedZone",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2806,8 +2760,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstancesByPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2873,8 +2826,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCAssociationAuthorizations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2929,8 +2881,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DNSAnswer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2985,8 +2936,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZoneComment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3046,8 +2996,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyComment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3107,8 +3056,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

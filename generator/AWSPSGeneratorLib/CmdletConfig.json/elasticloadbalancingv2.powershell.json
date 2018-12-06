@@ -87,8 +87,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListenerCertificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -139,8 +138,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -193,8 +191,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -245,8 +242,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -299,8 +295,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -351,8 +346,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -405,8 +399,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ListenerArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -459,8 +452,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -513,8 +505,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RuleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -567,8 +558,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TargetGroupArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -621,8 +611,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TargetGroupArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -673,7 +662,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -722,7 +710,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListenerCertificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -771,7 +758,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listeners",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -820,8 +806,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -867,8 +852,55 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "PageSize",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeProvisionedCapacity": {
+      "verb": "Get",
+      "noun": "ProvisionedCapacity",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProvisionedCapacity",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LoadBalancerArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedCapacity",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -916,7 +948,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -965,7 +996,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SSLPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1014,8 +1044,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1063,8 +1092,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroupAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1112,7 +1140,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1161,8 +1188,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetHealth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1210,8 +1236,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1264,8 +1289,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1280,6 +1304,59 @@
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
+          "targetParameterName": "LoadBalancerArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ModifyProvisionedCapacity": {
+      "verb": "Edit",
+      "noun": "ProvisionedCapacity",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ProvisionedCapacity",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LoadBalancerArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "LoadBalancerArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ProvisionedCapacity",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "PageSize",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -1318,8 +1395,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1372,8 +1448,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1426,8 +1501,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroupAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1480,8 +1554,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TargetGroupArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1534,8 +1607,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListenerCertificates",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Certificate",
         "passThruTypeName": "Amazon.ElasticLoadBalancingV2.Model.Certificate",
         "requiresPassThruGeneration": "true",
@@ -1586,8 +1658,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1640,8 +1711,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpAddressType",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1692,8 +1762,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RulePriorities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1746,8 +1815,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1800,8 +1868,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subnets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

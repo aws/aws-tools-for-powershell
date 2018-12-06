@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Creates one of the following entry records associated with the domain: A record, CNAME
     /// record, TXT record, or MX record.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>create domain entry</code> operation supports tag-based access control via
+    /// resource tags applied to the resource identified by domainName. For more information,
+    /// see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LSDomainEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

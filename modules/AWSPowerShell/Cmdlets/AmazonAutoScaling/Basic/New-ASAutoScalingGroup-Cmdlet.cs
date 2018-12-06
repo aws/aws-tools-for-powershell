@@ -128,12 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance used to create a launch configuration for the group. You must
-        /// specify one of the following: an EC2 instance, a launch configuration, or a launch
-        /// template.</para><para>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch
+        /// <para>The ID of the instance used to create a launch configuration for the group. This parameter,
+        /// a launch configuration, a launch template, or a mixed instances policy must be specified.</para><para>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch
         /// configuration and associates it with the group. This launch configuration derives
-        /// its attributes from the specified instance, with the exception of the block device
-        /// mapping.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create
+        /// its attributes from the specified instance, except for the block device mapping.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create
         /// an Auto Scaling Group Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para>
         /// </para>
@@ -145,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch configuration. You must specify one of the following: a launch
-        /// configuration, a launch template, or an EC2 instance.</para>
+        /// <para>The name of the launch configuration. This parameter, a launch template, a mixed instances
+        /// policy, or an EC2 instance must be specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -219,6 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32 MinSize { get; set; }
         #endregion
         
+        #region Parameter MixedInstancesPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The mixed instances policy to use to launch instances. This parameter, a launch template,
+        /// a launch configuration, or an EC2 instance must be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }
+        #endregion
+        
         #region Parameter NewInstancesProtectedFromScaleIn
         /// <summary>
         /// <para>
@@ -233,8 +242,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group into which you'll launch your instances, if any. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// <para>The name of the placement group into which to launch your instances, if any. For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -384,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.MaxSize = this.MaxSize;
             if (ParameterWasBound("MinSize"))
                 context.MinSize = this.MinSize;
+            context.MixedInstancesPolicy = this.MixedInstancesPolicy;
             if (ParameterWasBound("NewInstancesProtectedFromScaleIn"))
                 context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
@@ -504,6 +514,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.MinSize = cmdletContext.MinSize.Value;
             }
+            if (cmdletContext.MixedInstancesPolicy != null)
+            {
+                request.MixedInstancesPolicy = cmdletContext.MixedInstancesPolicy;
+            }
             if (cmdletContext.NewInstancesProtectedFromScaleIn != null)
             {
                 request.NewInstancesProtectedFromScaleIn = cmdletContext.NewInstancesProtectedFromScaleIn.Value;
@@ -613,6 +627,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public List<System.String> LoadBalancerNames { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
+            public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public System.String ServiceLinkedRoleARN { get; set; }

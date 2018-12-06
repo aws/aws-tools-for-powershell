@@ -31,16 +31,27 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// Creates a service, which defines the configuration for the following entities:
     /// 
     ///  <ul><li><para>
-    /// Up to three records (A, AAAA, and SRV) or one CNAME record
+    /// For public and private DNS namespaces, one of the following combinations of DNS records
+    /// in Amazon Route 53:
+    /// </para><ul><li><para>
+    /// A
     /// </para></li><li><para>
+    /// AAAA
+    /// </para></li><li><para>
+    /// A and AAAA
+    /// </para></li><li><para>
+    /// SRV
+    /// </para></li><li><para>
+    /// CNAME
+    /// </para></li></ul></li><li><para>
     /// Optionally, a health check
     /// </para></li></ul><para>
     /// After you create the service, you can submit a <a>RegisterInstance</a> request, and
-    /// Amazon Route 53 uses the values in the configuration to create the specified entities.
+    /// AWS Cloud Map uses the values in the configuration to create the specified entities.
     /// </para><para>
     /// For the current limit on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
-    /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
+    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SDService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -78,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter DnsConfig
         /// <summary>
         /// <para>
-        /// <para>A complex type that contains information about the records that you want Route 53
-        /// to create when you register an instance. </para>
+        /// <para>A complex type that contains information about the Amazon Route 53 records that you
+        /// want AWS Cloud Map to create when you register an instance. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter HealthCheckCustomConfig
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A complex type that contains information about an optional custom health check.</para><important><para>If you specify a health check configuration, you can specify either <code>HealthCheckCustomConfig</code>
+        /// or <code>HealthCheckConfig</code> but not both.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -120,14 +132,25 @@ namespace Amazon.PowerShell.Cmdlets.SD
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter NamespaceId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the namespace that you want to use to create the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NamespaceId { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckConfig_ResourcePath
         /// <summary>
         /// <para>
         /// <para>The path that you want Route 53 to request when performing health checks. The path
         /// can be any value for which your endpoint will return an HTTP status code of 2xx or
         /// 3xx when the endpoint is healthy, such as the file <code>/docs/route53-health-check.html</code>.
-        /// Route 53 automatically adds the DNS name for the service and a leading forward slash
-        /// (<code>/</code>) character. </para>
+        /// Route 53 automatically adds the DNS name for the service. If you don't specify a value
+        /// for <code>ResourcePath</code>, the default value is <code>/</code>.</para><para>If you specify <code>TCP</code> for <code>Type</code>, you must <i>not</i> specify
+        /// a value for <code>ResourcePath</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// than 400.</para></li><li><para><b>HTTPS</b>: Route 53 tries to establish a TCP connection. If successful, Route
         /// 53 submits an HTTPS request and waits for an HTTP status code of 200 or greater and
         /// less than 400.</para><important><para>If you specify HTTPS for the value of <code>Type</code>, the endpoint must support
-        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// TLS v1.0 or later.</para></important></li><li><para><b>TCP</b>: Route 53 tries to establish a TCP connection.</para><para>If you specify <code>TCP</code> for <code>Type</code>, don't specify a value for <code>ResourcePath</code>.</para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Route 53 Developer
         /// Guide</i>.</para>
         /// </para>
@@ -191,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             context.HealthCheckConfig_Type = this.HealthCheckConfig_Type;
             context.HealthCheckCustomConfig = this.HealthCheckCustomConfig;
             context.Name = this.Name;
+            context.NamespaceId = this.NamespaceId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -266,6 +290,10 @@ namespace Amazon.PowerShell.Cmdlets.SD
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.NamespaceId != null)
+            {
+                request.NamespaceId = cmdletContext.NamespaceId;
+            }
             
             CmdletOutput output;
             
@@ -338,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             public Amazon.ServiceDiscovery.HealthCheckType HealthCheckConfig_Type { get; set; }
             public Amazon.ServiceDiscovery.Model.HealthCheckCustomConfig HealthCheckCustomConfig { get; set; }
             public System.String Name { get; set; }
+            public System.String NamespaceId { get; set; }
         }
         
     }

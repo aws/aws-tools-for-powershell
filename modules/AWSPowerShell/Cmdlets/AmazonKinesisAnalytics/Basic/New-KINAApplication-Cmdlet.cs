@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>
         /// <para>You can configure application output to write data from any of the in-application
         /// streams to up to three destinations.</para><para>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery
-        /// streams, Amazon Lambda destinations, or any combination of the three.</para><para>In the configuration, you specify the in-application stream name, the destination
+        /// streams, AWS Lambda destinations, or any combination of the three.</para><para>In the configuration, you specify the in-application stream name, the destination
         /// stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing
         /// data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to
         /// write to the destination stream or Lambda function on your behalf.</para><para>In the output configuration, you also provide the output stream or Lambda function

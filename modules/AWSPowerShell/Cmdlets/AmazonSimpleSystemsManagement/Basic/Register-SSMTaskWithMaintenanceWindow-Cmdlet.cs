@@ -408,8 +408,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started executing, it doesn
-        /// not execute.</para>
+        /// <para>If this time is reached and the command has not already started executing, it doesn't
+        /// run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

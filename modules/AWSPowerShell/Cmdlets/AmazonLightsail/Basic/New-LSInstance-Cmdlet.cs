@@ -34,6 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// new instances. Blueprints are marked inactive when they become outdated due to operating
     /// system updates or new application releases. Use the get blueprints operation to return
     /// a list of available blueprints.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>create instances</code> operation supports tag-based access control via
+    /// request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -118,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String KeyPairName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserData
         /// <summary>
         /// <para>
@@ -172,6 +190,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 context.InstanceNames = new List<System.String>(this.InstanceName);
             }
             context.KeyPairName = this.KeyPairName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             context.UserData = this.UserData;
             
             // allow further manipulation of loaded context prior to processing
@@ -214,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.KeyPairName != null)
             {
                 request.KeyPairName = cmdletContext.KeyPairName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.UserData != null)
             {
@@ -290,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String CustomImageName { get; set; }
             public List<System.String> InstanceNames { get; set; }
             public System.String KeyPairName { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
             public System.String UserData { get; set; }
         }
         

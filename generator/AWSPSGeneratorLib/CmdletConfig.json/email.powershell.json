@@ -83,8 +83,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: OriginalRuleSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -137,8 +136,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSet_Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -191,8 +189,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -245,8 +242,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TrackingOption",
         "passThruTypeName": "Amazon.SimpleEmail.Model.TrackingOptions",
         "requiresPassThruGeneration": "true",
@@ -299,8 +295,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmailTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TemplateContent",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -351,8 +346,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptFilter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -403,8 +397,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -457,8 +450,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RuleSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -511,8 +503,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Template",
         "passThruTypeName": "Amazon.SimpleEmail.Model.Template",
         "requiresPassThruGeneration": "true",
@@ -565,8 +556,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -619,8 +609,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EventDestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -673,8 +662,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -727,8 +715,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmailTemplate",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TemplateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -781,8 +768,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Identity",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -835,8 +821,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -889,8 +874,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptFilter",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FilterName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -941,8 +925,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -995,8 +978,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RuleSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1049,8 +1031,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TemplateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1103,8 +1084,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VerifiedEmailAddress",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EmailAddress",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1155,8 +1135,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ActiveReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1204,8 +1183,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1253,8 +1231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1302,8 +1279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1349,8 +1325,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountSendingEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1398,8 +1373,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmailTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1447,8 +1421,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityDkimAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1496,8 +1469,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityMailFromDomainAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1545,8 +1517,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityNotificationAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1594,8 +1565,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1643,8 +1613,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityVerificationAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1690,8 +1659,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SendQuota",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1737,8 +1705,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SendStatistics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1786,8 +1753,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1833,7 +1799,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1866,7 +1831,14 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxResults",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [
           "MaxResults"
@@ -1882,7 +1854,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmailTemplates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1891,7 +1862,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "MaxItems",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -1931,7 +1902,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Identities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1980,8 +1950,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2027,8 +1996,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptFilters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2074,8 +2042,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2121,7 +2088,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Templates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2168,8 +2134,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VerifiedEmailAddresses",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2217,8 +2182,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Policy",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2271,8 +2235,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RuleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2342,8 +2305,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bounce",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2396,8 +2358,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BulkTemplatedEmail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2450,8 +2411,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2506,8 +2466,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Email",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2562,8 +2521,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RawEmail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2616,8 +2574,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TemplatedEmail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2670,8 +2627,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ActiveReceiptRuleSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RuleSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2726,8 +2682,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityDkimEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2782,8 +2737,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityFeedbackForwardingEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2836,8 +2790,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityHeadersInNotificationsEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2893,8 +2846,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityMailFromDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2950,8 +2902,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityNotificationTopic",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Identity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3002,8 +2953,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRulePosition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3056,8 +3006,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RenderTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3105,8 +3054,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountSendingEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Enabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
@@ -3159,8 +3107,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3213,8 +3160,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetReputationMetricsEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Enabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
@@ -3267,8 +3213,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetSendingEnabled",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Enabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
@@ -3321,8 +3266,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TrackingOption",
         "passThruTypeName": "Amazon.SimpleEmail.Model.TrackingOptions",
         "requiresPassThruGeneration": "true",
@@ -3375,8 +3319,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomVerificationEmailTemplate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TemplateContent",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3427,8 +3370,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReceiptRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3481,8 +3423,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Template",
         "passThruTypeName": "Amazon.SimpleEmail.Model.Template",
         "requiresPassThruGeneration": "true",
@@ -3535,8 +3476,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainDkim",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3589,8 +3529,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3643,8 +3582,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmailAddress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EmailAddress",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3697,8 +3635,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmailIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EmailAddress",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

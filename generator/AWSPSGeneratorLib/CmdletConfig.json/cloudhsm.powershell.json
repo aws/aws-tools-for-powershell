@@ -72,8 +72,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -126,8 +125,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hapg",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -180,8 +178,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -234,8 +231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LunaClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -288,8 +284,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hapg",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -342,8 +337,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -396,8 +390,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LunaClient",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -450,8 +443,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hapg",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -499,8 +491,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -548,8 +539,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LunaClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -597,8 +587,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Config",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -644,8 +633,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailableZones",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -691,7 +679,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hapgs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -738,7 +725,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsms",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -785,7 +771,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LunaClients",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -834,8 +819,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -883,8 +867,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hapg",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -937,8 +920,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -991,8 +973,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LunaClient",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1045,8 +1026,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

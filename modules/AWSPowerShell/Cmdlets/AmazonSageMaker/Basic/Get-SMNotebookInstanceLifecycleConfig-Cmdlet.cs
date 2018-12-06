@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+    /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+    /// 2.1: (Optional) Customize a Notebook Instance</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SMNotebookInstanceLifecycleConfig")]

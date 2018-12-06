@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Creates or updates one or more scheduled scaling actions for an Auto Scaling group.
-    /// When updating a scheduled scaling action, if you leave a parameter unspecified, the
+    /// If you leave a parameter unspecified when updating a scheduled scaling action, the
     /// corresponding value remains unchanged.
     /// </summary>
     [Cmdlet("Set", "ASScheduledUpdateGroupActionBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

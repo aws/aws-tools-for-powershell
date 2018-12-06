@@ -40,6 +40,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class AddIOTThingToThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter OverrideDynamicGroup
+        /// <summary>
+        /// <para>
+        /// <para>Override dynamic thing groups with static thing groups when 10-group limit is reached.
+        /// If a thing belongs to 10 thing groups, and one or more of those groups are dynamic
+        /// thing groups, adding a thing to a static group removes the thing from the last dynamic
+        /// group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("OverrideDynamicGroups")]
+        public System.Boolean OverrideDynamicGroup { get; set; }
+        #endregion
+        
         #region Parameter ThingArn
         /// <summary>
         /// <para>
@@ -118,6 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("OverrideDynamicGroup"))
+                context.OverrideDynamicGroups = this.OverrideDynamicGroup;
             context.ThingArn = this.ThingArn;
             context.ThingGroupArn = this.ThingGroupArn;
             context.ThingGroupName = this.ThingGroupName;
@@ -138,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.AddThingToThingGroupRequest();
             
+            if (cmdletContext.OverrideDynamicGroups != null)
+            {
+                request.OverrideDynamicGroups = cmdletContext.OverrideDynamicGroups.Value;
+            }
             if (cmdletContext.ThingArn != null)
             {
                 request.ThingArn = cmdletContext.ThingArn;
@@ -220,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? OverrideDynamicGroups { get; set; }
             public System.String ThingArn { get; set; }
             public System.String ThingGroupArn { get; set; }
             public System.String ThingGroupName { get; set; }

@@ -76,6 +76,31 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String FieldName { get; set; }
         #endregion
         
+        #region Parameter PipelineConfig_Function
+        /// <summary>
+        /// <para>
+        /// <para>A list of <code>Function</code> objects.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("PipelineConfig_Functions")]
+        public System.String[] PipelineConfig_Function { get; set; }
+        #endregion
+        
+        #region Parameter Kind
+        /// <summary>
+        /// <para>
+        /// <para>The resolver type.</para><ul><li><para><b>UNIT</b>: A UNIT resolver type. A UNIT resolver is the default resolver type.
+        /// A UNIT resolver enables you to execute a GraphQL query against a single data source.</para></li><li><para><b>PIPELINE</b>: A PIPELINE resolver type. A PIPELINE resolver enables you to execute
+        /// a series of <code>Function</code> in a serial manner. You can use a pipeline resolver
+        /// to execute a GraphQL query against multiple data sources.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AppSync.ResolverKind")]
+        public Amazon.AppSync.ResolverKind Kind { get; set; }
+        #endregion
+        
         #region Parameter RequestMappingTemplate
         /// <summary>
         /// <para>
@@ -140,6 +165,11 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.ApiId = this.ApiId;
             context.DataSourceName = this.DataSourceName;
             context.FieldName = this.FieldName;
+            context.Kind = this.Kind;
+            if (this.PipelineConfig_Function != null)
+            {
+                context.PipelineConfig_Functions = new List<System.String>(this.PipelineConfig_Function);
+            }
             context.RequestMappingTemplate = this.RequestMappingTemplate;
             context.ResponseMappingTemplate = this.ResponseMappingTemplate;
             context.TypeName = this.TypeName;
@@ -170,6 +200,29 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.FieldName != null)
             {
                 request.FieldName = cmdletContext.FieldName;
+            }
+            if (cmdletContext.Kind != null)
+            {
+                request.Kind = cmdletContext.Kind;
+            }
+            
+             // populate PipelineConfig
+            bool requestPipelineConfigIsNull = true;
+            request.PipelineConfig = new Amazon.AppSync.Model.PipelineConfig();
+            List<System.String> requestPipelineConfig_pipelineConfig_Function = null;
+            if (cmdletContext.PipelineConfig_Functions != null)
+            {
+                requestPipelineConfig_pipelineConfig_Function = cmdletContext.PipelineConfig_Functions;
+            }
+            if (requestPipelineConfig_pipelineConfig_Function != null)
+            {
+                request.PipelineConfig.Functions = requestPipelineConfig_pipelineConfig_Function;
+                requestPipelineConfigIsNull = false;
+            }
+             // determine if request.PipelineConfig should be set to null
+            if (requestPipelineConfigIsNull)
+            {
+                request.PipelineConfig = null;
             }
             if (cmdletContext.RequestMappingTemplate != null)
             {
@@ -250,6 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String ApiId { get; set; }
             public System.String DataSourceName { get; set; }
             public System.String FieldName { get; set; }
+            public Amazon.AppSync.ResolverKind Kind { get; set; }
+            public List<System.String> PipelineConfig_Functions { get; set; }
             public System.String RequestMappingTemplate { get; set; }
             public System.String ResponseMappingTemplate { get; set; }
             public System.String TypeName { get; set; }

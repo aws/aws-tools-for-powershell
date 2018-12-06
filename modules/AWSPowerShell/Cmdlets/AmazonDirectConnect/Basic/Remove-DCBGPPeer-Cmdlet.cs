@@ -28,8 +28,8 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Deletes the BGP peer on the specified virtual interface with the specified customer
-    /// address and ASN.
+    /// Deletes the specified BGP peer on the specified virtual interface with the specified
+    /// customer address and ASN.
     /// 
     ///  
     /// <para>
@@ -54,6 +54,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Asn { get; set; }
+        #endregion
+        
+        #region Parameter BgpPeerId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the BGP peer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BgpPeerId { get; set; }
         #endregion
         
         #region Parameter CustomerAddress
@@ -107,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             
             if (ParameterWasBound("Asn"))
                 context.Asn = this.Asn;
+            context.BgpPeerId = this.BgpPeerId;
             context.CustomerAddress = this.CustomerAddress;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
             
@@ -128,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (cmdletContext.Asn != null)
             {
                 request.Asn = cmdletContext.Asn.Value;
+            }
+            if (cmdletContext.BgpPeerId != null)
+            {
+                request.BgpPeerId = cmdletContext.BgpPeerId;
             }
             if (cmdletContext.CustomerAddress != null)
             {
@@ -202,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Asn { get; set; }
+            public System.String BgpPeerId { get; set; }
             public System.String CustomerAddress { get; set; }
             public System.String VirtualInterfaceId { get; set; }
         }

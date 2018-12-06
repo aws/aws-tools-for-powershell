@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// on the source CMK and once as <code>ReEncryptTo</code> on the destination CMK. We
     /// recommend that you include the <code>"kms:ReEncrypt*"</code> permission in your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
     /// policies</a> to permit reencryption from or to the CMK. This permission is automatically
-    /// included in the key policy when you create a CMK through the console. But you must
+    /// included in the key policy when you create a CMK through the console, but you must
     /// include it manually when you create a CMK programmatically or when you set a key policy
     /// with the <a>PutKeyPolicy</a> operation.
     /// </para><para>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// <summary>
         /// <para>
         /// <para>A unique identifier for the CMK that is used to reencrypt the data.</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
-        /// ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a
-        /// CMK in a different AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different
+        /// AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
         /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>

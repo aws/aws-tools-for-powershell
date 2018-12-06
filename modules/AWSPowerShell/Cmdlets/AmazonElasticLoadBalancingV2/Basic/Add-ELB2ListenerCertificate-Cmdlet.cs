@@ -37,6 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </para><para>
     /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
     /// To remove certificates from your listener, use <a>RemoveListenerCertificates</a>.
+    /// To specify the default SSL server certificate, use <a>ModifyListener</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ELB2ListenerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The certificate to add. You can specify one certificate per call.</para>
+        /// <para>The certificate to add. You can specify one certificate per call. Set <code>CertificateArn</code>
+        /// to the certificate ARN but do not set <code>IsDefault</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

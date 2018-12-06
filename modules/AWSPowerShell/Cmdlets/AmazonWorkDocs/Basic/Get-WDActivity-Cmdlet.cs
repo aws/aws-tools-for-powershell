@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDActivityCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter ActivityType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies which activity types to include in the response. If this field is left empty,
+        /// all activity types are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ActivityTypes")]
+        public System.String ActivityType { get; set; }
+        #endregion
+        
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
@@ -82,6 +94,20 @@ namespace Amazon.PowerShell.Cmdlets.WD
         public System.DateTime UtcEndTime { get; set; }
         #endregion
         
+        #region Parameter IncludeIndirectActivity
+        /// <summary>
+        /// <para>
+        /// <para>Includes indirect activities. An indirect activity results from a direct activity
+        /// performed on a parent resource. For example, sharing a parent folder (the direct activity)
+        /// shares all of the subfolders and documents within the parent folder (the indirect
+        /// activity).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IncludeIndirectActivities")]
+        public System.Boolean IncludeIndirectActivity { get; set; }
+        #endregion
+        
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
@@ -91,6 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String OrganizationId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The document or folder ID for which to describe activity types.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceId { get; set; }
         #endregion
         
         #region Parameter StartTime
@@ -176,13 +212,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ActivityTypes = this.ActivityType;
             context.AuthenticationToken = this.AuthenticationToken;
             if (ParameterWasBound("UtcEndTime"))
                 context.UtcEndTime = this.UtcEndTime;
+            if (ParameterWasBound("IncludeIndirectActivity"))
+                context.IncludeIndirectActivities = this.IncludeIndirectActivity;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
             context.OrganizationId = this.OrganizationId;
+            context.ResourceId = this.ResourceId;
             if (ParameterWasBound("UtcStartTime"))
                 context.UtcStartTime = this.UtcStartTime;
             context.UserId = this.UserId;
@@ -210,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             
             // create request and set iteration invariants
             var request = new Amazon.WorkDocs.Model.DescribeActivitiesRequest();
+            if (cmdletContext.ActivityTypes != null)
+            {
+                request.ActivityTypes = cmdletContext.ActivityTypes;
+            }
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
@@ -218,9 +262,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 request.EndTimeUtc = cmdletContext.UtcEndTime.Value;
             }
+            if (cmdletContext.IncludeIndirectActivities != null)
+            {
+                request.IncludeIndirectActivities = cmdletContext.IncludeIndirectActivities.Value;
+            }
             if (cmdletContext.OrganizationId != null)
             {
                 request.OrganizationId = cmdletContext.OrganizationId;
+            }
+            if (cmdletContext.ResourceId != null)
+            {
+                request.ResourceId = cmdletContext.ResourceId;
             }
             if (cmdletContext.UtcStartTime != null)
             {
@@ -366,11 +418,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ActivityTypes { get; set; }
             public System.String AuthenticationToken { get; set; }
             public System.DateTime? UtcEndTime { get; set; }
+            public System.Boolean? IncludeIndirectActivities { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
             public System.String OrganizationId { get; set; }
+            public System.String ResourceId { get; set; }
             public System.DateTime? UtcStartTime { get; set; }
             public System.String UserId { get; set; }
             [System.ObsoleteAttribute]

@@ -28,9 +28,21 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Returns a list of task jobs for a specified job queue. You can filter the results
-    /// by job status with the <code>jobStatus</code> parameter. If you do not specify a status,
-    /// only <code>RUNNING</code> jobs are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of AWS Batch jobs.
+    /// 
+    ///  
+    /// <para>
+    /// You must specify only one of the following:
+    /// </para><ul><li><para>
+    /// a job queue ID to return a list of jobs in that job queue
+    /// </para></li><li><para>
+    /// a multi-node parallel job ID to return a list of that job's nodes
+    /// </para></li><li><para>
+    /// an array job ID to return a list of that job's children
+    /// </para></li></ul><para>
+    /// You can filter the results by job status with the <code>jobStatus</code> parameter.
+    /// If you do not specify a status, only <code>RUNNING</code> jobs are returned.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "BATJobsList")]
     [OutputType("Amazon.Batch.Model.JobSummary")]
@@ -74,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.Batch.JobStatus")]
         public Amazon.Batch.JobStatus JobStatus { get; set; }
+        #endregion
+        
+        #region Parameter MultiNodeJobId
+        /// <summary>
+        /// <para>
+        /// <para>The job ID for a multi-node parallel job. Specifying a multi-node parallel job ID
+        /// with this parameter lists all nodes that are associated with the specified job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MultiNodeJobId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -132,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.JobStatus = this.JobStatus;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
+            context.MultiNodeJobId = this.MultiNodeJobId;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -160,6 +184,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.JobStatus != null)
             {
                 request.JobStatus = cmdletContext.JobStatus;
+            }
+            if (cmdletContext.MultiNodeJobId != null)
+            {
+                request.MultiNodeJobId = cmdletContext.MultiNodeJobId;
             }
             
             // Initialize loop variants and commence piping
@@ -281,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String JobQueue { get; set; }
             public Amazon.Batch.JobStatus JobStatus { get; set; }
             public int? MaxResults { get; set; }
+            public System.String MultiNodeJobId { get; set; }
             public System.String NextToken { get; set; }
         }
         

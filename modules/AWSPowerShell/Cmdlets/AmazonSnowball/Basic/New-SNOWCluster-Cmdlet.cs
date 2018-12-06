@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         /// are delivered in about a day.</para></li><li><para>In the European Union (EU), you have access to express shipping. Typically, Snowball
         /// Edges shipped express are delivered in about a day. In addition, most countries in
         /// the EU have access to standard shipping, which typically takes less than a week, one
-        /// way.</para></li><li><para>In India, Snowball Edges are delivered in one to seven days.</para></li><li><para>In the US, you have access to one-day shipping and two-day shipping.</para></li></ul>
+        /// way.</para></li><li><para>In India, devices are delivered in one to seven days.</para></li><li><para>In the US, you have access to one-day shipping and two-day shipping.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,8 +182,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball device to use for this cluster. Currently, the only supported
-        /// device type for cluster jobs is <code>EDGE</code>.</para>
+        /// <para>The type of AWS Snowball device to use for this cluster. The only supported device
+        /// types for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and <code>EDGE_CG</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

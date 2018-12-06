@@ -45,11 +45,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// If you're using version 1.0 of the face detection model, <code>IndexFaces</code> indexes
     /// the 15 largest faces in the input image. Later versions of the face detection model
-    /// index the 100 largest faces in the input image. To determine which version of the
-    /// model you're using, call and supply the collection ID. You can also get the model
-    /// version from the value of <code>FaceModelVersion</code> in the response from <code>IndexFaces</code>.
-    /// 
+    /// index the 100 largest faces in the input image. 
     /// </para><para>
+    /// If you're using version 4 or later of the face model, image orientation information
+    /// is not returned in the <code>OrientationCorrection</code> field. 
+    /// </para><para>
+    /// To determine which version of the model you're using, call and supply the collection
+    /// ID. You can also get the model version from the value of <code>FaceModelVersion</code>
+    /// in the response from <code>IndexFaces</code></para><para>
     /// For more information, see Model Versioning in the Amazon Rekognition Developer Guide.
     /// </para><para>
     /// If you provide the optional <code>ExternalImageID</code> for the input image you provided,

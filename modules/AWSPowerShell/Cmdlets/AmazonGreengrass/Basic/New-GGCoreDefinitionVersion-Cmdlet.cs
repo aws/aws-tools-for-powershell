@@ -28,8 +28,8 @@ using Amazon.Greengrass.Model;
 namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
-    /// Creates a version of a core definition that has already been defined. AWS Greengrass
-    /// groups must each contain exactly one AWS Greengrass core.
+    /// Creates a version of a core definition that has already been defined. Greengrass groups
+    /// must each contain exactly one Greengrass core.
     /// </summary>
     [Cmdlet("New", "GGCoreDefinitionVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateCoreDefinitionVersionResponse")]

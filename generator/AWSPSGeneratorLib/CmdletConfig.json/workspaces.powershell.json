@@ -21,7 +21,7 @@
     "excludedOperations": [],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
-    "resultLimitMember": "",
+    "resultLimitMember": "MaxResults",
     "forceMaxResultSize": "false",
     "resultsTruncatedMember": ""
   },
@@ -66,8 +66,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -75,7 +74,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpRules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -129,7 +127,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -174,8 +172,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -183,7 +180,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -237,8 +234,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -246,7 +242,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -291,8 +287,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Workspaces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -300,7 +295,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -345,8 +340,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -354,7 +348,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -397,7 +391,156 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteWorkspaceImage": {
+      "verb": "Remove",
+      "noun": "WorkspaceImage",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ImageId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "WorkspaceImage",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ImageId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ImageId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeAccount": {
+      "verb": "Get",
+      "noun": "Account",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Account",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeAccountModifications": {
+      "verb": "Get",
+      "noun": "AccountModification",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "AccountModifications",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AccountModifications",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -406,14 +549,57 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "ResourceId"
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeClientProperties": {
+      "verb": "Get",
+      "noun": "ClientProperty",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ClientPropertiesList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceIds"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ClientProperties",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
       }
@@ -451,8 +637,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -460,7 +645,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -511,8 +696,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -520,7 +704,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -558,7 +742,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkspaceBundles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -567,7 +750,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -607,7 +790,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkspaceDirectories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -616,7 +798,55 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeWorkspaceImages": {
+      "verb": "Get",
+      "noun": "WorkspaceImage",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Images",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ImageIds"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "WorkspaceImages",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -661,7 +891,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Workspaces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -708,7 +937,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkspacesConnectionStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -717,7 +945,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -757,8 +985,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -766,7 +993,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -774,6 +1001,211 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupIds"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ImportWorkspaceImage": {
+      "verb": "Import",
+      "noun": "WorkspaceImage",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ImageId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ImageName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ImageName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "WorkspaceImage",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ImageName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListAvailableManagementCidrRanges": {
+      "verb": "Get",
+      "noun": "AvailableManagementCidrRangeList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ManagementCidrRanges",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ManagementCidrRangeConstraint"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AvailableManagementCidrRanges",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ModifyAccount": {
+      "verb": "Edit",
+      "noun": "Account",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "true",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Account",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ModifyClientProperties": {
+      "verb": "Edit",
+      "noun": "ClientProperty",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ClientProperties"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ResourceId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ClientProperties",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ResourceId"
         },
         "memoryStreamParameters": []
       }
@@ -811,8 +1243,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkspaceProperties",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: WorkspaceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -820,7 +1251,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -865,8 +1296,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkspaceState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: WorkspaceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -874,7 +1304,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -919,8 +1349,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpRules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -928,7 +1357,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -973,8 +1402,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RulesOfIpGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -982,7 +1410,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "",
+          "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },

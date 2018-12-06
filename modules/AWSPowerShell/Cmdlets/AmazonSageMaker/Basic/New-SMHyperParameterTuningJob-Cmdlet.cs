@@ -28,7 +28,11 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Starts a hyperparameter tuning job.
+    /// Starts a hyperparameter tuning job. A hyperparameter tuning job finds the best version
+    /// of a model by running many training jobs on your dataset using the algorithm you choose
+    /// and values for hyperparameters within ranges that you specify. It then chooses the
+    /// hyperparameter values that result in a model that performs the best, as measured by
+    /// an objective metric that you choose.
     /// </summary>
     [Cmdlet("New", "SMHyperParameterTuningJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -39,6 +43,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
     )]
     public partial class NewSMHyperParameterTuningJobCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
+        
+        #region Parameter AlgorithmSpecification_AlgorithmName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the resource algorithm to use for the hyperparameter tuning job. If you
+        /// specify a value for this parameter, do not specify a value for <code>TrainingImage</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TrainingJobDefinition_AlgorithmSpecification_AlgorithmName")]
+        public System.String AlgorithmSpecification_AlgorithmName { get; set; }
+        #endregion
         
         #region Parameter ParameterRanges_CategoricalParameterRange
         /// <summary>
@@ -64,12 +80,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ContinuousParameterRange[] ParameterRanges_ContinuousParameterRange { get; set; }
         #endregion
         
+        #region Parameter TrainingJobDefinition_EnableNetworkIsolation
+        /// <summary>
+        /// <para>
+        /// <para>Isolates the training container. No inbound or outbound network calls can be made,
+        /// except for calls between peers within a training cluster for distributed training.
+        /// If network isolation is used for training jobs that are configured to use a VPC, Amazon
+        /// SageMaker downloads and uploads customer data and model artifacts through the specifed
+        /// VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean TrainingJobDefinition_EnableNetworkIsolation { get; set; }
+        #endregion
+        
         #region Parameter HyperParameterTuningJobName
         /// <summary>
         /// <para>
         /// <para>The name of the tuning job. This name is the prefix for the names of all training
         /// jobs that this tuning job launches. The name must be unique within the same AWS account
-        /// and AWS Region. Names are not case sensitive, and must be between 1-32 characters.</para>
+        /// and AWS Region. The name must have { } to { } characters. Valid characters are a-z,
+        /// A-Z, 0-9, and : + = @ _ % - (hyphen). The name is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -125,9 +156,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training job can run. If model training
-        /// does not complete during this time, Amazon SageMaker ends the job. If value is not
-        /// specified, default value is 1 day. Maximum value is 5 days.</para>
+        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
+        /// If the job does not complete during this time, Amazon SageMaker ends the job. If value
+        /// is not specified, default value is 1 day. Maximum value is 5 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,6 +198,21 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }
+        #endregion
+        
+        #region Parameter WarmStartConfig_ParentHyperParameterTuningJob
+        /// <summary>
+        /// <para>
+        /// <para>An array of hyperparameter tuning jobs that are used as the starting point for the
+        /// new hyperparameter tuning job. For more information about warm starting a hyperparameter
+        /// tuning job, see <a href="http://docs.aws.amazon.com/automatic-model-tuning-incremental">Using
+        /// a Previous Hyperparameter Tuning Job as a Starting Point</a>.</para><para>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
+        /// jobs for warm start tuning jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WarmStartConfig_ParentHyperParameterTuningJobs")]
+        public Amazon.SageMaker.Model.ParentHyperParameterTuningJob[] WarmStartConfig_ParentHyperParameterTuningJob { get; set; }
         #endregion
         
         #region Parameter TrainingJobDefinition_ResourceConfig
@@ -234,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The ID of the subnets in the VPC to which you want to connect your training job or
-        /// model.</para>
+        /// model. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -247,8 +293,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of key-value pairs. You can use tags to categorize your AWS resources in
         /// different ways, for example, by purpose, owner, or environment. For more information,
-        /// see <a href="http://docs.aws.amazon.com//awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-        /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
+        /// see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+        /// Tagging Strategies</a>.</para><para>Tags that you specify for the tuning job are also added to all training jobs that
+        /// the tuning job launches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -260,7 +307,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The registry path of the Docker image that contains the training algorithm. For information
-        /// about Docker registry paths for built-in algorithms, see <a>sagemaker-algo-docker-registry-paths</a>.</para>
+        /// about Docker registry paths for built-in algorithms, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
+        /// Provided by Amazon SageMaker: Common Parameters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -297,6 +345,32 @@ namespace Amazon.PowerShell.Cmdlets.SM
         [Alias("HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type")]
         [AWSConstantClassSource("Amazon.SageMaker.HyperParameterTuningJobObjectiveType")]
         public Amazon.SageMaker.HyperParameterTuningJobObjectiveType HyperParameterTuningJobObjective_Type { get; set; }
+        #endregion
+        
+        #region Parameter WarmStartConfig_WarmStartType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies one of the following:</para><dl><dt>IDENTICAL_DATA_AND_ALGORITHM</dt><dd><para>The new hyperparameter tuning job uses the same input data and training image as the
+        /// parent tuning jobs. You can change the hyperparameter ranges to search and the maximum
+        /// number of training jobs that the hyperparameter tuning job launches. You cannot use
+        /// a new version of the training algorithm, unless the changes in the new version do
+        /// not affect the algorithm itself. For example, changes that improve logging or adding
+        /// support for a different data format are allowed. You can also change hyperparameters
+        /// from tunable to static, and from static to tunable, but the total number of static
+        /// plus tunable hyperparameters must remain the same as it is in all parent jobs. The
+        /// objective metric for the new tuning job must be the same as for all parent jobs.</para></dd><dt>TRANSFER_LEARNING</dt><dd><para>The new hyperparameter tuning job can include input data, hyperparameter ranges, maximum
+        /// number of concurrent training jobs, and maximum number of training jobs that are different
+        /// than those of its parent hyperparameter tuning jobs. The training image can also be
+        /// a different version from the version used in the parent hyperparameter tuning job.
+        /// You can also change hyperparameters from tunable to static, and from static to tunable,
+        /// but the total number of static plus tunable hyperparameters must remain the same as
+        /// it is in all parent jobs. The objective metric for the new tuning job must be the
+        /// same as for all parent jobs.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.HyperParameterTuningJobWarmStartType")]
+        public Amazon.SageMaker.HyperParameterTuningJobWarmStartType WarmStartConfig_WarmStartType { get; set; }
         #endregion
         
         #region Parameter Force
@@ -352,12 +426,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tags = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            context.TrainingJobDefinition_AlgorithmSpecification_AlgorithmName = this.AlgorithmSpecification_AlgorithmName;
             if (this.AlgorithmSpecification_MetricDefinition != null)
             {
                 context.TrainingJobDefinition_AlgorithmSpecification_MetricDefinitions = new List<Amazon.SageMaker.Model.MetricDefinition>(this.AlgorithmSpecification_MetricDefinition);
             }
             context.TrainingJobDefinition_AlgorithmSpecification_TrainingImage = this.AlgorithmSpecification_TrainingImage;
             context.TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode = this.AlgorithmSpecification_TrainingInputMode;
+            if (ParameterWasBound("TrainingJobDefinition_EnableNetworkIsolation"))
+                context.TrainingJobDefinition_EnableNetworkIsolation = this.TrainingJobDefinition_EnableNetworkIsolation;
             if (this.TrainingJobDefinition_InputDataConfig != null)
             {
                 context.TrainingJobDefinition_InputDataConfig = new List<Amazon.SageMaker.Model.Channel>(this.TrainingJobDefinition_InputDataConfig);
@@ -383,6 +460,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.TrainingJobDefinition_VpcConfig_Subnets = new List<System.String>(this.VpcConfig_Subnet);
             }
+            if (this.WarmStartConfig_ParentHyperParameterTuningJob != null)
+            {
+                context.WarmStartConfig_ParentHyperParameterTuningJobs = new List<Amazon.SageMaker.Model.ParentHyperParameterTuningJob>(this.WarmStartConfig_ParentHyperParameterTuningJob);
+            }
+            context.WarmStartConfig_WarmStartType = this.WarmStartConfig_WarmStartType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -545,6 +627,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate TrainingJobDefinition
             bool requestTrainingJobDefinitionIsNull = true;
             request.TrainingJobDefinition = new Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition();
+            System.Boolean? requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation = null;
+            if (cmdletContext.TrainingJobDefinition_EnableNetworkIsolation != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation = cmdletContext.TrainingJobDefinition_EnableNetworkIsolation.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation != null)
+            {
+                request.TrainingJobDefinition.EnableNetworkIsolation = requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation.Value;
+                requestTrainingJobDefinitionIsNull = false;
+            }
             List<Amazon.SageMaker.Model.Channel> requestTrainingJobDefinition_trainingJobDefinition_InputDataConfig = null;
             if (cmdletContext.TrainingJobDefinition_InputDataConfig != null)
             {
@@ -660,6 +752,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate AlgorithmSpecification
             bool requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecificationIsNull = true;
             requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification = new Amazon.SageMaker.Model.HyperParameterAlgorithmSpecification();
+            System.String requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification_algorithmSpecification_AlgorithmName = null;
+            if (cmdletContext.TrainingJobDefinition_AlgorithmSpecification_AlgorithmName != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification_algorithmSpecification_AlgorithmName = cmdletContext.TrainingJobDefinition_AlgorithmSpecification_AlgorithmName;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification_algorithmSpecification_AlgorithmName != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification.AlgorithmName = requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification_algorithmSpecification_AlgorithmName;
+                requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecificationIsNull = false;
+            }
             List<Amazon.SageMaker.Model.MetricDefinition> requestTrainingJobDefinition_trainingJobDefinition_AlgorithmSpecification_algorithmSpecification_MetricDefinition = null;
             if (cmdletContext.TrainingJobDefinition_AlgorithmSpecification_MetricDefinitions != null)
             {
@@ -704,6 +806,35 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestTrainingJobDefinitionIsNull)
             {
                 request.TrainingJobDefinition = null;
+            }
+            
+             // populate WarmStartConfig
+            bool requestWarmStartConfigIsNull = true;
+            request.WarmStartConfig = new Amazon.SageMaker.Model.HyperParameterTuningJobWarmStartConfig();
+            List<Amazon.SageMaker.Model.ParentHyperParameterTuningJob> requestWarmStartConfig_warmStartConfig_ParentHyperParameterTuningJob = null;
+            if (cmdletContext.WarmStartConfig_ParentHyperParameterTuningJobs != null)
+            {
+                requestWarmStartConfig_warmStartConfig_ParentHyperParameterTuningJob = cmdletContext.WarmStartConfig_ParentHyperParameterTuningJobs;
+            }
+            if (requestWarmStartConfig_warmStartConfig_ParentHyperParameterTuningJob != null)
+            {
+                request.WarmStartConfig.ParentHyperParameterTuningJobs = requestWarmStartConfig_warmStartConfig_ParentHyperParameterTuningJob;
+                requestWarmStartConfigIsNull = false;
+            }
+            Amazon.SageMaker.HyperParameterTuningJobWarmStartType requestWarmStartConfig_warmStartConfig_WarmStartType = null;
+            if (cmdletContext.WarmStartConfig_WarmStartType != null)
+            {
+                requestWarmStartConfig_warmStartConfig_WarmStartType = cmdletContext.WarmStartConfig_WarmStartType;
+            }
+            if (requestWarmStartConfig_warmStartConfig_WarmStartType != null)
+            {
+                request.WarmStartConfig.WarmStartType = requestWarmStartConfig_warmStartConfig_WarmStartType;
+                requestWarmStartConfigIsNull = false;
+            }
+             // determine if request.WarmStartConfig should be set to null
+            if (requestWarmStartConfigIsNull)
+            {
+                request.WarmStartConfig = null;
             }
             
             CmdletOutput output;
@@ -779,9 +910,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }
             public System.String HyperParameterTuningJobName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
+            public System.String TrainingJobDefinition_AlgorithmSpecification_AlgorithmName { get; set; }
             public List<Amazon.SageMaker.Model.MetricDefinition> TrainingJobDefinition_AlgorithmSpecification_MetricDefinitions { get; set; }
             public System.String TrainingJobDefinition_AlgorithmSpecification_TrainingImage { get; set; }
             public Amazon.SageMaker.TrainingInputMode TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode { get; set; }
+            public System.Boolean? TrainingJobDefinition_EnableNetworkIsolation { get; set; }
             public List<Amazon.SageMaker.Model.Channel> TrainingJobDefinition_InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }
             public Amazon.SageMaker.Model.ResourceConfig TrainingJobDefinition_ResourceConfig { get; set; }
@@ -790,6 +923,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? TrainingJobDefinition_StoppingCondition_MaxRuntimeInSeconds { get; set; }
             public List<System.String> TrainingJobDefinition_VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> TrainingJobDefinition_VpcConfig_Subnets { get; set; }
+            public List<Amazon.SageMaker.Model.ParentHyperParameterTuningJob> WarmStartConfig_ParentHyperParameterTuningJobs { get; set; }
+            public Amazon.SageMaker.HyperParameterTuningJobWarmStartType WarmStartConfig_WarmStartType { get; set; }
         }
         
     }

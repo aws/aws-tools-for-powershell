@@ -29,15 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
     /// Returns a list of AWS resource identifiers that matches a specified query. The query
-    /// uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.
     /// </summary>
     [Cmdlet("Find", "RGResource")]
-    [OutputType("Amazon.ResourceGroups.Model.ResourceIdentifier")]
+    [OutputType("Amazon.ResourceGroups.Model.SearchResourcesResponse")]
     [AWSCmdlet("Calls the AWS Resource Groups SearchResources API operation.", Operation = new[] {"SearchResources"})]
-    [AWSCmdletOutput("Amazon.ResourceGroups.Model.ResourceIdentifier",
-        "This cmdlet returns a collection of ResourceIdentifier objects.",
-        "The service call response (type Amazon.ResourceGroups.Model.SearchResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.ResourceGroups.Model.SearchResourcesResponse",
+        "This cmdlet returns a Amazon.ResourceGroups.Model.SearchResourcesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class FindRGResourceCmdlet : AmazonResourceGroupsClientCmdlet, IExecutor
     {
@@ -64,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -112,118 +110,44 @@ namespace Amazon.PowerShell.Cmdlets.RG
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.ResourceGroups.Model.SearchResourcesRequest();
+            
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.ResourceQuery != null)
             {
                 request.ResourceQuery = cmdletContext.ResourceQuery;
             }
             
-            // Initialize loop variants and commence piping
-            System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            int? _pageSize = 50;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextMarker = cmdletContext.NextToken;
-            }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
-            {
-                // The service has a maximum page size of 50. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 50 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResults;
-            }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
-            bool _continueIteration = true;
+            CmdletOutput output;
             
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ResourceIdentifiers;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        int _receivedThisCall = response.ResourceIdentifiers.Count;
-                        if (_userControllingPaging)
-                        {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -265,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public Amazon.ResourceGroups.Model.ResourceQuery ResourceQuery { get; set; }
         }

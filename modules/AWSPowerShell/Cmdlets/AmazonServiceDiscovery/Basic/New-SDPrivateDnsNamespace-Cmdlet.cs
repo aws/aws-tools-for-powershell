@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
     /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
     /// the current limit on the number of namespaces that you can create using the same AWS
-    /// account, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
-    /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
+    /// account, see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPrivateDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -71,8 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name that you want to assign to this namespace. When you create a namespace, Amazon
-        /// Route 53 automatically creates a hosted zone that has the same name as the namespace.</para>
+        /// <para>The name that you want to assign to this namespace. When you create a private DNS
+        /// namespace, AWS Cloud Map automatically creates an Amazon Route 53 private hosted zone
+        /// that has the same name as the namespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

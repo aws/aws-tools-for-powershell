@@ -57,7 +57,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobExecution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -99,7 +98,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingJobExecutions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -141,7 +139,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NextPendingJobExecution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -188,7 +185,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobExecution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

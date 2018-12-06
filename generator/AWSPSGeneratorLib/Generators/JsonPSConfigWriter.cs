@@ -363,7 +363,6 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WriteStartObject();
                 WriteSimpleProperty("confirmationMessageNoun", analyzer.ConfirmationMessageNoun);
                 WriteSimpleProperty("confirmImpactSetting", analyzer.ConfirmImpactSetting.ToString());
-                WriteSimpleProperty("generateIterationCode", analyzer.GenerateIterationCode.ToString().ToLower());
                 WriteSimpleProperty("iterationPattern", analyzer.IterationPattern.ToString());
                 WriteSimpleProperty("passThruSource", analyzer.PassThruSource);
                 if (analyzer.RequiresPassThruGeneration)

@@ -66,8 +66,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetRepositories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -113,8 +112,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RepositoryName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -165,8 +163,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequest",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -217,8 +214,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -271,8 +267,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branch",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -325,8 +320,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentContent",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -377,8 +371,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "File",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -429,8 +422,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -483,7 +475,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -530,8 +521,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Blob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -577,8 +567,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -626,8 +615,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -675,7 +663,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentsForComparedCommit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -724,7 +711,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentsForPullRequest",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -773,8 +759,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Commit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -820,7 +805,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Differences",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -867,8 +851,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "File",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -914,8 +897,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Folder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -961,8 +943,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MergeConflicts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1010,8 +991,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequest",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1057,8 +1037,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1104,8 +1083,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryTriggers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1151,7 +1129,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branches",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1198,7 +1175,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequests",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1245,7 +1221,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repositories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1294,8 +1269,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestByFastForward",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1348,8 +1322,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentForComparedCommit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1402,8 +1375,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentForPullRequest",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1456,8 +1428,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentReply",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1508,8 +1479,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "File",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1564,8 +1534,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryTriggers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1618,8 +1587,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryTriggers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1667,8 +1635,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1719,8 +1686,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultBranch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RepositoryName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1773,8 +1739,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestDescription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1827,8 +1792,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1881,8 +1845,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestTitle",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1933,8 +1896,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryDescription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RepositoryName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1985,8 +1947,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryName",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

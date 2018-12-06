@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Sets the cors configuration for a bucket.
+    /// Sets the CORS configuration for a bucket.
     /// </summary>
     [Cmdlet("Write", "S3CORSConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

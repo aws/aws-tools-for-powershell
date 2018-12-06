@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// None of the log events in the batch can be older than 14 days or the retention period
     /// of the log group.
     /// </para></li><li><para>
-    /// The log events in the batch must be in chronological ordered by their time stamp.
-    /// The time stamp is the time the event occurred, expressed as the number of milliseconds
+    /// The log events in the batch must be in chronological ordered by their timestamp. The
+    /// timestamp is the time the event occurred, expressed as the number of milliseconds
     /// after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET,
     /// the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.)
     /// 

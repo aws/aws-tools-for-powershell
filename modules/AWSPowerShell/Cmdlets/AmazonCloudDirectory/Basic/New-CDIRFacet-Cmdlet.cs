@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>
         /// <para>Specifies whether a given object created from this facet is of type node, leaf node,
         /// policy or index.</para><ul><li><para>Node: Can have multiple children but one parent.</para></li></ul><ul><li><para>Leaf node: Cannot have children but can have multiple parents.</para></li></ul><ul><li><para>Policy: Allows you to store a policy document and policy type. For more information,
-        /// see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies">Policies</a>.</para></li></ul><ul><li><para>Index: Can be created with the Index API.</para></li></ul>
+        /// see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directory.html#key_concepts_policies">Policies</a>.</para></li></ul><ul><li><para>Index: Can be created with the Index API.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

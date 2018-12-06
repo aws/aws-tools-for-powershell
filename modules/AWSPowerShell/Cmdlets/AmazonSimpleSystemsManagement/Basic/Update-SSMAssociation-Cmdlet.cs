@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AssociationVersion { get; set; }
         #endregion
         
+        #region Parameter ComplianceSeverity
+        /// <summary>
+        /// <para>
+        /// <para>The severity level to assign to the association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.AssociationComplianceSeverity")]
+        public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
+        #endregion
+        
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
@@ -228,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.AssociationId = this.AssociationId;
             context.AssociationName = this.AssociationName;
             context.AssociationVersion = this.AssociationVersion;
+            context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
             context.MaxConcurrency = this.MaxConcurrency;
             context.MaxErrors = this.MaxError;
@@ -287,6 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationVersion != null)
             {
                 request.AssociationVersion = cmdletContext.AssociationVersion;
+            }
+            if (cmdletContext.ComplianceSeverity != null)
+            {
+                request.ComplianceSeverity = cmdletContext.ComplianceSeverity;
             }
             if (cmdletContext.DocumentVersion != null)
             {
@@ -437,6 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String AssociationId { get; set; }
             public System.String AssociationName { get; set; }
             public System.String AssociationVersion { get; set; }
+            public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String MaxConcurrency { get; set; }
             public System.String MaxErrors { get; set; }

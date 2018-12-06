@@ -28,19 +28,19 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Creates or updates an alarm and associates it with the specified metric. Optionally,
-    /// this operation can associate one or more Amazon SNS resources with the alarm.
+    /// Creates or updates an alarm and associates it with the specified metric or metric
+    /// math expression.
     /// 
     ///  
     /// <para>
     /// When this operation creates an alarm, the alarm state is immediately set to <code>INSUFFICIENT_DATA</code>.
-    /// The alarm is evaluated and its state is set appropriately. Any actions associated
-    /// with the state are then executed.
+    /// The alarm is then evaluated and its state is set appropriately. Any actions associated
+    /// with the new state are then executed.
     /// </para><para>
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm.
     /// </para><para>
-    /// If you are an IAM user, you must have Amazon EC2 permissions for some operations:
+    /// If you are an IAM user, you must have Amazon EC2 permissions for some alarm operations:
     /// </para><ul><li><para><code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions
     /// </para></li><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
     /// all alarms on EC2 instance status metrics
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// The first time you create an alarm in the AWS Management Console, the CLI, or by using
     /// the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you.
     /// The service-linked role is called <code>AWSServiceRoleForCloudWatchEvents</code>.
-    /// For more information about service-linked roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
+    /// For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS
     /// service-linked role</a>.
     /// </para>
     /// </summary>
@@ -82,7 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ActionsEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates whether actions should be executed during any changes to the alarm state.</para>
+        /// <para>Indicates whether actions should be executed during any changes to the alarm state.
+        /// The default is TRUE.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmName
         /// <summary>
         /// <para>
-        /// <para>The name for the alarm. This name must be unique within the AWS account.</para>
+        /// <para>The name for the alarm. This name must be unique within your AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -152,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions for the metric associated with the alarm.</para>
+        /// <para>The dimensions for the metric specified in <code>MetricName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The number of periods over which data is compared to the specified threshold. If you
-        /// are setting an alarm which requires that a number of consecutive data points be breaching
+        /// are setting an alarm that requires that a number of consecutive data points be breaching
         /// to trigger the alarm, this value specifies that number. If you are setting an "M out
         /// of N" alarm, this value is the N.</para><para>An alarm's total current evaluation period can be no longer than one day, so this
         /// number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</para>
@@ -193,9 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ExtendedStatistic
         /// <summary>
         /// <para>
-        /// <para>The percentile statistic for the metric associated with the alarm. Specify a value
-        /// between p0.0 and p100. When you call <code>PutMetricAlarm</code>, you must specify
-        /// either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</para>
+        /// <para>The percentile statistic for the metric specified in <code>MetricName</code>. Specify
+        /// a value between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify
+        /// a <code>MetricName</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code>
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -220,17 +222,37 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter MetricName
         /// <summary>
         /// <para>
-        /// <para>The name for the metric associated with the alarm.</para>
+        /// <para>The name for the metric associated with the alarm.</para><para>If you are creating an alarm based on a math expression, you cannot specify this parameter,
+        /// or any of the <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>,
+        /// <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you
+        /// specify all this information in the <code>Metrics</code> array.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MetricName { get; set; }
         #endregion
         
+        #region Parameter Metric
+        /// <summary>
+        /// <para>
+        /// <para>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm
+        /// based on the result of a metric math expression. Each item in the <code>Metrics</code>
+        /// array either retrieves a metric or performs a math expression.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>,
+        /// <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>,
+        /// or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the
+        /// same operation. Instead, you retrieve the metrics you are using in your math expression
+        /// as part of the <code>Metrics</code> array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Metrics")]
+        public Amazon.CloudWatch.Model.MetricDataQuery[] Metric { get; set; }
+        #endregion
+        
         #region Parameter Namespace
         /// <summary>
         /// <para>
-        /// <para>The namespace for the metric associated with the alarm.</para>
+        /// <para>The namespace for the metric associated specified in <code>MetricName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,7 +264,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to an <code>OK</code> state from
         /// any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
+        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
         /// </para>
@@ -255,8 +279,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period, in seconds, over which the specified statistic is applied. Valid values
-        /// are 10, 30, and any multiple of 60.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code>
+        /// <para>The length, in seconds, used each time the metric specified in <code>MetricName</code>
+        /// is evaluated. Valid values are 10, 30, and any multiple of 60.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code>
         /// call with a <code>StorageResolution</code> of 1. If you specify a period of 10 or
         /// 30 for a metric that does not have sub-minute resolution, the alarm still attempts
         /// to gather data at the period rate that you specify. In this case, it does not receive
@@ -275,10 +299,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The statistic for the metric associated with the alarm, other than percentile. For
-        /// percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code>,
-        /// you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code>
-        /// but not both.</para>
+        /// <para>The statistic for the metric specified in <code>MetricName</code>, other than percentile.
+        /// For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code>
+        /// and specify a <code>MetricName</code>, you must specify either <code>Statistic</code>
+        /// or <code>ExtendedStatistic,</code> but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -387,6 +411,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 context.InsufficientDataActions = new List<System.String>(this.InsufficientDataAction);
             }
             context.MetricName = this.MetricName;
+            if (this.Metric != null)
+            {
+                context.Metrics = new List<Amazon.CloudWatch.Model.MetricDataQuery>(this.Metric);
+            }
             context.Namespace = this.Namespace;
             if (this.OKAction != null)
             {
@@ -462,6 +490,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.MetricName != null)
             {
                 request.MetricName = cmdletContext.MetricName;
+            }
+            if (cmdletContext.Metrics != null)
+            {
+                request.Metrics = cmdletContext.Metrics;
             }
             if (cmdletContext.Namespace != null)
             {
@@ -569,6 +601,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String ExtendedStatistic { get; set; }
             public List<System.String> InsufficientDataActions { get; set; }
             public System.String MetricName { get; set; }
+            public List<Amazon.CloudWatch.Model.MetricDataQuery> Metrics { get; set; }
             public System.String Namespace { get; set; }
             public List<System.String> OKActions { get; set; }
             public System.Int32? Period { get; set; }

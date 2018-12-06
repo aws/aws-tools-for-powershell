@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// <summary>
     /// Returns a paginated list of all the outgoing <a>TypedLinkSpecifier</a> information
     /// for an object. It also supports filtering by typed link facet and identity attributes.
-    /// For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-    /// link</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed
+    /// Links</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIROutgoingTypedLink")]
     [OutputType("Amazon.CloudDirectory.Model.TypedLinkSpecifier")]
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
         /// to it from the directory root. Use the link names from each parent/child link to construct
         /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will

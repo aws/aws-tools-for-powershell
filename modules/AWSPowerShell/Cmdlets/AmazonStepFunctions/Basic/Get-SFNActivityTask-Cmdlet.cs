@@ -38,6 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     ///  <important><para>
     /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
     /// higher than the maximum time the service may hold the poll request).
+    /// </para><para>
+    /// Polling with <code>GetActivityTask</code> can cause latency in some implementations.
+    /// See <a href="http://docs.aws.amazon.com/step-functions/latest/dg/bp-activity-pollers.html">Avoid
+    /// Latency When Polling for Activity Tasks</a> in the Step Functions Developer Guide.
     /// </para></important>
     /// </summary>
     [Cmdlet("Get", "SFNActivityTask")]

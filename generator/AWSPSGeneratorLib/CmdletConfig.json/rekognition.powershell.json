@@ -144,8 +144,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -208,8 +207,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Collection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -271,8 +269,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessor",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -332,8 +329,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Collection",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -395,8 +391,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -458,8 +453,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessor",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -519,8 +513,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Collection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -577,8 +570,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessor",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -666,8 +658,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -757,8 +748,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Labels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -815,8 +805,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ModerationLabels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -906,8 +895,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Text",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -966,8 +954,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CelebrityInfo",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1022,8 +1009,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CelebrityRecognition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1078,8 +1064,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContentModeration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1136,8 +1121,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FaceDetection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1192,8 +1176,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FaceSearch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1248,8 +1231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LabelDetection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1304,8 +1286,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PersonTracking",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1393,8 +1374,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1456,8 +1436,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Collections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1512,8 +1491,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1568,7 +1546,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessors",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1657,8 +1634,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Celebrities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1715,8 +1691,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Faces",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1809,8 +1784,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FacesByImage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1872,8 +1846,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CelebrityRecognition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1933,8 +1906,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContentModeration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1994,8 +1966,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FaceDetection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2055,8 +2026,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FaceSearch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2116,8 +2086,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LabelDetection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2177,8 +2146,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PersonTracking",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2240,8 +2208,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessor",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2303,8 +2270,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamProcessor",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

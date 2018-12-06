@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the available WorkSpace bundles.
+    /// Retrieves a list that describes the available WorkSpace bundles.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the bundles. This parameter cannot be combined with any other filter.</para>
+        /// <para>The identifiers of the bundles. You cannot combine this parameter with any other filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The owner of the bundles. This parameter cannot be combined with any other filter.</para><para>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null to describe
+        /// <para>The owner of the bundles. You cannot combine this parameter with any other filter.</para><para>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null to describe
         /// the bundles that belong to your account.</para>
         /// </para>
         /// </summary>

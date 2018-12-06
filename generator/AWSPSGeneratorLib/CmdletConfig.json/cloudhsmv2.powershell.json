@@ -65,8 +65,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BackupToRegion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -173,8 +171,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -228,8 +225,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -283,8 +279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cluster",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -338,8 +333,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Hsm",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -391,7 +385,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -439,7 +432,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Clusters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -489,8 +481,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -544,7 +535,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -594,8 +584,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -649,8 +638,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -704,8 +692,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

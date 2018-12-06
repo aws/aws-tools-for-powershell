@@ -88,7 +88,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -135,7 +134,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AuthorizationMessage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -180,7 +178,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CallerIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -236,7 +233,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FederationToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -292,7 +288,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SessionToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

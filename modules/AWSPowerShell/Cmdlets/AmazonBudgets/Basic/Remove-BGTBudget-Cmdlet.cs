@@ -30,9 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// <summary>
     /// Deletes a budget. You can delete your budget at any time.
     /// 
-    ///  
-    /// <para><b>Deleting a budget also deletes the notifications and subscribers associated with
-    /// that budget.</b></para>
+    ///  <important><para>
+    /// Deleting a budget also deletes the notifications and subscribers that are associated
+    /// with that budget.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Remove", "BGTBudget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

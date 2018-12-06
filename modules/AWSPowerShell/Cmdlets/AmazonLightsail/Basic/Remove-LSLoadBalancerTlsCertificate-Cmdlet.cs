@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Deletes an SSL/TLS certificate associated with a Lightsail load balancer.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>delete load balancer tls certificate</code> operation supports tag-based
+    /// access control via resource tags applied to the resource identified by loadBalancerName.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSLoadBalancerTlsCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

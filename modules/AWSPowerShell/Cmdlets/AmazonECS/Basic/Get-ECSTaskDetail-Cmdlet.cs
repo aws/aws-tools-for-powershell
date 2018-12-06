@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cluster { get; set; }
         #endregion
         
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to see the resource tags for the task. If <code>TAGS</code>
+        /// is specified, the tags are included in the response. If this field is omitted, tags
+        /// are not included in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Include { get; set; }
+        #endregion
+        
         #region Parameter Task
         /// <summary>
         /// <para>
@@ -75,6 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             PreExecutionContextLoad(context);
             
             context.Cluster = this.Cluster;
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
+            }
             if (this.Task != null)
             {
                 context.Tasks = new List<System.String>(this.Task);
@@ -98,6 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
             }
             if (cmdletContext.Tasks != null)
             {
@@ -168,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public List<System.String> Include { get; set; }
             public List<System.String> Tasks { get; set; }
         }
         

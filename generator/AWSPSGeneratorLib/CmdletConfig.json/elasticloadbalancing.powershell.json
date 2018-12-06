@@ -94,8 +94,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -148,8 +147,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityGroupsToLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -202,8 +200,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerToSubnets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -254,8 +251,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -309,8 +305,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AppCookieStickinessPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -364,8 +359,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LBCookieStickinessPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -419,8 +413,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -476,8 +469,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerListeners",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Listeners",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.Listener",
         "requiresPassThruGeneration": "true",
@@ -532,8 +524,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -584,8 +575,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -638,8 +628,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerListeners",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -692,8 +681,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -746,8 +734,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesFromLoadBalancer",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -798,7 +785,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -847,8 +833,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceHealth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -894,8 +879,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -943,8 +927,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -992,8 +975,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPolicyTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1041,7 +1023,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1090,8 +1071,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1139,8 +1119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerFromSubnets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1193,8 +1172,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1247,8 +1225,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1301,8 +1278,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1355,8 +1331,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstancesWithLoadBalancer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1414,8 +1389,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.TagKeyOnly",
         "requiresPassThruGeneration": "true",
@@ -1469,8 +1443,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerListenerSSLCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1524,8 +1497,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPoliciesForBackendServer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1579,8 +1551,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerPoliciesOfListener",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

@@ -28,8 +28,12 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The GetServers API returns a list of all servers in your server catalog. For this
-    /// call to succeed, you must previously have called ImportServerCatalog.
+    /// Describes the servers in your server catalog.
+    /// 
+    ///  
+    /// <para>
+    /// Before you can describe your servers, you must import them using <a>ImportServerCatalog</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SMSServer")]
     [OutputType("Amazon.ServerMigrationService.Model.GetServersResponse")]
@@ -40,10 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     public partial class GetSMSServerCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter VmServerAddressList
+        /// <summary>
+        /// <para>
+        /// <para>List of <code>VmServerAddress</code> objects</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.ServerMigrationService.Model.VmServerAddress[] VmServerAddressList { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in a single call. The default value is 50.
+        /// To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -57,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -83,6 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.VmServerAddressList != null)
+            {
+                context.VmServerAddressList = new List<Amazon.ServerMigrationService.Model.VmServerAddress>(this.VmServerAddressList);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             if (cmdletContext.NextToken != null)
             {
                 request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.VmServerAddressList != null)
+            {
+                request.VmServerAddressList = cmdletContext.VmServerAddressList;
             }
             
             CmdletOutput output;
@@ -173,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         {
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.ServerMigrationService.Model.VmServerAddress> VmServerAddressList { get; set; }
         }
         
     }

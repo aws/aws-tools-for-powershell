@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the IP access control group.</para>
+        /// <para>The identifier of the IP access control group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

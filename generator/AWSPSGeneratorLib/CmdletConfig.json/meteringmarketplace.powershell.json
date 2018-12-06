@@ -57,7 +57,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MeterUsage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -104,7 +103,52 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Usage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ProductCode"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "RegisterUsage": {
+      "verb": "Register",
+      "noun": "Usage",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ProductCode"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ProductCode"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Usage",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -151,7 +195,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Customer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String SecurityProfileName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the security profile.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -125,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.SecurityProfileDescription = this.SecurityProfileDescription;
             context.SecurityProfileName = this.SecurityProfileName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -156,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.SecurityProfileName != null)
             {
                 request.SecurityProfileName = cmdletContext.SecurityProfileName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -225,6 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.Behavior> Behaviors { get; set; }
             public System.String SecurityProfileDescription { get; set; }
             public System.String SecurityProfileName { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
         }
         
     }

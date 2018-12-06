@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_Daily
         /// <summary>
         /// <para>
-        /// The maximum number of messages that the campaign
-        /// can send daily.
+        /// The maximum number of messages that each campaign
+        /// can send to a single endpoint in a 24-hour period.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter QuietTime_End
         /// <summary>
         /// <para>
-        /// The default end time for quiet time in ISO 8601 format.
+        /// The time at which quiet time should end. The value
+        /// that you specify has to be in HH:mm format, where HH is the hour in 24-hour format
+        /// (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30
+        /// to represent 2:30 AM, or 14:30 to represent 2:30 PM.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,8 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter QuietTime_Start
         /// <summary>
         /// <para>
-        /// The default start time for quiet time in ISO 8601
-        /// format.
+        /// The time at which quiet time should begin. The value
+        /// that you specify has to be in HH:mm format, where HH is the hour in 24-hour format
+        /// (with a leading zero, if applicable), and mm is the minutes. For example, use 02:30
+        /// to represent 2:30 AM, or 14:30 to represent 2:30 PM.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -148,8 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Limits_Total
         /// <summary>
         /// <para>
-        /// The maximum total number of messages that the campaign
-        /// can send.
+        /// The maximum number of messages that an individual
+        /// campaign can send to a single endpoint over the course of the campaign.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

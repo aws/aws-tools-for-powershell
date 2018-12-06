@@ -230,6 +230,18 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MaintenanceTrackName { get; set; }
         #endregion
         
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The default for number of days that a newly created manual snapshot is retained. If
+        /// the value is -1, the manual snapshot is retained indefinitely. This value doesn't
+        /// retroactively change the retention periods of existing manual snapshots.</para><para>The value must be either -1 or an integer between 1 and 3,653.</para><para>The default value is -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
@@ -374,6 +386,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             context.HsmConfigurationIdentifier = this.HsmConfigurationIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.MasterUserPassword = this.MasterUserPassword;
             context.NewClusterIdentifier = this.NewClusterIdentifier;
             context.NodeType = this.NodeType;
@@ -457,6 +471,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.MaintenanceTrackName != null)
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
+            }
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
             }
             if (cmdletContext.MasterUserPassword != null)
             {
@@ -564,6 +582,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String HsmConfigurationIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String MasterUserPassword { get; set; }
             public System.String NewClusterIdentifier { get; set; }
             public System.String NodeType { get; set; }

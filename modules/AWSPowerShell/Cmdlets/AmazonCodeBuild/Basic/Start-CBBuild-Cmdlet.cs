@@ -87,9 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_EncryptionDisabled
         /// <summary>
         /// <para>
-        /// <para> Set to true if you do not want your output artifacts encrypted. This option is only
-        /// valid if your artifacts type is Amazon S3. If this is set with another artifacts type,
-        /// an invalidInputException will be thrown. </para>
+        /// <para> Set to true if you do not want your output artifacts encrypted. This option is valid
+        /// only if your artifacts type is Amazon Simple Storage Service (Amazon S3). If this
+        /// is set with another artifacts type, an invalidInputException is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,8 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CloudWatchLogs_GroupName
         /// <summary>
         /// <para>
-        /// <para> The group name of the Amazon CloudWatch Logs. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
-        /// with Log Groups and Log Streams</a></para>
+        /// <para> The group name of the logs in Amazon CloudWatch Logs. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
+        /// with Log Groups and Log Streams</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -181,10 +181,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Location
         /// <summary>
         /// <para>
-        /// <para>Information about the build output artifact location, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
-        /// ignore this value if specified. This is because AWS CodePipeline manages its build
-        /// output locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</para></li></ul>
+        /// <para>Information about the build output artifact location:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
+        /// this value if specified. This is because AWS CodePipeline manages its build output
+        /// locations instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output bucket.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CacheOverride_Location
         /// <summary>
         /// <para>
-        /// <para>Information about the cache location, as follows: </para><ul><li><para><code>NO_CACHE</code>: This value will be ignored.</para></li><li><para><code>S3</code>: This is the S3 bucket name/prefix.</para></li></ul>
+        /// <para>Information about the cache location: </para><ul><li><para><code>NO_CACHE</code>: This value is ignored.</para></li><li><para><code>S3</code>: This is the S3 bucket name/prefix.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,20 +219,19 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>Along with <code>path</code> and <code>namespaceType</code>, the pattern that AWS
-        /// CodeBuild will use to name and store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
-        /// ignore this value if specified. This is because AWS CodePipeline manages its build
-        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact
-        /// object. If you set the name to be a forward slash ("/"), then the artifact is stored
-        /// in the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// CodeBuild uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
+        /// this value if specified. This is because AWS CodePipeline manages its build output
+        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the name of the output artifact
+        /// object. If you set the name to be a forward slash ("/"), the artifact is stored in
+        /// the root of the output bucket.</para></li></ul><para>For example:</para><ul><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.
+        /// then the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.
         /// </para></li><li><para> If <code>path</code> is empty, <code>namespaceType</code> is set to <code>NONE</code>,
-        /// and <code>name</code> is set to "<code>/</code>", then the output artifact would be
-        /// stored in the root of the output bucket. </para></li><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// and <code>name</code> is set to "<code>/</code>", the output artifact is stored in
+        /// the root of the output bucket. </para></li><li><para> If <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to "<code>/</code>",
-        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i></code>.
-        /// </para></li></ul>
+        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i></code>. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -243,13 +242,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>Along with <code>path</code> and <code>name</code>, the pattern that AWS CodeBuild
-        /// will use to determine the name and location to store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
-        /// ignore this value if specified. This is because AWS CodePipeline manages its build
-        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, then valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
+        /// uses to determine the name and location to store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
+        /// this value if specified. This is because AWS CodePipeline manages its build output
+        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>BUILD_ID</code>: Include the build ID in the location of the build output artifact.</para></li><li><para><code>NONE</code>: Do not include the build ID. This is the default if <code>namespaceType</code>
         /// is not specified.</para></li></ul></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>BUILD_ID</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact would be stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
+        /// the output artifact is stored in <code>MyArtifacts/<i>build-ID</i>/MyArtifact.zip</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -260,8 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_OverrideArtifactName
         /// <summary>
         /// <para>
-        /// <para> If this flag is set, a name specified in the buildspec file overrides the artifact
-        /// name. The name specified in a buildspec file is calculated at build time and uses
+        /// <para> If this flag is set, a name specified in the build spec file overrides the artifact
+        /// name. The name specified in a build spec file is calculated at build time and uses
         /// the Shell Command Language. For example, you can append a date and time to your artifact
         /// name so that it is always unique. </para>
         /// </para>
@@ -273,11 +272,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Packaging
         /// <summary>
         /// <para>
-        /// <para>The type of build output artifact to create, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
-        /// ignore this value if specified. This is because AWS CodePipeline manages its build
-        /// output artifacts instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>NONE</code>: AWS CodeBuild will create in the output bucket a folder containing
-        /// the build output. This is the default if <code>packaging</code> is not specified.</para></li><li><para><code>ZIP</code>: AWS CodeBuild will create in the output bucket a ZIP file containing
+        /// <para>The type of build output artifact to create:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
+        /// this value if specified. This is because AWS CodePipeline manages its build output
+        /// artifacts instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, valid values include:</para><ul><li><para><code>NONE</code>: AWS CodeBuild creates in the output bucket a folder that contains
+        /// the build output. This is the default if <code>packaging</code> is not specified.</para></li><li><para><code>ZIP</code>: AWS CodeBuild creates in the output bucket a ZIP file that contains
         /// the build output.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
@@ -290,13 +289,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>Along with <code>namespaceType</code> and <code>name</code>, the pattern that AWS
-        /// CodeBuild will use to name and store the output artifact, as follows:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, then AWS CodePipeline will
-        /// ignore this value if specified. This is because AWS CodePipeline manages its build
-        /// output names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, then this value will be
-        /// ignored if specified, because no build output will be produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact.
-        /// If <code>path</code> is not specified, then <code>path</code> will not be used.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
+        /// CodeBuild uses to name and store the output artifact:</para><ul><li><para>If <code>type</code> is set to <code>CODEPIPELINE</code>, AWS CodePipeline ignores
+        /// this value if specified. This is because AWS CodePipeline manages its build output
+        /// names instead of AWS CodeBuild.</para></li><li><para>If <code>type</code> is set to <code>NO_ARTIFACTS</code>, this value is ignored if
+        /// specified, because no build output is produced.</para></li><li><para>If <code>type</code> is set to <code>S3</code>, this is the path to the output artifact.
+        /// If <code>path</code> is not specified, <code>path</code> is not used.</para></li></ul><para>For example, if <code>path</code> is set to <code>MyArtifacts</code>, <code>namespaceType</code>
         /// is set to <code>NONE</code>, and <code>name</code> is set to <code>MyArtifact.zip</code>,
-        /// then the output artifact would be stored in the output bucket at <code>MyArtifacts/MyArtifact.zip</code>.</para>
+        /// the output artifact is stored in the output bucket at <code>MyArtifacts/MyArtifact.zip</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -323,12 +322,22 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String ProjectName { get; set; }
         #endregion
         
+        #region Parameter QueuedTimeoutInMinutesOverride
+        /// <summary>
+        /// <para>
+        /// <para> The number of minutes a build is allowed to be queued before it times out. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 QueuedTimeoutInMinutesOverride { get; set; }
+        #endregion
+        
         #region Parameter ReportBuildStatusOverride
         /// <summary>
         /// <para>
         /// <para> Set to true to report to your source provider the status of a build's start and completion.
-        /// If you use this option with a source provider other than GitHub, an invalidInputException
-        /// is thrown. </para>
+        /// If you use this option with a source provider other than GitHub, GitHub Enterprise,
+        /// or Bitbucket, an invalidInputException is thrown. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -390,8 +399,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceLocationOverride
         /// <summary>
         /// <para>
-        /// <para>A location that overrides for this build the source location for the one defined in
-        /// the build project.</para>
+        /// <para>A location that overrides, for this build, the source location for the one defined
+        /// in the build project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -401,7 +410,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter SourceTypeOverride
         /// <summary>
         /// <para>
-        /// <para>A source input type for this build that overrides the source input defined in the
+        /// <para>A source input type, for this build, that overrides the source input defined in the
         /// build project.</para>
         /// </para>
         /// </summary>
@@ -414,14 +423,13 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <summary>
         /// <para>
         /// <para>A version of the build input to be built, for this build only. If not specified, the
-        /// latest version will be used. If specified, must be one of:</para><ul><li><para>For AWS CodeCommit: the commit ID to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
+        /// latest version is used. If specified, must be one of:</para><ul><li><para>For AWS CodeCommit: the commit ID to use.</para></li><li><para>For GitHub: the commit ID, pull request ID, branch name, or tag name that corresponds
         /// to the version of the source code you want to build. If a pull request ID is specified,
         /// it must use the format <code>pr/pull-request-ID</code> (for example <code>pr/25</code>).
-        /// If a branch name is specified, the branch's HEAD commit ID will be used. If not specified,
-        /// the default branch's HEAD commit ID will be used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
+        /// If a branch name is specified, the branch's HEAD commit ID is used. If not specified,
+        /// the default branch's HEAD commit ID is used.</para></li><li><para>For Bitbucket: the commit ID, branch name, or tag name that corresponds to the version
         /// of the source code you want to build. If a branch name is specified, the branch's
-        /// HEAD commit ID will be used. If not specified, the default branch's HEAD commit ID
-        /// will be used.</para></li><li><para>For Amazon Simple Storage Service (Amazon S3): the version ID of the object representing
+        /// HEAD commit ID is used. If not specified, the default branch's HEAD commit ID is used.</para></li><li><para>For Amazon Simple Storage Service (Amazon S3): the version ID of the object that represents
         /// the build input ZIP file to use.</para></li></ul>
         /// </para>
         /// </summary>
@@ -432,8 +440,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CloudWatchLogs_Status
         /// <summary>
         /// <para>
-        /// <para>The current status of the Amazon CloudWatch Logs for a build project. Valid values
-        /// are:</para><ul><li><para><code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</para></li></ul>
+        /// <para>The current status of the logs in Amazon CloudWatch Logs for a build project. Valid
+        /// values are:</para><ul><li><para><code>ENABLED</code>: Amazon CloudWatch Logs are enabled for this build project.</para></li><li><para><code>DISABLED</code>: Amazon CloudWatch Logs are not enabled for this build project.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -459,7 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para> The prefix of the stream name of the Amazon CloudWatch Logs. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html">Working
-        /// with Log Groups and Log Streams</a></para>
+        /// with Log Groups and Log Streams</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -481,9 +489,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter ArtifactsOverride_Type
         /// <summary>
         /// <para>
-        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project will have build output generated through
-        /// AWS CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project will not produce any build output.</para></li><li><para><code>S3</code>: The build project will store build output in Amazon Simple Storage
-        /// Service (Amazon S3).</para></li></ul>
+        /// <para>The type of build output artifact. Valid values include:</para><ul><li><para><code>CODEPIPELINE</code>: The build project has build output generated through AWS
+        /// CodePipeline.</para></li><li><para><code>NO_ARTIFACTS</code>: The build project does not produce any build output.</para></li><li><para><code>S3</code>: The build project stores build output in Amazon Simple Storage Service
+        /// (Amazon S3).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -494,7 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter CacheOverride_Type
         /// <summary>
         /// <para>
-        /// <para>The type of cache used by the build project. Valid values include:</para><ul><li><para><code>NO_CACHE</code>: The build project will not use any cache.</para></li><li><para><code>S3</code>: The build project will read and write from/to S3.</para></li></ul>
+        /// <para>The type of cache used by the build project. Valid values include:</para><ul><li><para><code>NO_CACHE</code>: The build project does not use any cache.</para></li><li><para><code>S3</code>: The build project reads and writes from and to S3.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -578,6 +586,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (ParameterWasBound("PrivilegedModeOverride"))
                 context.PrivilegedModeOverride = this.PrivilegedModeOverride;
             context.ProjectName = this.ProjectName;
+            if (ParameterWasBound("QueuedTimeoutInMinutesOverride"))
+                context.QueuedTimeoutInMinutesOverride = this.QueuedTimeoutInMinutesOverride;
             if (ParameterWasBound("ReportBuildStatusOverride"))
                 context.ReportBuildStatusOverride = this.ReportBuildStatusOverride;
             if (this.SecondaryArtifactsOverride != null)
@@ -877,6 +887,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.ProjectName = cmdletContext.ProjectName;
             }
+            if (cmdletContext.QueuedTimeoutInMinutesOverride != null)
+            {
+                request.QueuedTimeoutInMinutesOverride = cmdletContext.QueuedTimeoutInMinutesOverride.Value;
+            }
             if (cmdletContext.ReportBuildStatusOverride != null)
             {
                 request.ReportBuildStatusOverride = cmdletContext.ReportBuildStatusOverride.Value;
@@ -1033,6 +1047,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_S3Logs_Status { get; set; }
             public System.Boolean? PrivilegedModeOverride { get; set; }
             public System.String ProjectName { get; set; }
+            public System.Int32? QueuedTimeoutInMinutesOverride { get; set; }
             public System.Boolean? ReportBuildStatusOverride { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectArtifacts> SecondaryArtifactsOverride { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySourcesOverride { get; set; }

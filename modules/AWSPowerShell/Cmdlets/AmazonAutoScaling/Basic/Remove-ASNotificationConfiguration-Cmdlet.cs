@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TopicARN
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic.</para>
+        /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS)
+        /// topic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

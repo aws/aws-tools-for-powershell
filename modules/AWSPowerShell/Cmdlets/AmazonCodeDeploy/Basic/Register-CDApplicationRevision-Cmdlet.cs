@@ -86,6 +86,22 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String GitHubLocation_CommitId { get; set; }
         #endregion
         
+        #region Parameter AppSpecContent_Content
+        /// <summary>
+        /// <para>
+        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment the content includes a Lambda function name, the alias
+        /// for its original version, and the alias for its replacement version. The deployment
+        /// shifts traffic from the original version of the Lambda function to the replacement
+        /// version. </para><para> For an Amazon ECS deployment the content includes the task name, information about
+        /// the load balancer that serves traffic to the container, and more. </para><para> For both types of deployments, the content can specify Lambda functions that run
+        /// at specified hooks, such as <code>BeforeInstall</code>, during a deployment. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_AppSpecContent_Content")]
+        public System.String AppSpecContent_Content { get; set; }
+        #endregion
+        
         #region Parameter String_Content
         /// <summary>
         /// <para>
@@ -144,10 +160,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
         #endregion
         
+        #region Parameter AppSpecContent_Sha256
+        /// <summary>
+        /// <para>
+        /// <para> The SHA256 hash value of the revision content. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_AppSpecContent_Sha256")]
+        public System.String AppSpecContent_Sha256 { get; set; }
+        #endregion
+        
         #region Parameter String_Sha256
         /// <summary>
         /// <para>
-        /// <para>The SHA256 hash value of the revision that is specified as a RawString.</para>
+        /// <para>The SHA256 hash value of the revision content.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -220,6 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             
             context.ApplicationName = this.ApplicationName;
             context.Description = this.Description;
+            context.Revision_AppSpecContent_Content = this.AppSpecContent_Content;
+            context.Revision_AppSpecContent_Sha256 = this.AppSpecContent_Sha256;
             context.Revision_GitHubLocation_CommitId = this.GitHubLocation_CommitId;
             context.Revision_GitHubLocation_Repository = this.GitHubLocation_Repository;
             context.Revision_RevisionType = this.Revision_RevisionType;
@@ -266,6 +295,41 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_RevisionType != null)
             {
                 request.Revision.RevisionType = requestRevision_revision_RevisionType;
+                requestRevisionIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.AppSpecContent requestRevision_revision_AppSpecContent = null;
+            
+             // populate AppSpecContent
+            bool requestRevision_revision_AppSpecContentIsNull = true;
+            requestRevision_revision_AppSpecContent = new Amazon.CodeDeploy.Model.AppSpecContent();
+            System.String requestRevision_revision_AppSpecContent_appSpecContent_Content = null;
+            if (cmdletContext.Revision_AppSpecContent_Content != null)
+            {
+                requestRevision_revision_AppSpecContent_appSpecContent_Content = cmdletContext.Revision_AppSpecContent_Content;
+            }
+            if (requestRevision_revision_AppSpecContent_appSpecContent_Content != null)
+            {
+                requestRevision_revision_AppSpecContent.Content = requestRevision_revision_AppSpecContent_appSpecContent_Content;
+                requestRevision_revision_AppSpecContentIsNull = false;
+            }
+            System.String requestRevision_revision_AppSpecContent_appSpecContent_Sha256 = null;
+            if (cmdletContext.Revision_AppSpecContent_Sha256 != null)
+            {
+                requestRevision_revision_AppSpecContent_appSpecContent_Sha256 = cmdletContext.Revision_AppSpecContent_Sha256;
+            }
+            if (requestRevision_revision_AppSpecContent_appSpecContent_Sha256 != null)
+            {
+                requestRevision_revision_AppSpecContent.Sha256 = requestRevision_revision_AppSpecContent_appSpecContent_Sha256;
+                requestRevision_revision_AppSpecContentIsNull = false;
+            }
+             // determine if requestRevision_revision_AppSpecContent should be set to null
+            if (requestRevision_revision_AppSpecContentIsNull)
+            {
+                requestRevision_revision_AppSpecContent = null;
+            }
+            if (requestRevision_revision_AppSpecContent != null)
+            {
+                request.Revision.AppSpecContent = requestRevision_revision_AppSpecContent;
                 requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.GitHubLocation requestRevision_revision_GitHubLocation = null;
@@ -476,6 +540,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         {
             public System.String ApplicationName { get; set; }
             public System.String Description { get; set; }
+            public System.String Revision_AppSpecContent_Content { get; set; }
+            public System.String Revision_AppSpecContent_Sha256 { get; set; }
             public System.String Revision_GitHubLocation_CommitId { get; set; }
             public System.String Revision_GitHubLocation_Repository { get; set; }
             public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }

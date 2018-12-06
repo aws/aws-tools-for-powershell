@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>s3control</C2jFilename>
+    <SourceGenerationRoot>AmazonS3Control</SourceGenerationRoot>
+    <ServiceNounPrefix>S3C</ServiceNounPrefix>
+    <ServiceName>Amazon S3 Control</ServiceName>
+    <ServiceClientInterface>IAmazonS3Control</ServiceClientInterface>
+    <ServiceClient>AmazonS3ControlClient</ServiceClient>
+    <ServiceNamespace>Amazon.S3Control</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeletePublicAccessBlock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="PublicAccessBlock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPublicAccessBlock" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PublicAccessBlock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutPublicAccessBlock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="PublicAccessBlock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

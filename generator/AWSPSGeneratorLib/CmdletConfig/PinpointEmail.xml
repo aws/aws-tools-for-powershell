@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>pinpoint-email</C2jFilename>
+    <SourceGenerationRoot>AmazonPinpointEmail</SourceGenerationRoot>
+    <ServiceNounPrefix>PINE</ServiceNounPrefix>
+    <ServiceName>Amazon Pinpoint Email</ServiceName>
+    <ServiceClientInterface>IAmazonPinpointEmail</ServiceClientInterface>
+    <ServiceClient>AmazonPinpointEmailClient</ServiceClient>
+    <ServiceNamespace>Amazon.PinpointEmail</ServiceNamespace>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="PageSize" ServicePageSize="-1" />
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateConfigurationSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ConfigurationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ConfigurationSetEventDestination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EventDestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventDestination" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDedicatedIpPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DedicatedIpPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PoolName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEmailIdentity" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EmailIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ConfigurationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ConfigurationSetEventDestination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EventDestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventDestinationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDedicatedIpPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DedicatedIpPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PoolName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEmailIdentity" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EmailIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfigurationSetEventDestinations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationSetEventDestination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDedicatedIp" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ip" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDedicatedIps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIpList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEmailIdentity" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EmailIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationSets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDedicatedIpPools" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIpPoolList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEmailIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EmailIdentityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountDedicatedIpWarmupAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="AccountDedicatedIpWarmupAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AutoWarmupEnabled" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutAccountSendingAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="AccountSendingAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SendingEnabled" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationSetDeliveryOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationSetDeliveryOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationSetReputationOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationSetReputationOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationSetSendingOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationSetSendingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationSetTrackingOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationSetTrackingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDedicatedIpInPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DedicatedIpInPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Ip" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ip" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDedicatedIpWarmupAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DedicatedIpWarmupAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Ip" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ip" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEmailIdentityDkimAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="EmailIdentityDkimAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EmailIdentity" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEmailIdentityFeedbackAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="EmailIdentityFeedbackAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EmailIdentity" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEmailIdentityMailFromAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="EmailIdentityMailFromAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EmailIdentity" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendEmail" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="Email" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Destination" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ConfigurationSetEventDestination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EventDestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventDestinationDefinition" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

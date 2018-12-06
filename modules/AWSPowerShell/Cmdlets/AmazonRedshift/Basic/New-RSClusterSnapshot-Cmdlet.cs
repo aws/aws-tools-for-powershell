@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String ClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days that a manual snapshot is retained. If the value is -1, the manual
+        /// snapshot is retained indefinitely. </para><para>The value must be either -1 or an integer between 1 and 3,653.</para><para>The default value is -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
@@ -109,6 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             PreExecutionContextLoad(context);
             
             context.ClusterIdentifier = this.ClusterIdentifier;
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
             if (this.Tag != null)
             {
@@ -133,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.ClusterIdentifier != null)
             {
                 request.ClusterIdentifier = cmdletContext.ClusterIdentifier;
+            }
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
             }
             if (cmdletContext.SnapshotIdentifier != null)
             {
@@ -207,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterIdentifier { get; set; }
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String SnapshotIdentifier { get; set; }
             public List<Amazon.Redshift.Model.Tag> Tags { get; set; }
         }

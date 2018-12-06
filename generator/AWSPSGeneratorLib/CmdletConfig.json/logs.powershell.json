@@ -73,8 +73,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KmsKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KmsKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -129,8 +128,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TaskId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -185,8 +183,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -243,8 +240,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -301,8 +297,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -357,8 +352,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Destination",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -413,8 +407,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -471,8 +464,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -529,8 +521,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilter",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FilterName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -585,8 +576,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -641,8 +631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -699,8 +688,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionFilter",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FilterName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -755,7 +743,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Destinations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -806,7 +793,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTasks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -857,7 +843,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -908,7 +893,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogStreams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -959,8 +943,57 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeQueries": {
+      "verb": "Get",
+      "noun": "Query",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Queries",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LogGroupName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Queries",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1008,7 +1041,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1059,7 +1091,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionFilters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1110,8 +1141,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KmsKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1166,8 +1196,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1219,8 +1248,157 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetLogGroupFields": {
+      "verb": "Get",
+      "noun": "LogGroupField",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LogGroupFields",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LogGroupName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LogGroupFields",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetLogRecord": {
+      "verb": "Get",
+      "noun": "LogRecord",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LogRecord",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LogRecordPointer"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LogRecord",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetQueryResults": {
+      "verb": "Get",
+      "noun": "QueryResult",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "QueryResults",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1270,8 +1448,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsLogGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1321,8 +1498,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Destination",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1377,8 +1553,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DestinationPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1436,8 +1611,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogEvents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1495,8 +1669,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1551,8 +1724,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1618,8 +1790,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1677,8 +1848,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionFilter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1696,6 +1866,116 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "LogGroupName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StartQuery": {
+      "verb": "Start",
+      "noun": "Query",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "QueryId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueryString"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Query",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "LogGroupName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopQuery": {
+      "verb": "Stop",
+      "noun": "Query",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Success",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "QueryId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Query",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "FilterLogEvents"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "QueryId"
         },
         "memoryStreamParameters": []
       }
@@ -1733,8 +2013,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1791,8 +2070,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1842,8 +2120,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

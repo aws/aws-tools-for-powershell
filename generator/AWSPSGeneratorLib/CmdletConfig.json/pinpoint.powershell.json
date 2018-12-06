@@ -61,7 +61,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -106,7 +105,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Campaign",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -151,7 +149,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -196,7 +193,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -241,7 +237,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Segment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -286,7 +281,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AdmChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -331,7 +325,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -376,7 +369,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsSandboxChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -421,7 +413,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -466,7 +457,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipSandboxChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -511,7 +501,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -556,7 +545,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BaiduChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -601,7 +589,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Campaign",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -646,7 +633,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmailChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -691,7 +677,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -736,7 +721,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -781,7 +765,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GcmChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -826,7 +809,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Segment",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -871,7 +853,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SmsChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -916,7 +897,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserEndpoints",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -924,6 +904,50 @@
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ApplicationId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteVoiceChannel": {
+      "verb": "Remove",
+      "noun": "VoiceChannel",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "VoiceChannelResponse",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VoiceChannel",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
         },
@@ -961,7 +985,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AdmChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1001,7 +1024,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1041,7 +1063,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsSandboxChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1081,7 +1102,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1121,7 +1141,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipSandboxChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1161,7 +1180,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1201,7 +1219,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1241,7 +1258,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Apps",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1281,7 +1297,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BaiduChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1321,7 +1336,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Campaign",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1361,7 +1375,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CampaignActivities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1401,7 +1414,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Campaigns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1441,7 +1453,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CampaignVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1481,7 +1492,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CampaignVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1521,7 +1531,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Channels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1561,7 +1570,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmailChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1601,7 +1609,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1641,7 +1648,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1681,7 +1687,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1721,7 +1726,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1761,7 +1765,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GcmChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1801,7 +1804,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImportJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1841,7 +1843,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImportJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1881,7 +1882,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Segment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1921,7 +1921,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SegmentExportJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1961,7 +1960,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SegmentImportJobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2001,7 +1999,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Segments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2041,7 +2038,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SegmentVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2081,7 +2077,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SegmentVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2121,7 +2116,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SmsChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2161,7 +2155,45 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserEndpoints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetVoiceChannel": {
+      "verb": "Get",
+      "noun": "VoiceChannel",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "VoiceChannelResponse",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VoiceChannel",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2214,7 +2246,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NumberValidate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2259,7 +2290,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2306,7 +2336,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2351,7 +2380,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Attributes",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2396,7 +2424,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Messages",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2407,7 +2434,9 @@
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
         },
-        "memoryStreamParameters": []
+        "memoryStreamParameters": [
+          "MessageRequest_MessageConfiguration_EmailMessage_RawEmail_Data"
+        ]
       }
     },
     "SendUsersMessages": {
@@ -2441,7 +2470,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UsersMessages",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2452,7 +2480,9 @@
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
         },
-        "memoryStreamParameters": []
+        "memoryStreamParameters": [
+          "SendUsersMessageRequest_MessageConfiguration_EmailMessage_RawEmail_Data"
+        ]
       }
     },
     "UpdateAdmChannel": {
@@ -2486,7 +2516,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AdmChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2531,7 +2560,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2576,7 +2604,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsSandboxChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2621,7 +2648,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2666,7 +2692,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApnsVoipSandboxChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2711,7 +2736,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2756,7 +2780,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BaiduChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2801,7 +2824,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Campaign",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2846,7 +2868,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmailChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2891,7 +2912,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2936,7 +2956,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointsBatch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2981,7 +3000,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GcmChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3026,7 +3044,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Segment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3071,7 +3088,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SmsChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3079,6 +3095,50 @@
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ApplicationId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateVoiceChannel": {
+      "verb": "Update",
+      "noun": "VoiceChannel",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "VoiceChannelResponse",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "VoiceChannel",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
         },

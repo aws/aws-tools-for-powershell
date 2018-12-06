@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// Note that the <code>GroupStandbyInstances</code> metric is not returned by default.
-    /// You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.
+    /// The <code>GroupStandbyInstances</code> metric is not returned by default. You must
+    /// explicitly request this metric when calling <a>EnableMetricsCollection</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ASMetricCollectionType")]

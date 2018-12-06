@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public Amazon.Greengrass.Model.Function[] Function { get; set; }
         #endregion
         
+        #region Parameter Execution_IsolationMode
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DefaultConfig_Execution_IsolationMode")]
+        [AWSConstantClassSource("Amazon.Greengrass.FunctionIsolationMode")]
+        public Amazon.Greengrass.FunctionIsolationMode Execution_IsolationMode { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,6 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             PreExecutionContextLoad(context);
             
             context.AmznClientToken = this.AmznClientToken;
+            context.DefaultConfig_Execution_IsolationMode = this.Execution_IsolationMode;
             context.FunctionDefinitionId = this.FunctionDefinitionId;
             if (this.Function != null)
             {
@@ -126,6 +139,40 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (cmdletContext.AmznClientToken != null)
             {
                 request.AmznClientToken = cmdletContext.AmznClientToken;
+            }
+            
+             // populate DefaultConfig
+            bool requestDefaultConfigIsNull = true;
+            request.DefaultConfig = new Amazon.Greengrass.Model.FunctionDefaultConfig();
+            Amazon.Greengrass.Model.FunctionDefaultExecutionConfig requestDefaultConfig_defaultConfig_Execution = null;
+            
+             // populate Execution
+            bool requestDefaultConfig_defaultConfig_ExecutionIsNull = true;
+            requestDefaultConfig_defaultConfig_Execution = new Amazon.Greengrass.Model.FunctionDefaultExecutionConfig();
+            Amazon.Greengrass.FunctionIsolationMode requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode = null;
+            if (cmdletContext.DefaultConfig_Execution_IsolationMode != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode = cmdletContext.DefaultConfig_Execution_IsolationMode;
+            }
+            if (requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution.IsolationMode = requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode;
+                requestDefaultConfig_defaultConfig_ExecutionIsNull = false;
+            }
+             // determine if requestDefaultConfig_defaultConfig_Execution should be set to null
+            if (requestDefaultConfig_defaultConfig_ExecutionIsNull)
+            {
+                requestDefaultConfig_defaultConfig_Execution = null;
+            }
+            if (requestDefaultConfig_defaultConfig_Execution != null)
+            {
+                request.DefaultConfig.Execution = requestDefaultConfig_defaultConfig_Execution;
+                requestDefaultConfigIsNull = false;
+            }
+             // determine if request.DefaultConfig should be set to null
+            if (requestDefaultConfigIsNull)
+            {
+                request.DefaultConfig = null;
             }
             if (cmdletContext.FunctionDefinitionId != null)
             {
@@ -200,6 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AmznClientToken { get; set; }
+            public Amazon.Greengrass.FunctionIsolationMode DefaultConfig_Execution_IsolationMode { get; set; }
             public System.String FunctionDefinitionId { get; set; }
             public List<Amazon.Greengrass.Model.Function> Functions { get; set; }
         }

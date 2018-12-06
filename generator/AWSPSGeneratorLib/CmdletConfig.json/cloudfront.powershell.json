@@ -73,8 +73,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -125,8 +124,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -177,8 +175,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DistributionWithTags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -231,8 +228,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -283,8 +279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -337,8 +332,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invalidation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -389,8 +383,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -441,8 +434,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -493,8 +485,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistributionWithTags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -547,8 +538,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -601,8 +591,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -653,8 +642,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -705,8 +693,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -757,8 +744,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -811,8 +797,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -863,8 +848,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -910,8 +894,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentityConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -957,8 +940,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1004,8 +986,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DistributionConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1051,8 +1032,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryption",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1098,8 +1078,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1145,8 +1124,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1192,8 +1170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfileConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1243,8 +1220,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invalidation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1290,8 +1266,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1337,8 +1312,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKeyConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1384,8 +1358,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1431,8 +1404,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistributionConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1483,7 +1455,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1535,7 +1506,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Distributions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1589,7 +1559,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DistributionsByWebACLId",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1636,8 +1605,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionConfigs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1683,8 +1651,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfiles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1737,7 +1704,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invalidations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1784,8 +1750,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1836,7 +1801,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistributions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1885,8 +1849,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1943,8 +1906,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Resource",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2006,8 +1968,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Resource",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2060,8 +2021,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2114,8 +2074,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2166,8 +2125,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2218,8 +2176,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2270,8 +2227,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2324,8 +2280,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

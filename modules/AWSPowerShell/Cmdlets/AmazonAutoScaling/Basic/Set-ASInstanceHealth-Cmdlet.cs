@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HealthStatus
         /// <summary>
         /// <para>
-        /// <para>The health status of the instance. Set to <code>Healthy</code> if you want the instance
-        /// to remain in service. Set to <code>Unhealthy</code> if you want the instance to be
-        /// out of service. Amazon EC2 Auto Scaling will terminate and replace the unhealthy instance.</para>
+        /// <para>The health status of the instance. Set to <code>Healthy</code> to have the instance
+        /// remain in service. Set to <code>Unhealthy</code> to have the instance be out of service.
+        /// Amazon EC2 Auto Scaling terminates and replaces the unhealthy instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>If the Auto Scaling group of the specified instance has a <code>HealthCheckGracePeriod</code>
-        /// specified for the group, by default, this call will respect the grace period. Set
-        /// this to <code>False</code>, if you do not want the call to respect the grace period
-        /// associated with the group.</para><para>For more information, see the description of the health check grace period for <a>CreateAutoScalingGroup</a>.</para>
+        /// specified for the group, by default, this call respects the grace period. Set this
+        /// to <code>False</code>, to have the call not respect the grace period associated with
+        /// the group.</para><para>For more information about the health check grace period, see <a>CreateAutoScalingGroup</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

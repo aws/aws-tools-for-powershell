@@ -86,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>A local text file that contains the license of the app that matches the spdxLicenseID
-        /// value of your application. The file is of the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>Note: Only one of licenseBody and licenseUrl can be specified, otherwise an error
-        /// will result.</para>
+        /// value of your application. The file has the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,8 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>A link to the S3 object that contains the license of the app that matches the spdxLicenseID
-        /// value of your application.</para><para>Maximum size 5 MB</para><para>Note: Only one of licenseBody and licenseUrl can be specified, otherwise an error
-        /// will result.</para>
+        /// value of your application.</para><para>Maximum size 5 MB</para><para>You can specify only one of licenseBody and licenseUrl; otherwise, an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -120,8 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>A local text readme file in Markdown language that contains a more detailed description
-        /// of the application and how it works. The file is of the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>Note: Only one of readmeBody and readmeUrl can be specified, otherwise an error will
-        /// result.</para>
+        /// of the application and how it works. The file has the format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Maximum size 5 MB</para><para>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>A link to the S3 object in Markdown language that contains a more detailed description
-        /// of the application and how it works.</para><para>Maximum size 5 MB</para><para>Note: Only one of readmeBody and readmeUrl can be specified, otherwise an error will
-        /// result.</para>
+        /// of the application and how it works.</para><para>Maximum size 5 MB</para><para>You can specify only one of readmeBody and readmeUrl; otherwise, an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,9 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
-        /// <para>The local raw packaged AWS SAM template file of your application. The file is of the
-        /// format file://&lt;path&gt;/&lt;filename&gt;.</para><para>Note: Only one of templateBody and templateUrl can be specified, otherwise an error
-        /// will result.</para>
+        /// <para>The local raw packaged AWS SAM template file of your application. The file has the
+        /// format file://&lt;path&gt;/&lt;filename&gt;.</para><para>You can specify only one of templateBody and templateUrl; otherwise an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -185,8 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         #region Parameter TemplateUrl
         /// <summary>
         /// <para>
-        /// <para>A link to the S3 object cotaining the packaged AWS SAM template of your application.</para><para>Note: Only one of templateBody and templateUrl can be specified, otherwise an error
-        /// will result.</para>
+        /// <para>A link to the S3 object containing the packaged AWS SAM template of your application.</para><para>You can specify only one of templateBody and templateUrl; otherwise an error results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

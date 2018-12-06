@@ -70,8 +70,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DRTLogBucket",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogBucket",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -124,8 +123,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DRTRole",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -178,8 +176,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Protection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -230,8 +227,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -284,8 +280,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Protection",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProtectionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -336,8 +331,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -390,8 +384,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Attack",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -437,8 +430,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DRTAccess",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -484,8 +476,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmergencyContactSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -533,8 +524,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Protection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -580,8 +570,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -629,8 +618,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DRTLogBucket",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LogBucket",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -681,8 +669,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DRTRole",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -733,8 +720,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -780,7 +766,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Attacks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -827,7 +812,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Protections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -876,8 +860,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EmergencyContactSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EmergencyContactList",
         "passThruTypeName": "Amazon.Shield.Model.EmergencyContact",
         "requiresPassThruGeneration": "true",
@@ -930,8 +913,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoRenew",
         "passThruTypeName": "Amazon.Shield.AutoRenew",
         "requiresPassThruGeneration": "true",

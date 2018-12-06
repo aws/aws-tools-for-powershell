@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// Note that if you suspend either the <code>Launch</code> or <code>Terminate</code>
-    /// process types, it can prevent other process types from functioning properly.
+    /// If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
+    /// it can prevent other process types from functioning properly.
     /// </para><para>
     /// To resume processes that have been suspended, use <a>ResumeProcesses</a>.
     /// </para><para>

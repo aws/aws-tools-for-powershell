@@ -17,7 +17,8 @@
   "outputMetadataMembers": [],
   "paginationDefaults": {
     "excludedOperations": [
-      "DescribeFolderContents"
+      "DescribeFolderContents",
+      "GetResources"
     ],
     "requestMember": "Marker",
     "responseMember": "Marker",
@@ -66,14 +67,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentVersionUpload",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -122,14 +123,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -178,14 +179,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -234,14 +235,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -290,14 +291,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomMetadata",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -346,14 +347,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Folder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -402,14 +403,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Labels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -458,14 +459,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -514,14 +515,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -570,14 +571,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -626,14 +627,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comment",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CommentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -682,14 +683,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomMetadata",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -738,14 +739,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Document",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -794,14 +795,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Folder",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -850,14 +851,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FolderContents",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -906,14 +907,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Labels",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Label",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -962,14 +963,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationSubscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SubscriptionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1018,14 +1019,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1105,14 +1106,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Activities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1156,14 +1157,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1207,14 +1208,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1258,14 +1259,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FolderContents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1307,14 +1308,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1358,14 +1359,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationSubscriptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1409,14 +1410,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1460,14 +1461,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RootFolders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1513,14 +1514,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1564,14 +1565,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CurrentUser",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1615,14 +1616,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Document",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1666,14 +1667,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentPath",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1717,14 +1718,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1768,14 +1769,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Folder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1819,14 +1820,65 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FolderPath",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetResources": {
+      "verb": "Get",
+      "noun": "Resource",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CollectionType"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resources",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1870,14 +1922,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentVersionUpload",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1926,14 +1978,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePermission",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1982,14 +2034,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Document",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2038,14 +2090,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2094,14 +2146,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Folder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2150,14 +2202,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [
-            "DescribeFolderContents"
+            "DescribeFolderContents",
+            "GetResources"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",

@@ -39,7 +39,9 @@
   },
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
+    "excludedOperations": [
+      "DownloadDBLogFilePortion"
+    ],
     "requestMember": "Marker",
     "responseMember": "Marker",
     "resultLimitMember": "MaxRecords",
@@ -116,13 +118,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleToDBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterIdentifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -172,13 +175,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SourceIdentifierToSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -231,13 +235,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.RDS.Model.Tag",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -285,13 +290,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingMaintenanceAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -341,13 +347,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroupIngress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -420,13 +427,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -474,13 +482,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -530,13 +539,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -587,13 +597,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -643,13 +654,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -700,13 +712,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -754,13 +767,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -771,6 +785,59 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateDBClusterEndpoint": {
+      "verb": "New",
+      "noun": "DBClusterEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DBClusterEndpointIdentifier"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBClusterEndpoint",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBClusterEndpointIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -808,13 +875,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -862,13 +930,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -918,13 +987,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -972,13 +1042,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstanceReadReplica",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1028,13 +1099,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1084,13 +1156,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1140,13 +1213,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1197,13 +1271,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1254,13 +1329,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1271,6 +1347,59 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateGlobalCluster": {
+      "verb": "New",
+      "noun": "GlobalCluster",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GlobalCluster",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GlobalCluster",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DatabaseName"
         },
         "memoryStreamParameters": []
       }
@@ -1312,13 +1441,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1364,13 +1494,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1381,6 +1512,61 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteDBClusterEndpoint": {
+      "verb": "Remove",
+      "noun": "DBClusterEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DBClusterEndpointIdentifier"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBClusterEndpoint",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DBClusterEndpointIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -1418,13 +1604,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1472,13 +1659,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1524,13 +1712,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1541,6 +1730,61 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteDBInstanceAutomatedBackup": {
+      "verb": "Remove",
+      "noun": "DBInstanceAutomatedBackup",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DBInstanceAutomatedBackup",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DbiResourceId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBInstanceAutomatedBackup",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DbiResourceId"
         },
         "memoryStreamParameters": []
       }
@@ -1578,13 +1822,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1632,13 +1877,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBSecurityGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1686,13 +1932,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1740,13 +1987,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBSubnetGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1794,13 +2042,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1811,6 +2060,61 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteGlobalCluster": {
+      "verb": "Remove",
+      "noun": "GlobalCluster",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GlobalCluster",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "GlobalClusterIdentifier"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GlobalCluster",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "GlobalClusterIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -1848,13 +2152,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: OptionGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1900,13 +2205,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1947,13 +2253,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1994,13 +2301,62 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterBacktracks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeDBClusterEndpoints": {
+      "verb": "Get",
+      "noun": "DBClusterEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DBClusterEndpoints",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBClusterEndpoints",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2043,13 +2399,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2092,13 +2449,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2139,13 +2497,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2188,13 +2547,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshotAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2235,13 +2595,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2287,13 +2648,62 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBEngineVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeDBInstanceAutomatedBackups": {
+      "verb": "Get",
+      "noun": "DBInstanceAutomatedBackup",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "DBInstanceAutomatedBackups",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBInstanceAutomatedBackups",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2334,13 +2744,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2390,13 +2801,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBLogFiles",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2439,13 +2851,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2490,13 +2903,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2539,13 +2953,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2588,13 +3003,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshotAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2638,13 +3054,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2687,13 +3104,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2734,13 +3152,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EngineDefaultClusterParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2783,13 +3202,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EngineDefaultParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2832,13 +3252,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventCategories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2916,13 +3337,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -2965,13 +3387,62 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscriptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeGlobalClusters": {
+      "verb": "Get",
+      "noun": "GlobalCluster",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GlobalClusters",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GlobalClusters",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3016,13 +3487,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroupOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3065,13 +3537,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3114,13 +3587,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OrderableDBInstanceOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3163,13 +3637,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingMaintenanceActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3212,13 +3687,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedDBInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3261,13 +3737,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedDBInstancesOfferings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3308,13 +3785,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SourceRegions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3355,13 +3833,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ValidDBInstanceModifications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3413,13 +3892,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBLogFilePortion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3460,13 +3940,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3514,13 +3995,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3563,13 +4045,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CurrentDBClusterCapacity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3615,13 +4098,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3632,6 +4116,59 @@
           "analysisMessage": "",
           "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ModifyDBClusterEndpoint": {
+      "verb": "Edit",
+      "noun": "DBClusterEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DBClusterEndpointIdentifier"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DBClusterEndpoint",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBClusterEndpointIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -3671,13 +4208,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3723,13 +4261,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshotAttribute",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3775,13 +4314,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3831,13 +4371,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3885,13 +4426,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3939,13 +4481,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshotAttribute",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -3996,13 +4539,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4052,13 +4596,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4069,6 +4614,61 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ModifyGlobalCluster": {
+      "verb": "Edit",
+      "noun": "GlobalCluster",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GlobalCluster",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "GlobalClusterIdentifier"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "GlobalClusterIdentifier"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GlobalCluster",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "GlobalClusterIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -4108,13 +4708,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4160,13 +4761,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReadReplica",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4214,13 +4816,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReadReplicaDBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4268,13 +4871,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedDBInstancesOffering",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4320,13 +4924,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4337,6 +4942,61 @@
           "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DBInstanceIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "RemoveFromGlobalCluster": {
+      "verb": "Remove",
+      "noun": "FromGlobalCluster",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "GlobalCluster",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DbClusterIdentifier"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DbClusterIdentifier"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "FromGlobalCluster",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DbClusterIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -4376,13 +5036,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleFromDBCluster",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterIdentifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4432,13 +5093,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SourceIdentifierFromSubscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4491,13 +5153,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.TagKeys",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4547,13 +5210,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4601,13 +5265,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4655,13 +5320,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterFromS3",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4709,13 +5375,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterFromSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4780,13 +5447,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterToPointInTime",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4834,13 +5502,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstanceFromDBSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4886,13 +5555,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstanceFromS3",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -4959,13 +5629,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstanceToPointInTime",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -5015,13 +5686,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroupIngress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -5069,13 +5741,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -5121,13 +5794,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -5175,13 +5849,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -5227,13 +5902,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",

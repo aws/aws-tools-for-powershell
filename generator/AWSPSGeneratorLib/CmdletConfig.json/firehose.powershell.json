@@ -64,7 +64,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -111,7 +110,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
         "passThruTypeName": "System.String",
@@ -156,7 +154,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -196,7 +193,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStreams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -238,7 +234,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForDeliveryStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -280,7 +275,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RecordBatch",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -288,6 +282,98 @@
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DeliveryStreamName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StartDeliveryStreamEncryption": {
+      "verb": "Start",
+      "noun": "DeliveryStreamEncryption",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DeliveryStreamName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeliveryStreamEncryption",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DeliveryStreamName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopDeliveryStreamEncryption": {
+      "verb": "Stop",
+      "noun": "DeliveryStreamEncryption",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DeliveryStreamName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "DeliveryStreamEncryption",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "DeliveryStreamName"
         },
@@ -327,7 +413,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
         "passThruTypeName": "System.String",
@@ -374,7 +459,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
         "passThruTypeName": "System.String",
@@ -419,7 +503,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Destination",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

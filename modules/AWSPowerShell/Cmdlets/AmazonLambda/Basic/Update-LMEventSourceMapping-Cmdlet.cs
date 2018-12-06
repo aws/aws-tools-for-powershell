@@ -28,21 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// You can update an event source mapping. This is useful if you want to change the parameters
-    /// of the existing mapping without losing your position in the stream. You can change
-    /// which function will receive the stream records, but to change the stream itself, you
-    /// must create a new mapping.
-    /// 
-    ///  
-    /// <para>
-    /// If you disable the event source mapping, AWS Lambda stops polling. If you enable again,
-    /// it will resume polling from the time it had stopped polling, so you don't lose processing
-    /// of any records. However, if you delete event source mapping and create it again, it
-    /// will reset.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:UpdateEventSourceMapping</code>
-    /// action.
-    /// </para>
+    /// Updates an event source mapping. You can change the function that AWS Lambda invokes,
+    /// or pause invocation and resume later from the same location.
     /// </summary>
     [Cmdlet("Update", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateEventSourceMappingResponse")]
@@ -56,9 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter BatchSize
         /// <summary>
         /// <para>
-        /// <para>The largest number of records that AWS Lambda will retrieve from your event source
-        /// at the time of invoking your function. Your function receives an event with all the
-        /// retrieved records.</para>
+        /// <para>The maximum number of items to retrieve in a single batch.</para><ul><li><para><b>Amazon Kinesis</b> - Default 100. Max 10,000.</para></li><li><para><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</para></li><li><para><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Enabled
         /// <summary>
         /// <para>
-        /// <para>Specifies whether AWS Lambda should actively poll the stream or not. If disabled,
-        /// AWS Lambda will not poll the stream.</para>
+        /// <para>Disables the event source mapping to pause polling and invocation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter UUID
         /// <summary>
         /// <para>
-        /// <para>The event source mapping identifier.</para>
+        /// <para>The identifier of the event source mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

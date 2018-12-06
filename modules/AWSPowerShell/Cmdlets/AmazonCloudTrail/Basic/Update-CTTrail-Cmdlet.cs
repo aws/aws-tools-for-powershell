@@ -110,6 +110,22 @@ namespace Amazon.PowerShell.Cmdlets.CT
         public System.Boolean IsMultiRegionTrail { get; set; }
         #endregion
         
+        #region Parameter IsOrganizationTrail
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether the trail is applied to all accounts in an organization in AWS Organizations,
+        /// or only for the current AWS account. The default is false, and cannot be true unless
+        /// the call is made on behalf of an AWS account that is the master account for an organization
+        /// in AWS Organizations. If the trail is not an organization trail and this is set to
+        /// true, the trail will be created in all AWS accounts that belong to the organization.
+        /// If the trail is an organization trail and this is set to false, the trail will remain
+        /// in the current AWS account but be deleted from all member accounts in the organization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IsOrganizationTrail { get; set; }
+        #endregion
+        
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
@@ -207,6 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 context.IncludeGlobalServiceEvents = this.IncludeGlobalServiceEvent;
             if (ParameterWasBound("IsMultiRegionTrail"))
                 context.IsMultiRegionTrail = this.IsMultiRegionTrail;
+            if (ParameterWasBound("IsOrganizationTrail"))
+                context.IsOrganizationTrail = this.IsOrganizationTrail;
             context.KmsKeyId = this.KmsKeyId;
             context.Name = this.Name;
             context.S3BucketName = this.S3BucketName;
@@ -247,6 +265,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
             if (cmdletContext.IsMultiRegionTrail != null)
             {
                 request.IsMultiRegionTrail = cmdletContext.IsMultiRegionTrail.Value;
+            }
+            if (cmdletContext.IsOrganizationTrail != null)
+            {
+                request.IsOrganizationTrail = cmdletContext.IsOrganizationTrail.Value;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -337,6 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
             public System.Boolean? EnableLogFileValidation { get; set; }
             public System.Boolean? IncludeGlobalServiceEvents { get; set; }
             public System.Boolean? IsMultiRegionTrail { get; set; }
+            public System.Boolean? IsOrganizationTrail { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String Name { get; set; }
             public System.String S3BucketName { get; set; }

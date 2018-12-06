@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>ce</C2jFilename>
     <SourceGenerationRoot>AmazonCostExplorer</SourceGenerationRoot>
@@ -20,6 +20,9 @@
     <PipelineByNameProperties />
     <ServiceOperations>
         <ServiceOperation MethodName="GetCostAndUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CostAndUsage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCostForecast" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CostForecast" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDimensionValues" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DimensionValue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

@@ -60,12 +60,26 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class NewELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter HealthCheckEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether health checks are enabled. If the target type is <code>instance</code>
+        /// or <code>ip</code>, the default is <code>true</code>. If the target type is <code>lambda</code>,
+        /// the default is <code>false</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean HealthCheckEnabled { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckIntervalSecond
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
         /// target. For Application Load Balancers, the range is 5–300 seconds. For Network Load
-        /// Balancers, the supported values are 10 or 30 seconds. The default is 30 seconds.</para>
+        /// Balancers, the supported values are 10 or 30 seconds. If the target type is <code>instance</code>
+        /// or <code>ip</code>, the default is 30 seconds. If the target type is <code>lambda</code>,
+        /// the default is 35 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response from a target means a failed
-        /// health check. For Application Load Balancers, the range is 2–60 seconds and the default
-        /// is 5 seconds. For Network Load Balancers, this is 10 seconds for TCP and HTTPS health
-        /// checks and 6 seconds for HTTP health checks.</para>
+        /// health check. For Application Load Balancers, the range is 2–120 seconds and the default
+        /// is 5 seconds if the target type is <code>instance</code> or <code>ip</code> and 30
+        /// seconds if the target type is <code>lambda</code>. For Network Load Balancers, this
+        /// is 10 seconds for TCP and HTTPS health checks and 6 seconds for HTTP health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The port on which the targets receive traffic. This port is used unless you specify
-        /// a port override when registering the target.</para>
+        /// a port override when registering the target. If the target is a Lambda function, this
+        /// parameter does not apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The protocol to use for routing traffic to the targets. For Application Load Balancers,
         /// the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
-        /// protocol is TCP.</para>
+        /// protocol is TCP. If the target is a Lambda function, this parameter does not apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,12 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The type of target that you must specify when registering targets with this target
-        /// group. The possible values are <code>instance</code> (targets are specified by instance
-        /// ID) or <code>ip</code> (targets are specified by IP address). The default is <code>instance</code>.
-        /// You can't specify targets for a target group using both instance IDs and IP addresses.</para><para>If the target type is <code>ip</code>, specify IP addresses from the subnets of the
-        /// virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8,
-        /// 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't
-        /// specify publicly routable IP addresses.</para>
+        /// group. You can't specify targets for a target group using more than one target type.</para><ul><li><para><code>instance</code> - Targets are specified by instance ID. This is the default
+        /// value.</para></li><li><para><code>ip</code> - Targets are specified by IP address. You can specify IP addresses
+        /// from the subnets of the virtual private cloud (VPC) for the target group, the RFC
+        /// 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range
+        /// (100.64.0.0/10). You can't specify publicly routable IP addresses.</para></li><li><para><code>lambda</code> - The target groups contains a single Lambda function.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -215,7 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the virtual private cloud (VPC).</para>
+        /// <para>The identifier of the virtual private cloud (VPC). If the target is a Lambda function,
+        /// this parameter does not apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -251,6 +267,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("HealthCheckEnabled"))
+                context.HealthCheckEnabled = this.HealthCheckEnabled;
             if (ParameterWasBound("HealthCheckIntervalSecond"))
                 context.HealthCheckIntervalSeconds = this.HealthCheckIntervalSecond;
             context.HealthCheckPath = this.HealthCheckPath;
@@ -285,6 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.CreateTargetGroupRequest();
             
+            if (cmdletContext.HealthCheckEnabled != null)
+            {
+                request.HealthCheckEnabled = cmdletContext.HealthCheckEnabled.Value;
+            }
             if (cmdletContext.HealthCheckIntervalSeconds != null)
             {
                 request.HealthCheckIntervalSeconds = cmdletContext.HealthCheckIntervalSeconds.Value;
@@ -416,6 +438,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? HealthCheckEnabled { get; set; }
             public System.Int32? HealthCheckIntervalSeconds { get; set; }
             public System.String HealthCheckPath { get; set; }
             public System.String HealthCheckPort { get; set; }

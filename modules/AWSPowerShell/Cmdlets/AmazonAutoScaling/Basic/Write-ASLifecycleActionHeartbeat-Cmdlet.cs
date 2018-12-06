@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>A token that uniquely identifies a specific lifecycle action associated with an instance.
-        /// Amazon EC2 Auto Scaling sends this token to the notification target you specified
+        /// Amazon EC2 Auto Scaling sends this token to the notification target that you specified
         /// when you created the lifecycle hook.</para>
         /// </para>
         /// </summary>

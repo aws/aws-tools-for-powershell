@@ -28,8 +28,8 @@ using Amazon.MediaConvert.Model;
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// Create a new transcoding queue. For information about job templates see the User Guide
-    /// at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
+    /// Create a new transcoding queue. For information about queues, see Working With Queues
+    /// in the User Guide at https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html
     /// </summary>
     [Cmdlet("New", "EMCQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaConvert.Model.Queue")]
@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ReservationPlanSettings_Commitment
         /// <summary>
         /// <para>
-        /// The length of time that you commit to when
-        /// you set up a pricing plan contract for a reserved queue.
+        /// The length of the term of your reserved queue
+        /// pricing plan commitment.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,11 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter PricingPlan
         /// <summary>
         /// <para>
-        /// Optional; default is on-demand. Specifies
-        /// whether the pricing plan for the queue is on-demand or reserved. The pricing plan
-        /// for the queue determines whether you pay on-demand or reserved pricing for the transcoding
-        /// jobs you run through the queue. For reserved queue pricing, you must set up a contract.
-        /// You can create a reserved queue contract through the AWS Elemental MediaConvert console.
+        /// Specifies whether the pricing plan for the
+        /// queue is on-demand or reserved. For on-demand, you pay per minute, billed in increments
+        /// of .01 minute. For reserved, you pay for the transcoding capacity of the entire queue,
+        /// regardless of how much or how little you use it. Reserved pricing requires a 12-month
+        /// commitment. When you use the API to create a queue, the default is on-demand.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,9 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter ReservationPlanSettings_RenewalType
         /// <summary>
         /// <para>
-        /// Specifies whether the pricing plan contract
-        /// for your reserved queue automatically renews (AUTO_RENEW) or expires (EXPIRE) at the
-        /// end of the contract period.
+        /// Specifies whether the term of your reserved
+        /// queue pricing plan is automatically extended (AUTO_RENEW) or expires (EXPIRE) at the
+        /// end of the term. When your term is auto renewed, you extend your commitment by 12
+        /// months from the auto renew date. You can cancel this commitment.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,9 +107,12 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         /// <summary>
         /// <para>
         /// Specifies the number of reserved transcode
-        /// slots (RTSs) for this queue. The number of RTS determines how many jobs the queue
-        /// can process in parallel; each RTS can process one job at a time. To increase this
-        /// number, create a replacement contract through the AWS Elemental MediaConvert console.
+        /// slots (RTS) for this queue. The number of RTS determines how many jobs the queue can
+        /// process in parallel; each RTS can process one job at a time. You can't decrease the
+        /// number of RTS in your reserved queue. You can increase the number of RTS by extending
+        /// your existing commitment with a new 12-month commitment for the larger number. The
+        /// new commitment begins when you purchase the additional capacity. You can't cancel
+        /// your commitment or revert to your original commitment after you increase the capacity.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

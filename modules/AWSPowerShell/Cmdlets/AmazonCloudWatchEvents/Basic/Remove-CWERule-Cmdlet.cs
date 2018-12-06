@@ -36,6 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para><para>
     /// When you delete a rule, incoming events might continue to match to the deleted rule.
     /// Allow a short period of time for changes to take effect.
+    /// </para><para>
+    /// Managed rules are rules created and managed by another AWS service on your behalf.
+    /// These rules are created by those other AWS services to support functionality in those
+    /// services. You can delete these rules using the <code>Force</code> option, but you
+    /// should do so only if you are sure the other service is not still using that rule.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -47,6 +52,20 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     )]
     public partial class RemoveCWERuleCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
+        
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>If this is a managed rule, created by an AWS service on your behalf, you must specify
+        /// <code>Force</code> as <code>True</code> to delete the rule. This parameter is ignored
+        /// for rules that are not managed rules. You can check whether a rule is a managed rule
+        /// by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
+        /// field of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enforce { get; set; }
+        #endregion
         
         #region Parameter Name
         /// <summary>
@@ -96,6 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("Enforce"))
+                context.Enforce = this.Enforce;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -113,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             // create request
             var request = new Amazon.CloudWatchEvents.Model.DeleteRuleRequest();
             
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -183,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Enforce { get; set; }
             public System.String Name { get; set; }
         }
         

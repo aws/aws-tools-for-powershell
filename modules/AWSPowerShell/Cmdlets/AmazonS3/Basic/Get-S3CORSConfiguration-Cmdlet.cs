@@ -28,7 +28,7 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Returns the cors configuration for the bucket.
+    /// Returns the CORS configuration for the bucket.
     /// </summary>
     [Cmdlet("Get", "S3CORSConfiguration")]
     [OutputType("Amazon.S3.Model.CORSConfiguration")]

@@ -28,8 +28,8 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
-    /// associated with any DB instances.
+    /// Deletes a specified DB parameter group. The DB parameter group to be deleted can't
+    /// be associated with any DB instances.
     /// </summary>
     [Cmdlet("Remove", "RDSDBParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

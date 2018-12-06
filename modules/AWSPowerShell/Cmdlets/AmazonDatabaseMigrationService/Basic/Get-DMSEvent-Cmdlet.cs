@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Lists events for a given source identifier and source type. You can also specify
-    /// a start and end time. For more information on AWS DMS events, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">
-    /// Working with Events and Notifications </a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// a start and end time. For more information on AWS DMS events, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// with Events and Notifications</a> in the <i>AWS Database Migration User Guide.</i><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DMSEvent")]
     [OutputType("Amazon.DatabaseMigrationService.Model.DMSEvent")]

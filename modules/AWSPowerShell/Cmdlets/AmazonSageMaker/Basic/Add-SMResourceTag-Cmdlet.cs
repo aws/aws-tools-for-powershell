@@ -29,16 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Adds or overwrites one or more tags for the specified Amazon SageMaker resource. You
-    /// can add tags to notebook instances, training jobs, models, endpoint configurations,
-    /// and endpoints. 
+    /// can add tags to notebook instances, training jobs, hyperparameter tuning jobs, models,
+    /// endpoint configurations, and endpoints.
     /// 
     ///  
     /// <para>
     /// Each tag consists of a key and an optional value. Tag keys must be unique per resource.
-    /// For more information about tags, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
-    /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
-    /// 
-    /// </para>
+    /// For more information about tags, see For more information, see <a href="https://aws.amazon.com/answers/account-management/aws-tagging-strategies/">AWS
+    /// Tagging Strategies</a>.
+    /// </para><note><para>
+    /// Tags that you add to a hyperparameter tuning job by calling this API are also added
+    /// to any training jobs that the hyperparameter tuning job launches after you call this
+    /// API, but not to training jobs that the hyperparameter tuning job launched before you
+    /// called this API. To make sure that the tags associated with a hyperparameter tuning
+    /// job are also added to all training jobs that the hyperparameter tuning job launches,
+    /// add the tags when you first create the tuning job by specifying them in the <code>Tags</code>
+    /// parameter of <a>CreateHyperParameterTuningJob</a></para></note>
     /// </summary>
     [Cmdlet("Add", "SMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SageMaker.Model.Tag")]

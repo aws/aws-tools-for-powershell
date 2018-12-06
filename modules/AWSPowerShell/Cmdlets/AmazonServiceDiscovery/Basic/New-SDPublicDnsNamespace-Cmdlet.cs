@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
     /// <code>example.com</code> and name your service <code>backend</code>, the resulting
     /// DNS name for the service will be <code>backend.example.com</code>. For the current
     /// limit on the number of namespaces that you can create using the same AWS account,
-    /// see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
-    /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </summary>
     [Cmdlet("New", "SDPublicDnsNamespace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

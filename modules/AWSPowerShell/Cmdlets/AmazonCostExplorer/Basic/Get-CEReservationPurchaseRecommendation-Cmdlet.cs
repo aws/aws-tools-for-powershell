@@ -40,13 +40,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// each category of usage to identify the best number of each type of RI to purchase
     /// to maximize your estimated savings. 
     /// </para><para>
-    /// For example, AWS automatically aggregates your EC2 Linux, shared tenancy, and c4 family
-    /// usage in the US West (Oregon) Region and recommends that you buy size-flexible regional
-    /// reservations to apply to the c4 family usage. AWS recommends the smallest size instance
-    /// in an instance family. This makes it easier to purchase a size-flexible RI. AWS also
-    /// shows the equal number of normalized units so that you can purchase any instance size
-    /// that you want. For this example, your RI recommendation would be for <code>c4.large</code>,
-    /// because that is the smallest size instance in the c4 instance family.
+    /// For example, AWS automatically aggregates your Amazon EC2 Linux, shared tenancy, and
+    /// c4 family usage in the US West (Oregon) Region and recommends that you buy size-flexible
+    /// regional reservations to apply to the c4 family usage. AWS recommends the smallest
+    /// size instance in an instance family. This makes it easier to purchase a size-flexible
+    /// RI. AWS also shows the equal number of normalized units so that you can purchase any
+    /// instance size that you want. For this example, your RI recommendation would be for
+    /// <code>c4.large</code> because that is the smallest size instance in the c4 instance
+    /// family.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CEReservationPurchaseRecommendation")]

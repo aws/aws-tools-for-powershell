@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// <para>
     /// If you authorize access to an Amazon EC2 security group, specify <i>EC2SecurityGroupName</i>
     /// and <i>EC2SecurityGroupOwnerId</i>. The Amazon EC2 security group and Amazon Redshift
-    /// cluster must be in the same AWS region. 
+    /// cluster must be in the same AWS Region. 
     /// </para><para>
     /// If you authorize access to a CIDR/IP address range, specify <i>CIDRIP</i>. For an
     /// overview of CIDR blocks, see the Wikipedia article on <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless

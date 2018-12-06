@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssociateUserStack",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -172,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DisassociateUserStack",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -224,8 +221,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Image",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -278,8 +274,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectoryConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -332,8 +327,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -386,8 +380,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -438,8 +431,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilderStreamingURL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -492,8 +484,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -544,8 +535,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamingURL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -596,8 +586,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -650,8 +639,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectoryConfig",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -704,8 +692,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -758,8 +745,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Image",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -812,8 +798,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilder",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -866,8 +851,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImagePermissions",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -920,8 +904,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -972,8 +955,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1033,7 +1015,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectoryConfigs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1082,7 +1063,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1129,7 +1109,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1187,7 +1166,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImagePermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1236,7 +1214,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Images",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1283,7 +1260,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Sessions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1332,7 +1308,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stacks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1379,7 +1354,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1426,7 +1400,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserStackAssociations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1473,8 +1446,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1525,8 +1497,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1577,8 +1548,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1631,8 +1601,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Session",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SessionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1683,7 +1652,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssociatedFleets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1732,7 +1700,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssociatedStacks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1781,8 +1748,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1830,8 +1796,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1884,8 +1849,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1938,8 +1902,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1992,8 +1955,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImageBuilder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2046,8 +2008,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Tag",
         "passThruTypeName": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "requiresPassThruGeneration": "true",
@@ -2100,8 +2061,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TagKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2154,8 +2114,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectoryConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2208,8 +2167,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2262,8 +2220,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImagePermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2316,8 +2273,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

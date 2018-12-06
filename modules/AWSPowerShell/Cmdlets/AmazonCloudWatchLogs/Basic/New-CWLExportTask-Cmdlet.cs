@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The start time of the range for the request, expressed as the number of milliseconds
-        /// after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are
+        /// after Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are
         /// not exported.</para>
         /// </para>
         /// </summary>
@@ -123,8 +123,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The end time of the range for the request, expressed as the number of milliseconds
-        /// after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are
-        /// not exported.</para>
+        /// after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not
+        /// exported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

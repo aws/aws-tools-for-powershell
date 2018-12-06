@@ -53,6 +53,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter DbiResourceId
+        /// <summary>
+        /// <para>
+        /// <para>A specific DB resource ID to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DbiResourceId { get; set; }
+        #endregion
+        
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
@@ -169,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             PreExecutionContextLoad(context);
             
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.DbiResourceId = this.DbiResourceId;
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             if (this.Filter != null)
             {
@@ -201,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+            }
+            if (cmdletContext.DbiResourceId != null)
+            {
+                request.DbiResourceId = cmdletContext.DbiResourceId;
             }
             if (cmdletContext.DBSnapshotIdentifier != null)
             {
@@ -339,6 +354,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBInstanceIdentifier { get; set; }
+            public System.String DbiResourceId { get; set; }
             public System.String DBSnapshotIdentifier { get; set; }
             public List<Amazon.RDS.Model.Filter> Filters { get; set; }
             public System.Boolean? IncludePublic { get; set; }

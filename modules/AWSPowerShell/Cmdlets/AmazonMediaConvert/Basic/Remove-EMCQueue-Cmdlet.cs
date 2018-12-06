@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// The name of the queue to be deleted.
+        /// The name of the queue that you want to delete.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

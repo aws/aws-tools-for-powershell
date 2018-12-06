@@ -28,9 +28,8 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a display name for a customer-managed customer master key (CMK). You can use
-    /// an alias to identify a CMK in selected operations, such as <a>Encrypt</a> and <a>GenerateDataKey</a>.
-    /// 
+    /// Creates a display name for a customer master key (CMK). You can use an alias to identify
+    /// a CMK in selected operations, such as <a>Encrypt</a> and <a>GenerateDataKey</a>. 
     /// 
     ///  
     /// <para>
@@ -44,9 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// the <a>DescribeKey</a> operation. To get the aliases of all CMKs, use the <a>ListAliases</a>
     /// operation.
     /// </para><para>
+    /// An alias must start with the word <code>alias</code> followed by a forward slash (<code>alias/</code>).
     /// The alias name can contain only alphanumeric characters, forward slashes (/), underscores
-    /// (_), and dashes (-). Alias names cannot begin with <b>aws/</b>. That alias name prefix
-    /// is reserved for AWS managed CMKs.
+    /// (_), and dashes (-). Alias names cannot begin with <code>aws</code>; that alias name
+    /// prefix is reserved by Amazon Web Services (AWS).
     /// </para><para>
     /// The alias and the CMK it is mapped to must be in the same AWS account and the same
     /// region. You cannot perform this operation on an alias in a different AWS account.
@@ -72,10 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter AliasName
         /// <summary>
         /// <para>
-        /// <para>Specifies the alias name. This value must begin with <code>alias/</code> followed
-        /// by the alias name, such as <code>alias/ExampleAlias</code>. The alias name cannot
-        /// begin with <code>aws/</code>. The <code>alias/aws/</code> prefix is reserved for AWS
-        /// managed CMKs.</para>
+        /// <para>String that contains the display name. The name must start with the word "alias" followed
+        /// by a forward slash (alias/). Aliases that begin with "alias/AWS" are reserved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

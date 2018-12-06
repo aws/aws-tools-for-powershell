@@ -47,12 +47,25 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The deployment ID of the blue/green deployment for which you want to start rerouting
-        /// traffic to the replacement environment.</para>
+        /// <para> The unique ID of a blue/green deployment for which you want to start rerouting traffic
+        /// to the replacement environment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DeploymentId { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentWaitType
+        /// <summary>
+        /// <para>
+        /// <para> The status of the deployment's waiting period. READY_WAIT indicates the deployment
+        /// is ready to start shifting traffic. TERMINATION_WAIT indicates the traffic is shifted,
+        /// but the original target is not terminated. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentWaitType")]
+        public Amazon.CodeDeploy.DeploymentWaitType DeploymentWaitType { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -94,6 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             PreExecutionContextLoad(context);
             
             context.DeploymentId = this.DeploymentId;
+            context.DeploymentWaitType = this.DeploymentWaitType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -113,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.DeploymentId != null)
             {
                 request.DeploymentId = cmdletContext.DeploymentId;
+            }
+            if (cmdletContext.DeploymentWaitType != null)
+            {
+                request.DeploymentWaitType = cmdletContext.DeploymentWaitType;
             }
             
             CmdletOutput output;
@@ -181,6 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeploymentId { get; set; }
+            public Amazon.CodeDeploy.DeploymentWaitType DeploymentWaitType { get; set; }
         }
         
     }

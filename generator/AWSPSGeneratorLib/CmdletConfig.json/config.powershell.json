@@ -28,6 +28,45 @@
   "supportsShouldProcessVerbs": [],
   "verbMaps": {},
   "serviceOperations": {
+    "BatchGetAggregateResourceConfig": {
+      "verb": "Get",
+      "noun": "AggregateResourceConfigBatch",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "GetAggregateResourceConfig",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
     "BatchGetResourceConfig": {
       "verb": "Get",
       "noun": "GetResourceConfigBatch",
@@ -61,7 +100,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetResourceConfig",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -101,7 +139,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregationAuthorization",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -148,7 +185,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigRule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigRuleName",
         "passThruTypeName": "System.String",
@@ -195,7 +231,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationAggregator",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationAggregatorName",
         "passThruTypeName": "System.String",
@@ -242,7 +277,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorder",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationRecorderName",
         "passThruTypeName": "System.String",
@@ -287,7 +321,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryChannel",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeliveryChannelName",
         "passThruTypeName": "System.String",
@@ -334,7 +367,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EvaluationResults",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigRuleName",
         "passThruTypeName": "System.String",
@@ -379,7 +411,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingAggregationRequest",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -426,7 +457,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: RetentionConfigurationName",
         "passThruTypeName": "System.String",
@@ -471,7 +501,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -516,7 +545,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregateComplianceByConfigRules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -556,7 +584,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregationAuthorizations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -596,7 +623,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceByConfigRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -636,7 +662,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceByResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -676,7 +701,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigRuleEvaluationStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -716,7 +740,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigRules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -756,7 +779,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationAggregators",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -796,7 +818,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationAggregatorSourcesStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -838,7 +859,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -880,7 +900,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorderStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -922,7 +941,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryChannels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -964,7 +982,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryChannelStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1004,7 +1021,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingAggregationRequests",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1044,7 +1060,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1084,7 +1099,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregateComplianceDetailsByConfigRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1124,7 +1138,84 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregateConfigRuleComplianceSummary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetAggregateDiscoveredResourceCounts": {
+      "verb": "Get",
+      "noun": "AggregateDiscoveredResourceCount",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AggregateDiscoveredResourceCounts",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "GetAggregateResourceConfig": {
+      "verb": "Get",
+      "noun": "AggregateResourceConfig",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ConfigurationItem",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AggregateResourceConfig",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1164,7 +1255,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceDetailsByConfigRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1204,7 +1294,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceDetailsByResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1244,7 +1333,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceSummaryByConfigRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1286,7 +1374,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ComplianceSummaryByResourceType",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1326,7 +1413,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResourceCounts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1366,7 +1452,45 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceConfigHistory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "ListAggregateDiscoveredResources": {
+      "verb": "Get",
+      "noun": "AggregateDiscoveredResourceList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResourceIdentifiers",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AggregateDiscoveredResources",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1408,7 +1532,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1448,7 +1571,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AggregationAuthorization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1495,7 +1617,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigRule_ConfigRuleName",
         "passThruTypeName": "System.String",
@@ -1542,7 +1663,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationAggregator",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1600,7 +1720,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationRecorderName",
         "passThruTypeName": "System.String",
@@ -1658,7 +1777,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeliveryChannel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeliveryChannelName",
         "passThruTypeName": "System.String",
@@ -1705,7 +1823,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Evaluations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1752,7 +1869,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1799,7 +1915,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigRulesEvaluation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigRuleName",
         "passThruTypeName": "System.String",
@@ -1846,7 +1961,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1893,7 +2007,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationRecorder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

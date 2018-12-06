@@ -65,8 +65,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lexicon",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Voices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -170,8 +168,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lexicon",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -220,8 +217,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SpeechSynthesisTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -270,8 +266,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lexicons",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -320,7 +315,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SpeechSynthesisTasks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -370,8 +364,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lexicon",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Content",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -425,8 +418,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SpeechSynthesisTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -480,8 +472,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Speech",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

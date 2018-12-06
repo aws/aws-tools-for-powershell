@@ -28,7 +28,7 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Gets information about an instance as part of a deployment.
+    /// Gets information about an instance as part of a deployment.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstance")]
     [OutputType("Amazon.CodeDeploy.Model.InstanceSummary")]
@@ -37,13 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "This cmdlet returns a InstanceSummary object.",
         "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use GetDeploymentTarget instead.")]
     public partial class GetCDDeploymentInstanceCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of a deployment.</para>
+        /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of an instance in the deployment group.</para>
+        /// <para> The unique ID of an instance in the deployment group. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter WrappingAlgorithm
         /// <summary>
         /// <para>
-        /// <para>The algorithm you use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
+        /// <para>The algorithm you will use to encrypt the key material before importing it with <a>ImportKeyMaterial</a>.
         /// For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-encrypt-key-material.html">Encrypt
         /// the Key Material</a> in the <i>AWS Key Management Service Developer Guide</i>.</para>
         /// </para>

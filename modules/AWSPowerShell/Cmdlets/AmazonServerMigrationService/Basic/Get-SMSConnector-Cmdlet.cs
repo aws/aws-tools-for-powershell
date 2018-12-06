@@ -28,8 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The GetConnectors API returns a list of connectors that are registered with the Server
-    /// Migration Service.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the connectors registered with the AWS SMS.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SMSConnector")]
     [OutputType("Amazon.ServerMigrationService.Model.Connector")]
@@ -45,7 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in a single call. The default value is 50.
+        /// To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -59,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

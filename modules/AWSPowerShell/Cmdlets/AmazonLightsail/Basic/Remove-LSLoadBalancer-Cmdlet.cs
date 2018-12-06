@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// Deletes a Lightsail load balancer and all its associated SSL/TLS certificates. Once
     /// the load balancer is deleted, you will need to create a new load balancer, create
     /// a new certificate, and verify domain ownership again.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>delete load balancer</code> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by loadBalancerName. For more
+    /// information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

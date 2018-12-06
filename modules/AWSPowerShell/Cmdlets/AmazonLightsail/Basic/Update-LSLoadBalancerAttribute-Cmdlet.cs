@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Updates the specified attribute for a load balancer. You can only update one attribute
     /// at a time.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>update load balancer attribute</code> operation supports tag-based access
+    /// control via resource tags applied to the resource identified by loadBalancerName.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "LSLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

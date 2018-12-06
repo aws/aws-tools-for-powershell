@@ -106,8 +106,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -160,8 +159,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -214,8 +212,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -268,8 +265,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UploadBuffer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -322,8 +318,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkingStorage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -374,8 +369,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Archival",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -426,8 +420,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Retrieval",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -493,8 +486,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CachediSCSIVolume",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -545,8 +537,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NFSFileShare",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -597,8 +588,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMBFileShare",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -653,8 +643,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -709,8 +698,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SnapshotFromVolumeRecoveryPoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -767,8 +755,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StorediSCSIVolume",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -828,8 +815,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -882,8 +868,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeWithBarcode",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -936,8 +921,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -992,8 +976,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1044,8 +1027,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileShare",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1096,8 +1078,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1150,8 +1131,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1202,8 +1182,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tape",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1256,8 +1235,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeArchive",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1310,8 +1288,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Volume",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1362,8 +1339,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1409,8 +1385,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1458,8 +1433,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CachediSCSIVolumes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1507,8 +1481,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1554,8 +1527,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GatewayInformation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1601,8 +1573,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MaintenanceStartTime",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1650,8 +1621,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NFSFileShares",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1699,8 +1669,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMBFileShares",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1746,8 +1715,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMBSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1795,8 +1763,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1844,8 +1811,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StorediSCSIVolumes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1893,7 +1859,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeArchives",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1942,7 +1907,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeRecoveryPoints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1989,7 +1953,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2036,8 +1999,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UploadBuffer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2085,7 +2047,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VTLDevices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2132,8 +2093,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WorkingStorage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2179,8 +2139,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2233,8 +2192,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2285,7 +2243,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileShares",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2332,7 +2289,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateways",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2379,8 +2335,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LocalDisks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2430,7 +2385,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2477,7 +2431,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2528,8 +2481,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VolumeInitiators",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2575,8 +2527,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VolumeRecoveryPoints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2624,7 +2575,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Volumes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2673,8 +2623,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WhenUploaded",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2727,8 +2676,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2781,8 +2729,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2835,8 +2782,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GatewayARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2887,8 +2833,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeArchive",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2934,8 +2879,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TapeRecoveryPoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2981,8 +2925,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LocalConsolePassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3033,8 +2976,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMBGuestPassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3085,8 +3027,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3137,8 +3078,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3192,8 +3132,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3250,8 +3189,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3305,8 +3243,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GatewayInformation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3357,8 +3294,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GatewaySoftwareNow",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3413,8 +3349,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MaintenanceStartTime",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3465,8 +3400,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NFSFileShare",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3519,8 +3453,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SMBFileShare",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3586,8 +3519,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3640,8 +3572,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VTLDeviceType",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

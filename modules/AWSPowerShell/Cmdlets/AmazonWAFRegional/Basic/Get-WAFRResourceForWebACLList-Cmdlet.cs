@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     public partial class GetWAFRResourceForWebACLListCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
+        #region Parameter ResourceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of resource to list, either and application load balancer or Amazon API Gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.WAFRegional.ResourceType")]
+        public Amazon.WAFRegional.ResourceType ResourceType { get; set; }
+        #endregion
+        
         #region Parameter WebACLId
         /// <summary>
         /// <para>
@@ -63,6 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ResourceType = this.ResourceType;
             context.WebACLId = this.WebACLId;
             
             // allow further manipulation of loaded context prior to processing
@@ -80,6 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
             // create request
             var request = new Amazon.WAFRegional.Model.ListResourcesForWebACLRequest();
             
+            if (cmdletContext.ResourceType != null)
+            {
+                request.ResourceType = cmdletContext.ResourceType;
+            }
             if (cmdletContext.WebACLId != null)
             {
                 request.WebACLId = cmdletContext.WebACLId;
@@ -148,6 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.WAFRegional.ResourceType ResourceType { get; set; }
             public System.String WebACLId { get; set; }
         }
         

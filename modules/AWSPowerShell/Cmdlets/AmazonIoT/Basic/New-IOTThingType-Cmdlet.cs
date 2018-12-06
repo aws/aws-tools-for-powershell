@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String[] ThingTypeProperties_SearchableAttribute { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the thing type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ThingTypeProperties_ThingTypeDescription
         /// <summary>
         /// <para>
@@ -99,6 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             context.ThingTypeName = this.ThingTypeName;
             if (this.ThingTypeProperties_SearchableAttribute != null)
             {
@@ -121,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.CreateThingTypeRequest();
             
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.ThingTypeName != null)
             {
                 request.ThingTypeName = cmdletContext.ThingTypeName;
@@ -218,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
             public System.String ThingTypeName { get; set; }
             public List<System.String> ThingTypeProperties_SearchableAttributes { get; set; }
             public System.String ThingTypeProperties_ThingTypeDescription { get; set; }

@@ -28,9 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The UpdateReplicationJob API is used to change the settings of your existing ReplicationJob
-    /// created using CreateReplicationJob. Calling this API will affect the next scheduled
-    /// ReplicationRun.
+    /// Updates the specified settings for the specified replication job.
     /// </summary>
     [Cmdlet("Update", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -45,27 +43,50 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The description of the replication job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>When true, the replication job produces encrypted AMIs . See also <code>KmsKeyId</code>
+        /// below.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        #endregion
+        
         #region Parameter Frequency
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The time between consecutive replication runs, in hours.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Frequency { get; set; }
         #endregion
         
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>KMS key ID for replication jobs that produce encrypted AMIs. Can be any of the following:
+        /// </para><ul><li><para>KMS key ID</para></li><li><para>KMS key alias</para></li><li><para>ARN referring to KMS key ID</para></li><li><para>ARN referring to KMS key alias</para></li></ul><para> If encrypted is <i>true</i> but a KMS key id is not specified, the customer's default
+        /// KMS key for EBS is used. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter LicenseType
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The license type to be used for the AMI created by a successful replication run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,17 +97,28 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter NextReplicationRunStartTime
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The start time of the next replication run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime NextReplicationRunStartTime { get; set; }
         #endregion
         
+        #region Parameter NumberOfRecentAmisToKeep
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of SMS-created AMIs to retain. The oldest will be deleted once
+        /// the maximum number is reached and a new AMI is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 NumberOfRecentAmisToKeep { get; set; }
+        #endregion
+        
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the replication job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -96,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the IAM role to be used by AWS SMS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,11 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             PreExecutionContextLoad(context);
             
             context.Description = this.Description;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
             if (ParameterWasBound("Frequency"))
                 context.Frequency = this.Frequency;
+            context.KmsKeyId = this.KmsKeyId;
             context.LicenseType = this.LicenseType;
             if (ParameterWasBound("NextReplicationRunStartTime"))
                 context.NextReplicationRunStartTime = this.NextReplicationRunStartTime;
+            if (ParameterWasBound("NumberOfRecentAmisToKeep"))
+                context.NumberOfRecentAmisToKeep = this.NumberOfRecentAmisToKeep;
             context.ReplicationJobId = this.ReplicationJobId;
             context.RoleName = this.RoleName;
             
@@ -169,9 +206,17 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             {
                 request.Description = cmdletContext.Description;
             }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
             if (cmdletContext.Frequency != null)
             {
                 request.Frequency = cmdletContext.Frequency.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.LicenseType != null)
             {
@@ -180,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.SMS
             if (cmdletContext.NextReplicationRunStartTime != null)
             {
                 request.NextReplicationRunStartTime = cmdletContext.NextReplicationRunStartTime.Value;
+            }
+            if (cmdletContext.NumberOfRecentAmisToKeep != null)
+            {
+                request.NumberOfRecentAmisToKeep = cmdletContext.NumberOfRecentAmisToKeep.Value;
             }
             if (cmdletContext.ReplicationJobId != null)
             {
@@ -256,9 +305,12 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Boolean? Encrypted { get; set; }
             public System.Int32? Frequency { get; set; }
+            public System.String KmsKeyId { get; set; }
             public Amazon.ServerMigrationService.LicenseType LicenseType { get; set; }
             public System.DateTime? NextReplicationRunStartTime { get; set; }
+            public System.Int32? NumberOfRecentAmisToKeep { get; set; }
             public System.String ReplicationJobId { get; set; }
             public System.String RoleName { get; set; }
         }

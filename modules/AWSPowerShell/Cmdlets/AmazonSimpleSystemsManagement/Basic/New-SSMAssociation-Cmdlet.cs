@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// as specified.
     /// </para><para>
     /// If you associate a document with an instance that already has an associated document,
-    /// the system throws the AssociationAlreadyExists exception.
+    /// the system returns the AssociationAlreadyExists exception.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AssociationName { get; set; }
+        #endregion
+        
+        #region Parameter ComplianceSeverity
+        /// <summary>
+        /// <para>
+        /// <para>The severity level to assign to the association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.AssociationComplianceSeverity")]
+        public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
         #endregion
         
         #region Parameter DocumentVersion
@@ -224,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.AssociationName = this.AssociationName;
+            context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
             context.InstanceId = this.InstanceId;
             context.MaxConcurrency = this.MaxConcurrency;
@@ -276,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationName != null)
             {
                 request.AssociationName = cmdletContext.AssociationName;
+            }
+            if (cmdletContext.ComplianceSeverity != null)
+            {
+                request.ComplianceSeverity = cmdletContext.ComplianceSeverity;
             }
             if (cmdletContext.DocumentVersion != null)
             {
@@ -428,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationName { get; set; }
+            public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String InstanceId { get; set; }
             public System.String MaxConcurrency { get; set; }

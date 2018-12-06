@@ -46,12 +46,22 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     public partial class EditELB2TargetGroupCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
         
+        #region Parameter HealthCheckEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether health checks are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean HealthCheckEnabled { get; set; }
+        #endregion
+        
         #region Parameter HealthCheckIntervalSecond
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
         /// target. For Application Load Balancers, the range is 5–300 seconds. For Network Load
-        /// Balancers, the supported values are 10 or 30 seconds.</para>
+        /// Balancers, the supported values are 10 or 30 seconds.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The protocol the load balancer uses when performing health checks on targets. The
-        /// TCP protocol is supported only if the protocol of the target group is TCP.</para>
+        /// TCP protocol is supported only if the protocol of the target group is TCP.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>[HTTP/HTTPS health checks] The amount of time, in seconds, during which no response
-        /// means a failed health check.</para>
+        /// means a failed health check.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,6 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("HealthCheckEnabled"))
+                context.HealthCheckEnabled = this.HealthCheckEnabled;
             if (ParameterWasBound("HealthCheckIntervalSecond"))
                 context.HealthCheckIntervalSeconds = this.HealthCheckIntervalSecond;
             context.HealthCheckPath = this.HealthCheckPath;
@@ -207,6 +219,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // create request
             var request = new Amazon.ElasticLoadBalancingV2.Model.ModifyTargetGroupRequest();
             
+            if (cmdletContext.HealthCheckEnabled != null)
+            {
+                request.HealthCheckEnabled = cmdletContext.HealthCheckEnabled.Value;
+            }
             if (cmdletContext.HealthCheckIntervalSeconds != null)
             {
                 request.HealthCheckIntervalSeconds = cmdletContext.HealthCheckIntervalSeconds.Value;
@@ -322,6 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? HealthCheckEnabled { get; set; }
             public System.Int32? HealthCheckIntervalSeconds { get; set; }
             public System.String HealthCheckPath { get; set; }
             public System.String HealthCheckPort { get; set; }

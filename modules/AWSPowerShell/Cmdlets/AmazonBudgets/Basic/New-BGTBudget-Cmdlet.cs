@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
-        /// threshold.</para>
+        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
+        /// or budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
-        /// threshold.</para>
+        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
+        /// or budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Amount
         /// <summary>
         /// <para>
-        /// <para>The cost or usage amount associated with a budget forecast, actual spend, or budget
-        /// threshold.</para>
+        /// <para>The cost or usage amount that is associated with a budget forecast, actual spend,
+        /// or budget threshold.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_BudgetName
         /// <summary>
         /// <para>
-        /// <para>The name of a budget. Unique within accounts. <code>:</code> and <code>\</code> characters
-        /// are not allowed in the <code>BudgetName</code>.</para>
+        /// <para>The name of a budget. The name must be unique within accounts. The <code>:</code>
+        /// and <code>\</code> characters aren't allowed in <code>BudgetName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_BudgetType
         /// <summary>
         /// <para>
-        /// <para>Whether this budget tracks monetary costs, usage, or RI utilization.</para>
+        /// <para>Whether this budget tracks monetary costs, usage, RI utilization, or RI coverage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_CostFilter
         /// <summary>
         /// <para>
-        /// <para>The cost filters applied to a budget, such as service or region.</para>
+        /// <para>The cost filters, such as service or region, that are applied to a budget.</para><para>AWS Budgets supports the following services as a filter for RI budgets:</para><ul><li><para>Amazon Elastic Compute Cloud - Compute</para></li><li><para>Amazon Redshift</para></li><li><para>Amazon Relational Database Service</para></li><li><para>Amazon ElastiCache</para></li><li><para>Amazon Elasticsearch Service</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -232,11 +232,21 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Boolean CostTypes_IncludeUpfront { get; set; }
         #endregion
         
+        #region Parameter Budget_LastUpdatedTime
+        /// <summary>
+        /// <para>
+        /// <para>The last time that you updated this budget.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime Budget_LastUpdatedTime { get; set; }
+        #endregion
+        
         #region Parameter NotificationsWithSubscriber
         /// <summary>
         /// <para>
         /// <para>A notification that you want to associate with a budget. A budget can have up to five
-        /// notifications, and each notification can have one SNS subscriber and up to ten email
+        /// notifications, and each notification can have one SNS subscriber and up to 10 email
         /// subscribers. If you include notifications and subscribers in your <code>CreateBudget</code>
         /// call, AWS creates the notifications and subscribers for you.</para>
         /// </para>
@@ -250,8 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>The start date for a budget. If you created your budget and didn't specify a start
-        /// date, AWS defaults to the start of your chosen time period (i.e. DAILY, MONTHLY, QUARTERLY,
-        /// ANNUALLY). For example, if you created your budget on January 24th 2018, chose <code>DAILY</code>,
+        /// date, AWS defaults to the start of your chosen time period (DAILY, MONTHLY, QUARTERLY,
+        /// or ANNUALLY). For example, if you created your budget on January 24, 2018, chose <code>DAILY</code>,
         /// and didn't set a start date, AWS set your start date to <code>01/24/18 00:00 UTC</code>.
         /// If you chose <code>MONTHLY</code>, AWS set your start date to <code>01/01/18 00:00
         /// UTC</code>. The defaults are the same for the AWS Billing and Cost Management console
@@ -266,7 +276,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter Budget_TimeUnit
         /// <summary>
         /// <para>
-        /// <para>The length of time until a budget resets the actual and forecasted spend.</para>
+        /// <para>The length of time until a budget resets the actual and forecasted spend. <code>DAILY</code>
+        /// is available only for <code>RI_UTILIZATION</code> and <code>RI_COVERAGE</code> budgets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -277,8 +288,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter BudgetLimit_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
-        /// such as dollars or GB.</para>
+        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
+        /// threshold, such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -289,8 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ActualSpend_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
-        /// such as dollars or GB.</para>
+        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
+        /// threshold, such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -301,8 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter ForecastedSpend_Unit
         /// <summary>
         /// <para>
-        /// <para>The unit of measurement used for the budget forecast, actual spend, or budget threshold,
-        /// such as dollars or GB.</para>
+        /// <para>The unit of measurement that is used for the budget forecast, actual spend, or budget
+        /// threshold, such as dollars or GB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -324,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter CostTypes_UseBlended
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a budget uses blended rate.</para><para>The default value is <code>false</code>.</para>
+        /// <para>Specifies whether a budget uses a blended rate.</para><para>The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -424,6 +435,8 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 context.Budget_CostTypes_UseAmortized = this.CostTypes_UseAmortized;
             if (ParameterWasBound("CostTypes_UseBlended"))
                 context.Budget_CostTypes_UseBlended = this.CostTypes_UseBlended;
+            if (ParameterWasBound("Budget_LastUpdatedTime"))
+                context.Budget_LastUpdatedTime = this.Budget_LastUpdatedTime;
             if (ParameterWasBound("TimePeriod_End"))
                 context.Budget_TimePeriod_End = this.TimePeriod_End;
             if (ParameterWasBound("TimePeriod_Start"))
@@ -485,6 +498,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestBudget_budget_CostFilter != null)
             {
                 request.Budget.CostFilters = requestBudget_budget_CostFilter;
+                requestBudgetIsNull = false;
+            }
+            System.DateTime? requestBudget_budget_LastUpdatedTime = null;
+            if (cmdletContext.Budget_LastUpdatedTime != null)
+            {
+                requestBudget_budget_LastUpdatedTime = cmdletContext.Budget_LastUpdatedTime.Value;
+            }
+            if (requestBudget_budget_LastUpdatedTime != null)
+            {
+                request.Budget.LastUpdatedTime = requestBudget_budget_LastUpdatedTime.Value;
                 requestBudgetIsNull = false;
             }
             Amazon.Budgets.TimeUnit requestBudget_budget_TimeUnit = null;
@@ -873,6 +896,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.Boolean? Budget_CostTypes_IncludeUpfront { get; set; }
             public System.Boolean? Budget_CostTypes_UseAmortized { get; set; }
             public System.Boolean? Budget_CostTypes_UseBlended { get; set; }
+            public System.DateTime? Budget_LastUpdatedTime { get; set; }
             public System.DateTime? Budget_TimePeriod_End { get; set; }
             public System.DateTime? Budget_TimePeriod_Start { get; set; }
             public Amazon.Budgets.TimeUnit Budget_TimeUnit { get; set; }

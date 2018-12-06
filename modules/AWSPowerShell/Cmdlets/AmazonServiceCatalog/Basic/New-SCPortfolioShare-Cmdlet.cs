@@ -28,14 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Shares the specified portfolio with the specified account.
+    /// Shares the specified portfolio with the specified account or organization node. Shares
+    /// to an organization node can only be created by the master account of an Organization.
+    /// AWSOrganizationsAccess must be enabled in order to create a portfolio share to an
+    /// organization node.
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
+    [OutputType("System.String")]
     [AWSCmdlet("Calls the AWS Service Catalog CreatePortfolioShare API operation.", Operation = new[] {"CreatePortfolioShare"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class NewSCPortfolioShareCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
@@ -53,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID.</para>
+        /// <para>The AWS account ID. For example, <code>123456789012</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -70,13 +73,25 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String PortfolioId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter OrganizationNode_Type
         /// <summary>
-        /// Returns the value passed to the AccountId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [AWSConstantClassSource("Amazon.ServiceCatalog.OrganizationNodeType")]
+        public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNode_Type { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationNode_Value
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OrganizationNode_Value { get; set; }
         #endregion
         
         #region Parameter Force
@@ -110,6 +125,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             
             context.AcceptLanguage = this.AcceptLanguage;
             context.AccountId = this.AccountId;
+            context.OrganizationNode_Type = this.OrganizationNode_Type;
+            context.OrganizationNode_Value = this.OrganizationNode_Value;
             context.PortfolioId = this.PortfolioId;
             
             // allow further manipulation of loaded context prior to processing
@@ -135,6 +152,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.AccountId = cmdletContext.AccountId;
             }
+            
+             // populate OrganizationNode
+            bool requestOrganizationNodeIsNull = true;
+            request.OrganizationNode = new Amazon.ServiceCatalog.Model.OrganizationNode();
+            Amazon.ServiceCatalog.OrganizationNodeType requestOrganizationNode_organizationNode_Type = null;
+            if (cmdletContext.OrganizationNode_Type != null)
+            {
+                requestOrganizationNode_organizationNode_Type = cmdletContext.OrganizationNode_Type;
+            }
+            if (requestOrganizationNode_organizationNode_Type != null)
+            {
+                request.OrganizationNode.Type = requestOrganizationNode_organizationNode_Type;
+                requestOrganizationNodeIsNull = false;
+            }
+            System.String requestOrganizationNode_organizationNode_Value = null;
+            if (cmdletContext.OrganizationNode_Value != null)
+            {
+                requestOrganizationNode_organizationNode_Value = cmdletContext.OrganizationNode_Value;
+            }
+            if (requestOrganizationNode_organizationNode_Value != null)
+            {
+                request.OrganizationNode.Value = requestOrganizationNode_organizationNode_Value;
+                requestOrganizationNodeIsNull = false;
+            }
+             // determine if request.OrganizationNode should be set to null
+            if (requestOrganizationNodeIsNull)
+            {
+                request.OrganizationNode = null;
+            }
             if (cmdletContext.PortfolioId != null)
             {
                 request.PortfolioId = cmdletContext.PortfolioId;
@@ -148,9 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AccountId;
+                object pipelineOutput = response.PortfolioShareToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,6 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             public System.String AcceptLanguage { get; set; }
             public System.String AccountId { get; set; }
+            public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNode_Type { get; set; }
+            public System.String OrganizationNode_Value { get; set; }
             public System.String PortfolioId { get; set; }
         }
         

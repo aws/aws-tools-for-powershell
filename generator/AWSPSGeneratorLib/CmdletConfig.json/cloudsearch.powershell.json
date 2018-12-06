@@ -88,7 +88,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Suggesters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -133,7 +132,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -178,7 +176,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AnalysisScheme",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -223,7 +220,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Expression",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -268,7 +264,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IndexField",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -313,7 +308,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Suggester",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -360,7 +354,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AnalysisScheme",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -405,7 +398,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -452,7 +444,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Expression",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -499,7 +490,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IndexField",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -546,7 +536,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Suggester",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -591,7 +580,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AnalysisSchemes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -631,7 +619,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailabilityOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -673,7 +660,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domains",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -713,7 +699,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Expressions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -755,7 +740,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IndexFields",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -795,7 +779,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -835,7 +818,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceAccessPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -875,7 +857,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Suggesters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -915,7 +896,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Documents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -960,7 +940,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainNames",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1000,7 +979,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AvailabilityOptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1045,7 +1023,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1092,7 +1069,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceAccessPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

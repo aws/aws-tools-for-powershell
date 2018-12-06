@@ -42,6 +42,7 @@
     <Path>DeviceFarm.xml</Path>
     <Path>DirectConnect.xml</Path>
     <Path>DirectoryService.xml</Path>
+    <Path>DLM.xml</Path>
     <Path>DynamoDB.xml</Path>
     <Path>DynamoDBStreams.xml</Path>
     <Path>EC2.xml</Path>
@@ -77,6 +78,7 @@
     <Path>Lex.xml</Path>
     <Path>LexModelBuilder.xml</Path>
     <Path>Lightsail.xml</Path>
+    <Path>Macie.xml</Path>
     <Path>ML.xml</Path>
     <Path>MCA.xml</Path>
     <Path>MTR.xml</Path>
@@ -93,6 +95,7 @@
     <Path>OpsWorksCM.xml</Path>
     <Path>Organizations.xml</Path>
     <Path>Pinpoint.xml</Path>
+    <Path>PinpointEmail.xml</Path>
     <Path>Polly.xml</Path>
     <Path>PriceListService.xml</Path>
     <Path>RDS.xml</Path>
@@ -103,6 +106,7 @@
     <Path>Route53.xml</Path>
     <Path>Route53Domains.xml</Path>
     <Path>S3.xml</Path>
+    <Path>S3Control.xml</Path>
     <Path>SageMaker.xml</Path>
     <Path>SageMakerRuntime.xml</Path>
     <Path>SecretsManager.xml</Path>

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudDirectoryClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudDirectory</ServiceNamespace>
     <PipelineParameter>DirectoryArn</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="ListObjectParents"/>
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>
@@ -157,7 +157,7 @@
         <ServiceOperation MethodName="ListObjectParentPaths" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectParentPath" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectParents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectParent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectParents" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectParent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListObjectPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

@@ -125,6 +125,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String RoleName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created role. Each tag consists
+        /// of a key name and an associated value. For more information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
+        /// in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags per
+        /// role, then the entire request fails and the role is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -161,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             context.Path = this.Path;
             context.PermissionsBoundary = this.PermissionsBoundary;
             context.RoleName = this.RoleName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -200,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.RoleName != null)
             {
                 request.RoleName = cmdletContext.RoleName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -271,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             public System.String Path { get; set; }
             public System.String PermissionsBoundary { get; set; }
             public System.String RoleName { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tags { get; set; }
         }
         
     }

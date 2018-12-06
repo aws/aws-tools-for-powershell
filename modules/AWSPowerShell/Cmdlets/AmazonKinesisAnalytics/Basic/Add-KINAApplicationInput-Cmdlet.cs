@@ -220,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
-        /// on your behalf. You need to make sure the role has necessary permissions to access
-        /// the stream.</para>
+        /// on your behalf. You need to make sure that the role has the necessary permissions
+        /// to access the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

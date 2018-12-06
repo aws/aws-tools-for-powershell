@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
+        /// <para>The identifier of the WorkSpace. To find this ID, use <a>DescribeWorkspaces</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the deployment. Pass this ID to a Lambda function that validates a deployment
-        /// lifecycle event.</para>
+        /// <para> The unique ID of a deployment. Pass this ID to a Lambda function that validates a
+        /// deployment lifecycle event. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LifecycleEventHookExecutionId
         /// <summary>
         /// <para>
-        /// <para>The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is
-        /// specified in the <code>hooks</code> section of the AppSpec file.</para>
+        /// <para> The execution ID of a deployment's lifecycle hook. A deployment lifecycle hook is
+        /// specified in the <code>hooks</code> section of the AppSpec file. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

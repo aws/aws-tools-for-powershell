@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String JobId { get; set; }
         #endregion
         
+        #region Parameter ReasonCode
+        /// <summary>
+        /// <para>
+        /// <para>(Optional)A reason code string that explains why the job was canceled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ReasonCode { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -106,6 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (ParameterWasBound("Enforce"))
                 context.Enforce = this.Enforce;
             context.JobId = this.JobId;
+            context.ReasonCode = this.ReasonCode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.JobId != null)
             {
                 request.JobId = cmdletContext.JobId;
+            }
+            if (cmdletContext.ReasonCode != null)
+            {
+                request.ReasonCode = cmdletContext.ReasonCode;
             }
             
             CmdletOutput output;
@@ -201,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String Comment { get; set; }
             public System.Boolean? Enforce { get; set; }
             public System.String JobId { get; set; }
+            public System.String ReasonCode { get; set; }
         }
         
     }

@@ -65,8 +65,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentEC2",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -175,8 +173,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EnvironmentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -230,8 +227,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -285,7 +281,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMemberships",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -335,8 +330,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -385,8 +379,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -433,7 +426,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -483,8 +475,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EnvironmentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -538,8 +529,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

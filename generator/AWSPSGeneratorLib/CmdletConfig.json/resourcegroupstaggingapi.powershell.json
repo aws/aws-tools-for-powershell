@@ -75,7 +75,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -123,7 +122,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -172,7 +170,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagValues",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -221,8 +218,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -275,8 +271,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

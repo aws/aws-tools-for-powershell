@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
 {
     /// <summary>
     /// Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion''
-    /// at a later time.
+    /// at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup)
+    /// as a library or command-line application to create and deploy Greengrass groups.
     /// </summary>
     [Cmdlet("New", "GGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateGroupResponse")]
@@ -49,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.GG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AmznClientToken { get; set; }
+        #endregion
+        
+        #region Parameter InitialVersion_ConnectorDefinitionVersionArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the connector
+        /// definition version for this group.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InitialVersion_ConnectorDefinitionVersionArn { get; set; }
         #endregion
         
         #region Parameter InitialVersion_CoreDefinitionVersionArn
@@ -108,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_ResourceDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// The resource definition version
-        /// ARN for this group.
+        /// The ARN of the resource definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -157,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             PreExecutionContextLoad(context);
             
             context.AmznClientToken = this.AmznClientToken;
+            context.InitialVersion_ConnectorDefinitionVersionArn = this.InitialVersion_ConnectorDefinitionVersionArn;
             context.InitialVersion_CoreDefinitionVersionArn = this.InitialVersion_CoreDefinitionVersionArn;
             context.InitialVersion_DeviceDefinitionVersionArn = this.InitialVersion_DeviceDefinitionVersionArn;
             context.InitialVersion_FunctionDefinitionVersionArn = this.InitialVersion_FunctionDefinitionVersionArn;
@@ -188,6 +201,16 @@ namespace Amazon.PowerShell.Cmdlets.GG
              // populate InitialVersion
             bool requestInitialVersionIsNull = true;
             request.InitialVersion = new Amazon.Greengrass.Model.GroupVersion();
+            System.String requestInitialVersion_initialVersion_ConnectorDefinitionVersionArn = null;
+            if (cmdletContext.InitialVersion_ConnectorDefinitionVersionArn != null)
+            {
+                requestInitialVersion_initialVersion_ConnectorDefinitionVersionArn = cmdletContext.InitialVersion_ConnectorDefinitionVersionArn;
+            }
+            if (requestInitialVersion_initialVersion_ConnectorDefinitionVersionArn != null)
+            {
+                request.InitialVersion.ConnectorDefinitionVersionArn = requestInitialVersion_initialVersion_ConnectorDefinitionVersionArn;
+                requestInitialVersionIsNull = false;
+            }
             System.String requestInitialVersion_initialVersion_CoreDefinitionVersionArn = null;
             if (cmdletContext.InitialVersion_CoreDefinitionVersionArn != null)
             {
@@ -322,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AmznClientToken { get; set; }
+            public System.String InitialVersion_ConnectorDefinitionVersionArn { get; set; }
             public System.String InitialVersion_CoreDefinitionVersionArn { get; set; }
             public System.String InitialVersion_DeviceDefinitionVersionArn { get; set; }
             public System.String InitialVersion_FunctionDefinitionVersionArn { get; set; }

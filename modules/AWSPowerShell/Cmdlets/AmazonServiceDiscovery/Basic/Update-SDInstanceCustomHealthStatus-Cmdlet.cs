@@ -28,7 +28,18 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    
+    /// Submits a request to change the health status of a custom health check to healthy
+    /// or unhealthy.
+    /// 
+    ///  
+    /// <para>
+    /// You can use <code>UpdateInstanceCustomHealthStatus</code> to change the status only
+    /// for custom health checks, which you define using <code>HealthCheckCustomConfig</code>
+    /// when you create a service. You can't use it to change the status for Route 53 health
+    /// checks, which you define using <code>HealthCheckConfig</code>.
+    /// </para><para>
+    /// For more information, see <a>HealthCheckCustomConfig</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SDInstanceCustomHealthStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the instance that you want to change the health status for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The ID of the service that includes the configuration for the custom health check
+        /// that you want to change the status for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -33,7 +33,12 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// 
     ///  <note><para>
     /// The disk may remain in the <code>deleting</code> state for several minutes.
-    /// </para></note>
+    /// </para></note><para>
+    /// The <code>delete disk</code> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by diskName. For more information, see the
+    /// <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSDisk", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

@@ -55,7 +55,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Content",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -97,7 +96,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Text",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

@@ -42,6 +42,86 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class UpdateSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AcceleratorType
+        /// <summary>
+        /// <para>
+        /// <para>A list of the Elastic Inference (EI) instance types to associate with this notebook
+        /// instance. Currently only one EI instance type can be associated with a notebook instance.
+        /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using
+        /// Elastic Inference in Amazon SageMaker</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AcceleratorTypes")]
+        public System.String[] AcceleratorType { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>An array of up to 3 git repositories to associate with the notebook instance. These
+        /// can be either the names of git repositories stored as resources in your account, or
+        /// the URL of git repositories in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
+        /// CodeCommit</a> or in any other git repository.. These repositories are cloned at the
+        /// same level as the default repository of your notebook instance. For more information,
+        /// see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdditionalCodeRepositories")]
+        public System.String[] AdditionalCodeRepository { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>The git repository to associate with the notebook instance as its default code repository.
+        /// This can be either the name of a git repository stored as a resource in your account,
+        /// or the URL of a git repository in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
+        /// CodeCommit</a> or in any other git repository. When you open a notebook instance,
+        /// it opens in the directory that contains this repository. For more information, see
+        /// <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DefaultCodeRepository { get; set; }
+        #endregion
+        
+        #region Parameter DisassociateAcceleratorType
+        /// <summary>
+        /// <para>
+        /// <para>A list of the Elastic Inference (EI) instance types to remove from this notebook instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DisassociateAcceleratorTypes")]
+        public System.Boolean DisassociateAcceleratorType { get; set; }
+        #endregion
+        
+        #region Parameter DisassociateAdditionalCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>A list of names or URLs of the default git repositories to remove from this notebook
+        /// instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DisassociateAdditionalCodeRepositories")]
+        public System.Boolean DisassociateAdditionalCodeRepository { get; set; }
+        #endregion
+        
+        #region Parameter DisassociateDefaultCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>The name or URL of the default git repository to remove from this notebook instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DisassociateDefaultCodeRepository { get; set; }
+        #endregion
+        
         #region Parameter DisassociateLifecycleConfig
         /// <summary>
         /// <para>
@@ -68,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
-        /// information about lifestyle configurations, see <a>notebook-lifecycle-config</a>.</para>
+        /// information about lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// 2.1: (Optional) Customize a Notebook Instance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,6 +177,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter VolumeSizeInGB
+        /// <summary>
+        /// <para>
+        /// <para>The size, in GB, of the ML storage volume to attach to the notebook instance. The
+        /// default value is 5 GB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 VolumeSizeInGB { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -136,12 +228,29 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AcceleratorType != null)
+            {
+                context.AcceleratorTypes = new List<System.String>(this.AcceleratorType);
+            }
+            if (this.AdditionalCodeRepository != null)
+            {
+                context.AdditionalCodeRepositories = new List<System.String>(this.AdditionalCodeRepository);
+            }
+            context.DefaultCodeRepository = this.DefaultCodeRepository;
+            if (ParameterWasBound("DisassociateAcceleratorType"))
+                context.DisassociateAcceleratorTypes = this.DisassociateAcceleratorType;
+            if (ParameterWasBound("DisassociateAdditionalCodeRepository"))
+                context.DisassociateAdditionalCodeRepositories = this.DisassociateAdditionalCodeRepository;
+            if (ParameterWasBound("DisassociateDefaultCodeRepository"))
+                context.DisassociateDefaultCodeRepository = this.DisassociateDefaultCodeRepository;
             if (ParameterWasBound("DisassociateLifecycleConfig"))
                 context.DisassociateLifecycleConfig = this.DisassociateLifecycleConfig;
             context.InstanceType = this.InstanceType;
             context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             context.RoleArn = this.RoleArn;
+            if (ParameterWasBound("VolumeSizeInGB"))
+                context.VolumeSizeInGB = this.VolumeSizeInGB;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -158,6 +267,30 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.UpdateNotebookInstanceRequest();
             
+            if (cmdletContext.AcceleratorTypes != null)
+            {
+                request.AcceleratorTypes = cmdletContext.AcceleratorTypes;
+            }
+            if (cmdletContext.AdditionalCodeRepositories != null)
+            {
+                request.AdditionalCodeRepositories = cmdletContext.AdditionalCodeRepositories;
+            }
+            if (cmdletContext.DefaultCodeRepository != null)
+            {
+                request.DefaultCodeRepository = cmdletContext.DefaultCodeRepository;
+            }
+            if (cmdletContext.DisassociateAcceleratorTypes != null)
+            {
+                request.DisassociateAcceleratorTypes = cmdletContext.DisassociateAcceleratorTypes.Value;
+            }
+            if (cmdletContext.DisassociateAdditionalCodeRepositories != null)
+            {
+                request.DisassociateAdditionalCodeRepositories = cmdletContext.DisassociateAdditionalCodeRepositories.Value;
+            }
+            if (cmdletContext.DisassociateDefaultCodeRepository != null)
+            {
+                request.DisassociateDefaultCodeRepository = cmdletContext.DisassociateDefaultCodeRepository.Value;
+            }
             if (cmdletContext.DisassociateLifecycleConfig != null)
             {
                 request.DisassociateLifecycleConfig = cmdletContext.DisassociateLifecycleConfig.Value;
@@ -177,6 +310,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.VolumeSizeInGB != null)
+            {
+                request.VolumeSizeInGB = cmdletContext.VolumeSizeInGB.Value;
             }
             
             CmdletOutput output;
@@ -244,11 +381,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AcceleratorTypes { get; set; }
+            public List<System.String> AdditionalCodeRepositories { get; set; }
+            public System.String DefaultCodeRepository { get; set; }
+            public System.Boolean? DisassociateAcceleratorTypes { get; set; }
+            public System.Boolean? DisassociateAdditionalCodeRepositories { get; set; }
+            public System.Boolean? DisassociateDefaultCodeRepository { get; set; }
             public System.Boolean? DisassociateLifecycleConfig { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
+            public System.Int32? VolumeSizeInGB { get; set; }
         }
         
     }

@@ -61,6 +61,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter VersionName
+        /// <summary>
+        /// <para>
+        /// <para>An optional field specifying the version of the artifact associated with the document.
+        /// For example, "Release 12, Update 6". This value is unique across all versions of a
+        /// document, and cannot be changed.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VersionName { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -76,6 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
+            context.VersionName = this.VersionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,6 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.VersionName != null)
+            {
+                request.VersionName = cmdletContext.VersionName;
             }
             
             CmdletOutput output;
@@ -166,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
+            public System.String VersionName { get; set; }
         }
         
     }

@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         public Amazon.AlexaForBusiness.DistanceUnit DistanceUnit { get; set; }
         #endregion
         
+        #region Parameter IsDefault
+        /// <summary>
+        /// <para>
+        /// <para>Sets the profile as default if selected. If this is missing, no update is done to
+        /// the default status.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IsDefault { get; set; }
+        #endregion
+        
         #region Parameter MaxVolumeLimit
         /// <summary>
         /// <para>
@@ -183,6 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             
             context.Address = this.Address;
             context.DistanceUnit = this.DistanceUnit;
+            if (ParameterWasBound("IsDefault"))
+                context.IsDefault = this.IsDefault;
             if (ParameterWasBound("MaxVolumeLimit"))
                 context.MaxVolumeLimit = this.MaxVolumeLimit;
             context.ProfileArn = this.ProfileArn;
@@ -217,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             if (cmdletContext.DistanceUnit != null)
             {
                 request.DistanceUnit = cmdletContext.DistanceUnit;
+            }
+            if (cmdletContext.IsDefault != null)
+            {
+                request.IsDefault = cmdletContext.IsDefault.Value;
             }
             if (cmdletContext.MaxVolumeLimit != null)
             {
@@ -318,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         {
             public System.String Address { get; set; }
             public Amazon.AlexaForBusiness.DistanceUnit DistanceUnit { get; set; }
+            public System.Boolean? IsDefault { get; set; }
             public System.Int32? MaxVolumeLimit { get; set; }
             public System.String ProfileArn { get; set; }
             public System.String Name { get; set; }

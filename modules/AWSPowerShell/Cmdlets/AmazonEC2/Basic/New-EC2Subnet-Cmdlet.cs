@@ -79,6 +79,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String AvailabilityZone { get; set; }
         #endregion
         
+        #region Parameter AvailabilityZoneId
+        /// <summary>
+        /// <para>
+        /// <para>The AZ ID of the subnet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AvailabilityZoneId { get; set; }
+        #endregion
+        
         #region Parameter CidrBlock
         /// <summary>
         /// <para>
@@ -140,6 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.AvailabilityZone = this.AvailabilityZone;
+            context.AvailabilityZoneId = this.AvailabilityZoneId;
             context.CidrBlock = this.CidrBlock;
             context.Ipv6CidrBlock = this.Ipv6CidrBlock;
             context.VpcId = this.VpcId;
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
+            }
+            if (cmdletContext.AvailabilityZoneId != null)
+            {
+                request.AvailabilityZoneId = cmdletContext.AvailabilityZoneId;
             }
             if (cmdletContext.CidrBlock != null)
             {
@@ -240,6 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AvailabilityZone { get; set; }
+            public System.String AvailabilityZoneId { get; set; }
             public System.String CidrBlock { get; set; }
             public System.String Ipv6CidrBlock { get; set; }
             public System.String VpcId { get; set; }

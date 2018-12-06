@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class GetALXBSkillListCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
+        #region Parameter EnablementType
+        /// <summary>
+        /// <para>
+        /// <para>Whether the skill is enabled under the user's account, or if it requires linking to
+        /// be used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AlexaForBusiness.EnablementTypeFilter")]
+        public Amazon.AlexaForBusiness.EnablementTypeFilter EnablementType { get; set; }
+        #endregion
+        
         #region Parameter SkillGroupArn
         /// <summary>
         /// <para>
@@ -49,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SkillGroupArn { get; set; }
+        #endregion
+        
+        #region Parameter SkillType
+        /// <summary>
+        /// <para>
+        /// <para>Whether the skill is publicly available or is a private skill.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AlexaForBusiness.SkillTypeFilter")]
+        public Amazon.AlexaForBusiness.SkillTypeFilter SkillType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -95,10 +118,12 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.EnablementType = this.EnablementType;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
             context.SkillGroupArn = this.SkillGroupArn;
+            context.SkillType = this.SkillType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,9 +140,17 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             
             // create request and set iteration invariants
             var request = new Amazon.AlexaForBusiness.Model.ListSkillsRequest();
+            if (cmdletContext.EnablementType != null)
+            {
+                request.EnablementType = cmdletContext.EnablementType;
+            }
             if (cmdletContext.SkillGroupArn != null)
             {
                 request.SkillGroupArn = cmdletContext.SkillGroupArn;
+            }
+            if (cmdletContext.SkillType != null)
+            {
+                request.SkillType = cmdletContext.SkillType;
             }
             
             // Initialize loop variants and commence piping
@@ -265,9 +298,11 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.AlexaForBusiness.EnablementTypeFilter EnablementType { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String SkillGroupArn { get; set; }
+            public Amazon.AlexaForBusiness.SkillTypeFilter SkillType { get; set; }
         }
         
     }

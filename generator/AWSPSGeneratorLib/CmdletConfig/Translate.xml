@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>translate</C2jFilename>
     <SourceGenerationRoot>AmazonTranslate</SourceGenerationRoot>
@@ -11,6 +11,7 @@
     <PipelineParameter />
     <VerbMappings />
     <NounMappings />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" />
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
@@ -19,7 +20,19 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="TranslateText" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="SourceLanguageCode;TargetLanguageCode" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTerminology" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTerminology" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportTerminology" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTerminologies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TerminologyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TranslateText" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

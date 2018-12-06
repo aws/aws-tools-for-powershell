@@ -79,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String FinalClusterSnapshotIdentifier { get; set; }
         #endregion
         
+        #region Parameter FinalClusterSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days that a manual snapshot is retained. If the value is -1, the manual
+        /// snapshot is retained indefinitely.</para><para>The value must be either -1 or an integer between 1 and 3,653.</para><para>The default value is -1.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 FinalClusterSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter SkipFinalClusterSnapshot
         /// <summary>
         /// <para>
@@ -124,6 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.FinalClusterSnapshotIdentifier = this.FinalClusterSnapshotIdentifier;
+            if (ParameterWasBound("FinalClusterSnapshotRetentionPeriod"))
+                context.FinalClusterSnapshotRetentionPeriod = this.FinalClusterSnapshotRetentionPeriod;
             if (ParameterWasBound("SkipFinalClusterSnapshot"))
                 context.SkipFinalClusterSnapshot = this.SkipFinalClusterSnapshot;
             
@@ -149,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.FinalClusterSnapshotIdentifier != null)
             {
                 request.FinalClusterSnapshotIdentifier = cmdletContext.FinalClusterSnapshotIdentifier;
+            }
+            if (cmdletContext.FinalClusterSnapshotRetentionPeriod != null)
+            {
+                request.FinalClusterSnapshotRetentionPeriod = cmdletContext.FinalClusterSnapshotRetentionPeriod.Value;
             }
             if (cmdletContext.SkipFinalClusterSnapshot != null)
             {
@@ -220,6 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.String ClusterIdentifier { get; set; }
             public System.String FinalClusterSnapshotIdentifier { get; set; }
+            public System.Int32? FinalClusterSnapshotRetentionPeriod { get; set; }
             public System.Boolean? SkipFinalClusterSnapshot { get; set; }
         }
         

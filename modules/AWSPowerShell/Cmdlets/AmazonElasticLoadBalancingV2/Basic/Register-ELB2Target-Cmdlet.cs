@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// You can register targets by instance ID or by IP address. If the target is an EC2
-    /// instance, it must be in the <code>running</code> state when you register it.
+    /// If the target is an EC2 instance, it must be in the <code>running</code> state when
+    /// you register it.
     /// </para><para>
     /// By default, the load balancer routes requests to registered targets using the protocol
     /// and port for the target group. Alternatively, you can override the port for a target
@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets.</para>
+        /// <para>The targets.</para><para>To register a target by instance ID, specify the instance ID. To register a target
+        /// by IP address, specify the IP address. To register a Lambda function, specify the
+        /// ARN of the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

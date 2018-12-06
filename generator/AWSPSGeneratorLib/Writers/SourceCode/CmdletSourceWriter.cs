@@ -64,6 +64,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         {
             ServiceConfig = MethodAnalysis.CurrentModel;
             Operation = MethodAnalysis.CurrentOperation;
+
             var analyzedResult = MethodAnalysis.AnalyzedResult;
 
             var customParamEmitters = new List<IParamEmitter>();
@@ -71,7 +72,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var methodInfo = MethodAnalysis.Method;
             var methodDocumentation = DocumentationUtils.GetMethodDocumentation(methodInfo.DeclaringType, methodInfo.Name, AssemblyDocumentation);
 
-            if (MethodAnalysis.GenerateIterationCode)
+            if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None)
                 methodDocumentation += "<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.";
 
             if (GetOperationObsoleteMessage(methodInfo) != null)
@@ -204,24 +205,22 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                     var rootSimpleProperties = MethodAnalysis.RequestProperties;
 
-                    if (!MethodAnalysis.GenerateIterationCode)
-                        WriteIExecutor(writer, MethodAnalysis, rootSimpleProperties);
-                    else
+                    switch (MethodAnalysis.IterationPattern)
                     {
-                        switch (MethodAnalysis.IterationPattern)
-                        {
-                            case AutoIteration.AutoIteratePattern.Pattern1:
-                                WriteIExecutorIterPattern1(writer, MethodAnalysis, rootSimpleProperties);
-                                break;
-
-                            // pattern 2 and 3 are essentially the same, just that for calls identified as
-                            // p3 we have an extra 'is truncated' indicator - given we auto-iterate either
-                            // all items or a subset for a user, we can ignore isTruncated and emit pattern2
-                            case AutoIteration.AutoIteratePattern.Pattern2:
-                            case AutoIteration.AutoIteratePattern.Pattern3:
-                                WriteIExecutorIterPattern2(writer, MethodAnalysis, rootSimpleProperties);
-                                break;
-                        }
+                        case AutoIteration.AutoIteratePattern.Pattern1:
+                            WriteIExecutorIterPattern1(writer, MethodAnalysis, rootSimpleProperties);
+                            break;
+                    
+                        // pattern 2 and 3 are essentially the same, just that for calls identified as
+                        // p3 we have an extra 'is truncated' indicator - given we auto-iterate either
+                        // all items or a subset for a user, we can ignore isTruncated and emit pattern2
+                        case AutoIteration.AutoIteratePattern.Pattern2:
+                        case AutoIteration.AutoIteratePattern.Pattern3:
+                            WriteIExecutorIterPattern2(writer, MethodAnalysis, rootSimpleProperties);
+                            break;
+                        case AutoIteration.AutoIteratePattern.None:
+                            WriteIExecutor(writer, MethodAnalysis, rootSimpleProperties);
+                            break;
                     }
 
                     writer.WriteLine();

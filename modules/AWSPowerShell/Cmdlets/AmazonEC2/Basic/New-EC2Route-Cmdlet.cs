@@ -143,6 +143,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String RouteTableId { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of a transit gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TransitGatewayId { get; set; }
+        #endregion
+        
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
@@ -190,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.NatGatewayId = this.NatGatewayId;
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.RouteTableId = this.RouteTableId;
+            context.TransitGatewayId = this.TransitGatewayId;
             context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
             
             // allow further manipulation of loaded context prior to processing
@@ -238,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.RouteTableId != null)
             {
                 request.RouteTableId = cmdletContext.RouteTableId;
+            }
+            if (cmdletContext.TransitGatewayId != null)
+            {
+                request.TransitGatewayId = cmdletContext.TransitGatewayId;
             }
             if (cmdletContext.VpcPeeringConnectionId != null)
             {
@@ -315,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String NatGatewayId { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.String RouteTableId { get; set; }
+            public System.String TransitGatewayId { get; set; }
             public System.String VpcPeeringConnectionId { get; set; }
         }
         

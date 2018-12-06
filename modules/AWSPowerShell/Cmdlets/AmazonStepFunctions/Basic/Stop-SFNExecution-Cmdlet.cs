@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Cause
         /// <summary>
         /// <para>
-        /// <para>A more detailed explanation of the cause of the termination.</para>
+        /// <para>A more detailed explanation of the cause of the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Error
         /// <summary>
         /// <para>
-        /// <para>An arbitrary error code that identifies the cause of the termination.</para>
+        /// <para>The error code of the failure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

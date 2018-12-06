@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter SnowballType
         /// <summary>
         /// <para>
-        /// <para>The type of AWS Snowball device to use for this job. Currently, the only supported
-        /// device type for cluster jobs is <code>EDGE</code>.</para>
+        /// <para>The type of AWS Snowball device to use for this job. The only supported device types
+        /// for cluster jobs are <code>EDGE</code>, <code>EDGE_C</code>, and <code>EDGE_CG</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

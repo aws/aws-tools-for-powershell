@@ -39,6 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.EMP
     public partial class NewEMPOriginEndpointCmdlet : AmazonMediaPackageClientCmdlet, IExecutor
     {
         
+        #region Parameter SpekeKeyProvider_CertificateArn
+        /// <summary>
+        /// <para>
+        /// An Amazon Resource Name (ARN) of a Certificate
+        /// Manager certificatethat MediaPackage will use for enforcing secure end-to-end datatransfer
+        /// with the key provider service.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CmafPackage_Encryption_SpekeKeyProvider_CertificateArn")]
+        public System.String SpekeKeyProvider_CertificateArn { get; set; }
+        #endregion
+        
         #region Parameter ChannelId
         /// <summary>
         /// <para>
@@ -309,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             context.ChannelId = this.ChannelId;
             if (ParameterWasBound("Encryption_KeyRotationIntervalSecond"))
                 context.CmafPackage_Encryption_KeyRotationIntervalSeconds = this.Encryption_KeyRotationIntervalSecond;
+            context.CmafPackage_Encryption_SpekeKeyProvider_CertificateArn = this.SpekeKeyProvider_CertificateArn;
             context.CmafPackage_Encryption_SpekeKeyProvider_ResourceId = this.SpekeKeyProvider_ResourceId;
             context.CmafPackage_Encryption_SpekeKeyProvider_RoleArn = this.SpekeKeyProvider_RoleArn;
             if (this.SpekeKeyProvider_SystemId != null)
@@ -416,6 +430,16 @@ namespace Amazon.PowerShell.Cmdlets.EMP
              // populate SpekeKeyProvider
             bool requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProviderIsNull = true;
             requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider = new Amazon.MediaPackage.Model.SpekeKeyProvider();
+            System.String requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_CertificateArn = null;
+            if (cmdletContext.CmafPackage_Encryption_SpekeKeyProvider_CertificateArn != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_CertificateArn = cmdletContext.CmafPackage_Encryption_SpekeKeyProvider_CertificateArn;
+            }
+            if (requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_CertificateArn != null)
+            {
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider.CertificateArn = requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_CertificateArn;
+                requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProviderIsNull = false;
+            }
             System.String requestCmafPackage_cmafPackage_Encryption_cmafPackage_Encryption_SpekeKeyProvider_spekeKeyProvider_ResourceId = null;
             if (cmdletContext.CmafPackage_Encryption_SpekeKeyProvider_ResourceId != null)
             {
@@ -628,6 +652,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         {
             public System.String ChannelId { get; set; }
             public System.Int32? CmafPackage_Encryption_KeyRotationIntervalSeconds { get; set; }
+            public System.String CmafPackage_Encryption_SpekeKeyProvider_CertificateArn { get; set; }
             public System.String CmafPackage_Encryption_SpekeKeyProvider_ResourceId { get; set; }
             public System.String CmafPackage_Encryption_SpekeKeyProvider_RoleArn { get; set; }
             public List<System.String> CmafPackage_Encryption_SpekeKeyProvider_SystemIds { get; set; }

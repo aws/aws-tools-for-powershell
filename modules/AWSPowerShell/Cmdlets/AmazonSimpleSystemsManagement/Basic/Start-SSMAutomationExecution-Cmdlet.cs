@@ -127,6 +127,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Collections.Hashtable Parameter { get; set; }
         #endregion
         
+        #region Parameter TargetLocation
+        /// <summary>
+        /// <para>
+        /// <para>A location is a combination of AWS Regions and/or AWS accounts where you want to execute
+        /// the Automation. Use this action to start an Automation in multiple Regions and multiple
+        /// accounts. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-automation-multiple-accounts-and-regions.html">Concurrently
+        /// Executing Automations in Multiple AWS Regions and Accounts</a> in the <i>AWS Systems
+        /// Manager User Guide</i>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetLocations")]
+        public Amazon.SimpleSystemsManagement.Model.TargetLocation[] TargetLocation { get; set; }
+        #endregion
+        
         #region Parameter TargetMap
         /// <summary>
         /// <para>
@@ -216,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
             }
+            if (this.TargetLocation != null)
+            {
+                context.TargetLocations = new List<Amazon.SimpleSystemsManagement.Model.TargetLocation>(this.TargetLocation);
+            }
             if (this.TargetMap != null)
             {
                 context.TargetMaps = new List<Dictionary<System.String, List<System.String>>>();
@@ -289,6 +308,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.TargetLocations != null)
+            {
+                request.TargetLocations = cmdletContext.TargetLocations;
             }
             if (cmdletContext.TargetMaps != null)
             {
@@ -373,6 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String MaxErrors { get; set; }
             public Amazon.SimpleSystemsManagement.ExecutionMode Mode { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.TargetLocation> TargetLocations { get; set; }
             public List<Dictionary<System.String, List<System.String>>> TargetMaps { get; set; }
             public System.String TargetParameterName { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }

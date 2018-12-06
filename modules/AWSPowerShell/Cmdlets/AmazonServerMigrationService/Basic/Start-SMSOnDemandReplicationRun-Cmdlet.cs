@@ -28,10 +28,14 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The StartOnDemandReplicationRun API is used to start a ReplicationRun on demand (in
-    /// addition to those that are scheduled based on your frequency). This ReplicationRun
-    /// will start immediately. StartOnDemandReplicationRun is subject to limits on how many
-    /// on demand ReplicationRuns you may call per 24-hour period.
+    /// Starts an on-demand replication run for the specified replication job. This replication
+    /// run starts immediately. This replication run is in addition to the ones already scheduled.
+    /// 
+    ///  
+    /// <para>
+    /// There is a limit on the number of on-demand replications runs you can request in a
+    /// 24-hour period.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "SMSOnDemandReplicationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The description of the replication run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the replication job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

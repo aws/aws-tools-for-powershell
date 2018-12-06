@@ -28,24 +28,19 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Gets a list of aliases in the caller's AWS account and region. You cannot list aliases
-    /// in other accounts. For more information about aliases, see <a>CreateAlias</a>.
+    /// Gets a list of all aliases in the caller's AWS account and region. You cannot list
+    /// aliases in other accounts. For more information about aliases, see <a>CreateAlias</a>.
     /// 
     ///  
     /// <para>
-    /// By default, the ListAliases command returns all aliases in the account and region.
-    /// To get only the aliases that point to a particular customer master key (CMK), use
-    /// the <code>KeyId</code> parameter.
+    /// By default, the <code>ListAliases</code> command returns all aliases in the account
+    /// and region. To get only the aliases that point to a particular customer master key
+    /// (CMK), use the <code>KeyId</code> parameter.
     /// </para><para>
-    /// The <code>ListAliases</code> response can include aliases that you created and associated
-    /// with your customer managed CMKs, and aliases that AWS created and associated with
-    /// AWS managed CMKs in your account. You can recognize AWS aliases because their names
-    /// have the format <code>aws/&lt;service-name&gt;</code>, such as <code>aws/dynamodb</code>.
-    /// </para><para>
-    /// The response might also include aliases that have no <code>TargetKeyId</code> field.
-    /// These are predefined aliases that AWS has created but has not yet associated with
-    /// a CMK. Aliases that AWS creates in your account, including predefined aliases, do
-    /// not count against your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS
+    /// The <code>ListAliases</code> response might include several aliases have no <code>TargetKeyId</code>
+    /// field. These are predefined aliases that AWS has created but has not yet associated
+    /// with a CMK. Aliases that AWS creates in your account, including predefined aliases,
+    /// do not count against your <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">AWS
     /// KMS aliases limit</a>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

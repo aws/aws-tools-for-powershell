@@ -49,7 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter AuthenticationConfiguration_AllowedIPRange
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The property used to configure acceptance of webhooks within a specific IP range.
+        /// For IP, only the AllowedIPRange property must be set, and this property must be set
+        /// to a valid CIDR range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter AuthenticationConfiguration_SecretToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The property used to configure GitHub authentication. For GITHUB_HMAC, only the SecretToken
+        /// property must be set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

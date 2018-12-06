@@ -44,27 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTThingGroupCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributePayload_Attribute
+        #region Parameter ThingGroupProperties_AttributePayload
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format. For example:</para><para><code>{\"attributes\":{\"string1\":\"string2\"}}</code></para>
+        /// <para>The thing group attributes in JSON format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("ThingGroupProperties_AttributePayload_Attributes")]
-        public System.Collections.Hashtable AttributePayload_Attribute { get; set; }
-        #endregion
-        
-        #region Parameter AttributePayload_Merge
-        /// <summary>
-        /// <para>
-        /// <para>Specifies whether the list of attributes provided in the <code>AttributePayload</code>
-        /// is merged with the attributes stored in the registry, instead of overwriting them.</para><para>To remove an attribute, call <code>UpdateThing</code> with an empty attribute value.</para><note><para>The <code>merge</code> attribute is only valid when calling <code>UpdateThing</code>.</para></note>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ThingGroupProperties_AttributePayload_Merge")]
-        public System.Boolean AttributePayload_Merge { get; set; }
+        public Amazon.IoT.Model.AttributePayload ThingGroupProperties_AttributePayload { get; set; }
         #endregion
         
         #region Parameter ParentGroupName
@@ -75,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ParentGroupName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the thing group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ThingGroupProperties_ThingGroupDescription
@@ -127,17 +125,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.ParentGroupName = this.ParentGroupName;
-            context.ThingGroupName = this.ThingGroupName;
-            if (this.AttributePayload_Attribute != null)
+            if (this.Tag != null)
             {
-                context.ThingGroupProperties_AttributePayload_Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.AttributePayload_Attribute.Keys)
-                {
-                    context.ThingGroupProperties_AttributePayload_Attributes.Add((String)hashKey, (String)(this.AttributePayload_Attribute[hashKey]));
-                }
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
             }
-            if (ParameterWasBound("AttributePayload_Merge"))
-                context.ThingGroupProperties_AttributePayload_Merge = this.AttributePayload_Merge;
+            context.ThingGroupName = this.ThingGroupName;
+            context.ThingGroupProperties_AttributePayload = this.ThingGroupProperties_AttributePayload;
             context.ThingGroupProperties_ThingGroupDescription = this.ThingGroupProperties_ThingGroupDescription;
             
             // allow further manipulation of loaded context prior to processing
@@ -159,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.ParentGroupName = cmdletContext.ParentGroupName;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.ThingGroupName != null)
             {
                 request.ThingGroupName = cmdletContext.ThingGroupName;
@@ -167,6 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
              // populate ThingGroupProperties
             bool requestThingGroupPropertiesIsNull = true;
             request.ThingGroupProperties = new Amazon.IoT.Model.ThingGroupProperties();
+            Amazon.IoT.Model.AttributePayload requestThingGroupProperties_thingGroupProperties_AttributePayload = null;
+            if (cmdletContext.ThingGroupProperties_AttributePayload != null)
+            {
+                requestThingGroupProperties_thingGroupProperties_AttributePayload = cmdletContext.ThingGroupProperties_AttributePayload;
+            }
+            if (requestThingGroupProperties_thingGroupProperties_AttributePayload != null)
+            {
+                request.ThingGroupProperties.AttributePayload = requestThingGroupProperties_thingGroupProperties_AttributePayload;
+                requestThingGroupPropertiesIsNull = false;
+            }
             System.String requestThingGroupProperties_thingGroupProperties_ThingGroupDescription = null;
             if (cmdletContext.ThingGroupProperties_ThingGroupDescription != null)
             {
@@ -175,41 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestThingGroupProperties_thingGroupProperties_ThingGroupDescription != null)
             {
                 request.ThingGroupProperties.ThingGroupDescription = requestThingGroupProperties_thingGroupProperties_ThingGroupDescription;
-                requestThingGroupPropertiesIsNull = false;
-            }
-            Amazon.IoT.Model.AttributePayload requestThingGroupProperties_thingGroupProperties_AttributePayload = null;
-            
-             // populate AttributePayload
-            bool requestThingGroupProperties_thingGroupProperties_AttributePayloadIsNull = true;
-            requestThingGroupProperties_thingGroupProperties_AttributePayload = new Amazon.IoT.Model.AttributePayload();
-            Dictionary<System.String, System.String> requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Attribute = null;
-            if (cmdletContext.ThingGroupProperties_AttributePayload_Attributes != null)
-            {
-                requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Attribute = cmdletContext.ThingGroupProperties_AttributePayload_Attributes;
-            }
-            if (requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Attribute != null)
-            {
-                requestThingGroupProperties_thingGroupProperties_AttributePayload.Attributes = requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Attribute;
-                requestThingGroupProperties_thingGroupProperties_AttributePayloadIsNull = false;
-            }
-            System.Boolean? requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Merge = null;
-            if (cmdletContext.ThingGroupProperties_AttributePayload_Merge != null)
-            {
-                requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Merge = cmdletContext.ThingGroupProperties_AttributePayload_Merge.Value;
-            }
-            if (requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Merge != null)
-            {
-                requestThingGroupProperties_thingGroupProperties_AttributePayload.Merge = requestThingGroupProperties_thingGroupProperties_AttributePayload_attributePayload_Merge.Value;
-                requestThingGroupProperties_thingGroupProperties_AttributePayloadIsNull = false;
-            }
-             // determine if requestThingGroupProperties_thingGroupProperties_AttributePayload should be set to null
-            if (requestThingGroupProperties_thingGroupProperties_AttributePayloadIsNull)
-            {
-                requestThingGroupProperties_thingGroupProperties_AttributePayload = null;
-            }
-            if (requestThingGroupProperties_thingGroupProperties_AttributePayload != null)
-            {
-                request.ThingGroupProperties.AttributePayload = requestThingGroupProperties_thingGroupProperties_AttributePayload;
                 requestThingGroupPropertiesIsNull = false;
             }
              // determine if request.ThingGroupProperties should be set to null
@@ -282,9 +254,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ParentGroupName { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
             public System.String ThingGroupName { get; set; }
-            public Dictionary<System.String, System.String> ThingGroupProperties_AttributePayload_Attributes { get; set; }
-            public System.Boolean? ThingGroupProperties_AttributePayload_Merge { get; set; }
+            public Amazon.IoT.Model.AttributePayload ThingGroupProperties_AttributePayload { get; set; }
             public System.String ThingGroupProperties_ThingGroupDescription { get; set; }
         }
         

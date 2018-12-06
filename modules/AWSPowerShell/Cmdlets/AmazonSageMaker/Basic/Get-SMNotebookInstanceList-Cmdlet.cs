@@ -42,6 +42,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class GetSMNotebookInstanceListCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalCodeRepositoryEqual
+        /// <summary>
+        /// <para>
+        /// <para>A filter that returns only notebook instances with associated with the specified git
+        /// respository.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdditionalCodeRepositoryEquals")]
+        public System.String AdditionalCodeRepositoryEqual { get; set; }
+        #endregion
+        
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
@@ -62,6 +74,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime CreationTimeBefore { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCodeRepositoryContain
+        /// <summary>
+        /// <para>
+        /// <para>A string in the name or URL of a git repository associated with this notebook instance.
+        /// This filter returns only notebook instances associated with a git repository with
+        /// a name that contains the specified string.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DefaultCodeRepositoryContains")]
+        public System.String DefaultCodeRepositoryContain { get; set; }
         #endregion
         
         #region Parameter LastModifiedTimeAfter
@@ -189,10 +214,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AdditionalCodeRepositoryEquals = this.AdditionalCodeRepositoryEqual;
             if (ParameterWasBound("CreationTimeAfter"))
                 context.CreationTimeAfter = this.CreationTimeAfter;
             if (ParameterWasBound("CreationTimeBefore"))
                 context.CreationTimeBefore = this.CreationTimeBefore;
+            context.DefaultCodeRepositoryContains = this.DefaultCodeRepositoryContain;
             if (ParameterWasBound("LastModifiedTimeAfter"))
                 context.LastModifiedTimeAfter = this.LastModifiedTimeAfter;
             if (ParameterWasBound("LastModifiedTimeBefore"))
@@ -221,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             
             // create request and set iteration invariants
             var request = new Amazon.SageMaker.Model.ListNotebookInstancesRequest();
+            if (cmdletContext.AdditionalCodeRepositoryEquals != null)
+            {
+                request.AdditionalCodeRepositoryEquals = cmdletContext.AdditionalCodeRepositoryEquals;
+            }
             if (cmdletContext.CreationTimeAfter != null)
             {
                 request.CreationTimeAfter = cmdletContext.CreationTimeAfter.Value;
@@ -228,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.CreationTimeBefore != null)
             {
                 request.CreationTimeBefore = cmdletContext.CreationTimeBefore.Value;
+            }
+            if (cmdletContext.DefaultCodeRepositoryContains != null)
+            {
+                request.DefaultCodeRepositoryContains = cmdletContext.DefaultCodeRepositoryContains;
             }
             if (cmdletContext.LastModifiedTimeAfter != null)
             {
@@ -403,8 +438,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AdditionalCodeRepositoryEquals { get; set; }
             public System.DateTime? CreationTimeAfter { get; set; }
             public System.DateTime? CreationTimeBefore { get; set; }
+            public System.String DefaultCodeRepositoryContains { get; set; }
             public System.DateTime? LastModifiedTimeAfter { get; set; }
             public System.DateTime? LastModifiedTimeBefore { get; set; }
             public int? MaxResults { get; set; }

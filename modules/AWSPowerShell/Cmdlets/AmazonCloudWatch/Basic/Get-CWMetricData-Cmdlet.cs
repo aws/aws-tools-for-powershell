@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// data is still available, but is aggregated and retrievable only with a resolution
     /// of 5 minutes. After 63 days, the data is further aggregated and is available with
     /// a resolution of 1 hour.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWMetricData")]
     [OutputType("Amazon.CloudWatch.Model.MetricDataResult")]
@@ -247,7 +247,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CloudWatch.Model.GetMetricDataRequest();
             
             if (cmdletContext.UtcEndTime != null)
@@ -261,10 +262,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.MetricDataQueries != null)
             {
                 request.MetricDataQueries = cmdletContext.MetricDataQueries;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
             }
             if (cmdletContext.ScanBy != null)
             {
@@ -295,30 +292,65 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
+            }
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.MetricDataResults;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.MetricDataResults;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.MetricDataResults.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

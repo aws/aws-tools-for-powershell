@@ -60,6 +60,20 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public System.String SubscriptionDefinitionVersionId { get; set; }
         #endregion
         
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// The token for the next set of results, or ''null''
+        /// if there are no additional results.
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -73,6 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.NextToken = this.NextToken;
             context.SubscriptionDefinitionId = this.SubscriptionDefinitionId;
             context.SubscriptionDefinitionVersionId = this.SubscriptionDefinitionVersionId;
             
@@ -91,6 +106,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             // create request
             var request = new Amazon.Greengrass.Model.GetSubscriptionDefinitionVersionRequest();
             
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
             if (cmdletContext.SubscriptionDefinitionId != null)
             {
                 request.SubscriptionDefinitionId = cmdletContext.SubscriptionDefinitionId;
@@ -163,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String NextToken { get; set; }
             public System.String SubscriptionDefinitionId { get; set; }
             public System.String SubscriptionDefinitionVersionId { get; set; }
         }

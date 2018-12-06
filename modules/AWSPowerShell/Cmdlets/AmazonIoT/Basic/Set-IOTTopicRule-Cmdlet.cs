@@ -233,6 +233,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String Elasticsearch_Index { get; set; }
         #endregion
         
+        #region Parameter IotEvents_InputName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the AWS IoT Events input.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotEvents_InputName")]
+        public System.String IotEvents_InputName { get; set; }
+        #endregion
+        
         #region Parameter S3_Key
         /// <summary>
         /// <para>
@@ -258,6 +269,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [Alias("TopicRulePayload_ErrorAction_Sns_MessageFormat")]
         [AWSConstantClassSource("Amazon.IoT.MessageFormat")]
         public Amazon.IoT.MessageFormat Sns_MessageFormat { get; set; }
+        #endregion
+        
+        #region Parameter IotEvents_MessageId
+        /// <summary>
+        /// <para>
+        /// <para>[Optional] Use this to ensure that only one input (message) with a given messageId
+        /// will be processed by an AWS IoT Events detector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotEvents_MessageId")]
+        public System.String IotEvents_MessageId { get; set; }
         #endregion
         
         #region Parameter CloudwatchMetric_MetricName
@@ -473,6 +496,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("TopicRulePayload_ErrorAction_IotAnalytics_RoleArn")]
         public System.String IotAnalytics_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter IotEvents_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that grants AWS IoT permission to send an input to an AWS IoT
+        /// Events detector. ("Action":"iotevents:BatchPutMessage").</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TopicRulePayload_ErrorAction_IotEvents_RoleArn")]
+        public System.String IotEvents_RoleArn { get; set; }
         #endregion
         
         #region Parameter Kinesis_RoleArn
@@ -799,6 +834,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn = this.IotAnalytics_ChannelArn;
             context.TopicRulePayload_ErrorAction_IotAnalytics_ChannelName = this.IotAnalytics_ChannelName;
             context.TopicRulePayload_ErrorAction_IotAnalytics_RoleArn = this.IotAnalytics_RoleArn;
+            context.TopicRulePayload_ErrorAction_IotEvents_InputName = this.IotEvents_InputName;
+            context.TopicRulePayload_ErrorAction_IotEvents_MessageId = this.IotEvents_MessageId;
+            context.TopicRulePayload_ErrorAction_IotEvents_RoleArn = this.IotEvents_RoleArn;
             context.TopicRulePayload_ErrorAction_Kinesis_PartitionKey = this.Kinesis_PartitionKey;
             context.TopicRulePayload_ErrorAction_Kinesis_RoleArn = this.Kinesis_RoleArn;
             context.TopicRulePayload_ErrorAction_Kinesis_StreamName = this.Kinesis_StreamName;
@@ -1136,6 +1174,51 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics != null)
             {
                 requestTopicRulePayload_topicRulePayload_ErrorAction.IotAnalytics = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotAnalytics;
+                requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
+            }
+            Amazon.IoT.Model.IotEventsAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
+            
+             // populate IotEvents
+            bool requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = true;
+            requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = new Amazon.IoT.Model.IotEventsAction();
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotEvents_InputName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName = cmdletContext.TopicRulePayload_ErrorAction_IotEvents_InputName;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.InputName = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_InputName;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotEvents_MessageId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId = cmdletContext.TopicRulePayload_ErrorAction_IotEvents_MessageId;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.MessageId = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_MessageId;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+            System.String requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = null;
+            if (cmdletContext.TopicRulePayload_ErrorAction_IotEvents_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn = cmdletContext.TopicRulePayload_ErrorAction_IotEvents_RoleArn;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents.RoleArn = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents_iotEvents_RoleArn;
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull = false;
+            }
+             // determine if requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents should be set to null
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEventsIsNull)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents = null;
+            }
+            if (requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents != null)
+            {
+                requestTopicRulePayload_topicRulePayload_ErrorAction.IotEvents = requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_IotEvents;
                 requestTopicRulePayload_topicRulePayload_ErrorActionIsNull = false;
             }
             Amazon.IoT.Model.KinesisAction requestTopicRulePayload_topicRulePayload_ErrorAction_topicRulePayload_ErrorAction_Kinesis = null;
@@ -1801,6 +1884,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String TopicRulePayload_ErrorAction_IotAnalytics_ChannelArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_IotAnalytics_ChannelName { get; set; }
             public System.String TopicRulePayload_ErrorAction_IotAnalytics_RoleArn { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotEvents_InputName { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotEvents_MessageId { get; set; }
+            public System.String TopicRulePayload_ErrorAction_IotEvents_RoleArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_PartitionKey { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_RoleArn { get; set; }
             public System.String TopicRulePayload_ErrorAction_Kinesis_StreamName { get; set; }

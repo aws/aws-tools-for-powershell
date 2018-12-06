@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Creates a snapshot of a specific virtual private server, or <i>instance</i>. You can
     /// use a snapshot to create a new instance that is based on that snapshot.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>create instance snapshot</code> operation supports tag-based access control
+    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LSInstanceSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -59,6 +66,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String InstanceSnapshotName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -92,6 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             
             context.InstanceName = this.InstanceName;
             context.InstanceSnapshotName = this.InstanceSnapshotName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.InstanceSnapshotName != null)
             {
                 request.InstanceSnapshotName = cmdletContext.InstanceSnapshotName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -182,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.String InstanceName { get; set; }
             public System.String InstanceSnapshotName { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
         }
         
     }

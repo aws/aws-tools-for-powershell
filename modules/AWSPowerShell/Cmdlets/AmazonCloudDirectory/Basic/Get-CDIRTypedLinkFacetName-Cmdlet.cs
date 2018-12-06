@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Returns a paginated list of <code>TypedLink</code> facet names for a particular schema.
-    /// For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-    /// link</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed
+    /// Links</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRTypedLinkFacetName")]
     [OutputType("System.String")]

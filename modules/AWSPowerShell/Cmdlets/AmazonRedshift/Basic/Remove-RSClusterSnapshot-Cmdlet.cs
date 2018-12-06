@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The unique identifier of the manual snapshot to be deleted.</para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>
-        /// state.</para>
+        /// <para>The unique identifier of the manual snapshot to be deleted.</para><para>Constraints: Must be the name of an existing snapshot that is in the <code>available</code>,
+        /// <code>failed</code>, or <code>cancelled</code> state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

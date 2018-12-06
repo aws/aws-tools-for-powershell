@@ -119,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -178,8 +177,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroupIngress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -236,8 +234,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -311,8 +308,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -370,8 +366,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -428,8 +423,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -487,8 +481,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -545,8 +538,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -601,8 +593,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -655,8 +646,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicaCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -709,8 +699,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -765,8 +754,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CacheParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -821,8 +809,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CacheSecurityGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -877,8 +864,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CacheSubnetGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -933,8 +919,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -989,8 +974,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1043,7 +1027,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheClusters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1097,7 +1080,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheEngineVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1148,7 +1130,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1201,8 +1182,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1252,7 +1232,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1303,7 +1282,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1354,8 +1332,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EngineDefaultParameters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1440,7 +1417,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1491,7 +1467,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1545,7 +1520,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedCacheNodes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1598,7 +1572,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedCacheNodesOfferings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1649,7 +1622,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1698,8 +1670,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicaCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1752,8 +1723,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AllowedNodeTypeModifications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1805,8 +1775,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1856,8 +1825,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1914,8 +1882,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1973,8 +1940,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2029,8 +1995,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2083,8 +2048,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroupShardConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2142,8 +2106,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedCacheNodesOffering",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2198,8 +2161,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2255,8 +2217,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2311,8 +2272,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2370,8 +2330,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroupIngress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2426,8 +2385,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Failover",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

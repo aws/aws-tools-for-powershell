@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// 
     ///  
     /// <para>
-    /// You can filter the results using bundle ID, directory ID, or owner, but you can specify
-    /// only one filter at a time.
+    /// You can filter the results by using the bundle identifier, directory identifier, or
+    /// owner, but you can specify only one filter at a time.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspace")]
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>The ID of the bundle. All WorkSpaces that are created from this bundle are retrieved.
-        /// This parameter cannot be combined with any other filter.</para>
+        /// <para>The identifier of the bundle. All WorkSpaces that are created from this bundle are
+        /// retrieved. You cannot combine this parameter with any other filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>The ID of the directory. In addition, you can optionally specify a specific directory
-        /// user (see <code>UserName</code>). This parameter cannot be combined with any other
-        /// filter.</para>
+        /// <para>The identifier of the directory. In addition, you can optionally specify a specific
+        /// directory user (see <code>UserName</code>). You cannot combine this parameter with
+        /// any other filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the WorkSpaces. This parameter cannot be combined with any other filter.</para><para>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns
+        /// <para>The identifiers of the WorkSpaces. You cannot combine this parameter with any other
+        /// filter.</para><para>Because the <a>CreateWorkspaces</a> operation is asynchronous, the identifier it returns
         /// is not immediately available. If you immediately call <a>DescribeWorkspaces</a> with
         /// this identifier, no information is returned.</para>
         /// </para>
@@ -110,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
+        /// <para>If you received a <code>NextToken</code> from a previous call that was paginated,
+        /// provide this token to receive the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

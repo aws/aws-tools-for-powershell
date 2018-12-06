@@ -59,7 +59,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -99,7 +98,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SupportDataExport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

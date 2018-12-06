@@ -76,8 +76,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationItemsToApplication",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -131,8 +130,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -186,8 +184,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -241,8 +238,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Applications",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -296,8 +292,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -351,7 +346,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Agents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -401,8 +395,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Configurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -453,7 +446,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContinuousExports",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -505,7 +497,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -555,7 +546,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTasks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -605,7 +595,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -657,8 +646,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfigurationItemsFromApplication",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -712,8 +700,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Configurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -762,8 +749,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoverySummary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -812,7 +798,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Configurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -862,8 +847,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServerNeighbors",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -912,8 +896,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContinuousExport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -969,8 +952,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataCollectionByAgentIds",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1026,8 +1008,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1083,8 +1064,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContinuousExport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1140,8 +1120,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataCollectionByAgentIds",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1197,8 +1176,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

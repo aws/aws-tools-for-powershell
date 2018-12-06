@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -172,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CloudFormationChangeSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -188,6 +185,59 @@
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
+          "targetParameterName": "ApplicationId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateCloudFormationTemplate": {
+      "verb": "New",
+      "noun": "CloudFormationTemplate",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CloudFormationTemplate",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
           "targetParameterName": "ApplicationId"
         },
         "memoryStreamParameters": []
@@ -226,8 +276,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -280,8 +329,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -329,8 +377,103 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetCloudFormationTemplate": {
+      "verb": "Get",
+      "noun": "CloudFormationTemplate",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "TemplateId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CloudFormationTemplate",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListApplicationDependencies": {
+      "verb": "Get",
+      "noun": "ApplicationDependencyList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Dependencies",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ApplicationId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ApplicationDependencies",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -362,7 +505,14 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxItems",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [
           "MaxItems"
@@ -378,7 +528,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Applications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -387,7 +536,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
+          "resultLimitMember": "MaxItems",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -411,7 +560,14 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxItems",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [
           "ApplicationId"
@@ -427,7 +583,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -436,7 +591,7 @@
           "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
+          "resultLimitMember": "MaxItems",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -476,8 +631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -530,8 +684,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

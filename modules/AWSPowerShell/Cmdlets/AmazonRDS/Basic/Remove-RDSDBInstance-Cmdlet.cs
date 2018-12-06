@@ -78,12 +78,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter DeleteAutomatedBackup
+        /// <summary>
+        /// <para>
+        /// <para>A value that indicates whether to remove automated backups immediately after the DB
+        /// instance is deleted. This parameter isn't case-sensitive. This parameter defaults
+        /// to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteAutomatedBackups")]
+        public System.Boolean DeleteAutomatedBackup { get; set; }
+        #endregion
+        
         #region Parameter FinalDBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is
-        /// set to <code>false</code>. </para><note><para>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
-        /// results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens</para></li><li><para>Can't be specified when deleting a Read Replica.</para></li></ul>
+        /// <para> The <code>DBSnapshotIdentifier</code> of the new DB snapshot created when <code>SkipFinalSnapshot</code>
+        /// is set to <code>false</code>. </para><note><para>Specifying this parameter and also setting the <code>SkipFinalShapshot</code> parameter
+        /// to <code>true</code> results in an error.</para></note><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters or numbers.</para></li><li><para>First character must be a letter.</para></li><li><para>Can't end with a hyphen or contain two consecutive hyphens.</para></li><li><para>Can't be specified when deleting a Read Replica.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,12 +106,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SkipFinalSnapshot
         /// <summary>
         /// <para>
-        /// <para> Determines whether a final DB snapshot is created before the DB instance is deleted.
-        /// If <code>true</code> is specified, no DBSnapshot is created. If <code>false</code>
-        /// is specified, a DB snapshot is created before the DB instance is deleted. </para><para>Note that when a DB instance is in a failure state and has a status of 'failed', 'incompatible-restore',
-        /// or 'incompatible-network', it can only be deleted when the SkipFinalSnapshot parameter
-        /// is set to "true".</para><para>Specify <code>true</code> when deleting a Read Replica.</para><note><para>The FinalDBSnapshotIdentifier parameter must be specified if SkipFinalSnapshot is
-        /// <code>false</code>.</para></note><para>Default: <code>false</code></para>
+        /// <para> A value that indicates whether a final DB snapshot is created before the DB instance
+        /// is deleted. If <code>true</code> is specified, no DB snapshot is created. If <code>false</code>
+        /// is specified, a DB snapshot is created before the DB instance is deleted. </para><para>When a DB instance is in a failure state and has a status of <code>failed</code>,
+        /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
+        /// delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.</para><para>Specify <code>true</code> when deleting a Read Replica.</para><note><para>The <code>FinalDBSnapshotIdentifier</code> parameter must be specified if <code>SkipFinalSnapshot</code>
+        /// is <code>false</code>.</para></note><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,6 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             PreExecutionContextLoad(context);
             
             context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            if (ParameterWasBound("DeleteAutomatedBackup"))
+                context.DeleteAutomatedBackups = this.DeleteAutomatedBackup;
             context.FinalDBSnapshotIdentifier = this.FinalDBSnapshotIdentifier;
             if (ParameterWasBound("SkipFinalSnapshot"))
                 context.SkipFinalSnapshot = this.SkipFinalSnapshot;
@@ -157,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBInstanceIdentifier != null)
             {
                 request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+            }
+            if (cmdletContext.DeleteAutomatedBackups != null)
+            {
+                request.DeleteAutomatedBackups = cmdletContext.DeleteAutomatedBackups.Value;
             }
             if (cmdletContext.FinalDBSnapshotIdentifier != null)
             {
@@ -231,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBInstanceIdentifier { get; set; }
+            public System.Boolean? DeleteAutomatedBackups { get; set; }
             public System.String FinalDBSnapshotIdentifier { get; set; }
             public System.Boolean? SkipFinalSnapshot { get; set; }
         }

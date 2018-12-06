@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteBuilds",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetBuilds",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -167,8 +165,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetProjects",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -216,8 +213,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -270,8 +266,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Webhook",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -324,8 +319,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -378,8 +372,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Webhook",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProjectName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -432,8 +425,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProjectCache",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProjectName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -484,7 +476,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Builds",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -533,7 +524,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BuildsForProject",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -580,8 +570,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CuratedEnvironmentImages",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -627,7 +616,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Projects",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -676,8 +664,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Build",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -730,8 +717,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Build",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -784,8 +770,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -838,8 +823,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Webhook",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

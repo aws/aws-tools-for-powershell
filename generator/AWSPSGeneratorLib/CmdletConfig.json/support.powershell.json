@@ -72,8 +72,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttachmentsToSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -127,8 +126,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommunicationToCase",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -186,8 +184,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Case",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -240,8 +237,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Attachment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -289,7 +285,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Cases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -336,7 +331,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Communications",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -387,8 +381,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Services",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -436,8 +429,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SeverityLevels",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -485,8 +477,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrustedAdvisorCheckRefreshStatuses",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -536,8 +527,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrustedAdvisorCheckResult",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -585,8 +575,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrustedAdvisorChecks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -634,8 +623,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrustedAdvisorCheckSummaries",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -683,8 +671,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrustedAdvisorCheck",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -735,8 +722,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Case",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

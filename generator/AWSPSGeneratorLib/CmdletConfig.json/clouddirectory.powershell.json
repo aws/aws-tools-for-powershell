@@ -16,7 +16,9 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
+    "excludedOperations": [
+      "ListObjectParents"
+    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "",
@@ -66,13 +68,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FacetToObject",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -118,13 +121,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -170,13 +174,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Object",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -224,13 +229,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -276,13 +282,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ToIndex",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -328,13 +335,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLink",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -380,13 +388,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Read",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -432,13 +441,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Write",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -486,13 +496,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -540,13 +551,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Facet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SchemaArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -592,13 +604,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Index",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -644,13 +657,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Object",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -698,13 +712,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -752,13 +767,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SchemaArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -804,13 +820,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -858,13 +875,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Facet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SchemaArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -910,13 +928,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Object",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -964,13 +983,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schema",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1018,13 +1038,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1070,13 +1091,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FromIndex",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1122,13 +1144,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Object",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1174,13 +1197,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1226,13 +1250,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLink",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1278,13 +1303,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1330,13 +1356,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1384,13 +1411,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AppliedSchemaVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1431,13 +1459,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1480,13 +1509,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Facet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1527,13 +1557,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LinkAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1576,13 +1607,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1623,13 +1655,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectInformation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1672,13 +1705,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaAsJson",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1721,13 +1755,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacetInformation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1768,13 +1803,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AppliedSchemaArns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1815,13 +1851,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttachedIndices",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1864,13 +1901,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevelopmentSchemaArns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1911,13 +1949,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1960,13 +1999,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FacetAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2009,13 +2049,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FacetNames",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2056,13 +2097,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IncomingTypedLinks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2103,13 +2145,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Index",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2150,13 +2193,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ManagedSchemaArns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2199,13 +2243,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2246,13 +2291,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectChildren",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2293,13 +2339,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectParentPaths",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2314,8 +2361,8 @@
       "noun": "ObjectParent",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "Parents",
+        "output": "Response",
+        "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -2340,13 +2387,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectParents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2387,13 +2435,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2434,13 +2483,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OutgoingTypedLinks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2481,13 +2531,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyAttachments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2528,13 +2579,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublishedSchemaArns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2577,13 +2629,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2626,13 +2679,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacetAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2675,13 +2729,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacetNames",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2722,13 +2777,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2771,13 +2827,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2825,13 +2882,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaFromJson",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2877,13 +2935,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FacetFromObject",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2931,13 +2990,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -2985,13 +3045,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3039,13 +3100,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Facet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SchemaArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3091,13 +3153,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LinkAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3143,13 +3206,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ObjectAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3197,13 +3261,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3251,13 +3316,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TypedLinkFacet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3303,13 +3369,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AppliedSchema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -3355,13 +3422,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublishedSchema",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListObjectParents"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",

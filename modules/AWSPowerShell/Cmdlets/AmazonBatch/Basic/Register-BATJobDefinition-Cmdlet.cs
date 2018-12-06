@@ -44,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
         /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
-        /// the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many
-        /// times.</para>
+        /// the job is retried on failure the same number of attempts as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,6 +105,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String ContainerProperties_Image { get; set; }
         #endregion
         
+        #region Parameter ContainerProperties_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type to use for a multi-node parallel job. Currently all node groups
+        /// in a multi-node parallel job must use the same instance type. This parameter is not
+        /// valid for single-node container jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContainerProperties_InstanceType { get; set; }
+        #endregion
+        
         #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
@@ -126,6 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContainerProperties_JobRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter NodeProperties_MainNode
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the node index for the main node of a multi-node parallel job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 NodeProperties_MainNode { get; set; }
         #endregion
         
         #region Parameter ContainerProperties_Memory
@@ -158,6 +179,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter]
         [Alias("ContainerProperties_MountPoints")]
         public Amazon.Batch.Model.MountPoint[] ContainerProperties_MountPoint { get; set; }
+        #endregion
+        
+        #region Parameter NodeProperties_NodeRangeProperty
+        /// <summary>
+        /// <para>
+        /// <para>A list of node ranges and their properties associated with a multi-node parallel job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NodeProperties_NodeRangeProperties")]
+        public Amazon.Batch.Model.NodeRangeProperty[] NodeProperties_NodeRangeProperty { get; set; }
+        #endregion
+        
+        #region Parameter NodeProperties_NumNode
+        /// <summary>
+        /// <para>
+        /// <para>The number of nodes associated with a multi-node parallel job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NodeProperties_NumNodes")]
+        public System.Int32 NodeProperties_NumNode { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -321,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerProperties_Environment);
             }
             context.ContainerProperties_Image = this.ContainerProperties_Image;
+            context.ContainerProperties_InstanceType = this.ContainerProperties_InstanceType;
             context.ContainerProperties_JobRoleArn = this.ContainerProperties_JobRoleArn;
             if (ParameterWasBound("ContainerProperties_Memory"))
                 context.ContainerProperties_Memory = this.ContainerProperties_Memory;
@@ -344,6 +388,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Volumes = new List<Amazon.Batch.Model.Volume>(this.ContainerProperties_Volume);
             }
             context.JobDefinitionName = this.JobDefinitionName;
+            if (ParameterWasBound("NodeProperties_MainNode"))
+                context.NodeProperties_MainNode = this.NodeProperties_MainNode;
+            if (this.NodeProperties_NodeRangeProperty != null)
+            {
+                context.NodeProperties_NodeRangeProperties = new List<Amazon.Batch.Model.NodeRangeProperty>(this.NodeProperties_NodeRangeProperty);
+            }
+            if (ParameterWasBound("NodeProperties_NumNode"))
+                context.NodeProperties_NumNodes = this.NodeProperties_NumNode;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -404,6 +456,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_Image != null)
             {
                 request.ContainerProperties.Image = requestContainerProperties_containerProperties_Image;
+                requestContainerPropertiesIsNull = false;
+            }
+            System.String requestContainerProperties_containerProperties_InstanceType = null;
+            if (cmdletContext.ContainerProperties_InstanceType != null)
+            {
+                requestContainerProperties_containerProperties_InstanceType = cmdletContext.ContainerProperties_InstanceType;
+            }
+            if (requestContainerProperties_containerProperties_InstanceType != null)
+            {
+                request.ContainerProperties.InstanceType = requestContainerProperties_containerProperties_InstanceType;
                 requestContainerPropertiesIsNull = false;
             }
             System.String requestContainerProperties_containerProperties_JobRoleArn = null;
@@ -505,6 +567,45 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 request.JobDefinitionName = cmdletContext.JobDefinitionName;
             }
+            
+             // populate NodeProperties
+            bool requestNodePropertiesIsNull = true;
+            request.NodeProperties = new Amazon.Batch.Model.NodeProperties();
+            System.Int32? requestNodeProperties_nodeProperties_MainNode = null;
+            if (cmdletContext.NodeProperties_MainNode != null)
+            {
+                requestNodeProperties_nodeProperties_MainNode = cmdletContext.NodeProperties_MainNode.Value;
+            }
+            if (requestNodeProperties_nodeProperties_MainNode != null)
+            {
+                request.NodeProperties.MainNode = requestNodeProperties_nodeProperties_MainNode.Value;
+                requestNodePropertiesIsNull = false;
+            }
+            List<Amazon.Batch.Model.NodeRangeProperty> requestNodeProperties_nodeProperties_NodeRangeProperty = null;
+            if (cmdletContext.NodeProperties_NodeRangeProperties != null)
+            {
+                requestNodeProperties_nodeProperties_NodeRangeProperty = cmdletContext.NodeProperties_NodeRangeProperties;
+            }
+            if (requestNodeProperties_nodeProperties_NodeRangeProperty != null)
+            {
+                request.NodeProperties.NodeRangeProperties = requestNodeProperties_nodeProperties_NodeRangeProperty;
+                requestNodePropertiesIsNull = false;
+            }
+            System.Int32? requestNodeProperties_nodeProperties_NumNode = null;
+            if (cmdletContext.NodeProperties_NumNodes != null)
+            {
+                requestNodeProperties_nodeProperties_NumNode = cmdletContext.NodeProperties_NumNodes.Value;
+            }
+            if (requestNodeProperties_nodeProperties_NumNode != null)
+            {
+                request.NodeProperties.NumNodes = requestNodeProperties_nodeProperties_NumNode.Value;
+                requestNodePropertiesIsNull = false;
+            }
+             // determine if request.NodeProperties should be set to null
+            if (requestNodePropertiesIsNull)
+            {
+                request.NodeProperties = null;
+            }
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
@@ -603,6 +704,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<System.String> ContainerProperties_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerProperties_Environment { get; set; }
             public System.String ContainerProperties_Image { get; set; }
+            public System.String ContainerProperties_InstanceType { get; set; }
             public System.String ContainerProperties_JobRoleArn { get; set; }
             public System.Int32? ContainerProperties_Memory { get; set; }
             public List<Amazon.Batch.Model.MountPoint> ContainerProperties_MountPoints { get; set; }
@@ -613,6 +715,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ContainerProperties_Vcpus { get; set; }
             public List<Amazon.Batch.Model.Volume> ContainerProperties_Volumes { get; set; }
             public System.String JobDefinitionName { get; set; }
+            public System.Int32? NodeProperties_MainNode { get; set; }
+            public List<Amazon.Batch.Model.NodeRangeProperty> NodeProperties_NodeRangeProperties { get; set; }
+            public System.Int32? NodeProperties_NumNodes { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.Int32? RetryStrategy_Attempts { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }

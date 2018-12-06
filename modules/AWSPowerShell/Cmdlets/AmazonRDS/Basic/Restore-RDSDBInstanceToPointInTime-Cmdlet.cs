@@ -319,6 +319,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String SourceDBInstanceIdentifier { get; set; }
         #endregion
         
+        #region Parameter SourceDbiResourceId
+        /// <summary>
+        /// <para>
+        /// <para>The resource ID of the source DB instance from which to restore.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceDbiResourceId { get; set; }
+        #endregion
+        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -395,6 +405,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean UseLatestRestorableTime { get; set; }
         #endregion
         
+        #region Parameter VpcSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para> A list of EC2 VPC security groups to associate with this DB instance. </para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -461,6 +482,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("UtcRestoreTime"))
                 context.UtcRestoreTime = this.UtcRestoreTime;
             context.SourceDBInstanceIdentifier = this.SourceDBInstanceIdentifier;
+            context.SourceDbiResourceId = this.SourceDbiResourceId;
             context.StorageType = this.StorageType;
             if (this.Tag != null)
             {
@@ -473,6 +495,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
             if (ParameterWasBound("UseLatestRestorableTime"))
                 context.UseLatestRestorableTime = this.UseLatestRestorableTime;
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
+            }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("RestoreTime"))
                 context.RestoreTime = this.RestoreTime;
@@ -581,6 +607,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.SourceDBInstanceIdentifier = cmdletContext.SourceDBInstanceIdentifier;
             }
+            if (cmdletContext.SourceDbiResourceId != null)
+            {
+                request.SourceDbiResourceId = cmdletContext.SourceDbiResourceId;
+            }
             if (cmdletContext.StorageType != null)
             {
                 request.StorageType = cmdletContext.StorageType;
@@ -608,6 +638,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.UseLatestRestorableTime != null)
             {
                 request.UseLatestRestorableTime = cmdletContext.UseLatestRestorableTime.Value;
+            }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
             }
             #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.RestoreTime != null)
@@ -705,6 +739,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.DateTime? UtcRestoreTime { get; set; }
             public System.String SourceDBInstanceIdentifier { get; set; }
+            public System.String SourceDbiResourceId { get; set; }
             public System.String StorageType { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.String TargetDBInstanceIdentifier { get; set; }
@@ -712,6 +747,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String TdeCredentialPassword { get; set; }
             public System.Boolean? UseDefaultProcessorFeatures { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
             [System.ObsoleteAttribute]
             public System.DateTime? RestoreTime { get; set; }
         }

@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StatusEqual
         /// <summary>
         /// <para>
-        /// <para> A filter that returns only endpoints with the specified status. </para>
+        /// <para> A filter that returns only endpoints with the specified status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

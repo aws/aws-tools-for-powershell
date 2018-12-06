@@ -28,7 +28,7 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Lists your delivery streams.
+    /// Lists your delivery streams in alphabetical order of their names.
     /// 
     ///  
     /// <para>
@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned,
     /// using the <b>Limit</b> parameter. To determine whether there are more delivery streams
     /// to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If
-    /// there are more delivery streams to list, you can request them by specifying the name
-    /// of the last delivery stream returned in the call in the <code>ExclusiveStartDeliveryStreamName</code>
-    /// parameter of a subsequent call.
+    /// there are more delivery streams to list, you can request them by calling this operation
+    /// again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the
+    /// name of the last delivery stream returned in the last call.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "KINFDeliveryStreamList")]
@@ -66,7 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ExclusiveStartDeliveryStreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream to start the list with.</para>
+        /// <para>The list of delivery streams returned by this call to <code>ListDeliveryStreams</code>
+        /// will start with the delivery stream whose name comes alphabetically immediately after
+        /// the name you specify in <code>ExclusiveStartDeliveryStreamName</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

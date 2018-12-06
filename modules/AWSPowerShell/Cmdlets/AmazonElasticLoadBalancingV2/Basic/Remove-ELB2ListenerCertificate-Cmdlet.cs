@@ -51,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The certificate to remove. You can specify one certificate per call.</para>
+        /// <para>The certificate to remove. You can specify one certificate per call. Set <code>CertificateArn</code>
+        /// to the certificate ARN but do not set <code>IsDefault</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

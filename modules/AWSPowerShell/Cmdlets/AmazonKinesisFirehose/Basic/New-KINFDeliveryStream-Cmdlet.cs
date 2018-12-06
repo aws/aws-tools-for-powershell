@@ -361,6 +361,21 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A set of tags to assign to the delivery stream. A tag is a key-value pair that you
+        /// can define and assign to AWS resources. Tags are metadata. For example, you can add
+        /// friendly names and descriptions or other types of information that can help you distinguish
+        /// the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+        /// Cost Allocation Tags</a> in the AWS Billing and Cost Management User Guide.</para><para>You can specify up to 50 tags when creating a delivery stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.KinesisFirehose.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationConfiguration_TypeName
         /// <summary>
         /// <para>
@@ -435,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.SplunkDestinationConfiguration = this.SplunkDestinationConfiguration;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.KinesisFirehose.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -725,6 +744,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.SplunkDestinationConfiguration = cmdletContext.SplunkDestinationConfiguration;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -813,6 +836,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             [System.ObsoleteAttribute]
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
             public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
+            public List<Amazon.KinesisFirehose.Model.Tag> Tags { get; set; }
         }
         
     }

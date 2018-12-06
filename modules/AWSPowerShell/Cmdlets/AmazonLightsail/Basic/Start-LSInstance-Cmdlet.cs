@@ -30,6 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// <summary>
     /// Starts a specific Amazon Lightsail instance from a stopped state. To restart an instance,
     /// use the reboot instance operation.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>start instance</code> operation supports tag-based access control via resource
+    /// tags applied to the resource identified by instanceName. For more information, see
+    /// the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "LSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

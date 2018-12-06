@@ -62,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String[] ContainerInstance { get; set; }
         #endregion
         
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether you want to see the resource tags for the container instance. If
+        /// <code>TAGS</code> is specified, the tags are included in the response. If this field
+        /// is omitted, tags are not included in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Include { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -79,6 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (this.ContainerInstance != null)
             {
                 context.ContainerInstances = new List<System.String>(this.ContainerInstance);
+            }
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -103,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ContainerInstances != null)
             {
                 request.ContainerInstances = cmdletContext.ContainerInstances;
+            }
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
             }
             
             CmdletOutput output;
@@ -170,6 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         {
             public System.String Cluster { get; set; }
             public List<System.String> ContainerInstances { get; set; }
+            public List<System.String> Include { get; set; }
         }
         
     }

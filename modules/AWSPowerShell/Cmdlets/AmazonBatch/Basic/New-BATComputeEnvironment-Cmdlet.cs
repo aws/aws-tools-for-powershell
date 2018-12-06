@@ -33,25 +33,42 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// 
     ///  
     /// <para>
-    /// In a managed compute environment, AWS Batch manages the compute resources within the
-    /// environment, based on the compute resources that you specify. Instances launched into
-    /// a managed compute environment use a recent, approved version of the Amazon ECS-optimized
-    /// AMI. You can choose to use Amazon EC2 On-Demand Instances in your managed compute
-    /// environment, or you can use Amazon EC2 Spot Instances that only launch when the Spot
-    /// bid price is below a specified percentage of the On-Demand price.
-    /// </para><para>
+    /// In a managed compute environment, AWS Batch manages the capacity and instance types
+    /// of the compute resources within the environment. This is based on the compute resource
+    /// specification that you define or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+    /// template</a> that you specify when you create the compute environment. You can choose
+    /// to use Amazon EC2 On-Demand Instances or Spot Instances in your managed compute environment.
+    /// You can optionally set a maximum price so that Spot Instances only launch when the
+    /// Spot Instance price is below a specified percentage of the On-Demand price.
+    /// </para><note><para>
+    /// Multi-node parallel jobs are not supported on Spot Instances.
+    /// </para></note><para>
     /// In an unmanaged compute environment, you can manage your own compute resources. This
     /// provides more compute resource configuration options, such as using a custom AMI,
     /// but you must ensure that your AMI meets the Amazon ECS container instance AMI specification.
     /// For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
     /// Instance AMIs</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// After you have created your unmanaged compute environment, you can use the <a>DescribeComputeEnvironments</a>
-    /// operation to find the Amazon ECS cluster that is associated with it and then manually
+    /// operation to find the Amazon ECS cluster that is associated with it. Then, manually
     /// launch your container instances into that Amazon ECS cluster. For more information,
     /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
     /// an Amazon ECS Container Instance</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
-    /// </para>
+    /// </para><note><para>
+    /// AWS Batch does not upgrade the AMIs in a compute environment after it is created (for
+    /// example, when a newer version of the Amazon ECS-optimized AMI is available). You are
+    /// responsible for the management of the guest operating system (including updates and
+    /// security patches) and any additional application software or utilities that you install
+    /// on the compute resources. To use a new AMI for your AWS Batch jobs:
+    /// </para><ol><li><para>
+    /// Create a new compute environment with the new AMI.
+    /// </para></li><li><para>
+    /// Add the compute environment to an existing job queue.
+    /// </para></li><li><para>
+    /// Remove the old compute environment from your job queue.
+    /// </para></li><li><para>
+    /// Delete the old compute environment.
+    /// </para></li></ol></note>
     /// </summary>
     [Cmdlet("New", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.CreateComputeEnvironmentResponse")]
@@ -65,10 +82,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_BidPercentage
         /// <summary>
         /// <para>
-        /// <para>The minimum percentage that a Spot Instance price must be when compared with the On-Demand
-        /// price for that instance type before instances are launched. For example, if your bid
+        /// <para>The maximum percentage that a Spot Instance price can be when compared with the On-Demand
+        /// price for that instance type before instances are launched. For example, if your maximum
         /// percentage is 20%, then the Spot price must be below 20% of the current On-Demand
-        /// price for that EC2 instance.</para>
+        /// price for that EC2 instance. You always pay the lowest (market) price and never more
+        /// than your maximum percentage. If you leave this field empty, the default value is
+        /// 100% of the On-Demand price.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -146,6 +165,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.String[] ComputeResources_InstanceType { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_LaunchTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ComputeResources_LaunchTemplate_LaunchTemplateId")]
+        public System.String LaunchTemplate_LaunchTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_LaunchTemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ComputeResources_LaunchTemplate_LaunchTemplateName")]
+        public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+        #endregion
+        
         #region Parameter ComputeResources_MaxvCpu
         /// <summary>
         /// <para>
@@ -160,12 +201,28 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_MinvCpu
         /// <summary>
         /// <para>
-        /// <para>The minimum number of EC2 vCPUs that an environment should maintain. </para>
+        /// <para>The minimum number of EC2 vCPUs that an environment should maintain (even if the compute
+        /// environment is <code>DISABLED</code>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ComputeResources_MinvCpus")]
         public System.Int32 ComputeResources_MinvCpu { get; set; }
+        #endregion
+        
+        #region Parameter ComputeResources_PlacementGroup
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon EC2 placement group to associate with your compute resources. If you intend
+        /// to submit multi-node parallel jobs to your compute environment, you should consider
+        /// creating a cluster placement group and associate it with your compute resources. This
+        /// keeps your multi-node parallel job on a logical grouping of instances within a single
+        /// Availability Zone with high network flow potential. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ComputeResources_PlacementGroup { get; set; }
         #endregion
         
         #region Parameter ComputeResources_SecurityGroupId
@@ -257,12 +314,24 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the compute environment. </para>
+        /// <para>The type of the compute environment. For more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+        /// Environments</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.Batch.CEType")]
         public Amazon.Batch.CEType Type { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version number of the launch template.</para><para>Default: The default version of the launch template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ComputeResources_LaunchTemplate_Version")]
+        public System.String LaunchTemplate_Version { get; set; }
         #endregion
         
         #region Parameter Force
@@ -306,10 +375,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ComputeResources_InstanceTypes = new List<System.String>(this.ComputeResources_InstanceType);
             }
+            context.ComputeResources_LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
+            context.ComputeResources_LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
+            context.ComputeResources_LaunchTemplate_Version = this.LaunchTemplate_Version;
             if (ParameterWasBound("ComputeResources_MaxvCpu"))
                 context.ComputeResources_MaxvCpus = this.ComputeResources_MaxvCpu;
             if (ParameterWasBound("ComputeResources_MinvCpu"))
                 context.ComputeResources_MinvCpus = this.ComputeResources_MinvCpu;
+            context.ComputeResources_PlacementGroup = this.ComputeResources_PlacementGroup;
             if (this.ComputeResources_SecurityGroupId != null)
             {
                 context.ComputeResources_SecurityGroupIds = new List<System.String>(this.ComputeResources_SecurityGroupId);
@@ -435,6 +508,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ComputeResources.MinvCpus = requestComputeResources_computeResources_MinvCpu.Value;
                 requestComputeResourcesIsNull = false;
             }
+            System.String requestComputeResources_computeResources_PlacementGroup = null;
+            if (cmdletContext.ComputeResources_PlacementGroup != null)
+            {
+                requestComputeResources_computeResources_PlacementGroup = cmdletContext.ComputeResources_PlacementGroup;
+            }
+            if (requestComputeResources_computeResources_PlacementGroup != null)
+            {
+                request.ComputeResources.PlacementGroup = requestComputeResources_computeResources_PlacementGroup;
+                requestComputeResourcesIsNull = false;
+            }
             List<System.String> requestComputeResources_computeResources_SecurityGroupId = null;
             if (cmdletContext.ComputeResources_SecurityGroupIds != null)
             {
@@ -483,6 +566,51 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestComputeResources_computeResources_Type != null)
             {
                 request.ComputeResources.Type = requestComputeResources_computeResources_Type;
+                requestComputeResourcesIsNull = false;
+            }
+            Amazon.Batch.Model.LaunchTemplateSpecification requestComputeResources_computeResources_LaunchTemplate = null;
+            
+             // populate LaunchTemplate
+            bool requestComputeResources_computeResources_LaunchTemplateIsNull = true;
+            requestComputeResources_computeResources_LaunchTemplate = new Amazon.Batch.Model.LaunchTemplateSpecification();
+            System.String requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateId = null;
+            if (cmdletContext.ComputeResources_LaunchTemplate_LaunchTemplateId != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateId = cmdletContext.ComputeResources_LaunchTemplate_LaunchTemplateId;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateId != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate.LaunchTemplateId = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateId;
+                requestComputeResources_computeResources_LaunchTemplateIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateName = null;
+            if (cmdletContext.ComputeResources_LaunchTemplate_LaunchTemplateName != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateName = cmdletContext.ComputeResources_LaunchTemplate_LaunchTemplateName;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateName != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate.LaunchTemplateName = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_LaunchTemplateName;
+                requestComputeResources_computeResources_LaunchTemplateIsNull = false;
+            }
+            System.String requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version = null;
+            if (cmdletContext.ComputeResources_LaunchTemplate_Version != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version = cmdletContext.ComputeResources_LaunchTemplate_Version;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version != null)
+            {
+                requestComputeResources_computeResources_LaunchTemplate.Version = requestComputeResources_computeResources_LaunchTemplate_launchTemplate_Version;
+                requestComputeResources_computeResources_LaunchTemplateIsNull = false;
+            }
+             // determine if requestComputeResources_computeResources_LaunchTemplate should be set to null
+            if (requestComputeResources_computeResources_LaunchTemplateIsNull)
+            {
+                requestComputeResources_computeResources_LaunchTemplate = null;
+            }
+            if (requestComputeResources_computeResources_LaunchTemplate != null)
+            {
+                request.ComputeResources.LaunchTemplate = requestComputeResources_computeResources_LaunchTemplate;
                 requestComputeResourcesIsNull = false;
             }
              // determine if request.ComputeResources should be set to null
@@ -573,8 +701,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.String ComputeResources_ImageId { get; set; }
             public System.String ComputeResources_InstanceRole { get; set; }
             public List<System.String> ComputeResources_InstanceTypes { get; set; }
+            public System.String ComputeResources_LaunchTemplate_LaunchTemplateId { get; set; }
+            public System.String ComputeResources_LaunchTemplate_LaunchTemplateName { get; set; }
+            public System.String ComputeResources_LaunchTemplate_Version { get; set; }
             public System.Int32? ComputeResources_MaxvCpus { get; set; }
             public System.Int32? ComputeResources_MinvCpus { get; set; }
+            public System.String ComputeResources_PlacementGroup { get; set; }
             public List<System.String> ComputeResources_SecurityGroupIds { get; set; }
             public System.String ComputeResources_SpotIamFleetRole { get; set; }
             public List<System.String> ComputeResources_Subnets { get; set; }

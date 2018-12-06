@@ -67,8 +67,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DelegateToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -122,8 +121,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MemberToGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: MemberId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -177,8 +175,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Alias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -232,8 +229,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -287,8 +283,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -342,8 +337,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -397,8 +391,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Alias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -452,8 +445,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -507,8 +499,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MailboxPermissions",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -562,8 +553,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -617,8 +607,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -672,8 +661,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FromWorkMail",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -727,8 +715,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -777,8 +764,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Organization",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -827,8 +813,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -877,8 +862,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -927,8 +911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DelegateFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -982,8 +965,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MemberFromGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: MemberId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1037,7 +1019,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Aliases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1087,7 +1068,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupMembers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1137,7 +1117,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1187,7 +1166,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MailboxPermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1235,7 +1213,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Organizations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1285,7 +1262,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDelegates",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1335,7 +1311,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1385,7 +1360,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1435,8 +1409,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MailboxPermissions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1490,8 +1463,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ToWorkMail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EntityId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1545,8 +1517,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1600,8 +1571,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrimaryEmailAddress",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Email",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1655,8 +1625,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

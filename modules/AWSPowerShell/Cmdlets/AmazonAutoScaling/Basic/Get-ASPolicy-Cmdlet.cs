@@ -55,9 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The names of one or more policies. If you omit this parameter, all policies are described.
-        /// If an group name is provided, the results are limited to that group. This list is
-        /// limited to 50 items. If you specify an unknown policy name, it is ignored with no
-        /// error.</para>
+        /// If a group name is provided, the results are limited to that group. This list is limited
+        /// to 50 items. If you specify an unknown policy name, it is ignored with no error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

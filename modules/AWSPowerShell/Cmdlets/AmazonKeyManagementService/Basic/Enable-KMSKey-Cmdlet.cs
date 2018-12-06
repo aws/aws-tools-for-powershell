@@ -28,9 +28,9 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Sets the state of a customer master key (CMK) to enabled, thereby permitting its use
-    /// for cryptographic operations. You cannot perform this operation on a CMK in a different
-    /// AWS account.
+    /// Sets the key state of a customer master key (CMK) to enabled. This allows you to use
+    /// the CMK for cryptographic operations. You cannot perform this operation on a CMK in
+    /// a different AWS account.
     /// 
     ///  
     /// <para>

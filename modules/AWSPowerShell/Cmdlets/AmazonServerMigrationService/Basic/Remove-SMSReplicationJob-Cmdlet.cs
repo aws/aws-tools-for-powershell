@@ -28,9 +28,14 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The DeleteReplicationJob API is used to delete a ReplicationJob, resulting in no further
-    /// ReplicationRuns. This will delete the contents of the S3 bucket used to store SMS
-    /// artifacts, but will not delete any AMIs created by the SMS service.
+    /// Deletes the specified replication job.
+    /// 
+    ///  
+    /// <para>
+    /// After you delete a replication job, there are no further replication runs. AWS deletes
+    /// the contents of the Amazon S3 bucket used to store AWS SMS artifacts. The AMIs created
+    /// by the replication runs are not deleted.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -45,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the replication job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

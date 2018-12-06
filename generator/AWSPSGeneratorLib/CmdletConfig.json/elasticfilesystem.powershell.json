@@ -69,8 +69,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -121,8 +120,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTarget",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -175,8 +173,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Tag",
         "passThruTypeName": "Amazon.ElasticFileSystem.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -227,8 +224,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FileSystemId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -281,8 +277,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTarget",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: MountTargetId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -335,8 +330,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FileSystemId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -387,7 +381,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystems",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -434,7 +427,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTargets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -483,8 +475,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTargetSecurityGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -530,7 +521,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -579,8 +569,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTargetSecurityGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SecurityGroup",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -631,8 +620,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

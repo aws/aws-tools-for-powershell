@@ -38,14 +38,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionDetail")]
-    [OutputType("Amazon.ECS.Model.TaskDefinition")]
+    [OutputType("Amazon.ECS.Model.DescribeTaskDefinitionResponse")]
     [AWSCmdlet("Calls the Amazon EC2 Container Service DescribeTaskDefinition API operation.", Operation = new[] {"DescribeTaskDefinition"})]
-    [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
-        "This cmdlet returns a TaskDefinition object.",
-        "The service call response (type Amazon.ECS.Model.DescribeTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.ECS.Model.DescribeTaskDefinitionResponse",
+        "This cmdlet returns a Amazon.ECS.Model.DescribeTaskDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetECSTaskDefinitionDetailCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to see the resource tags for the task definition. If <code>TAGS</code>
+        /// is specified, the tags are included in the response. If this field is omitted, tags
+        /// are not included in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Include { get; set; }
+        #endregion
         
         #region Parameter TaskDefinition
         /// <summary>
@@ -72,6 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
+            }
             context.TaskDefinition = this.TaskDefinition;
             
             // allow further manipulation of loaded context prior to processing
@@ -89,6 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             // create request
             var request = new Amazon.ECS.Model.DescribeTaskDefinitionRequest();
             
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
+            }
             if (cmdletContext.TaskDefinition != null)
             {
                 request.TaskDefinition = cmdletContext.TaskDefinition;
@@ -102,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TaskDefinition;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -157,6 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> Include { get; set; }
             public System.String TaskDefinition { get; set; }
         }
         

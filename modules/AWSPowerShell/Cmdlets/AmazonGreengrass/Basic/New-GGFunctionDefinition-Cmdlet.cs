@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public Amazon.Greengrass.Model.Function[] InitialVersion_Function { get; set; }
         #endregion
         
+        #region Parameter Execution_IsolationMode
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InitialVersion_DefaultConfig_Execution_IsolationMode")]
+        [AWSConstantClassSource("Amazon.Greengrass.FunctionIsolationMode")]
+        public Amazon.Greengrass.FunctionIsolationMode Execution_IsolationMode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -105,6 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             PreExecutionContextLoad(context);
             
             context.AmznClientToken = this.AmznClientToken;
+            context.InitialVersion_DefaultConfig_Execution_IsolationMode = this.Execution_IsolationMode;
             if (this.InitialVersion_Function != null)
             {
                 context.InitialVersion_Functions = new List<Amazon.Greengrass.Model.Function>(this.InitialVersion_Function);
@@ -142,6 +155,46 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (requestInitialVersion_initialVersion_Function != null)
             {
                 request.InitialVersion.Functions = requestInitialVersion_initialVersion_Function;
+                requestInitialVersionIsNull = false;
+            }
+            Amazon.Greengrass.Model.FunctionDefaultConfig requestInitialVersion_initialVersion_DefaultConfig = null;
+            
+             // populate DefaultConfig
+            bool requestInitialVersion_initialVersion_DefaultConfigIsNull = true;
+            requestInitialVersion_initialVersion_DefaultConfig = new Amazon.Greengrass.Model.FunctionDefaultConfig();
+            Amazon.Greengrass.Model.FunctionDefaultExecutionConfig requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution = null;
+            
+             // populate Execution
+            bool requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_ExecutionIsNull = true;
+            requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution = new Amazon.Greengrass.Model.FunctionDefaultExecutionConfig();
+            Amazon.Greengrass.FunctionIsolationMode requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode = null;
+            if (cmdletContext.InitialVersion_DefaultConfig_Execution_IsolationMode != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode = cmdletContext.InitialVersion_DefaultConfig_Execution_IsolationMode;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution.IsolationMode = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode;
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_ExecutionIsNull = false;
+            }
+             // determine if requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution should be set to null
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_ExecutionIsNull)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution = null;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig.Execution = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution;
+                requestInitialVersion_initialVersion_DefaultConfigIsNull = false;
+            }
+             // determine if requestInitialVersion_initialVersion_DefaultConfig should be set to null
+            if (requestInitialVersion_initialVersion_DefaultConfigIsNull)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig = null;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig != null)
+            {
+                request.InitialVersion.DefaultConfig = requestInitialVersion_initialVersion_DefaultConfig;
                 requestInitialVersionIsNull = false;
             }
              // determine if request.InitialVersion should be set to null
@@ -218,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AmznClientToken { get; set; }
+            public Amazon.Greengrass.FunctionIsolationMode InitialVersion_DefaultConfig_Execution_IsolationMode { get; set; }
             public List<Amazon.Greengrass.Model.Function> InitialVersion_Functions { get; set; }
             public System.String Name { get; set; }
         }

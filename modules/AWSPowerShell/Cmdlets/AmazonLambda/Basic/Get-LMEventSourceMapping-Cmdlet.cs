@@ -28,13 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns configuration information for the specified event source mapping (see <a>CreateEventSourceMapping</a>).
-    /// 
-    ///  
-    /// <para>
-    /// This operation requires permission for the <code>lambda:GetEventSourceMapping</code>
-    /// action.
-    /// </para>
+    /// Returns details about an event source mapping.
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMapping")]
     [OutputType("Amazon.Lambda.Model.GetEventSourceMappingResponse")]
@@ -48,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter UUID
         /// <summary>
         /// <para>
-        /// <para>The AWS Lambda assigned ID of the event source mapping.</para>
+        /// <para>The identifier of the event source mapping.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

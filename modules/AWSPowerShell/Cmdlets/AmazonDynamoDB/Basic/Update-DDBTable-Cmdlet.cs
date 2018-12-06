@@ -73,11 +73,29 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.Model.AttributeDefinition[] AttributeDefinition { get; set; }
         #endregion
         
+        #region Parameter BillingMode
+        /// <summary>
+        /// <para>
+        /// <para>Controls how you are charged for read and write throughput and how you manage capacity.
+        /// When switching from pay-per-request to provisioned capacity, initial provisioned capacity
+        /// values must be set. The initial provisioned capacity values are estimated based on
+        /// the consumed read and write capacity of your table and global secondary indexes over
+        /// the past 30 minutes.</para><ul><li><para><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We
+        /// recommend using <code>PROVISIONED</code> for predictable workloads.</para></li><li><para><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>.
+        /// We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.BillingMode")]
+        public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
+        #endregion
+        
         #region Parameter SSESpecification_Enabled
         /// <summary>
         /// <para>
         /// <para>Indicates whether server-side encryption is enabled (true) or disabled (false) on
-        /// the table.</para>
+        /// the table. If enabled (true), server-side encryption type is set to <code>KMS</code>.
+        /// If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>The maximum number of strongly consistent reads consumed per second before DynamoDB
         /// returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,8 +145,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         #region Parameter SSESpecification_SSEType
         /// <summary>
         /// <para>
-        /// <para>Server-side encryption type:</para><ul><li><para><code>AES256</code> - Server-side encryption which uses the AES256 algorithm.</para></li><li><para><code>KMS</code> - Server-side encryption which uses AWS Key Management Service.
-        /// (default)</para></li></ul>
+        /// <para>Server-side encryption type:</para><ul><li><para><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not
+        /// applicable).</para></li><li><para><code>KMS</code> - Server-side encryption which uses AWS Key Management Service.
+        /// Key is stored in your account and is managed by AWS KMS (KMS charges apply).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>
         /// <para>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.
         /// For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying
-        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para>
+        /// Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</para><para>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             {
                 context.AttributeDefinitions = new List<Amazon.DynamoDBv2.Model.AttributeDefinition>(this.AttributeDefinition);
             }
+            context.BillingMode = this.BillingMode;
             if (this.GlobalSecondaryIndexUpdate != null)
             {
                 context.GlobalSecondaryIndexUpdates = new List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate>(this.GlobalSecondaryIndexUpdate);
@@ -254,6 +274,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             if (cmdletContext.AttributeDefinitions != null)
             {
                 request.AttributeDefinitions = cmdletContext.AttributeDefinitions;
+            }
+            if (cmdletContext.BillingMode != null)
+            {
+                request.BillingMode = cmdletContext.BillingMode;
             }
             if (cmdletContext.GlobalSecondaryIndexUpdates != null)
             {
@@ -425,6 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.DynamoDBv2.Model.AttributeDefinition> AttributeDefinitions { get; set; }
+            public Amazon.DynamoDBv2.BillingMode BillingMode { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }
             public System.Int64? ReadCapacity { get; set; }
             public System.Int64? WriteCapacity { get; set; }

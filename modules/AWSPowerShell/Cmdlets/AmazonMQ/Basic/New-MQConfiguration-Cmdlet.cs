@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The version of the broker engine.
-        /// Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+        /// For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// Create tags when creating the configuration.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -107,6 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             context.EngineType = this.EngineType;
             context.EngineVersion = this.EngineVersion;
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -202,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public Amazon.MQ.EngineType EngineType { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

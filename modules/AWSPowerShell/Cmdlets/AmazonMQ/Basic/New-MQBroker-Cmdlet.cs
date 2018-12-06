@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <summary>
         /// <para>
         /// Required. The version of the broker engine.
-        /// Note: Currently, Amazon MQ supports only 5.15.6 and 5.15.0.
+        /// For a list of supported engine versions, see https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -201,6 +201,17 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         public System.String[] SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// Create tags when creating the broker.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter User
         /// <summary>
         /// <para>
@@ -267,6 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             if (this.SubnetId != null)
             {
                 context.SubnetIds = new List<System.String>(this.SubnetId);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             if (this.User != null)
             {
@@ -365,6 +384,10 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             {
                 request.SubnetIds = cmdletContext.SubnetIds;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.Users != null)
             {
                 request.Users = cmdletContext.Users;
@@ -447,6 +470,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             public System.Boolean? PubliclyAccessible { get; set; }
             public List<System.String> SecurityGroups { get; set; }
             public List<System.String> SubnetIds { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public List<Amazon.MQ.Model.User> Users { get; set; }
         }
         

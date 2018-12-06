@@ -931,7 +931,7 @@ namespace AWSPowerShellGenerator.Generators
 
             string serviceDisplayName = currentModel.ServiceName;
 
-            if (analyzer.GenerateIterationCode)
+            if (analyzer.IterationPattern != AutoIteration.AutoIteratePattern.None)
             {
                 var methodName = analyzer.Method.Name;
                 var currentOperation = analyzer.CurrentOperation;

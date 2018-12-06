@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
-        /// and <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html">In-Place
+        /// and <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_inplaceschemaupgrade.html">In-Place
         /// Schema Upgrade</a> for a description of when to provide minor versions.</para>
         /// </para>
         /// </summary>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
         /// to it from the directory root. Use the link names from each parent/child link to construct
         /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will

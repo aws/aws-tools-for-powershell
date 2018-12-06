@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>
         /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
         /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
-        /// the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many
-        /// times.</para>
+        /// the job is retried on failure the same number of attempts as the value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// can specify a <code>SEQUENTIAL</code> type dependency without specifying a job ID
         /// for array jobs so that each child array job completes sequentially, starting at index
         /// 0. You can also specify an <code>N_TO_N</code> type dependency with a job ID for array
-        /// jobs so that each index child of this job must wait for the corresponding index child
-        /// of each dependency to complete before it can begin.</para>
+        /// jobs. In that case, each index child of this job must wait for the corresponding index
+        /// child of each dependency to complete before it can begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,6 +90,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.Batch.Model.KeyValuePair[] ContainerOverrides_Environment { get; set; }
+        #endregion
+        
+        #region Parameter ContainerOverrides_InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The instance type to use for a multi-node parallel job. This parameter is not valid
+        /// for single-node container jobs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContainerOverrides_InstanceType { get; set; }
         #endregion
         
         #region Parameter JobDefinition
@@ -135,6 +145,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ContainerOverrides_Memory { get; set; }
+        #endregion
+        
+        #region Parameter NodeOverrides_NodePropertyOverride
+        /// <summary>
+        /// <para>
+        /// <para>The node property overrides for the job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NodeOverrides_NodePropertyOverrides")]
+        public Amazon.Batch.Model.NodePropertyOverride[] NodeOverrides_NodePropertyOverride { get; set; }
         #endregion
         
         #region Parameter Parameter
@@ -228,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             {
                 context.ContainerOverrides_Environment = new List<Amazon.Batch.Model.KeyValuePair>(this.ContainerOverrides_Environment);
             }
+            context.ContainerOverrides_InstanceType = this.ContainerOverrides_InstanceType;
             if (ParameterWasBound("ContainerOverrides_Memory"))
                 context.ContainerOverrides_Memory = this.ContainerOverrides_Memory;
             if (ParameterWasBound("ContainerOverrides_Vcpu"))
@@ -239,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             context.JobDefinition = this.JobDefinition;
             context.JobName = this.JobName;
             context.JobQueue = this.JobQueue;
+            if (this.NodeOverrides_NodePropertyOverride != null)
+            {
+                context.NodeOverrides_NodePropertyOverrides = new List<Amazon.Batch.Model.NodePropertyOverride>(this.NodeOverrides_NodePropertyOverride);
+            }
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -309,6 +335,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 request.ContainerOverrides.Environment = requestContainerOverrides_containerOverrides_Environment;
                 requestContainerOverridesIsNull = false;
             }
+            System.String requestContainerOverrides_containerOverrides_InstanceType = null;
+            if (cmdletContext.ContainerOverrides_InstanceType != null)
+            {
+                requestContainerOverrides_containerOverrides_InstanceType = cmdletContext.ContainerOverrides_InstanceType;
+            }
+            if (requestContainerOverrides_containerOverrides_InstanceType != null)
+            {
+                request.ContainerOverrides.InstanceType = requestContainerOverrides_containerOverrides_InstanceType;
+                requestContainerOverridesIsNull = false;
+            }
             System.Int32? requestContainerOverrides_containerOverrides_Memory = null;
             if (cmdletContext.ContainerOverrides_Memory != null)
             {
@@ -349,6 +385,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (cmdletContext.JobQueue != null)
             {
                 request.JobQueue = cmdletContext.JobQueue;
+            }
+            
+             // populate NodeOverrides
+            bool requestNodeOverridesIsNull = true;
+            request.NodeOverrides = new Amazon.Batch.Model.NodeOverrides();
+            List<Amazon.Batch.Model.NodePropertyOverride> requestNodeOverrides_nodeOverrides_NodePropertyOverride = null;
+            if (cmdletContext.NodeOverrides_NodePropertyOverrides != null)
+            {
+                requestNodeOverrides_nodeOverrides_NodePropertyOverride = cmdletContext.NodeOverrides_NodePropertyOverrides;
+            }
+            if (requestNodeOverrides_nodeOverrides_NodePropertyOverride != null)
+            {
+                request.NodeOverrides.NodePropertyOverrides = requestNodeOverrides_nodeOverrides_NodePropertyOverride;
+                requestNodeOverridesIsNull = false;
+            }
+             // determine if request.NodeOverrides should be set to null
+            if (requestNodeOverridesIsNull)
+            {
+                request.NodeOverrides = null;
             }
             if (cmdletContext.Parameters != null)
             {
@@ -444,12 +499,14 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public System.Int32? ArrayProperties_Size { get; set; }
             public List<System.String> ContainerOverrides_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerOverrides_Environment { get; set; }
+            public System.String ContainerOverrides_InstanceType { get; set; }
             public System.Int32? ContainerOverrides_Memory { get; set; }
             public System.Int32? ContainerOverrides_Vcpus { get; set; }
             public List<Amazon.Batch.Model.JobDependency> DependsOn { get; set; }
             public System.String JobDefinition { get; set; }
             public System.String JobName { get; set; }
             public System.String JobQueue { get; set; }
+            public List<Amazon.Batch.Model.NodePropertyOverride> NodeOverrides_NodePropertyOverrides { get; set; }
             public Dictionary<System.String, System.String> Parameters { get; set; }
             public System.Int32? RetryStrategy_Attempts { get; set; }
             public Amazon.Batch.Model.JobTimeout Timeout { get; set; }

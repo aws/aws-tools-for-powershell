@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <C2jFilename>meteringmarketplace</C2jFilename>
     <SourceGenerationRoot>AmazonAWSMarketplaceMetering</SourceGenerationRoot>
@@ -23,6 +23,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="MeterUsage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MeteringData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Usage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ResolveCustomer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CustomerMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RegistrationToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledAction",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ScheduledActionName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -170,8 +168,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalableTarget",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",
@@ -222,7 +219,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalableTargets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -269,7 +265,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingActivities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -316,7 +311,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -363,7 +357,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -410,8 +403,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -464,8 +456,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -516,8 +507,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalableTarget",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",

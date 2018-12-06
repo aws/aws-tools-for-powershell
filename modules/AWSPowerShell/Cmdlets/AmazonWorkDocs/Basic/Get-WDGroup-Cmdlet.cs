@@ -28,7 +28,8 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Describes the groups specified by query.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the groups specified by the query. Groups are defined by the underlying
+    /// Active Directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WDGroup")]
     [OutputType("Amazon.WorkDocs.Model.GroupMetadata")]

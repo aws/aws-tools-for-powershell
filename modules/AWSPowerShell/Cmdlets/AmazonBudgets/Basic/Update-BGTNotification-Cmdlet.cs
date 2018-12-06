@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_ComparisonOperator
         /// <summary>
         /// <para>
-        /// <para>The comparison used for this notification.</para>
+        /// <para>The comparison that is used for this notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_ComparisonOperator
         /// <summary>
         /// <para>
-        /// <para>The comparison used for this notification.</para>
+        /// <para>The comparison that is used for this notification.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,11 +83,35 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public Amazon.Budgets.ComparisonOperator OldNotification_ComparisonOperator { get; set; }
         #endregion
         
+        #region Parameter NewNotification_NotificationState
+        /// <summary>
+        /// <para>
+        /// <para>Whether this notification is in alarm. If a budget notification is in the <code>ALARM</code>
+        /// state, you have passed the set threshold for the budget.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Budgets.NotificationState")]
+        public Amazon.Budgets.NotificationState NewNotification_NotificationState { get; set; }
+        #endregion
+        
+        #region Parameter OldNotification_NotificationState
+        /// <summary>
+        /// <para>
+        /// <para>Whether this notification is in alarm. If a budget notification is in the <code>ALARM</code>
+        /// state, you have passed the set threshold for the budget.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Budgets.NotificationState")]
+        public Amazon.Budgets.NotificationState OldNotification_NotificationState { get; set; }
+        #endregion
+        
         #region Parameter NewNotification_NotificationType
         /// <summary>
         /// <para>
         /// <para>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for
-        /// how much you are forecasted to spend (<code>FORECASTED</code>).</para>
+        /// how much you're forecasted to spend (<code>FORECASTED</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         /// <summary>
         /// <para>
         /// <para>Whether the notification is for how much you have spent (<code>ACTUAL</code>) or for
-        /// how much you are forecasted to spend (<code>FORECASTED</code>).</para>
+        /// how much you're forecasted to spend (<code>FORECASTED</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_Threshold
         /// <summary>
         /// <para>
-        /// <para>The threshold associated with a notification. Thresholds are always a percentage.</para>
+        /// <para>The threshold that is associated with a notification. Thresholds are always a percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -120,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_Threshold
         /// <summary>
         /// <para>
-        /// <para>The threshold associated with a notification. Thresholds are always a percentage.</para>
+        /// <para>The threshold that is associated with a notification. Thresholds are always a percentage.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,9 +154,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter NewNotification_ThresholdType
         /// <summary>
         /// <para>
-        /// <para>The type of threshold for a notification. For <code>ACTUAL</code> thresholds, AWS
-        /// notifies you when you go over the threshold, and for <code>FORECASTED</code> thresholds
-        /// AWS notifies you when you are forecasted to go over the threshold.</para>
+        /// <para>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds,
+        /// AWS notifies you when you go over or are forecasted to go over your total cost threshold.
+        /// For <code>PERCENTAGE</code> thresholds, AWS notifies you when you go over or are forecasted
+        /// to go over a certain percentage of your forecasted spend. For example, if you have
+        /// a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%,
+        /// AWS notifies you when you go over 160 dollars.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,9 +170,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         #region Parameter OldNotification_ThresholdType
         /// <summary>
         /// <para>
-        /// <para>The type of threshold for a notification. For <code>ACTUAL</code> thresholds, AWS
-        /// notifies you when you go over the threshold, and for <code>FORECASTED</code> thresholds
-        /// AWS notifies you when you are forecasted to go over the threshold.</para>
+        /// <para>The type of threshold for a notification. For <code>ABSOLUTE_VALUE</code> thresholds,
+        /// AWS notifies you when you go over or are forecasted to go over your total cost threshold.
+        /// For <code>PERCENTAGE</code> thresholds, AWS notifies you when you go over or are forecasted
+        /// to go over a certain percentage of your forecasted spend. For example, if you have
+        /// a budget for 200 dollars and you have a <code>PERCENTAGE</code> threshold of 80%,
+        /// AWS notifies you when you go over 160 dollars.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,11 +224,13 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.AccountId = this.AccountId;
             context.BudgetName = this.BudgetName;
             context.NewNotification_ComparisonOperator = this.NewNotification_ComparisonOperator;
+            context.NewNotification_NotificationState = this.NewNotification_NotificationState;
             context.NewNotification_NotificationType = this.NewNotification_NotificationType;
             if (ParameterWasBound("NewNotification_Threshold"))
                 context.NewNotification_Threshold = this.NewNotification_Threshold;
             context.NewNotification_ThresholdType = this.NewNotification_ThresholdType;
             context.OldNotification_ComparisonOperator = this.OldNotification_ComparisonOperator;
+            context.OldNotification_NotificationState = this.OldNotification_NotificationState;
             context.OldNotification_NotificationType = this.OldNotification_NotificationType;
             if (ParameterWasBound("OldNotification_Threshold"))
                 context.OldNotification_Threshold = this.OldNotification_Threshold;
@@ -239,6 +271,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestNewNotification_newNotification_ComparisonOperator != null)
             {
                 request.NewNotification.ComparisonOperator = requestNewNotification_newNotification_ComparisonOperator;
+                requestNewNotificationIsNull = false;
+            }
+            Amazon.Budgets.NotificationState requestNewNotification_newNotification_NotificationState = null;
+            if (cmdletContext.NewNotification_NotificationState != null)
+            {
+                requestNewNotification_newNotification_NotificationState = cmdletContext.NewNotification_NotificationState;
+            }
+            if (requestNewNotification_newNotification_NotificationState != null)
+            {
+                request.NewNotification.NotificationState = requestNewNotification_newNotification_NotificationState;
                 requestNewNotificationIsNull = false;
             }
             Amazon.Budgets.NotificationType requestNewNotification_newNotification_NotificationType = null;
@@ -288,6 +330,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestOldNotification_oldNotification_ComparisonOperator != null)
             {
                 request.OldNotification.ComparisonOperator = requestOldNotification_oldNotification_ComparisonOperator;
+                requestOldNotificationIsNull = false;
+            }
+            Amazon.Budgets.NotificationState requestOldNotification_oldNotification_NotificationState = null;
+            if (cmdletContext.OldNotification_NotificationState != null)
+            {
+                requestOldNotification_oldNotification_NotificationState = cmdletContext.OldNotification_NotificationState;
+            }
+            if (requestOldNotification_oldNotification_NotificationState != null)
+            {
+                request.OldNotification.NotificationState = requestOldNotification_oldNotification_NotificationState;
                 requestOldNotificationIsNull = false;
             }
             Amazon.Budgets.NotificationType requestOldNotification_oldNotification_NotificationType = null;
@@ -394,10 +446,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public System.String AccountId { get; set; }
             public System.String BudgetName { get; set; }
             public Amazon.Budgets.ComparisonOperator NewNotification_ComparisonOperator { get; set; }
+            public Amazon.Budgets.NotificationState NewNotification_NotificationState { get; set; }
             public Amazon.Budgets.NotificationType NewNotification_NotificationType { get; set; }
             public System.Double? NewNotification_Threshold { get; set; }
             public Amazon.Budgets.ThresholdType NewNotification_ThresholdType { get; set; }
             public Amazon.Budgets.ComparisonOperator OldNotification_ComparisonOperator { get; set; }
+            public Amazon.Budgets.NotificationState OldNotification_NotificationState { get; set; }
             public Amazon.Budgets.NotificationType OldNotification_NotificationType { get; set; }
             public System.Double? OldNotification_Threshold { get; set; }
             public Amazon.Budgets.ThresholdType OldNotification_ThresholdType { get; set; }

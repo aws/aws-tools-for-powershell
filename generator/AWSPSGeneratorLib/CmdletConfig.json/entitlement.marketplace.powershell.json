@@ -64,7 +64,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Entitlements",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",

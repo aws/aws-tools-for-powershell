@@ -57,7 +57,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReportDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -102,7 +101,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReportDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -142,7 +140,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReportDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

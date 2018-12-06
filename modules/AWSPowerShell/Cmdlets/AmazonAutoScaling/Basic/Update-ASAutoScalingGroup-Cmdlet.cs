@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para><para>
     /// To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code>
     /// set to <code>false</code>, you must first disable the collection of group metrics.
-    /// Otherwise, you will get an error. If you have previously enabled the collection of
-    /// group metrics, you can disable it using <a>DisableMetricsCollection</a>.
+    /// Otherwise, you get an error. If you have previously enabled the collection of group
+    /// metrics, you can disable it using <a>DisableMetricsCollection</a>.
     /// </para><para>
     /// Note the following:
     /// </para><ul><li><para>
@@ -136,8 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch configuration. If you specify a launch configuration, you can't
-        /// specify a launch template.</para>
+        /// <para>The name of the launch configuration. If you specify this parameter, you can't specify
+        /// a launch template or a mixed instances policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -186,6 +186,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32 MinSize { get; set; }
         #endregion
         
+        #region Parameter MixedInstancesPolicy
+        /// <summary>
+        /// <para>
+        /// <para>The mixed instances policy to use to specify the updates. If you specify this parameter,
+        /// you can't specify a launch configuration or a launch template. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }
+        #endregion
+        
         #region Parameter NewInstancesProtectedFromScaleIn
         /// <summary>
         /// <para>
@@ -200,8 +211,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group into which you'll launch your instances, if any. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// <para>The name of the placement group into which to launch your instances, if any. For more
+        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -319,6 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 context.MaxSize = this.MaxSize;
             if (ParameterWasBound("MinSize"))
                 context.MinSize = this.MinSize;
+            context.MixedInstancesPolicy = this.MixedInstancesPolicy;
             if (ParameterWasBound("NewInstancesProtectedFromScaleIn"))
                 context.NewInstancesProtectedFromScaleIn = this.NewInstancesProtectedFromScaleIn;
             context.PlacementGroup = this.PlacementGroup;
@@ -419,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 request.MinSize = cmdletContext.MinSize.Value;
             }
+            if (cmdletContext.MixedInstancesPolicy != null)
+            {
+                request.MixedInstancesPolicy = cmdletContext.MixedInstancesPolicy;
+            }
             if (cmdletContext.NewInstancesProtectedFromScaleIn != null)
             {
                 request.NewInstancesProtectedFromScaleIn = cmdletContext.NewInstancesProtectedFromScaleIn.Value;
@@ -517,6 +533,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String LaunchTemplate_Version { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }
+            public Amazon.AutoScaling.Model.MixedInstancesPolicy MixedInstancesPolicy { get; set; }
             public System.Boolean? NewInstancesProtectedFromScaleIn { get; set; }
             public System.String PlacementGroup { get; set; }
             public System.String ServiceLinkedRoleARN { get; set; }

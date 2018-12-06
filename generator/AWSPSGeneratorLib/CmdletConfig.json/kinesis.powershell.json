@@ -63,7 +63,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -112,7 +111,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -159,7 +157,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamRetentionPeriod",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -206,7 +203,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -253,7 +249,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConsumerARN",
         "passThruTypeName": "System.String",
@@ -298,7 +293,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Limits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -343,7 +337,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -385,7 +378,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -427,7 +419,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamSummary",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -469,7 +460,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnhancedMonitoring",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -516,7 +506,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnhancedMonitoring",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -563,7 +552,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Records",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -605,7 +593,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ShardIterator",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -647,7 +634,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamRetentionPeriod",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -694,7 +680,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shards",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -736,7 +721,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -780,7 +764,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Streams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -824,7 +807,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -869,7 +851,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shards",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -916,7 +897,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Records",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -963,7 +943,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1013,7 +992,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.TagKeys",
         "passThruTypeName": "System.String",
@@ -1063,7 +1041,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shard",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -1110,7 +1087,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamEncryption",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -1157,7 +1133,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamEncryption",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
@@ -1207,7 +1182,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ShardCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

@@ -58,12 +58,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for the route table.</para></li><li><para><code>association.route-table-id</code> - The ID of the route table involved in the
         /// association.</para></li><li><para><code>association.subnet-id</code> - The ID of the subnet involved in the association.</para></li><li><para><code>association.main</code> - Indicates whether the route table is the main route
         /// table for the VPC (<code>true</code> | <code>false</code>). Route tables that do not
-        /// have an association ID are not returned in the response.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
+        /// have an association ID are not returned in the response.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the route table.</para></li><li><para><code>route-table-id</code> - The ID of the route table.</para></li><li><para><code>route.destination-cidr-block</code> - The IPv4 CIDR range specified in a route
         /// in the table.</para></li><li><para><code>route.destination-ipv6-cidr-block</code> - The IPv6 CIDR range specified in
         /// a route in the route table.</para></li><li><para><code>route.destination-prefix-list-id</code> - The ID (prefix) of the AWS service
         /// specified in a route in the table.</para></li><li><para><code>route.egress-only-internet-gateway-id</code> - The ID of an egress-only Internet
         /// gateway specified in a route in the route table.</para></li><li><para><code>route.gateway-id</code> - The ID of a gateway specified in a route in the table.</para></li><li><para><code>route.instance-id</code> - The ID of an instance specified in a route in the
-        /// table.</para></li><li><para><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</para></li><li><para><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code>
+        /// table.</para></li><li><para><code>route.nat-gateway-id</code> - The ID of a NAT gateway.</para></li><li><para><code>route.transit-gateway-id</code> - The ID of a transit gateway.</para></li><li><para><code>route.origin</code> - Describes how the route was created. <code>CreateRouteTable</code>
         /// indicates that the route was automatically created when the route table was created;
         /// <code>CreateRoute</code> indicates that the route was manually added to the route
         /// table; <code>EnableVgwRoutePropagation</code> indicates that the route was propagated
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name
         /// and <code>TeamA</code> for the filter value.</para></li><li><para><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter
-        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the route table.</para></li></ul>
+        /// to find all resources assigned a tag with a specific key, regardless of the tag value.</para></li><li><para><code>transit-gateway-id</code> - The ID of a transit gateway.</para></li><li><para><code>vpc-id</code> - The ID of the VPC for the route table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

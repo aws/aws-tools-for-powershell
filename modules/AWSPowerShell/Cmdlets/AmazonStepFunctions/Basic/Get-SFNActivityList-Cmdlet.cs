@@ -32,10 +32,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// 
     ///  
     /// <para>
-    /// If a <code>nextToken</code> is returned by a previous call, there are more results
-    /// available. To retrieve the next page of results, make the call again using the returned
-    /// token in <code>nextToken</code>. Keep all other arguments unchanged.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// If <code>nextToken</code> is returned, there are more results available. The value
+    /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
+    /// again using the returned token to retrieve the next page. Keep all other arguments
+    /// unchanged. Each pagination token expires after 60 seconds. Using an expired pagination
+    /// token will return an <i>HTTP 400 InvalidToken</i> error.
+    /// </para><note><para>
+    /// This operation is eventually consistent. The results are best effort and may not reflect
+    /// very recent updates and changes.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SFNActivityList")]
     [OutputType("Amazon.StepFunctions.Model.ActivityListItem")]
@@ -53,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>
         /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
         /// to obtain further pages of results. The default is 100 and the maximum allowed page
-        /// size is 100. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
+        /// size is 1000. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
         /// </para>
         /// <para>
@@ -68,10 +73,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a <code>nextToken</code> is returned by a previous call, there are more results
-        /// available. To retrieve the next page of results, make the call again using the returned
-        /// token in <code>nextToken</code>. Keep all other arguments unchanged.</para><para>The configured <code>maxResults</code> determines how many results can be returned
-        /// in a single call.</para>
+        /// <para>If <code>nextToken</code> is returned, there are more results available. The value
+        /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
+        /// again using the returned token to retrieve the next page. Keep all other arguments
+        /// unchanged. Each pagination token expires after 60 seconds. Using an expired pagination
+        /// token will return an <i>HTTP 400 InvalidToken</i> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

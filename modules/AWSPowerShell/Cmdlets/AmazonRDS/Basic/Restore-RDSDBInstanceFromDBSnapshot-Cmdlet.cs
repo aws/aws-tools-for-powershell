@@ -371,6 +371,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean UseDefaultProcessorFeature { get; set; }
         #endregion
         
+        #region Parameter VpcSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para> A list of EC2 VPC security groups to associate with this DB instance. </para><para> Default: The default EC2 VPC security group for the DB subnet group's VPC. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcSecurityGroupIds")]
+        public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -445,6 +456,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.TdeCredentialPassword = this.TdeCredentialPassword;
             if (ParameterWasBound("UseDefaultProcessorFeature"))
                 context.UseDefaultProcessorFeatures = this.UseDefaultProcessorFeature;
+            if (this.VpcSecurityGroupId != null)
+            {
+                context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -569,6 +584,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.UseDefaultProcessorFeatures = cmdletContext.UseDefaultProcessorFeatures.Value;
             }
+            if (cmdletContext.VpcSecurityGroupIds != null)
+            {
+                request.VpcSecurityGroupIds = cmdletContext.VpcSecurityGroupIds;
+            }
             
             CmdletOutput output;
             
@@ -660,6 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String TdeCredentialArn { get; set; }
             public System.String TdeCredentialPassword { get; set; }
             public System.Boolean? UseDefaultProcessorFeatures { get; set; }
+            public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         
     }

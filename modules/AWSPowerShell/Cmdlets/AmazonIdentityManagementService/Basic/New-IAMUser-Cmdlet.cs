@@ -72,6 +72,20 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         public System.String PermissionsBoundary { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags that you want to attach to the newly created user. Each tag consists
+        /// of a key name and an associated value. For more information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM Identities</a>
+        /// in the <i>IAM User Guide</i>.</para><note><para>If any one of the tags is invalid or if you exceed the allowed number of tags per
+        /// user, then the entire request fails and the user is not created.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IdentityManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserName
         /// <summary>
         /// <para>
@@ -117,6 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             
             context.Path = this.Path;
             context.PermissionsBoundary = this.PermissionsBoundary;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IdentityManagement.Model.Tag>(this.Tag);
+            }
             context.UserName = this.UserName;
             
             // allow further manipulation of loaded context prior to processing
@@ -141,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             if (cmdletContext.PermissionsBoundary != null)
             {
                 request.PermissionsBoundary = cmdletContext.PermissionsBoundary;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.UserName != null)
             {
@@ -212,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         {
             public System.String Path { get; set; }
             public System.String PermissionsBoundary { get; set; }
+            public List<Amazon.IdentityManagement.Model.Tag> Tags { get; set; }
             public System.String UserName { get; set; }
         }
         

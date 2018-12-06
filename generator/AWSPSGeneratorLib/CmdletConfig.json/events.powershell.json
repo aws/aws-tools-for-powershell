@@ -45,7 +45,16 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "Force",
+          "replacementName": "Enforce",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
@@ -68,7 +77,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
@@ -82,7 +90,7 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
+          "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "Name"
         },
@@ -120,7 +128,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventBus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -169,7 +176,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -218,7 +224,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
@@ -272,7 +277,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
@@ -326,7 +330,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleNamesByTarget",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -375,7 +378,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -422,7 +424,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetsByRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -471,7 +472,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -525,7 +525,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -579,7 +578,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -631,7 +629,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -685,7 +682,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: StatementId",
         "passThruTypeName": "System.String",
@@ -716,7 +712,16 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "Force",
+          "replacementName": "Enforce",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "false",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
@@ -737,7 +742,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -791,7 +795,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventPattern",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

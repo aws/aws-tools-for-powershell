@@ -59,7 +59,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Media",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

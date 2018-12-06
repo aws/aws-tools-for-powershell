@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// </para><para>
     /// This operation requires permissions to perform the <code>polly:DescribeVoices</code>
     /// action.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "POLVoice")]
     [OutputType("Amazon.Polly.Model.Voice")]
@@ -132,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.POL
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.Polly.Model.DescribeVoicesRequest();
             
             if (cmdletContext.IncludeAdditionalLanguageCodes != null)
@@ -143,35 +144,66 @@ namespace Amazon.PowerShell.Cmdlets.POL
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
             }
-            if (cmdletContext.NextToken != null)
+            
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
-                request.NextToken = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
             }
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Voices;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Voices;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.Voices.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

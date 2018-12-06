@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String ApiId { get; set; }
         #endregion
         
+        #region Parameter HttpConfig_AuthorizationConfig
+        /// <summary>
+        /// <para>
+        /// <para>The authorization config in case the HTTP endpoint requires authorization.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.AppSync.Model.AuthorizationConfig HttpConfig_AuthorizationConfig { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -63,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter DynamodbConfig
         /// <summary>
         /// <para>
-        /// <para>DynamoDB settings.</para>
+        /// <para>Amazon DynamoDB settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter ElasticsearchConfig
         /// <summary>
         /// <para>
-        /// <para>Amazon Elasticsearch settings.</para>
+        /// <para>Amazon Elasticsearch Service settings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter HttpConfig_Endpoint
         /// <summary>
         /// <para>
-        /// <para>The Http url endpoint. You can either specify the domain name or ip and port combination
-        /// and the url scheme must be http(s). If the port is not specified, AWS AppSync will
-        /// use the default port 80 for http endpoint and port 443 for https endpoints.</para>
+        /// <para>The HTTP URL endpoint. You can either specify the domain name or IP, and port combination,
+        /// and the URL scheme must be HTTP or HTTPS. If the port is not specified, AWS AppSync
+        /// uses the default port 80 for the HTTP endpoint and port 443 for HTTPS endpoints.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,11 +122,33 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter RelationalDatabaseConfig_RdsHttpEndpointConfig
+        /// <summary>
+        /// <para>
+        /// <para>Amazon RDS HTTP endpoint settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.AppSync.Model.RdsHttpEndpointConfig RelationalDatabaseConfig_RdsHttpEndpointConfig { get; set; }
+        #endregion
+        
+        #region Parameter RelationalDatabaseConfig_RelationalDatabaseSourceType
+        /// <summary>
+        /// <para>
+        /// <para>Source type for the relational database.</para><ul><li><para><b>RDS_HTTP_ENDPOINT</b>: The relational database source type is an Amazon RDS HTTP
+        /// endpoint.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AppSync.RelationalDatabaseSourceType")]
+        public Amazon.AppSync.RelationalDatabaseSourceType RelationalDatabaseConfig_RelationalDatabaseSourceType { get; set; }
+        #endregion
+        
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM service role ARN for the data source. The system assumes this role when accessing
-        /// the data source.</para>
+        /// <para>The AWS IAM service role ARN for the data source. The system assumes this role when
+        /// accessing the data source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,9 +199,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             context.Description = this.Description;
             context.DynamodbConfig = this.DynamodbConfig;
             context.ElasticsearchConfig = this.ElasticsearchConfig;
+            context.HttpConfig_AuthorizationConfig = this.HttpConfig_AuthorizationConfig;
             context.HttpConfig_Endpoint = this.HttpConfig_Endpoint;
             context.LambdaConfig = this.LambdaConfig;
             context.Name = this.Name;
+            context.RelationalDatabaseConfig_RdsHttpEndpointConfig = this.RelationalDatabaseConfig_RdsHttpEndpointConfig;
+            context.RelationalDatabaseConfig_RelationalDatabaseSourceType = this.RelationalDatabaseConfig_RelationalDatabaseSourceType;
             context.ServiceRoleArn = this.ServiceRoleArn;
             context.Type = this.Type;
             
@@ -208,6 +243,16 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
              // populate HttpConfig
             bool requestHttpConfigIsNull = true;
             request.HttpConfig = new Amazon.AppSync.Model.HttpDataSourceConfig();
+            Amazon.AppSync.Model.AuthorizationConfig requestHttpConfig_httpConfig_AuthorizationConfig = null;
+            if (cmdletContext.HttpConfig_AuthorizationConfig != null)
+            {
+                requestHttpConfig_httpConfig_AuthorizationConfig = cmdletContext.HttpConfig_AuthorizationConfig;
+            }
+            if (requestHttpConfig_httpConfig_AuthorizationConfig != null)
+            {
+                request.HttpConfig.AuthorizationConfig = requestHttpConfig_httpConfig_AuthorizationConfig;
+                requestHttpConfigIsNull = false;
+            }
             System.String requestHttpConfig_httpConfig_Endpoint = null;
             if (cmdletContext.HttpConfig_Endpoint != null)
             {
@@ -230,6 +275,35 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RelationalDatabaseConfig
+            bool requestRelationalDatabaseConfigIsNull = true;
+            request.RelationalDatabaseConfig = new Amazon.AppSync.Model.RelationalDatabaseDataSourceConfig();
+            Amazon.AppSync.Model.RdsHttpEndpointConfig requestRelationalDatabaseConfig_relationalDatabaseConfig_RdsHttpEndpointConfig = null;
+            if (cmdletContext.RelationalDatabaseConfig_RdsHttpEndpointConfig != null)
+            {
+                requestRelationalDatabaseConfig_relationalDatabaseConfig_RdsHttpEndpointConfig = cmdletContext.RelationalDatabaseConfig_RdsHttpEndpointConfig;
+            }
+            if (requestRelationalDatabaseConfig_relationalDatabaseConfig_RdsHttpEndpointConfig != null)
+            {
+                request.RelationalDatabaseConfig.RdsHttpEndpointConfig = requestRelationalDatabaseConfig_relationalDatabaseConfig_RdsHttpEndpointConfig;
+                requestRelationalDatabaseConfigIsNull = false;
+            }
+            Amazon.AppSync.RelationalDatabaseSourceType requestRelationalDatabaseConfig_relationalDatabaseConfig_RelationalDatabaseSourceType = null;
+            if (cmdletContext.RelationalDatabaseConfig_RelationalDatabaseSourceType != null)
+            {
+                requestRelationalDatabaseConfig_relationalDatabaseConfig_RelationalDatabaseSourceType = cmdletContext.RelationalDatabaseConfig_RelationalDatabaseSourceType;
+            }
+            if (requestRelationalDatabaseConfig_relationalDatabaseConfig_RelationalDatabaseSourceType != null)
+            {
+                request.RelationalDatabaseConfig.RelationalDatabaseSourceType = requestRelationalDatabaseConfig_relationalDatabaseConfig_RelationalDatabaseSourceType;
+                requestRelationalDatabaseConfigIsNull = false;
+            }
+             // determine if request.RelationalDatabaseConfig should be set to null
+            if (requestRelationalDatabaseConfigIsNull)
+            {
+                request.RelationalDatabaseConfig = null;
             }
             if (cmdletContext.ServiceRoleArn != null)
             {
@@ -307,9 +381,12 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
             public System.String Description { get; set; }
             public Amazon.AppSync.Model.DynamodbDataSourceConfig DynamodbConfig { get; set; }
             public Amazon.AppSync.Model.ElasticsearchDataSourceConfig ElasticsearchConfig { get; set; }
+            public Amazon.AppSync.Model.AuthorizationConfig HttpConfig_AuthorizationConfig { get; set; }
             public System.String HttpConfig_Endpoint { get; set; }
             public Amazon.AppSync.Model.LambdaDataSourceConfig LambdaConfig { get; set; }
             public System.String Name { get; set; }
+            public Amazon.AppSync.Model.RdsHttpEndpointConfig RelationalDatabaseConfig_RdsHttpEndpointConfig { get; set; }
+            public Amazon.AppSync.RelationalDatabaseSourceType RelationalDatabaseConfig_RelationalDatabaseSourceType { get; set; }
             public System.String ServiceRoleArn { get; set; }
             public Amazon.AppSync.DataSourceType Type { get; set; }
         }

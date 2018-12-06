@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// <summary>
     /// Creates a <a>Directory</a> by copying the published schema into the directory. A directory
     /// cannot be created without a schema.
+    /// 
+    ///  
+    /// <para>
+    /// You can also quickly create a directory using a managed schema, called the <code>QuickStartSchema</code>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/schemas_managed.html">Managed
+    /// Schema</a> in the <i>Amazon Cloud Directory Developer Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CDIRDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.CreateDirectoryResponse")]

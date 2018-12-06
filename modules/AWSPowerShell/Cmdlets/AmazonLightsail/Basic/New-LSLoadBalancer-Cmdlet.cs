@@ -38,6 +38,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// When you create a load balancer, you can specify a unique name and port settings.
     /// To change additional load balancer settings, use the <code>UpdateLoadBalancerAttribute</code>
     /// operation.
+    /// </para><para>
+    /// The <code>create load balancer</code> operation supports tag-based access control
+    /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -117,6 +121,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String LoadBalancerName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -156,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (ParameterWasBound("InstancePort"))
                 context.InstancePort = this.InstancePort;
             context.LoadBalancerName = this.LoadBalancerName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,6 +214,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.LoadBalancerName != null)
             {
                 request.LoadBalancerName = cmdletContext.LoadBalancerName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -266,6 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String HealthCheckPath { get; set; }
             public System.Int32? InstancePort { get; set; }
             public System.String LoadBalancerName { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -18,7 +18,10 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
+    "excludedOperations": [
+      "ListGroupResources",
+      "SearchResources"
+    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -67,13 +70,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -133,13 +138,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -199,13 +206,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -260,13 +269,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupQuery",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -312,13 +323,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -334,8 +347,8 @@
       "noun": "GroupResourceList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "ResourceIdentifiers",
+        "output": "Response",
+        "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -373,13 +386,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupResources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -423,13 +438,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -445,8 +462,8 @@
       "noun": "Resource",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "ResourceIdentifiers",
+        "output": "Response",
+        "outputMemberSelector": "",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -473,13 +490,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -523,13 +542,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -578,13 +599,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -644,13 +667,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -710,13 +735,15 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupQuery",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "ListGroupResources",
+            "SearchResources"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

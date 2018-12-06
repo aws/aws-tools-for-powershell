@@ -188,6 +188,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.EC2TagFilter[][] Ec2TagSetList { get; set; }
         #endregion
         
+        #region Parameter EcsService
+        /// <summary>
+        /// <para>
+        /// <para> The target ECS services in the deployment group. This only applies to deployment
+        /// groups that use the Amazon ECS compute platform. A target ECS service is specified
+        /// as an Amazon ECS cluster and service name pair using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EcsServices")]
+        public Amazon.CodeDeploy.Model.ECSService[] EcsService { get; set; }
+        #endregion
+        
         #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
@@ -302,6 +316,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.TargetGroupInfo[] LoadBalancerInfo_TargetGroupInfoList { get; set; }
         #endregion
         
+        #region Parameter LoadBalancerInfo_TargetGroupPairInfoList
+        /// <summary>
+        /// <para>
+        /// <para> The target group pair information. This is an array of <code>TargeGroupPairInfo</code>
+        /// objects with a maximum size of one. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.TargetGroupPairInfo[] LoadBalancerInfo_TargetGroupPairInfoList { get; set; }
+        #endregion
+        
         #region Parameter OnSuccessBlueInstanceTerminationWaitTime
         /// <summary>
         /// <para>
@@ -411,6 +436,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     context.Ec2TagSetList.Add(new List<Amazon.CodeDeploy.Model.EC2TagFilter>(innerList));
                 }
             }
+            if (this.EcsService != null)
+            {
+                context.EcsServices = new List<Amazon.CodeDeploy.Model.ECSService>(this.EcsService);
+            }
             if (this.LoadBalancerInfoList != null)
             {
                 context.LoadBalancerInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfoList);
@@ -418,6 +447,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (this.LoadBalancerInfo_TargetGroupInfoList != null)
             {
                 context.LoadBalancerInfo_TargetGroupInfoList = new List<Amazon.CodeDeploy.Model.TargetGroupInfo>(this.LoadBalancerInfo_TargetGroupInfoList);
+            }
+            if (this.LoadBalancerInfo_TargetGroupPairInfoList != null)
+            {
+                context.LoadBalancerInfo_TargetGroupPairInfoList = new List<Amazon.CodeDeploy.Model.TargetGroupPairInfo>(this.LoadBalancerInfo_TargetGroupPairInfoList);
             }
             context.NewDeploymentGroupName = this.NewDeploymentGroupName;
             if (this.OnPremisesInstanceTagFilter != null)
@@ -693,6 +726,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 request.Ec2TagSet = null;
             }
+            if (cmdletContext.EcsServices != null)
+            {
+                request.EcsServices = cmdletContext.EcsServices;
+            }
             
              // populate LoadBalancerInfo
             bool requestLoadBalancerInfoIsNull = true;
@@ -715,6 +752,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList != null)
             {
                 request.LoadBalancerInfo.TargetGroupInfoList = requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList;
+                requestLoadBalancerInfoIsNull = false;
+            }
+            List<Amazon.CodeDeploy.Model.TargetGroupPairInfo> requestLoadBalancerInfo_loadBalancerInfo_TargetGroupPairInfoList = null;
+            if (cmdletContext.LoadBalancerInfo_TargetGroupPairInfoList != null)
+            {
+                requestLoadBalancerInfo_loadBalancerInfo_TargetGroupPairInfoList = cmdletContext.LoadBalancerInfo_TargetGroupPairInfoList;
+            }
+            if (requestLoadBalancerInfo_loadBalancerInfo_TargetGroupPairInfoList != null)
+            {
+                request.LoadBalancerInfo.TargetGroupPairInfoList = requestLoadBalancerInfo_loadBalancerInfo_TargetGroupPairInfoList;
                 requestLoadBalancerInfoIsNull = false;
             }
              // determine if request.LoadBalancerInfo should be set to null
@@ -839,8 +886,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public Amazon.CodeDeploy.DeploymentType DeploymentStyleType { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
             public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
+            public List<Amazon.CodeDeploy.Model.ECSService> EcsServices { get; set; }
             public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfoList { get; set; }
             public List<Amazon.CodeDeploy.Model.TargetGroupInfo> LoadBalancerInfo_TargetGroupInfoList { get; set; }
+            public List<Amazon.CodeDeploy.Model.TargetGroupPairInfo> LoadBalancerInfo_TargetGroupPairInfoList { get; set; }
             public System.String NewDeploymentGroupName { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
             public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }

@@ -49,16 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availabilityZone</code> - The Availability Zone for the subnet. You can also
-        /// use <code>availability-zone</code> as the filter name.</para></li><li><para><code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet
-        /// that are available.</para></li><li><para><code>cidrBlock</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify
+        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone for the subnet. You can also
+        /// use <code>availabilityZone</code> as the filter name.</para></li><li><para><code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
+        /// You can also use <code>availabilityZoneId</code> as the filter name.</para></li><li><para><code>available-ip-address-count</code> - The number of IPv4 addresses in the subnet
+        /// that are available.</para></li><li><para><code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block you specify
         /// must exactly match the subnet's CIDR block for information to be returned for the
-        /// subnet. You can also use <code>cidr</code> or <code>cidr-block</code> as the filter
-        /// names.</para></li><li><para><code>defaultForAz</code> - Indicates whether this is the default subnet for the
-        /// Availability Zone. You can also use <code>default-for-az</code> as the filter name.</para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
+        /// subnet. You can also use <code>cidr</code> or <code>cidrBlock</code> as the filter
+        /// names.</para></li><li><para><code>default-for-az</code> - Indicates whether this is the default subnet for the
+        /// Availability Zone. You can also use <code>defaultForAz</code> as the filter name.</para></li><li><para><code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR block associated
         /// with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.association-id</code> - An association ID for an
         /// IPv6 CIDR block associated with the subnet.</para></li><li><para><code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR block
-        /// associated with the subnet.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
+        /// associated with the subnet.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the subnet.</para></li><li><para><code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</para></li><li><para><code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</para></li><li><para><code>subnet-id</code> - The ID of the subnet.</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the
         /// resource. Use the tag key in the filter name and the tag value as the filter value.
         /// For example, to find all resources that have a tag with the key <code>Owner</code>
         /// and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name

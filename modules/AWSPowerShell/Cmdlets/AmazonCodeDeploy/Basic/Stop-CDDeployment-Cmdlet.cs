@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AutoRollbackEnabled
         /// <summary>
         /// <para>
-        /// <para>Indicates, when a deployment is stopped, whether instances that have been updated
-        /// should be rolled back to the previous version of the application revision.</para>
+        /// <para> Indicates, when a deployment is stopped, whether instances that have been updated
+        /// should be rolled back to the previous version of the application revision. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The unique ID of a deployment.</para>
+        /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

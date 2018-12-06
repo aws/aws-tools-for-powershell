@@ -226,6 +226,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String MaintenanceTrackName { get; set; }
         #endregion
         
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
+        #endregion
+        
         #region Parameter NodeType
         /// <summary>
         /// <para>
@@ -312,6 +322,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
         public System.String SnapshotIdentifier { get; set; }
         #endregion
         
+        #region Parameter SnapshotScheduleIdentifier
+        /// <summary>
+        /// <para>
+        /// <para>A unique identifier for the snapshot schedule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SnapshotScheduleIdentifier { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -376,6 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             }
             context.KmsKeyId = this.KmsKeyId;
             context.MaintenanceTrackName = this.MaintenanceTrackName;
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             context.NodeType = this.NodeType;
             context.OwnerAccount = this.OwnerAccount;
             if (ParameterWasBound("Port"))
@@ -385,6 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 context.PubliclyAccessible = this.PubliclyAccessible;
             context.SnapshotClusterIdentifier = this.SnapshotClusterIdentifier;
             context.SnapshotIdentifier = this.SnapshotIdentifier;
+            context.SnapshotScheduleIdentifier = this.SnapshotScheduleIdentifier;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
@@ -465,6 +488,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             {
                 request.MaintenanceTrackName = cmdletContext.MaintenanceTrackName;
             }
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
+            }
             if (cmdletContext.NodeType != null)
             {
                 request.NodeType = cmdletContext.NodeType;
@@ -492,6 +519,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.SnapshotIdentifier != null)
             {
                 request.SnapshotIdentifier = cmdletContext.SnapshotIdentifier;
+            }
+            if (cmdletContext.SnapshotScheduleIdentifier != null)
+            {
+                request.SnapshotScheduleIdentifier = cmdletContext.SnapshotScheduleIdentifier;
             }
             if (cmdletContext.VpcSecurityGroupIds != null)
             {
@@ -576,6 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public List<System.String> IamRoles { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MaintenanceTrackName { get; set; }
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.String NodeType { get; set; }
             public System.String OwnerAccount { get; set; }
             public System.Int32? Port { get; set; }
@@ -583,6 +615,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.Boolean? PubliclyAccessible { get; set; }
             public System.String SnapshotClusterIdentifier { get; set; }
             public System.String SnapshotIdentifier { get; set; }
+            public System.String SnapshotScheduleIdentifier { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         

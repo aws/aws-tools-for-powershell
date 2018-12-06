@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// You can create a new database from a snapshot in if something goes wrong with your
     /// original database, or to change it to a different plan, such as a high availability
     /// or standard plan.
+    /// </para><para>
+    /// The <code>create relational database from snapshot</code> operation supports tag-based
+    /// access control via request tags and resource tags applied to the resource identified
+    /// by relationalDatabaseSnapshotName. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LSRelationalDatabaseFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String SourceRelationalDatabaseName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UseLatestRestorableTime
         /// <summary>
         /// <para>
@@ -176,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (ParameterWasBound("RestoreTime"))
                 context.RestoreTime = this.RestoreTime;
             context.SourceRelationalDatabaseName = this.SourceRelationalDatabaseName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             if (ParameterWasBound("UseLatestRestorableTime"))
                 context.UseLatestRestorableTime = this.UseLatestRestorableTime;
             
@@ -221,6 +241,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.SourceRelationalDatabaseName != null)
             {
                 request.SourceRelationalDatabaseName = cmdletContext.SourceRelationalDatabaseName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.UseLatestRestorableTime != null)
             {
@@ -297,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String RelationalDatabaseSnapshotName { get; set; }
             public System.DateTime? RestoreTime { get; set; }
             public System.String SourceRelationalDatabaseName { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }
         }
         

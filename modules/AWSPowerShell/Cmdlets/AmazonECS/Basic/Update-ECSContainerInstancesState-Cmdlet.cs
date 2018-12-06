@@ -59,13 +59,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para></li><li><para>
     /// The <code>maximumPercent</code> parameter represents an upper limit on the number
     /// of running tasks during task replacement, which enables you to define the replacement
-    /// batch size. For example, if <code>desiredCount</code> of four tasks, a maximum of
-    /// 200% starts four new tasks before stopping the four tasks to be drained (provided
-    /// that the cluster resources required to do this are available). If the maximum is 100%,
+    /// batch size. For example, if <code>desiredCount</code> is four tasks, a maximum of
+    /// 200% starts four new tasks before stopping the four tasks to be drained, provided
+    /// that the cluster resources required to do this are available. If the maximum is 100%,
     /// then replacement tasks can't start until the draining tasks have stopped.
     /// </para></li></ul><para>
     /// Any <code>PENDING</code> or <code>RUNNING</code> tasks that do not belong to a service
-    /// are not affected; you must wait for them to finish or stop them manually.
+    /// are not affected. You must wait for them to finish or stop them manually.
     /// </para><para>
     /// A container instance has completed draining when it has no more <code>RUNNING</code>
     /// tasks. You can verify this using <a>ListTasks</a>.

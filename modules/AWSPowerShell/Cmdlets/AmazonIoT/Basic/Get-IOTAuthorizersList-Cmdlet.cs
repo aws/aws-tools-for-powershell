@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the authorizers registered in your account.
+    /// Lists the authorizers registered in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTAuthorizersList")]
     [OutputType("Amazon.IoT.Model.AuthorizerSummary")]
@@ -46,9 +46,13 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The maximum number of results to return at one time.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Int32 PageSize { get; set; }
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         #region Parameter Status
@@ -118,50 +122,122 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.IoT.Model.ListAuthorizersRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.IoT.Model.ListAuthorizersRequest();
             if (cmdletContext.AscendingOrder != null)
             {
                 request.AscendingOrder = cmdletContext.AscendingOrder.Value;
-            }
-            if (cmdletContext.Marker != null)
-            {
-                request.Marker = cmdletContext.Marker;
-            }
-            if (cmdletContext.PageSize != null)
-            {
-                request.PageSize = cmdletContext.PageSize.Value;
             }
             if (cmdletContext.Status != null)
             {
                 request.Status = cmdletContext.Status;
             }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            int? _pageSize = 250;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageSize))
+            {
+                // The service has a maximum page size of 250. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 250 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.PageSize;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.PageSize);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Authorizers;
-                notes = new Dictionary<string, object>();
-                notes["NextMarker"] = response.NextMarker;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.PageSize))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.PageSize);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Authorizers;
+                        notes = new Dictionary<string, object>();
+                        notes["NextMarker"] = response.NextMarker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.Authorizers.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 250 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -205,7 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.Boolean? AscendingOrder { get; set; }
             public System.String Marker { get; set; }
-            public System.Int32? PageSize { get; set; }
+            public int? PageSize { get; set; }
             public Amazon.IoT.AuthorizerStatus Status { get; set; }
         }
         

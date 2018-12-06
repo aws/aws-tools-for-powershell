@@ -32,6 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// 
     ///  
     /// <para>
+    /// By default, the random byte string is generated in AWS KMS. To generate the byte string
+    /// in the AWS CloudHSM cluster that is associated with a <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
+    /// key store</a>, specify the custom key store ID.
+    /// </para><para>
     /// For more information about entropy and random number generation, see the <a href="https://d0.awsstatic.com/whitepapers/KMS-Cryptographic-Details.pdf">AWS
     /// Key Management Service Cryptographic Details</a> whitepaper.
     /// </para>
@@ -45,6 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     )]
     public partial class NewKMSRandomCmdlet : AmazonKeyManagementServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter CustomKeyStoreId
+        /// <summary>
+        /// <para>
+        /// <para>Generates the random byte string in the AWS CloudHSM cluster that is associated with
+        /// the specified <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom
+        /// key store</a>. To find the ID of a custom key store, use the <a>DescribeCustomKeyStores</a>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CustomKeyStoreId { get; set; }
+        #endregion
         
         #region Parameter NumberOfBytes
         /// <summary>
@@ -85,6 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.CustomKeyStoreId = this.CustomKeyStoreId;
             if (ParameterWasBound("NumberOfBytes"))
                 context.NumberOfBytes = this.NumberOfBytes;
             
@@ -103,6 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
             // create request
             var request = new Amazon.KeyManagementService.Model.GenerateRandomRequest();
             
+            if (cmdletContext.CustomKeyStoreId != null)
+            {
+                request.CustomKeyStoreId = cmdletContext.CustomKeyStoreId;
+            }
             if (cmdletContext.NumberOfBytes != null)
             {
                 request.NumberOfBytes = cmdletContext.NumberOfBytes.Value;
@@ -171,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String CustomKeyStoreId { get; set; }
             public System.Int32? NumberOfBytes { get; set; }
         }
         

@@ -90,7 +90,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// a moderated content label. Confidence represents how certain Amazon Rekognition is
         /// that the moderated content is correctly identified. 0 is the lowest confidence. 100
         /// is the highest confidence. Amazon Rekognition doesn't return any moderated content
-        /// labels with a confidence level lower than this specified value.</para>
+        /// labels with a confidence level lower than this specified value. If you don't specify
+        /// <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with
+        /// confidence values greater than or equal to 50 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

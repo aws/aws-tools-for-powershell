@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         #region Parameter PublicKeyConfig_CallerReference
         /// <summary>
         /// <para>
-        /// <para>A unique number that ensures the request can't be replayed.</para>
+        /// <para>A unique number that ensures that the request can't be replayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

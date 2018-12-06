@@ -16,7 +16,12 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
+    "excludedOperations": [
+      "GetDeviceDefinitionVersion",
+      "GetFunctionDefinitionVersion",
+      "GetSubscriptionDefinitionVersion",
+      "GetConnectorDefinitionVersion"
+    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -75,13 +80,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleToGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -129,13 +138,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceRoleToAccount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -146,6 +159,122 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "RoleArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateConnectorDefinition": {
+      "verb": "New",
+      "noun": "ConnectorDefinition",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinition",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateConnectorDefinitionVersion": {
+      "verb": "New",
+      "noun": "ConnectorDefinitionVersion",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinitionVersion",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ConnectorDefinitionId"
         },
         "memoryStreamParameters": []
       }
@@ -183,13 +312,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -237,13 +370,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -291,13 +428,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Deployment",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -345,13 +486,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -399,13 +544,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -453,13 +602,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -507,13 +660,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -561,13 +718,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -615,13 +776,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupCertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -669,13 +834,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -723,13 +892,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -777,13 +950,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -831,13 +1008,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -885,13 +1066,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -937,13 +1122,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SoftwareUpdateJob",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -991,13 +1180,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1045,13 +1238,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1062,6 +1259,64 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "SubscriptionDefinitionId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteConnectorDefinition": {
+      "verb": "Remove",
+      "noun": "ConnectorDefinition",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinition",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ConnectorDefinitionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ConnectorDefinitionId"
         },
         "memoryStreamParameters": []
       }
@@ -1099,13 +1354,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CoreDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1153,13 +1412,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DeviceDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1207,13 +1470,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FunctionDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1261,13 +1528,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: GroupId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1315,13 +1586,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoggerDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1369,13 +1644,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1423,13 +1702,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SubscriptionDefinitionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1477,13 +1760,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleFromGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1529,13 +1816,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceRoleFromAccount",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1583,13 +1874,70 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssociatedRole",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetBulkDeploymentStatus": {
+      "verb": "Get",
+      "noun": "BulkDeploymentStatus",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "BulkDeploymentId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BulkDeploymentStatus",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1632,13 +1980,123 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectivityInfo",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetConnectorDefinition": {
+      "verb": "Get",
+      "noun": "ConnectorDefinition",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinition",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetConnectorDefinitionVersion": {
+      "verb": "Get",
+      "noun": "ConnectorDefinitionVersion",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionVersionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinitionVersion",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1681,13 +2139,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1730,13 +2192,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1779,13 +2245,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeploymentStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1828,13 +2298,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1877,13 +2351,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1926,13 +2404,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1975,13 +2457,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2024,13 +2510,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2073,13 +2563,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupCertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2122,13 +2616,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupCertificateConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2171,13 +2669,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2220,13 +2722,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2269,13 +2775,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2318,13 +2828,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2367,13 +2881,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2414,13 +2932,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ServiceRoleForAccount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2463,13 +2985,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2512,13 +3038,225 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinitionVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListBulkDeploymentDetailedReports": {
+      "verb": "Get",
+      "noun": "BulkDeploymentDetailedReportList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Deployments",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "BulkDeploymentId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BulkDeploymentDetailedReports",
+        "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListBulkDeployments": {
+      "verb": "Get",
+      "noun": "BulkDeploymentList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "BulkDeployments",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BulkDeployments",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListConnectorDefinitions": {
+      "verb": "Get",
+      "noun": "ConnectorDefinitionList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Definitions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinitions",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListConnectorDefinitionVersions": {
+      "verb": "Get",
+      "noun": "ConnectorDefinitionVersionList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Versions",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinitionVersions",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2559,13 +3297,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2608,13 +3350,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2657,13 +3403,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Deployments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2704,13 +3454,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2753,13 +3507,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2800,13 +3558,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2849,13 +3611,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2898,13 +3664,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupCertificateAuthorities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2945,13 +3715,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2994,13 +3768,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3041,13 +3819,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3090,13 +3872,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3137,13 +3923,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3186,13 +3976,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3233,13 +4027,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3282,13 +4080,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinitionVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3340,13 +4142,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Deployments",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3357,6 +4163,122 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "GroupId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StartBulkDeployment": {
+      "verb": "Start",
+      "noun": "BulkDeployment",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "InputFileUri"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "InputFileUri"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BulkDeployment",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "InputFileUri"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopBulkDeployment": {
+      "verb": "Stop",
+      "noun": "BulkDeployment",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "BulkDeploymentId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "BulkDeployment",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: BulkDeploymentId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "BulkDeploymentId"
         },
         "memoryStreamParameters": []
       }
@@ -3394,13 +4316,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectivityInfo",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3411,6 +4337,64 @@
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
           "targetParameterName": "ThingName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateConnectorDefinition": {
+      "verb": "Update",
+      "noun": "ConnectorDefinition",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ConnectorDefinitionId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ConnectorDefinition",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ConnectorDefinitionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ConnectorDefinitionId"
         },
         "memoryStreamParameters": []
       }
@@ -3448,13 +4432,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CoreDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3502,13 +4490,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3556,13 +4548,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FunctionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3610,13 +4606,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3664,13 +4664,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GroupCertificateConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3718,13 +4722,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggerDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3772,13 +4780,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3826,13 +4838,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionDefinition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
-          "excludedOperations": [],
+          "excludedOperations": [
+            "GetDeviceDefinitionVersion",
+            "GetFunctionDefinitionVersion",
+            "GetSubscriptionDefinitionVersion",
+            "GetConnectorDefinitionVersion"
+          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

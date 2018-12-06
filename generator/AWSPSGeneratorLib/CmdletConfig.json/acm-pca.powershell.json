@@ -66,8 +66,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityAuditReport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -174,8 +172,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -228,8 +225,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -277,8 +273,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityAuditReport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -326,8 +321,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -375,8 +369,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -424,8 +417,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityCsr",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -473,8 +465,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityCertificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -530,8 +521,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -584,7 +574,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -633,7 +622,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -682,8 +670,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -736,8 +723,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -790,8 +776,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -844,8 +829,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -898,8 +882,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CertificateAuthorityArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

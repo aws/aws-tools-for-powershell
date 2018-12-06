@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Starts a state machine execution.
+    /// 
+    ///  <note><para><code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called
+    /// with the same name and input as a running execution, the call will succeed and return
+    /// the same response as the original request. If the execution is closed or if the input
+    /// is different, it will return a 400 <code>ExecutionAlreadyExists</code> error. Names
+    /// can be reused after 90 days. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Start", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.StartExecutionResponse")]
@@ -56,11 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>The name of the execution. This name must be unique for your AWS account and region
         /// for 90 days. For more information, see <a href="http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
         /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
-        /// Guide</i>.</para><important><para>An execution can't use the name of another execution for 90 days.</para><para>When you make multiple <code>StartExecution</code> calls with the same name, the new
-        /// execution doesn't run and the following rules apply:</para><ul><li><para>When the original execution is open and the execution input from the new call is <i>different</i>,
-        /// the <code>ExecutionAlreadyExists</code> message is returned.</para></li><li><para>When the original execution is open and the execution input from the new call is <i>identical</i>,
-        /// the <code>Success</code> message is returned.</para></li><li><para>When the original execution is closed, the <code>ExecutionAlreadyExists</code> message
-        /// is returned regardless of input.</para></li></ul></important><para>A name must <i>not</i> contain:</para><ul><li><para>whitespace</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
+        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>whitespace</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

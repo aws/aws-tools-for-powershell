@@ -30,14 +30,15 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <summary>
     /// Updates an existing state machine by modifying its <code>definition</code> and/or
     /// <code>roleArn</code>. Running executions will continue to use the previous <code>definition</code>
-    /// and <code>roleArn</code>.
+    /// and <code>roleArn</code>. You must include at least one of <code>definition</code>
+    /// or <code>roleArn</code> or you will receive a <code>MissingRequiredParameter</code>
+    /// error.
     /// 
     ///  <note><para>
     /// All <code>StartExecution</code> calls within a few seconds will use the updated <code>definition</code>
     /// and <code>roleArn</code>. Executions started immediately after calling <code>UpdateStateMachine</code>
     /// may use the previous state machine <code>definition</code> and <code>roleArn</code>.
-    /// You must include at least one of <code>definition</code> or <code>roleArn</code> or
-    /// you will receive a <code>MissingRequiredParameter</code> error.
+    /// 
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The Amazon States Language definition of the state machine.</para>
+        /// <para>The Amazon States Language definition of the state machine. See <a href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
+        /// States Language</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

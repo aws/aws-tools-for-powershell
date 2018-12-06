@@ -71,8 +71,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -123,8 +122,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -177,8 +175,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -229,8 +226,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -281,8 +277,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -335,8 +330,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -387,8 +381,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SampleFindings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -439,8 +432,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -493,8 +485,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -545,8 +536,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -597,8 +587,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -651,8 +640,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitations",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -705,8 +693,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: IpSetId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -759,8 +746,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -813,8 +799,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ThreatIntelSetId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -865,8 +850,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FromMasterAccount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -919,8 +903,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -971,8 +954,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1018,8 +1000,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1065,8 +1046,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1112,8 +1092,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FindingsStatistics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1159,8 +1138,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InvitationsCount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1208,8 +1186,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1255,8 +1232,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MasterAccount",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1304,8 +1280,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1353,8 +1328,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1402,8 +1376,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1454,7 +1427,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detectors",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1501,7 +1473,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filters",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1548,7 +1519,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1595,7 +1565,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1642,7 +1611,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1689,7 +1657,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1736,7 +1703,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1785,8 +1751,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MonitoringMembers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1839,8 +1804,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MonitoringMembers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1891,8 +1855,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1943,8 +1906,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1995,8 +1957,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2047,8 +2008,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FindingsFeedback",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2099,8 +2059,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2151,8 +2110,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DetectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

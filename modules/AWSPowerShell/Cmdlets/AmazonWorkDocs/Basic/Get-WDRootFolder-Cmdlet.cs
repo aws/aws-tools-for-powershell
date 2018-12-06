@@ -31,7 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// Describes the current user's special folders; the <code>RootFolder</code> and the
     /// <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders
     /// and <code>RecycleBin</code> is the root of recycled items. This is not a valid action
-    /// for SigV4 (administrative API) clients.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// for SigV4 (administrative API) clients.
+    /// 
+    ///  
+    /// <para>
+    /// This action requires an authentication token. To get an authentication token, register
+    /// an application with Amazon WorkDocs. For more information, see <a href="http://docs.aws.amazon.com/workdocs/latest/developerguide/wd-auth-user.html">Authentication
+    /// and Access Control for User Applications</a> in the <i>Amazon WorkDocs Developer Guide</i>.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WDRootFolder")]
     [OutputType("Amazon.WorkDocs.Model.FolderMetadata")]

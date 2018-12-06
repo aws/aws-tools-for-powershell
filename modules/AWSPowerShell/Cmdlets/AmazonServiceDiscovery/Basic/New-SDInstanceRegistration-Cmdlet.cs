@@ -28,35 +28,35 @@ using Amazon.ServiceDiscovery.Model;
 namespace Amazon.PowerShell.Cmdlets.SD
 {
     /// <summary>
-    /// Creates or updates one or more records and optionally a health check based on the
-    /// settings in a specified service. When you submit a <code>RegisterInstance</code> request,
-    /// Amazon Route 53 does the following:
+    /// Creates or updates one or more records and, optionally, creates a health check based
+    /// on the settings in a specified service. When you submit a <code>RegisterInstance</code>
+    /// request, the following occurs:
     /// 
     ///  <ul><li><para>
-    /// For each DNS record that you define in the service specified by <code>ServiceId</code>,
-    /// creates or updates a record in the hosted zone that is associated with the corresponding
-    /// namespace
+    /// For each DNS record that you define in the service that is specified by <code>ServiceId</code>,
+    /// a record is created or updated in the hosted zone that is associated with the corresponding
+    /// namespace.
     /// </para></li><li><para>
-    /// If the service includes <code>HealthCheckConfig</code>, creates or updates a health
-    /// check based on the settings in the health check configuration
+    /// If the service includes <code>HealthCheckConfig</code>, a health check is created
+    /// based on the settings in the health check configuration.
     /// </para></li><li><para>
-    /// Associates the health check, if any, with each of the records
+    /// The health check, if any, is associated with each of the new or updated records.
     /// </para></li></ul><important><para>
     /// One <code>RegisterInstance</code> request must complete before you can submit another
     /// request and specify the same service ID and instance ID.
     /// </para></important><para>
     /// For more information, see <a>CreateService</a>.
     /// </para><para>
-    /// When Route 53 receives a DNS query for the specified DNS name, it returns the applicable
-    /// value:
+    /// When AWS Cloud Map receives a DNS query for the specified DNS name, it returns the
+    /// applicable value:
     /// </para><ul><li><para><b>If the health check is healthy</b>: returns all the records
     /// </para></li><li><para><b>If the health check is unhealthy</b>: returns the applicable value for the last
     /// healthy instance
     /// </para></li><li><para><b>If you didn't specify a health check configuration</b>: returns all the records
     /// </para></li></ul><para>
     /// For the current limit on the number of instances that you can register using the same
-    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
-    /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
+    /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/cloud-map/latest/dg/cloud-map-limits.html">AWS
+    /// Cloud Map Limits</a> in the <i>AWS Cloud Map Developer Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SDInstanceRegistration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,15 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <summary>
         /// <para>
         /// <para>A string map that contains the following information for the service that you specify
-        /// in <code>ServiceId</code>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><para>Supported attribute keys include the following:</para><para><b>AWS_ALIAS_DNS_NAME</b></para><para><b /></para><para>If you want Route 53 to create an alias record that routes traffic to an Elastic Load
-        /// Balancing load balancer, specify the DNS name that is associated with the load balancer.
-        /// For information about how to get the DNS name, see "DNSName" in the topic <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>.</para><para>Note the following:</para><ul><li><para>The configuration for the service that is specified by <code>ServiceId</code> must
+        /// in <code>ServiceId</code>:</para><ul><li><para>The attributes that apply to the records that are defined in the service. </para></li><li><para>For each attribute, the applicable value.</para></li></ul><para>Supported attribute keys include the following:</para><para><b>AWS_ALIAS_DNS_NAME</b></para><para><b /></para><para>If you want AWS Cloud Map to create an Amazon Route 53 alias record that routes traffic
+        /// to an Elastic Load Balancing load balancer, specify the DNS name that is associated
+        /// with the load balancer. For information about how to get the DNS name, see "DNSName"
+        /// in the topic <a href="http://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html">AliasTarget</a>
+        /// in the <i>Route 53 API Reference</i>.</para><para>Note the following:</para><ul><li><para>The configuration for the service that is specified by <code>ServiceId</code> must
         /// include settings for an A record, an AAAA record, or both.</para></li><li><para>In the service that is specified by <code>ServiceId</code>, the value of <code>RoutingPolicy</code>
         /// must be <code>WEIGHTED</code>.</para></li><li><para>If the service that is specified by <code>ServiceId</code> includes <code>HealthCheckConfig</code>
-        /// settings, Route 53 will create the health check, but it won't associate the health
-        /// check with the alias record.</para></li><li><para>Auto naming currently doesn't support creating alias records that route traffic to
+        /// settings, AWS Cloud Map will create the Route 53 health check, but it won't associate
+        /// the health check with the alias record.</para></li><li><para>Auto naming currently doesn't support creating alias records that route traffic to
         /// AWS resources other than ELB load balancers.</para></li><li><para>If you specify a value for <code>AWS_ALIAS_DNS_NAME</code>, don't specify values for
-        /// any of the <code>AWS_INSTANCE</code> attributes.</para></li></ul><para><b>AWS_INSTANCE_CNAME</b></para><para>If the service configuration includes a CNAME record, the domain name that you want
+        /// any of the <code>AWS_INSTANCE</code> attributes.</para></li></ul><para><b>AWS_INIT_HEALTH_STATUS</b></para><para>If the service configuration includes <code>HealthCheckCustomConfig</code>, you can
+        /// optionally use <code>AWS_INIT_HEALTH_STATUS</code> to specify the initial status of
+        /// the custom health check, <code>HEALTHY</code> or <code>UNHEALTHY</code>. If you don't
+        /// specify a value for <code>AWS_INIT_HEALTH_STATUS</code>, the initial status is <code>HEALTHY</code>.</para><para><b>AWS_INSTANCE_CNAME</b></para><para>If the service configuration includes a CNAME record, the domain name that you want
         /// Route 53 to return in response to DNS queries, for example, <code>example.com</code>.</para><para>This value is required if the service specified by <code>ServiceId</code> includes
         /// settings for an CNAME record.</para><para><b>AWS_INSTANCE_IPV4</b></para><para>If the service configuration includes an A record, the IPv4 address that you want
         /// Route 53 to return in response to DNS queries, for example, <code>192.0.2.44</code>.</para><para>This value is required if the service specified by <code>ServiceId</code> includes
@@ -94,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// or both.</para><para><b>AWS_INSTANCE_PORT</b></para><para>If the service includes an SRV record, the value that you want Route 53 to return
         /// for the port.</para><para>If the service includes <code>HealthCheckConfig</code>, the port on the endpoint that
         /// you want Route 53 to send requests to. </para><para>This value is required if you specified settings for an SRV record when you created
-        /// the service.</para>
+        /// the service.</para><para><b>Custom attributes</b></para><para>You can add up to 30 custom attributes. For each key-value pair, the maximum length
+        /// of the attribute name is 255 characters, and the maximum length of the attribute value
+        /// is 1,024 characters. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,9 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// <para>An identifier that you want to associate with the instance. Note the following:</para><ul><li><para>If the service that is specified by <code>ServiceId</code> includes settings for an
         /// SRV record, the value of <code>InstanceId</code> is automatically included as part
         /// of the value for the SRV record. For more information, see <a>DnsRecord$Type</a>.</para></li><li><para>You can use this value to update an existing instance.</para></li><li><para>To register a new instance, you must specify a value that is unique among instances
-        /// that you register by using the same service. </para></li><li><para>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, Route
-        /// 53 updates the existing records. If there's also an existing health check, Route 53
-        /// deletes the old health check and creates a new one. </para><note><para>The health check isn't deleted immediately, so it will still appear for a while if
+        /// that you register by using the same service. </para></li><li><para>If you specify an existing <code>InstanceId</code> and <code>ServiceId</code>, AWS
+        /// Cloud Map updates the existing DNS records, if any. If there's also an existing health
+        /// check, AWS Cloud Map deletes the old health check and creates a new one. </para><note><para>The health check isn't deleted immediately, so it will still appear for a while if
         /// you submit a <code>ListHealthChecks</code> request, for example.</para></note></li></ul>
         /// </para>
         /// </summary>
@@ -135,8 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         #region Parameter ServiceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the service that you want to use for settings for the records and health
-        /// check that Route 53 will create.</para>
+        /// <para>The ID of the service that you want to use for settings for the instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The DB engine mode of the DB cluster, either <code>provisioned</code>, <code>serverless</code>,
-        /// or <code>parallelquery</code>.</para>
+        /// <code>parallelquery</code>, or <code>global</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -217,6 +217,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String EngineVersion { get; set; }
+        #endregion
+        
+        #region Parameter GlobalClusterIdentifier
+        /// <summary>
+        /// <para>
+        /// <para> The global cluster ID of an Aurora cluster that becomes the primary cluster in the
+        /// new global database cluster. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GlobalClusterIdentifier { get; set; }
         #endregion
         
         #region Parameter KmsKeyId
@@ -482,6 +493,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.Engine = this.Engine;
             context.EngineMode = this.EngineMode;
             context.EngineVersion = this.EngineVersion;
+            context.GlobalClusterIdentifier = this.GlobalClusterIdentifier;
             context.KmsKeyId = this.KmsKeyId;
             context.MasterUsername = this.MasterUsername;
             context.MasterUserPassword = this.MasterUserPassword;
@@ -585,6 +597,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.GlobalClusterIdentifier != null)
+            {
+                request.GlobalClusterIdentifier = cmdletContext.GlobalClusterIdentifier;
             }
             if (cmdletContext.KmsKeyId != null)
             {
@@ -762,6 +778,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Engine { get; set; }
             public System.String EngineMode { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String GlobalClusterIdentifier { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.String MasterUsername { get; set; }
             public System.String MasterUserPassword { get; set; }

@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>A filter used to scope the tags to return.</para>
+        /// <para>One or more filters to scope the tags to return. The maximum number of filters per
+        /// filter type (for example, <code>auto-scaling-group</code>) is 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

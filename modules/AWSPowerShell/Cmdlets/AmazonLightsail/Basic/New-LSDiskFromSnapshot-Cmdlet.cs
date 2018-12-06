@@ -33,6 +33,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// created in the regional endpoint that you send the HTTP request to. For more information,
     /// see <a href="https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail">Regions
     /// and Availability Zones in Lightsail</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>create disk from snapshot</code> operation supports tag-based access control
+    /// via request tags and resource tags applied to the resource identified by diskSnapshotName.
+    /// For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "LSDiskFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
@@ -88,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.Int32 SizeInGb { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys and optional values to add to the resource during create.</para><para>To tag a resource after it has been created, see the <code>tag resource</code> operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Lightsail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             context.DiskSnapshotName = this.DiskSnapshotName;
             if (ParameterWasBound("SizeInGb"))
                 context.SizeInGb = this.SizeInGb;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,6 +176,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.SizeInGb != null)
             {
                 request.SizeInGb = cmdletContext.SizeInGb.Value;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -222,6 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             public System.String DiskName { get; set; }
             public System.String DiskSnapshotName { get; set; }
             public System.Int32? SizeInGb { get; set; }
+            public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -28,8 +28,13 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The DisassociateConnector API will disassociate a connector from the Server Migration
-    /// Service, rendering it unavailable to support replication jobs.
+    /// Disassociates the specified connector from AWS SMS.
+    /// 
+    ///  
+    /// <para>
+    /// After you disassociate a connector, it is no longer available to support replication
+    /// jobs.
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "SMSConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ConnectorId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the connector.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

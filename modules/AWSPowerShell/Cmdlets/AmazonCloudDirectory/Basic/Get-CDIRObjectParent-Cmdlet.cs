@@ -28,15 +28,13 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists parent objects that are associated with a given object in pagination fashion.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists parent objects that are associated with a given object in pagination fashion.
     /// </summary>
     [Cmdlet("Get", "CDIRObjectParent")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.CloudDirectory.Model.ListObjectParentsResponse")]
     [AWSCmdlet("Calls the AWS Cloud Directory ListObjectParents API operation.", Operation = new[] {"ListObjectParents"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.ListObjectParentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.CloudDirectory.Model.ListObjectParentsResponse",
+        "This cmdlet returns a Amazon.CloudDirectory.Model.ListObjectParentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetCDIRObjectParentCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
@@ -64,13 +62,24 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public System.String DirectoryArn { get; set; }
         #endregion
         
+        #region Parameter IncludeAllLinksToEachParent
+        /// <summary>
+        /// <para>
+        /// <para>When set to True, returns all <a>ListObjectParentsResponse$ParentLinks</a>. There
+        /// could be multiple links between a parent-child pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeAllLinksToEachParent { get; set; }
+        #endregion
+        
         #region Parameter ObjectReference_Selector
         /// <summary>
         /// <para>
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
         /// to it from the directory root. Use the link names from each parent/child link to construct
         /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will
@@ -121,6 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             
             context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
+            if (ParameterWasBound("IncludeAllLinksToEachParent"))
+                context.IncludeAllLinksToEachParent = this.IncludeAllLinksToEachParent;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -138,8 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.CloudDirectory.Model.ListObjectParentsRequest();
             
             if (cmdletContext.ConsistencyLevel != null)
@@ -150,9 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 request.DirectoryArn = cmdletContext.DirectoryArn;
             }
+            if (cmdletContext.IncludeAllLinksToEachParent != null)
+            {
+                request.IncludeAllLinksToEachParent = cmdletContext.IncludeAllLinksToEachParent.Value;
+            }
             if (cmdletContext.MaxResults != null)
             {
                 request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
              // populate ObjectReference
@@ -174,65 +192,28 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 request.ObjectReference = null;
             }
             
-            // Initialize loop variant and commence piping
-            System.String _nextMarker = null;
-            bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
-            {
-                _nextMarker = cmdletContext.NextToken;
-                _userControllingPaging = true;
-            }
+            CmdletOutput output;
             
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Parents;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        if (_userControllingPaging)
-                        {
-                            int _receivedThisCall = response.Parents.Count;
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                    
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -276,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
+            public System.Boolean? IncludeAllLinksToEachParent { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String ObjectReference_Selector { get; set; }

@@ -28,9 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The GetReplicationRuns API will return all ReplicationRuns for a given ReplicationJob.
-    /// This API returns a paginated list, that may be consecutively called with nextToken
-    /// to retrieve all ReplicationRuns for a ReplicationJob.
+    /// Describes the replication runs for the specified replication job.
     /// </summary>
     [Cmdlet("Get", "SMSReplicationRun")]
     [OutputType("Amazon.ServerMigrationService.Model.GetReplicationRunsResponse")]
@@ -44,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter ReplicationJobId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the replication job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The maximum number of results to return in a single call. The default value is 50.
+        /// To retrieve the remaining results, make another call with the returned <code>NextToken</code>
+        /// value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The token for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

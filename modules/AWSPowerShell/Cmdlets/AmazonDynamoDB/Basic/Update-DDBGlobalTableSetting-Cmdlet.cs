@@ -39,6 +39,19 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class UpdateDDBGlobalTableSettingCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        #region Parameter GlobalTableBillingMode
+        /// <summary>
+        /// <para>
+        /// <para>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not
+        /// specified, the global table defaults to <code>PROVISIONED</code> capacity billing
+        /// mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DynamoDBv2.BillingMode")]
+        public Amazon.DynamoDBv2.BillingMode GlobalTableBillingMode { get; set; }
+        #endregion
+        
         #region Parameter GlobalTableGlobalSecondaryIndexSettingsUpdate
         /// <summary>
         /// <para>
@@ -120,6 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.GlobalTableBillingMode = this.GlobalTableBillingMode;
             if (this.GlobalTableGlobalSecondaryIndexSettingsUpdate != null)
             {
                 context.GlobalTableGlobalSecondaryIndexSettingsUpdate = new List<Amazon.DynamoDBv2.Model.GlobalTableGlobalSecondaryIndexSettingsUpdate>(this.GlobalTableGlobalSecondaryIndexSettingsUpdate);
@@ -148,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.DDB
             // create request
             var request = new Amazon.DynamoDBv2.Model.UpdateGlobalTableSettingsRequest();
             
+            if (cmdletContext.GlobalTableBillingMode != null)
+            {
+                request.GlobalTableBillingMode = cmdletContext.GlobalTableBillingMode;
+            }
             if (cmdletContext.GlobalTableGlobalSecondaryIndexSettingsUpdate != null)
             {
                 request.GlobalTableGlobalSecondaryIndexSettingsUpdate = cmdletContext.GlobalTableGlobalSecondaryIndexSettingsUpdate;
@@ -232,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.DynamoDBv2.BillingMode GlobalTableBillingMode { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalTableGlobalSecondaryIndexSettingsUpdate> GlobalTableGlobalSecondaryIndexSettingsUpdate { get; set; }
             public System.String GlobalTableName { get; set; }
             public Amazon.DynamoDBv2.Model.AutoScalingSettingsUpdate GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate { get; set; }

@@ -28,7 +28,7 @@ using Amazon.ElasticBeanstalk.Model;
 namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
-    /// Lists an environment's completed and failed managed actions.
+    /// Lists an environment's completed and failed managed actions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EBEnvironmentManagedActionHistory")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ManagedActionHistoryItem")]
@@ -66,10 +66,13 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The maximum number of items to return for a single request.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public System.Int32 MaxItem { get; set; }
+        public int MaxItem { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -116,9 +119,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.ElasticBeanstalk.Model.DescribeEnvironmentManagedActionHistoryRequest();
             if (cmdletContext.EnvironmentId != null)
             {
                 request.EnvironmentId = cmdletContext.EnvironmentId;
@@ -127,39 +130,111 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.EnvironmentName = cmdletContext.EnvironmentName;
             }
-            if (cmdletContext.MaxItems != null)
-            {
-                request.MaxItems = cmdletContext.MaxItems.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            int? _pageSize = 1000;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
+            {
+                // The service has a maximum page size of 1000. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 1000 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxItems;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ManagedActionHistoryItems;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxItems))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.ManagedActionHistoryItems;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.ManagedActionHistoryItems.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 1000 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -203,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         {
             public System.String EnvironmentId { get; set; }
             public System.String EnvironmentName { get; set; }
-            public System.Int32? MaxItems { get; set; }
+            public int? MaxItems { get; set; }
             public System.String NextToken { get; set; }
         }
         

@@ -64,8 +64,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SharedDirectory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -118,8 +117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpRoutes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -172,8 +170,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -226,8 +223,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaExtension",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -283,8 +279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -337,8 +332,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -391,8 +385,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Computer",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -445,8 +438,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConditionalForwarder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -502,8 +494,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -556,8 +547,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogSubscription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -610,8 +600,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MicrosoftAD",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -664,8 +653,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -718,8 +706,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trust",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -772,8 +759,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConditionalForwarder",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -826,8 +812,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -880,8 +865,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogSubscription",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -934,8 +918,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -988,8 +971,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trust",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1042,8 +1024,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventTopic",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1096,8 +1077,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConditionalForwarders",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1145,7 +1125,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1194,7 +1173,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainControllers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1243,8 +1221,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventTopics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1292,7 +1269,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SharedDirectories",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1341,7 +1317,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1390,7 +1365,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trusts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1439,8 +1413,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Radius",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1493,8 +1466,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Sso",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1547,8 +1519,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Radius",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1601,8 +1572,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Sso",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1653,8 +1623,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectoryLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1702,8 +1671,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SnapshotLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1751,7 +1719,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpRoutes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1800,7 +1767,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogSubscriptions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1849,7 +1815,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaExtensions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1898,7 +1863,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1947,8 +1911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventTopic",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TopicName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2001,8 +1964,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SharedDirectory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2055,8 +2017,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpRoutes",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2109,8 +2070,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2163,8 +2123,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPassword",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2219,8 +2178,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FromSnapshot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: SnapshotId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2273,8 +2231,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2327,8 +2284,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SchemaExtension",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2381,8 +2337,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Directory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2435,8 +2390,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConditionalForwarder",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2489,8 +2443,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NumberOfDomainControllers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DesiredNumber",
         "passThruTypeName": "System.Int32",
         "requiresPassThruGeneration": "true",
@@ -2543,8 +2496,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Radius",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DirectoryId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2597,8 +2549,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trust",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2651,8 +2602,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trust",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

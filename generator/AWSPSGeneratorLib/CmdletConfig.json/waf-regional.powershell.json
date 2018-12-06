@@ -67,8 +67,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: WebACLId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -120,8 +119,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ByteMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -175,8 +173,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -228,8 +225,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -283,8 +279,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -338,8 +333,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -393,8 +387,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexPatternSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -446,8 +439,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -496,8 +488,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -551,8 +542,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SizeConstraintSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -604,8 +594,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SqlInjectionMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -657,8 +646,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -707,8 +695,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "XssMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -762,8 +749,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ByteMatchSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -817,8 +803,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoMatchSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -872,8 +857,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -927,8 +911,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggingConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -982,8 +965,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PermissionPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1037,8 +1019,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1092,8 +1073,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexMatchSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1147,8 +1127,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexPatternSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1202,8 +1181,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1257,8 +1235,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1312,8 +1289,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SizeConstraintSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1367,8 +1343,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SqlInjectionMatchSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1422,8 +1397,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1477,8 +1451,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "XssMatchSet",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1532,8 +1505,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1587,8 +1559,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ByteMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1635,8 +1606,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ChangeToken",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1685,8 +1655,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ChangeTokenStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1735,8 +1704,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1785,8 +1753,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1835,8 +1802,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggingConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1885,8 +1851,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PermissionPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1935,8 +1900,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1993,7 +1957,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRuleManagedKeys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2043,8 +2006,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2093,8 +2055,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexPatternSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2143,8 +2104,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2193,8 +2153,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2243,8 +2202,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SampledRequests",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2293,8 +2251,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SizeConstraintSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2343,8 +2300,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SqlInjectionMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2393,8 +2349,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2443,8 +2398,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACLForResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2493,8 +2447,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "XssMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2543,7 +2496,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ActivatedRulesInRuleGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2591,7 +2543,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ByteMatchSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2639,7 +2590,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoMatchSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2687,7 +2637,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2735,7 +2684,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggingConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2783,7 +2731,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2831,7 +2778,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexMatchSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2879,7 +2825,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexPatternSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2929,8 +2874,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcesForWebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2977,7 +2921,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3025,7 +2968,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rules",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3073,7 +3015,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SizeConstraintSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3121,7 +3062,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SqlInjectionMatchSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3169,7 +3109,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscribedRuleGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3217,7 +3156,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACLs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3265,7 +3203,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "XssMatchSets",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3315,8 +3252,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggingConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3370,8 +3306,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PermissionPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Policy",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3425,8 +3360,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ByteMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3480,8 +3414,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GeoMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3535,8 +3468,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3590,8 +3522,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RateBasedRule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3645,8 +3576,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3700,8 +3630,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RegexPatternSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3755,8 +3684,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3810,8 +3738,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuleGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3865,8 +3792,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SizeConstraintSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3920,8 +3846,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SqlInjectionMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3975,8 +3900,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "WebACL",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4030,8 +3954,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "XssMatchSet",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

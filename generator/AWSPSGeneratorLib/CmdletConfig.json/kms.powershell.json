@@ -70,8 +70,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDeletion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -87,6 +86,59 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ConnectCustomKeyStore": {
+      "verb": "Connect",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStore",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: CustomKeyStoreId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
       }
@@ -124,8 +176,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TargetKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -141,6 +192,59 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetKeyId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateCustomKeyStore": {
+      "verb": "New",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CustomKeyStoreId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "CustomKeyStoreName"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStore",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "CustomKeyStoreName"
         },
         "memoryStreamParameters": []
       }
@@ -176,8 +280,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Grant",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -228,8 +331,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -280,8 +382,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -329,8 +430,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AliasName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -346,6 +446,59 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "AliasName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteCustomKeyStore": {
+      "verb": "Remove",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStore",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: CustomKeyStoreId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
       }
@@ -383,8 +536,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImportedKeyMaterial",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -400,6 +552,54 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DescribeCustomKeyStores": {
+      "verb": "Get",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CustomKeyStores",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStores",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern3",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
         },
         "memoryStreamParameters": []
       }
@@ -437,8 +637,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -486,8 +685,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -540,8 +738,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyRotation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -557,6 +754,59 @@
           "analysisMessage": "Single parameter, auto-selected as target",
           "status": "TargetFromAnalysis",
           "targetParameterName": "KeyId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DisconnectCustomKeyStore": {
+      "verb": "Disconnect",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStore",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: CustomKeyStoreId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
       }
@@ -594,8 +844,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -648,8 +897,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyRotation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -702,8 +950,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -765,8 +1012,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataKey",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -828,8 +1074,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataKeyWithoutPlaintext",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -891,8 +1136,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Random",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -945,8 +1189,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -994,8 +1237,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyRotationStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1043,8 +1285,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ParametersForImport",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1092,7 +1333,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Aliases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1141,7 +1381,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Grants",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1190,7 +1429,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPolicies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1237,7 +1475,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Keys",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1286,7 +1523,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceTags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1333,7 +1569,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetirableGrants",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern3",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1382,8 +1617,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1434,8 +1668,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Encrypt",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1486,8 +1719,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Grant",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1540,8 +1772,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Grant",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1594,8 +1825,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDeletion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1648,8 +1878,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1702,8 +1931,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1756,8 +1984,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TargetKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1773,6 +2000,59 @@
           "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "status": "TargetFromAnalysis",
           "targetParameterName": "TargetKeyId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateCustomKeyStore": {
+      "verb": "Update",
+      "noun": "CustomKeyStore",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "CustomKeyStoreId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "CustomKeyStoreId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "CustomKeyStore",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: CustomKeyStoreId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "Marker",
+          "responseMember": "NextMarker",
+          "resultLimitMember": "Limit",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "Truncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
       }
@@ -1810,8 +2090,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDescription",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern3",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: KeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>
-        /// <para>The authentication type: API key, IAM, or Amazon Cognito User Pools.</para>
+        /// <para>The authentication type: API key, AWS IAM, or Amazon Cognito user pools.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,10 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_ClientId
         /// <summary>
         /// <para>
-        /// <para>The client identifier of the Relying party at the OpenID Provider. This identifier
-        /// is typically obtained when the Relying party is registered with the OpenID Provider.
-        /// You can specify a regular expression so the AWS AppSync can validate against multiple
-        /// client identifiers at a time</para>
+        /// <para>The client identifier of the Relying party at the OpenID identity provider. This identifier
+        /// is typically obtained when the Relying party is registered with the OpenID identity
+        /// provider. You can specify a regular expression so the AWS AppSync can validate against
+        /// multiple client identifiers at a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter LogConfig_FieldLogLevel
         /// <summary>
         /// <para>
-        /// <para>The field logging level. Values can be NONE, ERROR, ALL. </para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
+        /// <para>The field logging level. Values can be NONE, ERROR, or ALL. </para><ul><li><para><b>NONE</b>: No field-level logs are captured.</para></li><li><para><b>ERROR</b>: Logs the following information only for the fields that are in error:</para><ul><li><para>The error section in the server response.</para></li><li><para>Field-level errors.</para></li><li><para>The generated request/response functions that got resolved for error fields.</para></li></ul></li><li><para><b>ALL</b>: The following information is logged for all fields in the query:</para><ul><li><para>Field-level tracing information.</para></li><li><para>The generated request/response functions that got resolved for each field.</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter OpenIDConnectConfig_Issuer
         /// <summary>
         /// <para>
-        /// <para>The issuer for the open id connect configuration. The issuer returned by discovery
-        /// MUST exactly match the value of iss in the ID Token.</para>
+        /// <para>The issuer for the OpenID Connect configuration. The issuer returned by discovery
+        /// must exactly match the value of <code>iss</code> in the ID token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
         #region Parameter UserPoolConfig
         /// <summary>
         /// <para>
-        /// <para>The Amazon Cognito User Pool configuration.</para>
+        /// <para>The Amazon Cognito user pool configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -72,9 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter MoveToVersionId
         /// <summary>
         /// <para>
-        /// <para>(Optional) The secret version ID that you want to add the staging labels to. If you
-        /// want to remove a label from a version, then do not specify this parameter.</para><para>If any of the staging labels are already attached to a different version of the secret,
-        /// then you must also specify the <code>RemoveFromVersionId</code> parameter. </para>
+        /// <para>(Optional) The secret version ID that you want to add the staging label to. If you
+        /// want to remove a label from a version, then do not specify this parameter.</para><para>If the staging label is already attached to a different version of the secret, then
+        /// you must also specify the <code>RemoveFromVersionId</code> parameter. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter RemoveFromVersionId
         /// <summary>
         /// <para>
-        /// <para>Specifies the secret version ID of the version that the staging labels are to be removed
+        /// <para>Specifies the secret version ID of the version that the staging label is to be removed
         /// from. If the staging label you are trying to attach to one version is already attached
         /// to a different version, then you must include this parameter and specify the version
         /// that the label is to be removed from. If the label is attached and you either do not
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         #region Parameter VersionStage
         /// <summary>
         /// <para>
-        /// <para>The list of staging labels to add to this version.</para>
+        /// <para>The staging label to add to this version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

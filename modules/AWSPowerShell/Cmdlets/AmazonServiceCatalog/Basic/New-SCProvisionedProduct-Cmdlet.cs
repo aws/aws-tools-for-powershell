@@ -136,6 +136,92 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String ProvisionToken { get; set; }
         #endregion
         
+        #region Parameter ProvisioningPreferences_StackSetAccount
+        /// <summary>
+        /// <para>
+        /// <para>One or more AWS accounts that will have access to the provisioned product.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The AWS accounts specified should be within the list of accounts in the <code>STACKSET</code>
+        /// constraint. To get the list of accounts in the <code>STACKSET</code> constraint, use
+        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all accounts from the <code>STACKSET</code>
+        /// constraint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProvisioningPreferences_StackSetAccounts")]
+        public System.String[] ProvisioningPreferences_StackSetAccount { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningPreferences_StackSetFailureToleranceCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of accounts, per region, for which this operation can fail before AWS Service
+        /// Catalog stops the operation in that region. If the operation is stopped in a region,
+        /// AWS Service Catalog doesn't attempt the operation in any subsequent regions.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or
+        /// <code>StackSetFailureTolerancePercentage</code>, but not both.</para><para>The default value is <code>0</code> if no value is specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ProvisioningPreferences_StackSetFailureToleranceCount { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningPreferences_StackSetFailureTolerancePercentage
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of accounts, per region, for which this stack operation can fail before
+        /// AWS Service Catalog stops the operation in that region. If the operation is stopped
+        /// in a region, AWS Service Catalog doesn't attempt the operation in any subsequent regions.</para><para>When calculating the number of accounts based on the specified percentage, AWS Service
+        /// Catalog rounds down to the next whole number.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetFailureToleranceCount</code> or
+        /// <code>StackSetFailureTolerancePercentage</code>, but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ProvisioningPreferences_StackSetFailureTolerancePercentage { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningPreferences_StackSetMaxConcurrencyCount
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of accounts in which to perform this operation at one time. This
+        /// is dependent on the value of <code>StackSetFailureToleranceCount</code>. <code>StackSetMaxConcurrentCount</code>
+        /// is at most one more than the <code>StackSetFailureToleranceCount</code>.</para><para>Note that this setting lets you specify the maximum for operations. For large deployments,
+        /// under certain circumstances the actual number of accounts acted upon concurrently
+        /// may be lower due to service throttling.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ProvisioningPreferences_StackSetMaxConcurrencyCount { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningPreferences_StackSetMaxConcurrencyPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The maximum percentage of accounts in which to perform this operation at one time.</para><para>When calculating the number of accounts based on the specified percentage, AWS Service
+        /// Catalog rounds down to the next whole number. This is true except in cases where rounding
+        /// down would result is zero. In this case, AWS Service Catalog sets the number as <code>1</code>
+        /// instead.</para><para>Note that this setting lets you specify the maximum for operations. For large deployments,
+        /// under certain circumstances the actual number of accounts acted upon concurrently
+        /// may be lower due to service throttling.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>Conditional: You must specify either <code>StackSetMaxConcurrentCount</code> or <code>StackSetMaxConcurrentPercentage</code>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ProvisioningPreferences_StackSetMaxConcurrencyPercentage { get; set; }
+        #endregion
+        
+        #region Parameter ProvisioningPreferences_StackSetRegion
+        /// <summary>
+        /// <para>
+        /// <para>One or more AWS Regions where the provisioned product will be available.</para><para>Applicable only to a <code>CFN_STACKSET</code> provisioned product type.</para><para>The specified regions should be within the list of regions from the <code>STACKSET</code>
+        /// constraint. To get the list of regions in the <code>STACKSET</code> constraint, use
+        /// the <code>DescribeProvisioningParameters</code> operation.</para><para>If no values are specified, the default value is all regions from the <code>STACKSET</code>
+        /// constraint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProvisioningPreferences_StackSetRegions")]
+        public System.String[] ProvisioningPreferences_StackSetRegion { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -189,6 +275,22 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 context.ProvisioningParameters = new List<Amazon.ServiceCatalog.Model.ProvisioningParameter>(this.ProvisioningParameter);
             }
+            if (this.ProvisioningPreferences_StackSetAccount != null)
+            {
+                context.ProvisioningPreferences_StackSetAccounts = new List<System.String>(this.ProvisioningPreferences_StackSetAccount);
+            }
+            if (ParameterWasBound("ProvisioningPreferences_StackSetFailureToleranceCount"))
+                context.ProvisioningPreferences_StackSetFailureToleranceCount = this.ProvisioningPreferences_StackSetFailureToleranceCount;
+            if (ParameterWasBound("ProvisioningPreferences_StackSetFailureTolerancePercentage"))
+                context.ProvisioningPreferences_StackSetFailureTolerancePercentage = this.ProvisioningPreferences_StackSetFailureTolerancePercentage;
+            if (ParameterWasBound("ProvisioningPreferences_StackSetMaxConcurrencyCount"))
+                context.ProvisioningPreferences_StackSetMaxConcurrencyCount = this.ProvisioningPreferences_StackSetMaxConcurrencyCount;
+            if (ParameterWasBound("ProvisioningPreferences_StackSetMaxConcurrencyPercentage"))
+                context.ProvisioningPreferences_StackSetMaxConcurrencyPercentage = this.ProvisioningPreferences_StackSetMaxConcurrencyPercentage;
+            if (this.ProvisioningPreferences_StackSetRegion != null)
+            {
+                context.ProvisioningPreferences_StackSetRegions = new List<System.String>(this.ProvisioningPreferences_StackSetRegion);
+            }
             context.ProvisionToken = this.ProvisionToken;
             if (this.Tag != null)
             {
@@ -237,6 +339,75 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.ProvisioningParameters != null)
             {
                 request.ProvisioningParameters = cmdletContext.ProvisioningParameters;
+            }
+            
+             // populate ProvisioningPreferences
+            bool requestProvisioningPreferencesIsNull = true;
+            request.ProvisioningPreferences = new Amazon.ServiceCatalog.Model.ProvisioningPreferences();
+            List<System.String> requestProvisioningPreferences_provisioningPreferences_StackSetAccount = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetAccounts != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetAccount = cmdletContext.ProvisioningPreferences_StackSetAccounts;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetAccount != null)
+            {
+                request.ProvisioningPreferences.StackSetAccounts = requestProvisioningPreferences_provisioningPreferences_StackSetAccount;
+                requestProvisioningPreferencesIsNull = false;
+            }
+            System.Int32? requestProvisioningPreferences_provisioningPreferences_StackSetFailureToleranceCount = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetFailureToleranceCount != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetFailureToleranceCount = cmdletContext.ProvisioningPreferences_StackSetFailureToleranceCount.Value;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetFailureToleranceCount != null)
+            {
+                request.ProvisioningPreferences.StackSetFailureToleranceCount = requestProvisioningPreferences_provisioningPreferences_StackSetFailureToleranceCount.Value;
+                requestProvisioningPreferencesIsNull = false;
+            }
+            System.Int32? requestProvisioningPreferences_provisioningPreferences_StackSetFailureTolerancePercentage = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetFailureTolerancePercentage != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetFailureTolerancePercentage = cmdletContext.ProvisioningPreferences_StackSetFailureTolerancePercentage.Value;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetFailureTolerancePercentage != null)
+            {
+                request.ProvisioningPreferences.StackSetFailureTolerancePercentage = requestProvisioningPreferences_provisioningPreferences_StackSetFailureTolerancePercentage.Value;
+                requestProvisioningPreferencesIsNull = false;
+            }
+            System.Int32? requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyCount = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetMaxConcurrencyCount != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyCount = cmdletContext.ProvisioningPreferences_StackSetMaxConcurrencyCount.Value;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyCount != null)
+            {
+                request.ProvisioningPreferences.StackSetMaxConcurrencyCount = requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyCount.Value;
+                requestProvisioningPreferencesIsNull = false;
+            }
+            System.Int32? requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyPercentage = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetMaxConcurrencyPercentage != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyPercentage = cmdletContext.ProvisioningPreferences_StackSetMaxConcurrencyPercentage.Value;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyPercentage != null)
+            {
+                request.ProvisioningPreferences.StackSetMaxConcurrencyPercentage = requestProvisioningPreferences_provisioningPreferences_StackSetMaxConcurrencyPercentage.Value;
+                requestProvisioningPreferencesIsNull = false;
+            }
+            List<System.String> requestProvisioningPreferences_provisioningPreferences_StackSetRegion = null;
+            if (cmdletContext.ProvisioningPreferences_StackSetRegions != null)
+            {
+                requestProvisioningPreferences_provisioningPreferences_StackSetRegion = cmdletContext.ProvisioningPreferences_StackSetRegions;
+            }
+            if (requestProvisioningPreferences_provisioningPreferences_StackSetRegion != null)
+            {
+                request.ProvisioningPreferences.StackSetRegions = requestProvisioningPreferences_provisioningPreferences_StackSetRegion;
+                requestProvisioningPreferencesIsNull = false;
+            }
+             // determine if request.ProvisioningPreferences should be set to null
+            if (requestProvisioningPreferencesIsNull)
+            {
+                request.ProvisioningPreferences = null;
             }
             if (cmdletContext.ProvisionToken != null)
             {
@@ -317,6 +488,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String ProvisionedProductName { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
             public List<Amazon.ServiceCatalog.Model.ProvisioningParameter> ProvisioningParameters { get; set; }
+            public List<System.String> ProvisioningPreferences_StackSetAccounts { get; set; }
+            public System.Int32? ProvisioningPreferences_StackSetFailureToleranceCount { get; set; }
+            public System.Int32? ProvisioningPreferences_StackSetFailureTolerancePercentage { get; set; }
+            public System.Int32? ProvisioningPreferences_StackSetMaxConcurrencyCount { get; set; }
+            public System.Int32? ProvisioningPreferences_StackSetMaxConcurrencyPercentage { get; set; }
+            public List<System.String> ProvisioningPreferences_StackSetRegions { get; set; }
             public System.String ProvisionToken { get; set; }
             public List<Amazon.ServiceCatalog.Model.Tag> Tags { get; set; }
         }

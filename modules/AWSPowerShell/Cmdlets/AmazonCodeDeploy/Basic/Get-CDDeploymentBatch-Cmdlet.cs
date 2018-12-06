@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>A list of deployment IDs, separated by spaces.</para>
+        /// <para> A list of deployment IDs, separated by spaces. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

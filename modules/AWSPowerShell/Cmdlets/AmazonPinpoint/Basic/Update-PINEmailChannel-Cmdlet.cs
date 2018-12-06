@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter EmailChannelRequest_ConfigurationSet
+        /// <summary>
+        /// <para>
+        /// The configuration set that you want to
+        /// use when you send email using the Pinpoint Email API.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EmailChannelRequest_ConfigurationSet { get; set; }
+        #endregion
+        
         #region Parameter EmailChannelRequest_Enabled
         /// <summary>
         /// <para>
@@ -121,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
+            context.EmailChannelRequest_ConfigurationSet = this.EmailChannelRequest_ConfigurationSet;
             if (ParameterWasBound("EmailChannelRequest_Enabled"))
                 context.EmailChannelRequest_Enabled = this.EmailChannelRequest_Enabled;
             context.EmailChannelRequest_FromAddress = this.EmailChannelRequest_FromAddress;
@@ -150,6 +162,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate EmailChannelRequest
             bool requestEmailChannelRequestIsNull = true;
             request.EmailChannelRequest = new Amazon.Pinpoint.Model.EmailChannelRequest();
+            System.String requestEmailChannelRequest_emailChannelRequest_ConfigurationSet = null;
+            if (cmdletContext.EmailChannelRequest_ConfigurationSet != null)
+            {
+                requestEmailChannelRequest_emailChannelRequest_ConfigurationSet = cmdletContext.EmailChannelRequest_ConfigurationSet;
+            }
+            if (requestEmailChannelRequest_emailChannelRequest_ConfigurationSet != null)
+            {
+                request.EmailChannelRequest.ConfigurationSet = requestEmailChannelRequest_emailChannelRequest_ConfigurationSet;
+                requestEmailChannelRequestIsNull = false;
+            }
             System.Boolean? requestEmailChannelRequest_emailChannelRequest_Enabled = null;
             if (cmdletContext.EmailChannelRequest_Enabled != null)
             {
@@ -260,6 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
+            public System.String EmailChannelRequest_ConfigurationSet { get; set; }
             public System.Boolean? EmailChannelRequest_Enabled { get; set; }
             public System.String EmailChannelRequest_FromAddress { get; set; }
             public System.String EmailChannelRequest_Identity { get; set; }

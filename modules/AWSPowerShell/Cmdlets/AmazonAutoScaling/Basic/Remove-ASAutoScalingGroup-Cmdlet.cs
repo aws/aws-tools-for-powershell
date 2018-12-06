@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// alarm actions, and any alarm that no longer has an associated action.
     /// </para><para>
     /// To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a>
-    /// with the list of instances and the option to decrement the desired capacity so that
-    /// Amazon EC2 Auto Scaling does not launch replacement instances.
+    /// with the list of instances and the option to decrement the desired capacity. This
+    /// ensures that Amazon EC2 Auto Scaling does not launch replacement instances.
     /// </para><para>
     /// To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a>
     /// and set the minimum size and desired capacity of the Auto Scaling group to zero.
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ForceDelete
         /// <summary>
         /// <para>
-        /// <para>Specifies that the group will be deleted along with all instances associated with
+        /// <para>Specifies that the group is to be deleted along with all instances associated with
         /// the group, without waiting for all instances to be terminated. This parameter also
         /// deletes any lifecycle actions associated with the group.</para>
         /// </para>

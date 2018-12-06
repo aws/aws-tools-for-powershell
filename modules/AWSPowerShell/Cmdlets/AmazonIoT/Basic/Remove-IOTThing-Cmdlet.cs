@@ -28,7 +28,8 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified thing.
+    /// Deletes the specified thing. Returns successfully with no error if the deletion is
+    /// successful or you specify a thing that doesn't exist.
     /// </summary>
     [Cmdlet("Remove", "IOTThing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

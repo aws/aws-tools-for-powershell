@@ -51,8 +51,12 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Assigns attributes to the subscription as a map of key-value pairs. You can assign
-        /// any attribute that is supported by the <code>SetSubscriptionAttributes</code> action.</para>
+        /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
+        /// that the <code>SetTopicAttributes</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
+        /// deliveries to HTTP/S endpoints.</para></li><li><para><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive
+        /// only a subset of messages, rather than receiving every message published to the topic.</para></li><li><para><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message
+        /// delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints
+        /// to process JSON formatting, which is otherwise created for Amazon SNS metadata.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol you want to use. Supported protocols include:</para><ul><li><para><code>http</code> -- delivery of JSON-encoded message via HTTP POST</para></li><li><para><code>https</code> -- delivery of JSON-encoded message via HTTPS POST</para></li><li><para><code>email</code> -- delivery of message via SMTP</para></li><li><para><code>email-json</code> -- delivery of JSON-encoded message via SMTP</para></li><li><para><code>sms</code> -- delivery of message via SMS</para></li><li><para><code>sqs</code> -- delivery of JSON-encoded message to an Amazon SQS queue</para></li><li><para><code>application</code> -- delivery of JSON-encoded message to an EndpointArn for
-        /// a mobile app and device.</para></li><li><para><code>lambda</code> -- delivery of JSON-encoded message to an AWS Lambda function.</para></li></ul>
+        /// <para>The protocol you want to use. Supported protocols include:</para><ul><li><para><code>http</code> – delivery of JSON-encoded message via HTTP POST</para></li><li><para><code>https</code> – delivery of JSON-encoded message via HTTPS POST</para></li><li><para><code>email</code> – delivery of message via SMTP</para></li><li><para><code>email-json</code> – delivery of JSON-encoded message via SMTP</para></li><li><para><code>sms</code> – delivery of message via SMS</para></li><li><para><code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</para></li><li><para><code>application</code> – delivery of JSON-encoded message to an EndpointArn for
+        /// a mobile app and device.</para></li><li><para><code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda function.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

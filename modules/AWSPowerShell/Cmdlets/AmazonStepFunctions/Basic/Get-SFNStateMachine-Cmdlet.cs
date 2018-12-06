@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Describes a state machine.
+    /// 
+    ///  <note><para>
+    /// This operation is eventually consistent. The results are best effort and may not reflect
+    /// very recent updates and changes.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "SFNStateMachine")]
     [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineResponse")]

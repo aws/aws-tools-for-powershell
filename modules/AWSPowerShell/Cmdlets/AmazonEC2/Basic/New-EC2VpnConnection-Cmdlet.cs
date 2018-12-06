@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean Options_StaticRoutesOnly { get; set; }
         #endregion
         
+        #region Parameter TransitGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the transit gateway. If you specify a transit gateway, you cannot specify
+        /// a virtual private gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TransitGatewayId { get; set; }
+        #endregion
+        
         #region Parameter Options_TunnelOption
         /// <summary>
         /// <para>
@@ -107,7 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpnGatewayId
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual private gateway.</para>
+        /// <para>The ID of the virtual private gateway. If you specify a virtual private gateway, you
+        /// cannot specify a transit gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
@@ -150,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Options_TunnelOptions = new List<Amazon.EC2.Model.VpnTunnelOptionsSpecification>(this.Options_TunnelOption);
             }
+            context.TransitGatewayId = this.TransitGatewayId;
             context.Type = this.Type;
             context.VpnGatewayId = this.VpnGatewayId;
             
@@ -200,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptionsIsNull)
             {
                 request.Options = null;
+            }
+            if (cmdletContext.TransitGatewayId != null)
+            {
+                request.TransitGatewayId = cmdletContext.TransitGatewayId;
             }
             if (cmdletContext.Type != null)
             {
@@ -276,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String CustomerGatewayId { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
             public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOptions { get; set; }
+            public System.String TransitGatewayId { get; set; }
             public System.String Type { get; set; }
             public System.String VpnGatewayId { get; set; }
         }

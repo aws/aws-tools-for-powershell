@@ -28,8 +28,8 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Creates or updates a scheduled scaling action for an Auto Scaling group. When updating
-    /// a scheduled scaling action, if you leave a parameter unspecified, the corresponding
+    /// Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave
+    /// a parameter unspecified when updating a scheduled scaling action, the corresponding
     /// value remains unchanged.
     /// 
     ///  

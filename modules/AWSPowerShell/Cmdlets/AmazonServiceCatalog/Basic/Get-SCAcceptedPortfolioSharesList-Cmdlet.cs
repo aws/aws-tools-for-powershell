@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PortfolioShareType
         /// <summary>
         /// <para>
-        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
+        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios shared by the master account of
+        /// your organization</para></li><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

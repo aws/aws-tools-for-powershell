@@ -61,6 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public System.String FunctionDefinitionVersionId { get; set; }
         #endregion
         
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// The token for the next set of results, or ''null''
+        /// if there are no additional results.
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -76,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             
             context.FunctionDefinitionId = this.FunctionDefinitionId;
             context.FunctionDefinitionVersionId = this.FunctionDefinitionVersionId;
+            context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -99,6 +114,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (cmdletContext.FunctionDefinitionVersionId != null)
             {
                 request.FunctionDefinitionVersionId = cmdletContext.FunctionDefinitionVersionId;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             
             CmdletOutput output;
@@ -166,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         {
             public System.String FunctionDefinitionId { get; set; }
             public System.String FunctionDefinitionVersionId { get; set; }
+            public System.String NextToken { get; set; }
         }
         
     }

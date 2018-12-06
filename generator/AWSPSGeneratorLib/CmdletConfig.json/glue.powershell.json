@@ -87,8 +87,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatePartition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -141,8 +140,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteConnection",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -195,8 +193,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeletePartition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -249,8 +246,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteTable",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -303,8 +299,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteTableVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -357,8 +352,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GetPartition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -406,8 +400,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StopJobRun",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -458,8 +451,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifier",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -512,8 +504,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConnectionInput",
         "passThruTypeName": "Amazon.Glue.Model.ConnectionInput",
         "requiresPassThruGeneration": "true",
@@ -566,8 +557,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -620,8 +610,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Database",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DatabaseInput",
         "passThruTypeName": "Amazon.Glue.Model.DatabaseInput",
         "requiresPassThruGeneration": "true",
@@ -683,8 +672,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -737,8 +725,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -791,8 +778,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PartitionInput",
         "passThruTypeName": "Amazon.Glue.Model.PartitionInput",
         "requiresPassThruGeneration": "true",
@@ -843,8 +829,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Script",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -897,8 +882,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -951,8 +935,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TableInput",
         "passThruTypeName": "Amazon.Glue.Model.TableInput",
         "requiresPassThruGeneration": "true",
@@ -1005,8 +988,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1059,8 +1041,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FunctionInput",
         "passThruTypeName": "Amazon.Glue.Model.UserDefinedFunctionInput",
         "requiresPassThruGeneration": "true",
@@ -1113,8 +1094,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifier",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1167,8 +1147,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConnectionName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1221,8 +1200,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1275,8 +1253,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Database",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1329,8 +1306,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoint",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EndpointName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1383,8 +1359,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1437,8 +1412,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partition",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TableName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1491,8 +1465,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyHashCondition",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1545,8 +1518,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1599,8 +1571,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1653,8 +1624,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TableVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1707,8 +1677,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1761,8 +1730,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FunctionName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1815,8 +1783,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CatalogImportStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1864,8 +1831,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifier",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1911,7 +1877,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifiers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1960,8 +1925,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2007,7 +1971,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connections",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2056,8 +2019,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2105,7 +2067,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerMetrics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2152,7 +2113,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawlers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2201,8 +2161,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Database",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2250,7 +2209,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Databases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2299,8 +2257,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataCatalogEncryptionSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2348,8 +2305,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataflowGraph",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2397,8 +2353,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2444,7 +2399,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoints",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2493,8 +2447,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2542,8 +2495,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobRun",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2591,7 +2543,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobRuns",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2638,7 +2589,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2687,8 +2637,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Mapping",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2736,8 +2685,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2785,7 +2733,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partitions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -2834,8 +2781,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Plan",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2881,8 +2827,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2930,8 +2875,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2977,7 +2921,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3026,8 +2969,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3075,7 +3017,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tables",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3124,8 +3065,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TableVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3173,7 +3113,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TableVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3222,8 +3161,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3269,7 +3207,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Triggers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3318,8 +3255,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3367,7 +3303,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunctions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -3416,8 +3351,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CatalogToGlue",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CatalogId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3470,8 +3404,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataCatalogEncryptionSettings",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CatalogId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3524,8 +3457,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3578,8 +3510,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobBookmark",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3632,8 +3563,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3686,8 +3616,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerSchedule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CrawlerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3740,8 +3669,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobRun",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3794,8 +3722,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3848,8 +3775,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3902,8 +3828,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerSchedule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CrawlerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -3956,8 +3881,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4008,8 +3932,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifier",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4062,8 +3985,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConnectionInput",
         "passThruTypeName": "Amazon.Glue.Model.ConnectionInput",
         "requiresPassThruGeneration": "true",
@@ -4116,8 +4038,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4170,8 +4091,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerSchedule",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Schedule",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4224,8 +4144,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Database",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DatabaseInput",
         "passThruTypeName": "Amazon.Glue.Model.DatabaseInput",
         "requiresPassThruGeneration": "true",
@@ -4278,8 +4197,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoint",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: EndpointName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -4332,8 +4250,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4386,8 +4303,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partition",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: PartitionInput",
         "passThruTypeName": "Amazon.Glue.Model.PartitionInput",
         "requiresPassThruGeneration": "true",
@@ -4440,8 +4356,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: TableInput",
         "passThruTypeName": "Amazon.Glue.Model.TableInput",
         "requiresPassThruGeneration": "true",
@@ -4494,8 +4409,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -4548,8 +4462,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: FunctionName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

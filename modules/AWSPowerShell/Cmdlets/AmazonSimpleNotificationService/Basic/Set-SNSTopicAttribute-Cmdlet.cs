@@ -43,8 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute you want to set. Only a subset of the topic's attributes
-        /// are mutable.</para><para>Valid values: <code>Policy</code> | <code>DisplayName</code> | <code>DeliveryPolicy</code></para>
+        /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
+        /// that the <code>SetTopicAttributes</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
+        /// deliveries to HTTP/S endpoints.</para></li><li><para><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><code>Policy</code> – The policy that defines who can access your topic. By default,
+        /// only the topic owner can publish or subscribe to the topic.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

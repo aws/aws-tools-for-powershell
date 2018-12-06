@@ -97,7 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <summary>
         /// <para>
         /// <para>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left
-        /// blank, the first 20 results will be returned.</para>
+        /// blank, the first 20 results will be returned.</para><para>This is a maximum value; it is possible that AWS WAF will return the results in smaller
+        /// batches. That is, the number of <a>AttackSummary</a> objects returned could be less
+        /// than <code>MaxResults</code>, even if there are still more <a>AttackSummary</a> objects
+        /// yet to return. If there are more <a>AttackSummary</a> objects to return, AWS WAF will
+        /// always also return a <code>NextToken</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -75,8 +75,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Container",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -140,8 +139,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Container",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -205,8 +203,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContainerPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -259,8 +256,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CorsPolicy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ContainerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -324,8 +320,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Container",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -384,8 +379,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContainerPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -433,8 +427,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CorsPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -480,7 +473,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Containers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -540,8 +532,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContainerPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Policy",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -594,8 +585,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CorsPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ContainerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

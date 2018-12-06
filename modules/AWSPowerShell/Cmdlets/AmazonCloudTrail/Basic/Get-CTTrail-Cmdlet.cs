@@ -44,8 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// <summary>
         /// <para>
         /// <para>Specifies whether to include shadow trails in the response. A shadow trail is the
-        /// replication in a region of a trail that was created in a different region. The default
-        /// is true.</para>
+        /// replication in a region of a trail that was created in a different region, or in the
+        /// case of an organization trail, the replication of an organization trail in member
+        /// accounts. If you do not include shadow trails, organization trails in a member account
+        /// and region replication trails will not be returned. The default is true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

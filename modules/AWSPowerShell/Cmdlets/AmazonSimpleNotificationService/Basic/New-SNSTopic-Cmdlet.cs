@@ -43,6 +43,20 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     public partial class NewSNSTopicCmdlet : AmazonSimpleNotificationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter Attribute
+        /// <summary>
+        /// <para>
+        /// <para>A map of attributes with their corresponding values.</para><para>The following lists the names, descriptions, and values of the special request parameters
+        /// that the <code>CreateTopic</code> action uses:</para><ul><li><para><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed
+        /// deliveries to HTTP/S endpoints.</para></li><li><para><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</para></li><li><para><code>Policy</code> – The policy that defines who can access your topic. By default,
+        /// only the topic owner can publish or subscribe to the topic.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Attributes")]
+        public System.Collections.Hashtable Attribute { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -83,6 +97,14 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Attribute != null)
+            {
+                context.Attributes = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Attribute.Keys)
+                {
+                    context.Attributes.Add((String)hashKey, (String)(this.Attribute[hashKey]));
+                }
+            }
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -100,6 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.SNS
             // create request
             var request = new Amazon.SimpleNotificationService.Model.CreateTopicRequest();
             
+            if (cmdletContext.Attributes != null)
+            {
+                request.Attributes = cmdletContext.Attributes;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -168,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Attributes { get; set; }
             public System.String Name { get; set; }
         }
         

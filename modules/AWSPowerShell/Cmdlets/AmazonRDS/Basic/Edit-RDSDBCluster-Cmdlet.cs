@@ -140,6 +140,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] CloudwatchLogsExportConfiguration_DisableLogType { get; set; }
         #endregion
         
+        #region Parameter EnableHttpEndpoint
+        /// <summary>
+        /// <para>
+        /// <note><para>HTTP endpoint functionality is in beta for Aurora Serverless and is subject to change.</para></note><para>A value that indicates whether to enable the HTTP endpoint for an Aurora Serverless
+        /// DB cluster. By default, the HTTP endpoint is disabled.</para><para>When enabled, the HTTP endpoint provides a connectionless web service API for running
+        /// SQL queries on the Aurora Serverless DB cluster. You can also query your database
+        /// from inside the RDS console with the query editor.</para><para>For more information about Aurora Serverless, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
+        /// Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableHttpEndpoint { get; set; }
+        #endregion
+        
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
@@ -345,6 +359,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             if (ParameterWasBound("DeletionProtection"))
                 context.DeletionProtection = this.DeletionProtection;
+            if (ParameterWasBound("EnableHttpEndpoint"))
+                context.EnableHttpEndpoint = this.EnableHttpEndpoint;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
             context.EngineVersion = this.EngineVersion;
@@ -435,6 +451,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DeletionProtection != null)
             {
                 request.DeletionProtection = cmdletContext.DeletionProtection.Value;
+            }
+            if (cmdletContext.EnableHttpEndpoint != null)
+            {
+                request.EnableHttpEndpoint = cmdletContext.EnableHttpEndpoint.Value;
             }
             if (cmdletContext.EnableIAMDatabaseAuthentication != null)
             {
@@ -593,6 +613,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.Boolean? DeletionProtection { get; set; }
+            public System.Boolean? EnableHttpEndpoint { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
             public System.String EngineVersion { get; set; }
             public System.String MasterUserPassword { get; set; }

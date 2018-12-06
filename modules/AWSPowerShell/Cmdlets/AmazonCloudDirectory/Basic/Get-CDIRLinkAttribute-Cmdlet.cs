@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) that is associated with the Directory where the typed
-        /// link resides. For more information, see <a>arns</a> or <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
-        /// link</a>.</para>
+        /// link resides. For more information, see <a>arns</a> or <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_links.html#directory_objects_links_typedlink">Typed
+        /// Links</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
         /// to it from the directory root. Use the link names from each parent/child link to construct
         /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>A path selector supports easy selection of an object by the parent/child links leading
         /// to it from the directory root. Use the link names from each parent/child link to construct
         /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// For more information about paths, see <a href="https://docs.aws.amazon.com/clouddirectory/latest/developerguide/directory_objects_access_objects.html">Access
         /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
         /// Cloud Directory. When creating objects, the system will provide you with the identifier
         /// of the created object. An object’s identifier is immutable and no two objects will

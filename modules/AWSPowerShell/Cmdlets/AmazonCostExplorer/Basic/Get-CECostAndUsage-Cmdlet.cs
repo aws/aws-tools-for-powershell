@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.CE
     /// usage-related metric, such as <code>BlendedCosts</code> or <code>UsageQuantity</code>,
     /// that you want the request to return. You can also filter and group your data by various
     /// dimensions, such as <code>SERVICE</code> or <code>AZ</code>, in a specific time range.
-    /// For a complete list of valid dimensions, see the <code><a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a></code> operation. Master accounts in an organization in AWS Organizations have access
-    /// to all member accounts.
+    /// For a complete list of valid dimensions, see the <a href="http://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_GetDimensionValues.html">GetDimensionValues</a>
+    /// operation. Master accounts in an organization in AWS Organizations have access to
+    /// all member accounts.
     /// </summary>
     [Cmdlet("Get", "CECostAndUsage")]
     [OutputType("Amazon.CostExplorer.Model.GetCostAndUsageResponse")]
@@ -63,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>Sets the AWS cost granularity to <code>MONTHLY</code> or <code>DAILY</code>. If <code>Granularity</code>
         /// isn't set, the response object doesn't include the <code>Granularity</code>, either
-        /// <code>MONTHLY</code> or <code>DAILY</code>. </para>
+        /// <code>MONTHLY</code> or <code>DAILY</code>. </para><para>The <code>GetCostAndUsageRequest</code> operation supports only <code>DAILY</code>
+        /// and <code>MONTHLY</code> granularities.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,13 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.CE
         /// <para>
         /// <para>Which metrics are returned in the query. For more information about blended and unblended
         /// rates, see <a href="https://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why
-        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>UnblendedCost</code>,
-        /// and <code>UsageQuantity</code>.</para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
+        /// does the "blended" annotation appear on some line items in my bill?</a>. </para><para>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
+        /// <code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>,
+        /// and <code>UsageQuantity</code>. </para><note><para>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
         /// numbers without taking into account the units. For example, if you aggregate <code>usageQuantity</code>
-        /// across all of EC2, the results aren't meaningful because EC2 compute hours and data
-        /// transfer are measured in different units (for example, hours vs. GB). To get more
-        /// meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code> or
-        /// <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
+        /// across all of Amazon EC2, the results aren't meaningful because Amazon EC2 compute
+        /// hours and data transfer are measured in different units (for example, hours vs. GB).
+        /// To get more meaningful <code>UsageQuantity</code> metrics, filter by <code>UsageType</code>
+        /// or <code>UsageTypeGroups</code>. </para></note><para><code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

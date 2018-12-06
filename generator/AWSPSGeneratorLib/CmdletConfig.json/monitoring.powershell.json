@@ -76,8 +76,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alarms",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AlarmName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -130,8 +129,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Dashboards",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DashboardName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -221,7 +219,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AlarmHistory",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -268,7 +265,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alarms",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -320,8 +316,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AlarmsForMetric",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -367,8 +362,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AlarmActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AlarmName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -419,8 +413,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AlarmActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AlarmName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -473,8 +466,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Dashboard",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -553,8 +545,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricData",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -640,8 +631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricStatistics",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -687,8 +677,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricWidgetImage",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -743,7 +732,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Dashboards",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -792,8 +780,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Dashboard",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -848,8 +835,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricAlarm",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AlarmName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -904,8 +890,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricData",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Namespace",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -962,8 +947,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AlarmState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AlarmName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

@@ -80,15 +80,62 @@ namespace Amazon.PowerShell.Cmdlets.SM
     public partial class NewSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
     {
         
+        #region Parameter AcceleratorType
+        /// <summary>
+        /// <para>
+        /// <para>A list of Elastic Inference (EI) instance types to associate with this notebook instance.
+        /// Currently, only one instance type can be associated with a notebook intance. For more
+        /// information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/ei.html">Using
+        /// Elastic Inference in Amazon SageMaker</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AcceleratorTypes")]
+        public System.String[] AcceleratorType { get; set; }
+        #endregion
+        
+        #region Parameter AdditionalCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>An array of up to 3 git repositories to associate with the notebook instance. These
+        /// can be either the names of git repositories stored as resources in your account, or
+        /// the URL of git repositories in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
+        /// CodeCommit</a> or in any other git repository. These repositories are cloned at the
+        /// same level as the default repository of your notebook instance. For more information,
+        /// see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AdditionalCodeRepositories")]
+        public System.String[] AdditionalCodeRepository { get; set; }
+        #endregion
+        
+        #region Parameter DefaultCodeRepository
+        /// <summary>
+        /// <para>
+        /// <para>A git repository to associate with the notebook instance as its default code repository.
+        /// This can be either the name of a git repository stored as a resource in your account,
+        /// or the URL of a git repository in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
+        /// CodeCommit</a> or in any other git repository. When you open a notebook instance,
+        /// it opens in the directory that contains this repository. For more information, see
+        /// <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
+        /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DefaultCodeRepository { get; set; }
+        #endregion
+        
         #region Parameter DirectInternetAccess
         /// <summary>
         /// <para>
         /// <para>Sets whether Amazon SageMaker provides internet access to the notebook instance. If
         /// you set this to <code>Disabled</code> this notebook instance will be able to access
         /// resources only in your VPC, and will not be able to connect to Amazon SageMaker training
-        /// and endpoint services unless your configure a NAT Gateway in your VPC.</para><para>For more information, see <a>appendix-notebook-and-internet-access</a>. You can set
-        /// the value of this parameter to <code>Disabled</code> only if you set a value for the
-        /// <code>SubnetId</code> parameter.</para>
+        /// and endpoint services unless your configure a NAT Gateway in your VPC.</para><para>For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
+        /// Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter
+        /// to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +169,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
-        /// information about lifestyle configurations, see <a>notebook-lifecycle-config</a>.</para>
+        /// information about lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// 2.1: (Optional) Customize a Notebook Instance</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -190,6 +238,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter VolumeSizeInGB
+        /// <summary>
+        /// <para>
+        /// <para>The size, in GB, of the ML storage volume to attach to the notebook instance. The
+        /// default value is 5 GB.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 VolumeSizeInGB { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -219,6 +278,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AcceleratorType != null)
+            {
+                context.AcceleratorTypes = new List<System.String>(this.AcceleratorType);
+            }
+            if (this.AdditionalCodeRepository != null)
+            {
+                context.AdditionalCodeRepositories = new List<System.String>(this.AdditionalCodeRepository);
+            }
+            context.DefaultCodeRepository = this.DefaultCodeRepository;
             context.DirectInternetAccess = this.DirectInternetAccess;
             context.InstanceType = this.InstanceType;
             context.KmsKeyId = this.KmsKeyId;
@@ -234,6 +302,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 context.Tags = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
             }
+            if (ParameterWasBound("VolumeSizeInGB"))
+                context.VolumeSizeInGB = this.VolumeSizeInGB;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +320,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
             // create request
             var request = new Amazon.SageMaker.Model.CreateNotebookInstanceRequest();
             
+            if (cmdletContext.AcceleratorTypes != null)
+            {
+                request.AcceleratorTypes = cmdletContext.AcceleratorTypes;
+            }
+            if (cmdletContext.AdditionalCodeRepositories != null)
+            {
+                request.AdditionalCodeRepositories = cmdletContext.AdditionalCodeRepositories;
+            }
+            if (cmdletContext.DefaultCodeRepository != null)
+            {
+                request.DefaultCodeRepository = cmdletContext.DefaultCodeRepository;
+            }
             if (cmdletContext.DirectInternetAccess != null)
             {
                 request.DirectInternetAccess = cmdletContext.DirectInternetAccess;
@@ -285,6 +367,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.Tags != null)
             {
                 request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.VolumeSizeInGB != null)
+            {
+                request.VolumeSizeInGB = cmdletContext.VolumeSizeInGB.Value;
             }
             
             CmdletOutput output;
@@ -350,6 +436,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AcceleratorTypes { get; set; }
+            public List<System.String> AdditionalCodeRepositories { get; set; }
+            public System.String DefaultCodeRepository { get; set; }
             public Amazon.SageMaker.DirectInternetAccess DirectInternetAccess { get; set; }
             public Amazon.SageMaker.InstanceType InstanceType { get; set; }
             public System.String KmsKeyId { get; set; }
@@ -359,6 +448,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<System.String> SecurityGroupIds { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
+            public System.Int32? VolumeSizeInGB { get; set; }
         }
         
     }

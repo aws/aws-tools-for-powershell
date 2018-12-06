@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// runs for longer than 5 minutes, it fails and the notebook instance is not created
     /// or started.
     /// </para><para>
-    /// For information about notebook instance lifestyle configurations, see <a>notebook-lifecycle-config</a>.
+    /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+    /// 2.1: (Optional) Customize a Notebook Instance</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMNotebookInstanceLifecycleConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -72,7 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter OnCreate
         /// <summary>
         /// <para>
-        /// <para>A shell script that runs only once, when you create a notebook instance.</para>
+        /// <para>A shell script that runs only once, when you create a notebook instance. The shell
+        /// script must be a base64-encoded string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A shell script that runs every time you start a notebook instance, including when
-        /// you create the notebook instance.</para>
+        /// you create the notebook instance. The shell script must be a base64-encoded string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

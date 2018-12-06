@@ -74,8 +74,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatedArtifact",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CreatedArtifact",
         "passThruTypeName": "Amazon.MigrationHub.Model.CreatedArtifact",
         "requiresPassThruGeneration": "true",
@@ -128,8 +127,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResource",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DiscoveredResource",
         "passThruTypeName": "Amazon.MigrationHub.Model.DiscoveredResource",
         "requiresPassThruGeneration": "true",
@@ -182,8 +180,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProgressUpdateStream",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProgressUpdateStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -236,8 +233,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProgressUpdateStream",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ProgressUpdateStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -290,8 +286,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -339,8 +334,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -388,8 +382,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatedArtifact",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: CreatedArtifactName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -442,8 +435,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResource",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -496,8 +488,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTask",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: MigrationTaskName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -550,7 +541,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatedArtifacts",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -599,7 +589,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResources",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -648,7 +637,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTasks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -695,7 +683,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProgressUpdateStreams",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -744,8 +731,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ApplicationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -798,8 +784,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTaskState",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Task",
         "passThruTypeName": "Amazon.MigrationHub.Model.Task",
         "requiresPassThruGeneration": "true",
@@ -852,8 +837,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceAttributes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: MigrationTaskName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
-        /// 00:00:00 UTC. Events with a time stamp later than this time are not returned.</para>
+        /// 00:00:00 UTC. Events with a timestamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>Filters the results to only logs from the log streams in this list.</para><para>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>,
-        /// but the value for <code>logStreamNamePrefix</code> does not match any log stream names
-        /// specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code>
-        /// error.</para>
+        /// the action returns an <code>InvalidParameterException</code> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -125,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The start of the time range, expressed as the number of milliseconds after Jan 1,
-        /// 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.</para>
+        /// 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

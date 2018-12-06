@@ -97,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
         public System.String KMSKeyArn { get; set; }
         #endregion
         
+        #region Parameter Layer
+        /// <summary>
+        /// <para>
+        /// <para>A list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function
+        /// layers</a> to add to the function's execution environment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Layers")]
+        public System.String[] Layer { get; set; }
+        #endregion
+        
         #region Parameter MemorySize
         /// <summary>
         /// <para>
@@ -254,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.FunctionName = this.FunctionName;
             context.Handler = this.Handler;
             context.KMSKeyArn = this.KMSKeyArn;
+            if (this.Layer != null)
+            {
+                context.Layers = new List<System.String>(this.Layer);
+            }
             if (ParameterWasBound("MemorySize"))
                 context.MemorySize = this.MemorySize;
             context.RevisionId = this.RevisionId;
@@ -339,6 +355,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.KMSKeyArn != null)
             {
                 request.KMSKeyArn = cmdletContext.KMSKeyArn;
+            }
+            if (cmdletContext.Layers != null)
+            {
+                request.Layers = cmdletContext.Layers;
             }
             if (cmdletContext.MemorySize != null)
             {
@@ -478,6 +498,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String Handler { get; set; }
             public System.String KMSKeyArn { get; set; }
+            public List<System.String> Layers { get; set; }
             public System.Int32? MemorySize { get; set; }
             public System.String RevisionId { get; set; }
             public System.String Role { get; set; }

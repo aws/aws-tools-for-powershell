@@ -14,7 +14,9 @@
     "serviceConfigClass": "AmazonAutoScalingConfig",
     "serviceNamespace": "Amazon.AutoScaling"
   },
-  "nonFlattenedTypeNames": [],
+  "nonFlattenedTypeNames": [
+    "Amazon.AutoScaling.Model.MixedInstancesPolicy"
+  ],
   "nounMaps": {
     "AdjustmentTypes": "AdjustmentType",
     "AutoScalingGroups": "AutoScalingGroup",
@@ -100,8 +102,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.InstanceIds",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -154,8 +155,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -206,8 +206,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -258,8 +257,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteScheduledAction",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -310,8 +308,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PutScheduledUpdateGroupAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -362,8 +359,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -418,8 +414,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -476,8 +471,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LaunchConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LaunchConfigurationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -533,8 +527,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OrUpdateTags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.AutoScaling.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -585,8 +578,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -639,8 +631,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LaunchConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LaunchConfigurationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -691,8 +682,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleHook",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -745,8 +735,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationConfiguration",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -810,8 +799,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -864,8 +852,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledAction",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -918,8 +905,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Tag",
         "passThruTypeName": "Amazon.AutoScaling.Model.Tag",
         "requiresPassThruGeneration": "true",
@@ -970,8 +956,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1017,8 +1002,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AdjustmentTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1066,7 +1050,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1115,7 +1098,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingInstances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1162,8 +1144,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingNotificationTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1211,7 +1192,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LaunchConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1260,8 +1240,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleHooks",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1307,8 +1286,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleHookTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1354,7 +1332,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1401,7 +1378,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1448,8 +1424,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricCollectionTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1497,7 +1472,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationConfigurations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1546,7 +1520,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policies",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1595,7 +1568,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingActivities",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1642,8 +1614,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingProcessTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1722,7 +1693,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledActions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1771,7 +1741,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1818,8 +1787,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TerminationPolicyTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1869,8 +1837,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1923,8 +1890,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1975,8 +1941,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2029,8 +1994,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricsCollection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2084,8 +2048,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricsCollection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2141,8 +2104,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Standby",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2196,8 +2158,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2252,8 +2213,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Standby",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2304,8 +2264,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleHook",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2359,8 +2318,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotificationConfiguration",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2413,8 +2371,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2518,8 +2475,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledUpdateGroupAction",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2570,8 +2526,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecycleActionHeartbeat",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2624,8 +2579,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Processes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2679,8 +2633,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DesiredCapacity",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2736,8 +2689,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceHealth",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2788,8 +2740,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceProtection",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2842,8 +2793,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Processes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -2898,8 +2848,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InstanceInAutoScalingGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -2955,8 +2904,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

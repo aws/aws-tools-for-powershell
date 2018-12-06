@@ -65,7 +65,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -116,7 +115,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -161,7 +159,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ShippingLabel",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -201,7 +198,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Status",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -245,7 +241,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -289,7 +284,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",

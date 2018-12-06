@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// In a blue/green deployment, overrides any specified wait time and starts terminating
-    /// instances immediately after the traffic routing is completed.
+    /// instances immediately after the traffic routing is completed.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Skip", "CDWaitTimeForInstanceTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -38,14 +38,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeploymentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
+    [System.ObsoleteAttribute("This operation is deprecated, use ContinueDeployment with DeploymentWaitType inst" +
+        "ead.")]
     public partial class SkipCDWaitTimeForInstanceTerminationCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the blue/green deployment for which you want to skip the instance termination
-        /// wait time.</para>
+        /// <para> The unique ID of a blue/green deployment for which you want to skip the instance
+        /// termination wait time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -72,8 +72,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainAvailability",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -119,8 +118,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainTransferability",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -166,8 +164,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForDomain",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -218,8 +215,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainAutoRenew",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -270,8 +266,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainTransferLock",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -322,8 +317,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainAutoRenew",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -374,8 +368,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainTransferLock",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -426,8 +419,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContactReachabilityStatus",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -473,8 +465,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainDetail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -520,8 +511,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainSuggestions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -569,8 +559,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OperationDetail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -618,7 +607,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domains",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -667,7 +655,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Operations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -714,8 +701,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -770,8 +756,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -822,8 +807,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -874,8 +858,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContactReachabilityEmail",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -926,8 +909,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainAuthCode",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -982,8 +964,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1034,8 +1015,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainContact",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1086,8 +1066,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainContactPrivacy",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1138,8 +1117,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DomainNameservers",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1190,8 +1168,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForDomain",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern1",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -1250,7 +1227,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Billing",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",

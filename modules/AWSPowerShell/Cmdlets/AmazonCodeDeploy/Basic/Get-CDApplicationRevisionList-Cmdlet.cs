@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application associated with the applicable IAM user
-        /// or AWS account.</para>
+        /// <para> The name of an AWS CodeDeploy application associated with the applicable IAM user
+        /// or AWS account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Deployed
         /// <summary>
         /// <para>
-        /// <para>Whether to list revisions based on whether the revision is the target revision of
-        /// an deployment group:</para><ul><li><para>include: List revisions that are target revisions of a deployment group.</para></li><li><para>exclude: Do not list revisions that are target revisions of a deployment group.</para></li><li><para>ignore: List all revisions.</para></li></ul>
+        /// <para> Whether to list revisions based on whether the revision is the target revision of
+        /// an deployment group: </para><ul><li><para>include: List revisions that are target revisions of a deployment group.</para></li><li><para>exclude: Do not list revisions that are target revisions of a deployment group.</para></li><li><para>ignore: List all revisions.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3Bucket
         /// <summary>
         /// <para>
-        /// <para>An Amazon S3 bucket name to limit the search for revisions.</para><para>If set to null, all of the user's buckets will be searched.</para>
+        /// <para> An Amazon S3 bucket name to limit the search for revisions. </para><para> If set to null, all of the user's buckets are searched. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter S3KeyPrefix
         /// <summary>
         /// <para>
-        /// <para>A key prefix for the set of Amazon S3 objects to limit the search for revisions.</para>
+        /// <para> A key prefix for the set of Amazon S3 objects to limit the search for revisions.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para>If not specified or set to null, the results will be returned in an arbitrary order.</para>
+        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results will be returned in an arbitrary order.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The order in which to sort the list results:</para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results will be sorted in ascending order.</para><para>If set to null, the results will be sorted in an arbitrary order.</para>
+        /// <para> The order in which to sort the list results: </para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results will be sorted in ascending order.</para><para>If set to null, the results will be sorted in an arbitrary order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier returned from the previous list application revisions call. It can be
-        /// used to return the next set of applications in the list.</para>
+        /// <para>An identifier returned from the previous <code>ListApplicationRevisions</code> call.
+        /// It can be used to return the next set of applications in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

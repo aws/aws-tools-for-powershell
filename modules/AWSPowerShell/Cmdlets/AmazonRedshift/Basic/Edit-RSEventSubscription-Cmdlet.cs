@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>Specifies the Amazon Redshift event categories to be published by the event notification
-        /// subscription.</para><para>Values: Configuration, Management, Monitoring, Security</para>
+        /// subscription.</para><para>Values: configuration, management, monitoring, security</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -50,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public System.String AmznClientToken { get; set; }
         #endregion
         
+        #region Parameter ConnectorDefinitionVersionArn
+        /// <summary>
+        /// <para>
+        /// The ARN of the connector
+        /// definition version for this group.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ConnectorDefinitionVersionArn { get; set; }
+        #endregion
+        
         #region Parameter CoreDefinitionVersionArn
         /// <summary>
         /// <para>
@@ -86,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// The ID of the AWS Greengrass group.
+        /// The ID of the Greengrass group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -107,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ResourceDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// The resource definition version
-        /// ARN for this group.
+        /// The ARN of the resource definition
+        /// version for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -156,6 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             PreExecutionContextLoad(context);
             
             context.AmznClientToken = this.AmznClientToken;
+            context.ConnectorDefinitionVersionArn = this.ConnectorDefinitionVersionArn;
             context.CoreDefinitionVersionArn = this.CoreDefinitionVersionArn;
             context.DeviceDefinitionVersionArn = this.DeviceDefinitionVersionArn;
             context.FunctionDefinitionVersionArn = this.FunctionDefinitionVersionArn;
@@ -182,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (cmdletContext.AmznClientToken != null)
             {
                 request.AmznClientToken = cmdletContext.AmznClientToken;
+            }
+            if (cmdletContext.ConnectorDefinitionVersionArn != null)
+            {
+                request.ConnectorDefinitionVersionArn = cmdletContext.ConnectorDefinitionVersionArn;
             }
             if (cmdletContext.CoreDefinitionVersionArn != null)
             {
@@ -276,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AmznClientToken { get; set; }
+            public System.String ConnectorDefinitionVersionArn { get; set; }
             public System.String CoreDefinitionVersionArn { get; set; }
             public System.String DeviceDefinitionVersionArn { get; set; }
             public System.String FunctionDefinitionVersionArn { get; set; }

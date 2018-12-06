@@ -51,6 +51,20 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     public partial class RemoveCWETargetCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
+        #region Parameter Enforce
+        /// <summary>
+        /// <para>
+        /// <para>If this is a managed rule, created by an AWS service on your behalf, you must specify
+        /// <code>Force</code> as <code>True</code> to remove targets. This parameter is ignored
+        /// for rules that are not managed rules. You can check whether a rule is a managed rule
+        /// by using <code>DescribeRule</code> or <code>ListRules</code> and checking the <code>ManagedBy</code>
+        /// field of the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Enforce { get; set; }
+        #endregion
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -101,6 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("Enforce"))
+                context.Enforce = this.Enforce;
             if (this.Id != null)
             {
                 context.Ids = new List<System.String>(this.Id);
@@ -122,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             // create request
             var request = new Amazon.CloudWatchEvents.Model.RemoveTargetsRequest();
             
+            if (cmdletContext.Enforce != null)
+            {
+                request.Force = cmdletContext.Enforce.Value;
+            }
             if (cmdletContext.Ids != null)
             {
                 request.Ids = cmdletContext.Ids;
@@ -194,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Enforce { get; set; }
             public List<System.String> Ids { get; set; }
             public System.String Rule { get; set; }
         }

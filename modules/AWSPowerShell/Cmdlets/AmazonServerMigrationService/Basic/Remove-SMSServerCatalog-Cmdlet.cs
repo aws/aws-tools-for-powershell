@@ -28,8 +28,7 @@ using Amazon.ServerMigrationService.Model;
 namespace Amazon.PowerShell.Cmdlets.SMS
 {
     /// <summary>
-    /// The DeleteServerCatalog API clears all servers from your server catalog. This means
-    /// that these servers will no longer be accessible to the Server Migration Service.
+    /// Deletes all servers from your server catalog.
     /// </summary>
     [Cmdlet("Remove", "SMSServerCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

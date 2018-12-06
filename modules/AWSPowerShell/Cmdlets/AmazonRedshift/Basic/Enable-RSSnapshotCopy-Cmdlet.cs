@@ -55,12 +55,24 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+        /// <para>The destination AWS Region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid AWS Region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
         /// and Endpoints</a> in the Amazon Web Services General Reference. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DestinationRegion { get; set; }
+        #endregion
+        
+        #region Parameter ManualSnapshotRetentionPeriod
+        /// <summary>
+        /// <para>
+        /// <para>The number of days to retain newly copied snapshots in the destination AWS Region
+        /// after they are copied from the source AWS Region. If the value is -1, the manual snapshot
+        /// is retained indefinitely. </para><para>The value must be either -1 or an integer between 1 and 3,653.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ManualSnapshotRetentionPeriod { get; set; }
         #endregion
         
         #region Parameter RetentionPeriod
@@ -116,6 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             
             context.ClusterIdentifier = this.ClusterIdentifier;
             context.DestinationRegion = this.DestinationRegion;
+            if (ParameterWasBound("ManualSnapshotRetentionPeriod"))
+                context.ManualSnapshotRetentionPeriod = this.ManualSnapshotRetentionPeriod;
             if (ParameterWasBound("RetentionPeriod"))
                 context.RetentionPeriod = this.RetentionPeriod;
             context.SnapshotCopyGrantName = this.SnapshotCopyGrantName;
@@ -142,6 +156,10 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.DestinationRegion != null)
             {
                 request.DestinationRegion = cmdletContext.DestinationRegion;
+            }
+            if (cmdletContext.ManualSnapshotRetentionPeriod != null)
+            {
+                request.ManualSnapshotRetentionPeriod = cmdletContext.ManualSnapshotRetentionPeriod.Value;
             }
             if (cmdletContext.RetentionPeriod != null)
             {
@@ -217,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             public System.String ClusterIdentifier { get; set; }
             public System.String DestinationRegion { get; set; }
+            public System.Int32? ManualSnapshotRetentionPeriod { get; set; }
             public System.Int32? RetentionPeriod { get; set; }
             public System.String SnapshotCopyGrantName { get; set; }
         }

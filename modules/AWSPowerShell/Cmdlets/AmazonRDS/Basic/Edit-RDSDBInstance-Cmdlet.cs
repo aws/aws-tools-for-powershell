@@ -112,7 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>
         /// for this request. If you change the parameter from one non-zero value to another non-zero
         /// value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
-        /// For more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
+        /// For more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6
+        /// or later</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
         /// 9.3.5</para></li><li><para>Can't be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>

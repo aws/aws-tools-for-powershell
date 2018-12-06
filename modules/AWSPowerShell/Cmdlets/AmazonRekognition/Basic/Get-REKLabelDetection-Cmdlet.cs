@@ -53,7 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// results. To get the next page of results, call <code>GetlabelDetection</code> and
     /// populate the <code>NextToken</code> request parameter with the token value returned
     /// from the previous call to <code>GetLabelDetection</code>.
-    /// </para>
+    /// </para><note><para><code>GetLabelDetection</code> doesn't return a hierarchical taxonomy, or bounding
+    /// box information, for detected labels. <code>GetLabelDetection</code> returns <code>null</code>
+    /// for the <code>Parents</code> and <code>Instances</code> attributes of the object which
+    /// is returned in the <code>Labels</code> array. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "REKLabelDetection")]
     [OutputType("Amazon.Rekognition.Model.GetLabelDetectionResponse")]

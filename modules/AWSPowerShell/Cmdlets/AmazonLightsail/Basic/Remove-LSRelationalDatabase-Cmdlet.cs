@@ -29,6 +29,14 @@ namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
     /// Deletes a database in Amazon Lightsail.
+    /// 
+    ///  
+    /// <para>
+    /// The <code>delete relational database</code> operation supports tag-based access control
+    /// via resource tags applied to the resource identified by relationalDatabaseName. For
+    /// more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
+    /// Dev Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "LSRelationalDatabase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]

@@ -115,7 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_FulfilledCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of units fulfilled by this request compared to the set target capacity.</para>
+        /// <para>The number of units fulfilled by this request compared to the set target capacity.
+        /// You cannot set this value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

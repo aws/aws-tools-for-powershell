@@ -67,8 +67,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -119,8 +118,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IntentVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -171,8 +169,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotTypeVersion",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -223,8 +220,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bot",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -275,8 +271,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotAlias",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -327,8 +322,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotChannelAssociation",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -381,8 +375,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Version",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -433,8 +426,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Intent",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -485,8 +477,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IntentVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -537,8 +528,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotType",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -591,8 +581,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotTypeVersion",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: Version",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -645,8 +634,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Utterances",
         "confirmImpactSetting": "High",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
@@ -699,8 +687,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -746,8 +733,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotAlias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -795,7 +781,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotAliases",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -842,8 +827,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotChannelAssociation",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -891,7 +875,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotChannelAssociations",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -938,7 +921,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bots",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -985,7 +967,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1034,8 +1015,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BuiltinIntent",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1081,7 +1061,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BuiltinIntents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1128,7 +1107,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BuiltinSlotTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1175,8 +1153,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Export",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1224,8 +1201,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Import",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1271,8 +1247,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Intent",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1318,7 +1293,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Intents",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1365,7 +1339,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IntentVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1412,8 +1385,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotType",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1459,7 +1431,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotTypes",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1506,7 +1477,6 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotTypeVersions",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "true",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
@@ -1555,8 +1525,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UtterancesView",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1602,8 +1571,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Bot",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1654,8 +1622,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BotAlias",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1706,8 +1673,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Intent",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1758,8 +1724,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SlotType",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -1810,8 +1775,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Import",
         "confirmImpactSetting": "Medium",
-        "generateIterationCode": "false",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",

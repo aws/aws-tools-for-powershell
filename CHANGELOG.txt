@@ -1,4 +1,200 @@
-﻿### 3.3.390.0 (2018-10-22)
+﻿### 3.3.422.0 (2018-12-06)
+  * Amazon CloudDirectory
+    * [Breaking Change] The service output for the APIs called by the Get-CDIRObjectParent cmdlet has been updated and it is no longer possible for these cmdlets to return all available data using automatic pagination. You script will need to be updated to manually paginate the returned data using the *NextToken* parameter and field in the returned service response.
+  * Amazon EC2
+    * [Breaking Change] The response data from the service's CreateFleet API has been extended to emit the instances launched in the API response.
+    * Added and updated cmdlets:
+      * Transit Gateway helps easily scale connectivity across thousands of Amazon VPCs, AWS accounts, and on-premises networks.
+      * Added the AvailabilityZoneId parameter to Get-AvailabilityZone cmdlet.
+      * VM Import/Export now supports generating encrypted EBS snapshots, as well as AMIs backed by encrypted EBS snapshots during the import process.
+      * With On-Demand Capacity Reservations, customers can reserve the exact EC2 capacity they need, and can keep it only for as long as they need it.
+      * Provides customers the ability to Bring Your Own IP (BYOIP) prefix. You can bring part or all of your public IPv4 address range from your on-premises network to your AWS account. You continue to own the address range, but AWS advertises it on the internet.
+    * Updated cmdlet Get-EC2ReservedInstancesModification to add pagination support.
+  * Amazon ECS
+    * [Breaking Change] The response data from the service's DescribeTaskDefinition API has been extended to emit both the task definition and the tags that are applied to it. The output from the corresponding Get-TaskDefinitionDetail cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Get-TaskDefinitionDetail).TaskDefinition_ in place of _Get-TaskDefinitionDetail_.
+    * Added and updated cmdlets.
+      * This release of Amazon Elastic Container Service (Amazon ECS) introduces support for additional Docker flags as Task Definition parameters. Customers can now configure their ECS Tasks to use pidMode (pid) and ipcMode (ipc) Docker flags.
+      * ECS now supports integration with Systems Manager Parameter Store for injecting runtime secrets.
+      * ECS introduces support for resources tagging. 
+      * ECS introduces a new ARN and ID Format for its resources, and provides new APIs for opt-in to the new formats.
+      * ECS introduces support for blue/green deployment feature
+  * Amazon ResourceGroups
+    * [Breaking Change] The service output for the APIs called by the Get-RGGroupResourceList and Find-RGResource APIs cmdlets has been updated and it is no longer possible for these cmdlets to return all available data using automatic pagination. You script will need to be updated to manually paginate the returned data using the *NextToken* parameter and field in the returned service response.
+  * Amazon Translate
+    * [Breaking Change] The response data from the service's TranslateText API has been extended to emit both the translated text and terminology names. The output from the corresponding ConvertTo-TRNTargetLanguage cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(ConvertTo-TRNTargetLanguage).Text_ in place of _ConvertTo-TRNTargetLanguage_.
+    * Added and updated cmdlet supporting custom terminology. Using custom terminology with your translation requests enables you to make sure that your brand names, character names, model names, and other unique content is translated exactly the way you need it, regardless of its context and the Amazon Translate algorithm's decision.
+  * Amazon AlexaForBusiness
+    * Added and updated cmdlets to extend the functionality of the Alexa for Business SDK, including additional support for third-party Alexa built-in devices, managing private and public skills, and conferencing setup.
+  * Amazon AppSync
+    * Added and updated cmdlets. AWS AppSync now supports:
+      1. Pipeline Resolvers - Enables execution of one or more operations against multiple data sources in order, on a single GraphQL field. This allows orchestration of actions by composing code into a single Resolver, or share code across Resolvers.
+      2. Aurora Serverless Data Source - Built-in resolver for executing GraphQL operations with the new Aurora Serverless Data API, including connection management functionality.
+  * Amazon Auto Scaling
+    * Updated cmdlets New-ASAutoScalingGroup and Update-ASAutoScalingGroup to allow users to provision and automatically scale instances across purchase options (Spot, On-Demand, and RIs) and instance types in a single Auto Scaling group (ASG).
+  * Amazon Batch
+    * Updated cmdlet New-BATComputeEnvironment adding EC2 Launch Template support.
+    * Updated cmdlets Get-BATJobsList, New-BATComputeEnvironment, Register-BATJobDefinition and Submit-BATJob adding support for multinode parallel jobs, placement group support for compute environments.
+  * Amazon Budgets
+    * Added Get-BGTBudgetPerformanceHistory cmdlet enabling you to see how well your budgets matched your actual costs and usage.
+    * Updated cmdlets adding budget performance history, notification state, and last updated time, enabling you to see how well your budgets matched your actual costs and usage, how often your budget alerts triggered, and when your budget was last updated.
+  * Amazon CloudFormation
+    * Added cmdlets Get-CFNDetectedStackResourceDrift, Get-CFNStackDriftDetectionStatus, Get-CFNStackResourceDrift and Start-CFNStackDriftDetection. The Drift Detection feature enables customers to detect whether a stack's actual configuration differs, or has drifted, from its expected configuration as defined within AWS CloudFormation.
+  * Amazon CloudFront
+    * Updated cmdlets New-CFDistribution, New-CFDistributionWithTag and Update-CFDistribution adding Origin Failover capability in CloudFront, you can setup two origins for your distributions - primary and secondary, such that your content is served from your secondary origin if CloudFront detects that your primary origin is unavailable. These origins can be any combination of AWS origins or non-AWS custom HTTP origins.
+  * Amazon CloudTrail
+    * Updated cmdlets New-CTTrail and Update-CTTrail supporting creation of a trail in CloudTrail that logs events for all AWS accounts in an organization in AWS Organizations.
+  * Amazon CloudWatch
+    * Updated cmdlets Get-EBEnvironmentManagedActionHistory and Get-EBInstanceHealth to add pagination support.
+    * Updated cmdlet Write-CWMetricAlarm supporting alarms on metric math expressions.
+  * Amazon CloudWatchEvents
+    * Updated cmdlets Remove-CWERule and Remove-CWETarget by adding Enforce paramter
+  * Amazon CloudWatchLogs
+    * Added cmdlets Get-CWLQuery, Get-CWLLogGroupField, Get-CWLLogRecord, Get-CWLQueryResult, Start-CWLQuery, Stop-CWLQuery supporting CloudWatch Logs Insights
+  * Amazon CodeBuild
+    * Updated cmdlets New-CBProject, Start-CBBuild and Update-CBProject adding queue phase and configurable queue timeout to CodeBuild.
+  * Amazon CodeDeploy
+    * Added cmdlets Get-CDDeploymentTargetBatch, Get-CDDeploymentTarget, Get-CDDeploymentTargetList supporting Amazon ECS deployment.
+  * Amazon CodePipeline
+    * Updated cmdlet Start-CPPipelineExecution adding the ClientRequestToken parameter: the system-generated unique ID used to identify a unique execution request.
+  * Amazon CodeStar
+    * Added New-CSTProject cmdlet allowing to create projects from source code and a toolchain definition that you provide.
+  * Amazon Comprehend
+    * Added and updated cmdlets:
+      * Custom Entities automatically trains entity recognition models using your entities and noun-based phrases.
+      * Custom Classification automatically trains classification models using your text and custom labels.
+  * Amazon ConfigService
+    * Added cmdlets Get-CFGAggregateDiscoveredResourceCount, Get-CFGAggregateDiscoveredResourceList, Get-CFGAggregateResourceConfig and Get-CFGAggregateResourceConfigBatch providing support for aggregating the configuration data of AWS resources into multi-account and multi-region aggregators.
+  * Amazon CostExplorer
+    * Added cmdlet Get-CECostForecast which allows you to programmatically access AWS Cost Explorer's forecasting engine.
+    * Updated cmdlet Get-CEReservationCoverage adding normalized unit support.
+  * Amazon DatabaseMigrationService
+    * Updated cmdlets Edit-DMSEndpoint, New-DMSEndpoint and New-DMSReplicationInstance to support Kinesis and Elasticsearch as targets.
+  * Amazon DeviceFarm
+    * Updated cmdlet Get-DFDeviceList and Submit-DFTestRun allowing to schedule runs without a need to create a Device Pool.
+  * Amazon DirectConnect
+    * Updated cmdlet Remove-DCBGPPeer adding BgpPeerId parameter.
+  * Amazon DLM
+    * Amazon Data Lifecycle Manager (DLM) for EBS Snapshots provides a simple, automated way to back up data stored on Amazon EBS volumes.
+  * Amazon DynamoDB
+    * Added cmdlets Write-DDBItemTransactionally and Get-DDBItemTransactionally to support ACID transactions which simplify the developer experience of making coordinated, all-or-nothing changes to multiple items both within and across tables.
+    * Updated cmdlets Update-DDBGlobalTableSetting and Update-DDBTable-Cmdlet to support DynamoDB on-demand which offers simple pay-per-request pricing for read and write requests so that you only pay for what you use, making it easy to balance costs and performance.
+  * Amazon Elastic Beanstalk
+    * Updated cmdlet Get-EBEnvironmentManagedActionHistory and Get-EBInstanceHealth to add pagination support.
+  * Amazon Elastic Load Balancing V2
+    * Added and updated cmdlets
+      * This release allows Application Load Balancers to route traffic to Lambda functions, in addition to instances and IP addresses.
+      * ELBv2 now allows you to enable health checks.
+  * Amazon Greengrass
+    * Added and updated cmdlets supporting bulk deployment operations, Greengrass Connectors and allowing Lambda functions to run without Greengrass containers.
+  * Amazon IdentityManagement
+    * Added and updated cmdlets making it easier for you to manage your AWS Identity and Access Management (IAM) resources by enabling you to add tags to your IAM principals (users and roles). Adding tags on IAM principals will enable you to write fewer policies for permissions management and make policies easier to comprehend.  Additionally, tags will also make it easier for you to grant access to AWS resources.
+  * Amazon IoT
+    * Added and updated cmdlets.
+      * We are extending capability of AWS IoT Rules Engine to support IoT Events rule action. The IoT Events rule action lets you send messages from IoT sensors and applications to IoT Events for pattern recognition and event detection.
+      * IoT now supports resource tagging and tag based access control for Billing Groups, Thing Groups, Thing Types, Jobs, and Security Profiles. IoT Billing Groups help you group devices to categorize and track your costs.
+      * AWS IoT Device Management introduces Dynamic thing groups, Jobs dynamic rollouts and Device connectivity indexing.
+  * Amazon KinesisFirehose
+    * Added cmdlets Start-KINFDeliveryStreamEncryption and Stop-KINFDeliveryStreamEncryption allowing you to enable/disable server-side encryption(SSE) for your delivery streams ensuring encryption of data at rest.
+    * Updated cmdlet New-KINFDeliveryStream allowing to assign a set of tags to the delivery stream.
+  * Amazon Kinesis Video
+    * Updated cmdlets to add pagination support.
+  * Amazon Kinesis Analytics
+    * Updated cmdlets Add-KINAApplicationInput, Add-KINAApplicationOutput, and New-KINAApplication to add improvements to error messages, validations, and more to the Kinesis Data Analytics
+  * Amazon KeyManagementService
+    * Added and updated cmdlets enabling customers to create and manage dedicated, single-tenant key stores in addition to the default KMS key store. These are known as custom key stores and are deployed using AWS CloudHSM clusters. Keys that are created in a KMS custom key store can be used like any other customer master key in KMS.
+  * AWS Lambda
+    * Added and updated cmlets to support Lambda Layers and Ruby as a runtime. Lambda Layers are a new type of artifact that contains arbitrary code and data, and may be referenced by zero, one, or more functions at the same time. You can also now develop your AWS Lambda function code using the Ruby programming language.
+  * Amazon Lightsail
+    * Added and updated cmdlets.
+      * Copy instance and disk snapshots within the same AWS Region or from one region to another in Amazon Lightsail.
+      * Export Lightsail instance and disk snapshots to Amazon Elastic Compute Cloud (Amazon EC2).
+      * Create an Amazon EC2 instance from an exported Lightsail instance snapshot using AWS CloudFormation stacks.
+      * Apply tags to filter your Lightsail resources, or organize your costs, or control access.
+  * AWS MarketPplace Metering
+    * Added cmdlet Register-MMUsage allows sellers to meter and entitle Docker container software use with AWS Marketplace
+  * Amazon Macie
+    * Amazon Macie is a security service that uses machine learning to automatically discover, classify, and protect sensitive data in AWS.
+  * Amazon MediaConvert
+    * Added cmdlets Register-EMCCertificate and Unregister-EMCCertificate.
+  * Amazon MediaPackage
+    * Updated cmdlets EMPOriginEndpoint and EMPOriginEndpoint to support encrypted content keys.
+  * Amazon MQ
+    * Added cmdlets Get-MQTagList, New-MQTags and, Remove-MQTags and updated cmdlets New-MQBroker and New-MQConfiguration adding support for cost allocation tagging. You can now create, delete, and list tags for AmazonMQ resources.
+  * Amazon Pinpoint
+    * Added and updated cmdlets.
+      * With Amazon Pinpoint Voice, you can use text-to-speech technology to deliver personalized voice messages to your customers. Amazon Pinpoint Voice is a great way to deliver transactional messages to customers. 2. Adding support for Campaign Event Triggers.
+      * With Campaign Event Triggers you can now schedule campaigns to execute based on incoming event data and target just the source of the event.
+    * Updated cmdlets Send-PINMessage, Send-PINUserMessageBatch and Update-PINEmailChannel allowing to send transactional email.
+  * Amazon PinpointEmail
+    * You can use Amazon Pinpoint Email to configure and send transactional email from your Amazon Pinpoint account to specific email addresses. Unlike campaign-based email that you send from Amazon Pinpoint, you don't have to create segments and campaigns in order to send transactional email.
+  * Amazon Polly
+    * Updated cmdlets Get-POLLexiconList and Get-POLVoice to add pagination support.
+  * Amazon RDS
+    * Added cmdlet Remove-RDSDBInstanceAutomatedBackup and updated cmdlet Remove-RDSDBInstance introducing DB Instance Automated Backups for the MySQL, MariaDB, PostgreSQL, Oracle and Microsoft SQL Server database engines. You can now retain Amazon RDS automated backups (system snapshots and transaction logs) when you delete a database instance. This allows you to restore a deleted database instance to a specified point in time within the backup retention period even after it has been deleted, protecting you against accidental deletion of data.
+    * Updated cmdlet New-RDSDBInstanceReadReplica, Restore-RDSDBInstanceFromDBSnapshot and Restore-RDSDBInstanceToPointInTime allowing to specify VPC security groups.
+    * Added cmdlets Edit-RDSDBClusterEndpoint, Get-RDSDBClusterEndpoint, New-RDSDBClusterEndpoint and Remove-RDSDBClusterEndpoint enabling Custom Endpoints, a new feature compatible with Aurora Mysql, Aurora PostgreSQL and Neptune that allows users to configure a customizable endpoint that will provide access to their instances in a cluster. 
+    * Added cmddlets New-RDSGlobalCluster, Get-RDSGlobalCluster, Edit-RDSGlobalCluster, Remove-RDSGlobalCluster and Remove-RDSFromGlobalCluster to support Amazon Aurora Global Database, a feature that allows a single Amazon Aurora database to span multiple AWS regions. Customers can use the feature to replicate data with no impact on database performance, enable fast local reads with low latency in each region, and improve disaster recovery from region-wide outages.
+  * Amazon Redshift
+    * Added and updated cmdlets. With this release, Redshift is providing API's for better snapshot management by supporting user defined automated snapshot schedules, retention periods for manual snapshots, and aggregate snapshot actions including batch deleting user snapshots, viewing account level snapshot storage metrics, and better filtering and sorting on the describe-cluster-snapshots API. Automated snapshots can be scheduled to be taken at a custom interval and the schedule created can be reused across clusters. Manual snapshot retention periods can be set at the cluster, snapshot, and cross-region-copy level. The retention period set on a manual snapshot indicates how many days the snapshot will be retained before being automatically deleted.
+  * Amazon S3
+    * Added and updated cmdlets.
+      * S3 Object Lock enables customers to apply Write Once Read Many (WORM) protection to objects in S3 in order to prevent object deletion for a customer-defined retention period.
+      * S3 Inventory now supports fields for reporting on S3 Object Lock. "ObjectLockRetainUntilDate", "ObjectLockMode", and "ObjectLockLegalHoldStatus" are now available as valid optional fields.
+      * S3 Block Public Access bucket-level APIs. The new Block Public Access settings allow bucket owners to prevent public access to S3 data via bucket/object ACLs or bucket policies.
+  * Amazon S3Control
+    * Add support for new S3 Block Public Access account-level APIs. The Block Public Access settings allow account owners to prevent public access to S3 data via bucket/object ACLs or bucket policies.
+  * Amazon SageMaker
+    * Added and updated cmdlets.
+      * Amazon SageMaker now has Algorithm and Model Package entities that can be used to create Training Jobs, Hyperparameter Tuning Jobs and hosted Models. 
+      *. Subscribed Marketplace products can be used on SageMaker to create Training Jobs, Hyperparameter Tuning Jobs and Models. Notebook Instances and Endpoints can leverage Elastic Inference accelerator types for on-demand GPU computing. 
+      * Model optimizations can be performed with Compilation Jobs. Labeling Jobs can be created and supported by a Workforce. Models can now contain up to 5 containers allowing for inference pipelines within Endpoints. 
+      * Code Repositories (such as Git) can be linked with SageMaker and loaded into Notebook Instances. 
+      * Network isolation is now possible on Models, Training Jobs, and Hyperparameter Tuning Jobs, which restricts inbound/outbound network calls for the container. However, containers can talk to their peers in distributed training mode within the same security group. 
+      * A Public Beta Search API was added that currently supports Training Jobs.
+  * Amazon ServerMigrationService
+    * Added and updated cmdlets supporting multi-server migration to simplify the application migration process. Customers can migrate all their application-specific servers together as a single unit as opposed to moving individual server one at a time.
+  * Amazon Service Discovery
+    * Added and updated cmlets.
+      * Service Discovery now allows friendly names for your cloud resources so that your applications can quickly and dynamically discover them. 
+      * When a resource becomes available (for example, an Amazon EC2 instance running a web server), you can register a Service Discovery service instance. Then your application can discover service instances by submitting DNS queries or API calls.
+  * Amazon SimpleSystemsManagement
+    * Updated cmdlets Get-SSMDocument, Get-SSMDocumentDescription, New-SSMDocument, Start-SSMAutomationExecution and Update-SSMDocument.
+  * ServerlessApplicationRepository
+    * Added cmdlet New-SARCloudFormationTemplate and Get-SARCloudFormationTemplate and updated cmdlet New-SARCloudFormationChangeSet supporting creating and reading a broader set of AWS CloudFormation templates.
+    * Added cmdlet Get-SARApplicationDependencyList supporting nested applications.
+    * Updated cmdlets Get-SARApplicationList and Get-SARApplicationVersionList to add pagination support.
+  * Amazon ServiceCatalog
+    * Added and updated cmdlets allowing integration with AWS Organizations, enabling customers to more easily create and manage a portfolio of IT services across an organization. Administrators can now take advantage of the AWS account structure and account groupings configured in AWS Organizations to share Service Catalog Portfolios increasing agility and reducing risk. With this integration the admin user will leverage the trust relationship that exists within the accounts of the Organization to share portfolios to the entire Organization, a specific Organizational Unit or a specific Account.
+  * Amazon Simple Email Service
+    * Updated cmdlets Get-SESCustomVerificationEmailTemplateList and Get-SESReceiptRuleSetList to add pagination support.
+  * Amazon SimpleNotificationService
+    * Updated cmdlet New-SNSTopic adding optional Attributes parameter.
+  * Amazon SimpleSystemsManagement
+    * Updated cmdlets New-SSMAssociation and Update-SSMAssociation allowing users to select compliance severity to their association.
+  * Amazon Step Functions
+    * Updated cmdlets to integrate with eight additioanl AWS services:
+      * Amazon ECS
+      * AWS Fargate
+      * Amazon DynamoDB
+      * Amazon SNS
+      * Amazon SQS
+      * AWS Batch
+      * AWS Glue
+      * Amazon SageMaker
+  * Amazon WAFRegional
+    * Updated cmdlet Get-WAFRResourceForWebACLList allowing to configure protections for your Amazon API Gateway API.
+  * Amazon WorkDocs
+    * Added cmdlet Get-WDResource allowing to fetch files and folders from the user's SharedWithMe collection.
+    * Updated cmdlet Get-WDActivity supporting additional filters such as the ActivityType and the ResourceId.
+  * Amazon WorkSpaces
+    * Added and updated cmdlets.
+    * Added new APIs to Modify and Describe WorkSpaces client properties for users in a directory. With the new APIs, you can enable/disable remember me option in WorkSpaces client for users in a directory.
+    * Added new Bring Your Own License (BYOL) automation APIs. With the new APIs, you can list available management CIDR ranges for dedicated tenancy, enable your account for BYOL, describe BYOL status of your account, and import BYOL images.
+    * Added new APIs to describe and delete WorkSpaces images. 
+  * Amazon XRay
+    * Added and updated cmdlets. Groups build upon X-Ray filter expressions to allow for fine tuning trace summaries and service graph results. You can configure groups by using the AWS X-Ray console or by using the New-XRGroup cmdlet. The addition of groups has extended the available request fields to the Get-XRServiceGraph cmdlet. You can now specify a group name or group ARN to retrieve its service graph.
+
+### 3.3.390.0 (2018-10-22)
   * Cmdlets and parameters are now marked as obsolete if the corresponding service operation or parameter are deprecated.
   * Added support for Set-AWSProxy and Clear-AWSProxy cmdlets to AWSPowerShell.NetCore
   * Amazon Storage Gateway

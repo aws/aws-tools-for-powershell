@@ -34,6 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// Spot Fleet events are delayed by up to 30 seconds before they can be described. This
     /// ensures that you can query by the last evaluated time and not miss a recorded event.
+    /// Spot Fleet events are available for 48 hours.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetRequestHistory")]

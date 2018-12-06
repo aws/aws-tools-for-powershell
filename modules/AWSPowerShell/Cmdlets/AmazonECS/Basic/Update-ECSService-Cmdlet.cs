@@ -28,11 +28,21 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Modifies the desired count, deployment configuration, network configuration, or task
-    /// definition used in a service.
+    /// Modifies the parameters of a service.
     /// 
     ///  
     /// <para>
+    /// For services using the rolling update (<code>ECS</code>) deployment controller, the
+    /// desired count, deployment configuration, network configuration, or task definition
+    /// used can be updated.
+    /// </para><para>
+    /// For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
+    /// only the desired count, deployment configuration, and health check grace period can
+    /// be updated using this API. If the network configuration, platform version, or task
+    /// definition need to be updated, a new AWS CodeDeploy deployment should be created.
+    /// For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
+    /// in the <i>AWS CodeDeploy API Reference</i>.
+    /// </para><para>
     /// You can add to or subtract from the number of instantiations of a task definition
     /// in a service by specifying the cluster that the service is running in and a new <code>desiredCount</code>
     /// parameter.
@@ -170,10 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// unhealthy Elastic Load Balancing target health checks after a task has first started.
         /// This is only valid if your service is configured to use a load balancer. If your service's
         /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
-        /// can specify a health check grace period of up to 1,800 seconds during which the ECS
-        /// service scheduler ignores the Elastic Load Balancing health check status. This grace
-        /// period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping
-        /// them before they have time to come up.</para>
+        /// can specify a health check grace period of up to 1,800 seconds. During that time,
+        /// the ECS service scheduler ignores the Elastic Load Balancing health check status.
+        /// This grace period can prevent the ECS service scheduler from marking tasks as unhealthy
+        /// and stopping them before they have time to come up.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -184,11 +194,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
-        /// <para>The upper limit (as a percentage of the service's <code>desiredCount</code>) of the
-        /// number of tasks that are allowed in the <code>RUNNING</code> or <code>PENDING</code>
-        /// state in a service during a deployment. The maximum number of tasks during a deployment
-        /// is the <code>desiredCount</code> multiplied by <code>maximumPercent</code>/100, rounded
-        /// down to the nearest integer value.</para>
+        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <b>maximum
+        /// percent</b> parameter represents an upper limit on the number of tasks in a service
+        /// that are allowed in the <code>RUNNING</code> or <code>PENDING</code> state during
+        /// a deployment, as a percentage of the desired number of tasks (rounded down to the
+        /// nearest integer), and while any container instances are in the <code>DRAINING</code>
+        /// state if the service contains tasks using the EC2 launch type. This parameter enables
+        /// you to define the deployment batch size. For example, if your service has a desired
+        /// number of four tasks and a maximum percent value of 200%, the scheduler may start
+        /// four new tasks before stopping the four older tasks (provided that the cluster resources
+        /// required to do this are available). The default value for maximum percent is 200%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) deployment type and
+        /// tasks that use the EC2 launch type, the <b>maximum percent</b> value is set to the
+        /// default value and is used to define the upper limit on the number of the tasks in
+        /// the service that remain in the <code>RUNNING</code> state while the container instances
+        /// are in the <code>DRAINING</code> state. If the tasks in the service use the Fargate
+        /// launch type, the maximum percent value is not used, although it is returned when describing
+        /// your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,11 +219,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter DeploymentConfiguration_MinimumHealthyPercent
         /// <summary>
         /// <para>
-        /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
-        /// number of running tasks that must remain in the <code>RUNNING</code> state in a service
-        /// during a deployment. The minimum number of healthy tasks during a deployment is the
-        /// <code>desiredCount</code> multiplied by <code>minimumHealthyPercent</code>/100, rounded
-        /// up to the nearest integer value.</para>
+        /// <para>If a service is using the rolling update (<code>ECS</code>) deployment type, the <b>minimum
+        /// healthy percent</b> represents a lower limit on the number of tasks in a service that
+        /// must remain in the <code>RUNNING</code> state during a deployment, as a percentage
+        /// of the desired number of tasks (rounded up to the nearest integer), and while any
+        /// container instances are in the <code>DRAINING</code> state if the service contains
+        /// tasks using the EC2 launch type. This parameter enables you to deploy without using
+        /// additional cluster capacity. For example, if your service has a desired number of
+        /// four tasks and a minimum healthy percent of 50%, the scheduler may stop two existing
+        /// tasks to free up cluster capacity before starting two new tasks. Tasks for services
+        /// that <i>do not</i> use a load balancer are considered healthy if they are in the <code>RUNNING</code>
+        /// state; tasks for services that <i>do</i> use a load balancer are considered healthy
+        /// if they are in the <code>RUNNING</code> state and they are reported as healthy by
+        /// the load balancer. The default value for minimum healthy percent is 100%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) deployment type and
+        /// tasks that use the EC2 launch type, the <b>minimum healthy percent</b> value is set
+        /// to the default value and is used to define the lower limit on the number of the tasks
+        /// in the service that remain in the <code>RUNNING</code> state while the container instances
+        /// are in the <code>DRAINING</code> state. If the tasks in the service use the Fargate
+        /// launch type, the minimum healthy percent value is not used, although it is returned
+        /// when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -212,7 +247,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlatformVersion
         /// <summary>
         /// <para>
-        /// <para>The platform version that your service should run.</para>
+        /// <para>The platform version on which your tasks in the service are running. A platform version
+        /// is only specified for tasks using the Fargate launch type. If one is not specified,
+        /// the <code>LATEST</code> platform version is used by default. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+        /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used. There is a limit of 5 security
+        /// group, the default security group for the VPC is used. There is a limit of five security
         /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
