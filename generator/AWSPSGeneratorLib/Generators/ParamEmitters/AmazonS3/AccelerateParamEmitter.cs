@@ -7,7 +7,7 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
 {
     internal class AccelerateParamEmitter : IParamEmitter
     {
-        public void WriteParams(Writers.IndentedTextWriter writer, Analysis.OperationAnalyzer analyzer, SimplePropertyInfo spi, CmdletConfig.Param paramCustomization, ref int usedPositionalCount)
+        public void WriteParams(Writers.IndentedTextWriter writer, Analysis.OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param paramCustomization, ref int usedPositionalCount)
         {
             writer.WriteLine("#region Parameter UseAccelerateEndpoint");
             writer.WriteLine("/// <summary>");
@@ -17,10 +17,10 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
             writer.WriteLine("[Parameter]");
             writer.WriteLine("public SwitchParameter UseAccelerateEndpoint { get; set; }");
             writer.WriteLine();
-            writer.WriteLine("#endregion"); 
+            writer.WriteLine("#endregion");
         }
 
-        public void WriteContextMembers(Writers.IndentedTextWriter writer, string contextVar, SimplePropertyInfo spi, CmdletConfig.Param paramCustomization)
+        public void WriteContextMembers(Writers.IndentedTextWriter writer, string contextVar, SimplePropertyInfo spi, ServiceConfig.Param paramCustomization)
         {
             // No need to emit context members because UseAccelerateEndpoint is set on the S3Config object.
         }

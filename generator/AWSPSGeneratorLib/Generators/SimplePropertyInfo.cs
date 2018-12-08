@@ -6,7 +6,7 @@ using System.Text;
 using System.Reflection;
 using System.Xml;
 using System.IO;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 
 namespace AWSPowerShellGenerator.Generators
 {

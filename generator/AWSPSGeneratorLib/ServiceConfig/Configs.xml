@@ -1,0 +1,182 @@
+<ConfigModelCollection>
+  <Configs>
+    <Path>acm-pca.xml</Path>
+    <Path>acm.xml</Path>
+    <Path>alexaforbusiness.xml</Path>
+    <Path>apigateway.xml</Path>
+    <Path>application-autoscaling.xml</Path>
+    <Path>appstream.xml</Path>
+    <Path>appsync.xml</Path>
+    <Path>athena.xml</Path>
+    <Path>autoscaling.xml</Path>
+    <Path>awsmigrationhub.xml</Path>
+    <Path>batch.xml</Path>
+    <Path>budgets.xml</Path>
+    <Path>ce.xml</Path>
+    <Path>cloud9.xml</Path>
+    <Path>clouddirectory.xml</Path>
+    <Path>cloudformation.xml</Path>
+    <Path>cloudfront.xml</Path>
+    <Path>cloudhsm.xml</Path>
+    <Path>cloudhsmv2.xml</Path>
+    <Path>cloudsearch.xml</Path>
+    <Path>cloudsearchdomain.xml</Path>
+    <Path>cloudtrail.xml</Path>
+    <Path>codebuild.xml</Path>
+    <Path>codecommit.xml</Path>
+    <Path>codedeploy.xml</Path>
+    <Path>codepipeline.xml</Path>
+    <Path>codestar.xml</Path>
+    <Path>cognito-identity.xml</Path>
+    <Path>cognito-idp.xml</Path>
+    <Path>comprehend.xml</Path>
+    <Path>config.xml</Path>
+    <Path>cur.xml</Path>
+    <Path>datapipeline.xml</Path>
+    <Path>dax.xml</Path>
+    <Path>devicefarm.xml</Path>
+    <Path>directconnect.xml</Path>
+    <Path>discovery.xml</Path>
+    <Path>dlm.xml</Path>
+    <Path>dms.xml</Path>
+    <Path>ds.xml</Path>
+    <Path>dynamodb.xml</Path>
+    <Path>dynamodbstreams.xml</Path>
+    <Path>ec2.xml</Path>
+    <Path>ecr.xml</Path>
+    <Path>ecs.xml</Path>
+    <Path>efs.xml</Path>
+    <Path>elasticache.xml</Path>
+    <Path>elasticbeanstalk.xml</Path>
+    <Path>elasticloadbalancing.xml</Path>
+    <Path>elasticloadbalancingv2.xml</Path>
+    <Path>elasticmapreduce.xml</Path>
+    <Path>elastictranscoder.xml</Path>
+    <Path>email.xml</Path>
+    <Path>entitlement.marketplace.xml</Path>
+    <Path>es.xml</Path>
+    <Path>events.xml</Path>
+    <Path>firehose.xml</Path>
+    <Path>fms.xml</Path>
+    <Path>gamelift.xml</Path>
+    <Path>glue.xml</Path>
+    <Path>greengrass.xml</Path>
+    <Path>guardduty.xml</Path>
+    <Path>health.xml</Path>
+    <Path>iam.xml</Path>
+    <Path>importexport.xml</Path>
+    <Path>inspector.xml</Path>
+    <Path>iot-jobs-data.xml</Path>
+    <Path>iot.xml</Path>
+    <Path>kinesis-video-media.xml</Path>
+    <Path>kinesis.xml</Path>
+    <Path>kinesisanalytics.xml</Path>
+    <Path>kinesisvideo.xml</Path>
+    <Path>kms.xml</Path>
+    <Path>lambda.xml</Path>
+    <Path>lex-models.xml</Path>
+    <Path>lightsail.xml</Path>
+    <Path>logs.xml</Path>
+    <Path>machinelearning.xml</Path>
+    <Path>macie.xml</Path>
+    <Path>marketplacecommerceanalytics.xml</Path>
+    <Path>mediaconvert.xml</Path>
+    <Path>medialive.xml</Path>
+    <Path>mediapackage.xml</Path>
+    <Path>mediastore-data.xml</Path>
+    <Path>mediastore.xml</Path>
+    <Path>meteringmarketplace'.xml</Path>
+    <Path>monitoring.xml</Path>
+    <Path>mq.xml</Path>
+    <Path>mturk-requester.xml</Path>
+    <Path>opsworks.xml</Path>
+    <Path>opsworkscm.xml</Path>
+    <Path>organizations.xml</Path>
+    <Path>pinpoint-email.xml</Path>
+    <Path>pinpoint.xml</Path>
+    <Path>polly.xml</Path>
+    <Path>pricing.xml</Path>
+    <Path>rds.xml</Path>
+    <Path>redshift.xml</Path>
+    <Path>rekognition.xml</Path>
+    <Path>resource-groups.xml</Path>
+    <Path>resourcegroupstaggingapi.xml</Path>
+    <Path>route53.xml</Path>
+    <Path>route53domains.xml</Path>
+    <Path>runtime.lex.xml</Path>
+    <Path>runtime.sagemaker.xml</Path>
+    <Path>s3.xml</Path>
+    <Path>s3control.xml</Path>
+    <Path>sagemaker.xml</Path>
+    <Path>secretsmanager.xml</Path>
+    <Path>serverlessrepo.xml</Path>
+    <Path>servicecatalog.xml</Path>
+    <Path>servicediscovery.xml</Path>
+    <Path>shield.xml</Path>
+    <Path>sms.xml</Path>
+    <Path>snowball.xml</Path>
+    <Path>sns.xml</Path>
+    <Path>sqs.xml</Path>
+    <Path>ssm.xml</Path>
+    <Path>states.xml</Path>
+    <Path>storagegateway.xml</Path>
+    <Path>sts.xml</Path>
+    <Path>support.xml</Path>
+    <Path>transcribe.xml</Path>
+    <Path>translate.xml</Path>
+    <Path>waf-regional.xml</Path>
+    <Path>waf.xml</Path>
+    <Path>workdocs.xml</Path>
+    <Path>workmail.xml</Path>
+    <Path>workspaces.xml</Path>
+    <Path>xray.xml</Path>
+  </Configs>
+
+  <VerbMappings>
+    <Map From="Create" To="New" />
+    <Map From="Allocate" To="New" />
+    <Map From="Describe" To="Get" />
+    <Map From="Cancel" To="Stop" />
+    <Map From="Activate" To="Enable" />
+    <Map From="Deactivate" To="Disable" />
+    <Map From="Delete" To="Remove" />
+    <!-- in vNext generator, Attach changed to map to Mount, to match up with Dismount -->
+    <Map From="Attach" To="Mount" />
+    <Map From="Detach" To="Dismount" />
+    <Map From="Modify" To="Edit" />
+    <Map From="Put" To="Write" />
+  </VerbMappings>
+
+  <TypesNotToFlatten>
+    <Type>System.IO.Stream</Type>
+    <Type>System.IO.MemoryStream</Type>
+    <Type>System.Collections.Generic.List`1</Type>
+    <Type>System.Collections.Generic.Dictionary`2</Type>
+  </TypesNotToFlatten>
+
+  <MetadataProperties>
+    <Property>NextToken</Property>
+    <Property>NextPageToken</Property>
+    <Property>PageToken</Property>
+    <Property>Marker</Property>
+    <Property>NextMarker</Property>
+    <Property>ETag</Property>
+    <Property>IsTruncated</Property>
+    <Property>HasMoreResults</Property>
+    <Property>Owner</Property>
+    <Property>Headers</Property>
+    <Property>MaxRecords</Property>
+    <Property>MaxResults</Property>
+    <Property>MaxItems</Property>
+    <Property>Limit</Property>
+    <Property>PaginationToken</Property>
+  </MetadataProperties>
+
+  <!--
+    any cmdlet generated with these verbs will have 'shouldprocess'
+    attributing and operation confirmation code added automatically
+  -->
+  <SupportsShouldProcessVerbs>
+    <Verb>Remove</Verb>
+  </SupportsShouldProcessVerbs>
+</ConfigModelCollection>

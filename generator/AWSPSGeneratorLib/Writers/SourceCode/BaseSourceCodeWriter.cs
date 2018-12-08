@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Generators;
 
 namespace AWSPowerShellGenerator.Writers.SourceCode

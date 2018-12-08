@@ -1,5 +1,5 @@
 ﻿using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,7 +14,7 @@ namespace AWSPowerShellGenerator.Generators
     /// Class to write PowerShell configurations for services in JSON format.
     /// Operation configurations also include results of the OperationAnalyzer.
     /// These configurations are saved to
-    /// C:\Codebase\v3\AWSPowerShell\generator\AWSPSGeneratorLib\CmdletConfig.json
+    /// C:\Codebase\v3\AWSPowerShell\generator\AWSPSGeneratorLib\ServiceConfig.json
     /// (or it's equivalent on the build server) for informational purposes only, and
     /// have no bearing on the PowerShell cmdlets generated.
     /// </summary>

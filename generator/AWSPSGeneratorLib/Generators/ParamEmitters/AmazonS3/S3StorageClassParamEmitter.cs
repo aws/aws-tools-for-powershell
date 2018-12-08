@@ -1,12 +1,12 @@
 ﻿using AWSPowerShellGenerator.Analysis;
 using AWSPowerShellGenerator.Writers;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 
 namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
 {
     internal class S3StorageClassParamEmitter : IParamEmitter
     {
-        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, CmdletConfig.Param param, ref int usedPositionalCount)
+        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param param, ref int usedPositionalCount)
         {
             // for S3StorageClass, we replace the enum type with two string switches instead
             writer.WriteLine("/// <summary>");
@@ -21,7 +21,7 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
             writer.WriteLine("/// Specifies S3 should use REDUCED_REDUNDANCY storage class for the object. This");
             writer.WriteLine("/// provides a reduced (99.99%) durability guarantee at a lower");
             writer.WriteLine("/// cost as compared to the STANDARD storage class. Use this");
-            writer.WriteLine("/// storage class for non-mission critical data or for data"); 
+            writer.WriteLine("/// storage class for non-mission critical data or for data");
             writer.WriteLine("/// that doesn’t require the higher level of durability that S3");
             writer.WriteLine("/// provides with the STANDARD storage class.");
             writer.WriteLine("/// </summary>");

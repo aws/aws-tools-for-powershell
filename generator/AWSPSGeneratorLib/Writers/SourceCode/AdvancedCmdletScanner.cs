@@ -1,4 +1,4 @@
-﻿using AWSPowerShellGenerator.CmdletConfig;
+﻿using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Utils;
 using System;

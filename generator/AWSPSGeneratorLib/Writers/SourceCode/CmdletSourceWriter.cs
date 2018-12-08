@@ -9,7 +9,7 @@ using System.Security;
 using System.Text;
 using System.Xml;
 using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Generators.ParamEmitters;
 using AWSPowerShellGenerator.Utils;

@@ -152,6 +152,44 @@ $AWS_EC2ImageAttributeCompleter = {
 _awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 
 # begin auto-generated service completers
+# Argument completions for service AWS Certificate Manager
+$ACM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CertificateManager.CertificateTransparencyLoggingPreference
+        {
+            ($_ -eq "New-ACMCertificate/Options_CertificateTransparencyLoggingPreference") -Or
+            ($_ -eq "Update-ACMCertificateOption/Options_CertificateTransparencyLoggingPreference")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
+        # Amazon.CertificateManager.ValidationMethod
+        "New-ACMCertificate/ValidationMethod"
+        {
+            $v = "DNS","EMAIL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACM_map = @{
+    "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
+    "ValidationMethod"=@("New-ACMCertificate")
+}
+
+_awsArgumentCompleterRegistration $ACM_Completers $ACM_map
+
+
 # Argument completions for service AWS Certificate Manager Private Certificate Authority
 $PCA_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -548,33 +586,6 @@ $AAS_map = @{
 _awsArgumentCompleterRegistration $AAS_Completers $AAS_map
 
 
-# Argument completions for service Application Discovery Service
-$ADS_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.ApplicationDiscoveryService.ConfigurationItemType
-        "Get-ADSConfigurationList/ConfigurationType"
-        {
-            $v = "APPLICATION","CONNECTION","PROCESS","SERVER"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$ADS_map = @{
-    "ConfigurationType"=@("Get-ADSConfigurationList")
-}
-
-_awsArgumentCompleterRegistration $ADS_Completers $ADS_map
-
-
 # Argument completions for service AWS AppStream
 $APS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -790,6 +801,33 @@ $AS_map = @{
 _awsArgumentCompleterRegistration $AS_Completers $AS_map
 
 
+# Argument completions for service AWS Migration Hub
+$MH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MigrationHub.ApplicationStatus
+        "Send-MHApplicationStateNotification/Status"
+        {
+            $v = "COMPLETED","IN_PROGRESS","NOT_STARTED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MH_map = @{
+    "Status"=@("Send-MHApplicationStateNotification")
+}
+
+_awsArgumentCompleterRegistration $MH_Completers $MH_map
+
+
 # Argument completions for service AWS Batch
 $BAT_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -859,76 +897,6 @@ $BAT_map = @{
 }
 
 _awsArgumentCompleterRegistration $BAT_Completers $BAT_map
-
-
-# Argument completions for service AWS Elastic Beanstalk
-$EB_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.ElasticBeanstalk.ActionStatus
-        "Get-EBEnvironmentManagedAction/Status"
-        {
-            $v = "Pending","Running","Scheduled","Unknown"
-            break
-        }
-        
-        # Amazon.ElasticBeanstalk.ComputeType
-        "New-EBApplicationVersion/BuildConfiguration_ComputeType"
-        {
-            $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
-            break
-        }
-        
-        # Amazon.ElasticBeanstalk.EnvironmentInfoType
-        {
-            ($_ -eq "Get-EBEnvironmentInfo/InfoType") -Or
-            ($_ -eq "Request-EBEnvironmentInfo/InfoType")
-        }
-        {
-            $v = "bundle","tail"
-            break
-        }
-        
-        # Amazon.ElasticBeanstalk.EventSeverity
-        "Get-EBEvent/Severity"
-        {
-            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
-            break
-        }
-        
-        # Amazon.ElasticBeanstalk.SourceRepository
-        "New-EBApplicationVersion/SourceBuildInformation_SourceRepository"
-        {
-            $v = "CodeCommit","S3"
-            break
-        }
-        
-        # Amazon.ElasticBeanstalk.SourceType
-        "New-EBApplicationVersion/SourceBuildInformation_SourceType"
-        {
-            $v = "Git","Zip"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$EB_map = @{
-    "BuildConfiguration_ComputeType"=@("New-EBApplicationVersion")
-    "InfoType"=@("Get-EBEnvironmentInfo","Request-EBEnvironmentInfo")
-    "Severity"=@("Get-EBEvent")
-    "SourceBuildInformation_SourceRepository"=@("New-EBApplicationVersion")
-    "SourceBuildInformation_SourceType"=@("New-EBApplicationVersion")
-    "Status"=@("Get-EBEnvironmentManagedAction")
-}
-
-_awsArgumentCompleterRegistration $EB_Completers $EB_map
 
 
 # Argument completions for service AWS Budgets
@@ -1065,26 +1033,77 @@ $BGT_map = @{
 _awsArgumentCompleterRegistration $BGT_Completers $BGT_map
 
 
-# Argument completions for service AWS Certificate Manager
-$ACM_Completers = {
+# Argument completions for service AWS Cost Explorer
+$CE_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.CertificateManager.CertificateTransparencyLoggingPreference
+        # Amazon.CostExplorer.AccountScope
+        "Get-CEReservationPurchaseRecommendation/AccountScope"
         {
-            ($_ -eq "New-ACMCertificate/Options_CertificateTransparencyLoggingPreference") -Or
-            ($_ -eq "Update-ACMCertificateOption/Options_CertificateTransparencyLoggingPreference")
-        }
-        {
-            $v = "DISABLED","ENABLED"
+            $v = "LINKED","PAYER"
             break
         }
         
-        # Amazon.CertificateManager.ValidationMethod
-        "New-ACMCertificate/ValidationMethod"
+        # Amazon.CostExplorer.Context
+        "Get-CEDimensionValue/Context"
         {
-            $v = "DNS","EMAIL"
+            $v = "COST_AND_USAGE","RESERVATIONS"
+            break
+        }
+        
+        # Amazon.CostExplorer.Dimension
+        "Get-CEDimensionValue/Dimension"
+        {
+            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            break
+        }
+        
+        # Amazon.CostExplorer.Granularity
+        {
+            ($_ -eq "Get-CECostAndUsage/Granularity") -Or
+            ($_ -eq "Get-CECostForecast/Granularity") -Or
+            ($_ -eq "Get-CEReservationCoverage/Granularity") -Or
+            ($_ -eq "Get-CEReservationUtilization/Granularity")
+        }
+        {
+            $v = "DAILY","HOURLY","MONTHLY"
+            break
+        }
+        
+        # Amazon.CostExplorer.LookbackPeriodInDays
+        "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays"
+        {
+            $v = "SEVEN_DAYS","SIXTY_DAYS","THIRTY_DAYS"
+            break
+        }
+        
+        # Amazon.CostExplorer.Metric
+        "Get-CECostForecast/Metric"
+        {
+            $v = "AMORTIZED_COST","BLENDED_COST","NET_AMORTIZED_COST","NET_UNBLENDED_COST","NORMALIZED_USAGE_AMOUNT","UNBLENDED_COST","USAGE_QUANTITY"
+            break
+        }
+        
+        # Amazon.CostExplorer.OfferingClass
+        "Get-CEReservationPurchaseRecommendation/ServiceSpecification_EC2Specification_OfferingClass"
+        {
+            $v = "CONVERTIBLE","STANDARD"
+            break
+        }
+        
+        # Amazon.CostExplorer.PaymentOption
+        "Get-CEReservationPurchaseRecommendation/PaymentOption"
+        {
+            $v = "ALL_UPFRONT","HEAVY_UTILIZATION","LIGHT_UTILIZATION","MEDIUM_UTILIZATION","NO_UPFRONT","PARTIAL_UPFRONT"
+            break
+        }
+        
+        # Amazon.CostExplorer.TermInYears
+        "Get-CEReservationPurchaseRecommendation/TermInYears"
+        {
+            $v = "ONE_YEAR","THREE_YEARS"
             break
         }
         
@@ -1095,12 +1114,19 @@ $ACM_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$ACM_map = @{
-    "Options_CertificateTransparencyLoggingPreference"=@("New-ACMCertificate","Update-ACMCertificateOption")
-    "ValidationMethod"=@("New-ACMCertificate")
+$CE_map = @{
+    "AccountScope"=@("Get-CEReservationPurchaseRecommendation")
+    "Context"=@("Get-CEDimensionValue")
+    "Dimension"=@("Get-CEDimensionValue")
+    "Granularity"=@("Get-CECostAndUsage","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization")
+    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation")
+    "Metric"=@("Get-CECostForecast")
+    "PaymentOption"=@("Get-CEReservationPurchaseRecommendation")
+    "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
+    "TermInYears"=@("Get-CEReservationPurchaseRecommendation")
 }
 
-_awsArgumentCompleterRegistration $ACM_Completers $ACM_map
+_awsArgumentCompleterRegistration $CE_Completers $CE_map
 
 
 # Argument completions for service AWS Cloud9
@@ -1390,6 +1416,41 @@ $CF_map = @{
 _awsArgumentCompleterRegistration $CF_Completers $CF_map
 
 
+# Argument completions for service AWS Cloud HSM
+$HSM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudHSM.ClientVersion
+        "Get-HSMConfig/ClientVersion"
+        {
+            $v = "5.1","5.3"
+            break
+        }
+        
+        # Amazon.CloudHSM.SubscriptionType
+        "New-HSMItem/SubscriptionType"
+        {
+            $v = "PRODUCTION"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$HSM_map = @{
+    "ClientVersion"=@("Get-HSMConfig")
+    "SubscriptionType"=@("New-HSMItem")
+}
+
+_awsArgumentCompleterRegistration $HSM_Completers $HSM_map
+
+
 # Argument completions for service Amazon CloudSearch
 $CS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -1482,161 +1543,6 @@ $CSD_map = @{
 }
 
 _awsArgumentCompleterRegistration $CSD_Completers $CSD_map
-
-
-# Argument completions for service Amazon CloudWatch
-$CW_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.CloudWatch.ComparisonOperator
-        "Write-CWMetricAlarm/ComparisonOperator"
-        {
-            $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
-            break
-        }
-        
-        # Amazon.CloudWatch.HistoryItemType
-        "Get-CWAlarmHistory/HistoryItemType"
-        {
-            $v = "Action","ConfigurationUpdate","StateUpdate"
-            break
-        }
-        
-        # Amazon.CloudWatch.ScanBy
-        "Get-CWMetricData/ScanBy"
-        {
-            $v = "TimestampAscending","TimestampDescending"
-            break
-        }
-        
-        # Amazon.CloudWatch.StandardUnit
-        {
-            ($_ -eq "Get-CWAlarmForMetric/Unit") -Or
-            ($_ -eq "Get-CWMetricStatistic/Unit") -Or
-            ($_ -eq "Write-CWMetricAlarm/Unit")
-        }
-        {
-            $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
-            break
-        }
-        
-        # Amazon.CloudWatch.StateValue
-        {
-            ($_ -eq "Get-CWAlarm/StateValue") -Or
-            ($_ -eq "Set-CWAlarmState/StateValue")
-        }
-        {
-            $v = "ALARM","INSUFFICIENT_DATA","OK"
-            break
-        }
-        
-        # Amazon.CloudWatch.Statistic
-        {
-            ($_ -eq "Get-CWAlarmForMetric/Statistic") -Or
-            ($_ -eq "Write-CWMetricAlarm/Statistic")
-        }
-        {
-            $v = "Average","Maximum","Minimum","SampleCount","Sum"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$CW_map = @{
-    "ComparisonOperator"=@("Write-CWMetricAlarm")
-    "HistoryItemType"=@("Get-CWAlarmHistory")
-    "ScanBy"=@("Get-CWMetricData")
-    "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
-    "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
-    "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
-}
-
-_awsArgumentCompleterRegistration $CW_Completers $CW_map
-
-
-# Argument completions for service Amazon CloudWatch Events
-$CWE_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.CloudWatchEvents.RuleState
-        "Write-CWERule/State"
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$CWE_map = @{
-    "State"=@("Write-CWERule")
-}
-
-_awsArgumentCompleterRegistration $CWE_Completers $CWE_map
-
-
-# Argument completions for service Amazon CloudWatch Logs
-$CWL_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.CloudWatchLogs.Distribution
-        "Write-CWLSubscriptionFilter/Distribution"
-        {
-            $v = "ByLogStream","Random"
-            break
-        }
-        
-        # Amazon.CloudWatchLogs.ExportTaskStatusCode
-        "Get-CWLExportTask/StatusCode"
-        {
-            $v = "CANCELLED","COMPLETED","FAILED","PENDING","PENDING_CANCEL","RUNNING"
-            break
-        }
-        
-        # Amazon.CloudWatchLogs.OrderBy
-        "Get-CWLLogStream/OrderBy"
-        {
-            $v = "LastEventTime","LogStreamName"
-            break
-        }
-        
-        # Amazon.CloudWatchLogs.QueryStatus
-        "Get-CWLQuery/Status"
-        {
-            $v = "Cancelled","Complete","Failed","Running","Scheduled"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$CWL_map = @{
-    "Distribution"=@("Write-CWLSubscriptionFilter")
-    "OrderBy"=@("Get-CWLLogStream")
-    "Status"=@("Get-CWLQuery")
-    "StatusCode"=@("Get-CWLExportTask")
-}
-
-_awsArgumentCompleterRegistration $CWL_Completers $CWL_map
 
 
 # Argument completions for service AWS CodeBuild
@@ -2506,233 +2412,6 @@ $CUR_map = @{
 _awsArgumentCompleterRegistration $CUR_Completers $CUR_map
 
 
-# Argument completions for service AWS Cost Explorer
-$CE_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.CostExplorer.AccountScope
-        "Get-CEReservationPurchaseRecommendation/AccountScope"
-        {
-            $v = "LINKED","PAYER"
-            break
-        }
-        
-        # Amazon.CostExplorer.Context
-        "Get-CEDimensionValue/Context"
-        {
-            $v = "COST_AND_USAGE","RESERVATIONS"
-            break
-        }
-        
-        # Amazon.CostExplorer.Dimension
-        "Get-CEDimensionValue/Dimension"
-        {
-            $v = "AZ","BILLING_ENTITY","CACHE_ENGINE","DATABASE_ENGINE","DEPLOYMENT_OPTION","INSTANCE_TYPE","INSTANCE_TYPE_FAMILY","LEGAL_ENTITY_NAME","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","RESERVATION_ID","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
-            break
-        }
-        
-        # Amazon.CostExplorer.Granularity
-        {
-            ($_ -eq "Get-CECostAndUsage/Granularity") -Or
-            ($_ -eq "Get-CECostForecast/Granularity") -Or
-            ($_ -eq "Get-CEReservationCoverage/Granularity") -Or
-            ($_ -eq "Get-CEReservationUtilization/Granularity")
-        }
-        {
-            $v = "DAILY","HOURLY","MONTHLY"
-            break
-        }
-        
-        # Amazon.CostExplorer.LookbackPeriodInDays
-        "Get-CEReservationPurchaseRecommendation/LookbackPeriodInDays"
-        {
-            $v = "SEVEN_DAYS","SIXTY_DAYS","THIRTY_DAYS"
-            break
-        }
-        
-        # Amazon.CostExplorer.Metric
-        "Get-CECostForecast/Metric"
-        {
-            $v = "AMORTIZED_COST","BLENDED_COST","NET_AMORTIZED_COST","NET_UNBLENDED_COST","NORMALIZED_USAGE_AMOUNT","UNBLENDED_COST","USAGE_QUANTITY"
-            break
-        }
-        
-        # Amazon.CostExplorer.OfferingClass
-        "Get-CEReservationPurchaseRecommendation/ServiceSpecification_EC2Specification_OfferingClass"
-        {
-            $v = "CONVERTIBLE","STANDARD"
-            break
-        }
-        
-        # Amazon.CostExplorer.PaymentOption
-        "Get-CEReservationPurchaseRecommendation/PaymentOption"
-        {
-            $v = "ALL_UPFRONT","HEAVY_UTILIZATION","LIGHT_UTILIZATION","MEDIUM_UTILIZATION","NO_UPFRONT","PARTIAL_UPFRONT"
-            break
-        }
-        
-        # Amazon.CostExplorer.TermInYears
-        "Get-CEReservationPurchaseRecommendation/TermInYears"
-        {
-            $v = "ONE_YEAR","THREE_YEARS"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$CE_map = @{
-    "AccountScope"=@("Get-CEReservationPurchaseRecommendation")
-    "Context"=@("Get-CEDimensionValue")
-    "Dimension"=@("Get-CEDimensionValue")
-    "Granularity"=@("Get-CECostAndUsage","Get-CECostForecast","Get-CEReservationCoverage","Get-CEReservationUtilization")
-    "LookbackPeriodInDays"=@("Get-CEReservationPurchaseRecommendation")
-    "Metric"=@("Get-CECostForecast")
-    "PaymentOption"=@("Get-CEReservationPurchaseRecommendation")
-    "ServiceSpecification_EC2Specification_OfferingClass"=@("Get-CEReservationPurchaseRecommendation")
-    "TermInYears"=@("Get-CEReservationPurchaseRecommendation")
-}
-
-_awsArgumentCompleterRegistration $CE_Completers $CE_map
-
-
-# Argument completions for service AWS Database Migration Service
-$DMS_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.DatabaseMigrationService.AuthMechanismValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthMechanism") -Or
-            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthMechanism")
-        }
-        {
-            $v = "default","mongodb_cr","scram_sha_1"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.AuthTypeValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthType") -Or
-            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthType")
-        }
-        {
-            $v = "no","password"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.CompressionTypeValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/S3Settings_CompressionType") -Or
-            ($_ -eq "New-DMSEndpoint/S3Settings_CompressionType")
-        }
-        {
-            $v = "gzip","none"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.DmsSslModeValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
-            ($_ -eq "New-DMSEndpoint/SslMode")
-        }
-        {
-            $v = "none","require","verify-ca","verify-full"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.MessageFormatValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/KinesisSettings_MessageFormat") -Or
-            ($_ -eq "New-DMSEndpoint/KinesisSettings_MessageFormat")
-        }
-        {
-            $v = "json"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.MigrationTypeValue
-        {
-            ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
-            ($_ -eq "New-DMSReplicationTask/MigrationType")
-        }
-        {
-            $v = "cdc","full-load","full-load-and-cdc"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.NestingLevelValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_NestingLevel") -Or
-            ($_ -eq "New-DMSEndpoint/MongoDbSettings_NestingLevel")
-        }
-        {
-            $v = "none","one"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.ReloadOptionValue
-        "Restore-DMSTable/ReloadOption"
-        {
-            $v = "data-reload","validate-only"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue
-        {
-            ($_ -eq "Edit-DMSEndpoint/EndpointType") -Or
-            ($_ -eq "New-DMSEndpoint/EndpointType")
-        }
-        {
-            $v = "source","target"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.SourceType
-        "Get-DMSEvent/SourceType"
-        {
-            $v = "replication-instance"
-            break
-        }
-        
-        # Amazon.DatabaseMigrationService.StartReplicationTaskTypeValue
-        "Start-DMSReplicationTask/StartReplicationTaskType"
-        {
-            $v = "reload-target","resume-processing","start-replication"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$DMS_map = @{
-    "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MigrationType"=@("Edit-DMSReplicationTask","New-DMSReplicationTask")
-    "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "ReloadOption"=@("Restore-DMSTable")
-    "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "SourceType"=@("Get-DMSEvent")
-    "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
-    "StartReplicationTaskType"=@("Start-DMSReplicationTask")
-}
-
-_awsArgumentCompleterRegistration $DMS_Completers $DMS_map
-
-
 # Argument completions for service AWS Data Pipeline
 $DP_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -2924,6 +2603,201 @@ $DC_map = @{
 _awsArgumentCompleterRegistration $DC_Completers $DC_map
 
 
+# Argument completions for service Application Discovery Service
+$ADS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ApplicationDiscoveryService.ConfigurationItemType
+        "Get-ADSConfigurationList/ConfigurationType"
+        {
+            $v = "APPLICATION","CONNECTION","PROCESS","SERVER"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ADS_map = @{
+    "ConfigurationType"=@("Get-ADSConfigurationList")
+}
+
+_awsArgumentCompleterRegistration $ADS_Completers $ADS_map
+
+
+# Argument completions for service Amazon Data Lifecycle Manager
+$DLM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DLM.GettablePolicyStateValues
+        "Get-DLMLifecyclePolicySummary/State"
+        {
+            $v = "DISABLED","ENABLED","ERROR"
+            break
+        }
+        
+        # Amazon.DLM.SettablePolicyStateValues
+        {
+            ($_ -eq "New-DLMLifecyclePolicy/State") -Or
+            ($_ -eq "Update-DLMLifecyclePolicy/State")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DLM_map = @{
+    "State"=@("Get-DLMLifecyclePolicySummary","New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
+}
+
+_awsArgumentCompleterRegistration $DLM_Completers $DLM_map
+
+
+# Argument completions for service AWS Database Migration Service
+$DMS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DatabaseMigrationService.AuthMechanismValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthMechanism") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthMechanism")
+        }
+        {
+            $v = "default","mongodb_cr","scram_sha_1"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.AuthTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthType") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthType")
+        }
+        {
+            $v = "no","password"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.CompressionTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_CompressionType") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_CompressionType")
+        }
+        {
+            $v = "gzip","none"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.DmsSslModeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
+            ($_ -eq "New-DMSEndpoint/SslMode")
+        }
+        {
+            $v = "none","require","verify-ca","verify-full"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.MessageFormatValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/KinesisSettings_MessageFormat") -Or
+            ($_ -eq "New-DMSEndpoint/KinesisSettings_MessageFormat")
+        }
+        {
+            $v = "json"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.MigrationTypeValue
+        {
+            ($_ -eq "Edit-DMSReplicationTask/MigrationType") -Or
+            ($_ -eq "New-DMSReplicationTask/MigrationType")
+        }
+        {
+            $v = "cdc","full-load","full-load-and-cdc"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.NestingLevelValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_NestingLevel") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_NestingLevel")
+        }
+        {
+            $v = "none","one"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.ReloadOptionValue
+        "Restore-DMSTable/ReloadOption"
+        {
+            $v = "data-reload","validate-only"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/EndpointType") -Or
+            ($_ -eq "New-DMSEndpoint/EndpointType")
+        }
+        {
+            $v = "source","target"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.SourceType
+        "Get-DMSEvent/SourceType"
+        {
+            $v = "replication-instance"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.StartReplicationTaskTypeValue
+        "Start-DMSReplicationTask/StartReplicationTaskType"
+        {
+            $v = "reload-target","resume-processing","start-replication"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DMS_map = @{
+    "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "KinesisSettings_MessageFormat"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MigrationType"=@("Edit-DMSReplicationTask","New-DMSReplicationTask")
+    "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "ReloadOption"=@("Restore-DMSTable")
+    "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "SourceType"=@("Get-DMSEvent")
+    "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "StartReplicationTaskType"=@("Start-DMSReplicationTask")
+}
+
+_awsArgumentCompleterRegistration $DMS_Completers $DMS_map
+
+
 # Argument completions for service AWS Directory Service
 $DS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -3018,43 +2892,6 @@ $DS_map = @{
 }
 
 _awsArgumentCompleterRegistration $DS_Completers $DS_map
-
-
-# Argument completions for service Amazon Data Lifecycle Manager
-$DLM_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.DLM.GettablePolicyStateValues
-        "Get-DLMLifecyclePolicySummary/State"
-        {
-            $v = "DISABLED","ENABLED","ERROR"
-            break
-        }
-        
-        # Amazon.DLM.SettablePolicyStateValues
-        {
-            ($_ -eq "New-DLMLifecyclePolicy/State") -Or
-            ($_ -eq "Update-DLMLifecyclePolicy/State")
-        }
-        {
-            $v = "DISABLED","ENABLED"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$DLM_map = @{
-    "State"=@("Get-DLMLifecyclePolicySummary","New-DLMLifecyclePolicy","Update-DLMLifecyclePolicy")
-}
-
-_awsArgumentCompleterRegistration $DLM_Completers $DLM_map
 
 
 # Argument completions for service Amazon DynamoDB
@@ -3990,6 +3827,76 @@ $EC_map = @{
 _awsArgumentCompleterRegistration $EC_Completers $EC_map
 
 
+# Argument completions for service AWS Elastic Beanstalk
+$EB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ElasticBeanstalk.ActionStatus
+        "Get-EBEnvironmentManagedAction/Status"
+        {
+            $v = "Pending","Running","Scheduled","Unknown"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.ComputeType
+        "New-EBApplicationVersion/BuildConfiguration_ComputeType"
+        {
+            $v = "BUILD_GENERAL1_LARGE","BUILD_GENERAL1_MEDIUM","BUILD_GENERAL1_SMALL"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.EnvironmentInfoType
+        {
+            ($_ -eq "Get-EBEnvironmentInfo/InfoType") -Or
+            ($_ -eq "Request-EBEnvironmentInfo/InfoType")
+        }
+        {
+            $v = "bundle","tail"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.EventSeverity
+        "Get-EBEvent/Severity"
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","TRACE","WARN"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.SourceRepository
+        "New-EBApplicationVersion/SourceBuildInformation_SourceRepository"
+        {
+            $v = "CodeCommit","S3"
+            break
+        }
+        
+        # Amazon.ElasticBeanstalk.SourceType
+        "New-EBApplicationVersion/SourceBuildInformation_SourceType"
+        {
+            $v = "Git","Zip"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EB_map = @{
+    "BuildConfiguration_ComputeType"=@("New-EBApplicationVersion")
+    "InfoType"=@("Get-EBEnvironmentInfo","Request-EBEnvironmentInfo")
+    "Severity"=@("Get-EBEvent")
+    "SourceBuildInformation_SourceRepository"=@("New-EBApplicationVersion")
+    "SourceBuildInformation_SourceType"=@("New-EBApplicationVersion")
+    "Status"=@("Get-EBEnvironmentManagedAction")
+}
+
+_awsArgumentCompleterRegistration $EB_Completers $EB_map
+
+
 # Argument completions for service Elastic Load Balancing V2
 $ELB2_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -4114,6 +4021,71 @@ $EMR_map = @{
 _awsArgumentCompleterRegistration $EMR_Completers $EMR_map
 
 
+# Argument completions for service Amazon Simple Email Service
+$SES_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SimpleEmail.BehaviorOnMXFailure
+        "Set-SESIdentityMailFromDomain/BehaviorOnMXFailure"
+        {
+            $v = "RejectMessage","UseDefaultValue"
+            break
+        }
+        
+        # Amazon.SimpleEmail.IdentityType
+        "Get-SESIdentity/IdentityType"
+        {
+            $v = "Domain","EmailAddress"
+            break
+        }
+        
+        # Amazon.SimpleEmail.NotificationType
+        {
+            ($_ -eq "Set-SESIdentityHeadersInNotificationsEnabled/NotificationType") -Or
+            ($_ -eq "Set-SESIdentityNotificationTopic/NotificationType")
+        }
+        {
+            $v = "Bounce","Complaint","Delivery"
+            break
+        }
+        
+        # Amazon.SimpleEmail.ReceiptFilterPolicy
+        "New-SESReceiptFilter/Filter_IpFilter_Policy"
+        {
+            $v = "Allow","Block"
+            break
+        }
+        
+        # Amazon.SimpleEmail.TlsPolicy
+        {
+            ($_ -eq "New-SESReceiptRule/Rule_TlsPolicy") -Or
+            ($_ -eq "Update-SESReceiptRule/Rule_TlsPolicy")
+        }
+        {
+            $v = "Optional","Require"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SES_map = @{
+    "BehaviorOnMXFailure"=@("Set-SESIdentityMailFromDomain")
+    "Filter_IpFilter_Policy"=@("New-SESReceiptFilter")
+    "IdentityType"=@("Get-SESIdentity")
+    "NotificationType"=@("Set-SESIdentityHeadersInNotificationsEnabled","Set-SESIdentityNotificationTopic")
+    "Rule_TlsPolicy"=@("New-SESReceiptRule","Update-SESReceiptRule")
+}
+
+_awsArgumentCompleterRegistration $SES_Completers $SES_map
+
+
 # Argument completions for service Amazon Elasticsearch
 $ES_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -4160,54 +4132,16 @@ $ES_map = @{
 _awsArgumentCompleterRegistration $ES_Completers $ES_map
 
 
-# Argument completions for service AWS Glue
-$GLUE_Completers = {
+# Argument completions for service Amazon CloudWatch Events
+$CWE_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.Glue.CatalogEncryptionMode
-        "Set-GLUEDataCatalogEncryptionSetting/DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"
+        # Amazon.CloudWatchEvents.RuleState
+        "Write-CWERule/State"
         {
-            $v = "DISABLED","SSE-KMS"
-            break
-        }
-        
-        # Amazon.Glue.CloudWatchEncryptionMode
-        "New-GLUESecurityConfiguration/EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"
-        {
-            $v = "DISABLED","SSE-KMS"
-            break
-        }
-        
-        # Amazon.Glue.ExistCondition
-        "Set-GLUEResourcePolicy/PolicyExistsCondition"
-        {
-            $v = "MUST_EXIST","NONE","NOT_EXIST"
-            break
-        }
-        
-        # Amazon.Glue.JobBookmarksEncryptionMode
-        "New-GLUESecurityConfiguration/EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"
-        {
-            $v = "CSE-KMS","DISABLED"
-            break
-        }
-        
-        # Amazon.Glue.Language
-        {
-            ($_ -eq "Get-GLUEPlan/Language") -Or
-            ($_ -eq "New-GLUEScript/Language")
-        }
-        {
-            $v = "PYTHON","SCALA"
-            break
-        }
-        
-        # Amazon.Glue.TriggerType
-        "New-GLUETrigger/Type"
-        {
-            $v = "CONDITIONAL","ON_DEMAND","SCHEDULED"
+            $v = "DISABLED","ENABLED"
             break
         }
         
@@ -4218,16 +4152,61 @@ $GLUE_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$GLUE_map = @{
-    "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
-    "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
-    "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
-    "Language"=@("Get-GLUEPlan","New-GLUEScript")
-    "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
-    "Type"=@("New-GLUETrigger")
+$CWE_map = @{
+    "State"=@("Write-CWERule")
 }
 
-_awsArgumentCompleterRegistration $GLUE_Completers $GLUE_map
+_awsArgumentCompleterRegistration $CWE_Completers $CWE_map
+
+
+# Argument completions for service Amazon Kinesis Firehose
+$KINF_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KinesisFirehose.DeliveryStreamType
+        {
+            ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
+            ($_ -eq "New-KINFDeliveryStream/DeliveryStreamType")
+        }
+        {
+            $v = "DirectPut","KinesisStreamAsSource"
+            break
+        }
+        
+        # Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod
+        {
+            ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_IndexRotationPeriod") -Or
+            ($_ -eq "Update-KINFDestination/ElasticsearchDestinationUpdate_IndexRotationPeriod")
+        }
+        {
+            $v = "NoRotation","OneDay","OneHour","OneMonth","OneWeek"
+            break
+        }
+        
+        # Amazon.KinesisFirehose.ElasticsearchS3BackupMode
+        "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_S3BackupMode"
+        {
+            $v = "AllDocuments","FailedDocumentsOnly"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KINF_map = @{
+    "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
+    "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
+    "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
+}
+
+_awsArgumentCompleterRegistration $KINF_Completers $KINF_map
 
 
 # Argument completions for service Amazon GameLift Service
@@ -4364,6 +4343,76 @@ $GML_map = @{
 }
 
 _awsArgumentCompleterRegistration $GML_Completers $GML_map
+
+
+# Argument completions for service AWS Glue
+$GLUE_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Glue.CatalogEncryptionMode
+        "Set-GLUEDataCatalogEncryptionSetting/DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+        
+        # Amazon.Glue.CloudWatchEncryptionMode
+        "New-GLUESecurityConfiguration/EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"
+        {
+            $v = "DISABLED","SSE-KMS"
+            break
+        }
+        
+        # Amazon.Glue.ExistCondition
+        "Set-GLUEResourcePolicy/PolicyExistsCondition"
+        {
+            $v = "MUST_EXIST","NONE","NOT_EXIST"
+            break
+        }
+        
+        # Amazon.Glue.JobBookmarksEncryptionMode
+        "New-GLUESecurityConfiguration/EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"
+        {
+            $v = "CSE-KMS","DISABLED"
+            break
+        }
+        
+        # Amazon.Glue.Language
+        {
+            ($_ -eq "Get-GLUEPlan/Language") -Or
+            ($_ -eq "New-GLUEScript/Language")
+        }
+        {
+            $v = "PYTHON","SCALA"
+            break
+        }
+        
+        # Amazon.Glue.TriggerType
+        "New-GLUETrigger/Type"
+        {
+            $v = "CONDITIONAL","ON_DEMAND","SCHEDULED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GLUE_map = @{
+    "DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode"=@("Set-GLUEDataCatalogEncryptionSetting")
+    "EncryptionConfiguration_CloudWatchEncryption_CloudWatchEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "EncryptionConfiguration_JobBookmarksEncryption_JobBookmarksEncryptionMode"=@("New-GLUESecurityConfiguration")
+    "Language"=@("Get-GLUEPlan","New-GLUEScript")
+    "PolicyExistsCondition"=@("Set-GLUEResourcePolicy")
+    "Type"=@("New-GLUETrigger")
+}
+
+_awsArgumentCompleterRegistration $GLUE_Completers $GLUE_map
 
 
 # Argument completions for service AWS Greengrass
@@ -4526,41 +4575,6 @@ $HLTH_map = @{
 }
 
 _awsArgumentCompleterRegistration $HLTH_Completers $HLTH_map
-
-
-# Argument completions for service AWS Cloud HSM
-$HSM_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.CloudHSM.ClientVersion
-        "Get-HSMConfig/ClientVersion"
-        {
-            $v = "5.1","5.3"
-            break
-        }
-        
-        # Amazon.CloudHSM.SubscriptionType
-        "New-HSMItem/SubscriptionType"
-        {
-            $v = "PRODUCTION"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$HSM_map = @{
-    "ClientVersion"=@("Get-HSMConfig")
-    "SubscriptionType"=@("New-HSMItem")
-}
-
-_awsArgumentCompleterRegistration $HSM_Completers $HSM_map
 
 
 # Argument completions for service AWS Identity and Access Management
@@ -5083,56 +5097,6 @@ $KINA_map = @{
 _awsArgumentCompleterRegistration $KINA_Completers $KINA_map
 
 
-# Argument completions for service Amazon Kinesis Firehose
-$KINF_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.KinesisFirehose.DeliveryStreamType
-        {
-            ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
-            ($_ -eq "New-KINFDeliveryStream/DeliveryStreamType")
-        }
-        {
-            $v = "DirectPut","KinesisStreamAsSource"
-            break
-        }
-        
-        # Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod
-        {
-            ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_IndexRotationPeriod") -Or
-            ($_ -eq "Update-KINFDestination/ElasticsearchDestinationUpdate_IndexRotationPeriod")
-        }
-        {
-            $v = "NoRotation","OneDay","OneHour","OneMonth","OneWeek"
-            break
-        }
-        
-        # Amazon.KinesisFirehose.ElasticsearchS3BackupMode
-        "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_S3BackupMode"
-        {
-            $v = "AllDocuments","FailedDocumentsOnly"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$KINF_map = @{
-    "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
-    "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
-    "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
-    "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
-}
-
-_awsArgumentCompleterRegistration $KINF_Completers $KINF_map
-
-
 # Argument completions for service Amazon Kinesis Video Streams
 $KV_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -5497,6 +5461,138 @@ $LS_map = @{
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
 
 
+# Argument completions for service Amazon CloudWatch Logs
+$CWL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CloudWatchLogs.Distribution
+        "Write-CWLSubscriptionFilter/Distribution"
+        {
+            $v = "ByLogStream","Random"
+            break
+        }
+        
+        # Amazon.CloudWatchLogs.ExportTaskStatusCode
+        "Get-CWLExportTask/StatusCode"
+        {
+            $v = "CANCELLED","COMPLETED","FAILED","PENDING","PENDING_CANCEL","RUNNING"
+            break
+        }
+        
+        # Amazon.CloudWatchLogs.OrderBy
+        "Get-CWLLogStream/OrderBy"
+        {
+            $v = "LastEventTime","LogStreamName"
+            break
+        }
+        
+        # Amazon.CloudWatchLogs.QueryStatus
+        "Get-CWLQuery/Status"
+        {
+            $v = "Cancelled","Complete","Failed","Running","Scheduled"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CWL_map = @{
+    "Distribution"=@("Write-CWLSubscriptionFilter")
+    "OrderBy"=@("Get-CWLLogStream")
+    "Status"=@("Get-CWLQuery")
+    "StatusCode"=@("Get-CWLExportTask")
+}
+
+_awsArgumentCompleterRegistration $CWL_Completers $CWL_map
+
+
+# Argument completions for service Amazon Machine Learning
+$ML_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MachineLearning.BatchPredictionFilterVariable
+        "Get-MLBatchPredictionList/FilterVariable"
+        {
+            $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
+            break
+        }
+        
+        # Amazon.MachineLearning.DataSourceFilterVariable
+        "Get-MLDataSourceList/FilterVariable"
+        {
+            $v = "CreatedAt","DataLocationS3","IAMUser","LastUpdatedAt","Name","Status"
+            break
+        }
+        
+        # Amazon.MachineLearning.EvaluationFilterVariable
+        "Get-MLEvaluationList/FilterVariable"
+        {
+            $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
+            break
+        }
+        
+        # Amazon.MachineLearning.MLModelFilterVariable
+        "Get-MLModelList/FilterVariable"
+        {
+            $v = "Algorithm","CreatedAt","IAMUser","LastUpdatedAt","MLModelType","Name","RealtimeEndpointStatus","Status","TrainingDataSourceId","TrainingDataURI"
+            break
+        }
+        
+        # Amazon.MachineLearning.MLModelType
+        "New-MLModel/MLModelType"
+        {
+            $v = "BINARY","MULTICLASS","REGRESSION"
+            break
+        }
+        
+        # Amazon.MachineLearning.SortOrder
+        {
+            ($_ -eq "Get-MLBatchPredictionList/SortOrder") -Or
+            ($_ -eq "Get-MLDataSourceList/SortOrder") -Or
+            ($_ -eq "Get-MLEvaluationList/SortOrder") -Or
+            ($_ -eq "Get-MLModelList/SortOrder")
+        }
+        {
+            $v = "asc","dsc"
+            break
+        }
+        
+        # Amazon.MachineLearning.TaggableResourceType
+        {
+            ($_ -eq "Add-MLResourceTag/ResourceType") -Or
+            ($_ -eq "Get-MLResourceTag/ResourceType") -Or
+            ($_ -eq "Remove-MLResourceTag/ResourceType")
+        }
+        {
+            $v = "BatchPrediction","DataSource","Evaluation","MLModel"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ML_map = @{
+    "FilterVariable"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
+    "MLModelType"=@("New-MLModel")
+    "ResourceType"=@("Add-MLResourceTag","Get-MLResourceTag","Remove-MLResourceTag")
+    "SortOrder"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
+}
+
+_awsArgumentCompleterRegistration $ML_Completers $ML_map
+
+
 # Argument completions for service AWS Marketplace Commerce Analytics
 $MCA_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -5774,16 +5870,61 @@ $EMSD_map = @{
 _awsArgumentCompleterRegistration $EMSD_Completers $EMSD_map
 
 
-# Argument completions for service AWS Migration Hub
-$MH_Completers = {
+# Argument completions for service Amazon CloudWatch
+$CW_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     
     switch ($("$commandName/$parameterName"))
     {
-        # Amazon.MigrationHub.ApplicationStatus
-        "Send-MHApplicationStateNotification/Status"
+        # Amazon.CloudWatch.ComparisonOperator
+        "Write-CWMetricAlarm/ComparisonOperator"
         {
-            $v = "COMPLETED","IN_PROGRESS","NOT_STARTED"
+            $v = "GreaterThanOrEqualToThreshold","GreaterThanThreshold","LessThanOrEqualToThreshold","LessThanThreshold"
+            break
+        }
+        
+        # Amazon.CloudWatch.HistoryItemType
+        "Get-CWAlarmHistory/HistoryItemType"
+        {
+            $v = "Action","ConfigurationUpdate","StateUpdate"
+            break
+        }
+        
+        # Amazon.CloudWatch.ScanBy
+        "Get-CWMetricData/ScanBy"
+        {
+            $v = "TimestampAscending","TimestampDescending"
+            break
+        }
+        
+        # Amazon.CloudWatch.StandardUnit
+        {
+            ($_ -eq "Get-CWAlarmForMetric/Unit") -Or
+            ($_ -eq "Get-CWMetricStatistic/Unit") -Or
+            ($_ -eq "Write-CWMetricAlarm/Unit")
+        }
+        {
+            $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
+            break
+        }
+        
+        # Amazon.CloudWatch.StateValue
+        {
+            ($_ -eq "Get-CWAlarm/StateValue") -Or
+            ($_ -eq "Set-CWAlarmState/StateValue")
+        }
+        {
+            $v = "ALARM","INSUFFICIENT_DATA","OK"
+            break
+        }
+        
+        # Amazon.CloudWatch.Statistic
+        {
+            ($_ -eq "Get-CWAlarmForMetric/Statistic") -Or
+            ($_ -eq "Write-CWMetricAlarm/Statistic")
+        }
+        {
+            $v = "Average","Maximum","Minimum","SampleCount","Sum"
             break
         }
         
@@ -5794,92 +5935,16 @@ $MH_Completers = {
         ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
 }
 
-$MH_map = @{
-    "Status"=@("Send-MHApplicationStateNotification")
+$CW_map = @{
+    "ComparisonOperator"=@("Write-CWMetricAlarm")
+    "HistoryItemType"=@("Get-CWAlarmHistory")
+    "ScanBy"=@("Get-CWMetricData")
+    "StateValue"=@("Get-CWAlarm","Set-CWAlarmState")
+    "Statistic"=@("Get-CWAlarmForMetric","Write-CWMetricAlarm")
+    "Unit"=@("Get-CWAlarmForMetric","Get-CWMetricStatistic","Write-CWMetricAlarm")
 }
 
-_awsArgumentCompleterRegistration $MH_Completers $MH_map
-
-
-# Argument completions for service Amazon Machine Learning
-$ML_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.MachineLearning.BatchPredictionFilterVariable
-        "Get-MLBatchPredictionList/FilterVariable"
-        {
-            $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
-            break
-        }
-        
-        # Amazon.MachineLearning.DataSourceFilterVariable
-        "Get-MLDataSourceList/FilterVariable"
-        {
-            $v = "CreatedAt","DataLocationS3","IAMUser","LastUpdatedAt","Name","Status"
-            break
-        }
-        
-        # Amazon.MachineLearning.EvaluationFilterVariable
-        "Get-MLEvaluationList/FilterVariable"
-        {
-            $v = "CreatedAt","DataSourceId","DataURI","IAMUser","LastUpdatedAt","MLModelId","Name","Status"
-            break
-        }
-        
-        # Amazon.MachineLearning.MLModelFilterVariable
-        "Get-MLModelList/FilterVariable"
-        {
-            $v = "Algorithm","CreatedAt","IAMUser","LastUpdatedAt","MLModelType","Name","RealtimeEndpointStatus","Status","TrainingDataSourceId","TrainingDataURI"
-            break
-        }
-        
-        # Amazon.MachineLearning.MLModelType
-        "New-MLModel/MLModelType"
-        {
-            $v = "BINARY","MULTICLASS","REGRESSION"
-            break
-        }
-        
-        # Amazon.MachineLearning.SortOrder
-        {
-            ($_ -eq "Get-MLBatchPredictionList/SortOrder") -Or
-            ($_ -eq "Get-MLDataSourceList/SortOrder") -Or
-            ($_ -eq "Get-MLEvaluationList/SortOrder") -Or
-            ($_ -eq "Get-MLModelList/SortOrder")
-        }
-        {
-            $v = "asc","dsc"
-            break
-        }
-        
-        # Amazon.MachineLearning.TaggableResourceType
-        {
-            ($_ -eq "Add-MLResourceTag/ResourceType") -Or
-            ($_ -eq "Get-MLResourceTag/ResourceType") -Or
-            ($_ -eq "Remove-MLResourceTag/ResourceType")
-        }
-        {
-            $v = "BatchPrediction","DataSource","Evaluation","MLModel"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$ML_map = @{
-    "FilterVariable"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
-    "MLModelType"=@("New-MLModel")
-    "ResourceType"=@("Add-MLResourceTag","Get-MLResourceTag","Remove-MLResourceTag")
-    "SortOrder"=@("Get-MLBatchPredictionList","Get-MLDataSourceList","Get-MLEvaluationList","Get-MLModelList")
-}
-
-_awsArgumentCompleterRegistration $ML_Completers $ML_map
+_awsArgumentCompleterRegistration $CW_Completers $CW_map
 
 
 # Argument completions for service Amazon MQ
@@ -7505,98 +7570,6 @@ $SD_map = @{
 _awsArgumentCompleterRegistration $SD_Completers $SD_map
 
 
-# Argument completions for service Amazon Simple Email Service
-$SES_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.SimpleEmail.BehaviorOnMXFailure
-        "Set-SESIdentityMailFromDomain/BehaviorOnMXFailure"
-        {
-            $v = "RejectMessage","UseDefaultValue"
-            break
-        }
-        
-        # Amazon.SimpleEmail.IdentityType
-        "Get-SESIdentity/IdentityType"
-        {
-            $v = "Domain","EmailAddress"
-            break
-        }
-        
-        # Amazon.SimpleEmail.NotificationType
-        {
-            ($_ -eq "Set-SESIdentityHeadersInNotificationsEnabled/NotificationType") -Or
-            ($_ -eq "Set-SESIdentityNotificationTopic/NotificationType")
-        }
-        {
-            $v = "Bounce","Complaint","Delivery"
-            break
-        }
-        
-        # Amazon.SimpleEmail.ReceiptFilterPolicy
-        "New-SESReceiptFilter/Filter_IpFilter_Policy"
-        {
-            $v = "Allow","Block"
-            break
-        }
-        
-        # Amazon.SimpleEmail.TlsPolicy
-        {
-            ($_ -eq "New-SESReceiptRule/Rule_TlsPolicy") -Or
-            ($_ -eq "Update-SESReceiptRule/Rule_TlsPolicy")
-        }
-        {
-            $v = "Optional","Require"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$SES_map = @{
-    "BehaviorOnMXFailure"=@("Set-SESIdentityMailFromDomain")
-    "Filter_IpFilter_Policy"=@("New-SESReceiptFilter")
-    "IdentityType"=@("Get-SESIdentity")
-    "NotificationType"=@("Set-SESIdentityHeadersInNotificationsEnabled","Set-SESIdentityNotificationTopic")
-    "Rule_TlsPolicy"=@("New-SESReceiptRule","Update-SESReceiptRule")
-}
-
-_awsArgumentCompleterRegistration $SES_Completers $SES_map
-
-
-# Argument completions for service AWS Step Functions
-$SFN_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.StepFunctions.ExecutionStatus
-        "Get-SFNExecutionList/StatusFilter"
-        {
-            $v = "ABORTED","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$SFN_map = @{
-    "StatusFilter"=@("Get-SFNExecutionList")
-}
-
-_awsArgumentCompleterRegistration $SFN_Completers $SFN_map
-
-
 # Argument completions for service AWS Shield
 $SHLD_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -7944,6 +7917,33 @@ $SSM_map = @{
 }
 
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map
+
+
+# Argument completions for service AWS Step Functions
+$SFN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.StepFunctions.ExecutionStatus
+        "Get-SFNExecutionList/StatusFilter"
+        {
+            $v = "ABORTED","FAILED","RUNNING","SUCCEEDED","TIMED_OUT"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SFN_map = @{
+    "StatusFilter"=@("Get-SFNExecutionList")
+}
+
+_awsArgumentCompleterRegistration $SFN_Completers $SFN_map
 
 
 # Argument completions for service AWS Storage Gateway
@@ -8318,6 +8318,33 @@ $WD_map = @{
 _awsArgumentCompleterRegistration $WD_Completers $WD_map
 
 
+# Argument completions for service Amazon WorkMail
+$WM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkMail.ResourceType
+        "New-WMResource/Type"
+        {
+            $v = "EQUIPMENT","ROOM"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WM_map = @{
+    "Type"=@("New-WMResource")
+}
+
+_awsArgumentCompleterRegistration $WM_Completers $WM_map
+
+
 # Argument completions for service Amazon WorkSpaces
 $WKS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -8383,33 +8410,6 @@ $WKS_map = @{
 }
 
 _awsArgumentCompleterRegistration $WKS_Completers $WKS_map
-
-
-# Argument completions for service Amazon WorkMail
-$WM_Completers = {
-    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
-    
-    switch ($("$commandName/$parameterName"))
-    {
-        # Amazon.WorkMail.ResourceType
-        "New-WMResource/Type"
-        {
-            $v = "EQUIPMENT","ROOM"
-            break
-        }
-        
-    }
-    
-    $v |
-        Where-Object { $_ -like "$wordToComplete*" } |
-        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
-}
-
-$WM_map = @{
-    "Type"=@("New-WMResource")
-}
-
-_awsArgumentCompleterRegistration $WM_Completers $WM_map
 
 
 # Argument completions for service AWS X-Ray

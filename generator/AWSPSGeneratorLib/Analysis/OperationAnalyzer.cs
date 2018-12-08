@@ -8,7 +8,7 @@ using System.Management.Automation;
 using System.Reflection;
 using System.Text;
 using System.Xml;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Utils;
 using System.Text.RegularExpressions;

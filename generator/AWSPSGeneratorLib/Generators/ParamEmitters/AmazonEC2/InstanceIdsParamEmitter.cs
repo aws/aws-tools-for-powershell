@@ -1,5 +1,5 @@
 ﻿using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
 

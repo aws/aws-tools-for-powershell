@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Xml;
 using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Utils;
 using AWSPowerShellGenerator.Writers;
 using AWSPowerShellGenerator.Writers.SourceCode;
@@ -111,12 +111,12 @@ namespace AWSPowerShellGenerator.Generators
         /// The subfolder hierarchy beneath GeneratorOptions.RootPath that holds the
         /// service xml configuration files and generator manifest to process.
         /// </summary>
-        public const string CmdletConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig";
+        public const string CmdletConfigurationsFoldername = @"generator\AWSPSGeneratorLib\ServiceConfig";
 
         /// <summary>
         /// For use in the new generator, the current one emits json versions of the configs here
         /// </summary>
-        public const string CmdletJsonConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig.json";
+        public const string CmdletJsonConfigurationsFoldername = @"generator\AWSPSGeneratorLib\ServiceConfig.json";
 
         public const string CmdletsOutputSubFoldername = "Cmdlets";
         public const string ArgumentCompletersSubFoldername = "ArgumentCompleters";

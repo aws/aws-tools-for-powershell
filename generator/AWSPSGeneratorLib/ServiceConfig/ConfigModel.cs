@@ -9,7 +9,7 @@ using System.Xml;
 using AWSPowerShellGenerator.Analysis;
 using Microsoft.PowerShell.Commands;
 
-namespace AWSPowerShellGenerator.CmdletConfig
+namespace AWSPowerShellGenerator.ServiceConfig
 {
     /// <summary>
     /// Collection of service ConfigModel objects
@@ -144,12 +144,19 @@ namespace AWSPowerShellGenerator.CmdletConfig
             foreach (var c in manifestConfig.Configs.OrderBy(c => c))
             {
                 var configFile = Path.GetFullPath(Path.Combine(configurationsFolder, c));
-                
+
                 if (verbose)
                     Console.WriteLine("...loading service configuration {0}", configFile);
-    
-                var configModel = DeserializeModel(configFile);
-                manifestConfig.ConfigModels.Add(configModel);
+
+                try
+                {
+                    var configModel = DeserializeModel(configFile);
+                    manifestConfig.ConfigModels.Add(configModel);
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Failed to deserialize config model " + configFile, e);
+                }
             }
 
             return manifestConfig;

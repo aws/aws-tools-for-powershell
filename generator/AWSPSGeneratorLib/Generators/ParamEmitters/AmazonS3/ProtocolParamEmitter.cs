@@ -1,12 +1,12 @@
 ﻿using AWSPowerShellGenerator.Analysis;
-using AWSPowerShellGenerator.CmdletConfig;
+using AWSPowerShellGenerator.ServiceConfig;
 using AWSPowerShellGenerator.Writers;
 
 namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
 {
     internal class ProtocolParamEmitter : IParamEmitter
     {
-        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, CmdletConfig.Param param, ref int usedPositionalCount)
+        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param param, ref int usedPositionalCount)
         {
             // replace the enum type with a string param instead and convert to enum member on execution
             writer.WriteLine("/// <summary>");
