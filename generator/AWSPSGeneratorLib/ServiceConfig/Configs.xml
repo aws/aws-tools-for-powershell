@@ -47,6 +47,7 @@
     <Path>ecr.xml</Path>
     <Path>ecs.xml</Path>
     <Path>efs.xml</Path>
+    <Path>eks.xml</Path>
     <Path>elasticache.xml</Path>
     <Path>elasticbeanstalk.xml</Path>
     <Path>elasticloadbalancing.xml</Path>

@@ -1,4 +1,6 @@
 ﻿### TBD
+  * Amazon Elastic Container Service for Kubernetes
+    * Added cmdlets to support the Amazon Elastic Container Service for Kubernetes. Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. Cmdlets for the service have the noun prefix EKS and can be listed using the command 'Get-AWSCmdletName -Service EKS'.
   * Amazon FSx
     * Added cmdlets to support the new Amazon FSx service. Amazon FSx is a fully managed service that makes it easy for storage and application administrators to launch and use shared file storage. Cmdlets for the service have the noun prefix FSX and can be listed using the command 'Get-AWSCmdletName -Service FSX'.
   * AWS DataSync

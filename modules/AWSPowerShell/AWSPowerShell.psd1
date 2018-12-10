@@ -103,6 +103,7 @@ RequiredAssemblies = @(
   "AWSSDK.EC2.dll",
   "AWSSDK.ECR.dll",
   "AWSSDK.ECS.dll",
+  "AWSSDK.EKS.dll",
   "AWSSDK.ElastiCache.dll",
   "AWSSDK.ElasticBeanstalk.dll",
   "AWSSDK.ElasticFileSystem.dll",

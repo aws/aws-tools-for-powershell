@@ -2391,6 +2391,10 @@ Set-Alias -Name EFS-DescribeTags -Value Get-EFSTag
 Set-Alias -Name Modify-EFSMountTargetSecurityGroups -Value Edit-EFSMountTargetSecurityGroup
 Set-Alias -Name EFS-ModifyMountTargetSecurityGroups -Value Edit-EFSMountTargetSecurityGroup
 Set-Alias -Name EFS-UpdateFileSystem -Value Update-EFSFileSystem
+Set-Alias -Name EKS-CreateCluster -Value New-EKSCluster
+Set-Alias -Name EKS-DeleteCluster -Value Remove-EKSCluster
+Set-Alias -Name EKS-DescribeCluster -Value Get-EKSCluster
+Set-Alias -Name EKS-ListClusters -Value Get-EKSClusterList
 Set-Alias -Name EC-AddTagsToResource -Value Add-ECTag
 Set-Alias -Name Authorize-ECCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
 Set-Alias -Name EC-AuthorizeCacheSecurityGroupIngress -Value Approve-ECCacheSecurityGroupIngress
