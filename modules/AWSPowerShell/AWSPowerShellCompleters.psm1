@@ -6592,6 +6592,61 @@ $QS_map = @{
 _awsArgumentCompleterRegistration $QS_Completers $QS_map
 
 
+# Argument completions for service AWS Resource Access Manager
+$RAM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.RAM.ResourceOwner
+        {
+            ($_ -eq "Get-RAMPrincipalList/ResourceOwner") -Or
+            ($_ -eq "Get-RAMResourceList/ResourceOwner") -Or
+            ($_ -eq "Get-RAMResourceShare/ResourceOwner")
+        }
+        {
+            $v = "OTHER-ACCOUNTS","SELF"
+            break
+        }
+        
+        # Amazon.RAM.ResourceShareAssociationStatus
+        "Get-RAMResourceShareAssociation/AssociationStatus"
+        {
+            $v = "ASSOCIATED","ASSOCIATING","DISASSOCIATED","DISASSOCIATING","FAILED"
+            break
+        }
+        
+        # Amazon.RAM.ResourceShareAssociationType
+        "Get-RAMResourceShareAssociation/AssociationType"
+        {
+            $v = "PRINCIPAL","RESOURCE"
+            break
+        }
+        
+        # Amazon.RAM.ResourceShareStatus
+        "Get-RAMResourceShare/ResourceShareStatus"
+        {
+            $v = "ACTIVE","DELETED","DELETING","FAILED","PENDING"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$RAM_map = @{
+    "AssociationStatus"=@("Get-RAMResourceShareAssociation")
+    "AssociationType"=@("Get-RAMResourceShareAssociation")
+    "ResourceOwner"=@("Get-RAMPrincipalList","Get-RAMResourceList","Get-RAMResourceShare")
+    "ResourceShareStatus"=@("Get-RAMResourceShare")
+}
+
+_awsArgumentCompleterRegistration $RAM_Completers $RAM_map
+
+
 # Argument completions for service Amazon Relational Database Service
 $RDS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

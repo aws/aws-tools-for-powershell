@@ -152,6 +152,7 @@ RequiredAssemblies = @(
   "AWSSDK.Polly.dll",
   "AWSSDK.Pricing.dll",
   "AWSSDK.QuickSight.dll",
+  "AWSSDK.RAM.dll",
   "AWSSDK.RDS.dll",
   "AWSSDK.Redshift.dll",
   "AWSSDK.Rekognition.dll",

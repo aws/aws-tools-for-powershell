@@ -58,6 +58,7 @@
     <PackageReference Include="AWSSDK.PinpointEmail" Version="3.3.0.8" />
     <PackageReference Include="AWSSDK.Quicksight" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.QuickSight" Version="3.3.0.1" />
+    <PackageReference Include="AWSSDK.RAM" Version="3.3.0.2" />
     <PackageReference Include="AWSSDK.S3Control" Version="3.3.0.2" />
     <PackageReference Include="AWSSDK.SecurityHub" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.Transfer" Version="3.3.0.1" />
