@@ -2895,6 +2895,17 @@ Set-Alias -Name FMS-ListMemberAccounts -Value Get-FMSMemberAccountList
 Set-Alias -Name FMS-ListPolicies -Value Get-FMSPolicyList
 Set-Alias -Name FMS-PutNotificationChannel -Value Write-FMSNotificationChannel
 Set-Alias -Name FMS-PutPolicy -Value Set-FMSPolicy
+Set-Alias -Name FSX-CreateBackup -Value New-FSXBackup
+Set-Alias -Name FSX-CreateFileSystem -Value New-FSXFileSystem
+Set-Alias -Name FSX-CreateFileSystemFromBackup -Value New-FSXFileSystemFromBackup
+Set-Alias -Name FSX-DeleteBackup -Value Remove-FSXBackup
+Set-Alias -Name FSX-DeleteFileSystem -Value Remove-FSXFileSystem
+Set-Alias -Name FSX-DescribeBackups -Value Get-FSXBackup
+Set-Alias -Name FSX-DescribeFileSystems -Value Get-FSXFileSystem
+Set-Alias -Name FSX-ListTagsForResource -Value Get-FSXTagsForResourceList
+Set-Alias -Name FSX-TagResource -Value Add-FSXResourceTag
+Set-Alias -Name FSX-UntagResource -Value Remove-FSXResourceTag
+Set-Alias -Name FSX-UpdateFileSystem -Value Update-FSXFileSystem
 Set-Alias -Name GML-AcceptMatch -Value Confirm-GMLMatch
 Set-Alias -Name Create-GMLAlias -Value New-GMLAlias
 Set-Alias -Name GML-CreateAlias -Value New-GMLAlias

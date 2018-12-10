@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Amazon FSx for Windows File Server User Guide">https://docs.aws.amazon.com/fsx/latest/WindowsGuide/</link>
+	<link name="Amazon FSx for Lustre User Guide">https://docs.aws.amazon.com/fsx/latest/LustreGuide/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/fsx/latest/APIReference/</link>
+  </set>
+</links>

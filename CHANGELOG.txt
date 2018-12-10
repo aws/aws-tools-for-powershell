@@ -1,4 +1,8 @@
-﻿### 3.3.422.0 (2018-12-06)
+﻿### TBD
+  * Amazon FSx
+    * Added cmdlets to support the new Amazon FSx service. Amazon FSx is a fully managed service that makes it easy for storage and application administrators to launch and use shared file storage. Cmdlets for the service have the noun prefix FSX and can be listed using the command 'Get-AWSCmdletName -Service FSX'.
+
+### 3.3.422.0 (2018-12-06)
   * Amazon CloudDirectory
     * [Breaking Change] The service output for the APIs called by the Get-CDIRObjectParent cmdlet has been updated and it is no longer possible for these cmdlets to return all available data using automatic pagination. You script will need to be updated to manually paginate the returned data using the *NextToken* parameter and field in the returned service response.
   * Amazon EC2

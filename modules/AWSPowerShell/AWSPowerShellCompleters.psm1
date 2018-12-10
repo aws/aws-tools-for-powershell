@@ -4209,6 +4209,33 @@ $KINF_map = @{
 _awsArgumentCompleterRegistration $KINF_Completers $KINF_map
 
 
+# Argument completions for service Amazon FSx
+$FSX_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.FSx.FileSystemType
+        "New-FSXFileSystem/FileSystemType"
+        {
+            $v = "LUSTRE","WINDOWS"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$FSX_map = @{
+    "FileSystemType"=@("New-FSXFileSystem")
+}
+
+_awsArgumentCompleterRegistration $FSX_Completers $FSX_map
+
+
 # Argument completions for service Amazon GameLift Service
 $GML_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
