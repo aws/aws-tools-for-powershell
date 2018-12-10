@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>rds-data</C2jFilename>
+    <SourceGenerationRoot>AmazonRDSDataService</SourceGenerationRoot>
+    <ServiceNounPrefix>RDSD</ServiceNounPrefix>
+    <ServiceName>AWS RDS DataService</ServiceName>
+    <ServiceClientInterface>IAmazonRDSDataService</ServiceClientInterface>
+    <ServiceClient>AmazonRDSDataServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.RDSDataService</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="ExecuteSql" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="SqlStatement" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SqlStatements" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

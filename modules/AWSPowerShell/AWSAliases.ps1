@@ -4969,6 +4969,7 @@ Set-Alias -Name RDS-StartDBCluster -Value Start-RDSDBCluster
 Set-Alias -Name RDS-StartDBInstance -Value Start-RDSDBInstance
 Set-Alias -Name RDS-StopDBCluster -Value Stop-RDSDBCluster
 Set-Alias -Name RDS-StopDBInstance -Value Stop-RDSDBInstance
+Set-Alias -Name RDSD-ExecuteSql -Value Invoke-RDSDSqlStatement
 Set-Alias -Name RS-AcceptReservedNodeExchange -Value Switch-RSReservedNode
 Set-Alias -Name Authorize-RSClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress
 Set-Alias -Name RS-AuthorizeClusterSecurityGroupIngress -Value Approve-RSClusterSecurityGroupIngress

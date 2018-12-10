@@ -102,6 +102,7 @@
     <Path>quicksight.xml</Path>
     <Path>ram.xml</Path>
     <Path>rds.xml</Path>
+    <Path>rds-data.xml</Path>
     <Path>redshift.xml</Path>
     <Path>rekognition.xml</Path>
     <Path>resource-groups.xml</Path>

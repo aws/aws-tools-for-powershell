@@ -154,6 +154,7 @@ RequiredAssemblies = @(
   "AWSSDK.QuickSight.dll",
   "AWSSDK.RAM.dll",
   "AWSSDK.RDS.dll",
+  "AWSSDK.RDSDataService.dll",
   "AWSSDK.Redshift.dll",
   "AWSSDK.Rekognition.dll",
   "AWSSDK.ResourceGroups.dll",
