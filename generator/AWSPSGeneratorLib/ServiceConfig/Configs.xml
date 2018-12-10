@@ -92,6 +92,7 @@
     <Path>monitoring.xml</Path>
     <Path>mq.xml</Path>
     <Path>mturk-requester.xml</Path>
+    <Path>neptune.xml</Path>
     <Path>opsworks.xml</Path>
     <Path>opsworkscm.xml</Path>
     <Path>organizations.xml</Path>

@@ -144,6 +144,7 @@ RequiredAssemblies = @(
   "AWSSDK.MigrationHub.dll",
   "AWSSDK.MQ.dll",
   "AWSSDK.MTurk.dll",
+  "AWSSDK.Neptune.dll",
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",
   "AWSSDK.Organizations.dll",

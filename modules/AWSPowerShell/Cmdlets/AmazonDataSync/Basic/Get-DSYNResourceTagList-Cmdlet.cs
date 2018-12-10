@@ -22,66 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.FSx;
-using Amazon.FSx.Model;
+using Amazon.DataSync;
+using Amazon.DataSync.Model;
 
-namespace Amazon.PowerShell.Cmdlets.FSX
+namespace Amazon.PowerShell.Cmdlets.DSYN
 {
     /// <summary>
-    /// Lists tags for an Amazon FSx file systems and backups in the case of Amazon FSx for
-    /// Windows File Server.
-    /// 
-    ///  
-    /// <para>
-    /// When retrieving all tags, you can optionally specify the <code>MaxResults</code> parameter
-    /// to limit the number of tags in a response. If more tags remain, Amazon FSx returns
-    /// a <code>NextToken</code> value in the response. In this case, send a later request
-    /// with the <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
-    /// from the last response.
-    /// </para><para>
-    /// This action is used in an iterative process to retrieve a list of your tags. <code>ListTagsForResource</code>
-    /// is called first without a <code>NextToken</code>value. Then the action continues to
-    /// be called with the <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
-    /// value until a response has no <code>NextToken</code>.
-    /// </para><para>
-    /// When using this action, keep the following in mind:
-    /// </para><ul><li><para>
-    /// The implementation might return fewer than <code>MaxResults</code> file system descriptions
-    /// while still including a <code>NextToken</code> value.
-    /// </para></li><li><para>
-    /// The order of tags returned in the response of one <code>ListTagsForResource</code>
-    /// call and the order of tags returned across the responses of a multi-call iteration
-    /// is unspecified.
-    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns all the tags associated with a specified resources.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "FSXTagsForResourceList")]
-    [OutputType("Amazon.FSx.Model.Tag")]
-    [AWSCmdlet("Calls the Amazon FSx ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.FSx.Model.Tag",
-        "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.FSx.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DSYNResourceTagList")]
+    [OutputType("Amazon.DataSync.Model.TagListEntry")]
+    [AWSCmdlet("Calls the AWS DataSync ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.DataSync.Model.TagListEntry",
+        "This cmdlet returns a collection of TagListEntry objects.",
+        "The service call response (type Amazon.DataSync.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetFSXTagsForResourceListCmdlet : AmazonFSxClientCmdlet, IExecutor
+    public partial class GetDSYNResourceTagListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceARN
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon FSx resource that will have its tags listed.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource whose tags to list.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ResourceARN { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Maximum number of tags to return in the response (integer). This parameter
-        /// value must be greater than 0. The number of items that Amazon FSx returns is the minimum
-        /// of the <code>MaxResults</code> parameter specified in the request and the service's
-        /// internal maximum number of items per page.</para>
+        /// <para>The maximum number of locations to return.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -95,9 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>(Optional) Opaque pagination token returned from a previous <code>ListTagsForResource</code>
-        /// operation (String). If a token present, the action continues the list from where the
-        /// returning call left off.</para>
+        /// <para>An opaque string that indicates the position at which to begin the next list of locations.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -123,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.ResourceARN = this.ResourceARN;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,22 +110,29 @@ namespace Amazon.PowerShell.Cmdlets.FSX
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.FSx.Model.ListTagsForResourceRequest();
-            if (cmdletContext.ResourceARN != null)
+            var request = new Amazon.DataSync.Model.ListTagsForResourceRequest();
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ResourceARN = cmdletContext.ResourceARN;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -168,6 +146,20 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -207,6 +199,15 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -230,9 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         
         #region AWS Service Operation Call
         
-        private Amazon.FSx.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.ListTagsForResourceRequest request)
+        private Amazon.DataSync.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "ListTagsForResource");
             try
             {
                 #if DESKTOP
@@ -262,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
         {
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ResourceARN { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

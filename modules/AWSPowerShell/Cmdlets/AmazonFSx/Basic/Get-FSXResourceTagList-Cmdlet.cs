@@ -22,41 +22,66 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Transfer;
-using Amazon.Transfer.Model;
+using Amazon.FSx;
+using Amazon.FSx.Model;
 
-namespace Amazon.PowerShell.Cmdlets.TFR
+namespace Amazon.PowerShell.Cmdlets.FSX
 {
     /// <summary>
-    /// Lists all of the tags associated with the Amazon Resource Number (ARN) you specify.
-    /// The resource can be a user, server, or role.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists tags for an Amazon FSx file systems and backups in the case of Amazon FSx for
+    /// Windows File Server.
+    /// 
+    ///  
+    /// <para>
+    /// When retrieving all tags, you can optionally specify the <code>MaxResults</code> parameter
+    /// to limit the number of tags in a response. If more tags remain, Amazon FSx returns
+    /// a <code>NextToken</code> value in the response. In this case, send a later request
+    /// with the <code>NextToken</code> request parameter set to the value of <code>NextToken</code>
+    /// from the last response.
+    /// </para><para>
+    /// This action is used in an iterative process to retrieve a list of your tags. <code>ListTagsForResource</code>
+    /// is called first without a <code>NextToken</code>value. Then the action continues to
+    /// be called with the <code>NextToken</code> parameter set to the value of the last <code>NextToken</code>
+    /// value until a response has no <code>NextToken</code>.
+    /// </para><para>
+    /// When using this action, keep the following in mind:
+    /// </para><ul><li><para>
+    /// The implementation might return fewer than <code>MaxResults</code> file system descriptions
+    /// while still including a <code>NextToken</code> value.
+    /// </para></li><li><para>
+    /// The order of tags returned in the response of one <code>ListTagsForResource</code>
+    /// call and the order of tags returned across the responses of a multi-call iteration
+    /// is unspecified.
+    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "TFRTagsForResourceList")]
-    [OutputType("Amazon.Transfer.Model.Tag")]
-    [AWSCmdlet("Calls the AWS Transfer for SFTP ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.Transfer.Model.Tag",
+    [Cmdlet("Get", "FSXResourceTagList")]
+    [OutputType("Amazon.FSx.Model.Tag")]
+    [AWSCmdlet("Calls the Amazon FSx ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("Amazon.FSx.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.Transfer.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Arn (type System.String), NextToken (type System.String)"
+        "The service call response (type Amazon.FSx.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetTFRTagsForResourceListCmdlet : AmazonTransferClientCmdlet, IExecutor
+    public partial class GetFSXResourceTagListCmdlet : AmazonFSxClientCmdlet, IExecutor
     {
         
-        #region Parameter Arn
+        #region Parameter ResourceARN
         /// <summary>
         /// <para>
-        /// <para>Requests the tags associated with a particular Amazon Resource Name (ARN). An ARN
-        /// is an identifier for a specific AWS resource, such as a server, user, or role.</para>
+        /// <para>The ARN of the Amazon FSx resource that will have its tags listed.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Arn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ResourceARN { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Optional) Maximum number of tags to return in the response (integer). This parameter
+        /// value must be greater than 0. The number of items that Amazon FSx returns is the minimum
+        /// of the <code>MaxResults</code> parameter specified in the request and the service's
+        /// internal maximum number of items per page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -70,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>(Optional) Opaque pagination token returned from a previous <code>ListTagsForResource</code>
+        /// operation (String). If a token present, the action continues the list from where the
+        /// returning call left off.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -93,10 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Arn = this.Arn;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.ResourceARN = this.ResourceARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -112,29 +139,22 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Transfer.Model.ListTagsForResourceRequest();
-            if (cmdletContext.Arn != null)
+            var request = new Amazon.FSx.Model.ListTagsForResourceRequest();
+            if (cmdletContext.ResourceARN != null)
             {
-                request.Arn = cmdletContext.Arn;
+                request.ResourceARN = cmdletContext.ResourceARN;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 1000;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 1000. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 1000 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -150,20 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
-                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -174,7 +180,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
-                        notes["Arn"] = response.Arn;
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
                         {
@@ -202,15 +207,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 1000 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -234,9 +230,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         #region AWS Service Operation Call
         
-        private Amazon.Transfer.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonTransfer client, Amazon.Transfer.Model.ListTagsForResourceRequest request)
+        private Amazon.FSx.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonFSx client, Amazon.FSx.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Transfer for SFTP", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon FSx", "ListTagsForResource");
             try
             {
                 #if DESKTOP
@@ -264,9 +260,9 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String Arn { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.String ResourceARN { get; set; }
         }
         
     }

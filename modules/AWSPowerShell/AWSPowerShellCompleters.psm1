@@ -6076,6 +6076,33 @@ $MTR_map = @{
 _awsArgumentCompleterRegistration $MTR_Completers $MTR_map
 
 
+# Argument completions for service Amazon Neptune
+$NPT_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Neptune.SourceType
+        "Get-NPTEvent/SourceType"
+        {
+            $v = "db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-security-group","db-snapshot"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$NPT_map = @{
+    "SourceType"=@("Get-NPTEvent")
+}
+
+_awsArgumentCompleterRegistration $NPT_Completers $NPT_map
+
+
 # Argument completions for service AWS OpsWorks
 $OPS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

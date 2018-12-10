@@ -22,60 +22,86 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.DataSync;
-using Amazon.DataSync.Model;
+using Amazon.Neptune;
+using Amazon.Neptune.Model;
 
-namespace Amazon.PowerShell.Cmdlets.DSYN
+namespace Amazon.PowerShell.Cmdlets.NPT
 {
     /// <summary>
-    /// Returns all the tags associated with a specified resources.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns the detailed parameter list for a particular DB parameter group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "DSYNTagsForResourceList")]
-    [OutputType("Amazon.DataSync.Model.TagListEntry")]
-    [AWSCmdlet("Calls the AWS DataSync ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
-    [AWSCmdletOutput("Amazon.DataSync.Model.TagListEntry",
-        "This cmdlet returns a collection of TagListEntry objects.",
-        "The service call response (type Amazon.DataSync.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [Cmdlet("Get", "NPTDBParameter")]
+    [OutputType("Amazon.Neptune.Model.Parameter")]
+    [AWSCmdlet("Calls the Amazon Neptune DescribeDBParameters API operation.", Operation = new[] {"DescribeDBParameters"})]
+    [AWSCmdletOutput("Amazon.Neptune.Model.Parameter",
+        "This cmdlet returns a collection of Parameter objects.",
+        "The service call response (type Amazon.Neptune.Model.DescribeDBParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetDSYNTagsForResourceListCmdlet : AmazonDataSyncClientCmdlet, IExecutor
+    public partial class GetNPTDBParameterCmdlet : AmazonNeptuneClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceArn
+        #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource whose tags to list.</para>
+        /// <para>The name of a specific DB parameter group to return details for.</para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBParameterGroup.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceArn { get; set; }
+        public System.String DBParameterGroupName { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The maximum number of locations to return.</para>
+        /// <para>This parameter is not currently supported.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.Neptune.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter Source
+        /// <summary>
+        /// <para>
+        /// <para>The parameter types to return.</para><para>Default: All parameter types returned</para><para>Valid Values: <code>user | system | engine-default</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Source { get; set; }
+        #endregion
+        
+        #region Parameter Marker
+        /// <summary>
+        /// <para>
+        /// <para> An optional pagination token provided by a previous <code>DescribeDBParameters</code>
+        /// request. If this parameter is specified, the response includes only records beyond
+        /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("NextToken")]
+        public System.String Marker { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>An opaque string that indicates the position at which to begin the next list of locations.</para>
+        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
+        [Alias("MaxItems","MaxRecords")]
+        public int MaxRecord { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -91,10 +117,15 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("MaxResult"))
-                context.MaxResults = this.MaxResult;
-            context.NextToken = this.NextToken;
-            context.ResourceArn = this.ResourceArn;
+            context.DBParameterGroupName = this.DBParameterGroupName;
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.Neptune.Model.Filter>(this.Filter);
+            }
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxRecord"))
+                context.MaxRecords = this.MaxRecord;
+            context.Source = this.Source;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -110,10 +141,18 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.DataSync.Model.ListTagsForResourceRequest();
-            if (cmdletContext.ResourceArn != null)
+            var request = new Amazon.Neptune.Model.DescribeDBParametersRequest();
+            if (cmdletContext.DBParameterGroupName != null)
             {
-                request.ResourceArn = cmdletContext.ResourceArn;
+                request.DBParameterGroupName = cmdletContext.DBParameterGroupName;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.Source != null)
+            {
+                request.Source = cmdletContext.Source;
             }
             
             // Initialize loop variants and commence piping
@@ -121,11 +160,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
             int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
-                _nextMarker = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
             {
                 // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
@@ -133,33 +172,33 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 // and giving us 100 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResults;
+                _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.NextToken = _nextMarker;
+                    request.Marker = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     if (AutoIterationHelpers.HasValue(_pageSize))
                     {
                         int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        if (AutoIterationHelpers.IsSet(request.MaxRecords))
                         {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxRecords);
                         }
                         else
                         {
                             correctPageSize = _pageSize.Value;
                         }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -170,22 +209,22 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Tags;
+                        object pipelineOutput = response.Parameters;
                         notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
+                        notes["Marker"] = response.Marker;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Tags.Count;
+                        int _receivedThisCall = response.Parameters.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
                         }
                         
-                        _nextMarker = response.NextToken;
+                        _nextMarker = response.Marker;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -231,16 +270,16 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         #region AWS Service Operation Call
         
-        private Amazon.DataSync.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonDataSync client, Amazon.DataSync.Model.ListTagsForResourceRequest request)
+        private Amazon.Neptune.Model.DescribeDBParametersResponse CallAWSServiceOperation(IAmazonNeptune client, Amazon.Neptune.Model.DescribeDBParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS DataSync", "ListTagsForResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "DescribeDBParameters");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForResource(request);
+                return client.DescribeDBParameters(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForResourceAsync(request);
+                var task = client.DescribeDBParametersAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -261,9 +300,11 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
-            public System.String NextToken { get; set; }
-            public System.String ResourceArn { get; set; }
+            public System.String DBParameterGroupName { get; set; }
+            public List<Amazon.Neptune.Model.Filter> Filters { get; set; }
+            public System.String Marker { get; set; }
+            public int? MaxRecords { get; set; }
+            public System.String Source { get; set; }
         }
         
     }

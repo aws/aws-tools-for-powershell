@@ -397,7 +397,7 @@
     },
     "ListTagsForResource": {
       "verb": "Get",
-      "noun": "TagsForResourceList",
+      "noun": "ResourceTagList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
