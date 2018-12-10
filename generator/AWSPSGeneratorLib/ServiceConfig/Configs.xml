@@ -33,6 +33,7 @@
     <Path>config.xml</Path>
     <Path>cur.xml</Path>
     <Path>datapipeline.xml</Path>
+    <Path>datasync.xml</Path>
     <Path>dax.xml</Path>
     <Path>devicefarm.xml</Path>
     <Path>directconnect.xml</Path>

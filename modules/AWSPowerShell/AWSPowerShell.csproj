@@ -50,6 +50,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AWSSDK.ACMPCA" Version="3.3.1.30" />
+    <PackageReference Include="AWSSDK.DataSync" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.DLM" Version="3.3.1.6" />
     <PackageReference Include="AWSSDK.FSx" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.Macie" Version="3.3.0.30" />
