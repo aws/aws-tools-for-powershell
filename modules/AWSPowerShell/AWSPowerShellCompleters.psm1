@@ -6550,6 +6550,48 @@ $POL_map = @{
 _awsArgumentCompleterRegistration $POL_Completers $POL_map
 
 
+# Argument completions for service Amazon QuickSight
+$QS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.QuickSight.IdentityType
+        {
+            ($_ -eq "Get-QSDashboardEmbedUrl/IdentityType") -Or
+            ($_ -eq "Register-QSUser/IdentityType")
+        }
+        {
+            $v = "IAM","QUICKSIGHT"
+            break
+        }
+        
+        # Amazon.QuickSight.UserRole
+        {
+            ($_ -eq "Update-QSUser/Role") -Or
+            ($_ -eq "Register-QSUser/UserRole")
+        }
+        {
+            $v = "ADMIN","AUTHOR","READER","RESTRICTED_AUTHOR","RESTRICTED_READER"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$QS_map = @{
+    "IdentityType"=@("Get-QSDashboardEmbedUrl","Register-QSUser")
+    "Role"=@("Update-QSUser")
+    "UserRole"=@("Register-QSUser")
+}
+
+_awsArgumentCompleterRegistration $QS_Completers $QS_map
+
+
 # Argument completions for service Amazon Relational Database Service
 $RDS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

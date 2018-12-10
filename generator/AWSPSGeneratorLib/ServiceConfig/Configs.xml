@@ -99,6 +99,7 @@
     <Path>pinpoint.xml</Path>
     <Path>polly.xml</Path>
     <Path>pricing.xml</Path>
+    <Path>quicksight.xml</Path>
     <Path>rds.xml</Path>
     <Path>redshift.xml</Path>
     <Path>rekognition.xml</Path>
