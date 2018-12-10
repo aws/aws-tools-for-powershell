@@ -124,6 +124,7 @@
     <Path>sts.xml</Path>
     <Path>support.xml</Path>
     <Path>transcribe.xml</Path>
+    <Path>transfer.xml</Path>
     <Path>translate.xml</Path>
     <Path>waf-regional.xml</Path>
     <Path>waf.xml</Path>

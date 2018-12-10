@@ -8060,6 +8060,33 @@ $TRS_map = @{
 _awsArgumentCompleterRegistration $TRS_Completers $TRS_map
 
 
+# Argument completions for service AWS Transfer for SFTP
+$TFR_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Transfer.IdentityProviderType
+        "New-TFRServer/IdentityProviderType"
+        {
+            $v = "API_GATEWAY","SERVICE_MANAGED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$TFR_map = @{
+    "IdentityProviderType"=@("New-TFRServer")
+}
+
+_awsArgumentCompleterRegistration $TFR_Completers $TFR_map
+
+
 # Argument completions for service Amazon Translate
 $TRN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
