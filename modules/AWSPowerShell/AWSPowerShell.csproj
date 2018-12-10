@@ -55,6 +55,7 @@
     <PackageReference Include="AWSSDK.Macie" Version="3.3.0.30" />
     <PackageReference Include="AWSSDK.PinpointEmail" Version="3.3.0.8" />
     <PackageReference Include="AWSSDK.S3Control" Version="3.3.0.2" />
+    <PackageReference Include="AWSSDK.SecurityHub" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.Transfer" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.XRay" Version="3.3.5.1" />
     <PackageReference Include="AWSSDK.WorkSpaces" Version="3.3.5.1" />

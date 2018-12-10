@@ -161,6 +161,7 @@ RequiredAssemblies = @(
   "AWSSDK.SageMaker.dll",
   "AWSSDK.SageMakerRuntime.dll",
   "AWSSDK.SecretsManager.dll",
+  "AWSSDK.SecurityHub.dll",
   "AWSSDK.SecurityToken.dll",
   "AWSSDK.ServerlessApplicationRepository.dll",
   "AWSSDK.ServerMigrationService.dll",

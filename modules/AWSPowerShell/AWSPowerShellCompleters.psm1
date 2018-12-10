@@ -7414,6 +7414,33 @@ $SM_map = @{
 _awsArgumentCompleterRegistration $SM_Completers $SM_map
 
 
+# Argument completions for service AWS Security Hub
+$SHUB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SecurityHub.RecordState
+        "Update-SHUBFinding/RecordState"
+        {
+            $v = "ACTIVE","ARCHIVED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SHUB_map = @{
+    "RecordState"=@("Update-SHUBFinding")
+}
+
+_awsArgumentCompleterRegistration $SHUB_Completers $SHUB_map
+
+
 # Argument completions for service AWS Service Catalog
 $SC_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

@@ -110,6 +110,7 @@
     <Path>s3control.xml</Path>
     <Path>sagemaker.xml</Path>
     <Path>secretsmanager.xml</Path>
+    <Path>securityhub.xml</Path>
     <Path>serverlessrepo.xml</Path>
     <Path>servicecatalog.xml</Path>
     <Path>servicediscovery.xml</Path>
