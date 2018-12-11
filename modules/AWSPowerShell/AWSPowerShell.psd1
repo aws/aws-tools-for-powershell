@@ -69,6 +69,7 @@ RequiredAssemblies = @(
   "AWSSDK.Batch.dll",
   "AWSSDK.Budgets.dll",
   "AWSSDK.CertificateManager.dll",
+  "AWSSDK.Chime.dll",
   "AWSSDK.Cloud9.dll",
   "AWSSDK.CloudDirectory.dll",
   "AWSSDK.CloudFormation.dll",

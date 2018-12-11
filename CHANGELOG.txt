@@ -1,4 +1,6 @@
 ﻿### TBD
+  * Amazon Chime
+    * Added cmdlets to support Amazon Chime. Amazon Chime is a secure, real-time, unified communications service that transforms meetings by making them more efficient and easier to conduct. The Amazon Chime API (application programming interface) is designed for administrators to use to perform key tasks, such as creating and managing Amazon Chime accounts and users. Cmdlets for the service have the noun prefix CHM and can be listed using the command 'Get-AWSCmdletName -Service CHM'.
   * Amazon Elastic Container Service for Kubernetes
     * Added cmdlets to support the Amazon Elastic Container Service for Kubernetes. Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. Cmdlets for the service have the noun prefix EKS and can be listed using the command 'Get-AWSCmdletName -Service EKS'.
   * Amazon FSx

@@ -15,6 +15,7 @@
     <Path>batch.xml</Path>
     <Path>budgets.xml</Path>
     <Path>ce.xml</Path>
+    <Path>chime.xml</Path>
     <Path>cloud9.xml</Path>
     <Path>clouddirectory.xml</Path>
     <Path>cloudformation.xml</Path>

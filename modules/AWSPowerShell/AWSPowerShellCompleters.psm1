@@ -1221,6 +1221,33 @@ $CE_map = @{
 _awsArgumentCompleterRegistration $CE_Completers $CE_map
 
 
+# Argument completions for service Amazon Chime
+$CHM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Chime.License
+        "Update-CHMUser/LicenseType"
+        {
+            $v = "Basic","Plus","Pro","ProTrial"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CHM_map = @{
+    "LicenseType"=@("Update-CHMUser")
+}
+
+_awsArgumentCompleterRegistration $CHM_Completers $CHM_map
+
+
 # Argument completions for service AWS Cloud9
 $C9_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

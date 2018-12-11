@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="User Guide">https://docs.aws.amazon.com/chime/latest/ug/</link>
+	<link name="Administrator Guide">https://docs.aws.amazon.com/chime/latest/ag/</link>
+    <link name="Service API Reference">https://docs.aws.amazon.com/chime/latest/APIReference/</link>
+  </set>
+</links>
