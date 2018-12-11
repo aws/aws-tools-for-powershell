@@ -101,6 +101,7 @@
     <Path>opsworks.xml</Path>
     <Path>opsworkscm.xml</Path>
     <Path>organizations.xml</Path>
+    <Path>pi.xml</Path>
     <Path>pinpoint-email.xml</Path>
     <Path>pinpoint.xml</Path>
     <Path>polly.xml</Path>

@@ -61,6 +61,7 @@
     <PackageReference Include="AWSSDK.GlobalAccelerator" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.Macie" Version="3.3.0.30" />
     <PackageReference Include="AWSSDK.Neptune" Version="3.3.4.15" />
+    <PackageReference Include="AWSSDK.PI" Version="3.3.0.32" />
     <PackageReference Include="AWSSDK.PinpointEmail" Version="3.3.0.8" />
     <PackageReference Include="AWSSDK.Quicksight" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.QuickSight" Version="3.3.0.1" />

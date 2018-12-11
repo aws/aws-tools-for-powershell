@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="User Guide">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html</link>
+  </set>
+</links>

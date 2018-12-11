@@ -4764,6 +4764,8 @@ Set-Alias -Name ORG-MoveAccount -Value Move-ORGAccount
 Set-Alias -Name ORG-RemoveAccountFromOrganization -Value Remove-ORGAccountFromOrganization
 Set-Alias -Name ORG-UpdateOrganizationalUnit -Value Update-ORGOrganizationalUnit
 Set-Alias -Name ORG-UpdatePolicy -Value Update-ORGPolicy
+Set-Alias -Name PI-DescribeDimensionKeys -Value Get-PIDimensionKey
+Set-Alias -Name PI-GetResourceMetrics -Value Get-PIResourceMetric
 Set-Alias -Name Create-PINApp -Value New-PINApp
 Set-Alias -Name PIN-CreateApp -Value New-PINApp
 Set-Alias -Name Create-PINCampaign -Value New-PINCampaign

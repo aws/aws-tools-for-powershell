@@ -153,6 +153,7 @@ RequiredAssemblies = @(
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",
   "AWSSDK.Organizations.dll",
+  "AWSSDK.PI.dll",
   "AWSSDK.Pinpoint.dll",
   "AWSSDK.PinpointEmail.dll",
   "AWSSDK.Polly.dll",
