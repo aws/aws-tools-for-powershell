@@ -1,0 +1,249 @@
+/*******************************************************************************
+ *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.AutoScalingPlans;
+using Amazon.AutoScalingPlans.Model;
+
+namespace Amazon.PowerShell.Cmdlets.ASP
+{
+    /// <summary>
+    /// Creates a scaling plan.
+    /// </summary>
+    [Cmdlet("New", "ASPScalingPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.Int64")]
+    [AWSCmdlet("Calls the AWS Auto Scaling Plans CreateScalingPlan API operation.", Operation = new[] {"CreateScalingPlan"})]
+    [AWSCmdletOutput("System.Int64",
+        "This cmdlet returns a Int64 object.",
+        "The service call response (type Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewASPScalingPlanCmdlet : AmazonAutoScalingPlansClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ApplicationSource_CloudFormationStackARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of a AWS CloudFormation stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ApplicationSource_CloudFormationStackARN { get; set; }
+        #endregion
+        
+        #region Parameter ScalingInstruction
+        /// <summary>
+        /// <para>
+        /// <para>The scaling instructions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ScalingInstructions")]
+        public Amazon.AutoScalingPlans.Model.ScalingInstruction[] ScalingInstruction { get; set; }
+        #endregion
+        
+        #region Parameter ScalingPlanName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the scaling plan. Names cannot contain vertical bars, colons, or forward
+        /// slashes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ScalingPlanName { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationSource_TagFilter
+        /// <summary>
+        /// <para>
+        /// <para>A set of tags (up to 50).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ApplicationSource_TagFilters")]
+        public Amazon.AutoScalingPlans.Model.TagFilter[] ApplicationSource_TagFilter { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ScalingPlanName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-ASPScalingPlan (CreateScalingPlan)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.ApplicationSource_CloudFormationStackARN = this.ApplicationSource_CloudFormationStackARN;
+            if (this.ApplicationSource_TagFilter != null)
+            {
+                context.ApplicationSource_TagFilters = new List<Amazon.AutoScalingPlans.Model.TagFilter>(this.ApplicationSource_TagFilter);
+            }
+            if (this.ScalingInstruction != null)
+            {
+                context.ScalingInstructions = new List<Amazon.AutoScalingPlans.Model.ScalingInstruction>(this.ScalingInstruction);
+            }
+            context.ScalingPlanName = this.ScalingPlanName;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.AutoScalingPlans.Model.CreateScalingPlanRequest();
+            
+            
+             // populate ApplicationSource
+            bool requestApplicationSourceIsNull = true;
+            request.ApplicationSource = new Amazon.AutoScalingPlans.Model.ApplicationSource();
+            System.String requestApplicationSource_applicationSource_CloudFormationStackARN = null;
+            if (cmdletContext.ApplicationSource_CloudFormationStackARN != null)
+            {
+                requestApplicationSource_applicationSource_CloudFormationStackARN = cmdletContext.ApplicationSource_CloudFormationStackARN;
+            }
+            if (requestApplicationSource_applicationSource_CloudFormationStackARN != null)
+            {
+                request.ApplicationSource.CloudFormationStackARN = requestApplicationSource_applicationSource_CloudFormationStackARN;
+                requestApplicationSourceIsNull = false;
+            }
+            List<Amazon.AutoScalingPlans.Model.TagFilter> requestApplicationSource_applicationSource_TagFilter = null;
+            if (cmdletContext.ApplicationSource_TagFilters != null)
+            {
+                requestApplicationSource_applicationSource_TagFilter = cmdletContext.ApplicationSource_TagFilters;
+            }
+            if (requestApplicationSource_applicationSource_TagFilter != null)
+            {
+                request.ApplicationSource.TagFilters = requestApplicationSource_applicationSource_TagFilter;
+                requestApplicationSourceIsNull = false;
+            }
+             // determine if request.ApplicationSource should be set to null
+            if (requestApplicationSourceIsNull)
+            {
+                request.ApplicationSource = null;
+            }
+            if (cmdletContext.ScalingInstructions != null)
+            {
+                request.ScalingInstructions = cmdletContext.ScalingInstructions;
+            }
+            if (cmdletContext.ScalingPlanName != null)
+            {
+                request.ScalingPlanName = cmdletContext.ScalingPlanName;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.ScalingPlanVersion;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.AutoScalingPlans.Model.CreateScalingPlanResponse CallAWSServiceOperation(IAmazonAutoScalingPlans client, Amazon.AutoScalingPlans.Model.CreateScalingPlanRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Auto Scaling Plans", "CreateScalingPlan");
+            try
+            {
+                #if DESKTOP
+                return client.CreateScalingPlan(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateScalingPlanAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String ApplicationSource_CloudFormationStackARN { get; set; }
+            public List<Amazon.AutoScalingPlans.Model.TagFilter> ApplicationSource_TagFilters { get; set; }
+            public List<Amazon.AutoScalingPlans.Model.ScalingInstruction> ScalingInstructions { get; set; }
+            public System.String ScalingPlanName { get; set; }
+        }
+        
+    }
+}

@@ -489,6 +489,12 @@ Set-Alias -Name AS-SuspendProcesses -Value Suspend-ASProcess
 Set-Alias -Name Terminate-ASInstanceInAutoScalingGroup -Value Stop-ASInstanceInAutoScalingGroup
 Set-Alias -Name AS-TerminateInstanceInAutoScalingGroup -Value Stop-ASInstanceInAutoScalingGroup
 Set-Alias -Name AS-UpdateAutoScalingGroup -Value Update-ASAutoScalingGroup
+Set-Alias -Name ASP-CreateScalingPlan -Value New-ASPScalingPlan
+Set-Alias -Name ASP-DeleteScalingPlan -Value Remove-ASPScalingPlan
+Set-Alias -Name ASP-DescribeScalingPlanResources -Value Get-ASPScalingPlanResource
+Set-Alias -Name ASP-DescribeScalingPlans -Value Get-ASPScalingPlan
+Set-Alias -Name ASP-GetScalingPlanResourceForecastData -Value Get-ASPScalingPlanResourceForecastData
+Set-Alias -Name ASP-UpdateScalingPlan -Value Update-ASPScalingPlan
 Set-Alias -Name MH-AssociateCreatedArtifact -Value Add-MHCreatedArtifact
 Set-Alias -Name MH-AssociateDiscoveredResource -Value Add-MHDiscoveredResource
 Set-Alias -Name Create-MHProgressUpdateStream -Value New-MHProgressUpdateStream

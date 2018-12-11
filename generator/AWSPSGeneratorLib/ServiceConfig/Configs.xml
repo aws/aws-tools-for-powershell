@@ -10,6 +10,7 @@
     <Path>appsync.xml</Path>
     <Path>athena.xml</Path>
     <Path>autoscaling.xml</Path>
+    <Path>autoscaling-plans.xml</Path>
     <Path>awsmigrationhub.xml</Path>
     <Path>batch.xml</Path>
     <Path>budgets.xml</Path>
