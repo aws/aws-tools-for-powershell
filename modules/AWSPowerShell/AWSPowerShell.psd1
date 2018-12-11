@@ -128,6 +128,7 @@ RequiredAssemblies = @(
   "AWSSDK.Inspector.dll",
   "AWSSDK.IoT.dll",
   "AWSSDK.IoTJobsDataPlane.dll",
+  "AWSSDK.Kafka.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
   "AWSSDK.KinesisAnalytics.dll",

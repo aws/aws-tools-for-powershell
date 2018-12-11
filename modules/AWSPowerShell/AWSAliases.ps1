@@ -3843,6 +3843,12 @@ Set-Alias -Name IOTJ-DescribeJobExecution -Value Get-IOTJJobExecution
 Set-Alias -Name IOTJ-GetPendingJobExecutions -Value Get-IOTJPendingJobExecution
 Set-Alias -Name IOTJ-StartNextPendingJobExecution -Value Start-IOTJNextPendingJobExecution
 Set-Alias -Name IOTJ-UpdateJobExecution -Value Update-IOTJJobExecution
+Set-Alias -Name MSK-CreateCluster -Value New-MSKCluster
+Set-Alias -Name MSK-DeleteCluster -Value Remove-MSKCluster
+Set-Alias -Name MSK-DescribeCluster -Value Get-MSKCluster
+Set-Alias -Name MSK-GetBootstrapBrokers -Value Get-MSKBootstrapBroker
+Set-Alias -Name MSK-ListClusters -Value Get-MSKClusterList
+Set-Alias -Name MSK-ListNodes -Value Get-MSKNodeList
 Set-Alias -Name KIN-AddTagsToStream -Value Add-KINTagsToStream
 Set-Alias -Name Create-KINStream -Value New-KINStream
 Set-Alias -Name KIN-CreateStream -Value New-KINStream

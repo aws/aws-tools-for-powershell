@@ -5219,6 +5219,33 @@ $IOTJ_map = @{
 _awsArgumentCompleterRegistration $IOTJ_Completers $IOTJ_map
 
 
+# Argument completions for service Managed Streaming for Kafka
+$MSK_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Kafka.EnhancedMonitoring
+        "New-MSKCluster/EnhancedMonitoring"
+        {
+            $v = "DEFAULT","PER_BROKER","PER_TOPIC_PER_BROKER"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MSK_map = @{
+    "EnhancedMonitoring"=@("New-MSKCluster")
+}
+
+_awsArgumentCompleterRegistration $MSK_Completers $MSK_map
+
+
 # Argument completions for service Amazon Kinesis
 $KIN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

@@ -76,6 +76,7 @@
     <Path>inspector.xml</Path>
     <Path>iot-jobs-data.xml</Path>
     <Path>iot.xml</Path>
+    <Path>kafka.xml</Path>
     <Path>kinesis-video-media.xml</Path>
     <Path>kinesis.xml</Path>
     <Path>kinesisanalytics.xml</Path>

@@ -5,6 +5,8 @@
     * Added cmdlets to support the Amazon Elastic Container Service for Kubernetes. Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. Cmdlets for the service have the noun prefix EKS and can be listed using the command 'Get-AWSCmdletName -Service EKS'.
   * Amazon FSx
     * Added cmdlets to support the Amazon FSx service. Amazon FSx is a fully managed service that makes it easy for storage and application administrators to launch and use shared file storage. Cmdlets for the service have the noun prefix FSX and can be listed using the command 'Get-AWSCmdletName -Service FSX'.
+  * Amazon Managed Streaming for Kafka (Preview)
+    * Added cmdlets to support the Amazon Managed Streaming for Kafka service. Amazon Managed Streaming for Kafka (Amazon MSK) is a fully managed service that makes it easy for you to build and run applications that use Apache Kafka to process streaming data. Cmdlets for the service have the noun prefix MSK and can be listed using the command 'Get-AWSCmdletName -Service MSK'.
   * Amazon Neptune
     * Added cmdlets to support the Amazon Neptune service. Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. Cmdlets for the service have the noun prefix NPT and can be listed with the command 'Get-AWSCmdletName -Service NPT'.
   * Amazon QuickSight
