@@ -468,6 +468,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 return _customParameters;
             }
         }
+        public Param FindCustomParameterData(string parameterName)
+        {
+            if (CustomParameters.ContainsKey(parameterName))
+                return CustomParameters[parameterName];
+
+            return null;
+        }
 
         public bool ShouldExcludeParameter(string parameterName)
         {
@@ -1203,8 +1210,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
     /// <summary>
     /// Represents a configuration for a parameter emitted as part of a service operation.
-    /// Parameters can be renamed, renamed with an alias, have just a set of aliases applied
-    /// or be configured to be named 'as is' (ie no shortening or singularization)
+    /// Parameters can be renamed, renamed with an alias, have just a set of aliases applied,
+    /// be configured to be named 'as is' (ie no shortening or singularization) or have a default
+    /// value available if the user skips the parameter.
     /// </summary>
     public class Param
     {
@@ -1265,6 +1273,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlAttribute(AttributeName = "Alias")]
         public string AliasesList = string.Empty;
+
+        /// <summary>
+        /// Sets a default value to be used if the user does not specify the parameter
+        /// to the command. Supports string or scalar (int, float, double) parameters 
+        /// only.
+        /// </summary>
+        [XmlAttribute]
+        public string DefaultValue = string.Empty;
 
         private HashSet<string> _aliasesSet;
         

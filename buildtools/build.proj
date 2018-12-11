@@ -146,7 +146,7 @@
         <Message Text="Consolidating Desktop edition artifacts from $(BuildSourceFolder) to $(DesktopDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" Exclude="$(SDKAssembliesFolder)\net35\*.Glacier.*;$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
+            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" Exclude="$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
         </ItemGroup>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -172,7 +172,7 @@
         <Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(NetCoreDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" Exclude="$(SDKAssembliesFolder)\netstandard1.3\*.Glacier.*;$(SDKAssembliesFolder)\netstandard1.3\*.SimpleDB.*"/>
+            <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" Exclude="$(SDKAssembliesFolder)\netstandard1.3\*.SimpleDB.*"/>
         </ItemGroup>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>

@@ -467,16 +467,28 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                          + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call."
                          + "\r\n</para>";
             }
-            var paramCustomization = Operation.FindCustomParameterData(property.AnalyzedName);
-            if (paramCustomization != null && paramCustomization.AutoConvert == Param.AutoConversion.ToBase64)
+
+            var paramCustomization = FindParameterCustomization(property.AnalyzedName);
+            if (paramCustomization != null)
             {
-                paramDoc +=
-                    "\r\n<para>The cmdlet will automatically convert the supplied parameter value to Base64 before supplying to the service.</para>";
+                if (paramCustomization.AutoConvert == Param.AutoConversion.ToBase64)
+                {
+                    paramDoc +=
+                        "\r\n<para>The cmdlet will automatically convert the supplied parameter value to Base64 before supplying to the service.</para>";
+                }
+
+                if (!string.IsNullOrEmpty(paramCustomization.DefaultValue))
+                {
+                    paramDoc +=
+                            string.Format("\r\n<para>If a value for this parameter is not specified the cmdlet will use a default value of '<b>{0}</b>'.</para>", paramCustomization.DefaultValue);
+                }
             }
+            
             if (property.IsDeprecated)
             {
                 paramDoc += "\r\n<para>This parameter is deprecated.</para>";
             }
+
             writer.WriteLine(DocumentationUtils.CommentDocumentation(paramDoc));
             WriteParamProperty(writer, property, param, ref usedPositionalCount);
         }
@@ -838,15 +850,80 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("if (ParameterWasBound(\"{0}\"))", property.CmdletParameterName);
                             writer.IncreaseIndent();
                         }
-                        var paramCustomization = Operation.FindCustomParameterData(property.AnalyzedName);
+                        var paramCustomization = FindParameterCustomization(property.AnalyzedName);
+                        string paramDefaultValue = null;
+                        if (paramCustomization != null && !string.IsNullOrEmpty(paramCustomization.DefaultValue))
+                            paramDefaultValue = paramCustomization.DefaultValue;
+
                         if (paramCustomization != null && paramCustomization.AutoConvert == Param.AutoConversion.ToBase64)
                         {
-                            writer.WriteLine("context.{0} = Utils.Common.ConvertToBase64(this.{1});", property.ContextParameterName, property.CmdletParameterName);
+                            if (string.IsNullOrEmpty(paramDefaultValue))
+                            {
+                                writer.WriteLine("context.{0} = Utils.Common.ConvertToBase64(this.{1});", property.ContextParameterName, property.CmdletParameterName);
+                            }
+                            else
+                            {
+                                writer.WriteLine("if (this.ParameterWasBound(\"{0}\"))");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("context.{0} = Utils.Common.ConvertToBase64(this.{1});", property.ContextParameterName, property.CmdletParameterName);
+                                }
+                                writer.CloseRegion();
+                                writer.WriteLine("else");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("WriteVerbose(\"{0} parameter unset, using default value of '{1}'\");", property.CmdletParameterName, paramDefaultValue);
+                                    writer.WriteLine("context.{0} = Utils.Common.ConvertToBase64(\"{1}\");", property.ContextParameterName, paramDefaultValue);
+                                }
+                                writer.CloseRegion();
+                            }
                         }
                         else
                         {
-                            writer.WriteLine("context.{0} = this.{1};", property.ContextParameterName, property.CmdletParameterName);
+                            if (string.IsNullOrEmpty(paramDefaultValue))
+                            {
+                                writer.WriteLine("context.{0} = this.{1};", property.ContextParameterName, property.CmdletParameterName);
+                            }
+                            else
+                            {
+                                writer.WriteLine("if (this.ParameterWasBound(\"{0}\"))", property.CmdletParameterName);
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("context.{0} = this.{1};", property.ContextParameterName, property.CmdletParameterName);
+                                }
+                                writer.CloseRegion();
+                                writer.WriteLine("else");
+                                writer.OpenRegion();
+                                {
+                                    string assignmentStatement;
+                                    switch (property.PropertyType.FullName)
+                                    {
+                                        case "System.String":
+                                            {
+                                                assignmentStatement = "context.{0} = \"{1}\";";
+                                            }
+                                            break;
+
+                                        case "System.Int32":
+                                        case "System.Double":
+                                        case "System.Float":
+                                            {
+                                                assignmentStatement = "context.{0} = {1};";
+                                            }
+                                            break;
+
+                                        default:
+                                            throw new Exception(string.Format("Parameter {0} was configured for a default value but property type is not a supported string or scalar type (int32/float/double)",
+                                                                              property.AnalyzedName));
+                                    }
+
+                                    writer.WriteLine("WriteVerbose(\"{0} parameter unset, using default value of '{1}'\");", property.CmdletParameterName, paramDefaultValue);
+                                    writer.WriteLine(assignmentStatement, property.ContextParameterName, paramDefaultValue);
+                                }
+                                writer.CloseRegion();
+                            }
                         }
+
                         if (property.UseParameterValueOnlyIfBound)
                             writer.DecreaseIndent();
                     }
@@ -1865,6 +1942,21 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             }
 
             return string.Format(ConfigModel.ParamEmitterComplexKeyFormat, propertyTypeName, property.Name);
+        }
+
+        /// <summary>
+        /// Searches the operation local, then service global data, to determine if a parameter
+        /// has a customization applied.
+        /// </summary>
+        /// <param name="propertyAnalyzedName">The name of the property backing the parameter</param>
+        /// <returns>Null or customization data to apply</returns>
+        Param FindParameterCustomization(string propertyAnalyzedName)
+        {
+            var paramCustomization = Operation.FindCustomParameterData(propertyAnalyzedName);
+            if (paramCustomization != null)
+                return paramCustomization;
+
+            return ServiceConfig.FindCustomParameterData(propertyAnalyzedName);
         }
 
         /// <summary>

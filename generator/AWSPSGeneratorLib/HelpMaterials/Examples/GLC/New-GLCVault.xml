@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>
+PS C:\> New-GLCVault -VaultName myvault
+
+/01234567812/vaults/myvault
+    </code>
+    <description>Creates a new vault for the user's account. As no value was supplied to the -AccountId parameter the cmdlets uses a default of "-" indicating the current account.</description>
+  </example>
+</examples>

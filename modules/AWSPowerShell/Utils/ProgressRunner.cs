@@ -129,13 +129,22 @@ namespace Amazon.PowerShell.Utils
         }
 
         /// <summary>
-        /// Calls the Run method and returns a CmdletOutput.
+        /// Calls the Run method and returns a new CmdletOutput instance.
         /// If an exception was thrown, it will be stored in CmdletOutput.ErrorResponse
         /// </summary>
         /// <returns></returns>
         internal CmdletOutput SafeRun(Action action, ProgressTracker tracker)
         {
-            CmdletOutput output = new CmdletOutput();
+            return SafeRun(action, tracker, new CmdletOutput());
+        }
+
+        /// <summary>
+        /// Calls the Run method, posting input into the supplied CmdletOutput instance.
+        /// If an exception was thrown, it will be stored in CmdletOutput.ErrorResponse
+        /// </summary>
+        /// <returns></returns>
+        internal CmdletOutput SafeRun(Action action, ProgressTracker tracker, CmdletOutput output)
+        {
             try
             {
                 Run(action, tracker);

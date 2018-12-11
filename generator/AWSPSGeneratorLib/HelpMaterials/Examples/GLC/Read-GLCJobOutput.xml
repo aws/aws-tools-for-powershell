@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Read-GLCJobOutput -VaultName myvault -JobId "HSWjArc...Zq2XLiW" -FilePath "c:\temp\blue.bin"</code>
+    <description>Downloads the archive content that was scheduled for retrieval in the specified job and stores the contents into a file on disk. The download validates the checksum for you, if one is available.<br/><br/>If required the checksum can be obtained from the service response history like so (assuming this cmdlet was the last run): $AWSHistory.LastServiceResponse. If the cmdlet was not the most recently run, inspect the $AWSHistory.Commands collection to obtain the relevant service response.</description>
+  </example>
+</examples>

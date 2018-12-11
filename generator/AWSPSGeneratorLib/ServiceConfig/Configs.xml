@@ -69,6 +69,7 @@
     <Path>fms.xml</Path>
     <Path>fsx.xml</Path>
     <Path>gamelift.xml</Path>
+    <Path>glacier.xml</Path>
     <Path>globalaccelerator.xml</Path>
     <Path>glue.xml</Path>
     <Path>greengrass.xml</Path>

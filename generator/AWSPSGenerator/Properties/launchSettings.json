@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "AWSPSGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "-t cmdlets -sdk C:\\codebase\\v3\\AWSPowerShell\\include\\sdk\\assemblies\\net35 -rp C:\\codebase\\v3\\AWSPowerShell -svc GLC"
+    }
+  }
+}
