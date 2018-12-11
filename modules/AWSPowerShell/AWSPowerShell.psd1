@@ -119,6 +119,7 @@ RequiredAssemblies = @(
   "AWSSDK.FMS.dll",
   "AWSSDK.FSx.dll",
   "AWSSDK.GameLift.dll",
+  "AWSSDK.GlobalAccelerator.dll",
   "AWSSDK.Glue.dll",
   "AWSSDK.Greengrass.dll",
   "AWSSDK.GuardDuty.dll",

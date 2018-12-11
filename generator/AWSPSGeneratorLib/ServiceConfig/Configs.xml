@@ -66,6 +66,7 @@
     <Path>fms.xml</Path>
     <Path>fsx.xml</Path>
     <Path>gamelift.xml</Path>
+    <Path>globalaccelerator.xml</Path>
     <Path>glue.xml</Path>
     <Path>greengrass.xml</Path>
     <Path>guardduty.xml</Path>

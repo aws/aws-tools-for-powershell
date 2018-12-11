@@ -4491,6 +4491,69 @@ $GML_map = @{
 _awsArgumentCompleterRegistration $GML_Completers $GML_map
 
 
+# Argument completions for service AWS Global Accelerator
+$GACL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GlobalAccelerator.ClientAffinity
+        {
+            ($_ -eq "New-GACLListener/ClientAffinity") -Or
+            ($_ -eq "Update-GACLListener/ClientAffinity")
+        }
+        {
+            $v = "NONE","SOURCE_IP"
+            break
+        }
+        
+        # Amazon.GlobalAccelerator.HealthCheckProtocol
+        {
+            ($_ -eq "New-GACLEndpointGroup/HealthCheckProtocol") -Or
+            ($_ -eq "Update-GACLEndpointGroup/HealthCheckProtocol")
+        }
+        {
+            $v = "HTTP","HTTPS","TCP"
+            break
+        }
+        
+        # Amazon.GlobalAccelerator.IpAddressType
+        {
+            ($_ -eq "New-GACLAccelerator/IpAddressType") -Or
+            ($_ -eq "Update-GACLAccelerator/IpAddressType")
+        }
+        {
+            $v = "IPV4"
+            break
+        }
+        
+        # Amazon.GlobalAccelerator.Protocol
+        {
+            ($_ -eq "New-GACLListener/Protocol") -Or
+            ($_ -eq "Update-GACLListener/Protocol")
+        }
+        {
+            $v = "TCP","UDP"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GACL_map = @{
+    "ClientAffinity"=@("New-GACLListener","Update-GACLListener")
+    "HealthCheckProtocol"=@("New-GACLEndpointGroup","Update-GACLEndpointGroup")
+    "IpAddressType"=@("New-GACLAccelerator","Update-GACLAccelerator")
+    "Protocol"=@("New-GACLListener","Update-GACLListener")
+}
+
+_awsArgumentCompleterRegistration $GACL_Completers $GACL_map
+
+
 # Argument completions for service AWS Glue
 $GLUE_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
