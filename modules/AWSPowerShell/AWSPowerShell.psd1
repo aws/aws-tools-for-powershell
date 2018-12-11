@@ -53,6 +53,7 @@ RequiredModules = @()
 RequiredAssemblies = @(
   "AWSSDK.ACMPCA.dll",
   "AWSSDK.AlexaForBusiness.dll",
+  "AWSSDK.Amplify.dll",
   "AWSSDK.APIGateway.dll",
   "AWSSDK.ApplicationAutoScaling.dll",
   "AWSSDK.ApplicationDiscoveryService.dll",

@@ -3,6 +3,7 @@
     <Path>acm-pca.xml</Path>
     <Path>acm.xml</Path>
     <Path>alexaforbusiness.xml</Path>
+    <Path>amplify.xml</Path>
     <Path>apigateway.xml</Path>
     <Path>application-autoscaling.xml</Path>
     <Path>appstream.xml</Path>

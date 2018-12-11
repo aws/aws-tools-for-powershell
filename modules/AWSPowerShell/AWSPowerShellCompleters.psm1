@@ -358,6 +358,55 @@ $ALXB_map = @{
 _awsArgumentCompleterRegistration $ALXB_Completers $ALXB_map
 
 
+# Argument completions for service AWS Amplify
+$AMP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Amplify.JobType
+        "Start-AMPJob/JobType"
+        {
+            $v = "RELEASE","RETRY","WEB_HOOK"
+            break
+        }
+        
+        # Amazon.Amplify.Platform
+        {
+            ($_ -eq "New-AMPApp/Platform") -Or
+            ($_ -eq "Update-AMPApp/Platform")
+        }
+        {
+            $v = "ANDROID","IOS","REACT_NATIVE","WEB"
+            break
+        }
+        
+        # Amazon.Amplify.Stage
+        {
+            ($_ -eq "New-AMPBranch/Stage") -Or
+            ($_ -eq "Update-AMPBranch/Stage")
+        }
+        {
+            $v = "BETA","DEVELOPMENT","EXPERIMENTAL","PRODUCTION"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AMP_map = @{
+    "JobType"=@("Start-AMPJob")
+    "Platform"=@("New-AMPApp","Update-AMPApp")
+    "Stage"=@("New-AMPBranch","Update-AMPBranch")
+}
+
+_awsArgumentCompleterRegistration $AMP_Completers $AMP_map
+
+
 # Argument completions for service Amazon API Gateway
 $AG_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
