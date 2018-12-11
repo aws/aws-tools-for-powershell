@@ -6,6 +6,7 @@
     <Path>amplify.xml</Path>
     <Path>apigateway.xml</Path>
     <Path>application-autoscaling.xml</Path>
+    <Path>appmesh.xml</Path>
     <Path>appstream.xml</Path>
     <Path>appsync.xml</Path>
     <Path>athena.xml</Path>

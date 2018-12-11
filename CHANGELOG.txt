@@ -11,6 +11,8 @@
     * Added cmdlets to support the Amazon QuickSight service. Amazon QuickSight is a fast, cloud-powered BI service that makes it easy to build visualizations, perform ad hoc analysis, and quickly get business insights from your data. Cmdlets for the service have the noun prefix QS and can be listed using the command 'Get-AWSCmdletName -Service QS'.
   * AWS Amplify
     * Added cmdlets to support the AWS Amplify service. AWS Amplify enables developers to develop and deploy cloud-powered mobile and web apps. Cmdlets for the service have the noun prefix AMP and can be listed using the command 'Get-AWSCmdletName -Service AMP'.
+  * AWS App Mesh
+    * Added cmdlets to support the AWS App Mesh service. AWS App Mesh makes it easy to monitor and control microservices running on AWS. Cmdlets for the service have the noun prefix AMSH and can be listed using the command 'Get-AWSCmdletName -Service AMSH'.
   * AWS Auto Scaling Plans
     * Added cmdlets to support AWS Auto Scaling Plans. Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Cmdlets for the service have the noun prefix ASP and can be listed using the command 'Get-AWSCmdletName -Service ASP'.
   * AWS DataSync

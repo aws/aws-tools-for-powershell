@@ -57,6 +57,7 @@ RequiredAssemblies = @(
   "AWSSDK.APIGateway.dll",
   "AWSSDK.ApplicationAutoScaling.dll",
   "AWSSDK.ApplicationDiscoveryService.dll",
+  "AWSSDK.AppMesh.dll",
   "AWSSDK.AppStream.dll",
   "AWSSDK.AppSync.dll",
   "AWSSDK.Athena.dll",
