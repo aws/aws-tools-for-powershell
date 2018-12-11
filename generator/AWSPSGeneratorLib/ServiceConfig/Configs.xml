@@ -80,6 +80,7 @@
     <Path>kinesis-video-media.xml</Path>
     <Path>kinesis.xml</Path>
     <Path>kinesisanalytics.xml</Path>
+    <Path>kinesisanalyticsv2.xml</Path>
     <Path>kinesisvideo.xml</Path>
     <Path>kms.xml</Path>
     <Path>lambda.xml</Path>

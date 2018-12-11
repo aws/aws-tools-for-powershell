@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>kinesisanalyticsv2</C2jFilename>
+    <SourceGenerationRoot>AmazonKinesisAnalyticsV2</SourceGenerationRoot>
+    <ServiceNounPrefix>KINA2</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Analytics (v2)</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisAnalyticsV2</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisAnalyticsV2Client</ServiceClient>
+    <ServiceNamespace>Amazon.KinesisAnalyticsV2</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="50" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties>
+        <Property>CurrentApplicationVersionId</Property>
+        <Property>ApplicationName</Property>
+        <Property>SnapshotName</Property>
+        <Property>InputId</Property>
+        <Property>OutputId</Property>
+        <Property>ReferenceId</Property>
+        <Property>CloudWatchLoggingOptionId</Property>
+    </PipelineByNameProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationInput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationInput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Input" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationInputProcessingConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationOutput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Output" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddApplicationReferenceDataSource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationReferenceDataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReferenceDataSource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationSnapshot" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ApplicationSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationOutput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OutputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationReferenceDataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReferenceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationSnapshot" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplication" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DiscoverInputSchema" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="InputSchema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListApplicationSnapshots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationSnapshotList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RunConfiguration" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisAnalyticsV2.Model.Input</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.Output</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ReferenceDataSource</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.RunConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3Configuration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.InputStartingPositionConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ParallelismConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3ContentLocation</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.CheckpointConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.MonitoringConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationCodeConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.SqlApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.EnvironmentProperties</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationSnapshotConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.FlinkApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationRestoreConfiguration</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ParallelismConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.S3ContentLocationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.CheckpointConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationCodeConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.MonitoringConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.SqlApplicationConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.EnvironmentPropertyUpdates</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.ApplicationConfigurationUpdate</Type>
+        <Type>Amazon.KinesisAnalyticsV2.Model.RunConfigurationUpdate</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

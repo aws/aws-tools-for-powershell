@@ -5333,6 +5333,33 @@ $KINA_map = @{
 _awsArgumentCompleterRegistration $KINA_Completers $KINA_map
 
 
+# Argument completions for service Amazon Kinesis Analytics (v2)
+$KINA2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KinesisAnalyticsV2.RuntimeEnvironment
+        "New-KINA2Application/RuntimeEnvironment"
+        {
+            $v = "FLINK-1_6","SQL-1_0"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KINA2_map = @{
+    "RuntimeEnvironment"=@("New-KINA2Application")
+}
+
+_awsArgumentCompleterRegistration $KINA2_Completers $KINA2_map
+
+
 # Argument completions for service Amazon Kinesis Video Streams
 $KV_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
