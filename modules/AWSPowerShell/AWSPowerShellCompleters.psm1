@@ -2314,6 +2314,33 @@ $CGIP_map = @{
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map
 
 
+# Argument completions for service Amazon Cognito Sync
+$CGIS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CognitoSync.Platform
+        "Register-CGISDevice/Platform"
+        {
+            $v = "ADM","APNS","APNS_SANDBOX","GCM"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CGIS_map = @{
+    "Platform"=@("Register-CGISDevice")
+}
+
+_awsArgumentCompleterRegistration $CGIS_Completers $CGIS_map
+
+
 # Argument completions for service Amazon Comprehend
 $COMP_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

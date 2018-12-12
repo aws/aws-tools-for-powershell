@@ -54,6 +54,7 @@
     <PackageReference Include="AWSSDK.AppMesh" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.AutoScalingPlans" Version="3.3.2.1" />
     <PackageReference Include="AWSSDK.Chime" Version="3.3.1.4" />
+    <PackageReference Include="AWSSDK.CognitoSync" Version="3.3.1.63" />
     <PackageReference Include="AWSSDK.DataSync" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.DLM" Version="3.3.1.6" />
     <PackageReference Include="AWSSDK.EKS" Version="3.3.2.10" />

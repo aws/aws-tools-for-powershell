@@ -1,6 +1,8 @@
 ﻿### TBD
   * Amazon Chime
     * Added cmdlets to support Amazon Chime. Amazon Chime is a secure, real-time, unified communications service that transforms meetings by making them more efficient and easier to conduct. The Amazon Chime API (application programming interface) is designed for administrators to use to perform key tasks, such as creating and managing Amazon Chime accounts and users. Cmdlets for the service have the noun prefix CHM and can be listed using the command 'Get-AWSCmdletName -Service CHM'.
+  * Amazon Cognito Sync
+    * Added support for Amazon Cognito Sync. Amazon Cognito Sync provides an AWS service and client library that enable cross-device syncing of application-related user data. High-level client libraries are available for both iOS and Android. You can use these libraries to persist data locally so that it's available even if the device is offline. Cmdlets for the service have the noun prefix CGIS and can be listed using the command 'Get-AWSCmdletName -Service CGIS'.
   * Amazon Elastic Container Service for Kubernetes
     * Added cmdlets to support the Amazon Elastic Container Service for Kubernetes. Amazon Elastic Container Service for Kubernetes (Amazon EKS) is a managed service that makes it easy for you to run Kubernetes on AWS without needing to stand up or maintain your own Kubernetes control plane. Kubernetes is an open-source system for automating the deployment, scaling, and management of containerized applications. Cmdlets for the service have the noun prefix EKS and can be listed using the command 'Get-AWSCmdletName -Service EKS'.
   * Amazon FSx

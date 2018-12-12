@@ -33,6 +33,7 @@
     <Path>codestar.xml</Path>
     <Path>cognito-identity.xml</Path>
     <Path>cognito-idp.xml</Path>
+    <Path>cognito-sync.xml</Path>
     <Path>comprehend.xml</Path>
     <Path>config.xml</Path>
     <Path>cur.xml</Path>
