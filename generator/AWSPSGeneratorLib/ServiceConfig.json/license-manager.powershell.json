@@ -1,0 +1,785 @@
+{
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "LICM",
+    "positionalMemberNames": [],
+    "parameterEmitters": []
+  },
+  "netSdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonLicenseManagerClient",
+    "serviceConfigClass": "AmazonLicenseManagerConfig",
+    "serviceNamespace": "Amazon.LicenseManager"
+  },
+  "nonFlattenedTypeNames": [],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "forceMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": [
+      "ResourceArn",
+      "LicenseConfigurationArn"
+    ]
+  },
+  "nonSpecifiedRegionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
+  "serviceOperations": {
+    "CreateLicenseConfiguration": {
+      "verb": "New",
+      "noun": "LicenseConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LicenseConfigurationArn",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteLicenseConfiguration": {
+      "verb": "Remove",
+      "noun": "LicenseConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LicenseConfigurationArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseConfiguration",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: LicenseConfigurationArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "LicenseConfigurationArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetLicenseConfiguration": {
+      "verb": "Get",
+      "noun": "LicenseConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LicenseConfigurationArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetServiceSettings": {
+      "verb": "Get",
+      "noun": "ServiceSetting",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServiceSettings",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListAssociationsForLicenseConfiguration": {
+      "verb": "Get",
+      "noun": "AssociationsForLicenseConfigurationList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LicenseConfigurationAssociations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LicenseConfigurationArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "AssociationsForLicenseConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListLicenseConfigurations": {
+      "verb": "Get",
+      "noun": "LicenseConfigurationList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LicenseConfigurations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseConfigurations",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListLicenseSpecificationsForResource": {
+      "verb": "Get",
+      "noun": "LicenseSpecificationsForResourceList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LicenseSpecifications",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseSpecificationsForResource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResourceInventory": {
+      "verb": "Get",
+      "noun": "ResourceInventoryList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResourceInventoryList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceInventory",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListTagsForResource": {
+      "verb": "Get",
+      "noun": "ResourceTagList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListUsageForLicenseConfiguration": {
+      "verb": "Get",
+      "noun": "UsageForLicenseConfigurationList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "LicenseConfigurationUsageList",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LicenseConfigurationArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UsageForLicenseConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "TagResource": {
+      "verb": "Add",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagResource": {
+      "verb": "Remove",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateLicenseConfiguration": {
+      "verb": "Update",
+      "noun": "LicenseConfiguration",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "LicenseConfigurationArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseConfiguration",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: LicenseConfigurationArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "LicenseConfigurationArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateLicenseSpecificationsForResource": {
+      "verb": "Update",
+      "noun": "LicenseSpecificationsForResource",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "LicenseSpecificationsForResource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateServiceSettings": {
+      "verb": "Update",
+      "noun": "ServiceSetting",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "true",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServiceSettings",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        },
+        "memoryStreamParameters": []
+      }
+    }
+  }
+}

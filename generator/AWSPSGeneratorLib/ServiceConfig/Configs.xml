@@ -85,6 +85,7 @@
     <Path>kinesisvideo.xml</Path>
     <Path>kms.xml</Path>
     <Path>lambda.xml</Path>
+    <Path>license-manager.xml</Path>
     <Path>lex-models.xml</Path>
     <Path>lightsail.xml</Path>
     <Path>logs.xml</Path>

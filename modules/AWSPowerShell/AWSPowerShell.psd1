@@ -140,6 +140,7 @@ RequiredAssemblies = @(
   "AWSSDK.Lambda.dll",
   "AWSSDK.Lex.dll",
   "AWSSDK.LexModelBuildingService.dll",
+  "AWSSDK.LicenseManager.dll",
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.Macie.dll",

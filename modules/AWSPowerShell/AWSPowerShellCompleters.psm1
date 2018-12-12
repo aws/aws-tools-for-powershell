@@ -5655,6 +5655,41 @@ $LMB_map = @{
 _awsArgumentCompleterRegistration $LMB_Completers $LMB_map
 
 
+# Argument completions for service AWS License Manager
+$LICM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.LicenseManager.LicenseConfigurationStatus
+        "Update-LICMLicenseConfiguration/LicenseConfigurationStatus"
+        {
+            $v = "AVAILABLE","DISABLED"
+            break
+        }
+        
+        # Amazon.LicenseManager.LicenseCountingType
+        "New-LICMLicenseConfiguration/LicenseCountingType"
+        {
+            $v = "Core","Instance","Socket","vCPU"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$LICM_map = @{
+    "LicenseConfigurationStatus"=@("Update-LICMLicenseConfiguration")
+    "LicenseCountingType"=@("New-LICMLicenseConfiguration")
+}
+
+_awsArgumentCompleterRegistration $LICM_Completers $LICM_map
+
+
 # Argument completions for service Amazon Lightsail
 $LS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
