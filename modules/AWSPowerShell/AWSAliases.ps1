@@ -4478,6 +4478,10 @@ Set-Alias -Name Describe-EMSDObjectMetadata -Value Get-EMSDObjectMetadata
 Set-Alias -Name EMSD-DescribeObject -Value Get-EMSDObjectMetadata
 Set-Alias -Name EMSD-GetObject -Value Get-EMSDObject
 Set-Alias -Name EMSD-ListItems -Value Get-EMSDItemList
+Set-Alias -Name EMT-DeletePlaybackConfiguration -Value Remove-EMTPlaybackConfiguration
+Set-Alias -Name EMT-GetPlaybackConfiguration -Value Get-EMTPlaybackConfiguration
+Set-Alias -Name EMT-ListPlaybackConfigurations -Value Get-EMTPlaybackConfigurationList
+Set-Alias -Name EMT-PutPlaybackConfiguration -Value Set-EMTPlaybackConfiguration
 Set-Alias -Name MM-BatchMeterUsage -Value Send-MMMeteringDataBatch
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
 Set-Alias -Name MM-RegisterUsage -Value Register-MMUsage

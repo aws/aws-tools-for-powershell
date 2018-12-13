@@ -98,6 +98,7 @@
     <Path>mediapackage.xml</Path>
     <Path>mediastore-data.xml</Path>
     <Path>mediastore.xml</Path>
+    <Path>mediatailor.xml</Path>
     <Path>meteringmarketplace'.xml</Path>
     <Path>monitoring.xml</Path>
     <Path>mq.xml</Path>
