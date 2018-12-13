@@ -33,6 +33,8 @@
     * Added cmdlets to support the AWS Global Accelerator service. AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience. Cmdlets for the service have the noun prefix GACL and can be listed using the command 'Get-AWSCmdletName -Service GACL'.
   * AWS License Manager
     * Added support for AWS License Manager. AWS License Manager streamlines the process of bringing software vendor licenses to the cloud. Cmdlets for the service have the noun prefix LICM and can be listed using the command 'Get-AWSCmdletName -Service LICM'.
+  * AWS Mobile
+    * Added support for AWS Mobile. AWS Mobile Service provides mobile app and website developers with capabilities required to configure AWS resources and bootstrap their developer desktop projects with the necessary SDKs, constants, tools and samples to make use of those resources. Cmdlets for the service have the noun prefix MOBL and can be listed using the command 'Get-AWSCmdletName -Service MOBL'.
   * AWS Performance Insights
     * Added cmdlets to support the AWS Performance Insights service. AWS Performance Insights enables you to monitor and explore different dimensions of database load based on data captured from a running RDS instance. Cmdlets for the service have the noun prefix PI and can be listed with the command 'Get-AWSCmdletName -Service PI'.
   * AWS Resource Access Manager

@@ -6225,6 +6225,33 @@ $EMSD_map = @{
 _awsArgumentCompleterRegistration $EMSD_Completers $EMSD_map
 
 
+# Argument completions for service AWS Mobile
+$MOBL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Mobile.Platform
+        "Export-MOBLBundle/Platform"
+        {
+            $v = "ANDROID","JAVASCRIPT","LINUX","OBJC","OSX","SWIFT","WINDOWS"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MOBL_map = @{
+    "Platform"=@("Export-MOBLBundle")
+}
+
+_awsArgumentCompleterRegistration $MOBL_Completers $MOBL_map
+
+
 # Argument completions for service Amazon CloudWatch
 $CW_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

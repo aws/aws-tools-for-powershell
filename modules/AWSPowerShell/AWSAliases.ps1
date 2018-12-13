@@ -4486,6 +4486,15 @@ Set-Alias -Name MM-BatchMeterUsage -Value Send-MMMeteringDataBatch
 Set-Alias -Name MM-MeterUsage -Value Send-MMMeteringData
 Set-Alias -Name MM-RegisterUsage -Value Register-MMUsage
 Set-Alias -Name MM-ResolveCustomer -Value Get-MMCustomerMetadata
+Set-Alias -Name MOBL-CreateProject -Value New-MOBLProject
+Set-Alias -Name MOBL-DeleteProject -Value Remove-MOBLProject
+Set-Alias -Name MOBL-DescribeBundle -Value Get-MOBLBundle
+Set-Alias -Name MOBL-DescribeProject -Value Get-MOBLProject
+Set-Alias -Name MOBL-ExportBundle -Value Export-MOBLBundle
+Set-Alias -Name MOBL-ExportProject -Value Export-MOBLProject
+Set-Alias -Name MOBL-ListBundles -Value Get-MOBLBundleList
+Set-Alias -Name MOBL-ListProjects -Value Get-MOBLProjectList
+Set-Alias -Name MOBL-UpdateProject -Value Update-MOBLProject
 Set-Alias -Name Delete-CWAlarms -Value Remove-CWAlarm
 Set-Alias -Name CW-DeleteAlarms -Value Remove-CWAlarm
 Set-Alias -Name Delete-CWDashboard -Value Remove-CWDashboard

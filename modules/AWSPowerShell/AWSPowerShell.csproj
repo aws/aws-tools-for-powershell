@@ -66,6 +66,7 @@
     <PackageReference Include="AWSSDK.Macie" Version="3.3.0.30" />
     <PackageReference Include="AWSSDK.MediaConnect" Version="3.3.0.1" />
     <PackageReference Include="AWSSDK.MediaTailor" Version="3.3.3" />
+    <PackageReference Include="AWSSDK.Mobile" Version="3.3.0.40" />
     <PackageReference Include="AWSSDK.Neptune" Version="3.3.4.15" />
     <PackageReference Include="AWSSDK.PI" Version="3.3.0.32" />
     <PackageReference Include="AWSSDK.PinpointEmail" Version="3.3.0.8" />

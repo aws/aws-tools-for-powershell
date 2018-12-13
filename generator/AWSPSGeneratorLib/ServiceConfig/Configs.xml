@@ -100,6 +100,7 @@
     <Path>mediastore.xml</Path>
     <Path>mediatailor.xml</Path>
     <Path>meteringmarketplace'.xml</Path>
+    <Path>mobile.xml</Path>
     <Path>monitoring.xml</Path>
     <Path>mq.xml</Path>
     <Path>mturk-requester.xml</Path>

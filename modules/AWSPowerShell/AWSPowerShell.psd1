@@ -153,6 +153,7 @@ RequiredAssemblies = @(
   "AWSSDK.MediaStoreData.dll",
   "AWSSDK.MediaTailor.dll",
   "AWSSDK.MigrationHub.dll",
+  "AWSSDK.Mobile.dll",
   "AWSSDK.MQ.dll",
   "AWSSDK.MTurk.dll",
   "AWSSDK.Neptune.dll",
