@@ -175,6 +175,7 @@ RequiredAssemblies = @(
   "AWSSDK.RoboMaker.dll",
   "AWSSDK.Route53.dll",
   "AWSSDK.Route53Domains.dll",
+  "AWSSDK.Route53Resolver.dll",
   "AWSSDK.S3.dll",
   "AWSSDK.S3Control.dll",
   "AWSSDK.SageMaker.dll",

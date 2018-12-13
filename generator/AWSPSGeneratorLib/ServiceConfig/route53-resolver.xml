@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>route53-resolver</C2jFilename>
+    <SourceGenerationRoot>AmazonRoute53Resolver</SourceGenerationRoot>
+    <ServiceNounPrefix>R53R</ServiceNounPrefix>
+    <ServiceName>Amazon Route 53 Resolver</ServiceName>
+    <ServiceClientInterface>IAmazonRoute53Resolver</ServiceClientInterface>
+    <ServiceClient>AmazonRoute53ResolverClient</ServiceClient>
+    <ServiceNamespace>Amazon.Route53Resolver</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties>
+        <Property>ResolverEndpointId</Property>
+        <Property>ResolverRuleId</Property>
+        <Property>Arn</Property>
+    </PipelineByNameProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpAddress" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpAddress" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRuleAssociation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResolverRulePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRulePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpointIpAddressList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverEndpoints" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverRuleAssociations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleAssociationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResolverRules" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResolverRulePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResolverRulePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.Route53Resolver.Model.IpAddressUpdate</Type>
+        <Type>Amazon.Route53Resolver.Model.ResolverRuleConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

@@ -122,6 +122,7 @@
     <Path>resourcegroupstaggingapi.xml</Path>
     <Path>robomaker.xml</Path>
     <Path>route53.xml</Path>
+    <Path>route53-resolver.xml</Path>
     <Path>route53domains.xml</Path>
     <Path>runtime.lex.xml</Path>
     <Path>runtime.sagemaker.xml</Path>

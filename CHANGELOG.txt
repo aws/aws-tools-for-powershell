@@ -15,6 +15,8 @@
     * Added cmdlets to support the Amazon Neptune service. Amazon Neptune is a fast, reliable, fully managed graph database service that makes it easy to build and run applications that work with highly connected datasets. Cmdlets for the service have the noun prefix NPT and can be listed with the command 'Get-AWSCmdletName -Service NPT'.
   * Amazon QuickSight
     * Added cmdlets to support the Amazon QuickSight service. Amazon QuickSight is a fast, cloud-powered BI service that makes it easy to build visualizations, perform ad hoc analysis, and quickly get business insights from your data. Cmdlets for the service have the noun prefix QS and can be listed using the command 'Get-AWSCmdletName -Service QS'.
+  * Amazon Route 53 Resolver
+    * Added support for Amazon Route 53 Resolver. Cmdlets for the service have the noun prefix R53R and can be listed using the command 'Get-AWSCmdletName -Service R53R'.
   * AWS Amplify
     * Added cmdlets to support the AWS Amplify service. AWS Amplify enables developers to develop and deploy cloud-powered mobile and web apps. Cmdlets for the service have the noun prefix AMP and can be listed using the command 'Get-AWSCmdletName -Service AMP'.
   * AWS App Mesh

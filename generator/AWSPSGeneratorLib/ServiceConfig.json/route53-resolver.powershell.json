@@ -1,0 +1,1180 @@
+{
+  "customAliases": [],
+  "inputObjectMappingRules": [],
+  "legacySettings": {
+    "nounPrefix": "R53R",
+    "positionalMemberNames": [],
+    "parameterEmitters": []
+  },
+  "netSdk": {
+    "additionalNamespaces": [],
+    "serviceClientClass": "AmazonRoute53ResolverClient",
+    "serviceConfigClass": "AmazonRoute53ResolverConfig",
+    "serviceNamespace": "Amazon.Route53Resolver"
+  },
+  "nonFlattenedTypeNames": [
+    "Amazon.Route53Resolver.Model.IpAddressUpdate",
+    "Amazon.Route53Resolver.Model.ResolverRuleConfig"
+  ],
+  "nounMaps": {},
+  "outputMetadataMembers": [],
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "forceMaxResultSize": "true",
+    "maxResultSize": 100,
+    "resultsTruncatedMember": ""
+  },
+  "pipelineDefaults": {
+    "byValueMembers": [],
+    "byNameMembers": [
+      "ResolverEndpointId",
+      "ResolverRuleId",
+      "Arn"
+    ]
+  },
+  "nonSpecifiedRegionFallback": "",
+  "supportsShouldProcessVerbs": [],
+  "verbMaps": {},
+  "serviceOperations": {
+    "AssociateResolverEndpointIpAddress": {
+      "verb": "Add",
+      "noun": "ResolverEndpointIpAddressAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "IpAddress"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpointIpAddress",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverEndpointId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "AssociateResolverRule": {
+      "verb": "Add",
+      "noun": "ResolverRuleAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRuleAssociation",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverRuleId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateResolverEndpoint": {
+      "verb": "New",
+      "noun": "ResolverEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Name"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpoint",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "CreateResolverRule": {
+      "verb": "New",
+      "noun": "ResolverRule",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRule",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DomainName"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "DomainName"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteResolverEndpoint": {
+      "verb": "Remove",
+      "noun": "ResolverEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverEndpointId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpoint",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverEndpointId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DeleteResolverRule": {
+      "verb": "Remove",
+      "noun": "ResolverRule",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRule",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverRuleId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DisassociateResolverEndpointIpAddress": {
+      "verb": "Remove",
+      "noun": "ResolverEndpointIpAddressAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "IpAddress"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpointIpAddress",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverEndpointId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "DisassociateResolverRule": {
+      "verb": "Remove",
+      "noun": "ResolverRuleAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRuleAssociation",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverRuleId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetResolverEndpoint": {
+      "verb": "Get",
+      "noun": "ResolverEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverEndpointId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpoint",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetResolverRule": {
+      "verb": "Get",
+      "noun": "ResolverRule",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRule",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetResolverRuleAssociation": {
+      "verb": "Get",
+      "noun": "ResolverRuleAssociation",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRuleAssociation",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleAssociationId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRuleAssociation",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetResolverRulePolicy": {
+      "verb": "Get",
+      "noun": "ResolverRulePolicy",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRulePolicy",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Arn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRulePolicy",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResolverEndpointIpAddresses": {
+      "verb": "Get",
+      "noun": "ResolverEndpointIpAddressList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "IpAddresses",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverEndpointId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpointIpAddresses",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResolverEndpoints": {
+      "verb": "Get",
+      "noun": "ResolverEndpointList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoints",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpoints",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResolverRuleAssociations": {
+      "verb": "Get",
+      "noun": "ResolverRuleAssociationList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRuleAssociations",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRuleAssociations",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListResolverRules": {
+      "verb": "Get",
+      "noun": "ResolverRuleList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRules",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "omitPipelineByValue": "true",
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRules",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListTagsForResource": {
+      "verb": "Get",
+      "noun": "ResourceTagList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TagsForResource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern2",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "PutResolverRulePolicy": {
+      "verb": "Set",
+      "noun": "ResolverRulePolicy",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ReturnValue",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRulePolicy"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRulePolicy",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Arn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "TagResource": {
+      "verb": "Add",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagResource": {
+      "verb": "Remove",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "Resource",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResourceArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateResolverEndpoint": {
+      "verb": "Update",
+      "noun": "ResolverEndpoint",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverEndpoint",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverEndpointId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverEndpoint",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverEndpointId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateResolverRule": {
+      "verb": "Update",
+      "noun": "ResolverRule",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "ResolverRule",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResolverRuleId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResolverRule",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "ResolverRuleId"
+        },
+        "memoryStreamParameters": []
+      }
+    }
+  }
+}

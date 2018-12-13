@@ -7377,6 +7377,41 @@ $R53D_map = @{
 _awsArgumentCompleterRegistration $R53D_Completers $R53D_map
 
 
+# Argument completions for service Amazon Route 53 Resolver
+$R53R_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Route53Resolver.ResolverEndpointDirection
+        "New-R53RResolverEndpoint/Direction"
+        {
+            $v = "INBOUND","OUTBOUND"
+            break
+        }
+        
+        # Amazon.Route53Resolver.RuleTypeOption
+        "New-R53RResolverRule/RuleType"
+        {
+            $v = "FORWARD","RECURSIVE","SYSTEM"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$R53R_map = @{
+    "Direction"=@("New-R53RResolverEndpoint")
+    "RuleType"=@("New-R53RResolverRule")
+}
+
+_awsArgumentCompleterRegistration $R53R_Completers $R53R_map
+
+
 # Argument completions for service Amazon Simple Storage Service
 $S3_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
