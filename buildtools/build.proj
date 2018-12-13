@@ -17,7 +17,7 @@
         
         <!-- cleans all NuGet caches by default; if set false, cleaning the cache is skipped (this is useful when locally building with other projects open in Visual Studio or other projects building) -->
         <CleanNugetCache>true</CleanNugetCache>
-        
+
         <!-- deletes the Include\sdk\NuGet and Include\sdk\ExtractedNuGet folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
         <CleanSdkReferences Condition="'$(CleanSdkReferences)'==''">true</CleanSdkReferences>
 
@@ -48,8 +48,8 @@
         <!-- set to true to build without reflecting over the service client to generate cmdlets -->
         <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
         
-        <!-- set to false to build without copying release notes from changelog.txt to the psd1 files -->
-        <UpdateReleaseNotes Condition="'$(UpdateReleaseNotes)'==''">true</UpdateReleaseNotes>
+        <!-- set to false to skip generating the release notes draft -->
+        <DraftReleaseNotes Condition="'$(DraftReleaseNotes)'==''">true</DraftReleaseNotes>
 
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
@@ -67,7 +67,7 @@
         <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
 
-    <Target Name="full-build" DependsOnTargets="clean;clean-sdk-references;get-references;build-generator;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;create-help;run-tests;keyscan;save-build">
+    <Target Name="full-build" DependsOnTargets="clean;clean-sdk-references;get-references;build-generator;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;draft-release-notes;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;create-help;run-tests;keyscan;save-build">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
@@ -334,5 +334,10 @@
 
     <Target Name="get-references" DependsOnTargets="build-tools" Condition="$(EnableGetReferences)">
         <MSBuild Projects ="$(MSBuildProjectFullPath)" Targets="get-reference-sdk" Properties="TargetRepository=$(MSBuildProjectDirectory)\.."/>
+    </Target>
+    
+    <Target Name="draft-release-notes" Condition="$(DraftReleaseNotes)">
+        <Exec Command="dotnet build -c Release --no-incremental PSReleaseNotesGenerator.sln" WorkingDirectory="$(InternalBuildTools)\PSReleaseNotesGenerator"/>
+        <Exec Command="$(InternalBuildTools)\PSReleaseNotesGenerator\PSReleaseNotesGenerator\bin\Release\net46\PSReleaseNotesGenerator.exe -na $(DesktopDeploymentArtifacts)\AWSPowerShell.dll -mn AWSPowerShell -df ..\PSGalleryDownloads\ -an AWSPowerShell.dll -vf ..\Include\sdk\_sdk-versions.json > ..\ReleaseNotesDraft.txt"/>
     </Target>
 </Project>
