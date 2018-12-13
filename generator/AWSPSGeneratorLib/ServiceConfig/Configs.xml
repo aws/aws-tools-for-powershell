@@ -120,6 +120,7 @@
     <Path>rekognition.xml</Path>
     <Path>resource-groups.xml</Path>
     <Path>resourcegroupstaggingapi.xml</Path>
+    <Path>robomaker.xml</Path>
     <Path>route53.xml</Path>
     <Path>route53domains.xml</Path>
     <Path>runtime.lex.xml</Path>

@@ -37,6 +37,8 @@
     * Added cmdlets to support the AWS Resource Manager service. AWS Resource Access Manager (AWS RAM) enables you to share your resources with any AWS account or organization in AWS Organizations. Customers who operate multiple accounts can create resources centrally and use AWS RAM to share them with all of their accounts to reduce operational overhead. Cmdlets for the service have the noun prefix RAM and can be listed with the command 'Get-AWSCmdletName -Service RAM'.
   * AWS RDS DataService
     * Added cmdlet Invoke-RDSDSqlExecution to support the AWS RDS DataService. The AWS RDS DataService provides a Http Endpoint to query RDS databases.  The noun prefix for this service is RDSD which will also be applied to any new APIs this service exposes.
+  * AWS RoboMaker
+    * Added support for AWS RoboMaker. AWS RoboMaker is a service that makes it easy to develop, simulate, and deploy intelligent robotics applications at scale. Cmdlets for the service have the noun prefix ROBO and can be listed with the command 'Get-AWSCmdletName -Service ROBO'.
   * AWS Security Hub
     * Added cmdlets to support the AWS Security Hub service (Preview). AWS Security Hub provides you with a comprehensive view of your security state within AWS and your compliance with the security industry standards and best practices. Security Hub collects security data from across AWS accounts, services, and supported third-party partners and helps you analyze your security trends and identify the highest priority security issues. Cmdlets for the service have the noun prefix SHUB and can be listed using the command 'Get-AWSCmdletName -Service SHUB'.
   * AWS Transfer for SFTP

@@ -7157,6 +7157,52 @@ $REK_map = @{
 _awsArgumentCompleterRegistration $REK_Completers $REK_map
 
 
+# Argument completions for service AWS RoboMaker
+$ROBO_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.RoboMaker.Architecture
+        "New-ROBORobot/Architecture"
+        {
+            $v = "ARM64","ARMHF","X86_64"
+            break
+        }
+        
+        # Amazon.RoboMaker.FailureBehavior
+        "New-ROBOSimulationJob/FailureBehavior"
+        {
+            $v = "Continue","Fail"
+            break
+        }
+        
+        # Amazon.RoboMaker.RenderingEngineType
+        {
+            ($_ -eq "New-ROBOSimulationApplication/RenderingEngine_Name") -Or
+            ($_ -eq "Update-ROBOSimulationApplication/RenderingEngine_Name")
+        }
+        {
+            $v = "OGRE"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ROBO_map = @{
+    "Architecture"=@("New-ROBORobot")
+    "FailureBehavior"=@("New-ROBOSimulationJob")
+    "RenderingEngine_Name"=@("New-ROBOSimulationApplication","Update-ROBOSimulationApplication")
+}
+
+_awsArgumentCompleterRegistration $ROBO_Completers $ROBO_map
+
+
 # Argument completions for service Amazon Route 53
 $R53_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
