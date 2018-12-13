@@ -23,6 +23,8 @@
     * Added cmdlets to support AWS Auto Scaling Plans. Use AWS Auto Scaling to quickly discover all the scalable AWS resources for your application and configure dynamic scaling and predictive scaling for your resources using scaling plans. Cmdlets for the service have the noun prefix ASP and can be listed using the command 'Get-AWSCmdletName -Service ASP'.
   * AWS DataSync
     * Added cmdlets to support the AWS DataSync service. AWS DataSync is a managed data transfer service that makes it simpler for you to automate moving data between on-premises storage and Amazon Simple Storage Service (Amazon S3) or Amazon Elastic File System (Amazon EFS). Cmdlets for the service have the noun prefix DSYN and can be listed using the command 'Get-AWSCmdletName -Service DSYN'.
+  * AWS Elemental MediaConnect
+    * Added support for AWS Elemental MediaConnect. AWS Elemental MediaConnect is a reliable, secure, and flexible transport service for live video. Using AWS Elemental MediaConnect, broadcasters and content owners can cost-effectively send high-value live content into the cloud, securely transmit it to partners for distribution, and replicate it to multiple destinations around the globe. Cmdlets for the service have the noun prefix EMCN and can be listed using the command 'Get-AWSCmdletName -Service EMCN'.
   * AWS Global Accelerator
     * Added cmdlets to support the AWS Global Accelerator service. AWS Global Accelerator is a network layer service in which you create accelerators to improve availability and performance for internet applications used by a global audience. Cmdlets for the service have the noun prefix GACL and can be listed using the command 'Get-AWSCmdletName -Service GACL'.
   * AWS License Manager

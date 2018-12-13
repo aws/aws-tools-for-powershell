@@ -145,6 +145,7 @@ RequiredAssemblies = @(
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.Macie.dll",
   "AWSSDK.MarketplaceEntitlementService.dll",
+  "AWSSDK.MediaConnect.dll",
   "AWSSDK.MediaConvert.dll",
   "AWSSDK.MediaLive.dll",
   "AWSSDK.MediaPackage.dll",

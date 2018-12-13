@@ -92,6 +92,7 @@
     <Path>machinelearning.xml</Path>
     <Path>macie.xml</Path>
     <Path>marketplacecommerceanalytics.xml</Path>
+    <Path>mediaconnect.xml</Path>
     <Path>mediaconvert.xml</Path>
     <Path>medialive.xml</Path>
     <Path>mediapackage.xml</Path>

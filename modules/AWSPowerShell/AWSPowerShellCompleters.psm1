@@ -5952,6 +5952,36 @@ $MCA_map = @{
 _awsArgumentCompleterRegistration $MCA_Completers $MCA_map
 
 
+# Argument completions for service AWS Elemental MediaConnect
+$EMCN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaConnect.Protocol
+        {
+            ($_ -eq "Update-EMCNFlowOutput/Protocol") -Or
+            ($_ -eq "Update-EMCNFlowSource/Protocol")
+        }
+        {
+            $v = "rtp","rtp-fec","zixi-push"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMCN_map = @{
+    "Protocol"=@("Update-EMCNFlowOutput","Update-EMCNFlowSource")
+}
+
+_awsArgumentCompleterRegistration $EMCN_Completers $EMCN_map
+
+
 # Argument completions for service AWS Elemental MediaConvert
 $EMC_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
