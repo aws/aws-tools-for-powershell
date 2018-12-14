@@ -93,6 +93,7 @@ RequiredAssemblies = @(
   "AWSSDK.CognitoSync.dll",
   "AWSSDK.Comprehend.dll",
   "AWSSDK.ConfigService.dll",
+  "AWSSDK.Connect.dll",
   "AWSSDK.Core.dll",
   "AWSSDK.CostAndUsageReport.dll",
   "AWSSDK.CostExplorer.dll",

@@ -36,6 +36,7 @@
     <Path>cognito-sync.xml</Path>
     <Path>comprehend.xml</Path>
     <Path>config.xml</Path>
+    <Path>connect.xml</Path>
     <Path>cur.xml</Path>
     <Path>datapipeline.xml</Path>
     <Path>datasync.xml</Path>
