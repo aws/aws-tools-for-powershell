@@ -92,6 +92,7 @@ RequiredAssemblies = @(
   "AWSSDK.CognitoIdentityProvider.dll",
   "AWSSDK.CognitoSync.dll",
   "AWSSDK.Comprehend.dll",
+  "AWSSDK.ComprehendMedical.dll",
   "AWSSDK.ConfigService.dll",
   "AWSSDK.Connect.dll",
   "AWSSDK.Core.dll",

@@ -35,6 +35,7 @@
     <Path>cognito-idp.xml</Path>
     <Path>cognito-sync.xml</Path>
     <Path>comprehend.xml</Path>
+    <Path>comprehendmedical.xml</Path>
     <Path>config.xml</Path>
     <Path>connect.xml</Path>
     <Path>cur.xml</Path>

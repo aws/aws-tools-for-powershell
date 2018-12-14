@@ -1341,6 +1341,8 @@ Set-Alias -Name COMP-StopDominantLanguageDetectionJob -Value Stop-COMPDominantLa
 Set-Alias -Name COMP-StopEntitiesDetectionJob -Value Stop-COMPEntitiesDetectionJob
 Set-Alias -Name COMP-StopKeyPhrasesDetectionJob -Value Stop-COMPKeyPhrasesDetectionJob
 Set-Alias -Name COMP-StopSentimentDetectionJob -Value Stop-COMPSentimentDetectionJob
+Set-Alias -Name CMPM-DetectEntities -Value Find-CMPMMedicalEntity
+Set-Alias -Name CMPM-DetectPHI -Value Find-CMPMPersonalHealthInformation
 Set-Alias -Name CFG-BatchGetAggregateResourceConfig -Value Get-CFGAggregateResourceConfigBatch
 Set-Alias -Name CFG-BatchGetResourceConfig -Value Get-CFGGetResourceConfigBatch
 Set-Alias -Name CFG-DeleteAggregationAuthorization -Value Remove-CFGAggregationAuthorization
