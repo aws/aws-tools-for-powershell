@@ -867,54 +867,6 @@
         "memoryStreamParameters": []
       }
     },
-    "DescribeProvisionedCapacity": {
-      "verb": "Get",
-      "noun": "ProvisionedCapacity",
-      "anonymousAuthentication": "Never",
-      "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "ProvisionedCapacity",
-        "outputMemberWrapper": "",
-        "passThru": {}
-      },
-      "parameterCustomizations": [],
-      "legacySettings": {
-        "alias": "",
-        "positionalParameters": [],
-        "disableMemoryStreamTypeRemap": "false"
-      },
-      "outputMetadataMembers": [],
-      "pagination": {},
-      "pipeline": {
-        "byValueMembers": [
-          "LoadBalancerArn"
-        ],
-        "byNameMembers": []
-      },
-      "shouldProcess": {
-        "anonymousTargetParameter": "false",
-        "customMessageNoun": "",
-        "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
-      },
-      "tempAnalyzerResults": {
-        "confirmationMessageNoun": "ProvisionedCapacity",
-        "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
-        "memoryStreamParameters": []
-      }
-    },
     "DescribeRules": {
       "verb": "Get",
       "noun": "Rule",
@@ -1304,59 +1256,6 @@
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "single parameter with recognized suffix",
           "status": "TargetFromAnalysis",
-          "targetParameterName": "LoadBalancerArn"
-        },
-        "memoryStreamParameters": []
-      }
-    },
-    "ModifyProvisionedCapacity": {
-      "verb": "Edit",
-      "noun": "ProvisionedCapacity",
-      "anonymousAuthentication": "Never",
-      "cmdletOutput": {
-        "output": "DefaultSingleMember",
-        "outputMemberSelector": "ProvisionedCapacity",
-        "outputMemberWrapper": "",
-        "passThru": {}
-      },
-      "parameterCustomizations": [],
-      "legacySettings": {
-        "alias": "",
-        "positionalParameters": [],
-        "disableMemoryStreamTypeRemap": "false"
-      },
-      "outputMetadataMembers": [],
-      "pagination": {},
-      "pipeline": {
-        "byValueMembers": [
-          "LoadBalancerArn"
-        ],
-        "byNameMembers": []
-      },
-      "shouldProcess": {
-        "anonymousTargetParameter": "false",
-        "customMessageNoun": "",
-        "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "LoadBalancerArn"
-      },
-      "tempAnalyzerResults": {
-        "confirmationMessageNoun": "ProvisionedCapacity",
-        "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []

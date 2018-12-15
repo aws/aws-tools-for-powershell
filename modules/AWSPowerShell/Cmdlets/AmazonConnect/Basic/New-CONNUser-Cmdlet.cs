@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// for identity management. If Amazon Connect is unable to access the existing directory,
         /// you can use the <code>DirectoryUserId</code> to authenticate users. If you include
         /// the parameter, it is assumed that Amazon Connect cannot access the directory. If the
-        /// parameter is not included, the UserIdentityInfo is used to authenticate users from
-        /// your existing directory.</para><para>This parameter is required if you are using an existing directory for identity management
+        /// parameter is not included, the <code>UserIdentityInfo</code> is used to authenticate
+        /// users from your existing directory.</para><para>This parameter is required if you are using an existing directory for identity management
         /// in Amazon Connect when Amazon Connect cannot access your directory to authenticate
         /// users. If you are using SAML for identity management and include this parameter, an
         /// <code>InvalidRequestException</code> is returned.</para>
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter PhoneConfig
         /// <summary>
         /// <para>
-        /// <para>Specifies the phone settings for the user, including AfterContactWorkTimeLimit, AutoAccept,
-        /// DeskPhoneNumber, and PhoneType.</para>
+        /// <para>Specifies the phone settings for the user, including <code>AfterContactWorkTimeLimit</code>,
+        /// <code>AutoAccept</code>, <code>DeskPhoneNumber</code>, and <code>PhoneType</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,7 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Username
         /// <summary>
         /// <para>
-        /// <para>The user name in Amazon Connect for the account to create.</para>
+        /// <para>The user name in Amazon Connect for the account to create. If you are using SAML for
+        /// identity management in your Amazon Connect, the value for <code>Username</code> can
+        /// include up to 64 characters from [a-zA-Z0-9_-.\@]+.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

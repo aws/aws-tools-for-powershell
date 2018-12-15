@@ -28,7 +28,7 @@ using Amazon.IdentityManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
-    /// Use instead.
+    /// Use <a>UpdateRole</a> instead.
     /// 
     ///  
     /// <para>

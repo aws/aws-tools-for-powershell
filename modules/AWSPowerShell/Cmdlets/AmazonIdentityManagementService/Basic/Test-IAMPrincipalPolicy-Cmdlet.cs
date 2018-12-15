@@ -172,12 +172,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// to ensure reliable simulation results. If your simulation does not match one of the
         /// following scenarios, then you can omit this parameter. The following list shows each
         /// of the supported scenario values and the resources that you must define to run the
-        /// simulation.</para><para>Each of the EC2 scenarios requires that you specify instance, image, and security-group
-        /// resources. If your scenario includes an EBS volume, then you must specify that volume
-        /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
-        /// resource. If it includes an IP subnet, then you must specify the subnet resource.
-        /// For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
-        /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
+        /// simulation.</para><para>Each of the EC2 scenarios requires that you specify instance, image, and security
+        /// group resources. If your scenario includes an EBS volume, then you must specify that
+        /// volume as a resource. If the EC2 scenario includes VPC, then you must supply the network
+        /// interface resource. If it includes an IP subnet, then you must specify the subnet
+        /// resource. For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security group, network interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security group, network interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security group, network interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security group, network interface, subnet, volume</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,12 +235,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this only when paginating results to indicate the maximum number of
-        /// items you want in the response. If additional items exist beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, it defaults to 100. Note that IAM might return
-        /// fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-        /// response element returns <code>true</code> and <code>Marker</code> contains a value
-        /// to include in the subsequent call that tells the service where to continue from.</para>
+        /// <para>Use this only when paginating results to indicate the maximum number of items you
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

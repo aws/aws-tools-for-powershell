@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Deletes the specified IAM user. The user must not belong to any groups or have any
-    /// access keys, signing certificates, or attached policies.
+    /// access keys, signing certificates, MFA devices enabled for AWS, or attached policies.
     /// </summary>
     [Cmdlet("Remove", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the user to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

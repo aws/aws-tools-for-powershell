@@ -569,7 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Auth_Type
         /// <summary>
         /// <para>
-        /// <para>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents
+        /// <note><para> This data type is deprecated and is no longer accurate or used. </para></note><para>The authorization type to use. The only valid value is <code>OAUTH</code>, which represents
         /// the OAuth authorization type.</para>
         /// </para>
         /// </summary>

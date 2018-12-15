@@ -75,9 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>Identifies the policy version to retrieve.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters that consists of the lowercase letter 'v' followed by one or
-        /// two digits, and optionally followed by a period '.' and a string of letters and digits.</para>
+        /// <para>Identifies the policy version to retrieve.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters that consists of the lowercase letter 'v' followed
+        /// by one or two digits, and optionally followed by a period '.' and a string of letters
+        /// and digits.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]

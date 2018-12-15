@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Returns information about the service-specific credentials associated with the specified
-    /// IAM user. If there are none, the operation returns an empty list. The service-specific
+    /// IAM user. If none exists, the operation returns an empty list. The service-specific
     /// credentials returned by this operation are used only for authenticating the IAM user
     /// to a specific service. For more information about using service-specific credentials
     /// to authenticate to an AWS service, see <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html">Set
@@ -61,9 +61,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>The name of the user whose service-specific credentials you want information about.
         /// If this value is not specified, then the operation assumes the user whose credentials
-        /// are used to call the operation.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// are used to call the operation.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

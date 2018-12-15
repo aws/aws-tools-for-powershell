@@ -34,8 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// 
     ///  
     /// <para>
-    /// By calling this API Service Catalog will use FAS credentials to call organizations:EnableAWSServiceAccess
-    /// so that your shares can be in sync with any changes in your AWS Organizations.
+    /// By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess
+    /// on your behalf so that your shares can be in sync with any changes in your AWS Organizations
+    /// structure.
     /// </para>
     /// </summary>
     [Cmdlet("Enable", "SCAWSOrganizationsAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  <important><para>
     /// Policies that are used as permissions boundaries do not provide permissions. You must
     /// also attach a permissions policy to the user. To learn how the effective permissions
-    /// for a user are evaluated, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM
+    /// for a user are evaluated, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html">IAM
     /// JSON Policy Evaluation Logic</a> in the IAM User Guide. 
     /// </para></important>
     /// </summary>

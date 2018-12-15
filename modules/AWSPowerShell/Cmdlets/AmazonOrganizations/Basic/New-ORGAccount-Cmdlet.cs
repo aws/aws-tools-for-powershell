@@ -76,6 +76,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// If you get an exception that indicates that the operation failed because your organization
     /// is still initializing, wait one hour and then try again. If the error persists, contact
     /// <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.
+    /// </para></li><li><para>
+    /// Using CreateAccount to create multiple temporary accounts is not recommended. You
+    /// can only close an account from the Billing and Cost Management Console, and you must
+    /// be signed in as the root user. For information on the requirements and process for
+    /// closing an account, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
+    /// an AWS Account</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li></ul></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
     /// the account with the <b>IAM User and Role Access to Billing Information</b> switch

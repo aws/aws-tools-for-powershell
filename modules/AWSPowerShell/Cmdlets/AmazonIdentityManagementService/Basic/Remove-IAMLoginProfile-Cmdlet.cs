@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <important><para>
     ///  Deleting a user's password does not prevent a user from accessing AWS through the
-    /// command line interface or the API. To prevent all user access you must also either
+    /// command line interface or the API. To prevent all user access, you must also either
     /// make any access keys inactive or delete them. For more information about making keys
     /// inactive or deleting them, see <a>UpdateAccessKey</a> and <a>DeleteAccessKey</a>.
     /// 
@@ -52,9 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose password you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the user whose password you want to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

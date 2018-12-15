@@ -22,37 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancingV2;
-using Amazon.ElasticLoadBalancingV2.Model;
+using Amazon.MediaStore;
+using Amazon.MediaStore.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB2
+namespace Amazon.PowerShell.Cmdlets.EMS
 {
     /// <summary>
-    
+    /// Removes an object lifecycle policy from a container.
     /// </summary>
-    [Cmdlet("Get", "ELB2ProvisionedCapacity")]
-    [OutputType("Amazon.ElasticLoadBalancingV2.Model.ProvisionedCapacity")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeProvisionedCapacity API operation.", Operation = new[] {"DescribeProvisionedCapacity"})]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ProvisionedCapacity",
-        "This cmdlet returns a ProvisionedCapacity object.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeProvisionedCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "EMSLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Calls the AWS Elemental MediaStore DeleteLifecyclePolicy API operation.", Operation = new[] {"DeleteLifecyclePolicy"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ContainerName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.MediaStore.Model.DeleteLifecyclePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetELB2ProvisionedCapacityCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class RemoveEMSLifecyclePolicyCmdlet : AmazonMediaStoreClientCmdlet, IExecutor
     {
         
-        #region Parameter LoadBalancerArn
+        #region Parameter ContainerName
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The name of the container that holds the object lifecycle policy.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String LoadBalancerArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ContainerName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ContainerName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ContainerName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EMSLifecyclePolicy (DeleteLifecyclePolicy)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -63,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.LoadBalancerArn = this.LoadBalancerArn;
+            context.ContainerName = this.ContainerName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -78,11 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.DescribeProvisionedCapacityRequest();
+            var request = new Amazon.MediaStore.Model.DeleteLifecyclePolicyRequest();
             
-            if (cmdletContext.LoadBalancerArn != null)
+            if (cmdletContext.ContainerName != null)
             {
-                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
+                request.ContainerName = cmdletContext.ContainerName;
             }
             
             CmdletOutput output;
@@ -93,7 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ProvisionedCapacity;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ContainerName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -118,16 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.DescribeProvisionedCapacityResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.DescribeProvisionedCapacityRequest request)
+        private Amazon.MediaStore.Model.DeleteLifecyclePolicyResponse CallAWSServiceOperation(IAmazonMediaStore client, Amazon.MediaStore.Model.DeleteLifecyclePolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "DescribeProvisionedCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaStore", "DeleteLifecyclePolicy");
             try
             {
                 #if DESKTOP
-                return client.DescribeProvisionedCapacity(request);
+                return client.DeleteLifecyclePolicy(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProvisionedCapacityAsync(request);
+                var task = client.DeleteLifecyclePolicyAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -148,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LoadBalancerArn { get; set; }
+            public System.String ContainerName { get; set; }
         }
         
     }

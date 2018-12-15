@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// can contain only one role, and this limit cannot be increased. You can remove the
     /// existing role and then add a different role to an instance profile. You must then
     /// wait for the change to appear across all of AWS because of <a href="https://en.wikipedia.org/wiki/Eventual_consistency">eventual
-    /// consistency</a>. To force the change, you must <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
-    /// the instance profile</a> and then <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate
+    /// consistency</a>. To force the change, you must <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html">disassociate
+    /// the instance profile</a> and then <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html">associate
     /// the instance profile</a>, or you can stop your instance and then restart it.
     /// 
     ///  <note><para>
     /// The caller of this API must be granted the <code>PassRole</code> permission on the
-    /// IAM role by a permission policy.
+    /// IAM role by a permissions policy.
     /// </para></note><para>
     /// For more information about roles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html">Working
     /// with Roles</a>. For more information about instance profiles, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html">About
@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter InstanceProfileName
         /// <summary>
         /// <para>
-        /// <para>The name of the instance profile to update.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the instance profile to update.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -70,9 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter RoleName
         /// <summary>
         /// <para>
-        /// <para>The name of the role to add.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the role to add.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

@@ -255,6 +255,23 @@ $ALXB_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.AlexaForBusiness.BusinessReportFormat
+        {
+            ($_ -eq "New-ALXBBusinessReportSchedule/Format") -Or
+            ($_ -eq "Update-ALXBBusinessReportSchedule/Format")
+        }
+        {
+            $v = "CSV","CSV_ZIP"
+            break
+        }
+        
+        # Amazon.AlexaForBusiness.BusinessReportInterval
+        "New-ALXBBusinessReportSchedule/ContentRange_Interval"
+        {
+            $v = "ONE_DAY","ONE_WEEK"
+            break
+        }
+        
         # Amazon.AlexaForBusiness.CommsProtocol
         {
             ($_ -eq "New-ALXBConferenceProvider/IPDialIn_CommsProtocol") -Or
@@ -345,9 +362,11 @@ $ALXB_Completers = {
 
 $ALXB_map = @{
     "ConferenceProviderType"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
+    "ContentRange_Interval"=@("New-ALXBBusinessReportSchedule")
     "DistanceUnit"=@("New-ALXBProfile","Update-ALXBProfile")
     "EnablementType"=@("Get-ALXBSkillList")
     "EventType"=@("Get-ALXBDeviceEventList")
+    "Format"=@("New-ALXBBusinessReportSchedule","Update-ALXBBusinessReportSchedule")
     "IPDialIn_CommsProtocol"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
     "MeetingSetting_RequirePin"=@("New-ALXBConferenceProvider","Update-ALXBConferenceProvider")
     "SkillType"=@("Get-ALXBSkillList")
@@ -1703,6 +1722,13 @@ $CB_Completers = {
             break
         }
         
+        # Amazon.CodeBuild.AuthType
+        "Import-CBSourceCredential/AuthType"
+        {
+            $v = "BASIC_AUTH","OAUTH","PERSONAL_ACCESS_TOKEN"
+            break
+        }
+        
         # Amazon.CodeBuild.CacheType
         {
             ($_ -eq "New-CBProject/Cache_Type") -Or
@@ -1757,6 +1783,13 @@ $CB_Completers = {
             break
         }
         
+        # Amazon.CodeBuild.ServerType
+        "Import-CBSourceCredential/ServerType"
+        {
+            $v = "BITBUCKET","GITHUB","GITHUB_ENTERPRISE"
+            break
+        }
+        
         # Amazon.CodeBuild.SortOrderType
         {
             ($_ -eq "Get-CBBuildIdList/SortOrder") -Or
@@ -1804,6 +1837,7 @@ $CB_map = @{
     "ArtifactsOverride_NamespaceType"=@("Start-CBBuild")
     "ArtifactsOverride_Packaging"=@("Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBuild")
+    "AuthType"=@("Import-CBSourceCredential")
     "Cache_Type"=@("New-CBProject","Update-CBProject")
     "CacheOverride_Type"=@("Start-CBBuild")
     "ComputeTypeOverride"=@("Start-CBBuild")
@@ -1814,6 +1848,7 @@ $CB_map = @{
     "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBuild")
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBuild")
+    "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBProjectList")
     "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
     "Source_Auth_Type"=@("New-CBProject","Update-CBProject")
@@ -3419,7 +3454,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
             break
         }
         
@@ -4082,7 +4117,7 @@ $ELB2_Completers = {
             ($_ -eq "New-ELB2TargetGroup/Protocol")
         }
         {
-            $v = "HTTP","HTTPS","TCP","TLS","UDP"
+            $v = "HTTP","HTTPS","TCP"
             break
         }
         
@@ -6136,7 +6171,7 @@ $EML_Completers = {
         # Amazon.MediaLive.InputType
         "New-EMLInput/Type"
         {
-            $v = "MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
+            $v = "MEDIACONNECT","MP4_FILE","RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
             break
         }
         
@@ -7249,7 +7284,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -7317,7 +7352,7 @@ $R53_Completers = {
             ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-northeast-3","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-north-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -7941,6 +7976,13 @@ $SM_Completers = {
             break
         }
         
+        # Amazon.SageMaker.TrainingJobEarlyStoppingType
+        "New-SMHyperParameterTuningJob/HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"
+        {
+            $v = "Auto","Off"
+            break
+        }
+        
         # Amazon.SageMaker.TrainingJobSortByOptions
         "Get-SMTrainingJobsForHyperParameterTuningJobList/SortBy"
         {
@@ -7984,6 +8026,7 @@ $SM_map = @{
     "DirectInternetAccess"=@("New-SMNotebookInstance")
     "HyperParameterTuningJobConfig_HyperParameterTuningJobObjective_Type"=@("New-SMHyperParameterTuningJob")
     "HyperParameterTuningJobConfig_Strategy"=@("New-SMHyperParameterTuningJob")
+    "HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType"=@("New-SMHyperParameterTuningJob")
     "InputConfig_Framework"=@("New-SMCompilationJob")
     "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")

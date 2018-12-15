@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If you do not specify a user name, IAM determines the user name implicitly based on
-    /// the AWS access key ID signing the request. Because this operation works for access
-    /// keys under the AWS account, you can use this operation to manage AWS account root
+    /// the AWS access key ID signing the request. This operation works for access keys under
+    /// the AWS account. Consequently, you can use this operation to manage AWS account root
     /// user credentials even if the AWS account has no associated users.
     /// </para>
     /// </summary>
@@ -51,8 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AccessKeyId
         /// <summary>
         /// <para>
-        /// <para>The access key ID for the access key ID and secret access key you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
+        /// <para>The access key ID for the access key ID and secret access key you want to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters that can consist of any upper or lowercased letter
+        /// or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -62,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user whose access key pair you want to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the user whose access key pair you want to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

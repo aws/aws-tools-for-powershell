@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>The name of the user to get information about.</para><para>This parameter is optional. If it is not included, it defaults to the user making
-        /// the request. This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex
+        /// the request. This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>

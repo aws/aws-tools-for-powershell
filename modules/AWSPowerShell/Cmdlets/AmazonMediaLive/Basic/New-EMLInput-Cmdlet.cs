@@ -63,6 +63,21 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String[] InputSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter MediaConnectFlow
+        /// <summary>
+        /// <para>
+        /// A list of the MediaConnect Flows that
+        /// you want to use in this input. You can specify as few as oneFlow and presently, as
+        /// many as two. The only requirement is when you have more than one is that each Flow
+        /// is in aseparate Availability Zone as this ensures your EML input is redundant to AZ
+        /// issues.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MediaConnectFlows")]
+        public Amazon.MediaLive.Model.MediaConnectFlowRequest[] MediaConnectFlow { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -82,6 +97,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RequestId { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// The Amazon Resource Name (ARN) of the role this
+        /// input assumes during and after creation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleArn { get; set; }
         #endregion
         
         #region Parameter Source
@@ -145,8 +171,13 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.InputSecurityGroups = new List<System.String>(this.InputSecurityGroup);
             }
+            if (this.MediaConnectFlow != null)
+            {
+                context.MediaConnectFlows = new List<Amazon.MediaLive.Model.MediaConnectFlowRequest>(this.MediaConnectFlow);
+            }
             context.Name = this.Name;
             context.RequestId = this.RequestId;
+            context.RoleArn = this.RoleArn;
             if (this.Source != null)
             {
                 context.Sources = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
@@ -176,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.InputSecurityGroups = cmdletContext.InputSecurityGroups;
             }
+            if (cmdletContext.MediaConnectFlows != null)
+            {
+                request.MediaConnectFlows = cmdletContext.MediaConnectFlows;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -183,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.RequestId != null)
             {
                 request.RequestId = cmdletContext.RequestId;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
             }
             if (cmdletContext.Sources != null)
             {
@@ -258,8 +297,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
         {
             public List<Amazon.MediaLive.Model.InputDestinationRequest> Destinations { get; set; }
             public List<System.String> InputSecurityGroups { get; set; }
+            public List<Amazon.MediaLive.Model.MediaConnectFlowRequest> MediaConnectFlows { get; set; }
             public System.String Name { get; set; }
             public System.String RequestId { get; set; }
+            public System.String RoleArn { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Sources { get; set; }
             public Amazon.MediaLive.InputType Type { get; set; }
         }

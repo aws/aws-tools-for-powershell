@@ -64,9 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The policy version to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters that consists of the lowercase letter 'v' followed by one or
-        /// two digits, and optionally followed by a period '.' and a string of letters and digits.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+        /// <para>The policy version to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters that consists of the lowercase letter 'v' followed
+        /// by one or two digits, and optionally followed by a period '.' and a string of letters
+        /// and digits.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
         /// for Managed Policies</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>

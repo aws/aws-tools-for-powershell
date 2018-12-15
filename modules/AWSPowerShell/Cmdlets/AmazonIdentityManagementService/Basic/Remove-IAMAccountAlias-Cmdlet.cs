@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter AccountAlias
         /// <summary>
         /// <para>
-        /// <para>The name of the account alias to delete.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of lowercase letters, digits, and dashes. You cannot
-        /// start or finish with a dash, nor can you have two dashes in a row.</para>
+        /// <para>The name of the account alias to delete.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes.
+        /// You cannot start or finish with a dash, nor can you have two dashes in a row.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

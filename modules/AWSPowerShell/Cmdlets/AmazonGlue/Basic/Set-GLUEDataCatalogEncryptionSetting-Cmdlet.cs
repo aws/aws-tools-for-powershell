@@ -41,6 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class SetGLUEDataCatalogEncryptionSettingCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter ConnectionPasswordEncryption_AwsKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>A KMS key used to protect access to the JDBC source. </para><para>All users in your account should be granted the <code>kms:encrypt</code> permission
+        /// to encrypt passwords before storing them in the Data Catalog (through the AWS Glue
+        /// <code>CreateConnection</code> operation).</para><para>The decrypt permission should be granted only to KMS key admins and IAM roles designated
+        /// for AWS Glue crawlers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId")]
+        public System.String ConnectionPasswordEncryption_AwsKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter EncryptionAtRest_CatalogEncryptionMode
         /// <summary>
         /// <para>
@@ -62,6 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CatalogId { get; set; }
+        #endregion
+        
+        #region Parameter ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted
+        /// <summary>
+        /// <para>
+        /// <para>When the <code>ReturnConnectionPasswordEncrypted</code> flag is set to "true", passwords
+        /// remain encrypted in the responses of <code>GetConnection</code> and <code>GetConnections</code>.
+        /// This encryption takes effect independently from catalog encryption. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DataCatalogEncryptionSettings_ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted")]
+        public System.Boolean ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted { get; set; }
         #endregion
         
         #region Parameter EncryptionAtRest_SseAwsKmsKeyId
@@ -114,6 +141,9 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             PreExecutionContextLoad(context);
             
             context.CatalogId = this.CatalogId;
+            context.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId = this.ConnectionPasswordEncryption_AwsKmsKeyId;
+            if (ParameterWasBound("ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted"))
+                context.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted = this.ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted;
             context.DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode = this.EncryptionAtRest_CatalogEncryptionMode;
             context.DataCatalogEncryptionSettings_EncryptionAtRest_SseAwsKmsKeyId = this.EncryptionAtRest_SseAwsKmsKeyId;
             
@@ -140,6 +170,41 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
              // populate DataCatalogEncryptionSettings
             bool requestDataCatalogEncryptionSettingsIsNull = true;
             request.DataCatalogEncryptionSettings = new Amazon.Glue.Model.DataCatalogEncryptionSettings();
+            Amazon.Glue.Model.ConnectionPasswordEncryption requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption = null;
+            
+             // populate ConnectionPasswordEncryption
+            bool requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryptionIsNull = true;
+            requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption = new Amazon.Glue.Model.ConnectionPasswordEncryption();
+            System.String requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_AwsKmsKeyId = null;
+            if (cmdletContext.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_AwsKmsKeyId = cmdletContext.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId;
+            }
+            if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_AwsKmsKeyId != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption.AwsKmsKeyId = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_AwsKmsKeyId;
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryptionIsNull = false;
+            }
+            System.Boolean? requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_ReturnConnectionPasswordEncrypted = null;
+            if (cmdletContext.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_ReturnConnectionPasswordEncrypted = cmdletContext.DataCatalogEncryptionSettings_ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted.Value;
+            }
+            if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_ReturnConnectionPasswordEncrypted != null)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption.ReturnConnectionPasswordEncrypted = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption_connectionPasswordEncryption_ReturnConnectionPasswordEncrypted.Value;
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryptionIsNull = false;
+            }
+             // determine if requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption should be set to null
+            if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryptionIsNull)
+            {
+                requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption = null;
+            }
+            if (requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption != null)
+            {
+                request.DataCatalogEncryptionSettings.ConnectionPasswordEncryption = requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_ConnectionPasswordEncryption;
+                requestDataCatalogEncryptionSettingsIsNull = false;
+            }
             Amazon.Glue.Model.EncryptionAtRest requestDataCatalogEncryptionSettings_dataCatalogEncryptionSettings_EncryptionAtRest = null;
             
              // populate EncryptionAtRest
@@ -247,6 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CatalogId { get; set; }
+            public System.String DataCatalogEncryptionSettings_ConnectionPasswordEncryption_AwsKmsKeyId { get; set; }
+            public System.Boolean? DataCatalogEncryptionSettings_ConnectionPasswordEncryption_ReturnConnectionPasswordEncrypted { get; set; }
             public Amazon.Glue.CatalogEncryptionMode DataCatalogEncryptionSettings_EncryptionAtRest_CatalogEncryptionMode { get; set; }
             public System.String DataCatalogEncryptionSettings_EncryptionAtRest_SseAwsKmsKeyId { get; set; }
         }

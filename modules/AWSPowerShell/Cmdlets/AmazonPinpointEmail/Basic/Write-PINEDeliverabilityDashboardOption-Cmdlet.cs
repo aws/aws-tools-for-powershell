@@ -22,43 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancingV2;
-using Amazon.ElasticLoadBalancingV2.Model;
+using Amazon.PinpointEmail;
+using Amazon.PinpointEmail.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB2
+namespace Amazon.PowerShell.Cmdlets.PINE
 {
     /// <summary>
-    
+    /// Enable or disable the Deliverability dashboard. When you enable the Deliverability
+    /// dashboard, you gain access to reputation metrics for the domains that you use to send
+    /// email using Amazon Pinpoint. You also gain the ability to perform predictive inbox
+    /// placement tests.
+    /// 
+    ///  
+    /// <para>
+    /// When you use the Deliverability dashboard, you pay a monthly charge of USD$1,250.00,
+    /// in addition to any other fees that you accrue by using Amazon Pinpoint. If you enable
+    /// the Deliverability dashboard after the first day of a calendar month, we prorate the
+    /// monthly charge based on how many days have elapsed in the current calendar month.
+    /// </para>
     /// </summary>
-    [Cmdlet("Edit", "ELB2ProvisionedCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticLoadBalancingV2.Model.ProvisionedCapacity")]
-    [AWSCmdlet("Calls the Elastic Load Balancing V2 ModifyProvisionedCapacity API operation.", Operation = new[] {"ModifyProvisionedCapacity"})]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.ProvisionedCapacity",
-        "This cmdlet returns a ProvisionedCapacity object.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.ModifyProvisionedCapacityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "PINEDeliverabilityDashboardOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.Boolean")]
+    [AWSCmdlet("Calls the Amazon Pinpoint Email PutDeliverabilityDashboardOption API operation.", Operation = new[] {"PutDeliverabilityDashboardOption"})]
+    [AWSCmdletOutput("None or System.Boolean",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DashboardEnabled parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.PinpointEmail.Model.PutDeliverabilityDashboardOptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditELB2ProvisionedCapacityCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class WritePINEDeliverabilityDashboardOptionCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
-        #region Parameter LoadBalancerArn
+        #region Parameter DashboardEnabled
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Indicates whether the Deliverability dashboard is enabled. If the value is <code>true</code>,
+        /// then the dashboard is enabled.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String LoadBalancerArn { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.Boolean DashboardEnabled { get; set; }
         #endregion
         
-        #region Parameter MinimumLBCapacityUnit
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
+        /// Returns the value passed to the DashboardEnabled parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MinimumLBCapacityUnits")]
-        public System.Int32 MinimumLBCapacityUnit { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -75,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-ELB2ProvisionedCapacity (ModifyProvisionedCapacity)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DashboardEnabled", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-PINEDeliverabilityDashboardOption (PutDeliverabilityDashboardOption)"))
             {
                 return;
             }
@@ -90,9 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.LoadBalancerArn = this.LoadBalancerArn;
-            if (ParameterWasBound("MinimumLBCapacityUnit"))
-                context.MinimumLBCapacityUnits = this.MinimumLBCapacityUnit;
+            if (ParameterWasBound("DashboardEnabled"))
+                context.DashboardEnabled = this.DashboardEnabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,15 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.ModifyProvisionedCapacityRequest();
+            var request = new Amazon.PinpointEmail.Model.PutDeliverabilityDashboardOptionRequest();
             
-            if (cmdletContext.LoadBalancerArn != null)
+            if (cmdletContext.DashboardEnabled != null)
             {
-                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
-            }
-            if (cmdletContext.MinimumLBCapacityUnits != null)
-            {
-                request.MinimumLBCapacityUnits = cmdletContext.MinimumLBCapacityUnits.Value;
+                request.DashboardEnabled = cmdletContext.DashboardEnabled.Value;
             }
             
             CmdletOutput output;
@@ -126,7 +131,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ProvisionedCapacity;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.DashboardEnabled;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -151,16 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.ModifyProvisionedCapacityResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.ModifyProvisionedCapacityRequest request)
+        private Amazon.PinpointEmail.Model.PutDeliverabilityDashboardOptionResponse CallAWSServiceOperation(IAmazonPinpointEmail client, Amazon.PinpointEmail.Model.PutDeliverabilityDashboardOptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "ModifyProvisionedCapacity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint Email", "PutDeliverabilityDashboardOption");
             try
             {
                 #if DESKTOP
-                return client.ModifyProvisionedCapacity(request);
+                return client.PutDeliverabilityDashboardOption(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyProvisionedCapacityAsync(request);
+                var task = client.PutDeliverabilityDashboardOptionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -181,8 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LoadBalancerArn { get; set; }
-            public System.Int32? MinimumLBCapacityUnits { get; set; }
+            public System.Boolean? DashboardEnabled { get; set; }
         }
         
     }

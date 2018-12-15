@@ -335,6 +335,19 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.TrainingInputMode AlgorithmSpecification_TrainingInputMode { get; set; }
         #endregion
         
+        #region Parameter HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether to use early stopping for training jobs launched by the hyperparameter
+        /// tuning job. One of the following values:</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>Amazon SageMaker stops training jobs launched by the hyperparameter tuning job when
+        /// they are no longer improving as measured by the objective metric of the tuning job.</para></dd></dl>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.TrainingJobEarlyStoppingType")]
+        public Amazon.SageMaker.TrainingJobEarlyStoppingType HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType { get; set; }
+        #endregion
+        
         #region Parameter HyperParameterTuningJobObjective_Type
         /// <summary>
         /// <para>
@@ -421,6 +434,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (ParameterWasBound("ResourceLimits_MaxParallelTrainingJob"))
                 context.HyperParameterTuningJobConfig_ResourceLimits_MaxParallelTrainingJobs = this.ResourceLimits_MaxParallelTrainingJob;
             context.HyperParameterTuningJobConfig_Strategy = this.HyperParameterTuningJobConfig_Strategy;
+            context.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = this.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
             context.HyperParameterTuningJobName = this.HyperParameterTuningJobName;
             if (this.Tag != null)
             {
@@ -493,6 +507,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_Strategy != null)
             {
                 request.HyperParameterTuningJobConfig.Strategy = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_Strategy;
+                requestHyperParameterTuningJobConfigIsNull = false;
+            }
+            Amazon.SageMaker.TrainingJobEarlyStoppingType requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = null;
+            if (cmdletContext.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType != null)
+            {
+                requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType = cmdletContext.HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
+            }
+            if (requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType != null)
+            {
+                request.HyperParameterTuningJobConfig.TrainingJobEarlyStoppingType = requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_TrainingJobEarlyStoppingType;
                 requestHyperParameterTuningJobConfigIsNull = false;
             }
             Amazon.SageMaker.Model.HyperParameterTuningJobObjective requestHyperParameterTuningJobConfig_hyperParameterTuningJobConfig_HyperParameterTuningJobObjective = null;
@@ -908,6 +932,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.Int32? HyperParameterTuningJobConfig_ResourceLimits_MaxNumberOfTrainingJobs { get; set; }
             public System.Int32? HyperParameterTuningJobConfig_ResourceLimits_MaxParallelTrainingJobs { get; set; }
             public Amazon.SageMaker.HyperParameterTuningJobStrategyType HyperParameterTuningJobConfig_Strategy { get; set; }
+            public Amazon.SageMaker.TrainingJobEarlyStoppingType HyperParameterTuningJobConfig_TrainingJobEarlyStoppingType { get; set; }
             public System.String HyperParameterTuningJobName { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
             public System.String TrainingJobDefinition_AlgorithmSpecification_AlgorithmName { get; set; }

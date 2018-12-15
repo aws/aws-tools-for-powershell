@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para> The status (<code>Unassigned</code> or <code>Assigned</code>) of the devices to list.
         /// If you do not specify an <code>AssignmentStatus</code>, the operation defaults to
-        /// <code>Any</code> which lists both assigned and unassigned virtual MFA devices.</para>
+        /// <code>Any</code>, which lists both assigned and unassigned virtual MFA devices.,</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,12 +82,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this only when paginating results to indicate the maximum number of
-        /// items you want in the response. If additional items exist beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, it defaults to 100. Note that IAM might return
-        /// fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-        /// response element returns <code>true</code> and <code>Marker</code> contains a value
-        /// to include in the subsequent call that tells the service where to continue from.</para>
+        /// <para>Use this only when paginating results to indicate the maximum number of items you
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

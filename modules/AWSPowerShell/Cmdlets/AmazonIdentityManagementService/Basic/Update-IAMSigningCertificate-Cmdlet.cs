@@ -35,9 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// If the <code>UserName</code> field is not specified, the user name is determined implicitly
-    /// based on the AWS access key ID used to sign the request. Because this operation works
-    /// for access keys under the AWS account, you can use this operation to manage AWS account
-    /// root user credentials even if the AWS account has no associated users.
+    /// based on the AWS access key ID used to sign the request. This operation works for
+    /// access keys under the AWS account. Consequently, you can use this operation to manage
+    /// AWS account root user credentials even if the AWS account has no associated users.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,8 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter CertificateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the signing certificate you want to update.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters that can consist of any upper or lowercased letter or digit.</para>
+        /// <para>The ID of the signing certificate you want to update.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters that can consist of any upper or lowercased letter
+        /// or digit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -77,9 +78,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the IAM user the signing certificate belongs to.</para><para>This parameter allows (per its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>)
-        /// a string of characters consisting of upper and lowercase alphanumeric characters with
-        /// no spaces. You can also include any of the following characters: _+=,.@-</para>
+        /// <para>The name of the IAM user the signing certificate belongs to.</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
+        /// pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+        /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

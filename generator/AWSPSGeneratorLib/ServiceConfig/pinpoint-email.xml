@@ -8,8 +8,8 @@
     <ServiceClientInterface>IAmazonPinpointEmail</ServiceClientInterface>
     <ServiceClient>AmazonPinpointEmailClient</ServiceClient>
     <ServiceNamespace>Amazon.PinpointEmail</ServiceNamespace>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="PageSize" ServicePageSize="-1" />
     <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="PageSize" ServicePageSize="-1" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -27,6 +27,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDedicatedIpPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DedicatedIpPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PoolName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeliverabilityTestReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DeliverabilityTestReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FromEmailAddress" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEmailIdentity" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EmailIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -47,6 +50,9 @@
         <ServiceOperation MethodName="GetAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetBlacklistReports" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BlacklistReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BlacklistItemNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetConfigurationSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
@@ -56,7 +62,16 @@
         <ServiceOperation MethodName="GetDedicatedIp" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ip" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDedicatedIps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIpList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDedicatedIps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIpList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PoolName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeliverabilityDashboardOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliverabilityDashboardOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeliverabilityTestReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliverabilityTestReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReportId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDomainStatisticsReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainStatisticsReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetEmailIdentity" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EmailIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -66,6 +81,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDedicatedIpPools" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DedicatedIpPoolList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeliverabilityTestReports" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliverabilityTestReportList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListEmailIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EmailIdentityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -93,6 +111,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutDedicatedIpWarmupAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DedicatedIpWarmupAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Ip" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ip" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliverabilityDashboardOption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DeliverabilityDashboardOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardEnabled" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutEmailIdentityDkimAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="EmailIdentityDkimAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EmailIdentity" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailIdentity" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

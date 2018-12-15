@@ -29,7 +29,9 @@
     "excludedOperations": [
       "GetGroup",
       "GetAccountAuthorizationDetails",
-      "ListEntitiesForPolicy"
+      "ListEntitiesForPolicy",
+      "GetServiceLastAccessedDetails",
+      "GetServiceLastAccessedDetailsWithEntities"
     ],
     "requestMember": "Marker",
     "responseMember": "Marker",
@@ -105,7 +107,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -164,7 +168,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -223,7 +229,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -282,7 +290,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -341,7 +351,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -398,7 +410,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -457,7 +471,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -512,7 +528,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -569,7 +587,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -628,7 +648,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -687,7 +709,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -744,7 +768,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -801,7 +827,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -859,7 +887,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -917,7 +947,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -977,7 +1009,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1032,7 +1066,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1089,7 +1125,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1144,7 +1182,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1203,7 +1243,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1262,7 +1304,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1319,7 +1363,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1376,7 +1422,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1433,7 +1481,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1488,7 +1538,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1545,7 +1597,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1604,7 +1658,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1661,7 +1717,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1716,7 +1774,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1775,7 +1835,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1834,7 +1896,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1891,7 +1955,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -1948,7 +2014,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2005,7 +2073,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2064,7 +2134,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2121,7 +2193,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2178,7 +2252,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2235,7 +2311,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2292,7 +2370,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2349,7 +2429,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2406,7 +2488,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2461,7 +2545,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2516,7 +2602,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2573,7 +2661,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2630,7 +2720,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2689,7 +2781,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2748,7 +2842,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2805,7 +2901,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2864,7 +2962,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2919,7 +3019,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -2931,6 +3033,65 @@
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
           "targetParameterName": ""
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GenerateServiceLastAccessedDetails": {
+      "verb": "Request",
+      "noun": "ServiceLastAccessedDetail",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "JobId",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "Arn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServiceLastAccessedDetails",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Arn"
         },
         "memoryStreamParameters": []
       }
@@ -2976,7 +3137,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3028,7 +3191,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3078,7 +3243,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3128,7 +3295,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3180,7 +3349,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3230,7 +3401,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3282,7 +3455,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3336,7 +3511,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3388,7 +3565,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3438,7 +3617,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3492,7 +3673,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3546,7 +3729,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3599,7 +3784,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3651,7 +3838,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3705,7 +3894,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3757,7 +3948,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3809,7 +4002,115 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetServiceLastAccessedDetails": {
+      "verb": "Get",
+      "noun": "ServiceLastAccessedDetail",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "JobId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServiceLastAccessedDetails",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "GetServiceLastAccessedDetailsWithEntities": {
+      "verb": "Get",
+      "noun": "ServiceLastAccessedDetailWithEntity",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Response",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ServiceLastAccessedDetailsWithEntities",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3861,7 +4162,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3913,7 +4216,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -3963,7 +4268,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4015,7 +4322,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4065,7 +4374,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4115,7 +4426,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4167,7 +4480,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4219,7 +4534,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4271,7 +4588,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4323,7 +4642,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4375,7 +4696,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4427,7 +4750,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4477,7 +4802,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4529,7 +4856,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4581,7 +4910,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4631,7 +4962,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4681,7 +5014,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4731,7 +5066,61 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListPoliciesGrantingServiceAccess": {
+      "verb": "Get",
+      "noun": "PolicyGrantingServiceAccessList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "PoliciesGrantingServiceAccess",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "PoliciesGrantingServiceAccess",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern1",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "GetGroup",
+            "GetAccountAuthorizationDetails",
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4783,7 +5172,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4835,7 +5226,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4887,7 +5280,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4939,7 +5334,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -4989,7 +5386,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5041,7 +5440,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5091,7 +5492,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5141,7 +5544,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5191,7 +5596,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5241,7 +5648,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5293,7 +5702,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5343,7 +5754,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5395,7 +5808,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5450,7 +5865,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5505,7 +5922,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5565,7 +5984,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5620,7 +6041,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5678,7 +6101,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5733,7 +6158,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5792,7 +6219,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5851,7 +6280,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5908,7 +6339,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -5967,7 +6400,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6025,7 +6460,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6080,7 +6517,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6130,7 +6569,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6180,7 +6621,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6235,7 +6678,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6290,7 +6735,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6345,7 +6792,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6403,7 +6852,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6458,7 +6909,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6517,7 +6970,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6577,7 +7032,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6634,7 +7091,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6691,7 +7150,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6746,7 +7207,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6803,7 +7266,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6858,7 +7323,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6918,7 +7385,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -6975,7 +7444,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7033,7 +7504,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7090,7 +7563,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7148,7 +7623,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7210,7 +7687,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7267,7 +7746,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
@@ -7324,7 +7805,9 @@
           "excludedOperations": [
             "GetGroup",
             "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy"
+            "ListEntitiesForPolicy",
+            "GetServiceLastAccessedDetails",
+            "GetServiceLastAccessedDetailsWithEntities"
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",

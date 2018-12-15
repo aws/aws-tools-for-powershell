@@ -124,8 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <summary>
         /// <para>
         /// <para>A list of ARNs of AWS resources to include in the simulation. If this parameter is
-        /// not provided then the value defaults to <code>*</code> (all resources). Each API in
-        /// the <code>ActionNames</code> parameter is evaluated for each resource in this list.
+        /// not provided, then the value defaults to <code>*</code> (all resources). Each API
+        /// in the <code>ActionNames</code> parameter is evaluated for each resource in this list.
         /// The simulation determines the access result (allowed or denied) of each combination
         /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
@@ -213,12 +213,13 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this only when paginating results to indicate the maximum number of
-        /// items you want in the response. If additional items exist beyond the maximum you specify,
-        /// the <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, it defaults to 100. Note that IAM might return
-        /// fewer results, even when there are more results available. In that case, the <code>IsTruncated</code>
-        /// response element returns <code>true</code> and <code>Marker</code> contains a value
-        /// to include in the subsequent call that tells the service where to continue from.</para>
+        /// <para>Use this only when paginating results to indicate the maximum number of items you
+        /// want in the response. If additional items exist beyond the maximum you specify, the
+        /// <code>IsTruncated</code> response element is <code>true</code>.</para><para>If you do not include this parameter, the number of items defaults to 100. Note that
+        /// IAM might return fewer results, even when there are more results available. In that
+        /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
+        /// <code>Marker</code> contains a value to include in the subsequent call that tells
+        /// the service where to continue from.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

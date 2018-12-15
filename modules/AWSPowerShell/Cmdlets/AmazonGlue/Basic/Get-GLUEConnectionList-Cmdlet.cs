@@ -62,6 +62,20 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public Amazon.Glue.Model.GetConnectionsFilter Filter { get; set; }
         #endregion
         
+        #region Parameter HidePassword
+        /// <summary>
+        /// <para>
+        /// <para>Allow you to retrieve the connection metadata without displaying the password. For
+        /// instance, the AWS Glue console uses this flag to retrieve connections, since the console
+        /// does not display passwords. Set this parameter where the caller may not have permission
+        /// to use the KMS key to decrypt the password, but does have permission to access the
+        /// rest of the connection metadata (that is, the other connection properties).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean HidePassword { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -104,6 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             
             context.CatalogId = this.CatalogId;
             context.Filter = this.Filter;
+            if (ParameterWasBound("HidePassword"))
+                context.HidePassword = this.HidePassword;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -130,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Filter != null)
             {
                 request.Filter = cmdletContext.Filter;
+            }
+            if (cmdletContext.HidePassword != null)
+            {
+                request.HidePassword = cmdletContext.HidePassword.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -249,6 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         {
             public System.String CatalogId { get; set; }
             public Amazon.Glue.Model.GetConnectionsFilter Filter { get; set; }
+            public System.Boolean? HidePassword { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

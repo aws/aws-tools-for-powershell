@@ -64,7 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The key-value pairs for the attribute to update.</para>
+        /// <para>Specify a custom key-value pair using an attribute map. The attributes are standard
+        /// Amazon Connect attributes, and can be accessed in contact flows just like any other
+        /// contact attributes.</para><para>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute
+        /// keys can include only alphanumeric, dash, and underscore characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

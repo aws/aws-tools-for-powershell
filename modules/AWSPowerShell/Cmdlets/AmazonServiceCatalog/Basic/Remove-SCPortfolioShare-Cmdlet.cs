@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter OrganizationNode_Type
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The organization node type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter OrganizationNode_Value
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The identifier of the organization node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <summary>
         /// <para>
         /// <para>A list of <code>CurrentMetric</code> objects for the metrics to retrieve. Each <code>CurrentMetric</code>
-        /// includes a name of a metric to retrieve and the unit to use for it.</para><para>The following metrics are available:</para><dl><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para></dd></dl>
+        /// includes a name of a metric to retrieve and the unit to use for it. You must list
+        /// each metric to retrieve data for in the request.</para><para>The following metrics are available:</para><dl><dt>AGENTS_AVAILABLE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ONLINE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ON_CALL</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_STAFFED</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><para>Unit: COUNT</para></dd><dt>AGENTS_ERROR</dt><dd><para>Unit: COUNT</para></dd><dt>CONTACTS_IN_QUEUE</dt><dd><para>Unit: COUNT</para></dd><dt>OLDEST_CONTACT_AGE</dt><dd><para>Unit: SECONDS</para></dd><dt>CONTACTS_SCHEDULED</dt><dd><para>Unit: COUNT</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// the metrics returned apply to each queue rather than aggregated for all queues. If
         /// you group by CHANNEL, you should include a Channels filter. The only supported channel
         /// is VOICE.</para><para>If no <code>Grouping</code> is included in the request, a summary of <code>CurrentMetrics</code>
-        /// is returned. </para>
+        /// is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
