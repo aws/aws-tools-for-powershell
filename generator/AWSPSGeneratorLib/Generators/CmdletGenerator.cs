@@ -95,7 +95,7 @@ namespace AWSPowerShellGenerator.Generators
         /// The location of the SDK assemblies to generate against; we also expect to
         /// find the assembly ndoc files here too
         /// </summary>
-        public string SdkAssembliesFolder { get; set; }
+        public string SdkNugetFolder { get; set; }
 
         public Type SdkBaseRequestType { get; set; }
 
@@ -342,14 +342,14 @@ namespace AWSPowerShellGenerator.Generators
 
         protected override void GenerateHelper()
         {
-            SourceArtifacts = new GenerationSources { SdkAssembliesFolder = this.SdkAssembliesFolder };
-            LoadCoreSDKRuntimeMaterials();
-            LoadSpecialServiceAssemblies();
-
             CmdletsOutputPath = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
             var configurationsFolder = Path.Combine(Options.RootPath, CmdletConfigurationsFoldername);
 
             ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
+
+            SourceArtifacts = new GenerationSources { SdkNugetFolder = this.SdkNugetFolder };
+            LoadCoreSDKRuntimeMaterials();
+            LoadSpecialServiceAssemblies();
 
             foreach (var configModel in ModelCollection.ConfigModels)
             {
@@ -1069,18 +1069,12 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         private void LoadSpecialServiceAssemblies()
         {
-            string[] specialAssemblies = {
-                "AWSSDK.CloudSearchDomain",
-                // no cmdlets for swf but internal teams want the dll available to script against
-                "AWSSDK.SimpleWorkflow"      
-            };
-
             Assembly assembly;
             XmlDocument assemblyNDoc;
 
-            foreach (var a in specialAssemblies)
+            foreach (var a in ModelCollection.IncludeLibrariesList)
             {
-                SourceArtifacts.Load(a, out assembly, out assemblyNDoc);
+                SourceArtifacts.Load(a.Name, out assembly, out assemblyNDoc, a.AddAsReference);
             }
         }
 

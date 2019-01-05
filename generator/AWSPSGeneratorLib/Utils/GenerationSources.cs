@@ -22,13 +22,16 @@ namespace AWSPowerShellGenerator.Utils
         private readonly Dictionary<string, XmlDocument> NDocs = new Dictionary<string, XmlDocument>();
 
         /// <summary>
-        /// The default location that assemblies and ndoc files will be loaded from
+        /// The default location that nupkg files will be loaded from
         /// </summary>
-        public string SdkAssembliesFolder { get; set; }
+        public string SdkNugetFolder { get; set; }
 
         public const string SDKAssemblyNamePrefix = "AWSSDK.";
+        public const string ExtractedNugetFolderName = "ExtractedNuGet";
         public const string DotNetPlatformNet35 = "net35";
-        public const string DotNetPlatformNetStandard20 = "netstandard2.0";
+        public const string DotNetPlatformNetStandard13 = "netstandard1.3";
+
+        private static string[] PlatformsToExtractLibrariesFor = new string[] { DotNetPlatformNet35, DotNetPlatformNetStandard13 };
 
         /// <summary>
         /// Loads the assembly and ndoc data for the given assembly basename using the
@@ -37,25 +40,40 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="baseName"></param>
         /// <param name="assembly"></param>
         /// <param name="ndoc"></param>
-        public void Load(string baseName, out Assembly assembly, out XmlDocument ndoc)
+        /// <param name="addAsReference">If false, the method just downloads the NuGet package and unpacks the
+        /// assemblies without adding them to the list of assemblies to be referenced</param>
+        public void Load(string baseName, out Assembly assembly, out XmlDocument ndoc, bool addAsReference = true)
         {
-            if (string.IsNullOrEmpty(SdkAssembliesFolder))
-                throw new InvalidOperationException("Expected 'SdkAssembliesFolder' to have been set prior to calling Load(...)");
+            assembly = null;
+            ndoc = null;
 
-            var assemblyFile = Path.Combine(SdkAssembliesFolder, baseName + ".dll");
-            var ndocFile = Path.Combine(SdkAssembliesFolder, baseName + ".xml");
-            try
+            if (string.IsNullOrEmpty(SdkNugetFolder))
+                throw new InvalidOperationException("Expected 'SdkNugetFolder' to have been set prior to calling Load(...)");
+
+            var extractFolder = Path.Combine(SdkNugetFolder, $"..\\{ExtractedNugetFolderName}\\");
+
+            foreach(var platform in PlatformsToExtractLibrariesFor)
             {
-                assembly = Assembly.LoadFrom(assemblyFile);
-                ndoc = new XmlDocument();
-                ndoc.Load(ndocFile);
-
-                Add(baseName, assembly, ndoc);
+                NuGetUtils.ExtractSourceLibrary(baseName, SdkNugetFolder, Path.Combine(extractFolder, platform), platform);
             }
-            catch (Exception ex)
+
+            if (addAsReference)
             {
-                Console.WriteLine("An exception occured while processing files {0} and {1}.", assemblyFile, ndocFile);
-                throw ex;
+                var assemblyFile = Path.Combine(extractFolder, $"{DotNetPlatformNet35}\\{baseName}.dll");
+                var ndocFile = Path.Combine(extractFolder, $"{DotNetPlatformNet35}\\{baseName}.xml");
+                try
+                {
+                    assembly = Assembly.LoadFrom(assemblyFile);
+                    ndoc = new XmlDocument();
+                    ndoc.Load(ndocFile);
+
+                    Add(baseName, assembly, ndoc);
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("An exception occured while processing files {0} and {1}.", assemblyFile, ndocFile);
+                    throw;
+                }
             }
         }
 
@@ -244,7 +262,7 @@ namespace AWSPowerShellGenerator.Utils
 
         private static XmlNode FindInsertionPoint(XmlNode parentGroup, string newIncludeAttribute)
         {
-            int insertionIndex = -1;
+            int insertionIndex = parentGroup.ChildNodes.Count - 1;
             for (int i = 0; i < parentGroup.ChildNodes.Count; i++)
             {
                 var child = parentGroup.ChildNodes[i];
@@ -260,7 +278,7 @@ namespace AWSPowerShellGenerator.Utils
                     break;
                 }
             }
-            var childToInsertAfter = (insertionIndex < 0) ? parentGroup.FirstChild : parentGroup.ChildNodes[insertionIndex];
+            var childToInsertAfter = (insertionIndex < 0) ? null : parentGroup.ChildNodes[insertionIndex];
             return childToInsertAfter;
         }
 
@@ -290,8 +308,7 @@ namespace AWSPowerShellGenerator.Utils
         /// <returns></returns>
         private string LocateNugetPackageForAssembly(string assemblyName)
         {
-            var nugetPackagesPath = Path.Combine(SdkAssembliesFolder, @"..\..\nuget");
-            var packages = Directory.GetFiles(nugetPackagesPath, string.Concat(assemblyName, ".*.nupkg"));
+            var packages = Directory.GetFiles(SdkNugetFolder, string.Concat(assemblyName, ".*.nupkg"));
             if (packages.Length != 1)
                 throw new Exception("Failed to locate single nuget package for assembly " + assemblyName);
 

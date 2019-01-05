@@ -6,6 +6,7 @@ using System.IO;
 
 using AWSPowerShellGenerator.Generators;
 using System.Reflection;
+using AWSPowerShellGenerator.Utils;
 
 namespace AWSPowerShellGenerator
 {
@@ -66,7 +67,7 @@ namespace AWSPowerShellGenerator
 
             var fqRootPath = Path.GetFullPath(options.RootPath);
 
-            var sdkAssembliesFolder = Path.GetFullPath(options.SDKAssembliesFolder);
+            var sdkNugetFolder = Path.GetFullPath(options.SdkNugetFolder);
             var awsPowerShellSourcePath = Path.Combine(fqRootPath, ModulesSubFolder, AWSPowerShellModuleName);
 
             var deploymentArtifactsPath = Path.Combine(fqRootPath, options.GetEditionOutputFolder(DeploymentArtifactsSubFolder));
@@ -77,7 +78,7 @@ namespace AWSPowerShellGenerator
 
                 var cmdletGenerator = new CmdletGenerator
                 {
-                    SdkAssembliesFolder = sdkAssembliesFolder,
+                    SdkNugetFolder = sdkNugetFolder,
                     OutputFolder = awsPowerShellSourcePath,
                     Options = options
                 };
@@ -116,7 +117,7 @@ namespace AWSPowerShellGenerator
                 Console.WriteLine("Executing task 'GenerateFormats'");
 
                 var targetAssemblies = new List<Assembly> { awsPowerShellAssembly };
-                var sdkAssemblyFiles = Directory.GetFiles(sdkAssembliesFolder, "*.dll");
+                var sdkAssemblyFiles = Directory.GetFiles(Path.Combine(sdkNugetFolder, $"..\\{GenerationSources.ExtractedNugetFolderName}\\{GenerationSources.DotNetPlatformNet35}"), "*.dll");
                 targetAssemblies.AddRange(sdkAssemblyFiles.Select(Assembly.LoadFrom));
 
                 var formatsGenerator = new FormatGenerator

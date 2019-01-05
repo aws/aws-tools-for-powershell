@@ -128,6 +128,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
         }
 
+        [XmlArray("IncludeLibraries")]
+        public List<Library> IncludeLibrariesList = new List<Library>();
+
         /// <summary>
         /// Loads the core config.xml file and the indicated service configuration files it contains.
         /// </summary>
@@ -827,8 +830,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 throw new InvalidDataException("Unable to serialize updated model to " + filename, e);
             }
         }
-
-
     }
 
     /// <summary>
@@ -1595,6 +1596,21 @@ namespace AWSPowerShellGenerator.ServiceConfig
         {
             From = from;
             To = to;
+        }
+    }
+
+    public class Library
+    {
+        [XmlAttribute]
+        public string Name = string.Empty;
+        [XmlAttribute]
+        public bool AddAsReference = false;
+
+        public Library() { }
+        public Library(string name, bool addAsReference)
+        {
+            Name = name;
+            AddAsReference = addAsReference;
         }
     }
 

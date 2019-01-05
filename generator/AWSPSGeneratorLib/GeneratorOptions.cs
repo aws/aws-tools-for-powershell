@@ -52,10 +52,9 @@ namespace AWSPowerShellGenerator
         public string AnalysisLog { get; set; }
 
         /// <summary>
-        /// The folder containing the SDK assemblies to reflect over to 
-        /// generate cmdlets.
+        /// The folder containing the SDK nupkg files.
         /// </summary>
-        public string SDKAssembliesFolder { get; set; }
+        public string SdkNugetFolder { get; set; }
 
         /// <summary>
         /// Used when generating cmdlets, contains the comma-delimited service names to
@@ -189,7 +188,7 @@ namespace AWSPowerShellGenerator
             Tasks = new HashSet<string> { GeneratorTasknames.GenerateCmdlets };
 
             RootPath = @"..\..\..\.."; // relative to bin/debug folder of the generator assembly
-            SDKAssembliesFolder = Path.Combine(RootPath,  @"include\sdk\assemblies\net35");
+            SdkNugetFolder = Path.Combine(RootPath,  @"include\sdk\nuget");
 
             CNNorth1RegionDocsDomain = "docs.amazonaws.cn";
 
@@ -205,7 +204,7 @@ namespace AWSPowerShellGenerator
             AnalysisLog = rhs.AnalysisLog;
             Services = rhs.Services;
             Tasks = rhs.Tasks;
-            SDKAssembliesFolder = rhs.SDKAssembliesFolder;
+            SdkNugetFolder = rhs.SdkNugetFolder;
             RootPath = rhs.RootPath;
             CNNorth1RegionDocsDomain = rhs.CNNorth1RegionDocsDomain;
             Edition = rhs.Edition;

@@ -13,7 +13,7 @@
         <Configuration Condition="'$(Configuration)'==''">Release</Configuration>
 
         <!-- fetch sdk binaries by default; if set false, we'll build with what we have in Include folder -->
-        <EnableGetReferences>true</EnableGetReferences>
+        <EnableGetReferences>false</EnableGetReferences>
         
         <!-- cleans all NuGet caches by default; if set false, cleaning the cache is skipped (this is useful when locally building with other projects open in Visual Studio or other projects building) -->
         <CleanNugetCache>true</CleanNugetCache>
@@ -22,13 +22,13 @@
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
 
         <!-- the relative location (to the project file) of the generator executable -->
-        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)\net40</GeneratorPath>
+        <GeneratorPath>$(RootPath)\generator\AWSPSGenerator\bin\$(Configuration)\net46</GeneratorPath>
         <Generator>AWSPSGenerator.exe</Generator>
 
         <!-- expected location of SDK assemblies to be consumed by generator; these should have been fetched via
              the get-references (=> get-reference-sdk) target
         -->
-        <SDKAssembliesFolder Condition="'$(SDKAssembliesFolder)'==''">$(RootPath)\Include\sdk\assemblies</SDKAssembliesFolder>
+        <SDKNuGetFolder Condition="'$(SDKNuGetFolder)'==''">$(RootPath)\Include\sdk\nuget</SDKNuGetFolder>
 
         <!-- the domain in which the China (Beijing), cn-north-1, doc assets are hosted (injected into docs) -->
         <CNNorth1RegionDocsDomain Condition="'$(CNNorth1RegionDocsDomain)'==''">docs.amazonaws.cn</CNNorth1RegionDocsDomain>
@@ -64,8 +64,13 @@
         <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
 
-    <Target Name="full-build" DependsOnTargets="clean;get-references;build-generator;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;create-help;run-tests;keyscan;save-build">
+    <Target Name="full-build" DependsOnTargets="clean;clean-sdk-references;get-references;build-generator;create-cmdlets;update-version;build-modules;copy-desktop-artifacts;copy-coreclr-artifacts;copy-tests;copy-postbuild-scripts;patch-manifests;sign-script-artifacts;create-help;run-tests;keyscan;save-build">
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
+    </Target>
+
+    <Target Name="clean-sdk-references">
+        <RemoveDir Directories="$(SDKNuGetFolder)\..\ExtractedNuGet" />
+        <MakeDir Directories="$(SDKNuGetFolder)"/>
     </Target>
 
     <!-- If a package is cached in the global NuGet cache it will be used even if it is different (same version but different) than the one pointed to by NuGet.Config, for this reason it is best to clean the caches before restoring  -->
@@ -81,7 +86,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
         <Message Text="Generating cmdlets for all services"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations) -scg $(SkipCmdletGeneration)" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations) -scg $(SkipCmdletGeneration)" />
     </Target>
 
     <Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />
@@ -91,7 +96,7 @@
         <Exec Command="dotnet build -c $(Configuration) -f net35 --force --no-incremental --configfile ..\NuGet.Config --no-cache ..\solutions\AWSPowerShell.sln"/>   
 
         <Message Text="Generating custom view formats ps1xml file"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t formats -e desktop" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t formats -e desktop" />
 
         <!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
@@ -106,7 +111,7 @@
 
     <Target Name="create-pshelp" DependsOnTargets="build-modules">
         <Message Text="Generating native PowerShell help file"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t pshelp -e desktop" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t pshelp -e desktop" />
 
         <!-- clone the generated file for coreclr too -->
         <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.dll-Help.xml" DestinationFiles="$(NetCoreDeploymentArtifacts)\AWSPowerShell.NetCore.dll-Help.xml" />
@@ -115,7 +120,7 @@
 
     <Target Name="create-webhelp" DependsOnTargets="build-modules">
         <Message Text="Generating web cmdlet reference"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t webhelp -e desktop" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t webhelp -e desktop" />
 
         <CreateSitemapTask SourceFolder="$(DocDeployment)\docs" BaseUrl="http://docs.aws.amazon.com/powershell/latest/reference/" OutputFile="$(DocDeployment)\docs\sitemap.xml" WaitForDebugger="false" />
 
@@ -146,7 +151,7 @@
         <Message Text="Consolidating Desktop edition artifacts from $(BuildSourceFolder) to $(DesktopDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <SDKAssemblies Include="$(SDKAssembliesFolder)\net35\*.dll" Exclude="$(SDKAssembliesFolder)\net35\*.SimpleDB.*"/>
+            <SDKAssemblies Include="$(SDKNuGetFolder)\..\ExtractedNuGet\net35\AWSSDK.*.dll" />
         </ItemGroup>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.psd1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -172,7 +177,7 @@
         <Message Text="Consolidating CoreCLR edition artifacts from $(BuildSourceFolder) to $(NetCoreDeploymentArtifacts)"/>
 
         <ItemGroup>
-            <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" Exclude="$(SDKAssembliesFolder)\netstandard1.3\*.SimpleDB.*"/>
+            <NetCoreSDKAssemblies Include="$(SDKNuGetFolder)\..\ExtractedNuGet\netstandard1.3\AWSSDK.*.dll" />
         </ItemGroup>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
