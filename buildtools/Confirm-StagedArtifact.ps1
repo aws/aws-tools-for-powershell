@@ -13,7 +13,7 @@
     (i.e. .\AWSPowerShell and .\AWSPowerShell.NetCore).
 
 .Example
-    Test-StagedArtifact -ExpectedVersion 3.3.283.0
+    Confirm-StagedArtifact -ExpectedVersion 3.3.283.0
 #>
 Param (
     # The expected version of the module. This will be verified against
@@ -36,8 +36,8 @@ function _validateModule([string]$modulePath) {
     Write-Host "Verifying version in manifest $manifestPath"
 
     $manifest = Test-ModuleManifest $manifestPath
-	$manifestVersion = $manifest.Version.ToString()
-	Write-Host "Found version $manifestVersion"
+    $manifestVersion = $manifest.Version.ToString()
+    Write-Host "Found version $manifestVersion"
 
     if ($manifestVersion -eq $ExpectedVersion)
     {
@@ -76,6 +76,17 @@ function _validateModule([string]$modulePath) {
     else
     {
         throw "Changelog does not appear to contain details of the new version"
+    }
+
+    Write-Host "Testing module (This requires PowerShell v6.1 or later)"
+    $testOutput = pwsh -noprofile -Command Import-Module $manifestPath --% ; Get-S3Bucket -ProfileName test-runner
+    if ($LastExitCode -eq 0)
+    {
+        Write-Host "...module loading - PASS"
+    }
+    else
+    {
+        throw "The module failed to load `n" + $testOutput
     }
 }
 

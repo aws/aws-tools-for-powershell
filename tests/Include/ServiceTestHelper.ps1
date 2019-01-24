@@ -1,3 +1,5 @@
+Set-AWSCredential -ProfileName test-runner
+
 class ServiceTestHelper : TestHelper
 {
     ServiceTestHelper()
@@ -7,7 +9,6 @@ class ServiceTestHelper : TestHelper
     [Void] BeforeAll()
     {
         ([TestHelper]$this).BeforeAll()        
-        Set-AWSCredentials -AccessKey $this.AccessKey -SecretKey $this.SecretKey
     }
 
     [Void] AfterAll()
