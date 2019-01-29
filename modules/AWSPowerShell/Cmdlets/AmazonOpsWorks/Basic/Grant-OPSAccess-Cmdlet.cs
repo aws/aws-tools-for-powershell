@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>The instance's AWS OpsWorks Stacks ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
         #endregion
         

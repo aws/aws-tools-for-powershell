@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Finds Amazon SageMaker resources that match a search query. Matching resource objects
-    /// are returned as a list of <code>SearchResult</code> objects in the response. The search
-    /// results can be sorted by any resrouce property in a ascending or descending order.
+    /// are returned as a list of <code>SearchResult</code> objects in the response. You can
+    /// sort the search results by any resource property in a ascending or descending order.
     /// 
     ///  
     /// <para>
@@ -76,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>A Boolean operator used to evaluate the search expression. If you want every conditional
         /// statement in all lists to be satisfied for the entire search expression to be true,
         /// specify <code>And</code>. If only a single conditional statement needs to be true
-        /// for the entire search expression to be true, specify <code>Or</code>.</para>
+        /// for the entire search expression to be true, specify <code>Or</code>. The default
+        /// value is <code>And</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -99,7 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The name of the resource property used to sort the <code>SearchResults</code>.</para>
+        /// <para>The name of the resource property used to sort the <code>SearchResults</code>. The
+        /// default is <code>LastModifiedTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>How <code>SearchResults</code> are ordered. Valid values are <code>Ascending</code>
-        /// or <code>Descending</code>.</para>
+        /// or <code>Descending</code>. The default is <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -304,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

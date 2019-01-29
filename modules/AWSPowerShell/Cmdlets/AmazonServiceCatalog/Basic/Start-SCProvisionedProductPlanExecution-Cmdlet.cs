@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// only by the idempotency token, the same response is returned for each repeated request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IdempotencyToken { get; set; }
         #endregion
         

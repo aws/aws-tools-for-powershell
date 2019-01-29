@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Deletes a logging level.
     /// </summary>
     [Cmdlet("Remove", "IOTV2LoggingLevel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS IoT DeleteV2LoggingLevel API operation.", Operation = new[] {"DeleteV2LoggingLevel"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeleteV2LoggingLevelResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveIOTV2LoggingLevelCmdlet : AmazonIoTClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>The name of the resource for which you are configuring logging.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TargetName { get; set; }
         #endregion
         
@@ -59,6 +59,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.IoT.LogTargetType")]
         public Amazon.IoT.LogTargetType TargetType { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the TargetName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -126,6 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.TargetName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

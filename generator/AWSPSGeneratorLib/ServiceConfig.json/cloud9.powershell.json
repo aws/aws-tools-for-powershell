@@ -60,7 +60,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentEC2",
@@ -79,8 +79,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -114,7 +114,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
@@ -133,8 +133,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserArn"
         },
         "memoryStreamParameters": []
@@ -168,7 +168,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EnvironmentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
@@ -187,8 +187,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EnvironmentId"
         },
         "memoryStreamParameters": []
@@ -222,7 +222,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
@@ -241,8 +241,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserArn"
         },
         "memoryStreamParameters": []
@@ -470,7 +470,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EnvironmentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Environment",
@@ -489,8 +489,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EnvironmentId"
         },
         "memoryStreamParameters": []
@@ -524,7 +524,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnvironmentMembership",
@@ -543,8 +543,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserArn"
         },
         "memoryStreamParameters": []

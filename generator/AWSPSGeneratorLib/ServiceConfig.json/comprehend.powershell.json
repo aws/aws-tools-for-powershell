@@ -350,7 +350,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "InputDataConfig"
+          "RecognizerName"
         ],
         "byNameMembers": []
       },
@@ -412,7 +412,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DocumentClassifierArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DocumentClassifier",
@@ -431,8 +431,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DocumentClassifierArn"
         },
         "memoryStreamParameters": []
@@ -466,7 +466,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EntityRecognizerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EntityRecognizer",
@@ -485,8 +485,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EntityRecognizerArn"
         },
         "memoryStreamParameters": []
@@ -1197,9 +1197,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "Filter_ModelStatus"
-        ],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1873,7 +1871,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DominantLanguageDetectionJob",
@@ -1892,8 +1890,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -1927,7 +1925,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EntitiesDetectionJob",
@@ -1946,8 +1944,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -1981,7 +1979,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPhrasesDetectionJob",
@@ -2000,8 +1998,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -2035,7 +2033,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SentimentDetectionJob",
@@ -2054,9 +2052,117 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopTrainingDocumentClassifier": {
+      "verb": "Stop",
+      "noun": "TrainingDocumentClassifier",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "DocumentClassifierArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "DocumentClassifierArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrainingDocumentClassifier",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: DocumentClassifierArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 500,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DocumentClassifierArn"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "StopTrainingEntityRecognizer": {
+      "verb": "Stop",
+      "noun": "TrainingEntityRecognizer",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "EntityRecognizerArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "EntityRecognizerArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrainingEntityRecognizer",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: EntityRecognizerArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 500,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "EntityRecognizerArn"
         },
         "memoryStreamParameters": []
       }

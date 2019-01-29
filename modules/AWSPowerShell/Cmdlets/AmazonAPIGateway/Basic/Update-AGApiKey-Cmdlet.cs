@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>[Required] The identifier of the <a>ApiKey</a> resource to be updated.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApiKey { get; set; }
         #endregion
         

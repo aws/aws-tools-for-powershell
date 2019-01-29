@@ -28,20 +28,9 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the configuration information of the Lambda function and a presigned URL link
-    /// to the .zip file you uploaded with <a>CreateFunction</a> so you can download the .zip
-    /// file. Note that the URL is valid for up to 10 minutes. The configuration information
-    /// is the same information you provided as parameters when uploading the function.
-    /// 
-    ///  
-    /// <para>
-    /// Use the <code>Qualifier</code> parameter to retrieve a published version of the function.
-    /// Otherwise, returns the unpublished version (<code>$LATEST</code>). For more information,
-    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:GetFunction</code> action.
-    /// </para>
+    /// Returns information about function or function version, with a link to download the
+    /// deployment package that's valid for 10 minutes. If you specify a function version,
+    /// only details specific to that version are returned.
     /// </summary>
     [Cmdlet("Get", "LMFunction")]
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]

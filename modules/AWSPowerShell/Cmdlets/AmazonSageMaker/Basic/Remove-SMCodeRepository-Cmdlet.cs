@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Deletes the specified git repository from your account.
+    /// Deletes the specified Git repository from your account.
     /// </summary>
     [Cmdlet("Remove", "SMCodeRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CodeRepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the git repository to delete.</para>
+        /// <para>The name of the Git repository to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

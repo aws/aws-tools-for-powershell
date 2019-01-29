@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// Retrieves a list that describes the streaming sessions for a specified stack and fleet.
-    /// If a user ID is provided for the stack and fleet, only streaming sessions for that
+    /// If a UserId is provided for the stack and fleet, only streaming sessions for that
     /// user are described. If an authentication type is not provided, the default is to authenticate
     /// users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The user ID.</para>
+        /// <para>The user identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,6 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (ParameterWasBound("NextToken"))
             {
                 _nextMarker = cmdletContext.NextToken;
                 _userControllingPaging = true;
@@ -218,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                     
                     ProcessOutput(output);
                     
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {

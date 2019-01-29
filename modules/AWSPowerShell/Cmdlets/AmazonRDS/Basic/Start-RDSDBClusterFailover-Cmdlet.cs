@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>A DB cluster identifier to force a failover for. This parameter is not case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBCluster.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         

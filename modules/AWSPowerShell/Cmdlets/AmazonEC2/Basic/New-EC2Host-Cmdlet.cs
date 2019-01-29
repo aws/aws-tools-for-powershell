@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// the instance type, that is the only instance type that you can launch onto that host.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String InstanceType { get; set; }
         #endregion
         

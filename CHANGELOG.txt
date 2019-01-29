@@ -1,4 +1,107 @@
-﻿### 3.3.428.0 (2018-12-14)
+﻿### 3.3.450.0 (2018-02-06)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.448.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Fixed all autopaginating cmdlets so that specifying -NextToken $null correctly enables manual control of pagination.
+  * Amazon API Gateway Management API. Added cmdlets to support the service. Amazon API Gateway Management API allows you to directly manage runtime aspects of your APIs. Cmdlets for the service have the noun prefix AGM and can be listed using the command 'Get-AWSCmdletName -Service AGM'.
+  * Amazon API Gateway V2. Added cmdlets to support the service. Amazon API Gateway V2 allows you to programmatically setup and manage WebSocket APIs end to end. Cmdlets for the service have the noun prefix AG2 and can be listed using the command 'Get-AWSCmdletName -Service AG2'.
+  * Amazon Application Discovery Service
+    * Added cmdlet Get-ADSImportTask leveraging the DescribeImportTasks service API.
+    * Added cmdlet Remove-ADSImportDataBatch leveraging the BatchDeleteImportData service API.
+    * Added cmdlet Start-ADSImportTask leveraging the StartImportTask service API.
+  * Amazon AppStream
+    * Modified cmdlet New-APSFleet: added parameter Tag.
+    * Modified cmdlet New-APSImageBuilder: added parameter Tag.
+    * Modified cmdlet New-APSStack: added parameter Tag.
+  * Amazon Backup. Added cmdlets to support the service. Amazon Backup is a unified backup service designed to protect AWS services and their associated data. Amazon Backup simplifies the creation, migration, restoration, and deletion of backups, while also providing reporting and auditing. Cmdlets for the service have the noun prefix BAK and can be listed using the command 'Get-AWSCmdletName -Service BAK'.
+  * Amazon Certificate Manager Private Certificate Authority
+    * Modified cmdlet New-PCACertificateAuthority: added parameter Tag.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameters Environment_ImagePullCredentialsType, RegistryCredential_Credential and RegistryCredential_CredentialProvider.
+    * Modified cmdlet Start-CBBuild: added parameters ImagePullCredentialsTypeOverride, RegistryCredentialOverride_Credential and RegistryCredentialOverride_CredentialProvider.
+    * Modified cmdlet Update-CBProject: added parameters Environment_ImagePullCredentialsType, RegistryCredential_Credential and RegistryCredential_CredentialProvider.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Update-CGIPUserPoolDomain leveraging the UpdateUserPoolDomain service API.
+  * Amazon Comprehend
+    * Added cmdlet Stop-COMPTrainingDocumentClassifier leveraging the StopTrainingDocumentClassifier service API.
+    * Added cmdlet Stop-COMPTrainingEntityRecognizer leveraging the StopTrainingEntityRecognizer service API.
+  * Amazon Device Farm
+    * Modified cmdlet New-DFDevicePool: added parameter MaxDevice.
+    * Modified cmdlet Update-DFDevicePool: added parameters ClearMaxDevice and MaxDevice.
+  * Amazon DocumentDB. Added cmdlets to support the service. Amazon DocumentDB (with MongoDB compatibility) is a fast, reliable, and fully-managed database service. Amazon DocumentDB makes it easy for developers to set up, run, and scale MongoDB-compatible databases in the cloud. Cmdlets for the service have the noun prefix DOC and can be listed using the command 'Get-AWSCmdletName -Service DOC'.
+  * Amazon EC2 Container Registry
+    * Added cmdlet Add-ECRResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ECRResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-ECRResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-ECRRepository: added parameter Tag.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Add-EC2SecurityGroupToClientVpnTargetNetwork leveraging the ApplySecurityGroupsToClientVpnTargetNetwork service API.
+    * Added cmdlet Edit-EC2ClientVpnEndpoint leveraging the ModifyClientVpnEndpoint service API.
+    * Added cmdlet Export-EC2ClientVpnClientCertificateRevocationList leveraging the ExportClientVpnClientCertificateRevocationList service API.
+    * Added cmdlet Export-EC2ClientVpnClientConfiguration leveraging the ExportClientVpnClientConfiguration service API.
+    * Added cmdlet Get-EC2ClientVpnAuthorizationRule leveraging the DescribeClientVpnAuthorizationRules service API.
+    * Added cmdlet Get-EC2ClientVpnConnection leveraging the DescribeClientVpnConnections service API.
+    * Added cmdlet Get-EC2ClientVpnEndpoint leveraging the DescribeClientVpnEndpoints service API.
+    * Added cmdlet Get-EC2ClientVpnRoute leveraging the DescribeClientVpnRoutes service API.
+    * Added cmdlet Get-EC2ClientVpnTargetNetwork leveraging the DescribeClientVpnTargetNetworks service API.
+    * Added cmdlet Grant-EC2ClientVpnIngress leveraging the AuthorizeClientVpnIngress service API.
+    * Added cmdlet Import-EC2ClientVpnClientCertificateRevocationList leveraging the ImportClientVpnClientCertificateRevocationList service API.
+    * Added cmdlet New-EC2ClientVpnEndpoint leveraging the CreateClientVpnEndpoint service API.
+    * Added cmdlet New-EC2ClientVpnRoute leveraging the CreateClientVpnRoute service API.
+    * Added cmdlet Register-EC2ClientVpnTargetNetwork leveraging the AssociateClientVpnTargetNetwork service API.
+    * Added cmdlet Remove-EC2ClientVpnEndpoint leveraging the DeleteClientVpnEndpoint service API.
+    * Added cmdlet Remove-EC2ClientVpnRoute leveraging the DeleteClientVpnRoute service API.
+    * Added cmdlet Revoke-EC2ClientVpnIngress leveraging the RevokeClientVpnIngress service API.
+    * Added cmdlet Stop-EC2ClientVpnConnection leveraging the TerminateClientVpnConnections service API.
+    * Added cmdlet Unregister-EC2ClientVpnTargetNetwork leveraging the DisassociateClientVpnTargetNetwork service API.
+    * Modified cmdlet Edit-EC2InstancePlacement: added parameter PartitionNumber.
+    * Modified cmdlet Get-EC2SpotInstanceRequest: enabled pagination support.
+    * Modified cmdlet Get-EC2VpcPeeringConnection: enabled pagination support.
+    * Modified cmdlet New-EC2Fleet: added parameters OnDemandOptions_SingleAvailabilityZone and SpotOptions_SingleAvailabilityZone.
+    * Modified cmdlet New-EC2PlacementGroup: added parameter PartitionCount.
+  * Amazon Elemental MediaConnect
+    * Added cmdlet Add-EMCNResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-EMCNResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-EMCNResourceTag leveraging the UntagResource service API.
+  * Amazon Elemental MediaConvert
+    * Modified cmdlet New-EMCJob: added parameter AccelerationSettings_Mode.
+    * Modified cmdlet New-EMCJobTemplate: added parameter AccelerationSettings_Mode.
+    * Modified cmdlet Update-EMCJobTemplate: added parameter AccelerationSettings_Mode.
+  * Amazon Firewall Management Service
+    * Modified cmdlet Remove-FMSPolicy: added parameter DeleteAllPolicyResource.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameter MaxCapacity.
+    * Modified cmdlet Start-GLUEJobRun: added parameter MaxCapacity.
+  * Amazon IoT
+    * Modified cmdlet New-IOTTopicRule: added parameter Tag.
+  * Amazon Lightsail
+    * Modified cmdlet New-LSDiskSnapshot: added parameter InstanceName.
+  * Amazon QuickSight
+    * [Breaking Change] The response data from the corresponding service's API has been extended. The output from the corresponding Register-QSUser cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Register-QSUser).User_ in place of _Register-QSUser_.
+  * Amazon Rekognition
+    * [Breaking Change] The response data from the corresponding service's API has been extended. The output from the corresponding Find-REKModerationLabel cmdlet has therefore been changed to emit the service response to the pipeline. To keep the original behavior your scripts need to be changed to use _(Find-REKModerationLabel).ModerationLabels_ in place of _Find-REKModerationLabel_.
+  * Amazon Relational Database Service
+    * Added cmdlet Add-RDSRoleToDBInstance leveraging the AddRoleToDBInstance service API.
+    * Added cmdlet Remove-RDSRoleFromDBInstance leveraging the RemoveRoleFromDBInstance service API.
+  * Amazon SageMaker Service
+    * Modified cmdlet Get-SMCompilationJobList: added parameters SortBy and SortOrder.
+    * Modified cmdlet New-SMHyperParameterTuningJob: added parameter TrainingJobDefinition_EnableInterContainerTrafficEncryption.
+    * Modified cmdlet New-SMTrainingJob: added parameter EnableInterContainerTrafficEncryption.
+  * Amazon Shield
+    * Modified cmdlet Get-SHLDProtection: added parameter ResourceArn.
+  * Amazon Step Functions
+    * Added cmdlet Add-SFNResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-SFNResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-SFNResourceTag leveraging the UntagResource service API.
+  * Amazon Storage Gateway
+    * Added cmdlet Dismount-SGVolume leveraging the DetachVolume service API.
+    * Added cmdlet Mount-SGVolume leveraging the AttachVolume service API.
+    * Modified cmdlet Join-SGDomain: added parameters DomainController and OrganizationalUnit.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMAssociation: added parameter AutomationTargetParameterName.
+    * Modified cmdlet Update-SSMAssociation: added parameter AutomationTargetParameterName.
+  * Amazon Simple Workflow Service. Added cmdlets to support the service. Amazon Simple Workflow Service helps developers build, run, and scale background jobs that have parallel or sequential steps. You can think of Amazon SWF as a fully-managed state tracker and task coordinator in the Cloud. Cmdlets for the service have the noun prefix SWF and can be listed using the command 'Get-AWSCmdletName -Service SWF'.
+  * Amazon WorkLink. Added cmdlets to support the service. Amazon WorkLink is a fully managed, cloud-based service that enables secure, one-click access to internal websites and web apps from mobile phones. With Amazon WorkLink, employees can access internal websites as seamlessly as they access any other website. IT administrators can manage users, devices, and domains by enforcing their own security and access policies via the AWS Console or the AWS SDK. Cmdlets for the service have the noun prefix WL and can be listed using the command 'Get-AWSCmdletName -Service WL'.
+
+### 3.3.428.0 (2018-12-14)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.428.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Amazon Alexa For Business
     * Added cmdlet Add-ALXBSkillToUser leveraging the AssociateSkillWithUsers service API.

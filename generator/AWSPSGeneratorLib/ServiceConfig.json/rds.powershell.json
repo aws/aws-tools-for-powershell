@@ -113,7 +113,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleToDBCluster",
@@ -133,8 +133,63 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "AddRoleToDBInstance": {
+      "verb": "Add",
+      "noun": "RoleToDBInstance",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RoleArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RoleArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RoleToDBInstance",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -170,7 +225,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SourceIdentifierToSubscription",
@@ -190,8 +245,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -230,7 +285,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
@@ -250,8 +305,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceName"
         },
         "memoryStreamParameters": []
@@ -285,7 +340,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PendingMaintenanceAction",
@@ -305,8 +360,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceIdentifier"
         },
         "memoryStreamParameters": []
@@ -342,7 +397,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroupIngress",
@@ -362,8 +417,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -422,7 +477,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
@@ -442,8 +497,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -477,7 +532,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SourceDBClusterParameterGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
@@ -497,8 +552,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SourceDBClusterParameterGroupIdentifier"
         },
         "memoryStreamParameters": []
@@ -534,7 +589,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SourceDBClusterSnapshotIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshot",
@@ -554,9 +609,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "KmsKeyId"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "SourceDBClusterSnapshotIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -592,7 +647,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SourceDBParameterGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
@@ -612,8 +667,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SourceDBParameterGroupIdentifier"
         },
         "memoryStreamParameters": []
@@ -707,7 +762,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SourceOptionGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
@@ -727,8 +782,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SourceOptionGroupIdentifier"
         },
         "memoryStreamParameters": []
@@ -808,7 +863,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBClusterEndpointIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -870,7 +927,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
@@ -890,8 +947,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -925,7 +982,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshot",
@@ -945,8 +1002,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -982,7 +1039,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
@@ -1002,8 +1059,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBName"
         },
         "memoryStreamParameters": []
@@ -1030,7 +1087,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1094,7 +1153,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
@@ -1114,8 +1173,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -1151,7 +1210,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroup",
@@ -1171,8 +1230,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -1208,7 +1267,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSnapshotIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
@@ -1228,8 +1287,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSnapshotIdentifier"
         },
         "memoryStreamParameters": []
@@ -1266,7 +1325,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
@@ -1286,8 +1345,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -1324,7 +1383,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -1344,8 +1403,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -1370,14 +1429,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DatabaseName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DatabaseName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GlobalCluster",
@@ -1397,8 +1458,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DatabaseName"
         },
         "memoryStreamParameters": []
@@ -1436,7 +1497,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "OptionGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
@@ -1456,8 +1517,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "OptionGroupName"
         },
         "memoryStreamParameters": []
@@ -1482,7 +1543,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBClusterIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1544,7 +1607,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterEndpointIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterEndpoint",
@@ -1564,8 +1627,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterEndpointIdentifier"
         },
         "memoryStreamParameters": []
@@ -1619,8 +1682,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -1674,8 +1737,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterSnapshotIdentifier"
         },
         "memoryStreamParameters": []
@@ -1700,7 +1763,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1762,7 +1827,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DbiResourceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstanceAutomatedBackup",
@@ -1782,8 +1847,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DbiResourceId"
         },
         "memoryStreamParameters": []
@@ -1817,7 +1882,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
@@ -1837,8 +1902,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -1872,7 +1937,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroup",
@@ -1892,8 +1957,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -1927,7 +1992,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSnapshotIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
@@ -1947,8 +2012,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSnapshotIdentifier"
         },
         "memoryStreamParameters": []
@@ -1982,7 +2047,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
@@ -2002,8 +2067,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -2037,7 +2102,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -2057,8 +2122,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -2092,7 +2157,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GlobalClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GlobalCluster",
@@ -2112,8 +2177,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GlobalClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -2147,7 +2212,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "OptionGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
@@ -2167,8 +2232,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "OptionGroupName"
         },
         "memoryStreamParameters": []
@@ -2241,7 +2306,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2289,7 +2354,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2337,7 +2402,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2485,7 +2550,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2583,7 +2648,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2684,7 +2749,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2732,7 +2799,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2789,7 +2858,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3042,7 +3113,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3140,7 +3213,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3423,7 +3496,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3773,7 +3846,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3821,7 +3894,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3880,7 +3955,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3928,7 +4005,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBClusterIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4040,7 +4119,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CurrentDBClusterCapacity",
@@ -4060,8 +4139,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -4086,7 +4165,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBClusterIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4139,7 +4220,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBClusterEndpointIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4203,7 +4286,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
@@ -4223,8 +4306,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -4249,14 +4332,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "AttributeName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AttributeName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterSnapshotAttribute",
@@ -4276,8 +4361,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AttributeName"
         },
         "memoryStreamParameters": []
@@ -4302,7 +4387,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4366,7 +4453,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
@@ -4386,8 +4473,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -4421,7 +4508,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSnapshotIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshot",
@@ -4441,9 +4528,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "OptionGroupName"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBSnapshotIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -4476,7 +4563,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSnapshotIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSnapshotAttribute",
@@ -4496,9 +4583,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "AttributeName"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBSnapshotIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -4534,7 +4621,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSubnetGroup",
@@ -4554,8 +4641,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -4591,7 +4678,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -4611,8 +4698,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -4703,7 +4790,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "OptionGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OptionGroup",
@@ -4723,8 +4810,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "OptionGroupName"
         },
         "memoryStreamParameters": []
@@ -4749,14 +4836,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBInstanceIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReadReplica",
@@ -4776,8 +4865,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
         },
         "memoryStreamParameters": []
@@ -4811,7 +4900,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReadReplicaDBCluster",
@@ -4831,8 +4920,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -4866,7 +4955,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReservedDBInstancesOfferingId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedDBInstancesOffering",
@@ -4886,8 +4975,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReservedDBInstancesOfferingId"
         },
         "memoryStreamParameters": []
@@ -4912,14 +5001,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBInstanceIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
@@ -4939,8 +5030,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
         },
         "memoryStreamParameters": []
@@ -5031,7 +5122,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleFromDBCluster",
@@ -5051,8 +5142,63 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "DBClusterIdentifier"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "RemoveRoleFromDBInstance": {
+      "verb": "Remove",
+      "noun": "RoleFromDBInstance",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "RoleArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "RoleArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "RoleFromDBInstance",
+        "confirmImpactSetting": "High",
+        "iterationPattern": "None",
+        "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {
+          "excludedOperations": [
+            "DownloadDBLogFilePortion"
+          ],
+          "requestMember": "Marker",
+          "responseMember": "Marker",
+          "resultLimitMember": "MaxRecords",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -5205,7 +5351,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBClusterParameterGroup",
@@ -5225,8 +5371,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -5260,7 +5406,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBParameterGroup",
@@ -5280,8 +5426,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -5490,7 +5636,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -5543,7 +5691,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -5681,7 +5831,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBSecurityGroupIngress",
@@ -5701,8 +5851,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -5736,7 +5886,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
@@ -5756,8 +5906,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -5782,14 +5932,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBInstanceIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
@@ -5809,8 +5961,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
         },
         "memoryStreamParameters": []
@@ -5844,7 +5996,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBClusterIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBCluster",
@@ -5864,8 +6016,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBClusterIdentifier"
         },
         "memoryStreamParameters": []
@@ -5890,14 +6042,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DBInstanceIdentifier"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DBInstanceIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DBInstance",
@@ -5917,8 +6071,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DBInstanceIdentifier"
         },
         "memoryStreamParameters": []

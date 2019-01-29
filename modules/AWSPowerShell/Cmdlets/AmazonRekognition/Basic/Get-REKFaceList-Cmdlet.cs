@@ -63,9 +63,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>Maximum number of faces to return.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -78,9 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>If the previous response was incomplete (because there is more data to retrieve),
         /// Amazon Rekognition returns a pagination token in the response. You can use this pagination
         /// token to retrieve the next set of faces.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

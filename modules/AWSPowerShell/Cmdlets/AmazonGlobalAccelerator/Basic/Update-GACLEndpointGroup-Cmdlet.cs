@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter HealthCheckIntervalSecond
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, between each health check for an endpoint. The default value
-        /// is 30.</para>
+        /// <para>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default
+        /// value is 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

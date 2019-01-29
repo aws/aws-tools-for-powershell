@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 1000 explicitly specified instance IDs.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public object[] InstanceId { get; set; }
         #endregion
@@ -111,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

@@ -557,6 +557,112 @@ $AG_map = @{
 _awsArgumentCompleterRegistration $AG_Completers $AG_map
 
 
+# Argument completions for service Amazon API Gateway V2
+$AG2_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.ApiGatewayV2.AuthorizationType
+        {
+            ($_ -eq "New-AG2Route/AuthorizationType") -Or
+            ($_ -eq "Update-AG2Route/AuthorizationType")
+        }
+        {
+            $v = "AWS_IAM","CUSTOM","NONE"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.AuthorizerType
+        {
+            ($_ -eq "New-AG2Authorizer/AuthorizerType") -Or
+            ($_ -eq "Update-AG2Authorizer/AuthorizerType")
+        }
+        {
+            $v = "REQUEST"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.ConnectionType
+        {
+            ($_ -eq "New-AG2Integration/ConnectionType") -Or
+            ($_ -eq "Update-AG2Integration/ConnectionType")
+        }
+        {
+            $v = "INTERNET","VPC_LINK"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.ContentHandlingStrategy
+        {
+            ($_ -eq "New-AG2Integration/ContentHandlingStrategy") -Or
+            ($_ -eq "New-AG2IntegrationResponse/ContentHandlingStrategy") -Or
+            ($_ -eq "Update-AG2Integration/ContentHandlingStrategy") -Or
+            ($_ -eq "Update-AG2IntegrationResponse/ContentHandlingStrategy")
+        }
+        {
+            $v = "CONVERT_TO_BINARY","CONVERT_TO_TEXT"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.IntegrationType
+        {
+            ($_ -eq "New-AG2Integration/IntegrationType") -Or
+            ($_ -eq "Update-AG2Integration/IntegrationType")
+        }
+        {
+            $v = "AWS","AWS_PROXY","HTTP","HTTP_PROXY","MOCK"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.LoggingLevel
+        {
+            ($_ -eq "New-AG2Stage/DefaultRouteSettings_LoggingLevel") -Or
+            ($_ -eq "Update-AG2Stage/DefaultRouteSettings_LoggingLevel")
+        }
+        {
+            $v = "ERROR","false","INFO"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.PassthroughBehavior
+        {
+            ($_ -eq "New-AG2Integration/PassthroughBehavior") -Or
+            ($_ -eq "Update-AG2Integration/PassthroughBehavior")
+        }
+        {
+            $v = "NEVER","WHEN_NO_MATCH","WHEN_NO_TEMPLATES"
+            break
+        }
+        
+        # Amazon.ApiGatewayV2.ProtocolType
+        "New-AG2Api/ProtocolType"
+        {
+            $v = "WEBSOCKET"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AG2_map = @{
+    "AuthorizationType"=@("New-AG2Route","Update-AG2Route")
+    "AuthorizerType"=@("New-AG2Authorizer","Update-AG2Authorizer")
+    "ConnectionType"=@("New-AG2Integration","Update-AG2Integration")
+    "ContentHandlingStrategy"=@("New-AG2Integration","New-AG2IntegrationResponse","Update-AG2Integration","Update-AG2IntegrationResponse")
+    "DefaultRouteSettings_LoggingLevel"=@("New-AG2Stage","Update-AG2Stage")
+    "IntegrationType"=@("New-AG2Integration","Update-AG2Integration")
+    "PassthroughBehavior"=@("New-AG2Integration","Update-AG2Integration")
+    "ProtocolType"=@("New-AG2Api")
+}
+
+_awsArgumentCompleterRegistration $AG2_Completers $AG2_map
+
+
 # Argument completions for service Application Auto Scaling
 $AAS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -937,6 +1043,33 @@ $MH_map = @{
 }
 
 _awsArgumentCompleterRegistration $MH_Completers $MH_map
+
+
+# Argument completions for service Amazon Backup
+$BAK_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Backup.BackupJobState
+        "Get-BAKBackupJobList/ByState"
+        {
+            $v = "ABORTED","ABORTING","COMPLETED","CREATED","EXPIRED","FAILED","PENDING","RUNNING"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$BAK_map = @{
+    "ByState"=@("Get-BAKBackupJobList")
+}
+
+_awsArgumentCompleterRegistration $BAK_Completers $BAK_map
 
 
 # Argument completions for service AWS Batch
@@ -1751,6 +1884,17 @@ $CB_Completers = {
             break
         }
         
+        # Amazon.CodeBuild.CredentialProviderType
+        {
+            ($_ -eq "New-CBProject/Environment_RegistryCredential_CredentialProvider") -Or
+            ($_ -eq "Update-CBProject/Environment_RegistryCredential_CredentialProvider") -Or
+            ($_ -eq "Start-CBBuild/RegistryCredentialOverride_CredentialProvider")
+        }
+        {
+            $v = "SECRETS_MANAGER"
+            break
+        }
+        
         # Amazon.CodeBuild.EnvironmentType
         {
             ($_ -eq "New-CBProject/Environment_Type") -Or
@@ -1759,6 +1903,17 @@ $CB_Completers = {
         }
         {
             $v = "LINUX_CONTAINER","WINDOWS_CONTAINER"
+            break
+        }
+        
+        # Amazon.CodeBuild.ImagePullCredentialsType
+        {
+            ($_ -eq "New-CBProject/Environment_ImagePullCredentialsType") -Or
+            ($_ -eq "Update-CBProject/Environment_ImagePullCredentialsType") -Or
+            ($_ -eq "Start-CBBuild/ImagePullCredentialsTypeOverride")
+        }
+        {
+            $v = "CODEBUILD","SERVICE_ROLE"
             break
         }
         
@@ -1842,12 +1997,16 @@ $CB_map = @{
     "CacheOverride_Type"=@("Start-CBBuild")
     "ComputeTypeOverride"=@("Start-CBBuild")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
+    "Environment_ImagePullCredentialsType"=@("New-CBProject","Update-CBProject")
+    "Environment_RegistryCredential_CredentialProvider"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "EnvironmentTypeOverride"=@("Start-CBBuild")
+    "ImagePullCredentialsTypeOverride"=@("Start-CBBuild")
     "LogsConfig_CloudWatchLogs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfig_S3Logs_Status"=@("New-CBProject","Update-CBProject")
     "LogsConfigOverride_CloudWatchLogs_Status"=@("Start-CBBuild")
     "LogsConfigOverride_S3Logs_Status"=@("Start-CBBuild")
+    "RegistryCredentialOverride_CredentialProvider"=@("Start-CBBuild")
     "ServerType"=@("Import-CBSourceCredential")
     "SortBy"=@("Get-CBProjectList")
     "SortOrder"=@("Get-CBBuildIdList","Get-CBBuildIdListForProject","Get-CBProjectList")
@@ -2414,7 +2573,7 @@ $COMP_Completers = {
             ($_ -eq "Get-COMPEntityRecognizerList/Filter_Status")
         }
         {
-            $v = "DELETING","IN_ERROR","SUBMITTED","TRAINED","TRAINING"
+            $v = "DELETING","IN_ERROR","STOPPED","STOP_REQUESTED","SUBMITTED","TRAINED","TRAINING"
             break
         }
         
@@ -2703,7 +2862,7 @@ $DF_Completers = {
             ($_ -eq "Get-DFDevicePoolCompatibility/TestType")
         }
         {
-            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_PYTHON","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_PYTHON","BUILTIN_EXPLORER","BUILTIN_FUZZ","CALABASH","INSTRUMENTATION","REMOTE_ACCESS_RECORD","REMOTE_ACCESS_REPLAY","UIAUTOMATION","UIAUTOMATOR","WEB_PERFORMANCE_PROFILE","XCTEST","XCTEST_UI"
+            $v = "APPIUM_JAVA_JUNIT","APPIUM_JAVA_TESTNG","APPIUM_NODE","APPIUM_PYTHON","APPIUM_RUBY","APPIUM_WEB_JAVA_JUNIT","APPIUM_WEB_JAVA_TESTNG","APPIUM_WEB_NODE","APPIUM_WEB_PYTHON","APPIUM_WEB_RUBY","BUILTIN_EXPLORER","BUILTIN_FUZZ","CALABASH","INSTRUMENTATION","REMOTE_ACCESS_RECORD","REMOTE_ACCESS_REPLAY","UIAUTOMATION","UIAUTOMATOR","WEB_PERFORMANCE_PROFILE","XCTEST","XCTEST_UI"
             break
         }
         
@@ -2713,7 +2872,7 @@ $DF_Completers = {
             ($_ -eq "New-DFUpload/Type")
         }
         {
-            $v = "ANDROID_APP","APPIUM_JAVA_JUNIT_TEST_PACKAGE","APPIUM_JAVA_JUNIT_TEST_SPEC","APPIUM_JAVA_TESTNG_TEST_PACKAGE","APPIUM_JAVA_TESTNG_TEST_SPEC","APPIUM_PYTHON_TEST_PACKAGE","APPIUM_PYTHON_TEST_SPEC","APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE","APPIUM_WEB_JAVA_JUNIT_TEST_SPEC","APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE","APPIUM_WEB_JAVA_TESTNG_TEST_SPEC","APPIUM_WEB_PYTHON_TEST_PACKAGE","APPIUM_WEB_PYTHON_TEST_SPEC","CALABASH_TEST_PACKAGE","EXTERNAL_DATA","INSTRUMENTATION_TEST_PACKAGE","INSTRUMENTATION_TEST_SPEC","IOS_APP","UIAUTOMATION_TEST_PACKAGE","UIAUTOMATOR_TEST_PACKAGE","WEB_APP","XCTEST_TEST_PACKAGE","XCTEST_UI_TEST_PACKAGE","XCTEST_UI_TEST_SPEC"
+            $v = "ANDROID_APP","APPIUM_JAVA_JUNIT_TEST_PACKAGE","APPIUM_JAVA_JUNIT_TEST_SPEC","APPIUM_JAVA_TESTNG_TEST_PACKAGE","APPIUM_JAVA_TESTNG_TEST_SPEC","APPIUM_NODE_TEST_PACKAGE","APPIUM_NODE_TEST_SPEC","APPIUM_PYTHON_TEST_PACKAGE","APPIUM_PYTHON_TEST_SPEC","APPIUM_RUBY_TEST_PACKAGE","APPIUM_RUBY_TEST_SPEC","APPIUM_WEB_JAVA_JUNIT_TEST_PACKAGE","APPIUM_WEB_JAVA_JUNIT_TEST_SPEC","APPIUM_WEB_JAVA_TESTNG_TEST_PACKAGE","APPIUM_WEB_JAVA_TESTNG_TEST_SPEC","APPIUM_WEB_NODE_TEST_PACKAGE","APPIUM_WEB_NODE_TEST_SPEC","APPIUM_WEB_PYTHON_TEST_PACKAGE","APPIUM_WEB_PYTHON_TEST_SPEC","APPIUM_WEB_RUBY_TEST_PACKAGE","APPIUM_WEB_RUBY_TEST_SPEC","CALABASH_TEST_PACKAGE","EXTERNAL_DATA","INSTRUMENTATION_TEST_PACKAGE","INSTRUMENTATION_TEST_SPEC","IOS_APP","UIAUTOMATION_TEST_PACKAGE","UIAUTOMATOR_TEST_PACKAGE","WEB_APP","XCTEST_TEST_PACKAGE","XCTEST_UI_TEST_PACKAGE","XCTEST_UI_TEST_SPEC"
             break
         }
         
@@ -2979,6 +3138,33 @@ $DMS_map = @{
 _awsArgumentCompleterRegistration $DMS_Completers $DMS_map
 
 
+# Argument completions for service Amazon DocumentDB
+$DOC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DocDB.SourceType
+        "Get-DOCEvent/SourceType"
+        {
+            $v = "db-cluster","db-cluster-snapshot","db-instance","db-parameter-group","db-security-group","db-snapshot"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DOC_map = @{
+    "SourceType"=@("Get-DOCEvent")
+}
+
+_awsArgumentCompleterRegistration $DOC_Completers $DOC_map
+
+
 # Argument completions for service AWS Directory Service
 $DS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -3084,7 +3270,7 @@ $DDB_Completers = {
         # Amazon.DynamoDBv2.BackupTypeFilter
         "Get-DDBBackupsList/BackupType"
         {
-            $v = "ALL","SYSTEM","USER"
+            $v = "ALL","AWS_BACKUP","SYSTEM","USER"
             break
         }
         
@@ -3454,7 +3640,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.16xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.8xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.16xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.8xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
             break
         }
         
@@ -3530,7 +3716,7 @@ $EC2_Completers = {
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
-            $v = "cluster","spread"
+            $v = "cluster","partition","spread"
             break
         }
         
@@ -3627,6 +3813,13 @@ $EC2_Completers = {
         "New-EC2FlowLog/TrafficType"
         {
             $v = "ACCEPT","ALL","REJECT"
+            break
+        }
+        
+        # Amazon.EC2.TransportProtocol
+        "New-EC2ClientVpnEndpoint/TransportProtocol"
+        {
+            $v = "tcp","udp"
             break
         }
         
@@ -3732,6 +3925,7 @@ $EC2_map = @{
     "TargetEnvironment"=@("New-EC2InstanceExportTask")
     "Tenancy"=@("Add-EC2CapacityReservation","Edit-EC2InstancePlacement","New-EC2Instance")
     "TrafficType"=@("New-EC2FlowLog")
+    "TransportProtocol"=@("New-EC2ClientVpnEndpoint")
     "Type"=@("New-EC2CustomerGateway","New-EC2Fleet","New-EC2VpnGateway","Request-EC2SpotInstance")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
     "VpcEndpointType"=@("New-EC2VpcEndpoint")
@@ -3753,7 +3947,7 @@ $ECR_Completers = {
             ($_ -eq "Get-ECRLifecyclePolicyPreview/Filter_TagStatus")
         }
         {
-            $v = "TAGGED","UNTAGGED"
+            $v = "ANY","TAGGED","UNTAGGED"
             break
         }
         
@@ -4117,7 +4311,7 @@ $ELB2_Completers = {
             ($_ -eq "New-ELB2TargetGroup/Protocol")
         }
         {
-            $v = "HTTP","HTTPS","TCP"
+            $v = "HTTP","HTTPS","TCP","TLS"
             break
         }
         
@@ -6023,6 +6217,17 @@ $EMC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.MediaConvert.AccelerationMode
+        {
+            ($_ -eq "New-EMCJob/AccelerationSettings_Mode") -Or
+            ($_ -eq "New-EMCJobTemplate/AccelerationSettings_Mode") -Or
+            ($_ -eq "Update-EMCJobTemplate/AccelerationSettings_Mode")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
         # Amazon.MediaConvert.BillingTagsSource
         "New-EMCJob/BillingTagsSource"
         {
@@ -6119,6 +6324,7 @@ $EMC_Completers = {
 }
 
 $EMC_map = @{
+    "AccelerationSettings_Mode"=@("New-EMCJob","New-EMCJobTemplate","Update-EMCJobTemplate")
     "BillingTagsSource"=@("New-EMCJob")
     "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
     "Mode"=@("Get-EMCEndpoint")
@@ -7829,6 +8035,13 @@ $SM_Completers = {
             break
         }
         
+        # Amazon.SageMaker.ListCompilationJobsSortBy
+        "Get-SMCompilationJobList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+        
         # Amazon.SageMaker.ListLabelingJobsForWorkteamSortByOptions
         "Get-SMLabelingJobListForWorkteam/SortBy"
         {
@@ -7941,6 +8154,7 @@ $SM_Completers = {
         # Amazon.SageMaker.SortOrder
         {
             ($_ -eq "Get-SMAlgorithmList/SortOrder") -Or
+            ($_ -eq "Get-SMCompilationJobList/SortOrder") -Or
             ($_ -eq "Get-SMHyperParameterTuningJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobList/SortOrder") -Or
             ($_ -eq "Get-SMLabelingJobListForWorkteam/SortOrder") -Or
@@ -7958,7 +8172,7 @@ $SM_Completers = {
         # Amazon.SageMaker.SplitType
         "New-SMTransformJob/TransformInput_SplitType"
         {
-            $v = "Line","None","RecordIO"
+            $v = "Line","None","RecordIO","TFRecord"
             break
         }
         
@@ -8032,8 +8246,8 @@ $SM_map = @{
     "OutputConfig_TargetDevice"=@("New-SMCompilationJob")
     "Resource"=@("Get-SMSearchSuggestion","Search-SMResource")
     "SearchExpression_Operator"=@("Search-SMResource")
-    "SortBy"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList")
-    "SortOrder"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList","Search-SMResource")
+    "SortBy"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList")
+    "SortOrder"=@("Get-SMAlgorithmList","Get-SMCodeRepositoryList","Get-SMCompilationJobList","Get-SMConfigList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMLabelingJobListForWorkteam","Get-SMModelList","Get-SMModelPackageList","Get-SMNotebookInstanceLifecycleConfigList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList","Get-SMWorkteamList","Search-SMResource")
     "StatusEquals"=@("Get-SMCompilationJobList","Get-SMEndpointList","Get-SMHyperParameterTuningJobList","Get-SMLabelingJobList","Get-SMNotebookInstanceList","Get-SMTrainingJobList","Get-SMTrainingJobsForHyperParameterTuningJobList","Get-SMTransformJobList")
     "TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode"=@("New-SMHyperParameterTuningJob")
     "TransformInput_CompressionType"=@("New-SMTransformJob")
@@ -8665,6 +8879,61 @@ $SG_map = @{
 _awsArgumentCompleterRegistration $SG_Completers $SG_map
 
 
+# Argument completions for service AWS Simple Workflow Service
+$SWF_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SimpleWorkflow.ChildPolicy
+        {
+            ($_ -eq "Start-SWFWorkflowExecution/ChildPolicy") -Or
+            ($_ -eq "Stop-SWFWorkflowExecution/ChildPolicy") -Or
+            ($_ -eq "New-SWFWorkflowType/DefaultChildPolicy")
+        }
+        {
+            $v = "ABANDON","REQUEST_CANCEL","TERMINATE"
+            break
+        }
+        
+        # Amazon.SimpleWorkflow.CloseStatus
+        {
+            ($_ -eq "Get-SWFClosedWorkflowExecutionCount/CloseStatusFilter_Status") -Or
+            ($_ -eq "Get-SWFClosedWorkflowExecutionList/CloseStatusFilter_Status")
+        }
+        {
+            $v = "CANCELED","COMPLETED","CONTINUED_AS_NEW","FAILED","TERMINATED","TIMED_OUT"
+            break
+        }
+        
+        # Amazon.SimpleWorkflow.RegistrationStatus
+        {
+            ($_ -eq "Get-SWFActivityTypeList/RegistrationStatus") -Or
+            ($_ -eq "Get-SWFDomainList/RegistrationStatus") -Or
+            ($_ -eq "Get-SWFWorkflowTypeList/RegistrationStatus")
+        }
+        {
+            $v = "DEPRECATED","REGISTERED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SWF_map = @{
+    "ChildPolicy"=@("Start-SWFWorkflowExecution","Stop-SWFWorkflowExecution")
+    "CloseStatusFilter_Status"=@("Get-SWFClosedWorkflowExecutionCount","Get-SWFClosedWorkflowExecutionList")
+    "DefaultChildPolicy"=@("New-SWFWorkflowType")
+    "RegistrationStatus"=@("Get-SWFActivityTypeList","Get-SWFDomainList","Get-SWFWorkflowTypeList")
+}
+
+_awsArgumentCompleterRegistration $SWF_Completers $SWF_map
+
+
 # Argument completions for service Amazon Transcribe Service
 $TRS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -8678,7 +8947,7 @@ $TRS_Completers = {
             ($_ -eq "Update-TRSVocabulary/LanguageCode")
         }
         {
-            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","pt-BR"
+            $v = "de-DE","en-AU","en-GB","en-US","es-US","fr-CA","fr-FR","it-IT","pt-BR"
             break
         }
         
@@ -9030,6 +9299,33 @@ $WD_map = @{
 }
 
 _awsArgumentCompleterRegistration $WD_Completers $WD_map
+
+
+# Argument completions for service Amazon WorkLink
+$WL_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.WorkLink.IdentityProviderType
+        "Update-WLIdentityProviderConfiguration/IdentityProviderType"
+        {
+            $v = "SAML"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$WL_map = @{
+    "IdentityProviderType"=@("Update-WLIdentityProviderConfiguration")
+}
+
+_awsArgumentCompleterRegistration $WL_Completers $WL_map
 
 
 # Argument completions for service Amazon WorkMail

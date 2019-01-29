@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Unique identifier for a fleet to update port settings for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FleetId { get; set; }
         #endregion
         

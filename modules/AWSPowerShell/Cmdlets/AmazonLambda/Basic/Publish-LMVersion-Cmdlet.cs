@@ -28,11 +28,18 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Publishes a version of your function from the current snapshot of $LATEST. That is,
-    /// AWS Lambda takes a snapshot of the function code and configuration information from
-    /// $LATEST and publishes a new version. The code and configuration cannot be modified
-    /// after publication. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.
+    /// Creates a <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a>
+    /// from the current code and configuration of a function. Use versions to create a snapshot
+    /// of your function code and configuration that doesn't change.
+    /// 
+    ///  
+    /// <para>
+    /// AWS Lambda does not publish a version if the function's configuration and code hasn't
+    /// changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a>
+    /// to update the function prior to publishing a version.
+    /// </para><para>
+    /// Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Publish", "LMVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.PublishVersionResponse")]
@@ -46,11 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter CodeSha256
         /// <summary>
         /// <para>
-        /// <para>The SHA256 hash of the deployment package you want to publish. This provides validation
-        /// on the code you are publishing. If you provide this parameter, the value must match
-        /// the SHA256 of the $LATEST version for the publication to succeed. You can use the
-        /// <b>DryRun</b> parameter of <a>UpdateFunctionCode</a> to verify the hash value that
-        /// will be returned before publishing your new version.</para>
+        /// <para>Only publish a version if the hash matches the value specified. Use this option to
+        /// avoid publishing a version if the function code has changed since you last updated
+        /// it. You can get the hash for the version you uploaded from the output of <a>UpdateFunctionCode</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -60,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for the version you are publishing. If not provided, AWS Lambda copies
-        /// the description from the $LATEST version.</para>
+        /// <para>Specify a description for the version to override the description in the function
+        /// configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,11 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>An optional value you can use to ensure you are updating the latest update of the
-        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
-        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
-        /// message, advising you retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
+        /// <para>Only update the function if the revision ID matches the ID specified. Use this option
+        /// to avoid publishing a version if the function configuration has changed since you
+        /// last updated it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// Changes the password for a specified user in a user pool.
     /// </summary>
     [Cmdlet("Update", "CGIPPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon Cognito Identity Provider ChangePassword API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ChangePassword"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccessToken parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateCGIPPasswordCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The access token.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AccessToken { get; set; }
         #endregion
         
@@ -68,6 +68,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ProposedPassword { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the AccessToken parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -139,6 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.AccessToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -28,20 +28,19 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Creates a job that uses human workers to label the data objects in your input dataset.
-    /// You can use the labeled data to train machine learning models
+    /// Creates a job that uses workers to label the data objects in your input dataset. You
+    /// can use the labeled data to train machine learning models.
     /// 
     ///  
     /// <para>
     /// You can select your workforce from one of three providers:
     /// </para><ul><li><para>
     /// A private workforce that you create. It can include employees, contractors, and outside
-    /// experts. Use a private workforce when the data is highly confidential or a specific
-    /// set of skills is required.
+    /// experts. Use a private workforce when want the data to stay within your organization
+    /// or when a specific set of skills is required.
     /// </para></li><li><para>
-    /// One or more vendors that you select from the Amazon Marketplace. Vendors provide expertise
-    /// in specific areas. Vendors are selected by AWS and meet a minimum standard of data
-    /// security requirements.
+    /// One or more vendors that you select from the AWS Marketplace. Vendors provide expertise
+    /// in specific areas. 
     /// </para></li><li><para>
     /// The Amazon Mechanical Turk workforce. This is the largest workforce, but it should
     /// only be used for public data or data that has been stripped of any personally identifiable
@@ -50,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// You can also use <i>automated data labeling</i> to reduce the number of data objects
     /// that need to be labeled by a human. Automated data labeling uses <i>active learning</i>
     /// to determine if a data object can be labeled by machine or if it needs to be sent
-    /// to a human worker.
+    /// to a human worker. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-automated-labeling.html">Using
+    /// Automated Data Labeling</a>.
     /// </para><para>
     /// The data objects to be labeled are contained in an Amazon S3 bucket. You create a
     /// <i>manifest file</i> that describes the location of each object. For more information,
@@ -75,11 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Lambda function implements the logic for annotation
-        /// consolidation.</para><para>Amazon SageMaker Ground Truth provides three annotation consolidation functions that
-        /// you can choose to use. They are:</para><ul><li><para><i>Bounding box</i> - Finds the most similar boxes from different workers based on
-        /// the Jaccard index of the boxes.</para><para><code>arn:aws:lambda:<i>region</i>:432418664414:function:ACS-BoundingBox</code></para></li><li><para><i>Image classification</i> - Uses a variant of the Expectation Maximization approach
-        /// to estimate the true class of an image based on annotations from individual workers.</para><para><code>arn:aws:lambda:<i>region</i>:432418664414:function:ACS-ImageMultiClass</code></para></li><li><para><i>Text classification</i> - Uses a variant of the Expectation Maximization approach
-        /// to estimate the true class of text based on annotations from individual workers.</para><para><code>arn:aws:lambda:<i>region</i>:432418664414:function:ACS-TextMultiClass</code></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
+        /// consolidation.</para><para>For the built-in bounding box, image classification, semantic segmentation, and text
+        /// classification task types, Amazon SageMaker Ground Truth provides the following Lambda
+        /// functions:</para><ul><li><para><i>Bounding box</i> - Finds the most similar boxes from different workers based on
+        /// the Jaccard index of the boxes.</para><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-BoundingBox</code></para><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-BoundingBox</code></para><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-BoundingBox</code></para><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code></para><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code></para></li><li><para><i>Image classification</i> - Uses a variant of the Expectation Maximization approach
+        /// to estimate the true class of an image based on annotations from individual workers.</para><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClass</code></para><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClass</code></para><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClass</code></para><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code></para><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code></para></li><li><para><i>Semantic segmentation</i> - Treats each pixel in an image as a multi-class classification
+        /// and treats pixel annotations from workers as "votes" for the correct label.</para><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-SemanticSegmentation</code></para><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-SemanticSegmentation</code></para><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-SemanticSegmentation</code></para><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code></para><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code></para></li><li><para><i>Text classification</i> - Uses a variant of the Expectation Maximization approach
+        /// to estimate the true class of text based on annotations from individual workers.</para><para><code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code></para><para><code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code></para><para><code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code></para><para><code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code></para><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code></para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">Annotation
         /// Consolidation</a>.</para>
         /// </para>
         /// </summary>
@@ -151,7 +153,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The attribute name to use for the label in the output manifest file. This is the key
         /// for the key/value pair formed with the label that a worker assigns to the object.
-        /// The name can't end with "-metadata" or "-ref".</para>
+        /// The name can't end with "-metadata". If you are running a semantic segmentation labeling
+        /// job, the attribute name must end with "-ref". If you are running any other kind of
+        /// labeling job, the attribute name must not end with "-ref".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -161,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LabelCategoryConfigS3Uri
         /// <summary>
         /// <para>
-        /// <para>The S3 URL of the file that defines the categories used to label the data objects.</para>
+        /// <para>The S3 URL of the file that defines the categories used to label the data objects.</para><para>The file is a JSON structure in the following format:</para><para><code>{</code></para><para><code> "document-version": "2018-11-28"</code></para><para><code> "labels": [</code></para><para><code> {</code></para><para><code> "label": "<i>label 1</i>"</code></para><para><code> },</code></para><para><code> {</code></para><para><code> "label": "<i>label 2</i>"</code></para><para><code> },</code></para><para><code> ...</code></para><para><code> {</code></para><para><code> "label": "<i>label n</i>"</code></para><para><code> }</code></para><para><code> ]</code></para><para><code>}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -247,7 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of a Lambda function that is run before a data object
         /// is sent to a human worker. Use this function to provide input to a custom labeling
-        /// job.</para>
+        /// job.</para><para>For the built-in bounding box, image classification, semantic segmentation, and text
+        /// classification task types, Amazon SageMaker Ground Truth provides the following Lambda
+        /// functions:</para><para><b>US East (Northern Virginia) (us-east-1):</b></para><ul><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox</code></para></li><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code></para></li></ul><para><b>US East (Ohio) (us-east-2):</b></para><ul><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code></para></li></ul><para><b>US West (Oregon) (us-west-2):</b></para><ul><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code></para></li></ul><para><b>EU (Ireland) (eu-west-1):</b></para><ul><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code></para></li></ul><para><b>Asia Pacific (Tokyo (ap-northeast-1):</b></para><ul><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code></para></li><li><para><code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -356,7 +362,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter UiConfig_UiTemplateS3Uri
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 bucket location of the UI template.</para>
+        /// <para>The Amazon S3 bucket location of the UI template. For more information about the contents
+        /// of a UI template, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step2.html">
+        /// Creating Your Custom Labeling Task Template</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

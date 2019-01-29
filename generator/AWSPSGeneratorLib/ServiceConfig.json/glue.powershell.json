@@ -82,7 +82,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatePartition",
@@ -100,8 +100,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -552,7 +552,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
@@ -570,8 +570,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -983,7 +983,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
@@ -1001,8 +1001,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1089,7 +1089,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Classifier",
@@ -1107,8 +1107,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1142,7 +1142,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
@@ -1160,8 +1160,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionName"
         },
         "memoryStreamParameters": []
@@ -1195,7 +1195,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
@@ -1213,8 +1213,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1248,7 +1248,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Database",
@@ -1266,8 +1266,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1301,7 +1301,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DevEndpoint",
@@ -1319,8 +1319,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointName"
         },
         "memoryStreamParameters": []
@@ -1354,7 +1354,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -1372,8 +1372,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobName"
         },
         "memoryStreamParameters": []
@@ -1407,7 +1407,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Partition",
@@ -1425,8 +1425,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -1460,7 +1460,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyHashCondition"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
@@ -1478,8 +1478,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyHashCondition"
         },
         "memoryStreamParameters": []
@@ -1513,7 +1513,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityConfiguration",
@@ -1531,8 +1531,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1566,7 +1566,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
@@ -1584,8 +1584,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1611,7 +1611,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "VersionIds"
+          "VersionId"
         ],
         "byNameMembers": []
       },
@@ -1625,9 +1625,9 @@
         "confirmationMessageNoun": "TableVersion",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: VersionId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -1672,7 +1672,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
@@ -1690,8 +1690,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -1725,7 +1725,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FunctionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
@@ -1743,8 +1743,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FunctionName"
         },
         "memoryStreamParameters": []
@@ -3346,7 +3346,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CatalogId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CatalogToGlue",
@@ -3364,8 +3364,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CatalogId"
         },
         "memoryStreamParameters": []
@@ -3505,7 +3505,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobBookmark",
@@ -3523,8 +3523,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobName"
         },
         "memoryStreamParameters": []
@@ -3558,7 +3558,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
@@ -3576,8 +3576,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -3611,7 +3611,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CrawlerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerSchedule",
@@ -3629,8 +3629,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CrawlerName"
         },
         "memoryStreamParameters": []
@@ -3664,7 +3664,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobRun",
@@ -3682,8 +3682,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobName"
         },
         "memoryStreamParameters": []
@@ -3717,7 +3717,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
@@ -3735,8 +3735,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -3770,7 +3770,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
@@ -3788,8 +3788,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -3823,7 +3823,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CrawlerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrawlerSchedule",
@@ -3841,8 +3841,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CrawlerName"
         },
         "memoryStreamParameters": []
@@ -3876,7 +3876,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
@@ -3894,8 +3894,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -4033,7 +4033,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Crawler",
@@ -4051,8 +4051,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -4404,7 +4404,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Trigger",
@@ -4422,8 +4422,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -4457,7 +4457,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FunctionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserDefinedFunction",
@@ -4475,8 +4475,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FunctionName"
         },
         "memoryStreamParameters": []

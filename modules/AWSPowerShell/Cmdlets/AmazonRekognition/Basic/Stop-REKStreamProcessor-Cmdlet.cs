@@ -28,7 +28,7 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Stops a running stream processor that was created by .
+    /// Stops a running stream processor that was created by <a>CreateStreamProcessor</a>.
     /// </summary>
     [Cmdlet("Stop", "REKStreamProcessor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of a stream processor created by .</para>
+        /// <para>The name of a stream processor created by <a>CreateStreamProcessor</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

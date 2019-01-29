@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The name of the image builder.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

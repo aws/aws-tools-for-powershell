@@ -41,10 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// in <code>Settings</code>. For example, the collection containing faces that you want
     /// to recognize. Use <code>Name</code> to assign an identifier for the stream processor.
     /// You use <code>Name</code> to manage the stream processor. For example, you can start
-    /// processing the source video by calling with the <code>Name</code> field. 
+    /// processing the source video by calling <a>StartStreamProcessor</a> with the <code>Name</code>
+    /// field. 
     /// </para><para>
-    /// After you have finished analyzing a streaming video, use to stop processing. You can
-    /// delete the stream processor by calling .
+    /// After you have finished analyzing a streaming video, use <a>StopStreamProcessor</a>
+    /// to stop processing. You can delete the stream processor by calling <a>DeleteStreamProcessor</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "REKStreamProcessor", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -107,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>An identifier you assign to the stream processor. You can use <code>Name</code> to
         /// manage the stream processor. For example, you can get the current status of the stream
-        /// processor by calling . <code>Name</code> is idempotent. </para>
+        /// processor by calling <a>DescribeStreamProcessor</a>. <code>Name</code> is idempotent.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

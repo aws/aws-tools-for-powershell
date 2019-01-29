@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user.</para>
+        /// <para>The identifier of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

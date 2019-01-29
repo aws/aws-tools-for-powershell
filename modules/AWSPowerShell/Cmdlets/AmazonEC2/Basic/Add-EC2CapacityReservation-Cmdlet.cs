@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String InstanceType { get; set; }
         #endregion
         

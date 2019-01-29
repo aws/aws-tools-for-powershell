@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// Identities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMRoleTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Identity and Access Management UntagRole API operation.", Operation = new[] {"UntagRole"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UntagRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveIAMRoleTagCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String RoleName { get; set; }
         #endregion
         
@@ -64,6 +64,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the RoleName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -134,6 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.RoleName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

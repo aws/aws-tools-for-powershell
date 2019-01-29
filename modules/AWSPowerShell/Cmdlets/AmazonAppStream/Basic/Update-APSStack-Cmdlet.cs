@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for display.</para>
+        /// <para>The description to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The stack name for display.</para>
+        /// <para>The stack name to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FeedbackURL
         /// <summary>
         /// <para>
-        /// <para>The URL that users are redirected to after they click the Send Feedback link. If no
-        /// URL is specified, no Send Feedback link is displayed.</para>
+        /// <para>The URL that users are redirected to after they choose the Send Feedback link. If
+        /// no URL is specified, no Send Feedback link is displayed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

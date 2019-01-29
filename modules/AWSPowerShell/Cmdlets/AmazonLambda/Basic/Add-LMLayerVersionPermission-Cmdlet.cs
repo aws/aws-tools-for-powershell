@@ -28,9 +28,10 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Adds permissions to the resource-based policy of a version of a function layer. Use
-    /// this action to grant layer usage permission to other accounts. You can grant permission
-    /// to a single account, all AWS accounts, or all accounts in an organization.
+    /// Adds permissions to the resource-based policy of a version of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layer</a>. Use this action to grant layer usage permission to other accounts.
+    /// You can grant permission to a single account, all AWS accounts, or all accounts in
+    /// an organization.
     /// 
     ///  
     /// <para>
@@ -60,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LayerName
         /// <summary>
         /// <para>
-        /// <para>The name of the layer.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the layer.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LayerName { get; set; }
         #endregion
         

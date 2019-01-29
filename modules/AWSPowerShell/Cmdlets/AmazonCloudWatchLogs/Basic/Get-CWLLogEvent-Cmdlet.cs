@@ -107,9 +107,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The maximum number of log events returned. If you don't specify a value, the maximum
         /// is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
@@ -121,9 +118,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
         /// call.)</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

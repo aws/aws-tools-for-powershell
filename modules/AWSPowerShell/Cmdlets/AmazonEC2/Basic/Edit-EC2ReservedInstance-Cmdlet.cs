@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IDs of the Reserved Instances to modify.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ReservedInstancesIds")]
         public System.String[] ReservedInstancesId { get; set; }
         #endregion

@@ -49,25 +49,25 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </para><para>
     /// A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon
     /// Redshift, or Splunk. You must specify only one of the following destination configuration
-    /// parameters: <b>ExtendedS3DestinationConfiguration</b>, <b>S3DestinationConfiguration</b>,
-    /// <b>ElasticsearchDestinationConfiguration</b>, <b>RedshiftDestinationConfiguration</b>,
-    /// or <b>SplunkDestinationConfiguration</b>.
+    /// parameters: <code>ExtendedS3DestinationConfiguration</code>, <code>S3DestinationConfiguration</code>,
+    /// <code>ElasticsearchDestinationConfiguration</code>, <code>RedshiftDestinationConfiguration</code>,
+    /// or <code>SplunkDestinationConfiguration</code>.
     /// </para><para>
-    /// When you specify <b>S3DestinationConfiguration</b>, you can also provide the following
-    /// optional values: <b>BufferingHints</b>, <b>EncryptionConfiguration</b>, and <b>CompressionFormat</b>.
-    /// By default, if no <b>BufferingHints</b> value is provided, Kinesis Data Firehose buffers
-    /// data up to 5 MB or for 5 minutes, whichever condition is satisfied first. <b>BufferingHints</b>
-    /// is a hint, so there are some cases where the service cannot adhere to these conditions
-    /// strictly. For example, record boundaries might be such that the size is a little over
-    /// or under the configured buffering size. By default, no encryption is performed. We
-    /// strongly recommend that you enable encryption to ensure secure data storage in Amazon
-    /// S3.
+    /// When you specify <code>S3DestinationConfiguration</code>, you can also provide the
+    /// following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and
+    /// <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value
+    /// is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever
+    /// condition is satisfied first. <code>BufferingHints</code> is a hint, so there are
+    /// some cases where the service cannot adhere to these conditions strictly. For example,
+    /// record boundaries might be such that the size is a little over or under the configured
+    /// buffering size. By default, no encryption is performed. We strongly recommend that
+    /// you enable encryption to ensure secure data storage in Amazon S3.
     /// </para><para>
     /// A few notes about Amazon Redshift as a destination:
     /// </para><ul><li><para>
     /// An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis
     /// Data Firehose first delivers data to Amazon S3 and then uses <code>COPY</code> syntax
-    /// to load data into an Amazon Redshift table. This is specified in the <b>RedshiftDestinationConfiguration.S3Configuration</b>
+    /// to load data into an Amazon Redshift table. This is specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>
     /// parameter.
     /// </para></li><li><para>
     /// The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index rotation period. Index rotation appends a time stamp to the
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
         /// <code>IndexName</code> to facilitate the expiration of old data. For more information,
         /// see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
         /// Rotation for the Amazon ES Destination</a>. The default value is <code>OneDay</code>.</para>

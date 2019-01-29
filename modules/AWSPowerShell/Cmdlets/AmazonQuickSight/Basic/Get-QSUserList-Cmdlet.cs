@@ -36,7 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para><para>
     /// The response is a list of user objects, containing each user's Amazon Resource Name
     /// (ARN), AWS Identity and Access Management (IAM) role, and email address. 
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-users --aws-account-id=111122223333 --namespace=default
+    /// </code></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "QSUserList")]
     [OutputType("Amazon.QuickSight.Model.User")]
@@ -91,6 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -159,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

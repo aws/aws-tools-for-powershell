@@ -28,9 +28,9 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Provides information about a stream processor created by . You can get information
-    /// about the input and output streams, the input parameters for the face recognition
-    /// being performed, and the current status of the stream processor.
+    /// Provides information about a stream processor created by <a>CreateStreamProcessor</a>.
+    /// You can get information about the input and output streams, the input parameters for
+    /// the face recognition being performed, and the current status of the stream processor.
     /// </summary>
     [Cmdlet("Get", "REKStreamProcessor")]
     [OutputType("Amazon.Rekognition.Model.DescribeStreamProcessorResponse")]

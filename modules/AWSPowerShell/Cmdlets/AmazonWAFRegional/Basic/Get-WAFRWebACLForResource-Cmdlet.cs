@@ -28,7 +28,8 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Returns the web ACL for the specified resource.
+    /// Returns the web ACL for the specified resource, either an application load balancer
+    /// or Amazon API Gateway stage.
     /// </summary>
     [Cmdlet("Get", "WAFRWebACLForResource")]
     [OutputType("Amazon.WAFRegional.Model.WebACLSummary")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource for which to get the web ACL.</para>
+        /// <para>The ARN (Amazon Resource Name) of the resource for which to get the web ACL, either
+        /// an application load balancer or Amazon API Gateway stage.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

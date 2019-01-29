@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// In a blue/green deployment, overrides any specified wait time and starts terminating
-    /// instances immediately after the traffic routing is completed.<br/><br/>This operation is deprecated.
+    /// instances immediately after the traffic routing is complete.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Skip", "CDWaitTimeForInstanceTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

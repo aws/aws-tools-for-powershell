@@ -160,7 +160,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NamedQuery",
@@ -178,8 +178,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -213,7 +213,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NamedQueryId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NamedQuery",
@@ -231,8 +231,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NamedQueryId"
         },
         "memoryStreamParameters": []
@@ -454,7 +454,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueryString"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryExecution",
@@ -472,8 +472,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueryString"
         },
         "memoryStreamParameters": []
@@ -507,7 +507,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueryExecutionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryExecution",
@@ -525,8 +525,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueryExecutionId"
         },
         "memoryStreamParameters": []

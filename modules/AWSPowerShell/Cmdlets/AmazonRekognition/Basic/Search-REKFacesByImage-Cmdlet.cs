@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// the input face with faces in the specified collection. 
     /// 
     ///  <note><para>
-    /// To search for all faces in an input image, you might first call the operation, and
-    /// then use the face IDs returned in subsequent calls to the operation. 
+    /// To search for all faces in an input image, you might first call the <a>IndexFaces</a>
+    /// operation, and then use the face IDs returned in subsequent calls to the <a>SearchFaces</a>
+    /// operation. 
     /// </para><para>
     ///  You can also call the <code>DetectFaces</code> operation and use the bounding boxes
     /// in the response to make face crops, which then you can pass in to the <code>SearchFacesByImage</code>

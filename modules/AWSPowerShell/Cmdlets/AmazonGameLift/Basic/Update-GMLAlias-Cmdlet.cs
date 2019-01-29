@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Unique identifier for a fleet alias. Specify the alias you want to update.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AliasId { get; set; }
         #endregion
         

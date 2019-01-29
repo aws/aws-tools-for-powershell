@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// Deletes the specified plan.
     /// </summary>
     [Cmdlet("Remove", "SCProvisionedProductPlan", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Service Catalog DeleteProvisionedProductPlan API operation.", Operation = new[] {"DeleteProvisionedProductPlan"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PlanId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DeleteProvisionedProductPlanResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveSCProvisionedProductPlanCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
@@ -68,8 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The plan identifier.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PlanId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the PlanId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -143,6 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.PlanId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -63,7 +63,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Skill",
@@ -82,8 +82,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillId"
         },
         "memoryStreamParameters": []
@@ -117,7 +117,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ContactArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContactWithAddressBook",
@@ -136,8 +136,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ContactArn"
         },
         "memoryStreamParameters": []
@@ -171,7 +171,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceWithRoom",
@@ -190,8 +190,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceArn"
         },
         "memoryStreamParameters": []
@@ -225,7 +225,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SkillGroupWithRoom",
@@ -244,8 +244,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillGroupArn"
         },
         "memoryStreamParameters": []
@@ -387,7 +387,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AddressBook",
@@ -406,8 +406,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -495,7 +495,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConferenceProviderName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConferenceProvider",
@@ -514,8 +514,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConferenceProviderName"
         },
         "memoryStreamParameters": []
@@ -610,7 +610,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Profile",
@@ -629,8 +629,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProfileName"
         },
         "memoryStreamParameters": []
@@ -664,7 +664,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoomName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Room",
@@ -683,8 +683,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoomName"
         },
         "memoryStreamParameters": []
@@ -718,7 +718,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SkillGroup",
@@ -737,8 +737,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillGroupName"
         },
         "memoryStreamParameters": []
@@ -772,7 +772,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
@@ -791,8 +791,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserId"
         },
         "memoryStreamParameters": []
@@ -826,7 +826,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AddressBookArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AddressBook",
@@ -845,8 +845,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AddressBookArn"
         },
         "memoryStreamParameters": []
@@ -880,7 +880,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ScheduleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BusinessReportSchedule",
@@ -899,8 +899,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ScheduleArn"
         },
         "memoryStreamParameters": []
@@ -934,7 +934,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConferenceProviderArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConferenceProvider",
@@ -953,8 +953,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConferenceProviderArn"
         },
         "memoryStreamParameters": []
@@ -988,7 +988,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ContactArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Contact",
@@ -1007,8 +1007,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ContactArn"
         },
         "memoryStreamParameters": []
@@ -1042,7 +1042,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
@@ -1061,8 +1061,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceArn"
         },
         "memoryStreamParameters": []
@@ -1096,7 +1096,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProfileArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Profile",
@@ -1115,8 +1115,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProfileArn"
         },
         "memoryStreamParameters": []
@@ -1150,7 +1150,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoomArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Room",
@@ -1169,8 +1169,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoomArn"
         },
         "memoryStreamParameters": []
@@ -1204,7 +1204,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoomSkillParameter",
@@ -1223,8 +1223,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillId"
         },
         "memoryStreamParameters": []
@@ -1312,7 +1312,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SkillGroup",
@@ -1331,8 +1331,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillGroupArn"
         },
         "memoryStreamParameters": []
@@ -1366,7 +1366,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EnrollmentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
@@ -1385,8 +1385,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EnrollmentId"
         },
         "memoryStreamParameters": []
@@ -1420,7 +1420,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ContactArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContactFromAddressBook",
@@ -1439,8 +1439,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ContactArn"
         },
         "memoryStreamParameters": []
@@ -1474,7 +1474,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceFromRoom",
@@ -1493,8 +1493,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceArn"
         },
         "memoryStreamParameters": []
@@ -1636,7 +1636,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SkillGroupFromRoom",
@@ -1655,8 +1655,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillGroupArn"
         },
         "memoryStreamParameters": []
@@ -1690,7 +1690,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoomArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SmartHomeAppliances",
@@ -1709,8 +1709,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoomArn"
         },
         "memoryStreamParameters": []
@@ -2569,7 +2569,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConferencePreference_DefaultConferenceProviderArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConferencePreference",
@@ -2588,8 +2588,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DefaultConferenceProviderArn"
         },
         "memoryStreamParameters": []
@@ -2785,7 +2785,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Skill",
@@ -2804,8 +2804,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillId"
         },
         "memoryStreamParameters": []
@@ -2839,7 +2839,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Room",
@@ -2858,8 +2858,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillId"
         },
         "memoryStreamParameters": []
@@ -2893,7 +2893,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EnrollmentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitation",
@@ -2912,8 +2912,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EnrollmentId"
         },
         "memoryStreamParameters": []
@@ -3300,7 +3300,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitation",
@@ -3319,8 +3319,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserArn"
         },
         "memoryStreamParameters": []
@@ -3354,7 +3354,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceSync",
@@ -3373,8 +3373,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceArn"
         },
         "memoryStreamParameters": []
@@ -3408,7 +3408,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoomArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SmartHomeApplianceDiscovery",
@@ -3427,8 +3427,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoomArn"
         },
         "memoryStreamParameters": []
@@ -3462,7 +3462,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Arn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -3481,8 +3481,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Arn"
         },
         "memoryStreamParameters": []
@@ -3516,7 +3516,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Arn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -3535,8 +3535,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Arn"
         },
         "memoryStreamParameters": []
@@ -3570,7 +3570,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AddressBookArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AddressBook",
@@ -3589,8 +3589,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AddressBookArn"
         },
         "memoryStreamParameters": []
@@ -3732,7 +3732,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ContactArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Contact",
@@ -3751,8 +3751,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ContactArn"
         },
         "memoryStreamParameters": []
@@ -3786,7 +3786,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
@@ -3805,8 +3805,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceName"
         },
         "memoryStreamParameters": []
@@ -3849,7 +3849,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Profile",
@@ -3868,8 +3868,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProfileName"
         },
         "memoryStreamParameters": []
@@ -3903,7 +3903,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoomName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Room",
@@ -3922,8 +3922,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoomName"
         },
         "memoryStreamParameters": []
@@ -3957,7 +3957,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SkillGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SkillGroup",
@@ -3976,8 +3976,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SkillGroupName"
         },
         "memoryStreamParameters": []

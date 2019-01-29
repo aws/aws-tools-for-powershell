@@ -92,9 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// 1 and 1000. The default value is 1000. To retrieve the remaining results, make another
         /// call with the returned <code>NextToken</code> value.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -105,9 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The token for the next set of results.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,10 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Returns suggestions for the property name to use in <code>Search</code> queries. Provides
-    /// suggestions for <code>HyperParameters</code>, <code>Tags</code>, and <code>Metrics</code>.
+    /// An auto-complete API for the search functionality in the Amazon SageMaker console.
+    /// It returns suggestions of possible matches for the property name to use in <code>Search</code>
+    /// queries. Provides suggestions for <code>HyperParameters</code>, <code>Tags</code>,
+    /// and <code>Metrics</code>.
     /// </summary>
     [Cmdlet("Get", "SMSearchSuggestion")]
     [OutputType("Amazon.SageMaker.Model.PropertyNameSuggestion")]
@@ -44,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter PropertyNameQuery_PropertyNameHint
         /// <summary>
         /// <para>
-        /// <para>The hyperparameter, metric, and tag key property names that begin with the specified
-        /// hint.</para>
+        /// <para>Text that is part of a property's name. The property names of hyperparameter, metric,
+        /// and tag key names that begin with the specified text in the <code>PropertyNameHint</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

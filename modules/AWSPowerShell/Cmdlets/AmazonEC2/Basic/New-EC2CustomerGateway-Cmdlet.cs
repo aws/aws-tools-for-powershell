@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// of 7224, which is reserved in the <code>us-east-1</code> region, and 9059, which is
     /// reserved in the <code>eu-west-1</code> region.
     /// </para></note><para>
-    /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
-    /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
+    /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
     /// </para><important><para>
     /// You cannot create more than one customer gateway with the same VPN type, IP address,
     /// and BGP ASN parameter values. If you run an identical request more than one time,

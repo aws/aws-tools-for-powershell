@@ -65,7 +65,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDeletion",
@@ -83,8 +83,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -118,7 +118,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CustomKeyStoreId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomKeyStore",
@@ -136,8 +136,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
@@ -171,7 +171,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetKeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
@@ -189,8 +189,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetKeyId"
         },
         "memoryStreamParameters": []
@@ -425,7 +425,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AliasName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
@@ -443,8 +443,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AliasName"
         },
         "memoryStreamParameters": []
@@ -478,7 +478,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CustomKeyStoreId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomKeyStore",
@@ -496,8 +496,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
@@ -531,7 +531,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ImportedKeyMaterial",
@@ -549,8 +549,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -680,7 +680,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
@@ -698,8 +698,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -733,7 +733,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyRotation",
@@ -751,8 +751,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -786,7 +786,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CustomKeyStoreId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomKeyStore",
@@ -804,8 +804,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CustomKeyStoreId"
         },
         "memoryStreamParameters": []
@@ -839,7 +839,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Key",
@@ -857,8 +857,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -892,7 +892,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyRotation",
@@ -910,8 +910,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -945,7 +945,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
@@ -963,8 +963,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1069,7 +1069,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DataKeyWithoutPlaintext",
@@ -1087,8 +1087,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1612,7 +1612,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyPolicy",
@@ -1630,8 +1630,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1663,7 +1663,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DestinationKeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Encrypt",
@@ -1681,8 +1681,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DestinationKeyId"
         },
         "memoryStreamParameters": []
@@ -1767,7 +1767,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "GrantToken"
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Grant",
@@ -1785,8 +1785,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1820,7 +1820,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDeletion",
@@ -1838,8 +1838,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1873,7 +1873,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -1891,8 +1891,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1926,7 +1926,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -1944,8 +1944,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []
@@ -1979,7 +1979,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetKeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
@@ -1997,8 +1997,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetKeyId"
         },
         "memoryStreamParameters": []
@@ -2085,7 +2085,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeyDescription",
@@ -2103,8 +2103,8 @@
           "resultsTruncatedMember": "Truncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KeyId"
         },
         "memoryStreamParameters": []

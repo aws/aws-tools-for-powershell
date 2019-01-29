@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// use to connect to the HSM to use the database encryption keys.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String HsmClientCertificateIdentifier { get; set; }
         #endregion
         

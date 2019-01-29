@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Cidr
         /// <summary>
         /// <para>
-        /// <para>The IPv4 address range, in CIDR notation.</para>
+        /// <para>The IPv4 address range, in CIDR notation. This must be the exact range that you provisioned.
+        /// You can't advertise only a portion of the provisioned range.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

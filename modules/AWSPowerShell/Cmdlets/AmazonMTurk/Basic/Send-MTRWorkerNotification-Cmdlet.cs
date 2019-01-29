@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <para>A list of Worker IDs you wish to notify. You can notify upto 100 Workers at a time.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("WorkerIds")]
         public System.String[] WorkerId { get; set; }
         #endregion

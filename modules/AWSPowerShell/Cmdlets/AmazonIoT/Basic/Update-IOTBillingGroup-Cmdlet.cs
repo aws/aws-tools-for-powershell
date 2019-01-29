@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>The description of the billing group.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String BillingGroupProperties_BillingGroupDescription { get; set; }
         #endregion
         

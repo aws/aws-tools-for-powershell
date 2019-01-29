@@ -61,14 +61,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
@@ -86,8 +88,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -112,14 +114,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "GlobalTableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GlobalTableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GlobalTable",
@@ -137,8 +141,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GlobalTableName"
         },
         "memoryStreamParameters": []
@@ -172,7 +176,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "BackupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Backup",
@@ -190,8 +194,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "BackupArn"
         },
         "memoryStreamParameters": []
@@ -216,7 +220,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -241,8 +247,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -315,7 +321,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -549,7 +557,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -595,7 +605,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -641,7 +653,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -687,7 +701,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -779,7 +793,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -825,7 +839,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TargetTableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -885,7 +901,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetTableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TableToPointInTime",
@@ -903,8 +919,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetTableName"
         },
         "memoryStreamParameters": []
@@ -929,22 +945,24 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ResourceArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "ExclusiveStartTableName",
@@ -954,8 +972,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -980,7 +998,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1077,22 +1095,24 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ResourceArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "ExclusiveStartTableName",
@@ -1102,8 +1122,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -1128,14 +1148,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ContinuousBackups",
@@ -1153,8 +1175,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -1179,14 +1201,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "GlobalTableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GlobalTableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GlobalTable",
@@ -1204,8 +1228,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GlobalTableName"
         },
         "memoryStreamParameters": []
@@ -1239,7 +1263,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GlobalTableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GlobalTableSettings",
@@ -1257,8 +1281,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GlobalTableName"
         },
         "memoryStreamParameters": []
@@ -1304,14 +1328,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Table",
@@ -1329,8 +1355,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []
@@ -1355,14 +1381,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TableName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TimeToLive",
@@ -1380,8 +1408,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TableName"
         },
         "memoryStreamParameters": []

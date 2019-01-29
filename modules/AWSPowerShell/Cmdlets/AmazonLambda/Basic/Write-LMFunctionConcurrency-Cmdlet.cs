@@ -28,13 +28,23 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Sets a limit on the number of concurrent executions available to this function. It
-    /// is a subset of your account's total concurrent execution limit per region. Note that
-    /// Lambda automatically reserves a buffer of 100 concurrent executions for functions
-    /// without any reserved concurrency limit. This means if your account limit is 1000,
-    /// you have a total of 900 available to allocate to individual functions. For more information,
-    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
+    /// Sets the maximum number of simultaneous executions for a function, and reserves capacity
+    /// for that concurrency level.
+    /// 
+    ///  
+    /// <para>
+    /// Concurrency settings apply to the function as a whole, including all published versions
+    /// and the unpublished version. Reserving concurrency both guarantees that your function
+    /// has capacity to process the specified number of events simultaneously, and prevents
+    /// it from scaling beyond that level. Use <a>GetFunction</a> to see the current setting
+    /// for a function.
+    /// </para><para>
+    /// Use <a>GetAccountSettings</a> to see your regional concurrency limit. You can reserve
+    /// concurrency for as many functions as you like, as long as you leave at least 100 simultaneous
+    /// executions unreserved for functions that aren't configured with a per-function limit.
+    /// For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
     /// Concurrency</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Write", "LMFunctionConcurrency", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Int32")]
@@ -59,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ReservedConcurrentExecution
         /// <summary>
         /// <para>
-        /// <para>The concurrent execution limit reserved for this function.</para>
+        /// <para>The number of simultaneous executions to reserve for the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

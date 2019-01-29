@@ -74,14 +74,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AWSAccountIds"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Permission",
@@ -92,8 +94,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AWSAccountIds"
         },
         "memoryStreamParameters": []
@@ -121,14 +123,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MessageVisibility",
@@ -139,8 +143,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -165,14 +169,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MessageVisibilityBatch",
@@ -183,8 +189,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -231,7 +237,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Queue",
@@ -242,8 +248,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueName"
         },
         "memoryStreamParameters": []
@@ -271,7 +277,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -315,7 +323,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -361,7 +371,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -379,8 +391,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -407,7 +419,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -489,7 +503,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -571,7 +587,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -610,14 +628,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Queue",
@@ -628,8 +648,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -680,7 +700,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -726,7 +748,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -784,7 +808,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -828,14 +854,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MessageBatch",
@@ -846,8 +874,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -874,14 +902,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueueAttributes",
@@ -892,8 +922,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -918,14 +948,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Queue",
@@ -936,8 +968,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []
@@ -962,14 +994,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "QueueUrl"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueueUrl"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Queue",
@@ -980,8 +1014,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueueUrl"
         },
         "memoryStreamParameters": []

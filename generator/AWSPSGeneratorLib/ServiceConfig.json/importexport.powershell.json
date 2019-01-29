@@ -53,14 +53,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "JobId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -71,8 +73,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -110,7 +112,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobType"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -121,8 +123,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobType"
         },
         "memoryStreamParameters": []
@@ -147,7 +149,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "JobIds"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -186,7 +190,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "JobId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -272,14 +278,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "JobId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -290,8 +298,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []

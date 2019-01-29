@@ -42,13 +42,12 @@ namespace AWSPowerShellGenerator.Utils
         /// <param name="ndoc"></param>
         /// <param name="addAsReference">If false, the method just downloads the NuGet package and unpacks the
         /// assemblies without adding them to the list of assemblies to be referenced</param>
-        public void Load(string baseName, out Assembly assembly, out XmlDocument ndoc, bool addAsReference = true)
+        public (Assembly Assembly, XmlDocument Ndoc) Load(string baseName, bool addAsReference = true)
         {
-            assembly = null;
-            ndoc = null;
-
             if (string.IsNullOrEmpty(SdkNugetFolder))
+            {
                 throw new InvalidOperationException("Expected 'SdkNugetFolder' to have been set prior to calling Load(...)");
+            }
 
             var extractFolder = Path.Combine(SdkNugetFolder, $"..\\{ExtractedNugetFolderName}\\");
 
@@ -63,11 +62,12 @@ namespace AWSPowerShellGenerator.Utils
                 var ndocFile = Path.Combine(extractFolder, $"{DotNetPlatformNet35}\\{baseName}.xml");
                 try
                 {
-                    assembly = Assembly.LoadFrom(assemblyFile);
-                    ndoc = new XmlDocument();
+                    var assembly = Assembly.LoadFrom(assemblyFile);
+                    var ndoc = new XmlDocument();
                     ndoc.Load(ndocFile);
 
                     Add(baseName, assembly, ndoc);
+                    return (assembly, ndoc);
                 }
                 catch (Exception)
                 {
@@ -75,6 +75,8 @@ namespace AWSPowerShellGenerator.Utils
                     throw;
                 }
             }
+
+            return (null, null);
         }
 
         /// <summary>

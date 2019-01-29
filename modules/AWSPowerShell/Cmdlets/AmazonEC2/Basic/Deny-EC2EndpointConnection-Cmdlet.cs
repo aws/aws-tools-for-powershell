@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the service.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ServiceId { get; set; }
         #endregion
         

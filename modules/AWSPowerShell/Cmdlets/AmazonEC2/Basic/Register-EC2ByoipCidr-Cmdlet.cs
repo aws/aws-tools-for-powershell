@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// you've brought to this or another region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Cidr { get; set; }
         #endregion
         

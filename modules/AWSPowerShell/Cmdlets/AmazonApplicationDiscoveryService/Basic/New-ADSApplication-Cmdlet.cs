@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>Name of the application to be created.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

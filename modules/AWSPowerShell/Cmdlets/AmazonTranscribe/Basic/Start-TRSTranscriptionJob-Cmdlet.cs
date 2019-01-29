@@ -28,8 +28,7 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and
-    /// fr-CA languages are in preview and are only available to whitelisted customers.
+    /// Starts an asynchronous job to transcribe speech to text.
     /// </summary>
     [Cmdlet("Start", "TRSTranscriptionJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.TranscriptionJob")]
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <summary>
         /// <para>
         /// <para>The S3 location of the input media file. The URI must be in the same region as the
-        /// API endpoint that you are calling. The general form is:</para><para><code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// API endpoint that you are calling. The general form is:</para><para><code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
         /// </code></para><para>For example:</para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code></para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
         /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para>
         /// </para>

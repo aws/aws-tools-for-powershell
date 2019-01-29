@@ -31,8 +31,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// Creates a <code>Rule</code>, which contains the <code>IPSet</code> objects, <code>ByteMatchSet</code>
     /// objects, and other predicates that identify the requests that you want to block. If
     /// you add more than one predicate to a <code>Rule</code>, a request must match all of
-    /// the specifications to be allowed or blocked. For example, suppose you add the following
-    /// to a <code>Rule</code>:
+    /// the specifications to be allowed or blocked. For example, suppose that you add the
+    /// following to a <code>Rule</code>:
     /// 
     ///  <ul><li><para>
     /// An <code>IPSet</code> that matches the IP address <code>192.0.2.44/32</code></para></li><li><para>
@@ -91,8 +91,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>A friendly name or description for the metrics for this <code>Rule</code>. The name
-        /// can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain whitespace.
-        /// You can't change the name of the metric after you create the <code>Rule</code>.</para>
+        /// can contain only alphanumeric characters (A-Z, a-z, 0-9); the name can't contain white
+        /// space. You can't change the name of the metric after you create the <code>Rule</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

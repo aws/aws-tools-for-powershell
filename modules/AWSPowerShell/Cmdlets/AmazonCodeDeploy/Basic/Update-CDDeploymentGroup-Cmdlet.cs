@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The application name corresponding to the deployment group to update.</para>
+        /// <para>The application name that corresponds to the deployment group to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -179,9 +179,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagSetList
         /// <summary>
         /// <para>
-        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
-        /// to be included in the deployment group, it must be identified by all the tag groups
-        /// in the list.</para>
+        /// <para>A list that contains other lists of EC2 instance tag groups. For an instance to be
+        /// included in the deployment group, it must be identified by all of the tag groups in
+        /// the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -191,8 +191,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter EcsService
         /// <summary>
         /// <para>
-        /// <para> The target ECS services in the deployment group. This only applies to deployment
-        /// groups that use the Amazon ECS compute platform. A target ECS service is specified
+        /// <para> The target Amazon ECS services in the deployment group. This applies only to deployment
+        /// groups that use the Amazon ECS compute platform. A target Amazon ECS service is specified
         /// as an Amazon ECS cluster and service name pair using the format <code>&lt;clustername&gt;:&lt;servicename&gt;</code>.
         /// </para>
         /// </para>
@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
-        /// <para>An array containing information about the load balancer to use for load balancing
+        /// <para>An array that contains information about the load balancer to use for load balancing
         /// in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
         /// Balancers.</para><note><para> Adding more than one load balancer to the array is not supported. </para></note>
         /// </para>
@@ -250,9 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Indicates whether a deployment should continue if information about the current state
-        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para>true: The deployment will proceed even if alarm status information can't be retrieved
-        /// from Amazon CloudWatch.</para></li><li><para>false: The deployment will stop if alarm status information can't be retrieved from
-        /// Amazon CloudWatch.</para></li></ul>
+        /// of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</para><ul><li><para>true: The deployment proceeds even if alarm status information can't be retrieved
+        /// from Amazon CloudWatch.</para></li><li><para>false: The deployment stops if alarm status information can't be retrieved from Amazon
+        /// CloudWatch.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -285,9 +285,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter OnPremisesTagSetList
         /// <summary>
         /// <para>
-        /// <para>A list containing other lists of on-premises instance tag groups. In order for an
-        /// instance to be included in the deployment group, it must be identified by all the
-        /// tag groups in the list.</para>
+        /// <para>A list that contains other lists of on-premises instance tag groups. For an instance
+        /// to be included in the deployment group, it must be identified by all of the tag groups
+        /// in the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -307,9 +307,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfo_TargetGroupInfoList
         /// <summary>
         /// <para>
-        /// <para>An array containing information about the target group to use for load balancing in
-        /// a deployment. In Elastic Load Balancing, target groups are used with Application Load
-        /// Balancers.</para><note><para> Adding more than one target group to the array is not supported. </para></note>
+        /// <para>An array that contains information about the target group to use for load balancing
+        /// in a deployment. In Elastic Load Balancing, target groups are used with Application
+        /// Load Balancers.</para><note><para> Adding more than one target group to the array is not supported. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -355,7 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentReadyOptionWaitTime
         /// <summary>
         /// <para>
-        /// <para>The number of minutes to wait before the status of a blue/green deployment changed
+        /// <para>The number of minutes to wait before the status of a blue/green deployment is changed
         /// to Stopped if rerouting is not started manually. Applies only to the STOP_DEPLOYMENT
         /// option for actionOnTimeout</para>
         /// </para>

@@ -44,7 +44,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "PolicyDetails"
+          "ExecutionRoleArn"
         ],
         "byNameMembers": []
       },
@@ -52,7 +52,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ExecutionRoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicy",
@@ -63,8 +63,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ExecutionRoleArn"
         },
         "memoryStreamParameters": []
@@ -98,7 +98,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LifecyclePolicy",
@@ -109,8 +109,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyId"
         },
         "memoryStreamParameters": []
@@ -216,7 +216,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "PolicyDetails"
+          "PolicyId"
         ],
         "byNameMembers": []
       },
@@ -230,9 +230,9 @@
         "confirmationMessageNoun": "LifecyclePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: PolicyId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",

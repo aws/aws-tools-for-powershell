@@ -28,7 +28,7 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Exports a Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic
+    /// Exports an Amazon Lightsail instance or block storage disk snapshot to Amazon Elastic
     /// Compute Cloud (Amazon EC2). This operation results in an export snapshot record that
     /// can be used with the <code>create cloud formation stack</code> operation to create
     /// new Amazon EC2 instances.

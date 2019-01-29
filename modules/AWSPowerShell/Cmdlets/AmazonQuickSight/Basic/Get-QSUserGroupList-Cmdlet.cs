@@ -28,7 +28,15 @@ using Amazon.QuickSight.Model;
 namespace Amazon.PowerShell.Cmdlets.QS
 {
     /// <summary>
-    /// Lists the Amazon QuickSight groups that a user is part of.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the Amazon QuickSight groups that an Amazon QuickSight user is a member of.
+    /// 
+    ///  
+    /// <para>
+    /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;</i></code>. 
+    /// </para><para>
+    /// The response is a one or more group objects. 
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight list-user-groups -\-user-name=Pat -\-aws-account-id=111122223333
+    /// -\-namespace=default -\-region=us-east-1 </code></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "QSUserGroupList")]
     [OutputType("Amazon.QuickSight.Model.Group")]
@@ -44,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter AwsAccountId
         /// <summary>
         /// <para>
-        /// <para>The AWS Account ID that the user is in. Currently, use the AWS Account ID which contains
-        /// your Amazon QuickSight account.</para>
+        /// <para>The AWS Account ID that the user is in. Currently, you use the ID for the AWS account
+        /// that contains your Amazon QuickSight account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -65,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         #region Parameter UserName
         /// <summary>
         /// <para>
-        /// <para>The name of the user that you want to list groups for.</para>
+        /// <para>The Amazon QuickSight user name that you want to list group memberships for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -93,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -166,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

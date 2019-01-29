@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>The ARN of the development schema with the changes used for the upgrade.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DevelopmentSchemaArn { get; set; }
         #endregion
         

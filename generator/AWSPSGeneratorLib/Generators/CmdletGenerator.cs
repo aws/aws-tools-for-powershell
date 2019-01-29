@@ -444,11 +444,7 @@ namespace AWSPowerShellGenerator.Generators
             var svcNamespaceParts = configModel.ServiceNamespace.Split('.');
             var svcAssemblyBasename = string.Concat("AWSSDK.", svcNamespaceParts[1]);
 
-            Assembly svcAssembly;
-            XmlDocument svcNdoc;
-            SourceArtifacts.Load(svcAssemblyBasename, out svcAssembly, out svcNdoc);
-            CurrentServiceAssembly = svcAssembly;
-            CurrentServiceNDoc = svcNdoc;
+            (CurrentServiceAssembly, CurrentServiceNDoc) = SourceArtifacts.Load(svcAssemblyBasename);
 
             if (configModel.SkipCmdletGeneration)
             {
@@ -1054,10 +1050,7 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         private void LoadCoreSDKRuntimeMaterials()
         {
-            Assembly coreRuntimeAssembly;
-            XmlDocument coreRuntimeNDoc;
-
-            SourceArtifacts.Load(CoreSDKRuntimeAssemblyName, out coreRuntimeAssembly, out coreRuntimeNDoc);
+            (var coreRuntimeAssembly, _) = SourceArtifacts.Load(CoreSDKRuntimeAssemblyName);
             SdkBaseRequestType = coreRuntimeAssembly.GetType("Amazon.Runtime.AmazonWebServiceRequest");
         }
 
@@ -1069,12 +1062,9 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         private void LoadSpecialServiceAssemblies()
         {
-            Assembly assembly;
-            XmlDocument assemblyNDoc;
-
             foreach (var a in ModelCollection.IncludeLibrariesList)
             {
-                SourceArtifacts.Load(a.Name, out assembly, out assemblyNDoc, a.AddAsReference);
+                SourceArtifacts.Load(a.Name, a.AddAsReference);
             }
         }
 

@@ -65,7 +65,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateTransfer",
@@ -84,8 +84,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -173,7 +173,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingToThingGroup",
@@ -192,8 +192,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -227,7 +227,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetsWithJob",
@@ -246,8 +246,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -281,7 +281,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
@@ -300,8 +300,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -335,7 +335,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrincipalPolicy",
@@ -354,8 +354,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -389,7 +389,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SecurityProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityProfile",
@@ -408,8 +408,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SecurityProfileName"
         },
         "memoryStreamParameters": []
@@ -443,7 +443,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingPrincipal",
@@ -462,8 +462,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -497,7 +497,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TaskId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AuditTask",
@@ -516,8 +516,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TaskId"
         },
         "memoryStreamParameters": []
@@ -551,7 +551,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateTransfer",
@@ -570,8 +570,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -614,7 +614,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -633,8 +633,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -677,7 +677,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "JobExecution",
@@ -696,8 +696,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -783,7 +783,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AuthorizerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Authorizer",
@@ -802,8 +802,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AuthorizerName"
         },
         "memoryStreamParameters": []
@@ -829,7 +829,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BillingGroupProperties"
+          "BillingGroupProperties_BillingGroupDescription"
         ],
         "byNameMembers": []
       },
@@ -992,7 +992,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -1011,8 +1011,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -1044,7 +1044,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SetAsActive"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KeysAndCertificate",
@@ -1063,8 +1063,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SetAsActive"
         },
         "memoryStreamParameters": []
@@ -1098,7 +1098,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "OtaUpdateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OTAUpdate",
@@ -1117,8 +1117,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "OtaUpdateId"
         },
         "memoryStreamParameters": []
@@ -1150,7 +1150,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
@@ -1169,8 +1169,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -1204,7 +1204,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PolicyVersion",
@@ -1223,8 +1223,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -1258,7 +1258,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleAlias",
@@ -1277,8 +1277,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -1416,7 +1416,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
@@ -1435,8 +1435,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamId"
         },
         "memoryStreamParameters": []
@@ -1470,7 +1470,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Thing",
@@ -1489,8 +1489,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -1524,7 +1524,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingGroup",
@@ -1543,8 +1543,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingGroupName"
         },
         "memoryStreamParameters": []
@@ -1578,7 +1578,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingTypeName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingType",
@@ -1597,8 +1597,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingTypeName"
         },
         "memoryStreamParameters": []
@@ -1684,7 +1684,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeleteScheduledAudits"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAuditConfiguration",
@@ -1703,8 +1703,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeleteScheduledAudits"
         },
         "memoryStreamParameters": []
@@ -1738,7 +1738,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AuthorizerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Authorizer",
@@ -1757,8 +1757,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AuthorizerName"
         },
         "memoryStreamParameters": []
@@ -1846,7 +1846,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CACertificate",
@@ -1865,8 +1865,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -1909,7 +1909,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -1928,8 +1928,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -2026,7 +2026,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Job",
@@ -2045,8 +2045,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -2143,7 +2143,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "OtaUpdateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OTAUpdate",
@@ -2162,8 +2162,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "OtaUpdateId"
         },
         "memoryStreamParameters": []
@@ -2197,7 +2197,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
@@ -2216,8 +2216,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -2352,7 +2352,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleAlias"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleAlias",
@@ -2371,8 +2371,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleAlias"
         },
         "memoryStreamParameters": []
@@ -2406,7 +2406,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ScheduledAuditName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledAudit",
@@ -2425,8 +2425,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ScheduledAuditName"
         },
         "memoryStreamParameters": []
@@ -2460,7 +2460,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SecurityProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityProfile",
@@ -2479,8 +2479,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SecurityProfileName"
         },
         "memoryStreamParameters": []
@@ -2514,7 +2514,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
@@ -2533,8 +2533,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamId"
         },
         "memoryStreamParameters": []
@@ -2568,7 +2568,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Thing",
@@ -2587,8 +2587,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -2622,7 +2622,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingGroup",
@@ -2641,8 +2641,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingGroupName"
         },
         "memoryStreamParameters": []
@@ -2676,7 +2676,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingTypeName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingType",
@@ -2695,8 +2695,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingTypeName"
         },
         "memoryStreamParameters": []
@@ -2730,7 +2730,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicRule",
@@ -2749,8 +2749,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
         },
         "memoryStreamParameters": []
@@ -2776,7 +2776,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "LogTargetName"
+          "TargetName"
         ],
         "byNameMembers": []
       },
@@ -2784,15 +2784,15 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "V2LoggingLevel",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: TargetName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "Marker",
@@ -2803,8 +2803,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetName"
         },
         "memoryStreamParameters": []
@@ -2838,7 +2838,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingTypeName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingType",
@@ -2857,8 +2857,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingTypeName"
         },
         "memoryStreamParameters": []
@@ -3866,7 +3866,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Policy",
@@ -3885,8 +3885,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -3912,7 +3912,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "PrincipalId"
+          "PolicyName"
         ],
         "byNameMembers": []
       },
@@ -3920,15 +3920,15 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrincipalPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: PolicyName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "Marker",
@@ -3939,8 +3939,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -3974,7 +3974,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SecurityProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityProfile",
@@ -3993,8 +3993,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SecurityProfileName"
         },
         "memoryStreamParameters": []
@@ -4028,7 +4028,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingPrincipal",
@@ -4047,8 +4047,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -4082,7 +4082,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicRule",
@@ -4101,8 +4101,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
         },
         "memoryStreamParameters": []
@@ -4136,7 +4136,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicRule",
@@ -4155,8 +4155,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
         },
         "memoryStreamParameters": []
@@ -4767,9 +4767,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "ResourceIdentifier"
-        ],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -6931,7 +6929,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateTransfer",
@@ -6950,8 +6948,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -7093,7 +7091,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TopicRule",
@@ -7112,8 +7110,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleName"
         },
         "memoryStreamParameters": []
@@ -7147,7 +7145,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "IndexName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Index",
@@ -7166,8 +7164,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "IndexName"
         },
         "memoryStreamParameters": []
@@ -7201,7 +7199,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AuthorizerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultAuthorizer",
@@ -7220,8 +7218,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AuthorizerName"
         },
         "memoryStreamParameters": []
@@ -7255,7 +7253,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultPolicyVersion",
@@ -7274,8 +7272,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -7307,7 +7305,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoggingOptionsPayload_RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoggingOptions",
@@ -7326,8 +7324,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -7361,7 +7359,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogTarget_TargetName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "V2LoggingLevel",
@@ -7380,8 +7378,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetName"
         },
         "memoryStreamParameters": []
@@ -7413,7 +7411,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "V2LoggingOptions",
@@ -7432,8 +7430,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -7467,7 +7465,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetCheckNames"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "OnDemandAuditTask",
@@ -7486,8 +7484,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetCheckNames"
         },
         "memoryStreamParameters": []
@@ -7521,7 +7519,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingRegistrationTask",
@@ -7540,8 +7538,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -7575,7 +7573,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TaskId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingRegistrationTask",
@@ -7594,8 +7592,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TaskId"
         },
         "memoryStreamParameters": []
@@ -7629,7 +7627,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -7648,8 +7646,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -7779,7 +7777,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -7798,8 +7796,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -7833,7 +7831,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
@@ -7852,8 +7850,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -7887,7 +7885,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AccountAuditConfiguration",
@@ -7906,8 +7904,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -7941,7 +7939,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AuthorizerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Authorizer",
@@ -7960,8 +7958,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AuthorizerName"
         },
         "memoryStreamParameters": []
@@ -7987,7 +7985,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "BillingGroupProperties"
+          "BillingGroupProperties_BillingGroupDescription"
         ],
         "byNameMembers": []
       },
@@ -8101,7 +8099,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -8120,8 +8118,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateId"
         },
         "memoryStreamParameters": []
@@ -8147,7 +8145,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ThingGroupProperties"
+          "ThingGroupName"
         ],
         "byNameMembers": []
       },
@@ -8209,7 +8207,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EventConfigurations"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventConfigurations",
@@ -8228,8 +8226,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EventConfigurations"
         },
         "memoryStreamParameters": []
@@ -8263,7 +8261,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingIndexingConfiguration_ThingIndexingMode"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IndexingConfiguration",
@@ -8282,8 +8280,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingIndexingMode"
         },
         "memoryStreamParameters": []
@@ -8371,7 +8369,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RoleAlias",
@@ -8390,8 +8388,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -8425,7 +8423,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ScheduledAuditName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScheduledAudit",
@@ -8444,8 +8442,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ScheduledAuditName"
         },
         "memoryStreamParameters": []
@@ -8479,7 +8477,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SecurityProfileName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityProfile",
@@ -8498,8 +8496,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SecurityProfileName"
         },
         "memoryStreamParameters": []
@@ -8533,7 +8531,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
@@ -8552,8 +8550,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamId"
         },
         "memoryStreamParameters": []
@@ -8587,7 +8585,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Thing",
@@ -8606,8 +8604,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []
@@ -8641,7 +8639,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingGroup",
@@ -8660,8 +8658,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingGroupName"
         },
         "memoryStreamParameters": []
@@ -8695,7 +8693,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThingName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThingGroupsForThing",
@@ -8714,8 +8712,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThingName"
         },
         "memoryStreamParameters": []

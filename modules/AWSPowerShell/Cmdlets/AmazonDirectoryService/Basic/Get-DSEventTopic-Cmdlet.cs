@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// all associations for the specified Directory ID are returned.</para><para>An empty list results in an <code>InvalidParameterException</code> being thrown.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("TopicNames")]
         public System.String[] TopicName { get; set; }
         #endregion

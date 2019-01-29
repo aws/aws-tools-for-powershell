@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// accounts that you want to disassociate from master.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion

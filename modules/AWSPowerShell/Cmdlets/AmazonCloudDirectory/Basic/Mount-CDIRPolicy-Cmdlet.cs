@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// both objects reside. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryArn { get; set; }
         #endregion
         

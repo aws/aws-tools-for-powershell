@@ -189,6 +189,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Boolean ReplaceUnhealthyInstance { get; set; }
         #endregion
         
+        #region Parameter OnDemandOptions_SingleAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that the fleet launches all On-Demand Instances into a single Availability
+        /// Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean OnDemandOptions_SingleAvailabilityZone { get; set; }
+        #endregion
+        
+        #region Parameter SpotOptions_SingleAvailabilityZone
+        /// <summary>
+        /// <para>
+        /// <para>Indicates that the fleet launches all Spot Instances into a single Availability Zone.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SpotOptions_SingleAvailabilityZone { get; set; }
+        #endregion
+        
         #region Parameter OnDemandOptions_SingleInstanceType
         /// <summary>
         /// <para>
@@ -374,6 +395,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.OnDemandOptions_AllocationStrategy = this.OnDemandOptions_AllocationStrategy;
             if (ParameterWasBound("OnDemandOptions_MinTargetCapacity"))
                 context.OnDemandOptions_MinTargetCapacity = this.OnDemandOptions_MinTargetCapacity;
+            if (ParameterWasBound("OnDemandOptions_SingleAvailabilityZone"))
+                context.OnDemandOptions_SingleAvailabilityZone = this.OnDemandOptions_SingleAvailabilityZone;
             if (ParameterWasBound("OnDemandOptions_SingleInstanceType"))
                 context.OnDemandOptions_SingleInstanceType = this.OnDemandOptions_SingleInstanceType;
             if (ParameterWasBound("ReplaceUnhealthyInstance"))
@@ -384,6 +407,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.SpotOptions_InstancePoolsToUseCount = this.SpotOptions_InstancePoolsToUseCount;
             if (ParameterWasBound("SpotOptions_MinTargetCapacity"))
                 context.SpotOptions_MinTargetCapacity = this.SpotOptions_MinTargetCapacity;
+            if (ParameterWasBound("SpotOptions_SingleAvailabilityZone"))
+                context.SpotOptions_SingleAvailabilityZone = this.SpotOptions_SingleAvailabilityZone;
             if (ParameterWasBound("SpotOptions_SingleInstanceType"))
                 context.SpotOptions_SingleInstanceType = this.SpotOptions_SingleInstanceType;
             if (this.TagSpecification != null)
@@ -464,6 +489,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.OnDemandOptions.MinTargetCapacity = requestOnDemandOptions_onDemandOptions_MinTargetCapacity.Value;
                 requestOnDemandOptionsIsNull = false;
             }
+            System.Boolean? requestOnDemandOptions_onDemandOptions_SingleAvailabilityZone = null;
+            if (cmdletContext.OnDemandOptions_SingleAvailabilityZone != null)
+            {
+                requestOnDemandOptions_onDemandOptions_SingleAvailabilityZone = cmdletContext.OnDemandOptions_SingleAvailabilityZone.Value;
+            }
+            if (requestOnDemandOptions_onDemandOptions_SingleAvailabilityZone != null)
+            {
+                request.OnDemandOptions.SingleAvailabilityZone = requestOnDemandOptions_onDemandOptions_SingleAvailabilityZone.Value;
+                requestOnDemandOptionsIsNull = false;
+            }
             System.Boolean? requestOnDemandOptions_onDemandOptions_SingleInstanceType = null;
             if (cmdletContext.OnDemandOptions_SingleInstanceType != null)
             {
@@ -525,6 +560,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotOptions_spotOptions_MinTargetCapacity != null)
             {
                 request.SpotOptions.MinTargetCapacity = requestSpotOptions_spotOptions_MinTargetCapacity.Value;
+                requestSpotOptionsIsNull = false;
+            }
+            System.Boolean? requestSpotOptions_spotOptions_SingleAvailabilityZone = null;
+            if (cmdletContext.SpotOptions_SingleAvailabilityZone != null)
+            {
+                requestSpotOptions_spotOptions_SingleAvailabilityZone = cmdletContext.SpotOptions_SingleAvailabilityZone.Value;
+            }
+            if (requestSpotOptions_spotOptions_SingleAvailabilityZone != null)
+            {
+                request.SpotOptions.SingleAvailabilityZone = requestSpotOptions_spotOptions_SingleAvailabilityZone.Value;
                 requestSpotOptionsIsNull = false;
             }
             System.Boolean? requestSpotOptions_spotOptions_SingleInstanceType = null;
@@ -700,12 +745,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.FleetLaunchTemplateConfigRequest> LaunchTemplateConfigs { get; set; }
             public Amazon.EC2.FleetOnDemandAllocationStrategy OnDemandOptions_AllocationStrategy { get; set; }
             public System.Int32? OnDemandOptions_MinTargetCapacity { get; set; }
+            public System.Boolean? OnDemandOptions_SingleAvailabilityZone { get; set; }
             public System.Boolean? OnDemandOptions_SingleInstanceType { get; set; }
             public System.Boolean? ReplaceUnhealthyInstances { get; set; }
             public Amazon.EC2.SpotAllocationStrategy SpotOptions_AllocationStrategy { get; set; }
             public Amazon.EC2.SpotInstanceInterruptionBehavior SpotOptions_InstanceInterruptionBehavior { get; set; }
             public System.Int32? SpotOptions_InstancePoolsToUseCount { get; set; }
             public System.Int32? SpotOptions_MinTargetCapacity { get; set; }
+            public System.Boolean? SpotOptions_SingleAvailabilityZone { get; set; }
             public System.Boolean? SpotOptions_SingleInstanceType { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public Amazon.EC2.DefaultTargetCapacityType TargetCapacitySpecification_DefaultTargetCapacityType { get; set; }

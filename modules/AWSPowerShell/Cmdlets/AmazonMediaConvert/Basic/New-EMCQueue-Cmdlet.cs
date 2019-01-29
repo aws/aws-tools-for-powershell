@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         /// The name of the queue that you are creating.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

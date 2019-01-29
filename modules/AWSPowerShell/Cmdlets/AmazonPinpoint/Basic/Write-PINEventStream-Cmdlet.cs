@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// The unique ID of your Amazon Pinpoint application.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationId { get; set; }
         #endregion
         

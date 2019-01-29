@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SharedAccountId
         /// <summary>
         /// <para>
-        /// <para>The 12-digit ID of the AWS account for which to delete image permissions.</para>
+        /// <para>The 12-digit identifier of the AWS account for which to delete image permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

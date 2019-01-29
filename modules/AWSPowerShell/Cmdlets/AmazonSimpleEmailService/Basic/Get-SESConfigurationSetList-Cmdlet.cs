@@ -72,6 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

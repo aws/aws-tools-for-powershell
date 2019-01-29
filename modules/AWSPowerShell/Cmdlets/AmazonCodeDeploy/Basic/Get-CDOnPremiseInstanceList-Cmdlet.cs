@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     ///  
     /// <para>
     /// Unless otherwise specified, both registered and deregistered on-premises instance
-    /// names will be listed. To list only registered or deregistered on-premises instance
-    /// names, use the registration status parameter.
+    /// names are listed. To list only registered or deregistered on-premises instance names,
+    /// use the registration status parameter.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDOnPremiseInstanceList")]
@@ -62,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TagFilter
         /// <summary>
         /// <para>
-        /// <para>The on-premises instance tags that will be used to restrict the corresponding on-premises
-        /// instance names returned.</para>
+        /// <para>The on-premises instance tags that are used to restrict the on-premises instance names
+        /// returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,6 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (ParameterWasBound("NextToken"))
             {
                 _nextMarker = cmdletContext.NextToken;
                 _userControllingPaging = true;
@@ -178,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     
                     ProcessOutput(output);
                     
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {

@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <code>LogDestinationConfigs</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LoggingConfiguration_ResourceArn { get; set; }
         #endregion
         

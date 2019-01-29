@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// by the lifecycle policy.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ExecutionRoleArn { get; set; }
         #endregion
         

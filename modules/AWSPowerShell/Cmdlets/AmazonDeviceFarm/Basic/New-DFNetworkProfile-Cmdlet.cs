@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The name you wish to specify for the new network profile.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

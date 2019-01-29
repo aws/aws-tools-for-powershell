@@ -28,11 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the resource policy associated with the specified Lambda function.
-    /// 
-    ///  
-    /// <para>
-    /// This action requires permission for the <code>lambda:GetPolicy action.</code></para>
+    /// Returns the <a href="http://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// IAM policy</a> for a function, version, or alias.
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]
     [OutputType("Amazon.Lambda.Model.GetPolicyResponse")]
@@ -56,10 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>You can specify this optional query parameter to specify a function version or an
-        /// alias name in which case this API will return all permissions associated with the
-        /// specific qualified ARN. If you don't provide this parameter, the API will return permissions
-        /// that apply to the unqualified function ARN.</para>
+        /// <para>Specify a version or alias to get the policy for that resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

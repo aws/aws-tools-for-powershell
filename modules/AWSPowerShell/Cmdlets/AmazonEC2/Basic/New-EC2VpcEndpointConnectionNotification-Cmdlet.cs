@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ARN of the SNS topic for the notifications.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ConnectionNotificationArn { get; set; }
         #endregion
         

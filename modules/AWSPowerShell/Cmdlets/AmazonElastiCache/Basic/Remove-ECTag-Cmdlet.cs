@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceName { get; set; }
         #endregion
         

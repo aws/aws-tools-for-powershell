@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID for the celebrity. You get the celebrity ID from a call to the operation, which
-        /// recognizes celebrities in an image. </para>
+        /// <para>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a>
+        /// operation, which recognizes celebrities in an image. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

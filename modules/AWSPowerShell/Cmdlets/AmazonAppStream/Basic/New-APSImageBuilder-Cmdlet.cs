@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for display.</para>
+        /// <para>The description to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The image builder name for display.</para>
+        /// <para>The image builder name to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The name of the image used to create the builder.</para>
+        /// <para>The name of the image used to create the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security groups for the fleet.</para>
+        /// <para>The identifiers of the security groups for the fleet or image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -162,12 +162,28 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnets to which a network interface is established from the fleet instance.</para>
+        /// <para>The identifiers of the subnets to which a network interface is attached from the fleet
+        /// instance or image builder instance. Fleet instances use one or two subnets. Image
+        /// builder instances use one subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate with the image builder. A tag is a key-value pair (the value
+        /// is optional). For example, Environment=Test, or, if you do not specify a value, Environment=.
+        /// </para><para>If you do not specify a value, we set the value to an empty string.</para><para>For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
+        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -210,6 +226,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.VpcConfig_SecurityGroupId != null)
             {
                 context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
@@ -294,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
              // populate VpcConfig
@@ -398,6 +426,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> VpcConfig_SubnetIds { get; set; }
         }

@@ -66,7 +66,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FindingArn"
+          "FindingArns"
         ],
         "byNameMembers": []
       },
@@ -74,7 +74,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FindingArns"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttributesToFindings",
@@ -94,8 +94,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FindingArns"
         },
         "memoryStreamParameters": []
@@ -239,7 +239,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentTemplateArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExclusionsPreview",
@@ -259,8 +259,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTemplateArn"
         },
         "memoryStreamParameters": []
@@ -294,7 +294,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceGroupTags"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceGroup",
@@ -314,8 +314,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceGroupTags"
         },
         "memoryStreamParameters": []
@@ -349,7 +349,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentRunArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssessmentRun",
@@ -369,8 +369,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentRunArn"
         },
         "memoryStreamParameters": []
@@ -404,7 +404,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentTargetArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssessmentTarget",
@@ -424,8 +424,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTargetArn"
         },
         "memoryStreamParameters": []
@@ -459,7 +459,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentTemplateArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssessmentTemplate",
@@ -479,8 +479,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTemplateArn"
         },
         "memoryStreamParameters": []
@@ -754,7 +754,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "FindingArn"
+          "FindingArns"
         ],
         "byNameMembers": []
       },
@@ -854,7 +854,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "RulesPackageArn"
+          "RulesPackageArns"
         ],
         "byNameMembers": []
       },
@@ -1104,7 +1104,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AssessmentTemplateArn"
+          "AssessmentTemplateArns"
         ],
         "byNameMembers": []
       },
@@ -1204,7 +1204,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AssessmentTargetArn"
+          "AssessmentTargetArns"
         ],
         "byNameMembers": []
       },
@@ -1354,7 +1354,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AssessmentRunArn"
+          "AssessmentRunArns"
         ],
         "byNameMembers": []
       },
@@ -1560,7 +1560,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CrossAccountAccessRole",
@@ -1580,8 +1580,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -1613,7 +1613,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FindingArns"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AttributesFromFindings",
@@ -1633,8 +1633,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FindingArns"
         },
         "memoryStreamParameters": []
@@ -1668,7 +1668,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
@@ -1688,8 +1688,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -1776,7 +1776,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentRunArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssessmentRun",
@@ -1796,8 +1796,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentRunArn"
         },
         "memoryStreamParameters": []
@@ -1937,7 +1937,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AssessmentTargetArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AssessmentTarget",
@@ -1957,8 +1957,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AssessmentTargetArn"
         },
         "memoryStreamParameters": []

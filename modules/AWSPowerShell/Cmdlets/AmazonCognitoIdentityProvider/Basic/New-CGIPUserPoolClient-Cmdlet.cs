@@ -231,7 +231,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter WriteAttribute
         /// <summary>
         /// <para>
-        /// <para>The write attributes.</para>
+        /// <para>The user pool attributes that the app client can write to.</para><para>If your app client allows users to sign in through an identity provider, this array
+        /// must include all attributes that are mapped to identity provider attributes. Amazon
+        /// Cognito updates mapped attributes when users sign in to your application through an
+        /// identity provider. If your app client lacks write access to a mapped attribute, Amazon
+        /// Cognito throws an error when it attempts to update the attribute. For more information,
+        /// see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying
+        /// Identity Provider Attribute Mappings for Your User Pool</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

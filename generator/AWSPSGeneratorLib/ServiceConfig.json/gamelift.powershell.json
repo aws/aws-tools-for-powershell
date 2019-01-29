@@ -72,7 +72,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TicketId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Match",
@@ -90,8 +90,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TicketId"
         },
         "memoryStreamParameters": []
@@ -116,7 +116,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Name"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -167,7 +169,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Name"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -218,7 +222,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -269,7 +275,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Name"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -382,7 +390,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleSetName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MatchmakingConfiguration",
@@ -400,8 +408,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleSetName"
         },
         "memoryStreamParameters": []
@@ -435,7 +443,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MatchmakingRuleSet",
@@ -453,8 +461,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -488,7 +496,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GameSessionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PlayerSessions",
@@ -506,8 +514,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GameSessionId"
         },
         "memoryStreamParameters": []
@@ -532,7 +540,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "PeerVpcId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -592,7 +602,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VpcPeeringConnection",
@@ -610,8 +620,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -645,7 +655,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AliasId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
@@ -663,8 +673,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AliasId"
         },
         "memoryStreamParameters": []
@@ -689,14 +699,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "BuildId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Build",
@@ -714,8 +726,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "BuildId"
         },
         "memoryStreamParameters": []
@@ -749,7 +761,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Fleet",
@@ -767,8 +779,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -820,8 +832,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -855,7 +867,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MatchmakingConfiguration",
@@ -873,8 +885,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -908,7 +920,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicy",
@@ -926,8 +938,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -952,7 +964,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "PeerVpcId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -965,9 +979,9 @@
         "confirmationMessageNoun": "VpcPeeringAuthorization",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: PeerVpcId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -1012,7 +1026,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VpcPeeringConnection",
@@ -1030,8 +1044,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -1104,7 +1118,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1294,7 +1310,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1580,7 +1596,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1814,7 +1830,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2146,7 +2162,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2240,7 +2256,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2295,7 +2313,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ScalingPolicy",
@@ -2313,8 +2331,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -2339,14 +2357,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "BuildId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UploadCredentials",
@@ -2364,8 +2384,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "BuildId"
         },
         "memoryStreamParameters": []
@@ -2399,7 +2419,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AliasId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Alias",
@@ -2417,8 +2437,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AliasId"
         },
         "memoryStreamParameters": []
@@ -2491,22 +2511,24 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FleetId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FleetActions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: FleetId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -2516,8 +2538,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -2551,7 +2573,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GameSessionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GameSessionPlacement",
@@ -2569,8 +2591,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GameSessionName"
         },
         "memoryStreamParameters": []
@@ -2604,7 +2626,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GameSessionArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MatchBackfill",
@@ -2622,8 +2644,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GameSessionArn"
         },
         "memoryStreamParameters": []
@@ -2657,7 +2679,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConfigurationName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Matchmaking",
@@ -2675,8 +2697,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConfigurationName"
         },
         "memoryStreamParameters": []
@@ -2701,22 +2723,24 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FleetId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FleetActions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: FleetId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -2726,8 +2750,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -2761,7 +2785,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PlacementId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GameSessionPlacement",
@@ -2779,8 +2803,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PlacementId"
         },
         "memoryStreamParameters": []
@@ -2814,7 +2838,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TicketId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Matchmaking",
@@ -2832,8 +2856,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TicketId"
         },
         "memoryStreamParameters": []
@@ -2858,7 +2882,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "AliasId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2909,7 +2935,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "BuildId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2960,7 +2988,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FleetId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3011,14 +3041,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FleetId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FleetCapacity",
@@ -3036,8 +3068,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -3062,14 +3094,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FleetId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FleetPortSettings",
@@ -3087,8 +3121,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []
@@ -3113,7 +3147,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "GameSessionId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3173,7 +3209,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "GameSessionQueue",
@@ -3191,8 +3227,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -3226,7 +3262,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MatchmakingConfiguration",
@@ -3244,8 +3280,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -3279,7 +3315,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FleetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RuntimeConfiguration",
@@ -3297,8 +3333,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FleetId"
         },
         "memoryStreamParameters": []

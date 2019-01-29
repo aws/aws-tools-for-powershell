@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for display.</para>
+        /// <para>The description to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The stack name for display.</para>
+        /// <para>The stack name to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,6 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public Amazon.AppStream.Model.StorageConnector[] StorageConnector { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate with the stack. A tag is a key-value pair (the value is optional).
+        /// For example, Environment=Test, or, if you do not specify a value, Environment=. </para><para>If you do not specify a value, we set the value to an empty string.</para><para>For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
+        /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter UserSetting
         /// <summary>
         /// <para>
@@ -178,6 +191,14 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (this.StorageConnector != null)
             {
                 context.StorageConnectors = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             if (this.UserSetting != null)
             {
@@ -251,6 +272,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.StorageConnectors != null)
             {
                 request.StorageConnectors = cmdletContext.StorageConnectors;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.UserSettings != null)
             {
@@ -328,6 +353,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Name { get; set; }
             public System.String RedirectURL { get; set; }
             public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public List<Amazon.AppStream.Model.UserSetting> UserSettings { get; set; }
         }
         

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>[Required] The identifier of the <a>ClientCertificate</a> resource to be updated.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClientCertificateId { get; set; }
         #endregion
         

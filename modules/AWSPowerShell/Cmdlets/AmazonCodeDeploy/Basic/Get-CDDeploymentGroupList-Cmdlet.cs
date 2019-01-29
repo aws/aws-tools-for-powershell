@@ -28,8 +28,8 @@ using Amazon.CodeDeploy.Model;
 namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
-    /// Lists the deployment groups for an application registered with the applicable IAM
-    /// user or AWS account.
+    /// Lists the deployment groups for an application registered with the IAM user or AWS
+    /// account.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentGroupList")]
     [OutputType("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse")]
@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application associated with the applicable IAM user
-        /// or AWS account.</para>
+        /// <para>The name of an AWS CodeDeploy application associated with the IAM user or AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -56,9 +55,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>An identifier returned from the previous list deployment groups call. It can be used
         /// to return the next set of deployment groups in the list.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

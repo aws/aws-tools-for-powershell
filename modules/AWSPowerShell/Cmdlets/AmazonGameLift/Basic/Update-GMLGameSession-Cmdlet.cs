@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Unique identifier for the game session to update.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String GameSessionId { get; set; }
         #endregion
         

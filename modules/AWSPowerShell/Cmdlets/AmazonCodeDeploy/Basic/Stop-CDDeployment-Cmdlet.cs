@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para> The unique ID of a deployment. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DeploymentId { get; set; }
         #endregion
         

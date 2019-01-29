@@ -28,14 +28,15 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates an alias that points to the specified Lambda function version. For more information,
-    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
+    /// Creates an <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>
+    /// for a Lambda function version. Use aliases to provide clients with a function identifier
+    /// that you can update to invoke a different version.
     /// 
     ///  
     /// <para>
-    /// Alias names are unique for a given function. This requires permission for the lambda:CreateAlias
-    /// action.
+    /// You can also map an alias to split invocation requests between two versions. Use the
+    /// <code>RoutingConfig</code> parameter to specify a second version and the percentage
+    /// of invocation requests that it receives.
     /// </para>
     /// </summary>
     [Cmdlet("New", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -61,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Description of the alias.</para>
+        /// <para>A description of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>Lambda function version for which you are creating the alias.</para>
+        /// <para>The function version that the alias invokes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name for the alias you are creating.</para>
+        /// <para>The name of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

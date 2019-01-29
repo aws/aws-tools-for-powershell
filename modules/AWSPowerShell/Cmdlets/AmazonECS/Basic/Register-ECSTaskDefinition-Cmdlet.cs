@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Family { get; set; }
         #endregion
         

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FileShareARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the file share you want to refresh.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -57,7 +57,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter FolderList
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A comma-separated list of the paths of folders to refresh in the cache. The default
+        /// is [<code>"/"</code>]. The default refreshes objects and folders at the root of the
+        /// Amazon S3 bucket. If <code>Recursive</code> is set to "true", the entire S3 bucket
+        /// that the file share has access to is refreshed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

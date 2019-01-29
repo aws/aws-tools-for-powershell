@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The id of the replication group from which you want to remove replica nodes.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReplicationGroupId { get; set; }
         #endregion
         

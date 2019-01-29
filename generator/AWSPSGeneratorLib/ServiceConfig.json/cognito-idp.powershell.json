@@ -69,14 +69,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CustomAttributes",
@@ -95,8 +97,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -175,14 +177,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConfirmSignUp",
@@ -201,8 +205,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -227,14 +231,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreateUser",
@@ -253,8 +259,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -279,14 +285,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteUser",
@@ -305,8 +313,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -331,14 +339,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeleteUserAttributes",
@@ -357,8 +367,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -383,14 +393,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DisableProviderForUser",
@@ -409,8 +421,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -435,14 +447,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DisableUser",
@@ -461,8 +475,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -487,14 +501,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "UserName"
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnableUser",
@@ -513,8 +529,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -548,7 +564,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ForgetDevice",
@@ -567,8 +583,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -642,7 +658,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -698,7 +716,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ClientId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "InitiateAuth",
@@ -717,8 +735,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ClientId"
         },
         "memoryStreamParameters": []
@@ -743,14 +761,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LinkProviderForUser",
@@ -769,8 +789,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -909,7 +929,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1010,14 +1032,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResetUserPassword",
@@ -1036,8 +1060,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1071,7 +1095,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ClientId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RespondToAuthChallenge",
@@ -1090,8 +1114,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ClientId"
         },
         "memoryStreamParameters": []
@@ -1116,14 +1140,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SetUserMFAPreference",
@@ -1142,8 +1168,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1168,14 +1194,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SetUserSettings",
@@ -1194,8 +1222,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1220,14 +1248,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateAuthEventFeedback",
@@ -1246,8 +1276,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1281,7 +1311,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateDeviceStatus",
@@ -1300,8 +1330,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1326,14 +1356,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UpdateUserAttributes",
@@ -1352,8 +1384,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1387,7 +1419,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserGlobalSignOut",
@@ -1406,8 +1438,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1432,7 +1464,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1484,7 +1516,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "AccessToken"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1497,9 +1531,9 @@
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -1545,7 +1579,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
@@ -1564,8 +1598,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceName"
         },
         "memoryStreamParameters": []
@@ -1590,7 +1624,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Username"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1603,9 +1639,9 @@
         "confirmationMessageNoun": "ForgotPassword",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: Username",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -1642,7 +1678,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Username"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1655,9 +1693,9 @@
         "confirmationMessageNoun": "SignUp",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: Username",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -1703,7 +1741,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
@@ -1722,8 +1760,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GroupName"
         },
         "memoryStreamParameters": []
@@ -1757,7 +1795,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProviderName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
@@ -1776,8 +1814,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProviderName"
         },
         "memoryStreamParameters": []
@@ -1856,14 +1894,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
@@ -1882,8 +1922,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -1908,7 +1948,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "PoolName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1960,14 +2002,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
@@ -1986,8 +2030,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -2075,7 +2119,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
@@ -2094,8 +2138,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GroupName"
         },
         "memoryStreamParameters": []
@@ -2129,7 +2173,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProviderName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
@@ -2148,8 +2192,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProviderName"
         },
         "memoryStreamParameters": []
@@ -2183,7 +2227,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Identifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceServer",
@@ -2202,9 +2246,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "UserPoolId"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "Identifier"
         },
         "memoryStreamParameters": []
       }
@@ -2237,7 +2281,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AccessToken"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "User",
@@ -2256,8 +2300,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AccessToken"
         },
         "memoryStreamParameters": []
@@ -2291,7 +2335,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserAttributeNames"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserAttributes",
@@ -2310,8 +2354,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserAttributeNames"
         },
         "memoryStreamParameters": []
@@ -2336,14 +2380,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
@@ -2362,8 +2408,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -2397,7 +2443,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ClientId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
@@ -2416,8 +2462,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ClientId"
         },
         "memoryStreamParameters": []
@@ -2451,7 +2497,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolDomain",
@@ -2470,8 +2516,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -2594,7 +2640,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2690,7 +2738,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2737,7 +2787,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2842,7 +2894,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceKey"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Device",
@@ -2861,8 +2913,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceKey"
         },
         "memoryStreamParameters": []
@@ -2887,7 +2939,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Username"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -2939,7 +2993,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3133,7 +3189,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3180,7 +3238,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3276,7 +3336,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3323,7 +3383,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3379,7 +3441,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AccessToken"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SignOut",
@@ -3398,8 +3460,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AccessToken"
         },
         "memoryStreamParameters": []
@@ -3433,7 +3495,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ClientId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Auth",
@@ -3452,8 +3514,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ClientId"
         },
         "memoryStreamParameters": []
@@ -3543,7 +3605,9 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3590,7 +3654,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3637,7 +3703,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3692,7 +3760,9 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3739,7 +3809,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3841,7 +3913,9 @@
         "resultsTruncatedMember": ""
       },
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3945,7 +4019,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Username"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4006,7 +4082,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ClientId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ToAuthChallenge",
@@ -4025,8 +4101,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ClientId"
         },
         "memoryStreamParameters": []
@@ -4051,14 +4127,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RiskConfiguration",
@@ -4077,8 +4155,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -4103,14 +4181,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UICustomization",
@@ -4129,8 +4209,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": [
@@ -4157,7 +4237,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4209,14 +4289,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolMfaConfig",
@@ -4235,8 +4317,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -4261,7 +4343,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "AccessToken"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4274,9 +4358,9 @@
         "confirmationMessageNoun": "UserSettings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: AccessToken",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -4313,7 +4397,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "Username"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4374,7 +4460,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
@@ -4393,8 +4479,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -4428,7 +4514,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "JobId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserImportJob",
@@ -4447,8 +4533,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "JobId"
         },
         "memoryStreamParameters": []
@@ -4473,14 +4559,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "AuthEventFeedback",
@@ -4499,8 +4587,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -4534,7 +4622,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DeviceKey"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DeviceStatus",
@@ -4553,8 +4641,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DeviceKey"
         },
         "memoryStreamParameters": []
@@ -4588,7 +4676,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "GroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Group",
@@ -4607,8 +4695,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "GroupName"
         },
         "memoryStreamParameters": []
@@ -4642,7 +4730,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProviderName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IdentityProvider",
@@ -4661,8 +4749,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProviderName"
         },
         "memoryStreamParameters": []
@@ -4741,7 +4829,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "AccessToken"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -4793,14 +4883,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPool",
@@ -4819,8 +4911,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []
@@ -4845,14 +4937,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "UserPoolId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "UserPoolId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UserPoolClient",
@@ -4871,8 +4965,62 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "UserPoolId"
+        },
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateUserPoolDomain": {
+      "verb": "Update",
+      "noun": "UserPoolDomain",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "CloudFrontDomain",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "UserPoolId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "UserPoolId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "UserPoolDomain",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruSource": "",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 60,
+          "resultsTruncatedMember": ""
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "UserPoolId"
         },
         "memoryStreamParameters": []

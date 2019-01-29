@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ReplicationInstanceArn { get; set; }
         #endregion
         

@@ -82,7 +82,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ListenerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListenerCertificates",
@@ -100,8 +100,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ListenerArn"
         },
         "memoryStreamParameters": []
@@ -133,7 +133,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArns"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -151,8 +151,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArns"
         },
         "memoryStreamParameters": []
@@ -186,7 +186,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
@@ -204,8 +204,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -237,7 +237,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
@@ -255,8 +255,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -290,7 +290,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ListenerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
@@ -308,8 +308,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ListenerArn"
         },
         "memoryStreamParameters": []
@@ -394,7 +394,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ListenerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
@@ -412,8 +412,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ListenerArn"
         },
         "memoryStreamParameters": []
@@ -447,7 +447,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancer",
@@ -465,8 +465,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -500,7 +500,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
@@ -518,8 +518,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleArn"
         },
         "memoryStreamParameters": []
@@ -553,7 +553,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroup",
@@ -571,8 +571,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetGroupArn"
         },
         "memoryStreamParameters": []
@@ -606,7 +606,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
@@ -624,8 +624,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetGroupArn"
         },
         "memoryStreamParameters": []
@@ -745,7 +745,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ListenerArn"
+          "ListenerArns"
         ],
         "byNameMembers": []
       },
@@ -1183,7 +1183,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ListenerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Listener",
@@ -1201,8 +1201,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ListenerArn"
         },
         "memoryStreamParameters": []
@@ -1236,7 +1236,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LoadBalancerAttributes",
@@ -1254,8 +1254,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -1289,7 +1289,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RuleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Rule",
@@ -1307,8 +1307,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RuleArn"
         },
         "memoryStreamParameters": []
@@ -1342,7 +1342,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroup",
@@ -1360,8 +1360,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetGroupArn"
         },
         "memoryStreamParameters": []
@@ -1395,7 +1395,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TargetGroupAttributes",
@@ -1413,8 +1413,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetGroupArn"
         },
         "memoryStreamParameters": []
@@ -1448,7 +1448,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TargetGroupArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Targets",
@@ -1466,8 +1466,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TargetGroupArn"
         },
         "memoryStreamParameters": []
@@ -1501,7 +1501,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ListenerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ListenerCertificates",
@@ -1519,8 +1519,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ListenerArn"
         },
         "memoryStreamParameters": []
@@ -1552,7 +1552,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArns"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -1570,8 +1570,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArns"
         },
         "memoryStreamParameters": []
@@ -1605,7 +1605,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IpAddressType",
@@ -1623,8 +1623,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -1656,7 +1656,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RulePriorities"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RulePriorities",
@@ -1674,8 +1674,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RulePriorities"
         },
         "memoryStreamParameters": []
@@ -1709,7 +1709,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SecurityGroups",
@@ -1727,8 +1727,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []
@@ -1762,7 +1762,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LoadBalancerArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Subnets",
@@ -1780,8 +1780,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LoadBalancerArn"
         },
         "memoryStreamParameters": []

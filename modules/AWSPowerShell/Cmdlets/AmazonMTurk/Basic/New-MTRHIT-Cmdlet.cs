@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// search results, and everywhere the HIT is mentioned. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Title { get; set; }
         #endregion
         

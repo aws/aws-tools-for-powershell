@@ -58,7 +58,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToStream",
@@ -69,8 +69,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -106,7 +106,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
@@ -117,8 +117,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -152,7 +152,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamRetentionPeriod",
@@ -163,8 +163,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -198,7 +198,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Stream",
@@ -209,8 +209,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -244,7 +244,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConsumerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumer",
@@ -255,8 +255,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConsumerName"
         },
         "memoryStreamParameters": []
@@ -455,7 +455,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnhancedMonitoring",
@@ -466,8 +466,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -501,7 +501,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EnhancedMonitoring",
@@ -512,8 +512,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -629,7 +629,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamRetentionPeriod",
@@ -640,8 +640,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -846,7 +846,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shards",
@@ -857,8 +857,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -884,7 +884,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Record"
+          "Records"
         ],
         "byNameMembers": []
       },
@@ -892,7 +892,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Records",
@@ -903,8 +903,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -938,7 +938,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConsumerName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumer",
@@ -949,8 +949,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConsumerName"
         },
         "memoryStreamParameters": []
@@ -1036,7 +1036,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shard",
@@ -1047,8 +1047,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -1082,7 +1082,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamEncryption",
@@ -1093,8 +1093,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -1128,7 +1128,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamEncryption",
@@ -1139,8 +1139,8 @@
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []
@@ -1177,7 +1177,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "StreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ShardCount",
@@ -1188,8 +1188,8 @@
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "StreamName"
         },
         "memoryStreamParameters": []

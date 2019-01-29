@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// object identifies a predicate, such as a <a>ByteMatchSet</a> or an <a>IPSet</a>, that
     /// specifies the web requests that you want to allow, block, or count. If you add more
     /// than one predicate to a <code>Rule</code>, a request must match all of the specifications
-    /// to be allowed, blocked, or counted. For example, suppose you add the following to
-    /// a <code>Rule</code>: 
+    /// to be allowed, blocked, or counted. For example, suppose that you add the following
+    /// to a <code>Rule</code>: 
     /// 
     ///  <ul><li><para>
     /// A <code>ByteMatchSet</code> that matches the value <code>BadBot</code> in the <code>User-Agent</code>

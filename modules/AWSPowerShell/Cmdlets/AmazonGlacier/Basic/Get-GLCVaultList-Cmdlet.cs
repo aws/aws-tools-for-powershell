@@ -103,6 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.Marker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.Limit;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("Limit");
             bool _continueIteration = true;
             
             try

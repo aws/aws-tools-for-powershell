@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The email address that the predictive inbox placement test email was sent from.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FromEmailAddress { get; set; }
         #endregion
         

@@ -28,7 +28,7 @@ using Amazon.AppMesh.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
-    /// Describes an existing cluster.
+    /// Describes an existing service mesh.
     /// </summary>
     [Cmdlet("Get", "AMSHMesh")]
     [OutputType("Amazon.AppMesh.Model.MeshData")]

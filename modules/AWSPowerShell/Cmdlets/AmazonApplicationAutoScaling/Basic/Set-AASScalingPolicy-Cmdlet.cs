@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scaling policy applies to the scalable target identified by those three
-    /// attributes. You cannot create a scaling policy until you register the scalable target
-    /// using <a>RegisterScalableTarget</a>.
+    /// attributes. You cannot create a scaling policy until you have registered the resource
+    /// as a scalable target using <a>RegisterScalableTarget</a>.
     /// </para><para>
     /// To update a policy, specify its policy name and the parameters that you want to change.
     /// Any parameters that you don't specify are not changed by this update request.
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter CustomizedMetricSpecification_Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions of the metric.</para>
+        /// <para>The dimensions of the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter CustomizedMetricSpecification_MetricName
         /// <summary>
         /// <para>
-        /// <para>The name of the metric.</para>
+        /// <para>The name of the metric. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,9 +173,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. This parameter is required if you are creating a policy.</para><para>For DynamoDB, only <code>TargetTrackingScaling</code> is supported. For Amazon ECS,
-        /// Spot Fleet, and Amazon RDS, both <code>StepScaling</code> and <code>TargetTrackingScaling</code>
-        /// are supported. For any other service, only <code>StepScaling</code> is supported.</para>
+        /// <para>The policy type. This parameter is required if you are creating a scaling policy.</para><para>For information on which services do not support <code>StepScaling</code> or <code>TargetTrackingScaling</code>,
+        /// see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step
+        /// Scaling Policies for Application Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
+        /// Tracking Scaling Policies for Application Auto Scaling</a> in the <i>Application Auto
+        /// Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li><li><para>Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and
         /// the unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>Custom resources are not supported with a resource type. This parameter must specify
         /// the <code>OutputValue</code> from the CloudFormation template stack used to access
-        /// the resources. The unique identifier is defined by the service provider.</para></li></ul>
+        /// the resources. The unique identifier is defined by the service provider. More information
+        /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
+        /// repository</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -245,7 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
-        /// DB cluster. Available for Aurora MySQL-compatible edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
+        /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
+        /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li></ul>
         /// </para>

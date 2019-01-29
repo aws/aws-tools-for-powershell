@@ -66,9 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.GG
         /// The token for the next set of results, or ''null''
         /// if there are no additional results.
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }

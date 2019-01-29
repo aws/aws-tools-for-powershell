@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// rules.
     /// </summary>
     [Cmdlet("Update", "WKSRulesOfIpGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon WorkSpaces UpdateRulesOfIpGroup API operation.", Operation = new[] {"UpdateRulesOfIpGroup"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkSpaces.Model.UpdateRulesOfIpGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateWKSRulesOfIpGroupCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// <para>The identifier of the group.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String GroupId { get; set; }
         #endregion
         
@@ -60,6 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("UserRules")]
         public Amazon.WorkSpaces.Model.IpRuleItem[] UserRule { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the GroupId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -130,6 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.GroupId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

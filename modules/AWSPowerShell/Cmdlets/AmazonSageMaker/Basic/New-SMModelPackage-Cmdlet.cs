@@ -31,6 +31,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Creates a model package that you can use to create Amazon SageMaker models or list
     /// on AWS Marketplace. Buyers can subscribe to model packages listed on AWS Marketplace
     /// to create models in Amazon SageMaker.
+    /// 
+    ///  
+    /// <para>
+    /// To create a model package by specifying a Docker container that contains your inference
+    /// code and the Amazon S3 location of your model artifacts, provide values for <code>InferenceSpecification</code>.
+    /// To create a model from an algorithm resource that you created or subscribed to in
+    /// AWS Marketplace, provide a value for <code>SourceAlgorithmSpecification</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SMModelPackage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -155,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter ValidationSpecification_ValidationRole
         /// <summary>
         /// <para>
-        /// <para>The IAM roles to be used for the validation of a model package.</para>
+        /// <para>The IAM roles to be used for the validation of the model package.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>A new user-supplied name or description of the <code>BatchPrediction</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Name")]
         public System.String BatchPredictionName { get; set; }
         #endregion

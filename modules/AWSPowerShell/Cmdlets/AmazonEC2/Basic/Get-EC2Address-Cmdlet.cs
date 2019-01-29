@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PublicIp
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic] One or more Elastic IP addresses.</para><para>Default: Describes all your Elastic IP addresses.</para>
+        /// <para>One or more Elastic IP addresses.</para><para>Default: Describes all your Elastic IP addresses.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -99,7 +99,6 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "ResourceName",
           "Tags"
         ],
         "disableMemoryStreamTypeRemap": "false"
@@ -107,14 +106,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ResourceName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
@@ -134,8 +135,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceName"
         },
         "memoryStreamParameters": []
@@ -172,7 +173,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroupIngress",
@@ -192,8 +193,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -229,7 +230,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SourceSnapshotName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
@@ -249,8 +250,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SourceSnapshotName"
         },
         "memoryStreamParameters": []
@@ -296,14 +297,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheClusterId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
@@ -323,8 +326,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheClusterId"
         },
         "memoryStreamParameters": []
@@ -361,7 +364,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
@@ -381,8 +384,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -418,7 +421,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroup",
@@ -438,8 +441,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -476,7 +479,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
@@ -496,8 +499,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -533,7 +536,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PrimaryClusterId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroup",
@@ -553,8 +556,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PrimaryClusterId"
         },
         "memoryStreamParameters": []
@@ -581,14 +584,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheClusterId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
@@ -608,8 +613,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheClusterId"
         },
         "memoryStreamParameters": []
@@ -634,14 +639,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ReplicationGroupId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationGroupId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicaCount",
@@ -661,8 +668,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationGroupId"
         },
         "memoryStreamParameters": []
@@ -687,7 +694,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -749,7 +758,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
@@ -769,8 +778,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -804,7 +813,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroup",
@@ -824,8 +833,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSecurityGroupName"
         },
         "memoryStreamParameters": []
@@ -859,7 +868,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
@@ -879,8 +888,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -969,7 +978,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SnapshotName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Snapshot",
@@ -989,8 +998,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SnapshotName"
         },
         "memoryStreamParameters": []
@@ -1015,7 +1024,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1610,7 +1621,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1658,14 +1671,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ReplicationGroupId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationGroupId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicaCount",
@@ -1685,8 +1700,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationGroupId"
         },
         "memoryStreamParameters": []
@@ -1711,7 +1726,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1813,14 +1830,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheClusterId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
@@ -1840,8 +1859,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheClusterId"
         },
         "memoryStreamParameters": []
@@ -1877,7 +1896,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
@@ -1897,8 +1916,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -1935,7 +1954,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSubnetGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSubnetGroup",
@@ -1955,8 +1974,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSubnetGroupName"
         },
         "memoryStreamParameters": []
@@ -1990,7 +2009,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationGroupId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroup",
@@ -2010,8 +2029,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationGroupId"
         },
         "memoryStreamParameters": []
@@ -2036,14 +2055,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ReplicationGroupId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationGroupId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationGroupShardConfiguration",
@@ -2063,8 +2084,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationGroupId"
         },
         "memoryStreamParameters": []
@@ -2101,7 +2122,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReservedCacheNodesOfferingId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedCacheNodesOffering",
@@ -2121,8 +2142,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReservedCacheNodesOfferingId"
         },
         "memoryStreamParameters": []
@@ -2149,14 +2170,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "CacheClusterId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheClusterId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheCluster",
@@ -2176,8 +2199,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheClusterId"
         },
         "memoryStreamParameters": []
@@ -2197,7 +2220,6 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "ResourceName",
           "Tags"
         ],
         "disableMemoryStreamTypeRemap": "false"
@@ -2205,14 +2227,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ResourceName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
@@ -2232,8 +2256,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceName"
         },
         "memoryStreamParameters": []
@@ -2267,7 +2291,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheParameterGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheParameterGroup",
@@ -2287,8 +2311,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheParameterGroupName"
         },
         "memoryStreamParameters": []
@@ -2325,7 +2349,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CacheSecurityGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CacheSecurityGroupIngress",
@@ -2345,8 +2369,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CacheSecurityGroupName"
         },
         "memoryStreamParameters": []

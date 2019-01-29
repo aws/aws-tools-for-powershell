@@ -60,16 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// In response, the API returns an array of labels. In addition, the response also includes
     /// the orientation correction. Optionally, you can specify <code>MinConfidence</code>
-    /// to control the confidence threshold for the labels returned. The default is 50%. You
+    /// to control the confidence threshold for the labels returned. The default is 55%. You
     /// can also add the <code>MaxLabels</code> parameter to limit the number of labels returned.
     /// 
     /// </para><note><para>
     /// If the object detected is a person, the operation doesn't provide the same facial
     /// details that the <a>DetectFaces</a> operation provides.
     /// </para></note><para><code>DetectLabels</code> returns bounding boxes for instances of common object labels
-    /// in an array of objects. An <code>Instance</code> object contains a object, for the
-    /// location of the label on the image. It also includes the confidence by which the bounding
-    /// box was detected.
+    /// in an array of <a>Instance</a> objects. An <code>Instance</code> object contains a
+    /// <a>BoundingBox</a> object, for the location of the label on the image. It also includes
+    /// the confidence by which the bounding box was detected.
     /// </para><para><code>DetectLabels</code> also returns a hierarchical taxonomy of detected labels.
     /// For example, a detected car might be assigned the label <i>car</i>. The label <i>car</i>
     /// has two parent labels: <i>Vehicle</i> (its parent) and <i>Transportation</i> (its
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>
         /// <para>Specifies the minimum confidence level for the labels to return. Amazon Rekognition
         /// doesn't return any labels with confidence lower than this specified value.</para><para>If <code>MinConfidence</code> is not specified, the operation returns labels with
-        /// a confidence values greater than or equal to 50 percent.</para>
+        /// a confidence values greater than or equal to 55 percent.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

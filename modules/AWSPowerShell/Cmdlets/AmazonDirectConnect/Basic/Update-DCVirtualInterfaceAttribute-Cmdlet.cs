@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>The ID of the virtual private interface.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String VirtualInterfaceId { get; set; }
         #endregion
         

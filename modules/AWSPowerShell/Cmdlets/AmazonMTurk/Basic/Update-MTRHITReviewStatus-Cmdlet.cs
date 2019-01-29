@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// can revert a Reviewing HIT back to the Reviewable status.
     /// </summary>
     [Cmdlet("Update", "MTRHITReviewStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon MTurk Service UpdateHITReviewStatus API operation.", Operation = new[] {"UpdateHITReviewStatus"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HITId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MTurk.Model.UpdateHITReviewStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateMTRHITReviewStatusCmdlet : AmazonMTurkClientCmdlet, IExecutor
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <para> The ID of the HIT to update. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String HITId { get; set; }
         #endregion
         
@@ -61,6 +61,15 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Revert { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the HITId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -129,6 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.HITId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

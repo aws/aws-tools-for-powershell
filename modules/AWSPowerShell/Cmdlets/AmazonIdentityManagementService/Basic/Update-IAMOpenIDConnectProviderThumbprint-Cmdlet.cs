@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para></note>
     /// </summary>
     [Cmdlet("Update", "IAMOpenIDConnectProviderThumbprint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Identity and Access Management UpdateOpenIDConnectProviderThumbprint API operation.", Operation = new[] {"UpdateOpenIDConnectProviderThumbprint"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OpenIDConnectProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateOpenIDConnectProviderThumbprintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateIAMOpenIDConnectProviderThumbprintCmdlet : AmazonIdentityManagementServiceClientCmdlet, IExecutor
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String OpenIDConnectProviderArn { get; set; }
         #endregion
         
@@ -78,6 +78,15 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] ThumbprintList { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the OpenIDConnectProviderArn parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -148,6 +157,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.OpenIDConnectProviderArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

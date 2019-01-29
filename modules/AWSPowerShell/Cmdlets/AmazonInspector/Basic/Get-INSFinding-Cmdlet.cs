@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>The ARN that specifies the finding that you want to describe.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FindingArns")]
         public System.String[] FindingArn { get; set; }
         #endregion

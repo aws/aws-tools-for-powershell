@@ -43,6 +43,15 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// and complete snapshot. You may remount and use your disk while the snapshot status
     /// is pending.
     /// </para><para>
+    /// You can also use this operation to create a snapshot of an instance's system volume.
+    /// You might want to do this, for example, to recover data from the system volume of
+    /// a botched instance or to create a backup of the system volume like you would for a
+    /// block storage disk. To create a snapshot of a system volume, just define the <code>instance
+    /// name</code> parameter when issuing the snapshot command, and a snapshot of the defined
+    /// instance's system volume will be created. After the snapshot is available, you can
+    /// create a block storage disk from the snapshot and attach it to a running instance
+    /// to access the data on the disk.
+    /// </para><para>
     /// The <code>create disk snapshot</code> operation supports tag-based access control
     /// via request tags. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en/articles/amazon-lightsail-controlling-access-using-tags">Lightsail
     /// Dev Guide</a>.
@@ -61,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DiskName
         /// <summary>
         /// <para>
-        /// <para>The unique name of the source disk (e.g., <code>my-source-disk</code>).</para>
+        /// <para>The unique name of the source disk (e.g., <code>Disk-Virginia-1</code>).</para><note><para>This parameter cannot be defined together with the <code>instance name</code> parameter.
+        /// The <code>disk name</code> and <code>instance name</code> parameters are mutually
+        /// exclusive.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,6 +88,19 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DiskSnapshotName { get; set; }
+        #endregion
+        
+        #region Parameter InstanceName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the source instance (e.g., <code>Amazon_Linux-512MB-Virginia-1</code>).
+        /// When this is defined, a snapshot of the instance's system volume is created.</para><note><para>This parameter cannot be defined together with the <code>disk name</code> parameter.
+        /// The <code>instance name</code> and <code>disk name</code> parameters are mutually
+        /// exclusive.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String InstanceName { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -121,6 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
             
             context.DiskName = this.DiskName;
             context.DiskSnapshotName = this.DiskSnapshotName;
+            context.InstanceName = this.InstanceName;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.Lightsail.Model.Tag>(this.Tag);
@@ -148,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (cmdletContext.DiskSnapshotName != null)
             {
                 request.DiskSnapshotName = cmdletContext.DiskSnapshotName;
+            }
+            if (cmdletContext.InstanceName != null)
+            {
+                request.InstanceName = cmdletContext.InstanceName;
             }
             if (cmdletContext.Tags != null)
             {
@@ -219,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         {
             public System.String DiskName { get; set; }
             public System.String DiskSnapshotName { get; set; }
+            public System.String InstanceName { get; set; }
             public List<Amazon.Lightsail.Model.Tag> Tags { get; set; }
         }
         

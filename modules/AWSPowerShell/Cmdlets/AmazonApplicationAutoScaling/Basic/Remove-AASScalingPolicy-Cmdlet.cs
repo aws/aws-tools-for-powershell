@@ -72,7 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li><li><para>Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and
         /// the unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>Custom resources are not supported with a resource type. This parameter must specify
         /// the <code>OutputValue</code> from the CloudFormation template stack used to access
-        /// the resources. The unique identifier is defined by the service provider.</para></li></ul>
+        /// the resources. The unique identifier is defined by the service provider. More information
+        /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
+        /// repository</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
-        /// DB cluster. Available for Aurora MySQL-compatible edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
+        /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
+        /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li></ul>
         /// </para>

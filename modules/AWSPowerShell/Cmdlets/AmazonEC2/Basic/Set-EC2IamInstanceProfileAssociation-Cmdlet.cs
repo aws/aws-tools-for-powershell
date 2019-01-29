@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The ID of the existing IAM instance profile association.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AssociationId { get; set; }
         #endregion
         

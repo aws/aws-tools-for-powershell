@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// with the application and all AWS SMS replication jobs for servers in the application.
     /// </summary>
     [Cmdlet("Remove", "SMSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon Server Migration Service DeleteApp API operation.", Operation = new[] {"DeleteApp"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AppId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.DeleteAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveSMSAppCmdlet : AmazonServerMigrationServiceClientCmdlet, IExecutor
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// <para>ID of the application to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AppId { get; set; }
         #endregion
         
@@ -70,6 +70,15 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ForceTerminateApp { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the AppId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -144,6 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.SMS
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.AppId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

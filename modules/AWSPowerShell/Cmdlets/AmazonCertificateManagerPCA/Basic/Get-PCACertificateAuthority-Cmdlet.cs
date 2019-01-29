@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// such a network outage or backend AWS failure or other errors. A failed CA can never
     /// return to the pending state. You must create a new CA. 
     /// </para></li><li><para><code>DELETED</code> - Your private CA is within the restoration period, after which
-    /// it will be permanently deleted. The length of time remaining in the CA's restoration
-    /// period will also be included in this operation's output.
+    /// it is permanently deleted. The length of time remaining in the CA's restoration period
+    /// is also included in this operation's output.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "PCACertificateAuthority")]

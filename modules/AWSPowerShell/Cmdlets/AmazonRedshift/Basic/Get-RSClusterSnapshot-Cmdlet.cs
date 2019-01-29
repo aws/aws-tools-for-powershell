@@ -62,12 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>A value that indicates whether to return snapshots only for an existing cluster. Table-level
         /// restore can be performed only using a snapshot of an existing cluster, that is, a
-        /// cluster that has not been deleted. </para><ul><li><para>If <code>ClusterExists</code> is set to <code>true</code>, <code>ClusterIdentifier</code>
-        /// is required.</para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
-        /// is not specified, all snapshots associated with deleted clusters (orphaned snapshots)
-        /// are returned. </para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
-        /// is specified for a deleted cluster, snapshots associated with that cluster are returned.</para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
-        /// is specified for an existing cluster, no snapshots are returned. </para></li></ul>
+        /// cluster that has not been deleted. If <code>ClusterExists</code> is set to <code>true</code>,
+        /// <code>ClusterIdentifier</code> is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -236,6 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.Marker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -402,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxRecord");
             bool _continueIteration = true;
             
             try

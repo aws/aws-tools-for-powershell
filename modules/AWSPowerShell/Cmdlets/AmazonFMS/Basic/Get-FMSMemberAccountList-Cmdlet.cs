@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// <para>Specifies the number of member account IDs that you want AWS Firewall Manager to return
         /// for this request. If you have more IDs than the number that you specify for <code>MaxResults</code>,
         /// the response includes a <code>NextToken</code> value that you can use to get another
-        /// batch of member account IDs. The maximum value for <code>MaxResults</code> is 100.</para>
+        /// batch of member account IDs.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -77,6 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -128,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

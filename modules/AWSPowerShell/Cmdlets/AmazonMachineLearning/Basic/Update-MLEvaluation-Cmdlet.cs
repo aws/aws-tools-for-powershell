@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// the current content. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Name")]
         public System.String EvaluationName { get; set; }
         #endregion

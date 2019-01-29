@@ -31,3 +31,5 @@ test/temp/**
 tests/Results/
 tests/Temp/**
 
+PSGalleryDownloads
+/ReleaseNotesDraft.txt

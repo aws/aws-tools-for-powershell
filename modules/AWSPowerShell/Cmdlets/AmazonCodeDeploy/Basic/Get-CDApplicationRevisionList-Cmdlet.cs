@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para> The name of an AWS CodeDeploy application associated with the applicable IAM user
-        /// or AWS account. </para>
+        /// <para> The name of an AWS CodeDeploy application associated with the IAM user or AWS account.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results will be returned in an arbitrary order.
+        /// <para>The column name to use to sort the list results:</para><ul><li><para>registerTime: Sort by the time the revisions were registered with AWS CodeDeploy.</para></li><li><para>firstUsedTime: Sort by the time the revisions were first used in a deployment.</para></li><li><para>lastUsedTime: Sort by the time the revisions were last used in a deployment.</para></li></ul><para> If not specified or set to null, the results are returned in an arbitrary order.
         /// </para>
         /// </para>
         /// </summary>
@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para> The order in which to sort the list results: </para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results will be sorted in ascending order.</para><para>If set to null, the results will be sorted in an arbitrary order.</para>
+        /// <para> The order in which to sort the list results: </para><ul><li><para>ascending: ascending order.</para></li><li><para>descending: descending order.</para></li></ul><para>If not specified, the results are sorted in ascending order.</para><para>If set to null, the results are sorted in an arbitrary order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,6 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (ParameterWasBound("NextToken"))
             {
                 _nextMarker = cmdletContext.NextToken;
                 _userControllingPaging = true;
@@ -232,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     
                     ProcessOutput(output);
                     
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {

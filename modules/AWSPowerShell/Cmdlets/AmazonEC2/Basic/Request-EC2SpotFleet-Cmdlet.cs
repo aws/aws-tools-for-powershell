@@ -56,10 +56,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para>
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RequestSpotFleet API operation.", Operation = new[] {"RequestSpotFleet"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SpotFleetRequestConfig_SpotPrice parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.RequestSpotFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RequestEC2SpotFleetCmdlet : AmazonEC2ClientCmdlet, IExecutor
@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// default is the On-Demand price.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
         #endregion
         
@@ -285,9 +285,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// or also attempts to maintain it. When this value is <code>request</code>, the Spot
         /// Fleet only places the required requests. It does not attempt to replenish Spot Instances
         /// if capacity is diminished, nor does it submit requests in alternative Spot pools if
-        /// capacity is not available. To maintain a certain target capacity, the Spot Fleet places
-        /// the required requests to meet capacity and automatically replenishes any interrupted
-        /// instances. Default: <code>maintain</code>.</para>
+        /// capacity is not available. When this value is <code>maintain</code>, the Spot Fleet
+        /// maintains the target capacity. The Spot Fleet places the required requests to meet
+        /// capacity and automatically replenishes any interrupted instances. Default: <code>maintain</code>.
+        /// <code>instant</code> is listed but is not used by Spot Fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -355,6 +356,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime SpotFleetRequestConfig_UtcValidUntil { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the SpotFleetRequestConfig_SpotPrice parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -758,6 +768,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.SpotFleetRequestConfig_SpotPrice;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

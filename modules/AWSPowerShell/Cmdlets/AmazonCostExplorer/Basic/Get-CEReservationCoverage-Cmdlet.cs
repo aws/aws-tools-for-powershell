@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter GroupBy
         /// <summary>
         /// <para>
-        /// <para>You can group the data by the following attributes:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TAG</para></li><li><para>TENANCY</para></li></ul>
+        /// <para>You can group the data by the following attributes:</para><ul><li><para>AZ</para></li><li><para>CACHE_ENGINE</para></li><li><para>DATABASE_ENGINE</para></li><li><para>DEPLOYMENT_OPTION</para></li><li><para>INSTANCE_TYPE</para></li><li><para>LINKED_ACCOUNT</para></li><li><para>OPERATING_SYSTEM</para></li><li><para>PLATFORM</para></li><li><para>REGION</para></li><li><para>TENANCY</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

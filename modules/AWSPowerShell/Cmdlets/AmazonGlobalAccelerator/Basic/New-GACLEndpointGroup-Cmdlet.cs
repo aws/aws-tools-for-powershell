@@ -28,7 +28,7 @@ using Amazon.GlobalAccelerator.Model;
 namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
-    /// Create an endpoint group for the specified accelerator. An endpoint group is a collection
+    /// Create an endpoint group for the specified listener. An endpoint group is a collection
     /// of endpoints in one AWS Region. To see an AWS CLI example of creating an endpoint
     /// group, scroll down to <b>Example</b>.
     /// </summary>
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter HealthCheckIntervalSecond
         /// <summary>
         /// <para>
-        /// <para>The time, in seconds, between each health check for an endpoint. The default value
-        /// is 30.</para>
+        /// <para>The time—10 seconds or 30 seconds—between each health check for an endpoint. The default
+        /// value is 30.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

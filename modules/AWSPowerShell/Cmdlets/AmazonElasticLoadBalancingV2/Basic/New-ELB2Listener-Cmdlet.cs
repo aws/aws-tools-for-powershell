@@ -58,9 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>[HTTPS listeners] The default SSL server certificate. You must provide exactly one
-        /// certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set
-        /// <code>IsDefault</code>.</para><para>To create a certificate list, use <a>AddListenerCertificates</a>.</para>
+        /// <para>[HTTPS and TLS listeners] The default SSL server certificate. You must provide exactly
+        /// one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not
+        /// set <code>IsDefault</code>.</para><para>To create a certificate list, use <a>AddListenerCertificates</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The actions for the default rule. The rule must include one forward action or one
         /// or more fixed-response actions.</para><para>If the action type is <code>forward</code>, you specify a target group. The protocol
-        /// of the target group must be HTTP or HTTPS for an Application Load Balancer or TCP
-        /// for a Network Load Balancer.</para><para>[HTTPS listener] If the action type is <code>authenticate-oidc</code>, you authenticate
-        /// users through an identity provider that is OpenID Connect (OIDC) compliant.</para><para>[HTTPS listener] If the action type is <code>authenticate-cognito</code>, you authenticate
+        /// of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol
+        /// of the target group must be TCP or TLS for a Network Load Balancer.</para><para>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate
+        /// users through an identity provider that is OpenID Connect (OIDC) compliant.</para><para>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate
         /// users through the user pools supported by Amazon Cognito.</para><para>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect
         /// specified client requests from one URL to another.</para><para>[Application Load Balancer] If the action type is <code>fixed-response</code>, you
         /// drop specified client requests and return a custom HTTP response.</para>
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The protocol for connections from clients to the load balancer. For Application Load
         /// Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers,
-        /// the supported protocol is TCP.</para>
+        /// the supported protocols are TCP and TLS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SslPolicy
         /// <summary>
         /// <para>
-        /// <para>[HTTPS listeners] The security policy that defines which ciphers and protocols are
-        /// supported. The default is the current predefined security policy.</para>
+        /// <para>[HTTPS and TLS listeners] The security policy that defines which ciphers and protocols
+        /// are supported. The default is the current predefined security policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

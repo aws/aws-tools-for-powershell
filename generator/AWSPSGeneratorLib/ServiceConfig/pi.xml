@@ -19,10 +19,6 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <!-- Note: Even though the apis have pagination tokens we cannot auto-paginate as the response data
-                   for both is not well formatted into a single object (or collection), plus the next token.
-                   Users have to manually paginate this service's apis.
-        -->
         <ServiceOperation MethodName="DescribeDimensionKeys" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DimensionKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>

@@ -94,7 +94,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "TableName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {

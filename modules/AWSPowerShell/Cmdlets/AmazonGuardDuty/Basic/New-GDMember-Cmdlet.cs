@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// pairs of the accounts that you want to associate with the master GuardDuty account.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AccountDetails")]
         public Amazon.GuardDuty.Model.AccountDetail[] AccountDetail { get; set; }
         #endregion

@@ -160,7 +160,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine();
                         customParamEmitters.Add(paramEmitter);
                         paramEmitter.WriteParams(writer, MethodAnalysis, null, null, ref usedPositionalCount);
-                        
                     }
 
                     if (MethodAnalysis.RequiresPassThruGeneration)
@@ -460,12 +459,20 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                ref int usedPositionalCount)
         {
             var paramDoc = property.MemberDocumentation;
-            if (MethodAnalysis.AutoIterateSettings != null 
+            if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None
+                && MethodAnalysis.AutoIterateSettings != null 
                 && MethodAnalysis.AutoIterateSettings.IsIterationParameter(property.Name))
             {
+
+
                 paramDoc += "\r\n<para>"
-                         + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call."
-                         + "\r\n</para>";
+                         + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.";
+                if (property.Name.Equals(MethodAnalysis.AutoIterateSettings.Start, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    paramDoc += "\r\n<br/>In order to manually control output pagination, assign $null, for the first call, and the value of "
+                              + "$AWSHistory.LastServiceResponse." + MethodAnalysis.AutoIterateSettings.Next + ", for subsequent calls, to this parameter.";
+                }
+                paramDoc += "\r\n</para>";
             }
 
             var paramCustomization = FindParameterCustomization(property.AnalyzedName);
@@ -1277,7 +1284,10 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("// Initialize loop variant and commence piping");
                     writer.WriteLine("{0} _nextMarker = null;", iteratorType);
                     writer.WriteLine("bool _userControllingPaging = false;");
-                    writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
+
+                    var starPaginationProperty = rootSimpleProperties.Single(simpleProperty => simpleProperty.Name == autoIteration.Start);
+
+                    writer.WriteLine("if (ParameterWasBound(\"{0}\"))", starPaginationProperty.CmdletParameterName);
                     writer.OpenRegion();
                     {
                         writer.WriteLine("_nextMarker = cmdletContext.{0};", autoIteration.Start);
@@ -1344,7 +1354,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("ProcessOutput(output);");
                             writer.WriteLine();
                         }
-                        writer.CloseRegion("} while (AutoIterationHelpers.HasValue(_nextMarker));");
+                        writer.CloseRegion("} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));");
                     }
                 }
                 writer.CloseRegion();
@@ -1455,9 +1465,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                     writer.CloseRegion();
 
-                    writer.WriteLine("bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.{0}) || AutoIterationHelpers.HasValue(cmdletContext.{1});",
-                                     autoIteration.Start,
-                                     autoIteration.EmitLimit);
+                    var starPaginationProperty = rootSimpleProperties.Single(simpleProperty => simpleProperty.Name == autoIteration.Start);
+                    var limitPaginationProperty = rootSimpleProperties.Single(simpleProperty => simpleProperty.Name == autoIteration.EmitLimit);
+
+                    writer.WriteLine("bool _userControllingPaging = ParameterWasBound(\"{0}\") || ParameterWasBound(\"{1}\");",
+                                     starPaginationProperty.CmdletParameterName,
+                                     limitPaginationProperty.CmdletParameterName);
 
                     writer.WriteLine("bool _continueIteration = true;"); // allows us to bomb out if we retrieve nothing
                     writer.WriteLine();

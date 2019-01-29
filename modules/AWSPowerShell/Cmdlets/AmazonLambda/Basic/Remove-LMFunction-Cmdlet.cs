@@ -29,12 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
     /// Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code>
-    /// parameter. Otherwise, all versions and aliases are deleted. Event source mappings
-    /// are not deleted.
+    /// parameter. Otherwise, all versions and aliases are deleted.
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>lambda:DeleteFunction</code> action.
+    /// To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>.
+    /// For AWS services and resources that invoke your function directly, delete the trigger
+    /// in the service where you originally configured it.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

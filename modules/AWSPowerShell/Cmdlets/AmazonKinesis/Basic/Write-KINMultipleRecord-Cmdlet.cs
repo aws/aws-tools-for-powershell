@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>The records associated with the request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Records")]
         public Amazon.Kinesis.Model.PutRecordsRequestEntry[] Record { get; set; }
         #endregion

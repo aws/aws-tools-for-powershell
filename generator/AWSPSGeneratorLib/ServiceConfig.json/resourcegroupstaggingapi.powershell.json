@@ -44,22 +44,25 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "TagsPerPage",
+          "replacementName": "",
+          "aliases": [
+            "MaxItems"
+          ],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "PaginationToken",
-        "responseMember": "PaginationToken",
-        "resultLimitMember": "TagsPerPage",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "ResourceTypeFilters"
@@ -75,7 +78,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -83,9 +86,8 @@
           "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
-          "resultLimitMember": "TagsPerPage",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -213,7 +215,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceARNList"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
@@ -231,8 +233,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceARNList"
         },
         "memoryStreamParameters": []
@@ -266,7 +268,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceARNList"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resources",
@@ -284,8 +286,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceARNList"
         },
         "memoryStreamParameters": []

@@ -28,7 +28,8 @@ using Amazon.WAFRegional.Model;
 namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Removes a web ACL from the specified resource.
+    /// Removes a web ACL from the specified resource, either an application load balancer
+    /// or Amazon API Gateway stage.
     /// </summary>
     [Cmdlet("Unregister", "WAFRWebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed.</para>
+        /// <para>The ARN (Amazon Resource Name) of the resource from which the web ACL is being removed,
+        /// either an application load balancer or Amazon API Gateway stage.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Amazon API Gateway stage: <code>arn:aws:apigateway:<i>region</i>::/restapis/<i>api-id</i>/stages/<i>stage-name</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

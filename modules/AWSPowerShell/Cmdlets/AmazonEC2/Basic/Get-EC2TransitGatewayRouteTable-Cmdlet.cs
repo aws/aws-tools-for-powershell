@@ -47,9 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters. The possible values are:</para><ul><li><para><code>default-association-route-table</code> - Indicates whether this is the default
         /// association route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>default-propagation-route-table</code> - Indicates whether this is the default
-        /// propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route
-        /// table.</para></li><li><para><code>transit-gateway-route-table-state</code> - The state (<code>pending</code>
-        /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</para></li></ul>
+        /// propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</para></li><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
+        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
+        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route
+        /// table.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,6 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -157,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

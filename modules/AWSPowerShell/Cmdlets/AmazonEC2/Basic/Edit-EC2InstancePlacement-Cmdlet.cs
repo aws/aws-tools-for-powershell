@@ -48,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// At least one attribute for affinity, host ID, tenancy, or placement group name must
     /// be specified in the request. Affinity and tenancy can be modified in the same request.
     /// </para><para>
-    /// To modify the host ID, tenancy, or placement group for an instance, the instance must
-    /// be in the <code>stopped</code> state.
+    /// To modify the host ID, tenancy, placement group, or partition for an instance, the
+    /// instance must be in the <code>stopped</code> state.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2InstancePlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -77,8 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The name of the placement group in which to place the instance. For spread placement
-        /// groups, the instance must have a tenancy of <code>default</code>. For cluster placement
-        /// groups, the instance must have a tenancy of <code>default</code> or <code>dedicated</code>.</para><para>To remove an instance from a placement group, specify an empty string ("").</para>
+        /// groups, the instance must have a tenancy of <code>default</code>. For cluster and
+        /// partition placement groups, the instance must have a tenancy of <code>default</code>
+        /// or <code>dedicated</code>.</para><para>To remove an instance from a placement group, specify an empty string ("").</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String InstanceId { get; set; }
+        #endregion
+        
+        #region Parameter PartitionNumber
+        /// <summary>
+        /// <para>
+        /// <para>Reserved for future use.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PartitionNumber { get; set; }
         #endregion
         
         #region Parameter Tenancy
@@ -149,6 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.GroupName = this.GroupName;
             context.HostId = this.HostId;
             context.InstanceId = this.InstanceId;
+            if (ParameterWasBound("PartitionNumber"))
+                context.PartitionNumber = this.PartitionNumber;
             context.Tenancy = this.Tenancy;
             
             // allow further manipulation of loaded context prior to processing
@@ -181,6 +194,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceId != null)
             {
                 request.InstanceId = cmdletContext.InstanceId;
+            }
+            if (cmdletContext.PartitionNumber != null)
+            {
+                request.PartitionNumber = cmdletContext.PartitionNumber.Value;
             }
             if (cmdletContext.Tenancy != null)
             {
@@ -254,6 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String GroupName { get; set; }
             public System.String HostId { get; set; }
             public System.String InstanceId { get; set; }
+            public System.Int32? PartitionNumber { get; set; }
             public Amazon.EC2.HostTenancy Tenancy { get; set; }
         }
         

@@ -28,14 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Using this API you can update the function version to which the alias points and the
-    /// alias description. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
-    /// 
-    ///  
-    /// <para>
-    /// This requires permission for the lambda:UpdateAlias action.
-    /// </para>
+    /// Updates the configuration of a Lambda function <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
     /// </summary>
     [Cmdlet("Update", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateAliasResponse")]
@@ -60,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>You can change the description of the alias using this parameter.</para>
+        /// <para>A description of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,8 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>Using this parameter you can change the Lambda function version to which the alias
-        /// points.</para>
+        /// <para>The function version that the alias invokes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The alias name.</para>
+        /// <para>The name of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,11 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>An optional value you can use to ensure you are updating the latest update of the
-        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
-        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
-        /// message, advising you retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
+        /// <para>Only update the alias if the revision ID matches the ID specified. Use this option
+        /// to avoid modifying an alias that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

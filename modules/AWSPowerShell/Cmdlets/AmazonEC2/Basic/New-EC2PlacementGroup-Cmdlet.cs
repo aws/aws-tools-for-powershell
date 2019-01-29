@@ -35,7 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// A <code>cluster</code> placement group is a logical grouping of instances within a
     /// single Availability Zone that benefit from low network latency, high network throughput.
-    /// A <code>spread</code> placement group places instances on distinct hardware.
+    /// A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code>
+    /// placement group places groups of instances in different partitions, where instances
+    /// in one partition do not share the same hardware with instances in another partition.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
     /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -55,11 +57,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>A name for the placement group. Must be unique within the scope of your account for
-        /// the region.</para><para>Constraints: Up to 255 ASCII characters</para>
+        /// the Region.</para><para>Constraints: Up to 255 ASCII characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String GroupName { get; set; }
+        #endregion
+        
+        #region Parameter PartitionCount
+        /// <summary>
+        /// <para>
+        /// <para>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PartitionCount { get; set; }
         #endregion
         
         #region Parameter Strategy
@@ -112,6 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.GroupName = this.GroupName;
+            if (ParameterWasBound("PartitionCount"))
+                context.PartitionCount = this.PartitionCount;
             context.Strategy = this.Strategy;
             
             // allow further manipulation of loaded context prior to processing
@@ -132,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.PartitionCount != null)
+            {
+                request.PartitionCount = cmdletContext.PartitionCount.Value;
             }
             if (cmdletContext.Strategy != null)
             {
@@ -204,6 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String GroupName { get; set; }
+            public System.Int32? PartitionCount { get; set; }
             public Amazon.EC2.PlacementStrategy Strategy { get; set; }
         }
         

@@ -91,12 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// <code>nextToken</code>  response element. The remaining results of the initial
         /// request can be seen by sending  another <code>GetLifecyclePolicyPreviewRequest</code>
         /// request with the returned <code>nextToken</code>  value. This value can be
-        /// between 1 and 100. If this  parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code>
+        /// between 1 and 1000. If this  parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code>
         /// returns up to  100 results and a <code>nextToken</code> value, if  applicable.
         /// This option cannot be used when you specify images with <code>imageIds</code>.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,9 +110,6 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// results that returned the <code>nextToken</code> value. This value is  <code>null</code>
         /// when there are no more results to return. This option cannot be used when you specify
         /// images with <code>imageIds</code>.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

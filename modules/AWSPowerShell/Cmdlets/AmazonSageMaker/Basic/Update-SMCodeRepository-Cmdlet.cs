@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Updates the specified git repository with the specified values.
+    /// Updates the specified Git repository with the specified values.
     /// </summary>
     [Cmdlet("Update", "SMCodeRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,10 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CodeRepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the git repository to update.</para>
+        /// <para>The name of the Git repository to update.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CodeRepositoryName { get; set; }
         #endregion
         

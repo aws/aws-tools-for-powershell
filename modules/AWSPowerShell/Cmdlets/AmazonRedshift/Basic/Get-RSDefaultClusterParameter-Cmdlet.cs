@@ -66,9 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
         /// </para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
@@ -82,9 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

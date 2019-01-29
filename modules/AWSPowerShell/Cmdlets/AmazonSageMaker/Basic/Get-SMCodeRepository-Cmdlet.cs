@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets details about the specified git repository.
+    /// Gets details about the specified Git repository.
     /// </summary>
     [Cmdlet("Get", "SMCodeRepository")]
     [OutputType("Amazon.SageMaker.Model.DescribeCodeRepositoryResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CodeRepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the git repository to describe.</para>
+        /// <para>The name of the Git repository to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

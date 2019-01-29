@@ -56,9 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>The maximum number of results to return.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
@@ -69,9 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>The token returned by a previous call to retrieve the next set of results.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

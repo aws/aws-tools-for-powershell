@@ -38,16 +38,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
     /// where the instance lifecycle is <code>spot</code>.
     /// </para><para>
+    /// We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to
+    /// limit the number of results returned. This paginates the output, which makes the list
+    /// more manageable and returns the results faster. If the list of results exceeds your
+    /// <code>MaxResults</code> value, then that number of results is returned along with
+    /// a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code>
+    /// request to retrieve the remaining results.
+    /// </para><para>
     /// Spot Instance requests are deleted four hours after they are canceled and their instances
     /// are terminated.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2SpotInstanceRequest")]
     [OutputType("Amazon.EC2.Model.SpotInstanceRequest")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSpotInstanceRequests API operation.", Operation = new[] {"DescribeSpotInstanceRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotInstanceRequest",
         "This cmdlet returns a collection of SpotInstanceRequest objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public partial class GetEC2SpotInstanceRequestCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
@@ -101,6 +109,37 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] SpotInstanceRequestId { get; set; }
         #endregion
         
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return in a single call. Specify a value between
+        /// 5 and 1000. To retrieve the remaining results, make another call with the returned
+        /// <code>NextToken</code> value.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>The token to request the next set of results. This value is <code>null</code> when
+        /// there are no more results to return.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -118,6 +157,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
             }
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
             if (this.SpotInstanceRequestId != null)
             {
                 context.SpotInstanceRequestIds = new List<System.String>(this.SpotInstanceRequestId);
@@ -135,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.EC2.Model.DescribeSpotInstanceRequestsRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.EC2.Model.DescribeSpotInstanceRequestsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -147,28 +189,80 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotInstanceRequestIds = cmdletContext.SpotInstanceRequestIds;
             }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SpotInstanceRequests;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.SpotInstanceRequests;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.SpotInstanceRequests.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -211,6 +305,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public int? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
             public List<System.String> SpotInstanceRequestIds { get; set; }
         }
         

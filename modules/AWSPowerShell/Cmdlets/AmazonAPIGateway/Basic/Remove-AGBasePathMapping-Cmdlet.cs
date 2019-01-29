@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// Deletes the <a>BasePathMapping</a> resource.
     /// </summary>
     [Cmdlet("Remove", "AGBasePathMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon API Gateway DeleteBasePathMapping API operation.", Operation = new[] {"DeleteBasePathMapping"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteBasePathMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveAGBasePathMappingCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
@@ -56,8 +56,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>[Required] The domain name of the <a>BasePathMapping</a> resource to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the DomainName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -125,6 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.DomainName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

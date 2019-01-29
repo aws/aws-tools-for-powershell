@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// Removes one or more tags from one or more on-premises instances.
     /// </summary>
     [Cmdlet("Remove", "CDOnPremiseInstanceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS CodeDeploy RemoveTagsFromOnPremisesInstances API operation.", Operation = new[] {"RemoveTagsFromOnPremisesInstances"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.RemoveTagsFromOnPremisesInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveCDOnPremiseInstanceTagCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>The names of the on-premises instances from which to remove tags.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("InstanceNames")]
         public System.String[] InstanceName { get; set; }
         #endregion
@@ -60,6 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.CodeDeploy.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the InstanceName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -133,6 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.InstanceName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>Specifies a value of the API key.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Value { get; set; }
         #endregion
         

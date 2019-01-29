@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>The ARNs that specify the assessment templates whose assessment runs you want to list.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("AssessmentTemplateArns")]
         public System.String[] AssessmentTemplateArn { get; set; }
         #endregion
@@ -205,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -468,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

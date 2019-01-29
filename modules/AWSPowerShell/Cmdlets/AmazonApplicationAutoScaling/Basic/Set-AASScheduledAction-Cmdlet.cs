@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// <para>
     /// Each scalable target is identified by a service namespace, resource ID, and scalable
     /// dimension. A scheduled action applies to the scalable target identified by those three
-    /// attributes. You cannot create a scheduled action until you register the scalable target
-    /// using <a>RegisterScalableTarget</a>.
+    /// attributes. You cannot create a scheduled action until you have registered the resource
+    /// as a scalable target using <a>RegisterScalableTarget</a>. 
     /// </para><para>
     /// To update an action, specify its name and the parameters that you want to change.
     /// If you don't specify start and end times, the old values are deleted. Any other parameters
@@ -99,7 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li><li><para>Amazon SageMaker endpoint variants - The resource type is <code>variant</code> and
         /// the unique identifier is the resource ID. Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</para></li><li><para>Custom resources are not supported with a resource type. This parameter must specify
         /// the <code>OutputValue</code> from the CloudFormation template stack used to access
-        /// the resources. The unique identifier is defined by the service provider.</para></li></ul>
+        /// the resources. The unique identifier is defined by the service provider. More information
+        /// is available in our <a href="https://github.com/aws/aws-auto-scaling-custom-resource">GitHub
+        /// repository</a>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -119,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
-        /// DB cluster. Available for Aurora MySQL-compatible edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
+        /// DB cluster. Available for Aurora MySQL-compatible edition and Aurora PostgreSQL-compatible
+        /// edition.</para></li><li><para><code>sagemaker:variant:DesiredInstanceCount</code> - The number of EC2 instances
         /// for an Amazon SageMaker model endpoint variant.</para></li><li><para><code>custom-resource:ResourceType:Property</code> - The scalable dimension for a
         /// custom resource provided by your own application or service.</para></li></ul>
         /// </para>
@@ -132,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter Schedule
         /// <summary>
         /// <para>
-        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - <code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code></para></li><li><para>Rate expressions - <code>rate(<i>value</i><i>unit</i>)</code></para></li><li><para>Cron expressions - <code>cron(<i>fields</i>)</code></para></li></ul><para>At expressions are useful for one-time schedules. Specify the time, in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
+        /// <para>The schedule for this action. The following formats are supported:</para><ul><li><para>At expressions - "<code>at(<i>yyyy</i>-<i>mm</i>-<i>dd</i>T<i>hh</i>:<i>mm</i>:<i>ss</i>)</code>"</para></li><li><para>Rate expressions - "<code>rate(<i>value</i><i>unit</i>)</code>"</para></li><li><para>Cron expressions - "<code>cron(<i>fields</i>)</code>"</para></li></ul><para>At expressions are useful for one-time schedules. Specify the time, in UTC.</para><para>For rate expressions, <i>value</i> is a positive integer and <i>unit</i> is <code>minute</code>
         /// | <code>minutes</code> | <code>hour</code> | <code>hours</code> | <code>day</code>
-        /// | <code>days</code>.</para><para>For more information about cron expressions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
+        /// | <code>days</code>.</para><para>For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions">Cron
         /// Expressions</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
         /// </para>
         /// </summary>

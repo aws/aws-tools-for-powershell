@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The access token for the request to update user attributes.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AccessToken { get; set; }
         #endregion
         

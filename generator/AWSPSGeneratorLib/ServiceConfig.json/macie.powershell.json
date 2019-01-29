@@ -60,7 +60,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MemberAccountId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MemberAccount",
@@ -79,8 +79,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MemberAccountId"
         },
         "memoryStreamParameters": []
@@ -112,7 +112,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MemberAccountId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "S3Resources",
@@ -131,8 +131,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MemberAccountId"
         },
         "memoryStreamParameters": []
@@ -166,7 +166,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MemberAccountId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MemberAccount",
@@ -185,8 +185,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MemberAccountId"
         },
         "memoryStreamParameters": []
@@ -218,7 +218,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MemberAccountId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "S3Resources",
@@ -237,8 +237,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MemberAccountId"
         },
         "memoryStreamParameters": []
@@ -366,7 +366,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MemberAccountId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "S3Resources",
@@ -385,8 +385,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MemberAccountId"
         },
         "memoryStreamParameters": []

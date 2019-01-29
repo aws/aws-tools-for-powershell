@@ -59,14 +59,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitation",
@@ -84,8 +86,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -110,14 +112,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
@@ -135,8 +139,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -170,7 +174,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Enable"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
@@ -188,8 +192,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Enable"
         },
         "memoryStreamParameters": []
@@ -214,14 +218,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
@@ -239,8 +245,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -265,14 +271,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
@@ -290,8 +298,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -317,7 +325,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountDetail"
+          "AccountDetails"
         ],
         "byNameMembers": []
       },
@@ -325,7 +333,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
@@ -343,8 +351,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -369,14 +377,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SampleFindings",
@@ -394,8 +404,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -420,14 +430,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
@@ -445,8 +457,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -472,7 +484,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -480,7 +492,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AccountIds"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitations",
@@ -498,8 +510,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AccountIds"
         },
         "memoryStreamParameters": []
@@ -524,14 +536,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
@@ -549,8 +563,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -575,14 +589,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
@@ -600,8 +616,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -627,7 +643,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -635,7 +651,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AccountIds"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Invitations",
@@ -653,8 +669,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AccountIds"
         },
         "memoryStreamParameters": []
@@ -688,7 +704,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "IpSetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
@@ -706,8 +722,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "IpSetId"
         },
         "memoryStreamParameters": []
@@ -733,7 +749,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -741,7 +757,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
@@ -759,8 +775,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -794,7 +810,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ThreatIntelSetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
@@ -812,8 +828,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ThreatIntelSetId"
         },
         "memoryStreamParameters": []
@@ -838,14 +854,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FromMasterAccount",
@@ -863,8 +881,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -890,7 +908,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -898,7 +916,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
@@ -916,8 +934,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -942,7 +960,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -988,7 +1008,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1034,7 +1056,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1080,7 +1104,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1220,7 +1246,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1267,7 +1295,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -1363,7 +1391,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -1371,7 +1399,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Members",
@@ -1389,8 +1417,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1461,7 +1489,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1507,7 +1537,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1599,7 +1631,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1645,7 +1679,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1691,7 +1727,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1738,7 +1776,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -1746,7 +1784,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MonitoringMembers",
@@ -1764,8 +1802,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1791,7 +1829,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "AccountId"
+          "AccountIds"
         ],
         "byNameMembers": []
       },
@@ -1799,7 +1837,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MonitoringMembers",
@@ -1817,8 +1855,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1843,14 +1881,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Findings",
@@ -1868,8 +1908,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1894,14 +1934,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Detector",
@@ -1919,8 +1961,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1945,14 +1987,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Filter",
@@ -1970,8 +2014,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -1996,14 +2040,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FindingsFeedback",
@@ -2021,8 +2067,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -2047,14 +2093,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "IPSet",
@@ -2072,8 +2120,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []
@@ -2098,14 +2146,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "DetectorId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DetectorId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ThreatIntelSet",
@@ -2123,8 +2173,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DetectorId"
         },
         "memoryStreamParameters": []

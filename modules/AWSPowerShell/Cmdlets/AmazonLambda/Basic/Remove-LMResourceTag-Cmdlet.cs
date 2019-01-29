@@ -28,9 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name).
-    /// For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging
-    /// Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.
+    /// Removes <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
+    /// from a function.
     /// </summary>
     [Cmdlet("Remove", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -45,8 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging
-        /// Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</para>
+        /// <para>The function's Amazon Resource Name (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,8 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The list of tag keys to be deleted from the function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a>
-        /// in the <b>AWS Lambda Developer Guide</b>.</para>
+        /// <para>A list of tag keys to remove from the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

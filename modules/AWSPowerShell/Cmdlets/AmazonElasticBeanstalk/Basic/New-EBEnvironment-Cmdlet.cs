@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Name
         /// <summary>
         /// <para>
-        /// <para>The name of this environment tier.</para>
+        /// <para>The name of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <code>WebServer</code></para></li><li><para>For <i>Worker tier</i> – <code>Worker</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tier_Type
         /// <summary>
         /// <para>
-        /// <para>The type of this environment tier.</para>
+        /// <para>The type of this environment tier.</para><para>Valid values:</para><ul><li><para>For <i>Web server tier</i> – <code>Standard</code></para></li><li><para>For <i>Worker tier</i> – <code>SQS/HTTP</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

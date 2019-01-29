@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
     /// </para><para>
     /// To get the results of the label detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
-    /// the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
+    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKLabelDetection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

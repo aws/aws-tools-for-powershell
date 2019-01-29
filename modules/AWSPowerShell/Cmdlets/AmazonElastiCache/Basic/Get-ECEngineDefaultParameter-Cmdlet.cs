@@ -59,9 +59,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// results from this operation. If this parameter is specified, the response includes
         /// only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
@@ -74,9 +71,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a marker is included in the response
         /// so that the remaining results can be retrieved.</para><para>Default: 100</para><para>Constraints: minimum 20; maximum 100.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -128,9 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>
         /// <para>The maximum number of results to return at one time. The default is 25.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

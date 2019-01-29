@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// request. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String IdempotencyToken { get; set; }
         #endregion
         

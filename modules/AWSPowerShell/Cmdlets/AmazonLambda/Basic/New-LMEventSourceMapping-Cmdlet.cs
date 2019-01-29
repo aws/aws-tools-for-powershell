@@ -104,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter StartingPositionTimestamp
         /// <summary>
         /// <para>
-        /// <para>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the Unix time
-        /// in seconds from which to start reading.</para>
+        /// <para>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from
+        /// which to start reading.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

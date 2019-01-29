@@ -309,7 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is the On-Demand price.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SpotPrice { get; set; }
         #endregion
         

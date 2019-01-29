@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>apigatewaymanagementapi</C2jFilename>
+    <SourceGenerationRoot>AmazonApiGatewayManagementApi</SourceGenerationRoot>
+    <ServiceNounPrefix>AGM</ServiceNounPrefix>
+    <ServiceName>Amazon API Gateway Management API</ServiceName>
+    <ServiceClientInterface>IAmazonApiGatewayManagementApi</ServiceClientInterface>
+    <ServiceClient>AmazonApiGatewayManagementApiClient</ServiceClient>
+    <ServiceNamespace>Amazon.ApiGatewayManagementApi</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties>
+        <Property>ConnectionId</Property>
+    </PipelineByNameProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="PostToConnection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="DataToConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Data" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

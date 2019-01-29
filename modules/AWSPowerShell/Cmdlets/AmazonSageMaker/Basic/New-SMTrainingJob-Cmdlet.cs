@@ -86,14 +86,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
         #endregion
         
+        #region Parameter EnableInterContainerTrafficEncryption
+        /// <summary>
+        /// <para>
+        /// <para>To encrypt all communications between ML compute instances in distributed training,
+        /// choose <code>True</code>,. Encryption provides greater security for distributed training,
+        /// but training can take longer because of additional communications between ML compute
+        /// instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableInterContainerTrafficEncryption { get; set; }
+        #endregion
+        
         #region Parameter EnableNetworkIsolation
         /// <summary>
         /// <para>
         /// <para>Isolates the training container. No inbound or outbound network calls can be made,
         /// except for calls between peers within a training cluster for distributed training.
-        /// If network isolation is used for training jobs that are configured to use a VPC, Amazon
-        /// SageMaker downloads and uploads customer data and model artifacts through the specifed
-        /// VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
+        /// If you enable network isolation for training jobs that are configured to use a VPC,
+        /// Amazon SageMaker downloads and uploads customer data and model artifacts through the
+        /// specified VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,9 +149,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job. If value
-        /// is not specified, default value is 1 day. Maximum value is 5 days.</para>
+        /// <para>The maximum length of time, in seconds, that the training job can run. If model training
+        /// does not complete during this time, Amazon SageMaker ends the job. If value is not
+        /// specified, default value is 1 day. Maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker assumes to perform
-        /// tasks on your behalf. </para><para>During model training, Amazon SageMaker needs your permission to read input data from
+        /// <para>The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to
+        /// perform tasks on your behalf. </para><para>During model training, Amazon SageMaker needs your permission to read input data from
         /// an S3 bucket, download a Docker image that contains training code, write model artifacts
         /// to an S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon
         /// CloudWatch. You grant permissions for all of these tasks to an IAM role. For more
@@ -267,6 +280,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             PreExecutionContextLoad(context);
             
             context.AlgorithmSpecification = this.AlgorithmSpecification;
+            if (ParameterWasBound("EnableInterContainerTrafficEncryption"))
+                context.EnableInterContainerTrafficEncryption = this.EnableInterContainerTrafficEncryption;
             if (ParameterWasBound("EnableNetworkIsolation"))
                 context.EnableNetworkIsolation = this.EnableNetworkIsolation;
             if (this.HyperParameter != null)
@@ -318,6 +333,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.AlgorithmSpecification != null)
             {
                 request.AlgorithmSpecification = cmdletContext.AlgorithmSpecification;
+            }
+            if (cmdletContext.EnableInterContainerTrafficEncryption != null)
+            {
+                request.EnableInterContainerTrafficEncryption = cmdletContext.EnableInterContainerTrafficEncryption.Value;
             }
             if (cmdletContext.EnableNetworkIsolation != null)
             {
@@ -464,6 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SageMaker.Model.AlgorithmSpecification AlgorithmSpecification { get; set; }
+            public System.Boolean? EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? EnableNetworkIsolation { get; set; }
             public Dictionary<System.String, System.String> HyperParameters { get; set; }
             public List<Amazon.SageMaker.Model.Channel> InputDataConfig { get; set; }

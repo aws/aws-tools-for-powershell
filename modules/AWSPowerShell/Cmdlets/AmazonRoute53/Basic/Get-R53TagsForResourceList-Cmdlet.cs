@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// want to get a list of tags.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ResourceIds")]
         public System.String[] ResourceId { get; set; }
         #endregion

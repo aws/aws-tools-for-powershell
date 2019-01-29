@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("OptionGroupName", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBSnapshotIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBSnapshot (ModifyDBSnapshot)"))
             {
                 return;

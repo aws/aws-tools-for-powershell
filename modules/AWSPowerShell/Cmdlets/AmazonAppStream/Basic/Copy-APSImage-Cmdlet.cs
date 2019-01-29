@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>The name of the image to copy.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SourceImageName { get; set; }
         #endregion
         

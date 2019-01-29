@@ -107,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>The name of the dynamic thing group to update.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ThingGroupName { get; set; }
         #endregion
         

@@ -87,10 +87,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AppSpecContent_Content
         /// <summary>
         /// <para>
-        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment the content includes a Lambda function name, the alias
+        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
         /// for its original version, and the alias for its replacement version. The deployment
         /// shifts traffic from the original version of the Lambda function to the replacement
-        /// version. </para><para> For an Amazon ECS deployment the content includes the task name, information about
+        /// version. </para><para> For an Amazon ECS deployment, the content includes the task name, information about
         /// the load balancer that serves traffic to the container, and more. </para><para> For both types of deployments, the content can specify Lambda functions that run
         /// at specified hooks, such as <code>BeforeInstall</code>, during a deployment. </para>
         /// </para>
@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Revision_RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>A specific version of the Amazon S3 object that represents the bundled artifacts for
-        /// the application revision.</para><para>If the version is not specified, the system will use the most recent version by default.</para>
+        /// the application revision.</para><para>If the version is not specified, the system uses the most recent version by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
         /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
-        /// will be skipped.</para>
+        /// is skipped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

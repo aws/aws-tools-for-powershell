@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         /// <para>The JSON block of configuration information for each trigger.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Triggers")]
         public Amazon.CodeCommit.Model.RepositoryTrigger[] Trigger { get; set; }
         #endregion

@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("NetworkLoadBalancerArns")]
         public System.String[] NetworkLoadBalancerArn { get; set; }
         #endregion

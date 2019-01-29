@@ -38,9 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// passing image bytes is not supported. The image must be either a .png or .jpeg formatted
     /// file. 
     /// </para><para>
-    /// The <code>DetectText</code> operation returns text in an array of elements, <code>TextDetections</code>.
-    /// Each <code>TextDetection</code> element provides information about a single word or
-    /// line of text that was detected in the image. 
+    /// The <code>DetectText</code> operation returns text in an array of <a>TextDetection</a>
+    /// elements, <code>TextDetections</code>. Each <code>TextDetection</code> element provides
+    /// information about a single word or line of text that was detected in the image. 
     /// </para><para>
     /// A word is one or more ISO basic latin script characters that are not separated by
     /// spaces. <code>DetectText</code> can detect up to 50 words in an image.

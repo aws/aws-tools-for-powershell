@@ -28,14 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the specified alias information such as the alias ARN, description, and function
-    /// version it is pointing to. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
-    /// 
-    ///  
-    /// <para>
-    /// This requires permission for the <code>lambda:GetAlias</code> action.
-    /// </para>
+    /// Returns details about a Lambda function <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
     /// </summary>
     [Cmdlet("Get", "LMAlias")]
     [OutputType("Amazon.Lambda.Model.GetAliasResponse")]
@@ -59,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the alias for which you want to retrieve information.</para>
+        /// <para>The name of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

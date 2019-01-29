@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// accounts whose findings you want the master account to monitor.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion

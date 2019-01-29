@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>A string used to name the user pool.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PoolName { get; set; }
         #endregion
         

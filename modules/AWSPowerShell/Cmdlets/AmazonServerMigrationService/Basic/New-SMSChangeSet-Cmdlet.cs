@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         /// <para>ID of the application associated with the change set.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AppId { get; set; }
         #endregion
         

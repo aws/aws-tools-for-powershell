@@ -57,7 +57,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -108,14 +108,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FileSystemId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTarget",
@@ -133,8 +135,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FileSystemId"
         },
         "memoryStreamParameters": []
@@ -168,7 +170,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FileSystemId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -186,8 +188,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FileSystemId"
         },
         "memoryStreamParameters": []
@@ -212,14 +214,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FileSystemId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystem",
@@ -237,8 +241,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FileSystemId"
         },
         "memoryStreamParameters": []
@@ -272,7 +276,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MountTargetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTarget",
@@ -290,8 +294,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MountTargetId"
         },
         "memoryStreamParameters": []
@@ -317,7 +321,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Tags"
+          "FileSystemId"
         ],
         "byNameMembers": []
       },
@@ -325,7 +329,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FileSystemId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -343,8 +347,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FileSystemId"
         },
         "memoryStreamParameters": []
@@ -369,7 +373,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -415,7 +421,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -509,7 +517,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -564,7 +574,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MountTargetId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MountTargetSecurityGroups",
@@ -582,8 +592,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MountTargetId"
         },
         "memoryStreamParameters": []
@@ -608,14 +618,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "FileSystemId"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FileSystemId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "FileSystem",
@@ -633,8 +645,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FileSystemId"
         },
         "memoryStreamParameters": []

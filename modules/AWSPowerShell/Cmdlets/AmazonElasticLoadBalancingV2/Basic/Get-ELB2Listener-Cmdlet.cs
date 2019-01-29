@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>The Amazon Resource Names (ARN) of the listeners.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("ListenerArns")]
         public System.String[] ListenerArn { get; set; }
         #endregion
@@ -86,6 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 _emitLimit = cmdletContext.PageSize;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.PageSize);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("PageSize");
             bool _continueIteration = true;
             
             try

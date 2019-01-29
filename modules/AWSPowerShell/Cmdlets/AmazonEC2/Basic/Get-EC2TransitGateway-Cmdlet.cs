@@ -45,14 +45,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</para></li><li><para><code>association-default-route-table-id</code> - The ID of the default association
-        /// route table.</para></li><li><para><code>default-route-table-association</code> - Indicates whether resource attachments
-        /// are automatically associated with the default association route table (<code>enable</code>
-        /// | <code>disable</code>).</para></li><li><para><code>default-route-table-propagation</code> - Indicates whether resource attachments
-        /// automatically propagate routes to the default propagation route table (<code>enable</code>
-        /// | <code>disable</code>).</para></li><li><para><code>owner-account-id</code> - The ID of the AWS account that owns the transit gateway.</para></li><li><para><code>propagation-default-route-table-id</code> - The ID of the default propagation
-        /// route table.</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li><li><para><code>transit-gateway-state</code> - The state of the transit gateway (<code>pending</code>
-        /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>options.propagation-default-route-table-id</code> - The ID of the default propagation
+        /// route table.</para></li><li><para><code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP
+        /// session.</para></li><li><para><code>options.association-default-route-table-id</code> - The ID of the default association
+        /// route table.</para></li><li><para><code>options.auto-accept-shared-attachments</code> - Indicates whether there is
+        /// automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>options.default-route-table-association</code> - Indicates whether resource
+        /// attachments are automatically associated with the default association route table
+        /// (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>options.default-route-table-propagation</code> - Indicates whether resource
+        /// attachments automatically propagate routes to the default propagation route table
+        /// (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code>
+        /// | <code>disable</code>).</para></li><li><para><code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol
+        /// support is enabled (<code>enable</code> | <code>disable</code>).</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</para></li><li><para><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code>
+        /// | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code>
+        /// | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</para></li><li><para><code>transit-gateway-id</code> - The ID of the transit gateway.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,6 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -160,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// string.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterEndpointIdentifier { get; set; }
         #endregion
         

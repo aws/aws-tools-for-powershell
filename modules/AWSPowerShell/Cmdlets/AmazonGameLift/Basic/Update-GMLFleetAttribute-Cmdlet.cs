@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Unique identifier for a fleet to update attribute metadata for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FleetId { get; set; }
         #endregion
         

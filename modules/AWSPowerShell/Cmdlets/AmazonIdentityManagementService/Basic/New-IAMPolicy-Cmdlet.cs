@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         public System.String PolicyDocument { get; set; }
         #endregion
         
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// characters with no spaces. You can also include any of the following characters: _+=,.@-</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
         #endregion
         

@@ -86,9 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <para>
         /// <para>The maximum number of levels in the hierarchy to return.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
@@ -99,9 +96,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <summary>
         /// <para>
         /// <para>This value is not supported.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -76,9 +76,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of items to return for this call. The call also returns a token
         /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -90,9 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
         /// call.)</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

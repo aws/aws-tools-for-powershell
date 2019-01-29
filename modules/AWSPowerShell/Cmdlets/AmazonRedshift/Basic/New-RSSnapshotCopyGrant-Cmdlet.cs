@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>A list of tag instances.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("Tags")]
         public Amazon.Redshift.Model.Tag[] Tag { get; set; }
         #endregion

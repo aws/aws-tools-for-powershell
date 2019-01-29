@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The Amazon Resource Name (ARN) of the file share to be updated. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String FileShareARN { get; set; }
         #endregion
         

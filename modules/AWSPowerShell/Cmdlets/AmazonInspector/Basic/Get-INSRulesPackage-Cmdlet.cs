@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>The ARN that specifies the rules package that you want to describe.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("RulesPackageArns")]
         public System.String[] RulesPackageArn { get; set; }
         #endregion

@@ -91,7 +91,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HostedZoneId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCWithHostedZone",
@@ -116,8 +116,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HostedZoneId"
         },
         "memoryStreamParameters": []
@@ -165,7 +165,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HostedZoneId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceRecordSets",
@@ -190,8 +190,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HostedZoneId"
         },
         "memoryStreamParameters": []
@@ -225,7 +225,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsForResource",
@@ -250,8 +250,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceId"
         },
         "memoryStreamParameters": []
@@ -343,7 +343,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZone",
@@ -368,8 +368,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -403,7 +403,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HostedZoneId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfig",
@@ -428,8 +428,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HostedZoneId"
         },
         "memoryStreamParameters": []
@@ -474,7 +474,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HostedZoneId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSet",
@@ -499,8 +499,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HostedZoneId"
         },
         "memoryStreamParameters": []
@@ -534,7 +534,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicy",
@@ -559,8 +559,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -594,7 +594,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Name"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
@@ -619,8 +619,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Name"
         },
         "memoryStreamParameters": []
@@ -654,7 +654,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyVersion",
@@ -679,8 +679,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -706,7 +706,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "VPC"
+          "VPC_VPCId"
         ],
         "byNameMembers": []
       },
@@ -774,7 +774,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HealthCheckId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HealthCheck",
@@ -799,8 +799,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HealthCheckId"
         },
         "memoryStreamParameters": []
@@ -834,7 +834,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZone",
@@ -859,8 +859,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -894,7 +894,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "QueryLoggingConfig",
@@ -919,8 +919,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -954,7 +954,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReusableDelegationSet",
@@ -979,8 +979,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -1014,7 +1014,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicy",
@@ -1039,8 +1039,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -1074,7 +1074,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
@@ -1099,8 +1099,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -1126,7 +1126,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "VPC"
+          "VPC_VPCId"
         ],
         "byNameMembers": []
       },
@@ -1140,9 +1140,9 @@
         "confirmationMessageNoun": "VPCAssociationAuthorization",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: VPC_VPCId",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [
             "ListResourceRecordSets",
@@ -1205,7 +1205,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HostedZoneId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VPCFromHostedZone",
@@ -1230,8 +1230,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HostedZoneId"
         },
         "memoryStreamParameters": []
@@ -2573,7 +2573,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "ResourceId"
+          "ResourceIds"
         ],
         "byNameMembers": []
       },
@@ -2931,7 +2931,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedZoneComment",
@@ -2956,8 +2956,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -2991,7 +2991,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyComment",
@@ -3016,8 +3016,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []
@@ -3051,7 +3051,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Id"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrafficPolicyInstance",
@@ -3076,8 +3076,8 @@
           "resultsTruncatedMember": "IsTruncated"
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Id"
         },
         "memoryStreamParameters": []

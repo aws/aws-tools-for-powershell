@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AssociationName { get; set; }
         #endregion
         
+        #region Parameter AutomationTargetParameterName
+        /// <summary>
+        /// <para>
+        /// <para>Specify the target for the association. This target is required for associations that
+        /// use an Automation document and target resources by using rate controls.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AutomationTargetParameterName { get; set; }
+        #endregion
+        
         #region Parameter ComplianceSeverity
         /// <summary>
         /// <para>
@@ -235,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.AssociationName = this.AssociationName;
+            context.AutomationTargetParameterName = this.AutomationTargetParameterName;
             context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
             context.InstanceId = this.InstanceId;
@@ -288,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationName != null)
             {
                 request.AssociationName = cmdletContext.AssociationName;
+            }
+            if (cmdletContext.AutomationTargetParameterName != null)
+            {
+                request.AutomationTargetParameterName = cmdletContext.AutomationTargetParameterName;
             }
             if (cmdletContext.ComplianceSeverity != null)
             {
@@ -444,6 +460,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationName { get; set; }
+            public System.String AutomationTargetParameterName { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String InstanceId { get; set; }

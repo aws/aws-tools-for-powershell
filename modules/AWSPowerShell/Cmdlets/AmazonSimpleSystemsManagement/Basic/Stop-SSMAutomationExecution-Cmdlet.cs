@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Stop an Automation that is currently executing.
     /// </summary>
     [Cmdlet("Stop", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Systems Manager StopAutomationExecution API operation.", Operation = new[] {"StopAutomationExecution"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutomationExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class StopSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The execution ID of the Automation to stop.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AutomationExecutionId { get; set; }
         #endregion
         
@@ -60,6 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.SimpleSystemsManagement.StopType")]
         public Amazon.SimpleSystemsManagement.StopType Type { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the AutomationExecutionId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -127,6 +136,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.AutomationExecutionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

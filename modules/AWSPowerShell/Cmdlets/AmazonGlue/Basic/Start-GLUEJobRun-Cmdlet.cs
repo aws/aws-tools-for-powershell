@@ -43,14 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter AllocatedCapacity
         /// <summary>
         /// <para>
-        /// <para>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun. From
+        /// <para>This field is deprecated, use <code>MaxCapacity</code> instead.</para><para>The number of AWS Glue data processing units (DPUs) to allocate to this JobRun. From
         /// 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of
         /// processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
         /// For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
         /// pricing page</a>.</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated, use MaxCapacity instead.")]
         public System.Int32 AllocatedCapacity { get; set; }
         #endregion
         
@@ -88,6 +90,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String JobRunId { get; set; }
+        #endregion
+        
+        #region Parameter MaxCapacity
+        /// <summary>
+        /// <para>
+        /// <para>AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with
+        /// allocated processing as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>.
+        /// Glue ETL jobs running in any other way cannot have fractional DPU allocations.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double MaxCapacity { get; set; }
         #endregion
         
         #region Parameter NotificationProperty_NotifyDelayAfter
@@ -152,8 +166,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (ParameterWasBound("AllocatedCapacity"))
                 context.AllocatedCapacity = this.AllocatedCapacity;
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (this.Argument != null)
             {
                 context.Arguments = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -164,6 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             }
             context.JobName = this.JobName;
             context.JobRunId = this.JobRunId;
+            if (ParameterWasBound("MaxCapacity"))
+                context.MaxCapacity = this.MaxCapacity;
             if (ParameterWasBound("NotificationProperty_NotifyDelayAfter"))
                 context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.SecurityConfiguration = this.SecurityConfiguration;
@@ -185,10 +203,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.StartJobRunRequest();
             
+            #pragma warning disable CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.AllocatedCapacity != null)
             {
                 request.AllocatedCapacity = cmdletContext.AllocatedCapacity.Value;
             }
+            #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             if (cmdletContext.Arguments != null)
             {
                 request.Arguments = cmdletContext.Arguments;
@@ -200,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.JobRunId != null)
             {
                 request.JobRunId = cmdletContext.JobRunId;
+            }
+            if (cmdletContext.MaxCapacity != null)
+            {
+                request.MaxCapacity = cmdletContext.MaxCapacity.Value;
             }
             
              // populate NotificationProperty
@@ -292,10 +316,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            [System.ObsoleteAttribute]
             public System.Int32? AllocatedCapacity { get; set; }
             public Dictionary<System.String, System.String> Arguments { get; set; }
             public System.String JobName { get; set; }
             public System.String JobRunId { get; set; }
+            public System.Double? MaxCapacity { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.Int32? Timeout { get; set; }

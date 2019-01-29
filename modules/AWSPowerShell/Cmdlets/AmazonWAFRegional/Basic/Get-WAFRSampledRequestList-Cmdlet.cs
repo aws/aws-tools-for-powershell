@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// to return a sample of requests.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String WebAclId { get; set; }
         #endregion
         

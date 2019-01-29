@@ -56,9 +56,6 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>The maximum number of group member ARNs returned by <code>SearchResources</code> in
         /// paginated output. By default, this number is 50.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -71,9 +68,6 @@ namespace Amazon.PowerShell.Cmdlets.RG
         /// <para>The NextToken value that is returned in a paginated <code>SearchResources</code> request.
         /// To get the next page of results, run the call again, add the NextToken parameter,
         /// and specify the NextToken value.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

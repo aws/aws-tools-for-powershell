@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>The DNS name of the Amazon S3 origin. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("StreamingDistributionConfig_S3Origin_DomainName")]
         public System.String S3Origin_DomainName { get; set; }
         #endregion

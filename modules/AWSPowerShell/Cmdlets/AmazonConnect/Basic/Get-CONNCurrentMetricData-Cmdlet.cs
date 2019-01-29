@@ -117,9 +117,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// <para><code>MaxResults</code> indicates the maximum number of results to return per page
         /// in the response, between 1 and 100.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -133,9 +130,6 @@ namespace Amazon.PowerShell.Cmdlets.CONN
         /// in the next request to retrieve the next set of results.</para><para>The token expires after 5 minutes from the time it is created. Subsequent requests
         /// that use the <a href="">NextToken</a> must use the same request parameters as the
         /// request that generated the token.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

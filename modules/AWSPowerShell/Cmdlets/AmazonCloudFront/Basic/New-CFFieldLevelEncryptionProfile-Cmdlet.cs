@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>Profile name for the field-level encryption profile.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FieldLevelEncryptionProfileConfig_Name { get; set; }
         #endregion
         

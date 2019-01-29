@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Creates a collection in an AWS Region. You can add faces to the collection using the
-    /// operation. 
+    /// <a>IndexFaces</a> operation. 
     /// 
     ///  
     /// <para>

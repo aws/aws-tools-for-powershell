@@ -83,11 +83,15 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>Specifies the name and shape of the expected data inputs for your trained model with
         /// a JSON dictionary form. The data inputs are <a>InputConfig$Framework</a> specific.
-        /// </para><ul><li><para><code>TENSORFLOW</code>, <code>MXNET</code> and <code>ONNX</code>: You must specify
-        /// the name and shape of the expected data inputs in order using a dictionary format
-        /// for your trained model.</para><ul><li><para>Example of one input: <code>{‘data’:[1,3,1024,1024]}}</code></para></li><li><para>Example for two inputs: <code>{‘var1’: [1,1,28,28], ‘var2’:[1,1,28,28]}</code></para></li></ul></li><li><para><code>PYTORCH</code>: You can either specify the name and shape of expected data
-        /// inputs in order using a dictionary format for your trained model or you can specify
-        /// the shape only using a list format.</para><ul><li><para>Example of one input in dictionary format: <code>{‘input0’:[1,3,224,234]}</code></para></li><li><para>Example of one input in list format: <code>[1,3,224,224]</code></para></li><li><para>Example of two inputs in dictionary format: <code>{‘input0’:[1,3,224,234], 'input1':[1,3,224,224]}</code></para></li><li><para>Example of two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul>
+        /// </para><ul><li><para><code>TensorFlow</code>: You must specify the name and shape (NHWC format) of the
+        /// expected data inputs using a dictionary format for your trained model. The dictionary
+        /// formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"input":[1,1024,1024,3]}</code></para></li><li><para>If using the CLI, <code>{\"input\":[1,1024,1024,3]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"data1": [1,28,28,1], "data2":[1,28,28,1]}</code></para></li><li><para>If using the CLI, <code>{\"data1\": [1,28,28,1], \"data2\":[1,28,28,1]}</code></para></li></ul></li></ul></li><li><para><code>MXNET/ONNX</code>: You must specify the name and shape (NCHW format) of the
+        /// expected data inputs in order using a dictionary format for your trained model. The
+        /// dictionary formats required for the console and CLI are different.</para><ul><li><para>Examples for one input:</para><ul><li><para>If using the console, <code>{"data":[1,3,1024,1024]}</code></para></li><li><para>If using the CLI, <code>{\"data\":[1,3,1024,1024]}</code></para></li></ul></li><li><para>Examples for two inputs:</para><ul><li><para>If using the console, <code>{"var1": [1,1,28,28], "var2":[1,1,28,28]} </code></para></li><li><para>If using the CLI, <code>{\"var1\": [1,1,28,28], \"var2\":[1,1,28,28]}</code></para></li></ul></li></ul></li><li><para><code>PyTorch</code>: You can either specify the name and shape (NCHW format) of
+        /// expected data inputs in order using a dictionary format for your trained model or
+        /// you can specify the shape only using a list format. The dictionary formats required
+        /// for the console and CLI are different. The list formats for the console and CLI are
+        /// the same.</para><ul><li><para>Examples for one input in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224]}</code></para></li></ul></li><li><para>Example for one input in list format: <code>[[1,3,224,224]]</code></para></li><li><para>Examples for two inputs in dictionary format:</para><ul><li><para>If using the console, <code>{"input0":[1,3,224,224], "input1":[1,3,224,224]}</code></para></li><li><para>If using the CLI, <code>{\"input0\":[1,3,224,224], \"input1\":[1,3,224,224]} </code></para></li></ul></li><li><para>Example for two inputs in list format: <code>[[1,3,224,224], [1,3,224,224]]</code></para></li></ul></li><li><para><code>XGBOOST</code>: input data name and shape are not needed.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,9 +112,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job. If value
-        /// is not specified, default value is 1 day. Maximum value is 5 days.</para>
+        /// <para>The maximum length of time, in seconds, that the training job can run. If model training
+        /// does not complete during this time, Amazon SageMaker ends the job. If value is not
+        /// specified, default value is 1 day. Maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

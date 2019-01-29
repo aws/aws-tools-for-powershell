@@ -84,6 +84,30 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType ComputeTypeOverride { get; set; }
         #endregion
         
+        #region Parameter RegistryCredentialOverride_Credential
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+        /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
+        /// in your current region. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegistryCredentialOverride_Credential { get; set; }
+        #endregion
+        
+        #region Parameter RegistryCredentialOverride_CredentialProvider
+        /// <summary>
+        /// <para>
+        /// <para> The service that created the credentials to access a private Docker registry. The
+        /// valid value, SECRETS_MANAGER, is for AWS Secrets Manager. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.CredentialProviderType")]
+        public Amazon.CodeBuild.CredentialProviderType RegistryCredentialOverride_CredentialProvider { get; set; }
+        #endregion
+        
         #region Parameter ArtifactsOverride_EncryptionDisabled
         /// <summary>
         /// <para>
@@ -163,6 +187,22 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ImageOverride { get; set; }
+        #endregion
+        
+        #region Parameter ImagePullCredentialsTypeOverride
+        /// <summary>
+        /// <para>
+        /// <para> The type of credentials AWS CodeBuild uses to pull images in your build. There are
+        /// two valid values: </para><ul><li><para><code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials. This
+        /// requires that you modify your ECR repository policy to trust AWS CodeBuild's service
+        /// principal.</para></li><li><para><code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's
+        /// service role. </para></li></ul><para> When using a cross-account or private registry image, you must use SERVICE_ROLE credentials.
+        /// When using an AWS CodeBuild curated image, you must use CODEBUILD credentials. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ImagePullCredentialsType")]
+        public Amazon.CodeBuild.ImagePullCredentialsType ImagePullCredentialsTypeOverride { get; set; }
         #endregion
         
         #region Parameter InsecureSslOverride
@@ -576,6 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.GitCloneDepthOverride = this.GitCloneDepthOverride;
             context.IdempotencyToken = this.IdempotencyToken;
             context.ImageOverride = this.ImageOverride;
+            context.ImagePullCredentialsTypeOverride = this.ImagePullCredentialsTypeOverride;
             if (ParameterWasBound("InsecureSslOverride"))
                 context.InsecureSslOverride = this.InsecureSslOverride;
             context.LogsConfigOverride_CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
@@ -588,6 +629,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.ProjectName = this.ProjectName;
             if (ParameterWasBound("QueuedTimeoutInMinutesOverride"))
                 context.QueuedTimeoutInMinutesOverride = this.QueuedTimeoutInMinutesOverride;
+            context.RegistryCredentialOverride_Credential = this.RegistryCredentialOverride_Credential;
+            context.RegistryCredentialOverride_CredentialProvider = this.RegistryCredentialOverride_CredentialProvider;
             if (ParameterWasBound("ReportBuildStatusOverride"))
                 context.ReportBuildStatusOverride = this.ReportBuildStatusOverride;
             if (this.SecondaryArtifactsOverride != null)
@@ -786,6 +829,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.ImageOverride = cmdletContext.ImageOverride;
             }
+            if (cmdletContext.ImagePullCredentialsTypeOverride != null)
+            {
+                request.ImagePullCredentialsTypeOverride = cmdletContext.ImagePullCredentialsTypeOverride;
+            }
             if (cmdletContext.InsecureSslOverride != null)
             {
                 request.InsecureSslOverride = cmdletContext.InsecureSslOverride.Value;
@@ -890,6 +937,35 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.QueuedTimeoutInMinutesOverride != null)
             {
                 request.QueuedTimeoutInMinutesOverride = cmdletContext.QueuedTimeoutInMinutesOverride.Value;
+            }
+            
+             // populate RegistryCredentialOverride
+            bool requestRegistryCredentialOverrideIsNull = true;
+            request.RegistryCredentialOverride = new Amazon.CodeBuild.Model.RegistryCredential();
+            System.String requestRegistryCredentialOverride_registryCredentialOverride_Credential = null;
+            if (cmdletContext.RegistryCredentialOverride_Credential != null)
+            {
+                requestRegistryCredentialOverride_registryCredentialOverride_Credential = cmdletContext.RegistryCredentialOverride_Credential;
+            }
+            if (requestRegistryCredentialOverride_registryCredentialOverride_Credential != null)
+            {
+                request.RegistryCredentialOverride.Credential = requestRegistryCredentialOverride_registryCredentialOverride_Credential;
+                requestRegistryCredentialOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.CredentialProviderType requestRegistryCredentialOverride_registryCredentialOverride_CredentialProvider = null;
+            if (cmdletContext.RegistryCredentialOverride_CredentialProvider != null)
+            {
+                requestRegistryCredentialOverride_registryCredentialOverride_CredentialProvider = cmdletContext.RegistryCredentialOverride_CredentialProvider;
+            }
+            if (requestRegistryCredentialOverride_registryCredentialOverride_CredentialProvider != null)
+            {
+                request.RegistryCredentialOverride.CredentialProvider = requestRegistryCredentialOverride_registryCredentialOverride_CredentialProvider;
+                requestRegistryCredentialOverrideIsNull = false;
+            }
+             // determine if request.RegistryCredentialOverride should be set to null
+            if (requestRegistryCredentialOverrideIsNull)
+            {
+                request.RegistryCredentialOverride = null;
             }
             if (cmdletContext.ReportBuildStatusOverride != null)
             {
@@ -1039,6 +1115,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Int32? GitCloneDepthOverride { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.String ImageOverride { get; set; }
+            public Amazon.CodeBuild.ImagePullCredentialsType ImagePullCredentialsTypeOverride { get; set; }
             public System.Boolean? InsecureSslOverride { get; set; }
             public System.String LogsConfigOverride_CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_CloudWatchLogs_Status { get; set; }
@@ -1048,6 +1125,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.Boolean? PrivilegedModeOverride { get; set; }
             public System.String ProjectName { get; set; }
             public System.Int32? QueuedTimeoutInMinutesOverride { get; set; }
+            public System.String RegistryCredentialOverride_Credential { get; set; }
+            public Amazon.CodeBuild.CredentialProviderType RegistryCredentialOverride_CredentialProvider { get; set; }
             public System.Boolean? ReportBuildStatusOverride { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectArtifacts> SecondaryArtifactsOverride { get; set; }
             public List<Amazon.CodeBuild.Model.ProjectSource> SecondarySourcesOverride { get; set; }

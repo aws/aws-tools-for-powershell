@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The IDs of the EC2 Fleets.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FleetIds")]
         public System.String[] FleetId { get; set; }
         #endregion

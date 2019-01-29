@@ -29,9 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
     /// Creates a new custom vocabulary that you can use to change the way Amazon Transcribe
-    /// handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and
-    /// fr-CA languages that are in preview are not available. In the console, the vocabulary
-    /// section will be greyed-out and SDK will return error message.
+    /// handles transcription of an audio file.
     /// </summary>
     [Cmdlet("New", "TRSVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.CreateVocabularyResponse")]
@@ -71,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// is case-sensitive.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String VocabularyName { get; set; }
         #endregion
         

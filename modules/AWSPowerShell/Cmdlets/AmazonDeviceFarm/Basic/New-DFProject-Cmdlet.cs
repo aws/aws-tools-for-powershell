@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The project's name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

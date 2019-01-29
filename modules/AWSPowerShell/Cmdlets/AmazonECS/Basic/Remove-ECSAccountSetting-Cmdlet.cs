@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// is specified, the ARN and resource ID for your Amazon ECS container instances is affected.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [AWSConstantClassSource("Amazon.ECS.SettingName")]
         public Amazon.ECS.SettingName Name { get; set; }
         #endregion

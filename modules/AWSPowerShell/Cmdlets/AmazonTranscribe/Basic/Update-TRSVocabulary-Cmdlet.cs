@@ -30,9 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
     /// <summary>
     /// Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code>
     /// operation overwrites all of the existing information with the values that you provide
-    /// in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that
-    /// are in preview are not available. In the console, the vocabulary section will be greyed-out
-    /// and SDK will return error message.
+    /// in the request.
     /// </summary>
     [Cmdlet("Update", "TRSVocabulary", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.TranscribeService.Model.UpdateVocabularyResponse")]
@@ -71,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// <para>The name of the vocabulary to update. The name is case-sensitive.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String VocabularyName { get; set; }
         #endregion
         

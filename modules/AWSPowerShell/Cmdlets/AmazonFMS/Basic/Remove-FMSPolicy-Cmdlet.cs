@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.FMS
     public partial class RemoveFMSPolicyCmdlet : AmazonFMSClientCmdlet, IExecutor
     {
         
+        #region Parameter DeleteAllPolicyResource
+        /// <summary>
+        /// <para>
+        /// <para>If <code>True</code>, the request will also delete all web ACLs in this policy. Associated
+        /// resources will no longer be protected by web ACLs in this policy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteAllPolicyResources")]
+        public System.Boolean DeleteAllPolicyResource { get; set; }
+        #endregion
+        
         #region Parameter PolicyId
         /// <summary>
         /// <para>
@@ -89,6 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DeleteAllPolicyResource"))
+                context.DeleteAllPolicyResources = this.DeleteAllPolicyResource;
             context.PolicyId = this.PolicyId;
             
             // allow further manipulation of loaded context prior to processing
@@ -106,6 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.FMS
             // create request
             var request = new Amazon.FMS.Model.DeletePolicyRequest();
             
+            if (cmdletContext.DeleteAllPolicyResources != null)
+            {
+                request.DeleteAllPolicyResources = cmdletContext.DeleteAllPolicyResources.Value;
+            }
             if (cmdletContext.PolicyId != null)
             {
                 request.PolicyId = cmdletContext.PolicyId;
@@ -176,6 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteAllPolicyResources { get; set; }
             public System.String PolicyId { get; set; }
         }
         

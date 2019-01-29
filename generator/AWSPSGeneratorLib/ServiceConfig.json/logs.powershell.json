@@ -68,7 +68,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "KmsKeyId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KmsKey",
@@ -88,8 +88,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "KmsKeyId"
         },
         "memoryStreamParameters": []
@@ -123,7 +123,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TaskId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTask",
@@ -143,8 +143,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TaskId"
         },
         "memoryStreamParameters": []
@@ -178,7 +178,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ExportTask",
@@ -198,8 +198,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -235,7 +235,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
@@ -255,8 +255,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -347,7 +347,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DestinationName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Destination",
@@ -367,8 +367,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DestinationName"
         },
         "memoryStreamParameters": []
@@ -402,7 +402,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
@@ -422,8 +422,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -459,7 +459,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogStreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogStream",
@@ -479,8 +479,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogStreamName"
         },
         "memoryStreamParameters": []
@@ -516,7 +516,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FilterName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilter",
@@ -536,8 +536,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FilterName"
         },
         "memoryStreamParameters": []
@@ -571,7 +571,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
@@ -591,8 +591,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -626,7 +626,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionPolicy",
@@ -646,8 +646,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -683,7 +683,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "FilterName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionFilter",
@@ -703,8 +703,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "FilterName"
         },
         "memoryStreamParameters": []
@@ -1136,7 +1136,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "KmsKey",
@@ -1156,8 +1156,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -1664,7 +1664,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MetricFilter",
@@ -1684,8 +1684,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -1719,7 +1719,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PolicyName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourcePolicy",
@@ -1739,8 +1739,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PolicyName"
         },
         "memoryStreamParameters": []
@@ -1785,7 +1785,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RetentionPolicy",
@@ -1805,8 +1805,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -1843,7 +1843,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SubscriptionFilter",
@@ -1863,8 +1863,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -1898,7 +1898,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Query",
@@ -1918,8 +1918,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -1953,7 +1953,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "QueryId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Query",
@@ -1973,8 +1973,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "QueryId"
         },
         "memoryStreamParameters": []
@@ -2008,7 +2008,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
@@ -2028,8 +2028,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []
@@ -2115,7 +2115,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LogGroupName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LogGroup",
@@ -2135,8 +2135,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LogGroupName"
         },
         "memoryStreamParameters": []

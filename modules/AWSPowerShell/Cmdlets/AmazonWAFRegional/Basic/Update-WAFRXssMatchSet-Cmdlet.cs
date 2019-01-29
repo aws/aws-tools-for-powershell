@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// For each <code>XssMatchTuple</code> object, you specify the following values:
     /// 
     ///  <ul><li><para><code>Action</code>: Whether to insert the object into or delete the object from
-    /// the array. To change a <code>XssMatchTuple</code>, you delete the existing object
+    /// the array. To change an <code>XssMatchTuple</code>, you delete the existing object
     /// and add a new one.
     /// </para></li><li><para><code>FieldToMatch</code>: The part of web requests that you want AWS WAF to inspect
     /// and, if you want AWS WAF to inspect a header or custom query parameter, the name of
@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </para><para>
     /// You can only specify a single type of TextTransformation.
     /// </para></li></ul><para>
-    /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests you
-    /// want to allow, block, or count. For example, if you're receiving requests that contain
-    /// cross-site scripting attacks in the request body and you want to block the requests,
-    /// you can create an <code>XssMatchSet</code> with the applicable settings, and then
-    /// configure AWS WAF to block the requests. 
+    /// You use <code>XssMatchSet</code> objects to specify which CloudFront requests that
+    /// you want to allow, block, or count. For example, if you're receiving requests that
+    /// contain cross-site scripting attacks in the request body and you want to block the
+    /// requests, you can create an <code>XssMatchSet</code> with the applicable settings,
+    /// and then configure AWS WAF to block the requests. 
     /// </para><para>
     /// To create and configure an <code>XssMatchSet</code>, perform the following steps:
     /// </para><ol><li><para>
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>An array of <code>XssMatchSetUpdate</code> objects that you want to insert into or
-        /// delete from a <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></para></li><li><para><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></para></li><li><para><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></para></li></ul>
+        /// delete from an <a>XssMatchSet</a>. For more information, see the applicable data types:</para><ul><li><para><a>XssMatchSetUpdate</a>: Contains <code>Action</code> and <code>XssMatchTuple</code></para></li><li><para><a>XssMatchTuple</a>: Contains <code>FieldToMatch</code> and <code>TextTransformation</code></para></li><li><para><a>FieldToMatch</a>: Contains <code>Data</code> and <code>Type</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

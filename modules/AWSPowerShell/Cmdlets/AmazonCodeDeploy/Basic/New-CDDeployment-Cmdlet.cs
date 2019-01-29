@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The name of an AWS CodeDeploy application associated with the applicable IAM user
-        /// or AWS account.</para>
+        /// <para>The name of an AWS CodeDeploy application associated with the IAM user or AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -101,10 +100,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter AppSpecContent_Content
         /// <summary>
         /// <para>
-        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment the content includes a Lambda function name, the alias
+        /// <para> The YAML-formatted or JSON-formatted revision string. </para><para> For an AWS Lambda deployment, the content includes a Lambda function name, the alias
         /// for its original version, and the alias for its replacement version. The deployment
         /// shifts traffic from the original version of the Lambda function to the replacement
-        /// version. </para><para> For an Amazon ECS deployment the content includes the task name, information about
+        /// version. </para><para> For an Amazon ECS deployment, the content includes the task name, information about
         /// the load balancer that serves traffic to the container, and more. </para><para> For both types of deployments, the content can specify Lambda functions that run
         /// at specified hooks, such as <code>BeforeInstall</code>, during a deployment. </para>
         /// </para>
@@ -130,10 +129,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of a deployment configuration associated with the applicable IAM user or
-        /// AWS account.</para><para>If not specified, the value configured in the deployment group will be used as the
-        /// default. If the deployment group does not have a deployment configuration associated
-        /// with it, then CodeDeployDefault.OneAtATime will be used by default.</para>
+        /// <para>The name of a deployment configuration associated with the IAM user or AWS account.</para><para>If not specified, the value configured in the deployment group is used as the default.
+        /// If the deployment group does not have a deployment configuration associated with it,
+        /// CodeDeployDefault.OneAtATime is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,9 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter Ec2TagSetList
         /// <summary>
         /// <para>
-        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
-        /// to be included in the deployment group, it must be identified by all the tag groups
-        /// in the list.</para>
+        /// <para>A list that contains other lists of EC2 instance tag groups. For an instance to be
+        /// included in the deployment group, it must be identified by all of the tag groups in
+        /// the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -212,12 +210,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para> If set to true, then if the deployment causes the ApplicationStop deployment lifecycle
-        /// event to an instance to fail, the deployment to that instance will not be considered
-        /// to have failed at that point and will continue on to the BeforeInstall deployment
-        /// lifecycle event. </para><para> If set to false or not specified, then if the deployment causes the ApplicationStop
+        /// event to an instance to fail, the deployment to that instance is considered to have
+        /// failed at that point and continues on to the BeforeInstall deployment lifecycle event.
+        /// </para><para> If set to false or not specified, then if the deployment causes the ApplicationStop
         /// deployment lifecycle event to fail to an instance, the deployment to that instance
-        /// will stop, and the deployment to that instance will be considered to have failed.
-        /// </para>
+        /// stops, and the deployment to that instance is considered to have failed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -252,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only).</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -310,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>A specific version of the Amazon S3 object that represents the bundled artifacts for
-        /// the application revision.</para><para>If the version is not specified, the system will use the most recent version by default.</para>
+        /// the application revision.</para><para>If the version is not specified, the system uses the most recent version by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -323,7 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <para>
         /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
         /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
-        /// will be skipped.</para>
+        /// is skipped.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

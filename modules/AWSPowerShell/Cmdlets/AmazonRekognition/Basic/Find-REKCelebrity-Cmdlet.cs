@@ -46,7 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// recognized in. Your application must store this information and use the <code>Celebrity</code>
     /// ID property as a unique identifier for the celebrity. If you don't store the celebrity
     /// name or additional information URLs returned by <code>RecognizeCelebrities</code>,
-    /// you will need the ID to identify the celebrity in a call to the operation.
+    /// you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a>
+    /// operation.
     /// </para><para>
     /// You pass the input image either as base64-encoded image bytes or as a reference to
     /// an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition

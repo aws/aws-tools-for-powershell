@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>A filter that returns only notebook instances with associated with the specified git
-        /// respository.</para>
+        /// repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter DefaultCodeRepositoryContain
         /// <summary>
         /// <para>
-        /// <para>A string in the name or URL of a git repository associated with this notebook instance.
+        /// <para>A string in the name or URL of a Git repository associated with this notebook instance.
         /// This filter returns only notebook instances associated with a git repository with
         /// a name that contains the specified string.</para>
         /// </para>
@@ -190,11 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para> If the previous call to the <code>ListNotebookInstances</code> is truncated, the
         /// response includes a <code>NextToken</code>. You can use this token in your subsequent
         /// <code>ListNotebookInstances</code> request to fetch the next set of notebook instances.
-        /// </para><note><para> You might specify a filter or a sort order in your request. When response is truncated,
+        /// </para><note><para>You might specify a filter or a sort order in your request. When response is truncated,
         /// you must use the same values for the filer and sort order in the next request. </para></note>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -312,7 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

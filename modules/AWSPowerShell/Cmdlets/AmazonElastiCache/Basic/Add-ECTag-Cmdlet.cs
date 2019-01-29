@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceName { get; set; }
         #endregion
         
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// pair. A tag key must be accompanied by a tag value.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Tags")]
         public Amazon.ElastiCache.Model.Tag[] Tag { get; set; }
         #endregion

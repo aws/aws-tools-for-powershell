@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SubscriptionName", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SourceIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-NPTSourceIdentifierFromSubscription (RemoveSourceIdentifierFromSubscription)"))
             {
                 return;

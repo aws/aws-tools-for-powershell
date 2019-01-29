@@ -78,7 +78,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsToResource",
@@ -100,8 +100,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -192,7 +192,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -214,8 +214,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -306,7 +306,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationSubnetGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
@@ -328,9 +328,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "SubnetIds"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ReplicationSubnetGroupIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -363,7 +363,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationInstanceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
@@ -385,8 +385,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationInstanceArn"
         },
         "memoryStreamParameters": []
@@ -420,7 +420,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -442,8 +442,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateArn"
         },
         "memoryStreamParameters": []
@@ -468,14 +468,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "EndpointArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
@@ -497,8 +499,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointArn"
         },
         "memoryStreamParameters": []
@@ -532,7 +534,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -554,8 +556,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -589,7 +591,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationInstanceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
@@ -611,8 +613,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationInstanceArn"
         },
         "memoryStreamParameters": []
@@ -646,7 +648,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationSubnetGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
@@ -668,8 +670,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationSubnetGroupIdentifier"
         },
         "memoryStreamParameters": []
@@ -703,7 +705,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
@@ -725,8 +727,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []
@@ -1209,7 +1211,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "EndpointArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1515,7 +1519,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "EndpointArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1626,7 +1632,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -1648,9 +1654,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "CertificatePem"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "CertificateIdentifier"
         },
         "memoryStreamParameters": [
           "CertificateWallet"
@@ -1728,14 +1734,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "EndpointArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
@@ -1757,8 +1765,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointArn"
         },
         "memoryStreamParameters": []
@@ -1792,7 +1800,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "SubscriptionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EventSubscription",
@@ -1814,8 +1822,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "SubscriptionName"
         },
         "memoryStreamParameters": []
@@ -1849,7 +1857,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationInstanceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
@@ -1871,8 +1879,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationInstanceArn"
         },
         "memoryStreamParameters": []
@@ -1906,7 +1914,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationSubnetGroupIdentifier"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationSubnetGroup",
@@ -1928,9 +1936,9 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
-          "targetParameterName": "SubnetIds"
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
+          "targetParameterName": "ReplicationSubnetGroupIdentifier"
         },
         "memoryStreamParameters": []
       }
@@ -1963,7 +1971,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
@@ -1985,8 +1993,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []
@@ -2011,14 +2019,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "ReplicationInstanceArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationInstanceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationInstance",
@@ -2040,8 +2050,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationInstanceArn"
         },
         "memoryStreamParameters": []
@@ -2066,14 +2076,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "EndpointArn"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Schemas",
@@ -2095,8 +2107,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointArn"
         },
         "memoryStreamParameters": []
@@ -2130,7 +2142,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tables",
@@ -2152,8 +2164,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []
@@ -2187,7 +2199,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsFromResource",
@@ -2209,8 +2221,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -2244,7 +2256,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
@@ -2266,8 +2278,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []
@@ -2301,7 +2313,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTaskAssessment",
@@ -2323,8 +2335,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []
@@ -2358,7 +2370,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReplicationTaskArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReplicationTask",
@@ -2380,8 +2392,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReplicationTaskArn"
         },
         "memoryStreamParameters": []

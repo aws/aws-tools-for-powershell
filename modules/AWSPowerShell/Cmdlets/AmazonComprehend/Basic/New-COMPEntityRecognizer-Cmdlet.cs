@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// The name must be unique in the account/region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String RecognizerName { get; set; }
         #endregion
         

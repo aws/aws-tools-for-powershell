@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The 12-digit account ID of the account authorized to aggregate data.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AuthorizedAccountId { get; set; }
         #endregion
         

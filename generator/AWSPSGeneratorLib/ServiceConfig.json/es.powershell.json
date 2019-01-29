@@ -61,7 +61,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TagList"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -79,8 +79,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TagList"
         },
         "memoryStreamParameters": []
@@ -114,7 +114,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DomainName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchServiceSoftwareUpdate",
@@ -132,8 +132,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
         },
         "memoryStreamParameters": []
@@ -218,7 +218,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DomainName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
@@ -236,8 +236,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
         },
         "memoryStreamParameters": []
@@ -942,7 +942,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ReservedElasticsearchInstanceOfferingId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReservedElasticsearchInstanceOffering",
@@ -960,8 +960,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ReservedElasticsearchInstanceOfferingId"
         },
         "memoryStreamParameters": []
@@ -1048,7 +1048,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DomainName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchServiceSoftwareUpdate",
@@ -1066,8 +1066,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
         },
         "memoryStreamParameters": []
@@ -1152,7 +1152,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DomainName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ElasticsearchDomain",
@@ -1170,8 +1170,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DomainName"
         },
         "memoryStreamParameters": []

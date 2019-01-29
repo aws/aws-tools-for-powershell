@@ -52,6 +52,22 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Arn { get; set; }
         #endregion
         
+        #region Parameter ClearMaxDevice
+        /// <summary>
+        /// <para>
+        /// <para>Sets whether the <code>maxDevices</code> parameter applies to your device pool. If
+        /// you set this parameter to <code>true</code>, the <code>maxDevices</code> parameter
+        /// does not apply, and Device Farm does not limit the number of devices that it adds
+        /// to your device pool. In this case, Device Farm adds all available devices that meet
+        /// the criteria that are specified for the <code>rules</code> parameter.</para><para>If you use this parameter in your request, you cannot use the <code>maxDevices</code>
+        /// parameter in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ClearMaxDevices")]
+        public System.Boolean ClearMaxDevice { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -60,6 +76,22 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter MaxDevice
+        /// <summary>
+        /// <para>
+        /// <para>The number of devices that Device Farm can add to your device pool. Device Farm adds
+        /// devices that are available and that meet the criteria that you assign for the <code>rules</code>
+        /// parameter. Depending on how many devices meet these constraints, your device pool
+        /// might contain fewer devices than the value for this parameter.</para><para>By specifying the maximum number of devices, you can control the costs that you incur
+        /// by running tests.</para><para>If you use this parameter in your request, you cannot use the <code>clearMaxDevices</code>
+        /// parameter in the same request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxDevices")]
+        public System.Int32 MaxDevice { get; set; }
         #endregion
         
         #region Parameter Name
@@ -115,7 +147,11 @@ namespace Amazon.PowerShell.Cmdlets.DF
             PreExecutionContextLoad(context);
             
             context.Arn = this.Arn;
+            if (ParameterWasBound("ClearMaxDevice"))
+                context.ClearMaxDevices = this.ClearMaxDevice;
             context.Description = this.Description;
+            if (ParameterWasBound("MaxDevice"))
+                context.MaxDevices = this.MaxDevice;
             context.Name = this.Name;
             if (this.Rule != null)
             {
@@ -141,9 +177,17 @@ namespace Amazon.PowerShell.Cmdlets.DF
             {
                 request.Arn = cmdletContext.Arn;
             }
+            if (cmdletContext.ClearMaxDevices != null)
+            {
+                request.ClearMaxDevices = cmdletContext.ClearMaxDevices.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MaxDevices != null)
+            {
+                request.MaxDevices = cmdletContext.MaxDevices.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -218,7 +262,9 @@ namespace Amazon.PowerShell.Cmdlets.DF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Arn { get; set; }
+            public System.Boolean? ClearMaxDevices { get; set; }
             public System.String Description { get; set; }
+            public System.Int32? MaxDevices { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.DeviceFarm.Model.Rule> Rules { get; set; }
         }

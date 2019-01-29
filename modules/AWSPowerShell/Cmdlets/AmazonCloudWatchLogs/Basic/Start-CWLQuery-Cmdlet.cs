@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Schedules a query of a log group using CloudWatch Logs Insights. You specify the log
-    /// group to query, the query string to use, and the time to query.
+    /// group and time range to query, and the query string to use.
     /// 
     ///  
     /// <para>
@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time to end this query, if it is still running. Specified as epoch time, the number
-        /// of seconds since January 1, 1970, 00:00:00 UTC.</para>
+        /// <para>The end of the time range to query. Specified as epoch time, the number of seconds
+        /// since January 1, 1970, 00:00:00 UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The time to start the query. Specified as epoch time, the number of seconds since
-        /// January 1, 1970, 00:00:00 UTC.</para>
+        /// <para>The beginning of the time range to query. Specified as epoch time, the number of seconds
+        /// since January 1, 1970, 00:00:00 UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,9 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The maximum number of log events to return in the query. If the query string uses
         /// the <code>fields</code> command, only the specified fields and their values are returned.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

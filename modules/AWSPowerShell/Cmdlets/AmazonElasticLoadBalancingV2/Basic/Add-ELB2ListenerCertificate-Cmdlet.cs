@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Adds the specified certificate to the specified secure listener.
+    /// Adds the specified certificate to the specified HTTPS listener.
     /// 
     ///  
     /// <para>

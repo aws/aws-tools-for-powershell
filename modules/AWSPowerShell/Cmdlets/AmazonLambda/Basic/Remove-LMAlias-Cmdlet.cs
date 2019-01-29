@@ -28,13 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Deletes the specified Lambda function alias. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
-    /// 
-    ///  
-    /// <para>
-    /// This requires permission for the lambda:DeleteAlias action.
-    /// </para>
+    /// Deletes a Lambda function <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
     /// </summary>
     [Cmdlet("Remove", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -59,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the alias to delete.</para>
+        /// <para>The name of the alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

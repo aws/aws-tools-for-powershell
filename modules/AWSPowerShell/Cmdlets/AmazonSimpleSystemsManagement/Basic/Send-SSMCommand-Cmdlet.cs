@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("InstanceIds")]
         public System.String[] InstanceId { get; set; }
         #endregion

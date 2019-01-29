@@ -80,13 +80,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ContinuousParameterRange[] ParameterRanges_ContinuousParameterRange { get; set; }
         #endregion
         
+        #region Parameter TrainingJobDefinition_EnableInterContainerTrafficEncryption
+        /// <summary>
+        /// <para>
+        /// <para>To encrypt all communications between ML compute instances in distributed training,
+        /// specify <code>True</code>. Encryption provides greater security for distributed training,
+        /// but training take longer because of the additional communications between ML compute
+        /// instances.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean TrainingJobDefinition_EnableInterContainerTrafficEncryption { get; set; }
+        #endregion
+        
         #region Parameter TrainingJobDefinition_EnableNetworkIsolation
         /// <summary>
         /// <para>
         /// <para>Isolates the training container. No inbound or outbound network calls can be made,
         /// except for calls between peers within a training cluster for distributed training.
         /// If network isolation is used for training jobs that are configured to use a VPC, Amazon
-        /// SageMaker downloads and uploads customer data and model artifacts through the specifed
+        /// SageMaker downloads and uploads customer data and model artifacts through the specified
         /// VPC, but the training container does not have network access.</para><note><para>The Semantic Segmentation built-in algorithm does not support network isolation.</para></note>
         /// </para>
         /// </summary>
@@ -156,9 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter StoppingCondition_MaxRuntimeInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum length of time, in seconds, that the training or compilation job can run.
-        /// If the job does not complete during this time, Amazon SageMaker ends the job. If value
-        /// is not specified, default value is 1 day. Maximum value is 5 days.</para>
+        /// <para>The maximum length of time, in seconds, that the training job can run. If model training
+        /// does not complete during this time, Amazon SageMaker ends the job. If value is not
+        /// specified, default value is 1 day. Maximum value is 28 days.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -339,8 +352,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>Specifies whether to use early stopping for training jobs launched by the hyperparameter
-        /// tuning job. One of the following values:</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>Amazon SageMaker stops training jobs launched by the hyperparameter tuning job when
-        /// they are no longer improving as measured by the objective metric of the tuning job.</para></dd></dl>
+        /// tuning job. This can be one of the following values (the default value is <code>OFF</code>):</para><dl><dt>OFF</dt><dd><para>Training jobs launched by the hyperparameter tuning job do not use early stopping.</para></dd><dt>AUTO</dt><dd><para>Amazon SageMaker stops training jobs launched by the hyperparameter tuning job when
+        /// they are unlikely to perform better than previously completed training jobs. For more
+        /// information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop
+        /// Training Jobs Early</a>.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -447,6 +462,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             }
             context.TrainingJobDefinition_AlgorithmSpecification_TrainingImage = this.AlgorithmSpecification_TrainingImage;
             context.TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode = this.AlgorithmSpecification_TrainingInputMode;
+            if (ParameterWasBound("TrainingJobDefinition_EnableInterContainerTrafficEncryption"))
+                context.TrainingJobDefinition_EnableInterContainerTrafficEncryption = this.TrainingJobDefinition_EnableInterContainerTrafficEncryption;
             if (ParameterWasBound("TrainingJobDefinition_EnableNetworkIsolation"))
                 context.TrainingJobDefinition_EnableNetworkIsolation = this.TrainingJobDefinition_EnableNetworkIsolation;
             if (this.TrainingJobDefinition_InputDataConfig != null)
@@ -651,6 +668,16 @@ namespace Amazon.PowerShell.Cmdlets.SM
              // populate TrainingJobDefinition
             bool requestTrainingJobDefinitionIsNull = true;
             request.TrainingJobDefinition = new Amazon.SageMaker.Model.HyperParameterTrainingJobDefinition();
+            System.Boolean? requestTrainingJobDefinition_trainingJobDefinition_EnableInterContainerTrafficEncryption = null;
+            if (cmdletContext.TrainingJobDefinition_EnableInterContainerTrafficEncryption != null)
+            {
+                requestTrainingJobDefinition_trainingJobDefinition_EnableInterContainerTrafficEncryption = cmdletContext.TrainingJobDefinition_EnableInterContainerTrafficEncryption.Value;
+            }
+            if (requestTrainingJobDefinition_trainingJobDefinition_EnableInterContainerTrafficEncryption != null)
+            {
+                request.TrainingJobDefinition.EnableInterContainerTrafficEncryption = requestTrainingJobDefinition_trainingJobDefinition_EnableInterContainerTrafficEncryption.Value;
+                requestTrainingJobDefinitionIsNull = false;
+            }
             System.Boolean? requestTrainingJobDefinition_trainingJobDefinition_EnableNetworkIsolation = null;
             if (cmdletContext.TrainingJobDefinition_EnableNetworkIsolation != null)
             {
@@ -939,6 +966,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public List<Amazon.SageMaker.Model.MetricDefinition> TrainingJobDefinition_AlgorithmSpecification_MetricDefinitions { get; set; }
             public System.String TrainingJobDefinition_AlgorithmSpecification_TrainingImage { get; set; }
             public Amazon.SageMaker.TrainingInputMode TrainingJobDefinition_AlgorithmSpecification_TrainingInputMode { get; set; }
+            public System.Boolean? TrainingJobDefinition_EnableInterContainerTrafficEncryption { get; set; }
             public System.Boolean? TrainingJobDefinition_EnableNetworkIsolation { get; set; }
             public List<Amazon.SageMaker.Model.Channel> TrainingJobDefinition_InputDataConfig { get; set; }
             public Amazon.SageMaker.Model.OutputDataConfig TrainingJobDefinition_OutputDataConfig { get; set; }

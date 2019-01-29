@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SnapshotCopyGrantName", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClusterIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-RSSnapshotCopy (EnableSnapshotCopy)"))
             {
                 return;

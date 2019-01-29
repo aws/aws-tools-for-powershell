@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>The ARNs that specify the findings that you want to assign attributes to.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("FindingArns")]
         public System.String[] FindingArn { get; set; }
         #endregion

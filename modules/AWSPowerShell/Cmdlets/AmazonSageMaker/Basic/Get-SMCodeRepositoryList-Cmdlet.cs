@@ -28,7 +28,7 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Gets a list of the git repositories in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets a list of the Git repositories in your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SMCodeRepositoryList")]
     [OutputType("Amazon.SageMaker.Model.CodeRepositorySummary")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only git repositories that were created after the specified
+        /// <para>A filter that returns only Git repositories that were created after the specified
         /// time.</para>
         /// </para>
         /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CreationTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only git repositories that were created before the specified
+        /// <para>A filter that returns only Git repositories that were created before the specified
         /// time.</para>
         /// </para>
         /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LastModifiedTimeAfter
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only git repositories that were last modified after the specified
+        /// <para>A filter that returns only Git repositories that were last modified after the specified
         /// time.</para>
         /// </para>
         /// </summary>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter LastModifiedTimeBefore
         /// <summary>
         /// <para>
-        /// <para>A filter that returns only git repositories that were last modified before the specified
+        /// <para>A filter that returns only Git repositories that were last modified before the specified
         /// time.</para>
         /// </para>
         /// </summary>
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter NameContain
         /// <summary>
         /// <para>
-        /// <para>A string in the git repositories name. This filter returns only repositories whose
+        /// <para>A string in the Git repositories name. This filter returns only repositories whose
         /// name contains the specified string.</para>
         /// </para>
         /// </summary>
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of git repositories to return in the response.</para>
+        /// <para>The maximum number of Git repositories to return in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -137,11 +137,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated,
-        /// the response includes a <code>NextToken</code>. To get the next set of git repositories,
+        /// the response includes a <code>NextToken</code>. To get the next set of Git repositories,
         /// use the token in the next request.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -239,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

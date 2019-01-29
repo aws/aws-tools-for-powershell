@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter DevicePoolArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the device pool for the run to be scheduled.</para><para>Either <b><code>devicePoolArn</code></b> or <b><code>deviceSelectionConfiguration</code></b> are required in a request.</para>
+        /// <para>The ARN of the device pool for the run to be scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -162,13 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         #region Parameter DeviceSelectionConfiguration_Filter
         /// <summary>
         /// <para>
-        /// <para>Used to dynamically select a set of devices for a test run. A filter is made up of
-        /// an attribute, an operator, and one or more values.</para><ul><li><para>Attribute: The aspect of a device such as platform or model used as the selection
-        /// criteria in a device filter.</para><para>Allowed values include:</para><ul><li><para>ARN: The Amazon Resource Name (ARN) of the device. For example, "arn:aws:devicefarm:us-west-2::device:12345Example".</para></li><li><para>PLATFORM: The device platform. Valid values are "ANDROID" or "IOS".</para></li><li><para>OS_VERSION: The operating system version. For example, "10.3.2".</para></li><li><para>MODEL: The device model. For example, "iPad 5th Gen".</para></li><li><para>AVAILABILITY: The current availability of the device. Valid values are "AVAILABLE",
-        /// "HIGHLY_AVAILABLE", "BUSY", or "TEMPORARY_NOT_AVAILABLE".</para></li><li><para>FORM_FACTOR: The device form factor. Valid values are "PHONE" or "TABLET".</para></li><li><para>MANUFACTURER: The device manufacturer. For example, "Apple".</para></li><li><para>REMOTE_ACCESS_ENABLED: Whether the device is enabled for remote access.</para></li><li><para>REMOTE_DEBUG_ENABLED: Whether the device is enabled for remote debugging.</para></li><li><para>INSTANCE_ARN: The Amazon Resource Name (ARN) of the device instance.</para></li><li><para>INSTANCE_LABELS: The label of the device instance.</para></li><li><para>FLEET_TYPE: The fleet type. Valid values are "PUBLIC" or "PRIVATE".</para></li></ul></li><li><para>Operator: The filter operator.</para><ul><li><para>The EQUALS operator is available for every attribute except INSTANCE_LABELS.</para></li><li><para>The CONTAINS operator is available for the INSTANCE_LABELS and MODEL attributes.</para></li><li><para>The IN and NOT_IN operators are available for the ARN, OS_VERSION, MODEL, MANUFACTURER,
-        /// and INSTANCE_ARN attributes.</para></li><li><para>The LESS_THAN, GREATER_THAN, LESS_THAN_OR_EQUALS, and GREATER_THAN_OR_EQUALS operators
-        /// are also available for the OS_VERSION attribute.</para></li></ul></li><li><para>Values: An array of one or more filter values.</para><ul><li><para>The IN and NOT operators can take a values array that has more than one element.</para></li><li><para>The other operators require an array with a single element.</para></li><li><para>In a request, the AVAILABILITY attribute takes "AVAILABLE", "HIGHLY_AVAILABLE", "BUSY",
-        /// or "TEMPORARY_NOT_AVAILABLE" as values.</para></li></ul></li></ul>
+        /// Amazon.DeviceFarm.Model.DeviceSelectionConfiguration.Filters
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -259,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The name for the run to be scheduled.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         
@@ -290,8 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <para>The test's parameters, such as test framework parameters and fixture settings. Parameters
         /// are represented by name-value pairs of strings.</para><para>For all tests:</para><ul><li><para>app_performance_monitoring: Performance monitoring is enabled by default. Set this
         /// parameter to "false" to disable it.</para></li></ul><para>For Calabash tests:</para><ul><li><para>profile: A cucumber profile, for example, "my_profile_name".</para></li><li><para>tags: You can limit execution to features or scenarios that have (or don't have) certain
-        /// tags, for example, "@smoke" or "@smoke,~@wip".</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are "1.7.2", "1.7.1",
-        /// "1.6.5", "latest", and "default".</para><ul><li><para>“latest” will run the latest Appium version supported by Device Farm (1.7.2).</para></li><li><para>For “default”, Device Farm will choose a compatible version of Appium for the device.
+        /// tags, for example, "@smoke" or "@smoke,~@wip".</para></li></ul><para>For Appium tests (all types):</para><ul><li><para>appium_version: The Appium version. Currently supported values are "1.6.5" (and higher),
+        /// "latest", and "default".</para><ul><li><para>“latest” will run the latest Appium version supported by Device Farm (1.9.1).</para></li><li><para>For “default”, Device Farm will choose a compatible version of Appium for the device.
         /// The current behavior is to run 1.7.2 on Android devices and iOS 9 and earlier, 1.7.2
         /// for iOS 10 and later.</para></li><li><para>This behavior is subject to change.</para></li></ul></li></ul><para>For Fuzz tests (Android only):</para><ul><li><para>event_count: The number of events, between 1 and 10000, that the UI fuzz test should
         /// perform.</para></li><li><para>throttle: The time, in ms, between 0 and 1000, that the UI fuzz test should wait between
@@ -353,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         /// <summary>
         /// <para>
         /// <para>The test's type.</para><para>Must be one of the following values:</para><ul><li><para>BUILTIN_FUZZ: The built-in fuzz type.</para></li><li><para>BUILTIN_EXPLORER: For Android, an app explorer that will traverse an Android app,
-        /// interacting with it and capturing screenshots at the same time.</para></li><li><para>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</para></li><li><para>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</para></li><li><para>APPIUM_PYTHON: The Appium Python type.</para></li><li><para>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for Web apps.</para></li><li><para>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for Web apps.</para></li><li><para>APPIUM_WEB_PYTHON: The Appium Python type for Web apps.</para></li><li><para>CALABASH: The Calabash type.</para></li><li><para>INSTRUMENTATION: The Instrumentation type.</para></li><li><para>UIAUTOMATION: The uiautomation type.</para></li><li><para>UIAUTOMATOR: The uiautomator type.</para></li><li><para>XCTEST: The XCode test type.</para></li><li><para>XCTEST_UI: The XCode UI test type.</para></li></ul>
+        /// interacting with it and capturing screenshots at the same time.</para></li><li><para>APPIUM_JAVA_JUNIT: The Appium Java JUnit type.</para></li><li><para>APPIUM_JAVA_TESTNG: The Appium Java TestNG type.</para></li><li><para>APPIUM_PYTHON: The Appium Python type.</para></li><li><para>APPIUM_NODE: The Appium Node.js type.</para></li><li><para>APPIUM_RUBY: The Appium Ruby type.</para></li><li><para>APPIUM_WEB_JAVA_JUNIT: The Appium Java JUnit type for web apps.</para></li><li><para>APPIUM_WEB_JAVA_TESTNG: The Appium Java TestNG type for web apps.</para></li><li><para>APPIUM_WEB_PYTHON: The Appium Python type for web apps.</para></li><li><para>APPIUM_WEB_NODE: The Appium Node.js type for web apps.</para></li><li><para>APPIUM_WEB_RUBY: The Appium Ruby type for web apps.</para></li><li><para>CALABASH: The Calabash type.</para></li><li><para>INSTRUMENTATION: The Instrumentation type.</para></li><li><para>UIAUTOMATION: The uiautomation type.</para></li><li><para>UIAUTOMATOR: The uiautomator type.</para></li><li><para>XCTEST: The XCode test type.</para></li><li><para>XCTEST_UI: The XCode UI test type.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The content of the Liquid template for the worker user interface.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String UiTemplate_Content { get; set; }
         #endregion
         

@@ -28,12 +28,12 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Creates an <a>IPSet</a>, which you use to specify which web requests you want to allow
-    /// or block based on the IP addresses that the requests originate from. For example,
-    /// if you're receiving a lot of requests from one or more individual IP addresses or
-    /// one or more ranges of IP addresses and you want to block the requests, you can create
-    /// an <code>IPSet</code> that contains those IP addresses and then configure AWS WAF
-    /// to block the requests. 
+    /// Creates an <a>IPSet</a>, which you use to specify which web requests that you want
+    /// to allow or block based on the IP addresses that the requests originate from. For
+    /// example, if you're receiving a lot of requests from one or more individual IP addresses
+    /// or one or more ranges of IP addresses and you want to block the requests, you can
+    /// create an <code>IPSet</code> that contains those IP addresses and then configure AWS
+    /// WAF to block the requests. 
     /// 
     ///  
     /// <para>

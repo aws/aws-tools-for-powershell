@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// Modifies the properties of the specified Amazon WorkSpaces client.
     /// </summary>
     [Cmdlet("Edit", "WKSClientProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","Amazon.WorkSpaces.ReconnectEnum")]
     [AWSCmdlet("Calls the Amazon WorkSpaces ModifyClientProperties API operation.", Operation = new[] {"ModifyClientProperties"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or Amazon.WorkSpaces.ReconnectEnum",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClientProperties_ReconnectEnabled parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkSpaces.Model.ModifyClientPropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EditWKSClientPropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// their credentials. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [AWSConstantClassSource("Amazon.WorkSpaces.ReconnectEnum")]
         public Amazon.WorkSpaces.ReconnectEnum ClientProperties_ReconnectEnabled { get; set; }
         #endregion
@@ -61,6 +61,15 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ClientProperties_ReconnectEnabled parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -143,6 +152,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ClientProperties_ReconnectEnabled;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

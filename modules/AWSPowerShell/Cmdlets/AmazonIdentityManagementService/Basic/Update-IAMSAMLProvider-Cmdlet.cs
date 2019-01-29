@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SAMLProviderArn { get; set; }
         #endregion
         

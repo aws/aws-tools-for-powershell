@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
         /// another <code>DescribeRepositories</code> request with the returned <code>nextToken</code>
-        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>DescribeRepositories</code>
+        /// value. This value can be between 1 and 1000. If this parameter is not used, then <code>DescribeRepositories</code>
         /// returns up to 100 results and a <code>nextToken</code> value, if applicable. This
         /// option cannot be used when you specify repositories with <code>repositoryNames</code>.</para>
         /// </para>
@@ -98,6 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

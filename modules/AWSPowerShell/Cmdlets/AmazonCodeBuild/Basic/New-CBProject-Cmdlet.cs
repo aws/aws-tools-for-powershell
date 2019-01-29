@@ -92,6 +92,32 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
         #endregion
         
+        #region Parameter RegistryCredential_Credential
+        /// <summary>
+        /// <para>
+        /// <para> The Amazon Resource Name (ARN) or name of credentials created using AWS Secrets Manager.
+        /// </para><note><para> The <code>credential</code> can use the name of the credentials only if they exist
+        /// in your current region. </para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Environment_RegistryCredential_Credential")]
+        public System.String RegistryCredential_Credential { get; set; }
+        #endregion
+        
+        #region Parameter RegistryCredential_CredentialProvider
+        /// <summary>
+        /// <para>
+        /// <para> The service that created the credentials to access a private Docker registry. The
+        /// valid value, SECRETS_MANAGER, is for AWS Secrets Manager. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Environment_RegistryCredential_CredentialProvider")]
+        [AWSConstantClassSource("Amazon.CodeBuild.CredentialProviderType")]
+        public Amazon.CodeBuild.CredentialProviderType RegistryCredential_CredentialProvider { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -162,11 +188,32 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Environment_Image
         /// <summary>
         /// <para>
-        /// <para>The ID of the Docker image to use for this build project.</para>
+        /// <para>The image tag or image digest that identifies the Docker image to use for this build
+        /// project. Use the following formats:</para><ul><li><para>For an image tag: <code>registry/repository:tag</code>. For example, to specify an
+        /// image with the tag "latest," use <code>registry/repository:latest</code>.</para></li><li><para>For an image digest: <code>registry/repository@digest</code>. For example, to specify
+        /// an image with the digest "sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf,"
+        /// use <code>registry/repository@sha256:cbbf2f9a99b47fc460d422812b6a5adff7dfee951d8fa2e4a98caa0382cfbdbf</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Environment_Image { get; set; }
+        #endregion
+        
+        #region Parameter Environment_ImagePullCredentialsType
+        /// <summary>
+        /// <para>
+        /// <para> The type of credentials AWS CodeBuild uses to pull images in your build. There are
+        /// two valid values: </para><ul><li><para><code>CODEBUILD</code> specifies that AWS CodeBuild uses its own credentials. This
+        /// requires that you modify your ECR repository policy to trust AWS CodeBuild's service
+        /// principal. </para></li><li><para><code>SERVICE_ROLE</code> specifies that AWS CodeBuild uses your build project's
+        /// service role. </para></li></ul><para> When you use a cross-account or private registry image, you must use SERVICE_ROLE
+        /// credentials. When you use an AWS CodeBuild curated image, you must use CODEBUILD credentials.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.ImagePullCredentialsType")]
+        public Amazon.CodeBuild.ImagePullCredentialsType Environment_ImagePullCredentialsType { get; set; }
         #endregion
         
         #region Parameter Source_InsecureSsl
@@ -655,8 +702,11 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.Environment_EnvironmentVariables = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
             }
             context.Environment_Image = this.Environment_Image;
+            context.Environment_ImagePullCredentialsType = this.Environment_ImagePullCredentialsType;
             if (ParameterWasBound("Environment_PrivilegedMode"))
                 context.Environment_PrivilegedMode = this.Environment_PrivilegedMode;
+            context.Environment_RegistryCredential_Credential = this.RegistryCredential_Credential;
+            context.Environment_RegistryCredential_CredentialProvider = this.RegistryCredential_CredentialProvider;
             context.Environment_Type = this.Environment_Type;
             context.LogsConfig_CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.LogsConfig_CloudWatchLogs_Status = this.CloudWatchLogs_Status;
@@ -902,6 +952,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.Environment.Image = requestEnvironment_environment_Image;
                 requestEnvironmentIsNull = false;
             }
+            Amazon.CodeBuild.ImagePullCredentialsType requestEnvironment_environment_ImagePullCredentialsType = null;
+            if (cmdletContext.Environment_ImagePullCredentialsType != null)
+            {
+                requestEnvironment_environment_ImagePullCredentialsType = cmdletContext.Environment_ImagePullCredentialsType;
+            }
+            if (requestEnvironment_environment_ImagePullCredentialsType != null)
+            {
+                request.Environment.ImagePullCredentialsType = requestEnvironment_environment_ImagePullCredentialsType;
+                requestEnvironmentIsNull = false;
+            }
             System.Boolean? requestEnvironment_environment_PrivilegedMode = null;
             if (cmdletContext.Environment_PrivilegedMode != null)
             {
@@ -920,6 +980,41 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironment_environment_Type != null)
             {
                 request.Environment.Type = requestEnvironment_environment_Type;
+                requestEnvironmentIsNull = false;
+            }
+            Amazon.CodeBuild.Model.RegistryCredential requestEnvironment_environment_RegistryCredential = null;
+            
+             // populate RegistryCredential
+            bool requestEnvironment_environment_RegistryCredentialIsNull = true;
+            requestEnvironment_environment_RegistryCredential = new Amazon.CodeBuild.Model.RegistryCredential();
+            System.String requestEnvironment_environment_RegistryCredential_registryCredential_Credential = null;
+            if (cmdletContext.Environment_RegistryCredential_Credential != null)
+            {
+                requestEnvironment_environment_RegistryCredential_registryCredential_Credential = cmdletContext.Environment_RegistryCredential_Credential;
+            }
+            if (requestEnvironment_environment_RegistryCredential_registryCredential_Credential != null)
+            {
+                requestEnvironment_environment_RegistryCredential.Credential = requestEnvironment_environment_RegistryCredential_registryCredential_Credential;
+                requestEnvironment_environment_RegistryCredentialIsNull = false;
+            }
+            Amazon.CodeBuild.CredentialProviderType requestEnvironment_environment_RegistryCredential_registryCredential_CredentialProvider = null;
+            if (cmdletContext.Environment_RegistryCredential_CredentialProvider != null)
+            {
+                requestEnvironment_environment_RegistryCredential_registryCredential_CredentialProvider = cmdletContext.Environment_RegistryCredential_CredentialProvider;
+            }
+            if (requestEnvironment_environment_RegistryCredential_registryCredential_CredentialProvider != null)
+            {
+                requestEnvironment_environment_RegistryCredential.CredentialProvider = requestEnvironment_environment_RegistryCredential_registryCredential_CredentialProvider;
+                requestEnvironment_environment_RegistryCredentialIsNull = false;
+            }
+             // determine if requestEnvironment_environment_RegistryCredential should be set to null
+            if (requestEnvironment_environment_RegistryCredentialIsNull)
+            {
+                requestEnvironment_environment_RegistryCredential = null;
+            }
+            if (requestEnvironment_environment_RegistryCredential != null)
+            {
+                request.Environment.RegistryCredential = requestEnvironment_environment_RegistryCredential;
                 requestEnvironmentIsNull = false;
             }
              // determine if request.Environment should be set to null
@@ -1279,7 +1374,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariables { get; set; }
             public System.String Environment_Image { get; set; }
+            public Amazon.CodeBuild.ImagePullCredentialsType Environment_ImagePullCredentialsType { get; set; }
             public System.Boolean? Environment_PrivilegedMode { get; set; }
+            public System.String Environment_RegistryCredential_Credential { get; set; }
+            public Amazon.CodeBuild.CredentialProviderType Environment_RegistryCredential_CredentialProvider { get; set; }
             public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
             public System.String LogsConfig_CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType LogsConfig_CloudWatchLogs_Status { get; set; }

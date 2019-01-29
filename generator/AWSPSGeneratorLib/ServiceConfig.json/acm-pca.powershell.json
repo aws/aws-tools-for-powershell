@@ -114,7 +114,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityAuditReport",
@@ -132,8 +132,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -167,7 +167,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
@@ -185,8 +185,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -460,7 +460,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthorityCertificate",
@@ -478,8 +478,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": [
@@ -516,7 +516,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -534,8 +534,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": [
@@ -665,7 +665,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
@@ -683,8 +683,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -718,7 +718,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Certificate",
@@ -736,8 +736,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -771,7 +771,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
@@ -789,8 +789,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -824,7 +824,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
@@ -842,8 +842,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []
@@ -877,7 +877,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CertificateAuthorityArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CertificateAuthority",
@@ -895,8 +895,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CertificateAuthorityArn"
         },
         "memoryStreamParameters": []

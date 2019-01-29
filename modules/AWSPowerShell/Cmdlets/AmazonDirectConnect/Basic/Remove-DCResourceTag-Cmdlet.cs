@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Removes one or more tags from the specified AWS Direct Connect resource.
     /// </summary>
     [Cmdlet("Remove", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Direct Connect UntagResource API operation.", Operation = new[] {"UntagResource"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectConnect.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveDCResourceTagCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceArn { get; set; }
         #endregion
         
@@ -59,6 +59,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         [System.Management.Automation.Parameter]
         [Alias("TagKeys")]
         public System.String[] TagKey { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ResourceArn parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -129,6 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ResourceArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

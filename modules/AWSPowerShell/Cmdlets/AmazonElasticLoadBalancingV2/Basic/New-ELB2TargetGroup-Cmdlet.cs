@@ -113,9 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthCheckProtocol
         /// <summary>
         /// <para>
-        /// <para>The protocol the load balancer uses when performing health checks on targets. The
-        /// TCP protocol is supported only if the protocol of the target group is TCP. For Application
-        /// Load Balancers, the default is HTTP. For Network Load Balancers, the default is TCP.</para>
+        /// <para>The protocol the load balancer uses when performing health checks on targets. For
+        /// Application Load Balancers, the default is HTTP. For Network Load Balancers, the default
+        /// is TCP. The TCP protocol is supported for health checks only if the protocol of the
+        /// target group is TCP or TLS. The TLS protocol is not supported for health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -191,7 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The protocol to use for routing traffic to the targets. For Application Load Balancers,
         /// the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
-        /// protocol is TCP. If the target is a Lambda function, this parameter does not apply.</para>
+        /// protocols are TCP and TLS. If the target is a Lambda function, this parameter does
+        /// not apply.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

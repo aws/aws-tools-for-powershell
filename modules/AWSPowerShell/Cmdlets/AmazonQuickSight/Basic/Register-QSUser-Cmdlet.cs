@@ -40,15 +40,15 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// </para><para>
     /// The condition keys are <code>quicksight:IamArn</code> and <code>quicksight:SessionName</code>.
     /// 
-    /// </para>
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight register-user -\-aws-account-id=111122223333 -\-namespace=default
+    /// -\-email=pat@example.com -\-identity-type=IAM -\-user-role=AUTHOR -\-iam-arn=arn:aws:iam::111122223333:user/Pat
+    /// </code></para>
     /// </summary>
     [Cmdlet("Register", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.QuickSight.Model.User")]
+    [OutputType("Amazon.QuickSight.Model.RegisterUserResponse")]
     [AWSCmdlet("Calls the Amazon QuickSight RegisterUser API operation.", Operation = new[] {"RegisterUser"})]
-    [AWSCmdletOutput("Amazon.QuickSight.Model.User",
-        "This cmdlet returns a User object.",
-        "The service call response (type Amazon.QuickSight.Model.RegisterUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: RequestId (type System.String), Status (type System.Int32)"
+    [AWSCmdletOutput("Amazon.QuickSight.Model.RegisterUserResponse",
+        "This cmdlet returns a Amazon.QuickSight.Model.RegisterUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RegisterQSUserCmdlet : AmazonQuickSightClientCmdlet, IExecutor
     {
@@ -236,10 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.User;
-                notes = new Dictionary<string, object>();
-                notes["RequestId"] = response.RequestId;
-                notes["Status"] = response.Status;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

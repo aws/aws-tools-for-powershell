@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SubnetId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ReplicationSubnetGroupIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DMSReplicationSubnetGroup (CreateReplicationSubnetGroup)"))
             {
                 return;

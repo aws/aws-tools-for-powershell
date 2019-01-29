@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The DB cluster identifier for the DB cluster to be deleted. This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must match an existing DBClusterIdentifier.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         

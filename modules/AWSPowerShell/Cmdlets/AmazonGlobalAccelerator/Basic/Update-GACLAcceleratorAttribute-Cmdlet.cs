@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter AcceleratorArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the accelerator that you want to update.</para>
+        /// <para>The Amazon Resource Name (ARN) of the accelerator that you want to update. Attribute
+        /// is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,7 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter FlowLogsEnabled
         /// <summary>
         /// <para>
-        /// <para>Update whether flow logs are enabled.</para>
+        /// <para>Update whether flow logs are enabled. The default value is false. If the value is
+        /// true, <code>FlowLogsS3Bucket</code> and <code>FlowLogsS3Prefix</code> must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/monitoring-global-accelerator.flow-logs.html">Flow
+        /// Logs</a> in the <i>AWS Global Accelerator Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter FlowLogsS3Bucket
         /// <summary>
         /// <para>
-        /// <para>Update the name of the Amazon S3 bucket for the flow logs.</para>
+        /// <para>The name of the Amazon S3 bucket for the flow logs. Attribute is required if <code>FlowLogsEnabled</code>
+        /// is <code>true</code>. The bucket must exist and have a bucket policy that grants AWS
+        /// Global Accelerator permission to write to the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +79,9 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         #region Parameter FlowLogsS3Prefix
         /// <summary>
         /// <para>
-        /// <para>Update the prefix for the location in the Amazon S3 bucket for the flow logs.</para>
+        /// <para>Update the prefix for the location in the Amazon S3 bucket for the flow logs. Attribute
+        /// is required if <code>FlowLogsEnabled</code> is <code>true</code>. If you don’t specify
+        /// a prefix, the flow logs are stored in the root of the bucket.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

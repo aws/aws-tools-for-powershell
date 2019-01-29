@@ -100,14 +100,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branch",
@@ -125,8 +127,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -202,14 +204,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repository",
@@ -227,8 +231,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -262,7 +266,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "BranchName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Branch",
@@ -280,8 +284,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "BranchName"
         },
         "memoryStreamParameters": []
@@ -315,7 +319,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CommentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentContent",
@@ -333,8 +337,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CommentId"
         },
         "memoryStreamParameters": []
@@ -359,14 +363,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "File",
@@ -384,8 +390,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -410,7 +416,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -435,8 +443,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -509,7 +517,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -555,7 +565,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -793,7 +805,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -839,7 +853,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -885,7 +901,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -931,7 +949,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1025,7 +1045,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1071,7 +1093,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1117,7 +1141,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1163,7 +1189,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1209,7 +1237,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1264,7 +1292,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PullRequestId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestByFastForward",
@@ -1282,8 +1310,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PullRequestId"
         },
         "memoryStreamParameters": []
@@ -1423,7 +1451,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Content"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CommentReply",
@@ -1441,8 +1469,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Content"
         },
         "memoryStreamParameters": []
@@ -1467,14 +1495,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "File",
@@ -1492,8 +1522,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": [
@@ -1521,7 +1551,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Trigger"
+          "Triggers"
         ],
         "byNameMembers": []
       },
@@ -1529,7 +1559,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryTriggers",
@@ -1547,8 +1577,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -1574,7 +1604,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Trigger"
+          "Triggers"
         ],
         "byNameMembers": []
       },
@@ -1630,7 +1660,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CommentId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Comment",
@@ -1648,8 +1678,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CommentId"
         },
         "memoryStreamParameters": []
@@ -1674,14 +1704,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DefaultBranch",
@@ -1699,8 +1731,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -1734,7 +1766,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PullRequestId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestDescription",
@@ -1752,8 +1784,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PullRequestId"
         },
         "memoryStreamParameters": []
@@ -1787,7 +1819,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PullRequestId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestStatus",
@@ -1805,8 +1837,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PullRequestId"
         },
         "memoryStreamParameters": []
@@ -1840,7 +1872,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "PullRequestId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PullRequestTitle",
@@ -1858,8 +1890,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "PullRequestId"
         },
         "memoryStreamParameters": []
@@ -1884,14 +1916,16 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "RepositoryName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "RepositoryDescription",
@@ -1909,8 +1943,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RepositoryName"
         },
         "memoryStreamParameters": []
@@ -1935,7 +1969,9 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "byValueMembers": [
+          "OldName"
+        ],
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1948,9 +1984,9 @@
         "confirmationMessageNoun": "RepositoryName",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: OldName",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",

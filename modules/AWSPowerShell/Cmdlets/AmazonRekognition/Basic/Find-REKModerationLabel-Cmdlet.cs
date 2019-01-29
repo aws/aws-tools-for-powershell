@@ -48,11 +48,10 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKModerationLabel")]
-    [OutputType("Amazon.Rekognition.Model.ModerationLabel")]
+    [OutputType("Amazon.Rekognition.Model.DetectModerationLabelsResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition DetectModerationLabels API operation.", Operation = new[] {"DetectModerationLabels"})]
-    [AWSCmdletOutput("Amazon.Rekognition.Model.ModerationLabel",
-        "This cmdlet returns a collection of ModerationLabel objects.",
-        "The service call response (type Amazon.Rekognition.Model.DetectModerationLabelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Rekognition.Model.DetectModerationLabelsResponse",
+        "This cmdlet returns a Amazon.Rekognition.Model.DetectModerationLabelsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class FindREKModerationLabelCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
@@ -230,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 {
                     var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
-                    object pipelineOutput = response.ModerationLabels;
+                    object pipelineOutput = response;
                     output = new CmdletOutput
                     {
                         PipelineOutput = pipelineOutput,

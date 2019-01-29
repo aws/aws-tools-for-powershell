@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
         /// you want to invite to GuardDuty as members.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("AccountIds")]
         public System.String[] AccountId { get; set; }
         #endregion

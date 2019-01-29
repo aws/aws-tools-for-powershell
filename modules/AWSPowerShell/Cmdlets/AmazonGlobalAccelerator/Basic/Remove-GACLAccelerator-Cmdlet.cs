@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
 {
     /// <summary>
     /// Delete an accelerator. Note: before you can delete an accelerator, you must disable
-    /// it.
+    /// it and remove all dependent resources (listeners and endpoint groups).
     /// </summary>
     [Cmdlet("Remove", "GACLAccelerator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

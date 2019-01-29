@@ -28,7 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns details about an event source mapping.
+    /// Returns details about an event source mapping. You can get the identifier of a mapping
+    /// from the output of <a>ListEventSourceMappings</a>.
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMapping")]
     [OutputType("Amazon.Lambda.Model.GetEventSourceMappingResponse")]

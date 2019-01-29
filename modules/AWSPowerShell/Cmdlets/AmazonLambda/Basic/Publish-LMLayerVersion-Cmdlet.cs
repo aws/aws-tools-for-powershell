@@ -28,7 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates a function layer from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
+    /// Creates an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code>
     /// with the same version name, a new version is created.
     /// 
     ///  
@@ -70,10 +71,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LayerName
         /// <summary>
         /// <para>
-        /// <para>The name of the layer.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the layer.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LayerName { get; set; }
         #endregion
         

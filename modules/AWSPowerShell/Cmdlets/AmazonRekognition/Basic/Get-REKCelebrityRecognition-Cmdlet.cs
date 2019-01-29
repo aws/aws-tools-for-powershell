@@ -29,25 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Gets the celebrity recognition results for a Amazon Rekognition Video analysis started
-    /// by .
+    /// by <a>StartCelebrityRecognition</a>.
     /// 
     ///  
     /// <para>
     /// Celebrity recognition in a video is an asynchronous operation. Analysis is started
-    /// by a call to which returns a job identifier (<code>JobId</code>). When the celebrity
-    /// recognition operation finishes, Amazon Rekognition Video publishes a completion status
-    /// to the Amazon Simple Notification Service topic registered in the initial call to
-    /// <code>StartCelebrityRecognition</code>. To get the results of the celebrity recognition
-    /// analysis, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
-    /// If so, call <code>GetCelebrityDetection</code> and pass the job identifier (<code>JobId</code>)
-    /// from the initial call to <code>StartCelebrityDetection</code>. 
+    /// by a call to <a>StartCelebrityRecognition</a> which returns a job identifier (<code>JobId</code>).
+    /// When the celebrity recognition operation finishes, Amazon Rekognition Video publishes
+    /// a completion status to the Amazon Simple Notification Service topic registered in
+    /// the initial call to <code>StartCelebrityRecognition</code>. To get the results of
+    /// the celebrity recognition analysis, first check that the status value published to
+    /// the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>.
+    /// 
     /// </para><para>
     /// For more information, see Working With Stored Videos in the Amazon Rekognition Developer
     /// Guide.
     /// </para><para><code>GetCelebrityRecognition</code> returns detected celebrities and the time(s)
-    /// they are detected in an array (<code>Celebrities</code>) of objects. Each <code>CelebrityRecognition</code>
-    /// contains information about the celebrity in a object and the time, <code>Timestamp</code>,
-    /// the celebrity was detected. 
+    /// they are detected in an array (<code>Celebrities</code>) of <a>CelebrityRecognition</a>
+    /// objects. Each <code>CelebrityRecognition</code> contains information about the celebrity
+    /// in a <a>CelebrityDetail</a> object and the time, <code>Timestamp</code>, the celebrity
+    /// was detected. 
     /// </para><note><para><code>GetCelebrityRecognition</code> only returns the default facial attributes (<code>BoundingBox</code>,
     /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
     /// The other facial attributes listed in the <code>Face</code> object of the following
@@ -60,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// The <code>CelebrityDetail</code> object includes the celebrity identifer and additional
     /// information urls. If you don't store the additional information urls, you can get
-    /// them later by calling with the celebrity identifer.
+    /// them later by calling <a>GetCelebrityInfo</a> with the celebrity identifer.
     /// </para><para>
     /// No information is returned for faces not recognized as celebrities.
     /// </para><para>
@@ -112,9 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
         /// is returned. The default value is 1000.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -127,9 +126,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>If the previous response was incomplete (because there is more recognized celebrities
         /// to retrieve), Amazon Rekognition Video returns a pagination token in the response.
         /// You can use this pagination token to retrieve the next set of celebrities. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

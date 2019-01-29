@@ -39,8 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// When searching is finished, Amazon Rekognition Video publishes a completion status
     /// to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
     /// To get the search results, first check that the status value published to the Amazon
-    /// SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>)
-    /// from the initial call to <code>StartFaceSearch</code>. For more information, see <a>procedure-person-search-videos</a>.
+    /// SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceSearch</a> and pass the
+    /// job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
+    /// For more information, see <a>procedure-person-search-videos</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "REKFaceSearch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

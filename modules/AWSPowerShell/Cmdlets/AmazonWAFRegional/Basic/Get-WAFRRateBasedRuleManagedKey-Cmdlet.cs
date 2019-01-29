@@ -63,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextMarker))
+            if (ParameterWasBound("NextMarker"))
             {
                 _nextMarker = cmdletContext.NextMarker;
                 _userControllingPaging = true;
@@ -155,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                     
                     ProcessOutput(output);
                     
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {

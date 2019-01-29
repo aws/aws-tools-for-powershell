@@ -41,6 +41,18 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class JoinSGDomainCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter DomainController
+        /// <summary>
+        /// <para>
+        /// <para>List of IPv4 addresses, NetBIOS names, or host names of your domain server. If you
+        /// need to specify the port number include it after the colon (“:”). For example, <code>mydc.mydomain.com:389</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DomainControllers")]
+        public System.String[] DomainController { get; set; }
+        #endregion
+        
         #region Parameter DomainName
         /// <summary>
         /// <para>
@@ -54,12 +66,24 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayARN
         /// <summary>
         /// <para>
-        /// <para>The unique Amazon Resource Name (ARN) of the file gateway you want to add to the Active
-        /// Directory domain. </para>
+        /// <para>The Amazon Resource Name (ARN) of the gateway. Use the <code>ListGateways</code> operation
+        /// to return a list of gateways for your account and region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String GatewayARN { get; set; }
+        #endregion
+        
+        #region Parameter OrganizationalUnit
+        /// <summary>
+        /// <para>
+        /// <para>The organizational unit (OU) is a container with an Active Directory that can hold
+        /// users, groups, computers, and other OUs and this parameter specifies the OU that the
+        /// gateway will join within the AD domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OrganizationalUnit { get; set; }
         #endregion
         
         #region Parameter Password
@@ -113,8 +137,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.DomainController != null)
+            {
+                context.DomainControllers = new List<System.String>(this.DomainController);
+            }
             context.DomainName = this.DomainName;
             context.GatewayARN = this.GatewayARN;
+            context.OrganizationalUnit = this.OrganizationalUnit;
             context.Password = this.Password;
             context.UserName = this.UserName;
             
@@ -133,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.JoinDomainRequest();
             
+            if (cmdletContext.DomainControllers != null)
+            {
+                request.DomainControllers = cmdletContext.DomainControllers;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -140,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.OrganizationalUnit != null)
+            {
+                request.OrganizationalUnit = cmdletContext.OrganizationalUnit;
             }
             if (cmdletContext.Password != null)
             {
@@ -213,8 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> DomainControllers { get; set; }
             public System.String DomainName { get; set; }
             public System.String GatewayARN { get; set; }
+            public System.String OrganizationalUnit { get; set; }
             public System.String Password { get; set; }
             public System.String UserName { get; set; }
         }

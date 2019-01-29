@@ -33,10 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// group and the instance group ID. The call will either succeed or fail atomically.
     /// </summary>
     [Cmdlet("Edit", "EMRInstanceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon Elastic MapReduce ModifyInstanceGroups API operation.", Operation = new[] {"ModifyInstanceGroups"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class EditEMRInstanceGroupCmdlet : AmazonElasticMapReduceClientCmdlet, IExecutor
@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The ID of the cluster to which the instance group belongs.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClusterId { get; set; }
         #endregion
         
@@ -61,6 +61,15 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("InstanceGroups")]
         public Amazon.ElasticMapReduce.Model.InstanceGroupModifyConfig[] InstanceGroup { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ClusterId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -131,6 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ClusterId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

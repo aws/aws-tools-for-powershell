@@ -28,16 +28,16 @@ using Amazon.SageMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
-    /// Create a git repository as a resource in your Amazon SageMaker account. You can associate
-    /// the repository with notebook instances so that you can use git source control for
-    /// the notebooks you create. The git repository is a resource in your Amazon SageMaker
+    /// Creates a Git repository as a resource in your Amazon SageMaker account. You can associate
+    /// the repository with notebook instances so that you can use Git source control for
+    /// the notebooks you create. The Git repository is a resource in your Amazon SageMaker
     /// account, so it can be associated with more than one notebook instance, and it persists
     /// independently from the lifecycle of any notebook instances it is associated with.
     /// 
     ///  
     /// <para>
     /// The repository can be hosted either in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-    /// CodeCommit</a> or in any other git repository.
+    /// CodeCommit</a> or in any other Git repository.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SMCodeRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter GitConfig_Branch
         /// <summary>
         /// <para>
-        /// <para>The default brach for the git repository.</para>
+        /// <para>The default branch for the Git repository.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,18 +63,18 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter CodeRepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the git repository. The name must have 1 to 63 characters. Valid characters
+        /// <para>The name of the Git repository. The name must have 1 to 63 characters. Valid characters
         /// are a-z, A-Z, 0-9, and - (hyphen).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String CodeRepositoryName { get; set; }
         #endregion
         
         #region Parameter GitConfig_RepositoryUrl
         /// <summary>
         /// <para>
-        /// <para>The URL where the git repository is located.</para>
+        /// <para>The URL where the Git repository is located.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

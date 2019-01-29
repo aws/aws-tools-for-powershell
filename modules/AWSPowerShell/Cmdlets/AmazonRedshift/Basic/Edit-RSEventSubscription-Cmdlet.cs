@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The name of the modified Amazon Redshift event notification subscription.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String SubscriptionName { get; set; }
         #endregion
         

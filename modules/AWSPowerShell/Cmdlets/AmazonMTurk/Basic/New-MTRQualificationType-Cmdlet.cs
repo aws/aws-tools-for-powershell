@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// It must be unique across all of your Qualification types.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         

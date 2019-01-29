@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String PolicyArn { get; set; }
         #endregion
         
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// \u00FF)</para></li><li><para>The special characters tab (\u0009), line feed (\u000A), and carriage return (\u000D)</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         public System.String PolicyDocument { get; set; }
         #endregion
         

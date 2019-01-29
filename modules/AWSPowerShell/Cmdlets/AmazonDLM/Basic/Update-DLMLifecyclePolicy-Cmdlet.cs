@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.DLM
     /// Updates the specified lifecycle policy.
     /// </summary>
     [Cmdlet("Update", "DLMLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon Data Lifecycle Manager UpdateLifecyclePolicy API operation.", Operation = new[] {"UpdateLifecyclePolicy"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DLM.Model.UpdateLifecyclePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateDLMLifecyclePolicyCmdlet : AmazonDLMClientCmdlet, IExecutor
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         /// <para>The identifier of the lifecycle policy.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyId { get; set; }
         #endregion
         
@@ -113,6 +113,15 @@ namespace Amazon.PowerShell.Cmdlets.DLM
         [System.Management.Automation.Parameter]
         [Alias("PolicyDetails_TargetTags")]
         public Amazon.DLM.Model.Tag[] PolicyDetails_TargetTag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the PolicyId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -241,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.PolicyId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

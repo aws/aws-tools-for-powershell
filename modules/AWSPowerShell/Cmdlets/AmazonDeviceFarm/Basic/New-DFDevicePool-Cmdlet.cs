@@ -50,6 +50,21 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter MaxDevice
+        /// <summary>
+        /// <para>
+        /// <para>The number of devices that Device Farm can add to your device pool. Device Farm adds
+        /// devices that are available and that meet the criteria that you assign for the <code>rules</code>
+        /// parameter. Depending on how many devices meet these constraints, your device pool
+        /// might contain fewer devices than the value for this parameter.</para><para>By specifying the maximum number of devices, you can control the costs that you incur
+        /// by running tests.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxDevices")]
+        public System.Int32 MaxDevice { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -111,6 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.DF
             PreExecutionContextLoad(context);
             
             context.Description = this.Description;
+            if (ParameterWasBound("MaxDevice"))
+                context.MaxDevices = this.MaxDevice;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
             if (this.Rule != null)
@@ -136,6 +153,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.MaxDevices != null)
+            {
+                request.MaxDevices = cmdletContext.MaxDevices.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -214,6 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
+            public System.Int32? MaxDevices { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
             public List<Amazon.DeviceFarm.Model.Rule> Rules { get; set; }

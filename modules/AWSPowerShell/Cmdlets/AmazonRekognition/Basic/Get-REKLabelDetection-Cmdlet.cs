@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Gets the label detection results of a Amazon Rekognition Video analysis started by
-    /// . 
+    /// <a>StartLabelDetection</a>. 
     /// 
     ///  
     /// <para>
-    /// The label detection operation is started by a call to which returns a job identifier
-    /// (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition
-    /// publishes a completion status to the Amazon Simple Notification Service topic registered
-    /// in the initial call to <code>StartlabelDetection</code>. To get the results of the
-    /// label detection operation, first check that the status value published to the Amazon
-    /// SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>)
-    /// from the initial call to <code>StartLabelDetection</code>.
+    /// The label detection operation is started by a call to <a>StartLabelDetection</a> which
+    /// returns a job identifier (<code>JobId</code>). When the label detection operation
+    /// finishes, Amazon Rekognition publishes a completion status to the Amazon Simple Notification
+    /// Service topic registered in the initial call to <code>StartlabelDetection</code>.
+    /// To get the results of the label detection operation, first check that the status value
+    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetLabelDetection</a>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
     /// </para><para><code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>)
     /// sorted by the time the labels were detected. You can also sort by the label name by
     /// specifying <code>NAME</code> for the <code>SortBy</code> input parameter.
@@ -47,17 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// The labels returned include the label name, the percentage confidence in the accuracy
     /// of the detected label, and the time the label was detected in the video.
     /// </para><para>
+    /// The returned labels also include bounding box information for common objects, a hierarchical
+    /// taxonomy of detected labels, and the version of the label model used for detection.
+    /// </para><para>
     /// Use MaxResults parameter to limit the number of labels returned. If there are more
     /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
     /// in the operation response contains a pagination token for getting the next set of
     /// results. To get the next page of results, call <code>GetlabelDetection</code> and
     /// populate the <code>NextToken</code> request parameter with the token value returned
     /// from the previous call to <code>GetLabelDetection</code>.
-    /// </para><note><para><code>GetLabelDetection</code> doesn't return a hierarchical taxonomy, or bounding
-    /// box information, for detected labels. <code>GetLabelDetection</code> returns <code>null</code>
-    /// for the <code>Parents</code> and <code>Instances</code> attributes of the object which
-    /// is returned in the <code>Labels</code> array. 
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "REKLabelDetection")]
     [OutputType("Amazon.Rekognition.Model.GetLabelDetectionResponse")]
@@ -100,9 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
         /// is returned. The default value is 1000.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -115,9 +111,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>If the previous response was incomplete (because there are more labels to retrieve),
         /// Amazon Rekognition Video returns a pagination token in the response. You can use this
         /// pagination token to retrieve the next set of labels. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

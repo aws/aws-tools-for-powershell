@@ -175,7 +175,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProgressUpdateStreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProgressUpdateStream",
@@ -193,8 +193,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProgressUpdateStreamName"
         },
         "memoryStreamParameters": []
@@ -228,7 +228,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ProgressUpdateStreamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ProgressUpdateStream",
@@ -246,8 +246,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ProgressUpdateStreamName"
         },
         "memoryStreamParameters": []
@@ -377,7 +377,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CreatedArtifactName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CreatedArtifact",
@@ -395,8 +395,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CreatedArtifactName"
         },
         "memoryStreamParameters": []
@@ -430,7 +430,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConfigurationId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DiscoveredResource",
@@ -448,8 +448,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConfigurationId"
         },
         "memoryStreamParameters": []
@@ -483,7 +483,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MigrationTaskName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTask",
@@ -501,8 +501,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MigrationTaskName"
         },
         "memoryStreamParameters": []
@@ -726,7 +726,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ApplicationId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ApplicationState",
@@ -744,8 +744,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ApplicationId"
         },
         "memoryStreamParameters": []
@@ -779,7 +779,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MigrationTaskName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "MigrationTaskState",
@@ -797,8 +797,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MigrationTaskName"
         },
         "memoryStreamParameters": []
@@ -832,7 +832,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "MigrationTaskName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ResourceAttributes",
@@ -850,8 +850,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "MigrationTaskName"
         },
         "memoryStreamParameters": []

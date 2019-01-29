@@ -28,7 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists function layers and shows information about the latest version of each. Specify
+    /// Lists <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layers</a> and shows information about the latest version of each. Specify
     /// a <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
     /// identifier</a> to list only layers that indicate that they're compatible with that
     /// runtime.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
@@ -62,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

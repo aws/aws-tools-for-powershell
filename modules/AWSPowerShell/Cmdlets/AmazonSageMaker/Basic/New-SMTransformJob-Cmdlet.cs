@@ -77,10 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformOutput_AssembleWith
         /// <summary>
         /// <para>
-        /// <para>Defines how to assemble the results of the transform job as a single S3 object. You
-        /// should select a format that is most convenient to you. To concatenate the results
-        /// in binary format, specify <code>None</code>. To add a newline character at the end
-        /// of every transformed record, specify <code>Line</code>.</para>
+        /// <para>Defines how to assemble the results of the transform job as a single S3 object. Choose
+        /// a format that is most convenient to you. To concatenate the results in binary format,
+        /// specify <code>None</code>. To add a newline character at the end of every transformed
+        /// record, specify <code>Line</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,13 +91,13 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter BatchStrategy
         /// <summary>
         /// <para>
-        /// <para>Determines the number of records included in a single mini-batch. <code>SingleRecord</code>
-        /// means only one record is used per mini-batch. <code>MultiRecord</code> means a mini-batch
-        /// is set to contain as many records that can fit within the <code>MaxPayloadInMB</code>
-        /// limit.</para><para>Batch transform will automatically split your input data into whatever payload size
-        /// is specified if you set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code>
-        /// to <code>MultiRecord</code>. There's no need to split the dataset into smaller files
-        /// or to use larger payload sizes unless the records in your dataset are very large.</para>
+        /// <para>Determines the number of records to include in a mini-batch. If you want to include
+        /// only one record in a mini-batch, specify <code>SingleRecord</code>.. If you want mini-batches
+        /// to contain a maximum of the number of records specified in the <code>MaxPayloadInMB</code>
+        /// parameter, specify <code>MultiRecord</code>.</para><para> If you set <code>SplitType</code> to <code>Line</code> and <code>BatchStrategy</code>
+        /// to <code>MultiRecord</code>, a batch transform automatically splits your input data
+        /// into the specified payload size. There's no need to split the dataset into smaller
+        /// files or to use larger payload sizes unless the records in your dataset are very large.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,9 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformInput_CompressionType
         /// <summary>
         /// <para>
-        /// <para>Compressing data helps save on storage space. If your transform data is compressed,
-        /// specify the compression type. Amazon SageMaker automatically decompresses the data
-        /// for the transform job accordingly. The default value is <code>None</code>.</para>
+        /// <para>If your transform data is compressed, specify the compression type. Amazon SageMaker
+        /// automatically decompresses the data for the transform job accordingly. The default
+        /// value is <code>None</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,10 +183,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter MaxConcurrentTransform
         /// <summary>
         /// <para>
-        /// <para>The maximum number of parallel requests that can be sent to each instance in a transform
-        /// job. This is good for algorithms that implement multiple workers on larger instances
-        /// . The default value is <code>1</code>. To allow Amazon SageMaker to determine the
-        /// appropriate number for <code>MaxConcurrentTransforms</code>, set the value to <code>0</code>.</para>
+        /// <para>The maximum number of parallel requests that can be sent to an algorithm container
+        /// on an instance. This is good for algorithms that implement multiple workers on larger
+        /// instances . The default value is <code>1</code>. To allow Amazon SageMaker to determine
+        /// the appropriate number for <code>MaxConcurrentTransforms</code>, do not set the value
+        /// in the API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -246,9 +247,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>The Amazon S3 path where you want Amazon SageMaker to store the results of the transform
         /// job. For example, <code>s3://bucket-name/key-name-prefix</code>.</para><para>For every S3 object used as input for the transform job, the transformed data is stored
         /// in a corresponding subfolder in the location under the output prefix. For example,
-        /// the input data <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>
-        /// will have the transformed data stored at <code>s3://bucket-name/key-name-prefix/dataset01/</code>,
-        /// based on the original name, as a series of .part files (.part0001, part0002, etc).</para>
+        /// for the input data <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>
+        /// the transformed data is stored at <code>s3://bucket-name/key-name-prefix/dataset01/</code>.
+        /// This is based on the original name, as a series of .part files (.part0001, part0002,
+        /// etc.).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -274,10 +276,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TransformInput_SplitType
         /// <summary>
         /// <para>
-        /// <para>The method to use to split the transform job's data into smaller batches. The default
-        /// value is <code>None</code>. If you don't want to split the data, specify <code>None</code>.
-        /// If you want to split records on a newline character boundary, specify <code>Line</code>.
-        /// To split records according to the RecordIO format, specify <code>RecordIO</code>.</para><para>Amazon SageMaker will send maximum number of records per batch in each request up
+        /// <para>The method to use to split the transform job's data into smaller batches. If you don't
+        /// want to split the data, specify <code>None</code>. If you want to split records on
+        /// a newline character boundary, specify <code>Line</code>. To split records according
+        /// to the RecordIO format, specify <code>RecordIO</code>. The default value is <code>None</code>.
+        /// </para><para>Amazon SageMaker sends the maximum number of records per batch in each request up
         /// to the MaxPayloadInMB limit. For more information, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">RecordIO
         /// data format</a>.</para><note><para>For information about the <code>RecordIO</code> format, see <a href="http://mxnet.io/architecture/note_data_loading.html#data-format">Data
         /// Format</a>.</para></note>
@@ -291,7 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. Adding tags is optional. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+        /// <para>(Optional) An array of key-value pairs. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
         /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.</para>
         /// </para>
         /// </summary>

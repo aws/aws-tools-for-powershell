@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>ID of the file system whose tags you want to delete (String).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FileSystemId { get; set; }
         #endregion
         

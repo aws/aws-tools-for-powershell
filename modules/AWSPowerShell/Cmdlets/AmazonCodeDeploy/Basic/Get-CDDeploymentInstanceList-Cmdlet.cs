@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// all compute types. <code>ListDeploymentInstances</code> throws an exception if it
     /// is used with a compute platform other than EC2/On-premises or AWS Lambda. 
     /// </para></note><para>
-    ///  Lists the instance for a deployment associated with the applicable IAM user or AWS
-    /// account. 
+    ///  Lists the instance for a deployment associated with the IAM user or AWS account.
+    /// 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "CDDeploymentInstanceList")]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceStatusFilter
         /// <summary>
         /// <para>
-        /// <para>A subset of instances to list by status:</para><ul><li><para>Pending: Include those instance with pending deployments.</para></li><li><para>InProgress: Include those instance where deployments are still in progress.</para></li><li><para>Succeeded: Include those instances with successful deployments.</para></li><li><para>Failed: Include those instance with failed deployments.</para></li><li><para>Skipped: Include those instance with skipped deployments.</para></li><li><para>Unknown: Include those instance with deployments in an unknown state.</para></li></ul>
+        /// <para>A subset of instances to list by status:</para><ul><li><para>Pending: Include those instances with pending deployments.</para></li><li><para>InProgress: Include those instances where deployments are still in progress.</para></li><li><para>Succeeded: Include those instances with successful deployments.</para></li><li><para>Failed: Include those instances with failed deployments.</para></li><li><para>Skipped: Include those instances with skipped deployments.</para></li><li><para>Unknown: Include those instances with deployments in an unknown state.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,6 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
             bool _userControllingPaging = false;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (ParameterWasBound("NextToken"))
             {
                 _nextMarker = cmdletContext.NextToken;
                 _userControllingPaging = true;
@@ -196,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                     
                     ProcessOutput(output);
                     
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {

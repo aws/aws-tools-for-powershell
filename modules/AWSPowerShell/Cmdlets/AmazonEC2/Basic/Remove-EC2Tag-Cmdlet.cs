@@ -50,7 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Resource
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more resources, separated by spaces.</para>
+        /// <para>The IDs of one or more resources, separated by spaces.</para><para>Constraints: Up to 1000 resource IDs. We recommend breaking up this request into smaller
+        /// batches.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

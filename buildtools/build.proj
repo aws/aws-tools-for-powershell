@@ -17,6 +17,9 @@
         
         <!-- cleans all NuGet caches by default; if set false, cleaning the cache is skipped (this is useful when locally building with other projects open in Visual Studio or other projects building) -->
         <CleanNugetCache>true</CleanNugetCache>
+        
+        <!-- deletes the Include\sdk\NuGet and Include\sdk\ExtractedNuGet folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
+        <CleanSdkReferences Condition="'$(CleanSdkReferences)'==''">true</CleanSdkReferences>
 
         <!-- path to the root of the repo artifacts; locations for output content will be inferred from this -->
         <RootPath Condition="'$(RootPath)'==''">$(MSBuildProjectDirectory)\..</RootPath>
@@ -68,8 +71,13 @@
         <Message Text="Generates and then builds all cmdlets and PowerShell deployment artifacts, including native and web help files."/>
     </Target>
 
-    <Target Name="clean-sdk-references">
+    <Target Name="clean-sdk-references" Condition="'$(CleanSdkReferences)'">
         <RemoveDir Directories="$(SDKNuGetFolder)\..\ExtractedNuGet" />
+        <ItemGroup>
+            <FilesToClean Include="$(SDKNuGetFolder)\**\*"/>
+        </ItemGroup>
+        <Delete Files="@(FilesToClean)" />
+    
         <MakeDir Directories="$(SDKNuGetFolder)"/>
     </Target>
 

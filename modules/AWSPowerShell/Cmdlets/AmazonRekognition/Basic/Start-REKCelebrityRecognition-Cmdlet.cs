@@ -39,8 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// is finished, Amazon Rekognition Video publishes a completion status to the Amazon
     /// Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
     /// To get the results of the celebrity recognition analysis, first check that the status
-    /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and
-    /// pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>.
+    /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetCelebrityRecognition</a>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>.
     /// 
     /// </para><para>
     /// For more information, see Recognizing Celebrities in the Amazon Rekognition Developer

@@ -102,6 +102,28 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public System.String NameContain { get; set; }
         #endregion
         
+        #region Parameter SortBy
+        /// <summary>
+        /// <para>
+        /// <para>The field by which to sort results. The default is <code>CreationTime</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.ListCompilationJobsSortBy")]
+        public Amazon.SageMaker.ListCompilationJobsSortBy SortBy { get; set; }
+        #endregion
+        
+        #region Parameter SortOrder
+        /// <summary>
+        /// <para>
+        /// <para>The sort order for results. The default is <code>Ascending</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.SortOrder")]
+        public Amazon.SageMaker.SortOrder SortOrder { get; set; }
+        #endregion
+        
         #region Parameter StatusEqual
         /// <summary>
         /// <para>
@@ -138,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,6 +192,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 context.MaxResults = this.MaxResult;
             context.NameContains = this.NameContain;
             context.NextToken = this.NextToken;
+            context.SortBy = this.SortBy;
+            context.SortOrder = this.SortOrder;
             context.StatusEquals = this.StatusEqual;
             
             // allow further manipulation of loaded context prior to processing
@@ -206,6 +231,14 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.NameContains = cmdletContext.NameContains;
             }
+            if (cmdletContext.SortBy != null)
+            {
+                request.SortBy = cmdletContext.SortBy;
+            }
+            if (cmdletContext.SortOrder != null)
+            {
+                request.SortOrder = cmdletContext.SortOrder;
+            }
             if (cmdletContext.StatusEquals != null)
             {
                 request.StatusEquals = cmdletContext.StatusEquals;
@@ -230,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try
@@ -363,6 +396,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public int? MaxResults { get; set; }
             public System.String NameContains { get; set; }
             public System.String NextToken { get; set; }
+            public Amazon.SageMaker.ListCompilationJobsSortBy SortBy { get; set; }
+            public Amazon.SageMaker.SortOrder SortOrder { get; set; }
             public Amazon.SageMaker.CompilationJobStatus StatusEquals { get; set; }
         }
         

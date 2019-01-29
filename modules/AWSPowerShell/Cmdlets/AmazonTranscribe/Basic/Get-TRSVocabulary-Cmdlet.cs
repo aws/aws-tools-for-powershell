@@ -28,9 +28,7 @@ using Amazon.TranscribeService.Model;
 namespace Amazon.PowerShell.Cmdlets.TRS
 {
     /// <summary>
-    /// Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and
-    /// fr-CA languages that are in preview are not available. In the console, the vocabulary
-    /// section will be greyed-out and SDK will return error message.
+    /// Gets information about a vocabulary.
     /// </summary>
     [Cmdlet("Get", "TRSVocabulary")]
     [OutputType("Amazon.TranscribeService.Model.GetVocabularyResponse")]

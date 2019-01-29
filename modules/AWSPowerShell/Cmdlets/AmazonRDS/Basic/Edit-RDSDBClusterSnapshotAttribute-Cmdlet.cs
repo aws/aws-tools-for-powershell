@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// snapshot, set this value to <code>restore</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AttributeName { get; set; }
         #endregion
         

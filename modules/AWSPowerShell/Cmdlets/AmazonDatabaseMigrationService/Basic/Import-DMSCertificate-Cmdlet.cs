@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificatePem", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CertificateIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Import-DMSCertificate (ImportCertificate)"))
             {
                 return;

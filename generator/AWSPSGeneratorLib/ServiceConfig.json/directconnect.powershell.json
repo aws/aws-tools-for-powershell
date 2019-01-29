@@ -73,7 +73,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "InterconnectId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionOnInterconnect",
@@ -91,8 +91,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "InterconnectId"
         },
         "memoryStreamParameters": []
@@ -126,7 +126,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedConnection",
@@ -144,8 +144,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -181,7 +181,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
@@ -199,8 +199,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -236,7 +236,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
@@ -254,8 +254,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -289,7 +289,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionWithLag",
@@ -307,8 +307,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -342,7 +342,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HostedConnection",
@@ -360,8 +360,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -395,7 +395,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterface",
@@ -413,8 +413,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -448,7 +448,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
@@ -466,8 +466,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -503,7 +503,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
@@ -521,8 +521,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -556,7 +556,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
@@ -574,8 +574,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -609,7 +609,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BGPPeer",
@@ -627,8 +627,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -665,7 +665,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
@@ -683,8 +683,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionName"
         },
         "memoryStreamParameters": []
@@ -718,7 +718,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DirectConnectGatewayName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGateway",
@@ -736,8 +736,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DirectConnectGatewayName"
         },
         "memoryStreamParameters": []
@@ -771,7 +771,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualGatewayId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAssociation",
@@ -789,8 +789,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualGatewayId"
         },
         "memoryStreamParameters": []
@@ -827,7 +827,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "InterconnectName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Interconnect",
@@ -845,8 +845,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "InterconnectName"
         },
         "memoryStreamParameters": []
@@ -880,7 +880,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
@@ -898,8 +898,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -933,7 +933,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PrivateVirtualInterface",
@@ -951,8 +951,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -986,7 +986,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PublicVirtualInterface",
@@ -1004,8 +1004,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -1039,7 +1039,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BGPPeer",
@@ -1057,8 +1057,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -1092,7 +1092,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Connection",
@@ -1110,8 +1110,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -1145,7 +1145,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "DirectConnectGatewayId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGateway",
@@ -1163,8 +1163,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "DirectConnectGatewayId"
         },
         "memoryStreamParameters": []
@@ -1198,7 +1198,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualGatewayId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DirectConnectGatewayAssociation",
@@ -1216,8 +1216,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualGatewayId"
         },
         "memoryStreamParameters": []
@@ -1251,7 +1251,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "InterconnectId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Interconnect",
@@ -1269,8 +1269,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "InterconnectId"
         },
         "memoryStreamParameters": []
@@ -1304,7 +1304,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LagId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
@@ -1322,8 +1322,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LagId"
         },
         "memoryStreamParameters": []
@@ -1357,7 +1357,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterface",
@@ -1375,8 +1375,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []
@@ -2128,7 +2128,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ConnectionId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ConnectionFromLag",
@@ -2146,8 +2146,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ConnectionId"
         },
         "memoryStreamParameters": []
@@ -2173,7 +2173,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Resource"
+          "ResourceArn"
         ],
         "byNameMembers": []
       },
@@ -2181,15 +2181,15 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -2199,8 +2199,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -2226,7 +2226,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "Resource"
+          "ResourceArn"
         ],
         "byNameMembers": []
       },
@@ -2234,15 +2234,15 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
-        "passThruTypeName": "",
-        "requiresPassThruGeneration": "false",
+        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "NextToken",
@@ -2252,8 +2252,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -2287,7 +2287,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LagId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Lag",
@@ -2305,8 +2305,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LagId"
         },
         "memoryStreamParameters": []
@@ -2332,7 +2332,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "virtualInterfaceId"
+          "VirtualInterfaceId"
         ],
         "byNameMembers": []
       },
@@ -2340,7 +2340,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "VirtualInterfaceId"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "VirtualInterfaceAttributes",
@@ -2358,8 +2358,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "VirtualInterfaceId"
         },
         "memoryStreamParameters": []

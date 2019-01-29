@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AssociationVersion { get; set; }
         #endregion
         
+        #region Parameter AutomationTargetParameterName
+        /// <summary>
+        /// <para>
+        /// <para>Specify the target for the association. This target is required for associations that
+        /// use an Automation document and target resources by using rate controls.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AutomationTargetParameterName { get; set; }
+        #endregion
+        
         #region Parameter ComplianceSeverity
         /// <summary>
         /// <para>
@@ -239,6 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.AssociationId = this.AssociationId;
             context.AssociationName = this.AssociationName;
             context.AssociationVersion = this.AssociationVersion;
+            context.AutomationTargetParameterName = this.AutomationTargetParameterName;
             context.ComplianceSeverity = this.ComplianceSeverity;
             context.DocumentVersion = this.DocumentVersion;
             context.MaxConcurrency = this.MaxConcurrency;
@@ -299,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationVersion != null)
             {
                 request.AssociationVersion = cmdletContext.AssociationVersion;
+            }
+            if (cmdletContext.AutomationTargetParameterName != null)
+            {
+                request.AutomationTargetParameterName = cmdletContext.AutomationTargetParameterName;
             }
             if (cmdletContext.ComplianceSeverity != null)
             {
@@ -453,6 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String AssociationId { get; set; }
             public System.String AssociationName { get; set; }
             public System.String AssociationVersion { get; set; }
+            public System.String AutomationTargetParameterName { get; set; }
             public Amazon.SimpleSystemsManagement.AssociationComplianceSeverity ComplianceSeverity { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String MaxConcurrency { get; set; }

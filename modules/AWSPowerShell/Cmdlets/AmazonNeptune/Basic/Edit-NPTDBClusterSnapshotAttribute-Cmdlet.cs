@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AttributeName", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBClusterSnapshotIdentifier", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-NPTDBClusterSnapshotAttribute (ModifyDBClusterSnapshotAttribute)"))
             {
                 return;

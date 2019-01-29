@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// Retrieves attributes for a list of configuration item IDs.
     /// 
     ///  <note><para>
-    /// All of the supplied IDs must be for the same asset type from one of the follwoing:
+    /// All of the supplied IDs must be for the same asset type from one of the following:
     /// </para><ul><li><para>
     /// server
     /// </para></li><li><para>

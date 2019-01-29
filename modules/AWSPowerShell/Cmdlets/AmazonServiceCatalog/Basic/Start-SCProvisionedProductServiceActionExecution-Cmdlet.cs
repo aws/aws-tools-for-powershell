@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ServiceActionId { get; set; }
         #endregion
         

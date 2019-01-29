@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_AdditionalSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>A list of additional Amazon EC2 security group IDs for the slave nodes.</para>
+        /// <para>A list of additional Amazon EC2 security group IDs for the core and task nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,8 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <para>For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid
-        /// values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.</para>
+        /// <para>Applies to Amazon EMR releases 4.0 and later. A case-insensitive list of applications
+        /// for Amazon EMR to install and configure when launching the cluster. For a list of
+        /// applications available for each Amazon EMR release version, see the <a href="http://docs.aws.amazon.com/emr/latest/ReleaseGuide/">Amazon
+        /// EMR Release Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -298,7 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_EmrManagedSlaveSecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The identifier of the Amazon EC2 security group for the slave nodes.</para>
+        /// <para>The identifier of the Amazon EC2 security group for the core and task nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -533,7 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Instances_SlaveInstanceType
         /// <summary>
         /// <para>
-        /// <para>The EC2 instance type of the slave nodes.</para>
+        /// <para>The EC2 instance type of the core and task nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

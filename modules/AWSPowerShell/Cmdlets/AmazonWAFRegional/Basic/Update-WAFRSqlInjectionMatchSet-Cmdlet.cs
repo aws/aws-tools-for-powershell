@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// You can only specify a single type of TextTransformation.
     /// </para></li></ul><para>
     /// You use <code>SqlInjectionMatchSet</code> objects to specify which CloudFront requests
-    /// you want to allow, block, or count. For example, if you're receiving requests that
-    /// contain snippets of SQL code in the query string and you want to block the requests,
+    /// that you want to allow, block, or count. For example, if you're receiving requests
+    /// that contain snippets of SQL code in the query string and you want to block the requests,
     /// you can create a <code>SqlInjectionMatchSet</code> with the applicable settings, and
     /// then configure AWS WAF to block the requests. 
     /// </para><para>

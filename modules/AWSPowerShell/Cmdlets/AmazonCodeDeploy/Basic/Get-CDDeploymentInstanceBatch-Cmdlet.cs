@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// <note><para>
-    ///  This method works, but is considered deprecated. Use <code>BatchGetDeploymentTargets</code>
+    ///  This method works, but is deprecated. Use <code>BatchGetDeploymentTargets</code>
     /// instead. 
     /// </para></note><para>
     ///  Returns an array of instances associated with a deployment. This method works with
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The unique IDs of instances of the deployment.</para>
+        /// <para>The unique IDs of instances used in the deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

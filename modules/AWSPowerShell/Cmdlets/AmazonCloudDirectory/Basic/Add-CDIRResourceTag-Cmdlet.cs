@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// An API operation for adding tags to a resource.
     /// </summary>
     [Cmdlet("Add", "CDIRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Cloud Directory TagResource API operation.", Operation = new[] {"TagResource"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class AddCDIRResourceTagCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceArn { get; set; }
         #endregion
         
@@ -59,6 +59,15 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.CloudDirectory.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ResourceArn parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -129,6 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ResourceArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

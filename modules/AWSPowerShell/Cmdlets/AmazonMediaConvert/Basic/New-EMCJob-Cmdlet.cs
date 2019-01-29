@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public System.String JobTemplate { get; set; }
         #endregion
         
+        #region Parameter AccelerationSettings_Mode
+        /// <summary>
+        /// <para>
+        /// Acceleration configuration for the job.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.AccelerationMode")]
+        public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
+        #endregion
+        
         #region Parameter Queue
         /// <summary>
         /// <para>
@@ -148,6 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AccelerationSettings_Mode = this.AccelerationSettings_Mode;
             context.BillingTagsSource = this.BillingTagsSource;
             context.ClientRequestToken = this.ClientRequestToken;
             context.JobTemplate = this.JobTemplate;
@@ -178,6 +190,25 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // create request
             var request = new Amazon.MediaConvert.Model.CreateJobRequest();
             
+            
+             // populate AccelerationSettings
+            bool requestAccelerationSettingsIsNull = true;
+            request.AccelerationSettings = new Amazon.MediaConvert.Model.AccelerationSettings();
+            Amazon.MediaConvert.AccelerationMode requestAccelerationSettings_accelerationSettings_Mode = null;
+            if (cmdletContext.AccelerationSettings_Mode != null)
+            {
+                requestAccelerationSettings_accelerationSettings_Mode = cmdletContext.AccelerationSettings_Mode;
+            }
+            if (requestAccelerationSettings_accelerationSettings_Mode != null)
+            {
+                request.AccelerationSettings.Mode = requestAccelerationSettings_accelerationSettings_Mode;
+                requestAccelerationSettingsIsNull = false;
+            }
+             // determine if request.AccelerationSettings should be set to null
+            if (requestAccelerationSettingsIsNull)
+            {
+                request.AccelerationSettings = null;
+            }
             if (cmdletContext.BillingTagsSource != null)
             {
                 request.BillingTagsSource = cmdletContext.BillingTagsSource;
@@ -270,6 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
             public Amazon.MediaConvert.BillingTagsSource BillingTagsSource { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.String JobTemplate { get; set; }

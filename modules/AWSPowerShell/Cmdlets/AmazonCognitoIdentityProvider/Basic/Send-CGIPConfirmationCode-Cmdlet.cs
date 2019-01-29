@@ -89,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>The user name of the user to whom you wish to resend a confirmation code.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Username { get; set; }
         #endregion
         

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the accelerator with the attributes that you want
-        /// to describe.</para>
+        /// to describe. Value is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

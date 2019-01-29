@@ -63,6 +63,17 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter AccelerationSettings_Mode
+        /// <summary>
+        /// <para>
+        /// Acceleration configuration for the job.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.AccelerationMode")]
+        public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -136,6 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AccelerationSettings_Mode = this.AccelerationSettings_Mode;
             context.Category = this.Category;
             context.Description = this.Description;
             context.Name = this.Name;
@@ -165,6 +177,25 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             // create request
             var request = new Amazon.MediaConvert.Model.CreateJobTemplateRequest();
             
+            
+             // populate AccelerationSettings
+            bool requestAccelerationSettingsIsNull = true;
+            request.AccelerationSettings = new Amazon.MediaConvert.Model.AccelerationSettings();
+            Amazon.MediaConvert.AccelerationMode requestAccelerationSettings_accelerationSettings_Mode = null;
+            if (cmdletContext.AccelerationSettings_Mode != null)
+            {
+                requestAccelerationSettings_accelerationSettings_Mode = cmdletContext.AccelerationSettings_Mode;
+            }
+            if (requestAccelerationSettings_accelerationSettings_Mode != null)
+            {
+                request.AccelerationSettings.Mode = requestAccelerationSettings_accelerationSettings_Mode;
+                requestAccelerationSettingsIsNull = false;
+            }
+             // determine if request.AccelerationSettings should be set to null
+            if (requestAccelerationSettingsIsNull)
+            {
+                request.AccelerationSettings = null;
+            }
             if (cmdletContext.Category != null)
             {
                 request.Category = cmdletContext.Category;
@@ -253,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaConvert.AccelerationMode AccelerationSettings_Mode { get; set; }
             public System.String Category { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }

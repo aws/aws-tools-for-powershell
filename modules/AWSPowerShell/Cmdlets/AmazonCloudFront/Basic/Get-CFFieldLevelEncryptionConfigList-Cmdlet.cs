@@ -50,9 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// from the current page's response (which is also the ID of the last configuration on
         /// that page). </para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
@@ -64,9 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The maximum number of field-level encryption configurations you want in the response
         /// body. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

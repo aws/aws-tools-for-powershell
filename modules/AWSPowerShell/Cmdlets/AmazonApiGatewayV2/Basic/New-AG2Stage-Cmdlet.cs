@@ -1,0 +1,462 @@
+/*******************************************************************************
+ *  Copyright 2012-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.ApiGatewayV2;
+using Amazon.ApiGatewayV2.Model;
+
+namespace Amazon.PowerShell.Cmdlets.AG2
+{
+    /// <summary>
+    /// Creates a Stage for an API.
+    /// </summary>
+    [Cmdlet("New", "AG2Stage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ApiGatewayV2.Model.CreateStageResponse")]
+    [AWSCmdlet("Calls the Amazon API Gateway V2 CreateStage API operation.", Operation = new[] {"CreateStage"})]
+    [AWSCmdletOutput("Amazon.ApiGatewayV2.Model.CreateStageResponse",
+        "This cmdlet returns a Amazon.ApiGatewayV2.Model.CreateStageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewAG2StageCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
+    {
+        
+        #region Parameter ApiId
+        /// <summary>
+        /// <para>
+        /// <para>The API identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ApiId { get; set; }
+        #endregion
+        
+        #region Parameter ClientCertificateId
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of a client certificate for a Stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ClientCertificateId { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRouteSettings_DataTraceEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether (true) or not (false) data trace logging is enabled for this route.
+        /// This property affects the log entries pushed to Amazon CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DefaultRouteSettings_DataTraceEnabled { get; set; }
+        #endregion
+        
+        #region Parameter DeploymentId
+        /// <summary>
+        /// <para>
+        /// <para>The deployment identifier of the API stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DeploymentId { get; set; }
+        #endregion
+        
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>The description for the API stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogSettings_DestinationArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the CloudWatch Logs log group to receive access logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AccessLogSettings_DestinationArn { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRouteSettings_DetailedMetricsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether detailed metrics are enabled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DefaultRouteSettings_DetailedMetricsEnabled { get; set; }
+        #endregion
+        
+        #region Parameter AccessLogSettings_Format
+        /// <summary>
+        /// <para>
+        /// <para>A single line format of the access logs of data, as specified by selected $context
+        /// variables. The format must include at least $context.requestId.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AccessLogSettings_Format { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRouteSettings_LoggingLevel
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the logging level for this route: DEBUG, INFO, or WARN. This property affects
+        /// the log entries pushed to Amazon CloudWatch Logs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ApiGatewayV2.LoggingLevel")]
+        public Amazon.ApiGatewayV2.LoggingLevel DefaultRouteSettings_LoggingLevel { get; set; }
+        #endregion
+        
+        #region Parameter RouteSetting
+        /// <summary>
+        /// <para>
+        /// <para>Route settings for the stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RouteSettings")]
+        public System.Collections.Hashtable RouteSetting { get; set; }
+        #endregion
+        
+        #region Parameter StageName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the stage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String StageName { get; set; }
+        #endregion
+        
+        #region Parameter StageVariable
+        /// <summary>
+        /// <para>
+        /// Amazon.ApiGatewayV2.Model.CreateStageRequest.StageVariables
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("StageVariables")]
+        public System.Collections.Hashtable StageVariable { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRouteSettings_ThrottlingBurstLimit
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the throttling burst limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DefaultRouteSettings_ThrottlingBurstLimit { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRouteSettings_ThrottlingRateLimit
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the throttling rate limit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double DefaultRouteSettings_ThrottlingRateLimit { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StageName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-AG2Stage (CreateStage)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.AccessLogSettings_DestinationArn = this.AccessLogSettings_DestinationArn;
+            context.AccessLogSettings_Format = this.AccessLogSettings_Format;
+            context.ApiId = this.ApiId;
+            context.ClientCertificateId = this.ClientCertificateId;
+            if (ParameterWasBound("DefaultRouteSettings_DataTraceEnabled"))
+                context.DefaultRouteSettings_DataTraceEnabled = this.DefaultRouteSettings_DataTraceEnabled;
+            if (ParameterWasBound("DefaultRouteSettings_DetailedMetricsEnabled"))
+                context.DefaultRouteSettings_DetailedMetricsEnabled = this.DefaultRouteSettings_DetailedMetricsEnabled;
+            context.DefaultRouteSettings_LoggingLevel = this.DefaultRouteSettings_LoggingLevel;
+            if (ParameterWasBound("DefaultRouteSettings_ThrottlingBurstLimit"))
+                context.DefaultRouteSettings_ThrottlingBurstLimit = this.DefaultRouteSettings_ThrottlingBurstLimit;
+            if (ParameterWasBound("DefaultRouteSettings_ThrottlingRateLimit"))
+                context.DefaultRouteSettings_ThrottlingRateLimit = this.DefaultRouteSettings_ThrottlingRateLimit;
+            context.DeploymentId = this.DeploymentId;
+            context.Description = this.Description;
+            if (this.RouteSetting != null)
+            {
+                context.RouteSettings = new Dictionary<System.String, Amazon.ApiGatewayV2.Model.RouteSettings>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RouteSetting.Keys)
+                {
+                    context.RouteSettings.Add((String)hashKey, (RouteSettings)(this.RouteSetting[hashKey]));
+                }
+            }
+            context.StageName = this.StageName;
+            if (this.StageVariable != null)
+            {
+                context.StageVariables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.StageVariable.Keys)
+                {
+                    context.StageVariables.Add((String)hashKey, (String)(this.StageVariable[hashKey]));
+                }
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.ApiGatewayV2.Model.CreateStageRequest();
+            
+            
+             // populate AccessLogSettings
+            bool requestAccessLogSettingsIsNull = true;
+            request.AccessLogSettings = new Amazon.ApiGatewayV2.Model.AccessLogSettings();
+            System.String requestAccessLogSettings_accessLogSettings_DestinationArn = null;
+            if (cmdletContext.AccessLogSettings_DestinationArn != null)
+            {
+                requestAccessLogSettings_accessLogSettings_DestinationArn = cmdletContext.AccessLogSettings_DestinationArn;
+            }
+            if (requestAccessLogSettings_accessLogSettings_DestinationArn != null)
+            {
+                request.AccessLogSettings.DestinationArn = requestAccessLogSettings_accessLogSettings_DestinationArn;
+                requestAccessLogSettingsIsNull = false;
+            }
+            System.String requestAccessLogSettings_accessLogSettings_Format = null;
+            if (cmdletContext.AccessLogSettings_Format != null)
+            {
+                requestAccessLogSettings_accessLogSettings_Format = cmdletContext.AccessLogSettings_Format;
+            }
+            if (requestAccessLogSettings_accessLogSettings_Format != null)
+            {
+                request.AccessLogSettings.Format = requestAccessLogSettings_accessLogSettings_Format;
+                requestAccessLogSettingsIsNull = false;
+            }
+             // determine if request.AccessLogSettings should be set to null
+            if (requestAccessLogSettingsIsNull)
+            {
+                request.AccessLogSettings = null;
+            }
+            if (cmdletContext.ApiId != null)
+            {
+                request.ApiId = cmdletContext.ApiId;
+            }
+            if (cmdletContext.ClientCertificateId != null)
+            {
+                request.ClientCertificateId = cmdletContext.ClientCertificateId;
+            }
+            
+             // populate DefaultRouteSettings
+            bool requestDefaultRouteSettingsIsNull = true;
+            request.DefaultRouteSettings = new Amazon.ApiGatewayV2.Model.RouteSettings();
+            System.Boolean? requestDefaultRouteSettings_defaultRouteSettings_DataTraceEnabled = null;
+            if (cmdletContext.DefaultRouteSettings_DataTraceEnabled != null)
+            {
+                requestDefaultRouteSettings_defaultRouteSettings_DataTraceEnabled = cmdletContext.DefaultRouteSettings_DataTraceEnabled.Value;
+            }
+            if (requestDefaultRouteSettings_defaultRouteSettings_DataTraceEnabled != null)
+            {
+                request.DefaultRouteSettings.DataTraceEnabled = requestDefaultRouteSettings_defaultRouteSettings_DataTraceEnabled.Value;
+                requestDefaultRouteSettingsIsNull = false;
+            }
+            System.Boolean? requestDefaultRouteSettings_defaultRouteSettings_DetailedMetricsEnabled = null;
+            if (cmdletContext.DefaultRouteSettings_DetailedMetricsEnabled != null)
+            {
+                requestDefaultRouteSettings_defaultRouteSettings_DetailedMetricsEnabled = cmdletContext.DefaultRouteSettings_DetailedMetricsEnabled.Value;
+            }
+            if (requestDefaultRouteSettings_defaultRouteSettings_DetailedMetricsEnabled != null)
+            {
+                request.DefaultRouteSettings.DetailedMetricsEnabled = requestDefaultRouteSettings_defaultRouteSettings_DetailedMetricsEnabled.Value;
+                requestDefaultRouteSettingsIsNull = false;
+            }
+            Amazon.ApiGatewayV2.LoggingLevel requestDefaultRouteSettings_defaultRouteSettings_LoggingLevel = null;
+            if (cmdletContext.DefaultRouteSettings_LoggingLevel != null)
+            {
+                requestDefaultRouteSettings_defaultRouteSettings_LoggingLevel = cmdletContext.DefaultRouteSettings_LoggingLevel;
+            }
+            if (requestDefaultRouteSettings_defaultRouteSettings_LoggingLevel != null)
+            {
+                request.DefaultRouteSettings.LoggingLevel = requestDefaultRouteSettings_defaultRouteSettings_LoggingLevel;
+                requestDefaultRouteSettingsIsNull = false;
+            }
+            System.Int32? requestDefaultRouteSettings_defaultRouteSettings_ThrottlingBurstLimit = null;
+            if (cmdletContext.DefaultRouteSettings_ThrottlingBurstLimit != null)
+            {
+                requestDefaultRouteSettings_defaultRouteSettings_ThrottlingBurstLimit = cmdletContext.DefaultRouteSettings_ThrottlingBurstLimit.Value;
+            }
+            if (requestDefaultRouteSettings_defaultRouteSettings_ThrottlingBurstLimit != null)
+            {
+                request.DefaultRouteSettings.ThrottlingBurstLimit = requestDefaultRouteSettings_defaultRouteSettings_ThrottlingBurstLimit.Value;
+                requestDefaultRouteSettingsIsNull = false;
+            }
+            System.Double? requestDefaultRouteSettings_defaultRouteSettings_ThrottlingRateLimit = null;
+            if (cmdletContext.DefaultRouteSettings_ThrottlingRateLimit != null)
+            {
+                requestDefaultRouteSettings_defaultRouteSettings_ThrottlingRateLimit = cmdletContext.DefaultRouteSettings_ThrottlingRateLimit.Value;
+            }
+            if (requestDefaultRouteSettings_defaultRouteSettings_ThrottlingRateLimit != null)
+            {
+                request.DefaultRouteSettings.ThrottlingRateLimit = requestDefaultRouteSettings_defaultRouteSettings_ThrottlingRateLimit.Value;
+                requestDefaultRouteSettingsIsNull = false;
+            }
+             // determine if request.DefaultRouteSettings should be set to null
+            if (requestDefaultRouteSettingsIsNull)
+            {
+                request.DefaultRouteSettings = null;
+            }
+            if (cmdletContext.DeploymentId != null)
+            {
+                request.DeploymentId = cmdletContext.DeploymentId;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.RouteSettings != null)
+            {
+                request.RouteSettings = cmdletContext.RouteSettings;
+            }
+            if (cmdletContext.StageName != null)
+            {
+                request.StageName = cmdletContext.StageName;
+            }
+            if (cmdletContext.StageVariables != null)
+            {
+                request.StageVariables = cmdletContext.StageVariables;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.ApiGatewayV2.Model.CreateStageResponse CallAWSServiceOperation(IAmazonApiGatewayV2 client, Amazon.ApiGatewayV2.Model.CreateStageRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway V2", "CreateStage");
+            try
+            {
+                #if DESKTOP
+                return client.CreateStage(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateStageAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String AccessLogSettings_DestinationArn { get; set; }
+            public System.String AccessLogSettings_Format { get; set; }
+            public System.String ApiId { get; set; }
+            public System.String ClientCertificateId { get; set; }
+            public System.Boolean? DefaultRouteSettings_DataTraceEnabled { get; set; }
+            public System.Boolean? DefaultRouteSettings_DetailedMetricsEnabled { get; set; }
+            public Amazon.ApiGatewayV2.LoggingLevel DefaultRouteSettings_LoggingLevel { get; set; }
+            public System.Int32? DefaultRouteSettings_ThrottlingBurstLimit { get; set; }
+            public System.Double? DefaultRouteSettings_ThrottlingRateLimit { get; set; }
+            public System.String DeploymentId { get; set; }
+            public System.String Description { get; set; }
+            public Dictionary<System.String, Amazon.ApiGatewayV2.Model.RouteSettings> RouteSettings { get; set; }
+            public System.String StageName { get; set; }
+            public Dictionary<System.String, System.String> StageVariables { get; set; }
+        }
+        
+    }
+}

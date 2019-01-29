@@ -28,15 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns list of aliases created for a Lambda function. For each alias, the response
-    /// includes information such as the alias ARN, description, alias name, and the function
-    /// version to which it points. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/aliases-intro.html">Introduction
-    /// to AWS Lambda Aliases</a>.
-    /// 
-    ///  
-    /// <para>
-    /// This requires permission for the lambda:ListAliases action.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+    /// for a Lambda function.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMAliasList")]
     [OutputType("Amazon.Lambda.Model.AliasConfiguration")]
@@ -62,9 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>If you specify this optional parameter, the API returns only the aliases that are
-        /// pointing to the specific Lambda function version, otherwise the API returns all of
-        /// the aliases created for the Lambda function.</para>
+        /// <para>Specify a function version to only list aliases that invoke that version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,11 +65,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional string. An opaque pagination token returned from a previous <code>ListAliases</code>
-        /// operation. If present, indicates where to continue the listing.</para>
+        /// <para>Specify the pagination token returned by a previous request to retrieve the next page
+        /// of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of aliases to return in response. This
-        /// parameter value must be greater than 0.</para>
+        /// <para>Limit the number of aliases returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -156,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

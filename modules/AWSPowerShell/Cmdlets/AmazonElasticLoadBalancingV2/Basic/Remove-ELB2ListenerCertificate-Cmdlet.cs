@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Removes the specified certificate from the specified secure listener.
+    /// Removes the specified certificate from the specified HTTPS listener.
     /// 
     ///  
     /// <para>

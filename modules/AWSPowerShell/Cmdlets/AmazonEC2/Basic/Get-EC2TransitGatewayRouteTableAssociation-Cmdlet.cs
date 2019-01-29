@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>association-id</code> - The ID of the association.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code>).</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li></ul>
+        /// <para>One or more filters. The possible values are:</para><ul><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code>).</para></li><li><para><code>transit-gateway-attachment-id</code> - The ID of the attachment.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,6 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -148,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

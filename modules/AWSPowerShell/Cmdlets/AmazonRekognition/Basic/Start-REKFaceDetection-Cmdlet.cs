@@ -38,8 +38,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// operation. When face detection is finished, Amazon Rekognition Video publishes a completion
     /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
     /// To get the results of the face detection operation, first check that the status value
-    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
-    /// the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
+    /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetFaceDetection</a>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
     /// </para><para>
     /// For more information, see Detecting Faces in a Stored Video in the Amazon Rekognition
     /// Developer Guide.

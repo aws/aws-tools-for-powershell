@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// If <code>nextToken</code> is returned, there are more results available. The value
     /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
     /// again using the returned token to retrieve the next page. Keep all other arguments
-    /// unchanged. Each pagination token expires after 60 seconds. Using an expired pagination
+    /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
     /// token will return an <i>HTTP 400 InvalidToken</i> error.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -95,11 +95,12 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>If <code>nextToken</code> is returned, there are more results available. The value
         /// of <code>nextToken</code> is a unique pagination token for each page. Make the call
         /// again using the returned token to retrieve the next page. Keep all other arguments
-        /// unchanged. Each pagination token expires after 60 seconds. Using an expired pagination
+        /// unchanged. Each pagination token expires after 24 hours. Using an expired pagination
         /// token will return an <i>HTTP 400 InvalidToken</i> error.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -162,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
             bool _continueIteration = true;
             
             try

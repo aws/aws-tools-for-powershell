@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         public System.String RepositoryName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ECR.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -82,6 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             PreExecutionContextLoad(context);
             
             context.RepositoryName = this.RepositoryName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ECR.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -101,6 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             if (cmdletContext.RepositoryName != null)
             {
                 request.RepositoryName = cmdletContext.RepositoryName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -167,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String RepositoryName { get; set; }
+            public List<Amazon.ECR.Model.Tag> Tags { get; set; }
         }
         
     }

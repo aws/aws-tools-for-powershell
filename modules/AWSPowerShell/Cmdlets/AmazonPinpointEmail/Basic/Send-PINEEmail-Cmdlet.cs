@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// <para>The name of the configuration set that you want to use when sending the email.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ConfigurationSetName { get; set; }
         #endregion
         

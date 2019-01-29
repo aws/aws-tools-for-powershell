@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
     /// Disassociates the account that has been set as the AWS Firewall Manager administrator
-    /// account. You will need to submit an <code>AssociateAdminAccount</code> request to
-    /// set a new account as the AWS Firewall administrator.
+    /// account. To set a different account as the administrator account, you must submit
+    /// an <code>AssociateAdminAccount</code> request .
     /// </summary>
     [Cmdlet("Remove", "FMSAdminAccountAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

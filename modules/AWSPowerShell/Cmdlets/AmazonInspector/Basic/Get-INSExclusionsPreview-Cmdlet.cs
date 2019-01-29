@@ -80,9 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// <para>You can use this parameter to indicate the maximum number of items you want in the
         /// response. The default value is 100. The maximum value is 500.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -96,9 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.INS
         /// to null on your first call to the GetExclusionsPreviewRequest action. Subsequent calls
         /// to the action fill nextToken in the request with the value of nextToken from the previous
         /// response to continue listing data.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// is provided, a shell to the instance is launched by default.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DocumentName { get; set; }
         #endregion
         

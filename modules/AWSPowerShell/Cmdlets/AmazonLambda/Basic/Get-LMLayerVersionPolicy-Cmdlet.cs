@@ -28,7 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the permission policy for a layer version. For more information, see <a>AddLayerVersionPermission</a>.
+    /// Returns the permission policy for a version of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
     /// </summary>
     [Cmdlet("Get", "LMLayerVersionPolicy")]
     [OutputType("Amazon.Lambda.Model.GetLayerVersionPolicyResponse")]
@@ -42,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LayerName
         /// <summary>
         /// <para>
-        /// <para>The name of the layer.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the layer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

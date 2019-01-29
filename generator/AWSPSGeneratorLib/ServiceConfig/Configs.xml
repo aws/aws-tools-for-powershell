@@ -5,6 +5,8 @@
     <Path>alexaforbusiness.xml</Path>
     <Path>amplify.xml</Path>
     <Path>apigateway.xml</Path>
+    <Path>apigatewaymanagementapi.xml</Path>
+    <Path>apigatewayv2.xml</Path>
     <Path>application-autoscaling.xml</Path>
     <Path>appmesh.xml</Path>
     <Path>appstream.xml</Path>
@@ -13,6 +15,7 @@
     <Path>autoscaling.xml</Path>
     <Path>autoscaling-plans.xml</Path>
     <Path>awsmigrationhub.xml</Path>
+    <Path>backup.xml</Path>
     <Path>batch.xml</Path>
     <Path>budgets.xml</Path>
     <Path>ce.xml</Path>
@@ -47,6 +50,7 @@
     <Path>discovery.xml</Path>
     <Path>dlm.xml</Path>
     <Path>dms.xml</Path>
+    <Path>docdb.xml</Path>
     <Path>ds.xml</Path>
     <Path>dynamodb.xml</Path>
     <Path>dynamodbstreams.xml</Path>
@@ -148,12 +152,14 @@
     <Path>storagegateway.xml</Path>
     <Path>sts.xml</Path>
     <Path>support.xml</Path>
+    <Path>swf.xml</Path>
     <Path>transcribe.xml</Path>
     <Path>transfer.xml</Path>
     <Path>translate.xml</Path>
     <Path>waf-regional.xml</Path>
     <Path>waf.xml</Path>
     <Path>workdocs.xml</Path>
+    <Path>worklink.xml</Path>
     <Path>workmail.xml</Path>
     <Path>workspaces.xml</Path>
     <Path>xray.xml</Path>
@@ -210,9 +216,6 @@
   <IncludeLibraries>
     <!-- This service is excluded from generation but we have hand written cmdlets for it -->
     <Library Name="AWSSDK.CloudSearchDomain" AddAsReference="true" />
-
-    <!-- no cmdlets for swf but internal teams want the dll available to script against -->
-    <Library Name="AWSSDK.SimpleWorkflow" AddAsReference="true" />
 
     <!-- Not used. These libraries were previously included in the AWSPowerShell distribution, so we need to keep them for backward compatibility -->
     <Library Name="AWSSDK.IoT1ClickDevicesService" />

@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</para></note>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Source { get; set; }
         #endregion
         

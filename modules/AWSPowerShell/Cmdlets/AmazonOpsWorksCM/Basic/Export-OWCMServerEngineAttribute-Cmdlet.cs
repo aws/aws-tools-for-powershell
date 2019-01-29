@@ -54,9 +54,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ExportAttributeName
         /// <summary>
         /// <para>
-        /// <para>The name of the export attribute. Currently supported export attribute is "Userdata"
-        /// which exports a userdata script filled out with parameters provided in the <code>InputAttributes</code>
-        /// list.</para>
+        /// <para>The name of the export attribute. Currently, the supported export attribute is <code>Userdata</code>.
+        /// This exports a user data script that includes parameters and values provided in the
+        /// <code>InputAttributes</code> list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,16 +66,15 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter InputAttribute
         /// <summary>
         /// <para>
-        /// <para>The list of engine attributes. The list type is <code>EngineAttribute</code>. <code>EngineAttribute</code>
-        /// is a pair of attribute name and value. For <code>ExportAttributeName</code> "Userdata",
-        /// currently supported input attribute names are: - "RunList": For Chef, an ordered list
-        /// of roles and/or recipes that are run in the exact order. For Puppet, this parameter
-        /// is ignored. - "OrganizationName": For Chef, an organization name. AWS OpsWorks for
-        /// Chef Server always creates the organization "default". For Puppet, this parameter
-        /// is ignored. - "NodeEnvironment": For Chef, a node environment (eg. development, staging,
-        /// onebox). For Puppet, this parameter is ignored. - "NodeClientVersion": For Chef, version
-        /// of Chef Engine (3 numbers separated by dots, eg. "13.8.5"). If empty, it uses the
-        /// latest one. For Puppet, this parameter is ignored. </para>
+        /// <para>The list of engine attributes. The list type is <code>EngineAttribute</code>. An <code>EngineAttribute</code>
+        /// list item is a pair that includes an attribute name and its value. For the <code>Userdata</code>
+        /// ExportAttributeName, the following are supported engine attribute names.</para><ul><li><para><b>RunList</b> In Chef, a list of roles or recipes that are run in the specified
+        /// order. In Puppet, this parameter is ignored.</para></li><li><para><b>OrganizationName</b> In Chef, an organization name. AWS OpsWorks for Chef Automate
+        /// always creates the organization <code>default</code>. In Puppet, this parameter is
+        /// ignored.</para></li><li><para><b>NodeEnvironment</b> In Chef, a node environment (for example, development, staging,
+        /// or one-box). In Puppet, this parameter is ignored.</para></li><li><para><b>NodeClientVersion</b> In Chef, the version of the Chef engine (three numbers separated
+        /// by dots, such as 13.8.5). If this attribute is empty, OpsWorks for Chef Automate uses
+        /// the most current version. In Puppet, this parameter is ignored.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServerName
         /// <summary>
         /// <para>
-        /// <para>The name of the Server to which the attribute is being exported from </para>
+        /// <para>The name of the server from which you are exporting the attribute.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

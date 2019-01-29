@@ -66,7 +66,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -85,8 +85,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -112,7 +112,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "TrainingSpecification"
+          "AlgorithmName"
         ],
         "byNameMembers": []
       },
@@ -166,7 +166,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "GitConfig"
+          "CodeRepositoryName"
         ],
         "byNameMembers": []
       },
@@ -282,7 +282,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
@@ -301,8 +301,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointConfigName"
         },
         "memoryStreamParameters": []
@@ -336,7 +336,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointConfig",
@@ -355,8 +355,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointConfigName"
         },
         "memoryStreamParameters": []
@@ -390,7 +390,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HyperParameterTuningJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HyperParameterTuningJob",
@@ -409,8 +409,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HyperParameterTuningJobName"
         },
         "memoryStreamParameters": []
@@ -606,7 +606,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstance",
@@ -625,8 +625,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -660,7 +660,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceLifecycleConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstanceLifecycleConfig",
@@ -679,8 +679,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceLifecycleConfigName"
         },
         "memoryStreamParameters": []
@@ -714,7 +714,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "PresignedNotebookInstanceUrl",
@@ -733,8 +733,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -768,7 +768,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TrainingJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrainingJob",
@@ -787,8 +787,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TrainingJobName"
         },
         "memoryStreamParameters": []
@@ -822,7 +822,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TransformJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TransformJob",
@@ -841,8 +841,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TransformJobName"
         },
         "memoryStreamParameters": []
@@ -930,7 +930,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "AlgorithmName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Algorithm",
@@ -949,8 +949,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "AlgorithmName"
         },
         "memoryStreamParameters": []
@@ -984,7 +984,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CodeRepositoryName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CodeRepository",
@@ -1003,8 +1003,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CodeRepositoryName"
         },
         "memoryStreamParameters": []
@@ -1038,7 +1038,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Endpoint",
@@ -1057,8 +1057,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointName"
         },
         "memoryStreamParameters": []
@@ -1092,7 +1092,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointConfig",
@@ -1111,8 +1111,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointConfigName"
         },
         "memoryStreamParameters": []
@@ -1146,7 +1146,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ModelName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Model",
@@ -1165,8 +1165,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ModelName"
         },
         "memoryStreamParameters": []
@@ -1200,7 +1200,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ModelPackageName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ModelPackage",
@@ -1219,8 +1219,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ModelPackageName"
         },
         "memoryStreamParameters": []
@@ -1254,7 +1254,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstance",
@@ -1273,8 +1273,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -1308,7 +1308,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceLifecycleConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstanceLifecycleConfig",
@@ -1327,8 +1327,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceLifecycleConfigName"
         },
         "memoryStreamParameters": []
@@ -1362,7 +1362,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Tags",
@@ -1381,8 +1381,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "ResourceArn"
         },
         "memoryStreamParameters": []
@@ -1416,7 +1416,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "WorkteamName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Workteam",
@@ -1435,8 +1435,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "WorkteamName"
         },
         "memoryStreamParameters": []
@@ -2294,9 +2294,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "CodeRepositoryNameContains"
-        ],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3062,9 +3060,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [
-          "WorkteamName"
-        ],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -3112,7 +3108,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "UiTemplate"
+          "UiTemplate_Content"
         ],
         "byNameMembers": []
       },
@@ -3120,7 +3116,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "RoleArn"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "UiTemplate",
@@ -3139,8 +3135,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "RoleArn"
         },
         "memoryStreamParameters": []
@@ -3174,7 +3170,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "Resource"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "",
@@ -3193,8 +3189,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "Resource"
         },
         "memoryStreamParameters": []
@@ -3228,7 +3224,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstance",
@@ -3247,8 +3243,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -3282,7 +3278,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "CompilationJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "CompilationJob",
@@ -3301,8 +3297,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "CompilationJobName"
         },
         "memoryStreamParameters": []
@@ -3336,7 +3332,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "HyperParameterTuningJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "HyperParameterTuningJob",
@@ -3355,8 +3351,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "HyperParameterTuningJobName"
         },
         "memoryStreamParameters": []
@@ -3390,7 +3386,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "LabelingJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "LabelingJob",
@@ -3409,8 +3405,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "LabelingJobName"
         },
         "memoryStreamParameters": []
@@ -3444,7 +3440,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstance",
@@ -3463,8 +3459,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -3498,7 +3494,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TrainingJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TrainingJob",
@@ -3517,8 +3513,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TrainingJobName"
         },
         "memoryStreamParameters": []
@@ -3552,7 +3548,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "TransformJobName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TransformJob",
@@ -3571,8 +3567,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "Single parameter, auto-selected as target",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "TransformJobName"
         },
         "memoryStreamParameters": []
@@ -3598,7 +3594,7 @@
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
-          "GitConfigForUpdate"
+          "CodeRepositoryName"
         ],
         "byNameMembers": []
       },
@@ -3714,7 +3710,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "EndpointName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EndpointWeightsAndCapacities",
@@ -3733,8 +3729,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "EndpointName"
         },
         "memoryStreamParameters": []
@@ -3768,7 +3764,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstance",
@@ -3787,8 +3783,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceName"
         },
         "memoryStreamParameters": []
@@ -3822,7 +3818,7 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": ""
+        "targetParameter": "NotebookInstanceLifecycleConfigName"
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "NotebookInstanceLifecycleConfig",
@@ -3841,8 +3837,8 @@
           "resultsTruncatedMember": ""
         },
         "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "single parameter with recognized suffix",
-          "status": "TargetFromAnalysis",
+          "analysisMessage": "",
+          "status": "TargetFromConfig",
           "targetParameterName": "NotebookInstanceLifecycleConfigName"
         },
         "memoryStreamParameters": []

@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>An array of face IDs to delete.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("FaceIds")]
         public System.String[] FaceId { get; set; }
         #endregion

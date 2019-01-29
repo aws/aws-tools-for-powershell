@@ -95,9 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <para>
         /// <para>Limit the number of results returned.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -108,9 +105,6 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <summary>
         /// <para>
         /// <para>Pagination token</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

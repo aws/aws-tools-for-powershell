@@ -109,13 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// the remaining 2 resources, each with its 10 tags.</para><para>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of
         /// 500 items.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int TagsPerPage { get; set; }
+        public System.Int32 TagsPerPage { get; set; }
         #endregion
         
         #region Parameter PaginationToken
@@ -127,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.PaginationToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,6 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             
             // create request and set iteration invariants
             var request = new Amazon.ResourceGroupsTaggingAPI.Model.GetResourcesRequest();
+            
             if (cmdletContext.ResourcesPerPage != null)
             {
                 request.ResourcesPerPage = cmdletContext.ResourcesPerPage.Value;
@@ -188,52 +187,25 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             {
                 request.TagFilters = cmdletContext.TagFilters;
             }
+            if (cmdletContext.TagsPerPage != null)
+            {
+                request.TagsPerPage = cmdletContext.TagsPerPage.Value;
+            }
             
-            // Initialize loop variants and commence piping
+            // Initialize loop variant and commence piping
             System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.PaginationToken))
+            bool _userControllingPaging = false;
+            if (ParameterWasBound("PaginationToken"))
             {
                 _nextMarker = cmdletContext.PaginationToken;
+                _userControllingPaging = true;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.TagsPerPage))
-            {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.TagsPerPage;
-            }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.PaginationToken) || AutoIterationHelpers.HasValue(cmdletContext.TagsPerPage);
-            bool _continueIteration = true;
             
             try
             {
                 do
                 {
                     request.PaginationToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.TagsPerPage = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.TagsPerPage))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.TagsPerPage);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.TagsPerPage = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -242,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
                     {
                         
                         var response = CallAWSServiceOperation(client, request);
+                        
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.ResourceTagMappingList;
                         notes = new Dictionary<string, object>();
@@ -252,19 +225,13 @@ namespace Amazon.PowerShell.Cmdlets.RGT
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ResourceTagMappingList.Count;
                         if (_userControllingPaging)
                         {
+                            int _receivedThisCall = response.ResourceTagMappingList.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PaginationToken));
                         }
                         
                         _nextMarker = response.PaginationToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
                     }
                     catch (Exception e)
                     {
@@ -272,17 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
                     
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {
@@ -338,7 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             public System.Int32? ResourcesPerPage { get; set; }
             public List<System.String> ResourceTypeFilters { get; set; }
             public List<Amazon.ResourceGroupsTaggingAPI.Model.TagFilter> TagFilters { get; set; }
-            public int? TagsPerPage { get; set; }
+            public System.Int32? TagsPerPage { get; set; }
         }
         
     }

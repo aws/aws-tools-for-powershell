@@ -108,9 +108,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
         /// <para>
         /// The maximum number of results to be returned.
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -122,9 +119,6 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
         /// <para>
         /// A pagination token for obtaining the next page
         /// of results.
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

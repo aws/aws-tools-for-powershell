@@ -94,7 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The protocol the load balancer uses when performing health checks on targets. The
-        /// TCP protocol is supported only if the protocol of the target group is TCP.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
+        /// TCP protocol is supported for health checks only if the protocol of the target group
+        /// is TCP or TLS. The TLS protocol is not supported for health checks.</para><para>If the protocol of the target group is TCP, you can't modify this setting.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// the VPC Dashboard in the AWS Management Console.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PeerVpcId { get; set; }
         #endregion
         

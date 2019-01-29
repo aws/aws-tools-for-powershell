@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The type of resource to list, either and application load balancer or Amazon API Gateway.</para>
+        /// <para>The type of resource to list, either an application load balancer or Amazon API Gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

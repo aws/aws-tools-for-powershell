@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns information about a version of a function layer, with a link to download the
-    /// layer archive that's valid for 10 minutes.
+    /// Returns information about a version of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.
     /// </summary>
     [Cmdlet("Get", "LMLayerVersion")]
     [OutputType("Amazon.Lambda.Model.GetLayerVersionResponse")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LayerName
         /// <summary>
         /// <para>
-        /// <para>The name of the layer.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the layer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

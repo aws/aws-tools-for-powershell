@@ -28,7 +28,7 @@ using Amazon.DynamoDBv2.Model;
 namespace Amazon.PowerShell.Cmdlets.DDB
 {
     /// <summary>
-    
+    /// Returns the regional endpoint information.
     /// </summary>
     [Cmdlet("Get", "DDBEndpoint")]
     [OutputType("Amazon.DynamoDBv2.Model.Endpoint")]

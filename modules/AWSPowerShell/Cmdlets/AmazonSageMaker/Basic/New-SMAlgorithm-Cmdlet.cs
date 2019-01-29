@@ -54,18 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter AlgorithmName
         /// <summary>
         /// <para>
-        /// <para>The name of the algorithm. The name must have 1 to 63 characters. Valid characters
-        /// are a-z, A-Z, 0-9, and - (hyphen).</para>
+        /// <para>The name of the algorithm.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String AlgorithmName { get; set; }
         #endregion
         
         #region Parameter CertifyForMarketplace
         /// <summary>
         /// <para>
-        /// <para>Whether to certify the algorithm so that it can be listed in AWS Marektplace.</para>
+        /// <para>Whether to certify the algorithm so that it can be listed in AWS Marketplace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -166,8 +165,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingSpecification_SupportedTuningJobObjectiveMetric
         /// <summary>
         /// <para>
-        /// <para>A list of the metrics that the alogorithm emits that can be used as the objective
-        /// metric in a hyperparameter tuning job.</para>
+        /// <para>A list of the metrics that the algorithm emits that can be used as the objective metric
+        /// in a hyperparameter tuning job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -201,8 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter TrainingSpecification_TrainingImage
         /// <summary>
         /// <para>
-        /// <para>The Amazon Amazon ECR registry path of the Docker image that contains the training
-        /// algorithm.</para>
+        /// <para>The Amazon ECR registry path of the Docker image that contains the training algorithm.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

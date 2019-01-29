@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>Specifies whether to enable Amazon ECS managed tags for the task. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/Using_Tags.html">Tagging
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging
         /// Your Amazon ECS Resources</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -203,8 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PropagateTag
         /// <summary>
         /// <para>
-        /// <para>Specifies whether to propagate the tags from the task definition or the service to
-        /// the task. If no value is specified, the tags are not propagated.</para>
+        /// <para>Specifies whether to propagate the tags from the task definition to the task. If no
+        /// value is specified, the tags are not propagated. Tags can only be propagated to the
+        /// task during task creation. To add tags to a task after task creation, use the <a>TagResource</a>
+        /// API action.</para><note><para>An error will be received if you specify the <code>SERVICE</code> option when running
+        /// a task.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

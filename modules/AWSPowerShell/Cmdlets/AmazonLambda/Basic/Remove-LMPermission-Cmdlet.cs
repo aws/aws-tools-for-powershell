@@ -28,22 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Removes permissions from a function. You can remove individual permissions from an
-    /// resource policy associated with a Lambda function by providing a statement ID that
-    /// you provided when you added the permission. When you remove permissions, disable the
-    /// event source mapping or trigger configuration first to avoid errors.
-    /// 
-    ///  
-    /// <para>
-    /// Permissions apply to the Amazon Resource Name (ARN) used to invoke the function, which
-    /// can be unqualified (the unpublished version of the function), or include a version
-    /// or alias. If a client uses a version or alias to invoke a function, use the <code>Qualifier</code>
-    /// parameter to apply permissions to that ARN. For more information about versioning,
-    /// see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>. 
-    /// </para><para>
-    /// You need permission for the <code>lambda:RemovePermission</code> action.
-    /// </para>
+    /// Revokes function use permission from an AWS service or another account. You can get
+    /// the ID of the statement from the output of <a>GetPolicy</a>.
     /// </summary>
     [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -78,11 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>An optional value you can use to ensure you are updating the latest update of the
-        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
-        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
-        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
+        /// <para>Only update the policy if the revision ID matches the ID specified. Use this option
+        /// to avoid modifying a policy that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

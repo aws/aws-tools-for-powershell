@@ -43,8 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para> The unique ID of a deployment associated with the applicable IAM user or AWS account.
-        /// </para>
+        /// <para> The unique ID of a deployment associated with the IAM user or AWS account. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

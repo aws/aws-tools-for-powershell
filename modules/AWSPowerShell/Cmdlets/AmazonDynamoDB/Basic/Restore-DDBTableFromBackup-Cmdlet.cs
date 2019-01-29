@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The name of the new table to which the backup must be restored.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TargetTableName { get; set; }
         #endregion
         

@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SM
 {
     /// <summary>
     /// Returns a description of the specified model package, which is used to create Amazon
-    /// SageMaker models or list on AWS Marketplace.
+    /// SageMaker models or list them on AWS Marketplace.
     /// 
     ///  
     /// <para>
-    /// Buyers can subscribe to model packages listed on AWS Marketplace to create models
-    /// in Amazon SageMaker.
+    /// To create models in Amazon SageMaker, buyers can subscribe to model packages listed
+    /// on AWS Marketplace.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SMModelPackage")]

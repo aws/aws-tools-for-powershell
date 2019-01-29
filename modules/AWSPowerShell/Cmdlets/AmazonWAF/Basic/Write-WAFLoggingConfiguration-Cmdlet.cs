@@ -35,17 +35,14 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// You can access information about all traffic that AWS WAF inspects using the following
     /// steps:
     /// </para><ol><li><para>
-    /// Create an Amazon Kinesis Data Firehose delivery stream. For more information, see
-    /// <a href="https://docs.aws.amazon.com/firehose/latest/dev/what-is-this-service.html">Creating
-    /// an Amazon Kinesis Data Firehose Delivery Stream</a>. 
+    /// Create an Amazon Kinesis Data Firehose . 
     /// </para></li><li><para>
-    /// Associate that delivery stream to your web ACL using a <code>PutLoggingConfiguration</code>
+    /// Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code>
     /// request.
     /// </para></li></ol><para>
     /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
     /// request, AWS WAF will create a service linked role with the necessary permissions
-    /// to write logs to the Amazon Kinesis Data Firehose delivery stream. For more information,
-    /// see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// to write logs to the Amazon Kinesis Data Firehose. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -62,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         #region Parameter LoggingConfiguration_LogDestinationConfig
         /// <summary>
         /// <para>
-        /// <para>An array of Amazon Kinesis Data Firehose delivery stream ARNs.</para>
+        /// <para>An array of Amazon Kinesis Data Firehose ARNs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <summary>
         /// <para>
         /// <para>The parts of the request that you want redacted from the logs. For example, if you
-        /// redact the cookie field, the cookie field in the delivery stream will be <code>xxx</code>.
+        /// redact the cookie field, the cookie field in the firehose will be <code>xxx</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -89,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// <para>The Amazon Resource Name (ARN) of the web ACL that you want to associate with <code>LogDestinationConfigs</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String LoggingConfiguration_ResourceArn { get; set; }
         #endregion
         

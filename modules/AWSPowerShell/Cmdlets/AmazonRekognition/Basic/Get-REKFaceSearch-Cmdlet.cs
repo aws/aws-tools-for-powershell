@@ -28,27 +28,28 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets the face search results for Amazon Rekognition Video face search started by .
+    /// Gets the face search results for Amazon Rekognition Video face search started by <a>StartFaceSearch</a>.
     /// The search returns faces in a collection that match the faces of persons detected
     /// in a video. It also includes the time(s) that faces are matched in the video.
     /// 
     ///  
     /// <para>
     /// Face search in a video is an asynchronous operation. You start face search by calling
-    /// to which returns a job identifier (<code>JobId</code>). When the search operation
-    /// finishes, Amazon Rekognition Video publishes a completion status to the Amazon Simple
-    /// Notification Service topic registered in the initial call to <code>StartFaceSearch</code>.
-    /// To get the search results, first check that the status value published to the Amazon
-    /// SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetFaceSearch</code> and pass
-    /// the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
+    /// to <a>StartFaceSearch</a> which returns a job identifier (<code>JobId</code>). When
+    /// the search operation finishes, Amazon Rekognition Video publishes a completion status
+    /// to the Amazon Simple Notification Service topic registered in the initial call to
+    /// <code>StartFaceSearch</code>. To get the search results, first check that the status
+    /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetFaceSearch</code>
+    /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
     /// </para><para>
     /// For more information, see Searching Faces in a Collection in the Amazon Rekognition
     /// Developer Guide.
     /// </para><para>
-    /// The search results are retured in an array, <code>Persons</code>, of objects. Each<code>PersonMatch</code>
-    /// element contains details about the matching faces in the input collection, person
-    /// information (facial attributes, bounding boxes, and person identifer) for the matched
-    /// person, and the time the person was matched in the video.
+    /// The search results are retured in an array, <code>Persons</code>, of <a>PersonMatch</a>
+    /// objects. Each<code>PersonMatch</code> element contains details about the matching
+    /// faces in the input collection, person information (facial attributes, bounding boxes,
+    /// and person identifer) for the matched person, and the time the person was matched
+    /// in the video.
     /// </para><note><para><code>GetFaceSearch</code> only returns the default facial attributes (<code>BoundingBox</code>,
     /// <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>).
     /// The other facial attributes listed in the <code>Face</code> object of the following
@@ -100,9 +101,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results
         /// is returned. The default value is 1000.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -115,9 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>If the previous response was incomplete (because there is more search results to retrieve),
         /// Amazon Rekognition Video returns a pagination token in the response. You can use this
         /// pagination token to retrieve the next set of search results. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

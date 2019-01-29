@@ -53,11 +53,12 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters.
     /// In this case, all parameters must be specified.
     /// </para><para>
-    /// Kinesis Data Firehose uses <b>CurrentDeliveryStreamVersionId</b> to avoid race conditions
-    /// and conflicting merges. This is a required field, and the service updates the configuration
-    /// only if the existing configuration has a version ID that matches. After the update
-    /// is applied successfully, the version ID is updated, and can be retrieved using <a>DescribeDeliveryStream</a>.
-    /// Use the new version ID to set <b>CurrentDeliveryStreamVersionId</b> in the next call.
+    /// Kinesis Data Firehose uses <code>CurrentDeliveryStreamVersionId</code> to avoid race
+    /// conditions and conflicting merges. This is a required field, and the service updates
+    /// the configuration only if the existing configuration has a version ID that matches.
+    /// After the update is applied successfully, the version ID is updated, and can be retrieved
+    /// using <a>DescribeDeliveryStream</a>. Use the new version ID to set <code>CurrentDeliveryStreamVersionId</code>
+    /// in the next call.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KINFDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter CurrentDeliveryStreamVersionId
         /// <summary>
         /// <para>
-        /// <para>Obtain this value from the <b>VersionId</b> result of <a>DeliveryStreamDescription</a>.
+        /// <para>Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>.
         /// This value is required, and helps the service perform conditional operations. For
         /// example, if there is an interleaving update and this value is null, then the update
         /// destination fails. After the update is successful, the <code>VersionId</code> value
@@ -110,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <para>
         /// <para>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>,
         /// <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after
-        /// assuming the IAM role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// assuming the IAM role specified in <code>RoleARN</code>. For more information, see
+        /// <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
         /// </para>
         /// </summary>
@@ -177,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationUpdate_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index rotation period. Index rotation appends a time stamp to <code>IndexName</code>
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to <code>IndexName</code>
         /// to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
         /// Rotation for the Amazon ES Destination</a>. Default value is <code>OneDay</code>.</para>
         /// </para>

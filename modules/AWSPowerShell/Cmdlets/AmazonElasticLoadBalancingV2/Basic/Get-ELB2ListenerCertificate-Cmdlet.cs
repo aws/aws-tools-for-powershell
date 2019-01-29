@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the certificates for the specified secure listener.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the certificates for the specified HTTPS listener.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ELB2ListenerCertificate")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Certificate")]
@@ -73,6 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 _emitLimit = cmdletContext.PageSize;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.PageSize);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("PageSize");
             bool _continueIteration = true;
             
             try

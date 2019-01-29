@@ -67,9 +67,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum number of items to return for this request. The request returns a token
         /// that you can specify in a subsequent call to get the next set of results.</para><para>Constraint: If the value is greater than 1000, we return only 1000 items.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
@@ -81,9 +78,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a prior
         /// call.)</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

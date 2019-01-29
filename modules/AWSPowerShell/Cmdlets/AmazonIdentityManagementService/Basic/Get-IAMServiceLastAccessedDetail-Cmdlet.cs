@@ -87,9 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// indicating that the results are truncated. Set it to the value of the <code>Marker</code>
         /// element in the response that you received to indicate where the next call should start.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
@@ -106,9 +103,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
         /// the service where to continue from.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

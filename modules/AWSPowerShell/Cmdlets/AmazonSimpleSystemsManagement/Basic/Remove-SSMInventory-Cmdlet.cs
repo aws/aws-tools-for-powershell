@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// collected data, or the inventory type itself. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TypeName { get; set; }
         #endregion
         

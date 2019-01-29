@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists the versions of a function layer. Versions that have been deleted aren't listed.
-    /// Specify a <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+    /// Lists the versions of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
     /// identifier</a> to list only versions that indicate that they're compatible with that
     /// runtime.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter LayerName
         /// <summary>
         /// <para>
-        /// <para>The name of the layer.</para>
+        /// <para>The name or Amazon Resource Name (ARN) of the layer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,6 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -148,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

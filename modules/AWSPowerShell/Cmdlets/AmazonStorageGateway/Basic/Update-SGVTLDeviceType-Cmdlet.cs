@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// operation is only supported in the tape gateway type.
     /// </summary>
     [Cmdlet("Update", "SGVTLDeviceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Storage Gateway UpdateVTLDeviceType API operation.", Operation = new[] {"UpdateVTLDeviceType"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VTLDeviceARN parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class UpdateSGVTLDeviceTypeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
@@ -59,8 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The Amazon Resource Name (ARN) of the medium changer you want to select.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String VTLDeviceARN { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the VTLDeviceARN parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -128,6 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.VTLDeviceARN;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

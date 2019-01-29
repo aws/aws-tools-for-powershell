@@ -99,6 +99,18 @@ namespace Amazon.PowerShell.Cmdlets.PCA
         public Amazon.ACMPCA.Model.RevocationConfiguration RevocationConfiguration { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Key-value pairs that will be attached to the new private CA. You can associate up
+        /// to 50 tags with a private CA.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ACMPCA.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -132,6 +144,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             context.CertificateAuthorityType = this.CertificateAuthorityType;
             context.IdempotencyToken = this.IdempotencyToken;
             context.RevocationConfiguration = this.RevocationConfiguration;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ACMPCA.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             if (cmdletContext.RevocationConfiguration != null)
             {
                 request.RevocationConfiguration = cmdletContext.RevocationConfiguration;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -232,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
             public Amazon.ACMPCA.CertificateAuthorityType CertificateAuthorityType { get; set; }
             public System.String IdempotencyToken { get; set; }
             public Amazon.ACMPCA.Model.RevocationConfiguration RevocationConfiguration { get; set; }
+            public List<Amazon.ACMPCA.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// Removes the specified tags from a trail.
     /// </summary>
     [Cmdlet("Remove", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS CloudTrail RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-CTTag")]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudTrail.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveCTResourceTagCmdlet : AmazonCloudTrailClientCmdlet, IExecutor
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// trail ARN is:</para><para><code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code></para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
         #endregion
         
@@ -59,6 +59,15 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CloudTrail.Model.Tag[] TagsList { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ResourceId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -129,6 +138,8 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ResourceId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

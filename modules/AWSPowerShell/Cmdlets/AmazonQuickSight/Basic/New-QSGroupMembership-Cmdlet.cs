@@ -39,7 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// The condition key is <code>quicksight:UserName</code>.
     /// </para><para>
     /// The response is the group member object.
-    /// </para>
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight create-group-membership --aws-account-id=111122223333 --namespace=default
+    /// --group-name=Sales --member-name=Pat </code></para>
     /// </summary>
     [Cmdlet("New", "QSGroupMembership", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.QuickSight.Model.GroupMember")]

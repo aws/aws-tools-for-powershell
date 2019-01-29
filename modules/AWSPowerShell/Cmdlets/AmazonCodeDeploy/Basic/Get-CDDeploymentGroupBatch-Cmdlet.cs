@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter DeploymentGroupName
         /// <summary>
         /// <para>
-        /// <para>The deployment groups' names.</para>
+        /// <para>The names of the deployment groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

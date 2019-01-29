@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// account.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         [Alias("ConfigurationRecorderNames")]
         public System.String[] ConfigurationRecorderName { get; set; }
         #endregion

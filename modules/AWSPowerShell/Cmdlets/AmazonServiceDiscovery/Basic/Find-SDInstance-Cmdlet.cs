@@ -91,9 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// to a <code>DiscoverInstances</code> request. If you don't specify a value for <code>MaxResults</code>,
         /// Cloud Map returns up to 100 instances.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

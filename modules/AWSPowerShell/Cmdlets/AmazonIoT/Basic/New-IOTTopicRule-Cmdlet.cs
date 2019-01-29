@@ -686,6 +686,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String PutItem_TableName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the topic rule.</para><note><para>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</para><para>For the CLI command-line parameter use format: --tags "key1=value1&amp;key2=value2..."</para><para>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.String Tag { get; set; }
+        #endregion
+        
         #region Parameter Sns_TargetArn
         /// <summary>
         /// <para>
@@ -785,6 +796,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.RuleName = this.RuleName;
+            context.Tags = this.Tag;
             if (this.TopicRulePayload_Action != null)
             {
                 context.TopicRulePayload_Actions = new List<Amazon.IoT.Model.Action>(this.TopicRulePayload_Action);
@@ -871,6 +883,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.RuleName != null)
             {
                 request.RuleName = cmdletContext.RuleName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
              // populate TopicRulePayload
@@ -1836,6 +1852,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String RuleName { get; set; }
+            public System.String Tags { get; set; }
             public List<Amazon.IoT.Model.Action> TopicRulePayload_Actions { get; set; }
             public System.String TopicRulePayload_AwsIotSqlVersion { get; set; }
             public System.String TopicRulePayload_Description { get; set; }

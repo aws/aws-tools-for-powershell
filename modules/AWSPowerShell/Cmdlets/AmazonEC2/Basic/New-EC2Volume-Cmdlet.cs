@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of I/O operations per second (IOPS) to provision for the volume, with a
-        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000IOPS for volumes in most regions.
+        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions.
         /// Maximum IOPS of 64,000 is guaranteed only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For
         /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for <code>st1</code>, 500-16,384 for <code>sc1</code>, and 1-1,024 for <code>standard</code>.
         /// If you specify a snapshot, the volume size must be equal to or larger than the snapshot
         /// size.</para><para>Default: If you're creating the volume from a snapshot and don't specify a volume
-        /// size, the default is the snapshot size.</para>
+        /// size, the default is the snapshot size.</para><note><para>At least one of Size or SnapshotId are required.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SnapshotId
         /// <summary>
         /// <para>
-        /// <para>The snapshot from which to create the volume.</para>
+        /// <para>The snapshot from which to create the volume.</para><note><para>At least one of Size or SnapshotId are required.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

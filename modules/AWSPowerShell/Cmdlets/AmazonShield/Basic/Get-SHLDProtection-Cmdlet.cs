@@ -43,11 +43,26 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ProtectionId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier (ID) for the <a>Protection</a> object that is described.</para>
+        /// <para>The unique identifier (ID) for the <a>Protection</a> object that is described. When
+        /// submitting the <code>DescribeProtection</code> request you must provide either the
+        /// <code>ResourceArn</code> or the <code>ProtectionID</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ProtectionId { get; set; }
+        #endregion
+        
+        #region Parameter ResourceArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN (Amazon Resource Name) of the AWS resource for the <a>Protection</a> object
+        /// that is described. When submitting the <code>DescribeProtection</code> request you
+        /// must provide either the <code>ResourceArn</code> or the <code>ProtectionID</code>,
+        /// but not both.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -64,6 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             PreExecutionContextLoad(context);
             
             context.ProtectionId = this.ProtectionId;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -83,6 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
             if (cmdletContext.ProtectionId != null)
             {
                 request.ProtectionId = cmdletContext.ProtectionId;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -149,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ProtectionId { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

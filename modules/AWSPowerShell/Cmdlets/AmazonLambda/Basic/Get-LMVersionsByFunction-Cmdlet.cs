@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists all versions of a function. For information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">versions</a>,
+    /// with the version-specific configuration of each.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMVersionsByFunction")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
@@ -55,11 +55,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> Optional string. An opaque pagination token returned from a previous <code>ListVersionsByFunction</code>
-        /// operation. If present, indicates where to continue the listing. </para>
+        /// <para>Specify the pagination token returned by a previous request to retrieve the next page
+        /// of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of AWS Lambda function versions to
-        /// return in response. This parameter value must be greater than 0.</para>
+        /// <para>Limit the number of versions returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -132,7 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

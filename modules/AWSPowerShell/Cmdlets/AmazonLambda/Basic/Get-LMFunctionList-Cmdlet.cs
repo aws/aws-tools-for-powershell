@@ -28,17 +28,13 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns a list of your Lambda functions. For each function, the response includes
-    /// the function configuration information. You must use <a>GetFunction</a> to retrieve
-    /// the code for your function.
+    /// Returns a list of Lambda functions, with the version-specific configuration of each.
     /// 
     ///  
     /// <para>
-    /// This operation requires permission for the <code>lambda:ListFunctions</code> action.
-    /// </para><para>
-    /// If you are using the versioning feature, you can list all of your functions or only
-    /// <code>$LATEST</code> versions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
-    /// Function Versioning and Aliases</a>. 
+    /// Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions
+    /// of each function in addition to the unpublished version. To get more information about
+    /// a function or version, use <a>GetFunction</a>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMFunctionList")]
@@ -55,8 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter FunctionVersion
         /// <summary>
         /// <para>
-        /// <para>Set to <code>ALL</code> to list all published versions. If not specified, only the
-        /// latest unpublished version ARN is returned.</para>
+        /// <para>Set to <code>ALL</code> to include entries for all published versions of each function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MasterRegion
         /// <summary>
         /// <para>
-        /// <para>Specify a region (e.g. <code>us-east-2</code>) to only list functions that were created
-        /// in that region, or <code>ALL</code> to include functions replicated from any region.
-        /// If specified, you also must specify the <code>FunctionVersion</code>.</para>
+        /// <para>For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code>
+        /// or <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,11 +73,12 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Optional string. An opaque pagination token returned from a previous <code>ListFunctions</code>
-        /// operation. If present, indicates where to continue the listing. </para>
+        /// <para>Specify the pagination token returned by a previous request to retrieve the next page
+        /// of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,9 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MaxItem
         /// <summary>
         /// <para>
-        /// <para>Optional integer. Specifies the maximum number of AWS Lambda functions to return in
-        /// response. This parameter value must be greater than 0. The absolute maximum of AWS
-        /// Lambda functions that can be returned is 50.</para>
+        /// <para>Specify a value between 1 and 50 to limit the number of functions in the response.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -162,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             {
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
             bool _continueIteration = true;
             
             try

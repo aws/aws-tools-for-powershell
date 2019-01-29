@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String VPC_VPCId { get; set; }
         #endregion
         

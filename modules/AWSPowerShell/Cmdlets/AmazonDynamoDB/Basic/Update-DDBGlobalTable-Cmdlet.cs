@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>The global table name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String GlobalTableName { get; set; }
         #endregion
         

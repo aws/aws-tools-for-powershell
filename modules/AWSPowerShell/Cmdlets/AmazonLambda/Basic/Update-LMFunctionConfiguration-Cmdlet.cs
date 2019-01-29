@@ -28,20 +28,16 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates the configuration parameters for the specified Lambda function by using the
-    /// values provided in the request. You provide only the parameters you want to change.
-    /// This operation must only be used on an existing Lambda function and cannot be used
-    /// to update the function's code.
+    /// Modify the version-specifc settings of a Lambda function.
     /// 
     ///  
     /// <para>
-    /// If you are using the versioning feature, note this API will always update the $LATEST
-    /// version of your Lambda function. For information about the versioning feature, see
-    /// <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>. 
+    /// These settings can vary between versions of a function and are locked when you publish
+    /// a version. You cannot modify the configuration of a published version, only the unpublished
+    /// version.
     /// </para><para>
-    /// This operation requires permission for the <code>lambda:UpdateFunctionConfiguration</code>
-    /// action.
+    /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
+    /// permissions to an account or AWS service, use <a>AddPermission</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "LMFunctionConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -137,11 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>An optional value you can use to ensure you are updating the latest update of the
-        /// function version or alias. If the <code>RevisionID</code> you pass doesn't match the
-        /// latest <code>RevisionId</code> of the function or alias, it will fail with an error
-        /// message, advising you to retrieve the latest function version or alias <code>RevisionID</code>
-        /// using either <a>GetFunction</a> or <a>GetAlias</a>.</para>
+        /// <para>Only update the function if the revision ID matches the ID specified. Use this option
+        /// to avoid modifying a function that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

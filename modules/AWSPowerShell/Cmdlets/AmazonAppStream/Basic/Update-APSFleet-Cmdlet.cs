@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description for display.</para>
+        /// <para>The description to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The fleet name for display.</para>
+        /// <para>The fleet name to display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>The security groups for the fleet.</para>
+        /// <para>The identifiers of the security groups for the fleet or image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,7 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The subnets to which a network interface is established from the fleet instance.</para>
+        /// <para>The identifiers of the subnets to which a network interface is attached from the fleet
+        /// instance or image builder instance. Fleet instances use one or two subnets. Image
+        /// builder instances use one subnet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
-    /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
+    /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

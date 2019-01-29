@@ -28,20 +28,13 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the configuration information of the Lambda function. This the same information
-    /// you provided as parameters when uploading the function by using <a>CreateFunction</a>.
+    /// Returns a the version-specific settings of a Lambda function or version. The output
+    /// includes only options that can vary between versions of a function. To modify these
+    /// settings, use <a>UpdateFunctionConfiguration</a>.
     /// 
     ///  
     /// <para>
-    /// If you are using the versioning feature, you can retrieve this information for a specific
-    /// function version by using the optional <code>Qualifier</code> parameter and specifying
-    /// the function version or alias that points to it. If you don't provide it, the API
-    /// returns information about the $LATEST version of the function. For more information
-    /// about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>.
-    /// </para><para>
-    /// This operation requires permission for the <code>lambda:GetFunctionConfiguration</code>
-    /// operation.
+    /// To get all of a function's details, including function-level settings, use <a>GetFunction</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMFunctionConfiguration")]

@@ -36,7 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.QS
     /// <para>
     /// The permission resource is <code>arn:aws:quicksight:us-east-1:<i>&lt;aws-account-id&gt;</i>:user/default/<i>&lt;user-name&gt;
     /// </i></code>.
-    /// </para>
+    /// </para><para><b>CLI Sample:</b></para><para><code>aws quicksight delete-user --aws-account-id=111122223333 --namespace=default
+    /// --user-name=Pat </code></para>
     /// </summary>
     [Cmdlet("Remove", "QSUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

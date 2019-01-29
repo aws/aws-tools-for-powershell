@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         [Alias("JobIds")]
         public System.String[] JobId { get; set; }
         #endregion

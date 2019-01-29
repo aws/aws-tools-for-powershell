@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// Associates a self-service action with a provisioning artifact.
     /// </summary>
     [Cmdlet("Add", "SCServiceActionAssociationWithProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None")]
+    [OutputType("None","System.String")]
     [AWSCmdlet("Calls the AWS Service Catalog AssociateServiceActionWithProvisioningArtifact API operation.", Operation = new[] {"AssociateServiceActionWithProvisioningArtifact"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceActionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.AssociateServiceActionWithProvisioningArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class AddSCServiceActionAssociationWithProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
@@ -76,8 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ServiceActionId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ServiceActionId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -155,6 +164,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ServiceActionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

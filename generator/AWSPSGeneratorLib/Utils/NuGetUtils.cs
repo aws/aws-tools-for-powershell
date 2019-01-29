@@ -24,7 +24,9 @@ namespace AWSPowerShellGenerator.Utils
     /// </summary>
     class NuGetUtils
     {
-        static readonly ResolutionContext ResolutionContext = new ResolutionContext(DependencyBehavior.Ignore, true, false, VersionConstraints.None);
+        private const string SdkLibraryPrefix = "AWSSDK.";
+
+        private static readonly ResolutionContext ResolutionContext = new ResolutionContext(DependencyBehavior.Ignore, true, false, VersionConstraints.None);
 
         /// <summary>
         /// Downloads the latest version of a library from NuGet.
@@ -37,7 +39,9 @@ namespace AWSPowerShellGenerator.Utils
         {
             var nugetFilePaths = Directory.GetFiles(nugetFolderPath, packageName + ".*.nupkg", SearchOption.TopDirectoryOnly).ToArray();
             if (nugetFilePaths.Length > 1)
+            {
                 throw new Exception($"Multiple NuGet packages available for {packageName}");
+            }
 
             string nugetFilePath = nugetFilePaths.FirstOrDefault() ?? DownloadNugetPackageAsync(nugetFolderPath, packageName).Result;
             using (var archive = ZipFile.OpenRead(nugetFilePath))
@@ -95,14 +99,13 @@ namespace AWSPowerShellGenerator.Utils
 
         private static async Task<NuGetVersion> GetVersion(string downloadFullPath, string packageName)
         {
-            if (packageName.StartsWith("AWSSDK."))
+            if (packageName.StartsWith(SdkLibraryPrefix))
             {
                 string versionsFilePath = Path.Combine(downloadFullPath, @"..\_sdk-versions.json");
                 try
                 {
                     using (var jsonReader = new JsonTextReader(File.OpenText(versionsFilePath)))
                     {
-
                         var root = JObject.Load(jsonReader);
                         if (packageName == "AWSSDK.Core")
                         {
@@ -111,7 +114,7 @@ namespace AWSPowerShellGenerator.Utils
                         }
                         else
                         {
-                            var package = root["ServiceVersions"][packageName.Substring(7)];
+                            var package = root["ServiceVersions"][packageName.Substring(SdkLibraryPrefix.Length)];
                             if (package != null)
                             {
                                 string version = (string)package["Version"];
@@ -132,9 +135,7 @@ namespace AWSPowerShellGenerator.Utils
             var sourceRepositories = new List<SourceRepository>() { sourceRepository };
 
             var resolvedPackage = await NuGetPackageManager.GetLatestVersionAsync(packageName, project, ResolutionContext, sourceRepositories, new NullLogger(), CancellationToken.None);
-            if (!resolvedPackage.Exists)
-                return null;
-            return resolvedPackage.LatestVersion;
+            return resolvedPackage.Exists ? resolvedPackage.LatestVersion : null;
         }
 
         private static SourceRepository GetResourceRepository(string downloadFullPath, string packageName)
