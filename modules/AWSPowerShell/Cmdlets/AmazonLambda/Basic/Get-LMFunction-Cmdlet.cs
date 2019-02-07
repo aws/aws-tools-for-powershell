@@ -28,9 +28,9 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns information about function or function version, with a link to download the
-    /// deployment package that's valid for 10 minutes. If you specify a function version,
-    /// only details specific to that version are returned.
+    /// Returns information about the function or function version, with a link to download
+    /// the deployment package that's valid for 10 minutes. If you specify a function version,
+    /// only details that are specific to that version are returned.
     /// </summary>
     [Cmdlet("Get", "LMFunction")]
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]

@@ -28,7 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Returns information about a single query.
+    /// Returns information about a single query. Requires that you have access to the workgroup
+    /// in which the query was saved.
     /// </summary>
     [Cmdlet("Get", "ATHNamedQuery")]
     [OutputType("Amazon.Athena.Model.NamedQuery")]

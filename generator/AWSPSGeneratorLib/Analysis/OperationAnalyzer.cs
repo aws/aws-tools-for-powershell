@@ -91,7 +91,40 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
-                return AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
+                var autoIteration = AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
+
+                //If autoiteration has configured field names for at least Start (input parameter idicating the pagination token) and Next
+                //(output value idicating the next pagination token) and the Start parameter is actually present in the input type
+                //and the Next value is present in the returned type
+                if (autoIteration != null &&
+                    !autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName) &&
+                    !string.IsNullOrEmpty(autoIteration.Start) &&
+                    !string.IsNullOrEmpty(autoIteration.Next) &&
+                    AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.Start) &&
+                    AreResultFieldsPresent(ReturnType, autoIteration.Next))
+                {
+                    //If autoiteration also has configured a field name for EmitLimit (input parameter idicating the max number of items
+                    //to be returned by the service) and the EmitLimit parameter is actually present in the input type
+                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit) &&
+                        AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
+                    {
+                        //If autoiteration also has configured a field name for TruncatedFlag (output value idicating if more data is availabe
+                        //but was not returned due to pagination) and the TruncatedFlag value is present in the returned type
+                        if (String.IsNullOrEmpty(autoIteration.TruncatedFlag) || !AreResultFieldsPresent(ReturnType, autoIteration.TruncatedFlag))
+                        {
+                            autoIteration.TruncatedFlag = null;
+                        }
+                    }
+                    else
+                    {
+                        autoIteration.EmitLimit = null;
+                        autoIteration.TruncatedFlag = null;
+                    }
+
+                    return autoIteration;
+                }
+
+                return null;
             }
         }
 
@@ -104,33 +137,17 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 var autoIteration = AutoIterateSettings;
 
-                //If autoiteration has configured field names for at least Start (input parameter idicating the pagination token) and Next
-                //(output value idicating the next pagination token) and the Start parameter is actually present in the input type
-                //and the Next value is present in the returned type
-                if (autoIteration != null && !autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName) &&
-                    !String.IsNullOrEmpty(autoIteration.Start) && !String.IsNullOrEmpty(autoIteration.Next) &&
-                    AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.Start) && AreResultFieldsPresent(ReturnType, autoIteration.Next))
+                if (autoIteration != null)
                 {
-                    //If autoiteration also has configured a field name for EmitLimit (input parameter idicating the max number of items
-                    //to be returned by the service) and the EmitLimit parameter is actually present in the input type
-                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit) &&
-                        AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.EmitLimit))
+                    if (!String.IsNullOrEmpty(autoIteration.EmitLimit))
                     {
-                        //If autoiteration also has configured a field name for TruncatedFlag (output value idicating if more data is availabe
-                        //but was not returned due to pagination) and the TruncatedFlag value is present in the returned type
-                        if (!String.IsNullOrEmpty(autoIteration.TruncatedFlag) && AreResultFieldsPresent(ReturnType, autoIteration.TruncatedFlag))
+                        if (!String.IsNullOrEmpty(autoIteration.TruncatedFlag))
                         {
                             return AutoIteration.AutoIteratePattern.Pattern3;
                         }
-                        else
-                        {
-                            return AutoIteration.AutoIteratePattern.Pattern2;
-                        }
+                        return AutoIteration.AutoIteratePattern.Pattern2;
                     }
-                    else
-                    {
-                        return AutoIteration.AutoIteratePattern.Pattern1;
-                    }
+                    return AutoIteration.AutoIteratePattern.Pattern1;
                 }
 
                 return AutoIteration.AutoIteratePattern.None;
@@ -551,14 +568,13 @@ namespace AWSPowerShellGenerator.Analysis
 
             shouldFlatten = ShouldFlattenType(propertyTypeFullName);
 
-            var propertyTypeName = GetPropertyTypeName(property.Name, property.PropertyType);
+            var propertyTypeName = GetValidTypeName(property.PropertyType);
             var simpleProperty = new SimplePropertyInfo(property,
                                                         parent,
                                                         propertyTypeName,
                                                         AssemblyDocumentation,
                                                         collectionType,
-                                                        genericCollectionTypes,
-                                                        IsEmitLimiter(property.Name));
+                                                        genericCollectionTypes);
 
             // if requiring substitution due to being a memory stream type,
             // add to the collection we'll iterate over when initializing one or
@@ -614,17 +630,6 @@ namespace AWSPowerShellGenerator.Analysis
         {
             return !CurrentModel.TypesNotToFlatten.Contains(propertyTypeFullName) &&
                    !AllModels.TypesNotToFlatten.Contains(propertyTypeFullName);
-        }
-
-        public static bool IsEmitLimiter(string propertyName, AutoIteration autoIterationSettings, string methodName)
-        {
-            if (autoIterationSettings == null)
-                return false;
-
-            var shouldAutoIterate = !autoIterationSettings.ExclusionSet.Contains(methodName);
-            var isEmitLimit = autoIterationSettings.IsEmitLimit(propertyName);
-            var isEmitLimiter = shouldAutoIterate && isEmitLimit;
-            return isEmitLimiter;
         }
 
         public static string ToLowerCamelCase(string name)
@@ -1049,6 +1054,8 @@ namespace AWSPowerShellGenerator.Analysis
             // and do some name shortening/singularization
             AnalyzedParameters = new List<SimplePropertyInfo>(allProperties);
 
+            FixPaginationParameters();
+
             FinalizeParameterNames();
             
             // also gather the internal root (non-flattened) properties -- these are what the
@@ -1057,6 +1064,27 @@ namespace AWSPowerShellGenerator.Analysis
                                     .Where(simpleProperty => !IsExcludedParameter(simpleProperty.AnalyzedName, CurrentModel, CurrentOperation))
                                     .ToList();
             RequestProperties = new List<SimplePropertyInfo>(rootProperties);
+        }
+
+        /// <summary>
+        /// This fixes the properties of pagination parameters. This must be done after AnalyzedParameters
+        /// is filled because the AutoIterateSettings property getter uses AnalyzedParameters.
+        /// </summary>
+        private void FixPaginationParameters()
+        {
+            var autoIterateSettings = AutoIterateSettings;
+
+            if (autoIterateSettings != null)
+            {
+                foreach (var parameter in AnalyzedParameters)
+                {
+                    if (autoIterateSettings.IsEmitLimit(parameter.AnalyzedName))
+                    {
+                        parameter.UseParameterValueOnlyIfBound = true;
+                        parameter.PropertyTypeName = "int";
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -1073,41 +1101,41 @@ namespace AWSPowerShellGenerator.Analysis
                 return;
             }
 
-            var pipelineParam = string.IsNullOrEmpty(CurrentOperation.PipelineParameter) ? CurrentModel.PipelineParameter
-                                                                                         : CurrentOperation.PipelineParameter;
-
-            if (string.IsNullOrEmpty(pipelineParam))
+            if (!string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
             {
-                // If there is more than one parameter, but no pipeline parameter defined,
-                // flag it as an error because it could be a breaking change. We may have
-                // auto-assigned the pipeline parameter in prior releases due to their only
-                // being one parameter, and now the presence of more than one could change
-                // that.
-                if (NonIterationParameters.Count() > 1)
+                if (!NonIterationParameters.Any(param => param.AnalyzedName == CurrentOperation.PipelineParameter))
+                {
+                    Logger.LogError("{0}: Operation {1} invalid pipeline configuration {2}. Possible parameters are {3}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
+                        CurrentOperation.PipelineParameter, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
+                }
+            }
+            else
+            {
+                string pipelineParam = null;
+                if (!string.IsNullOrEmpty(CurrentModel.PipelineParameter) && NonIterationParameters.Any(param => param.AnalyzedName == CurrentModel.PipelineParameter))
+                {
+                    pipelineParam = CurrentModel.PipelineParameter;
+                }
+                else if (NonIterationParameters.Count() == 1)
+                {
+                    pipelineParam = NonIterationParameters.First().AnalyzedName;
+                }
+                else
                 {
                     Logger.LogError("{0}: Operation {1} has more than one parameter but no pipeline parameter configuration was found. Possible parameters are {2}.",
                         CurrentModel.ServiceName, CurrentOperation.MethodName, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
                     return;
                 }
 
-                // find the first parameter that is not in the iteration set and attempt to use it.
-                pipelineParam = NonIterationParameters.First().AnalyzedName;
-            }
-            else if (!NonIterationParameters.Any(param => param.AnalyzedName == pipelineParam))
-            {
-                Logger.LogError("{0}: Operation {1} invalid pipeline configuration {2}. Possible parameters are {3}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                    pipelineParam, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
-            }
-
-            if (string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
-            {
-                if (!CurrentOperation.IsAutoConfiguring)
+                if (CurrentOperation.IsAutoConfiguring)
+                {
+                    CurrentOperation.PipelineParameter = pipelineParam;
+                }
+                else
                 {
                     Logger.LogError("{0}: Operation {1} pipeline configuration must be updated. Suggested value is {2}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
                         pipelineParam);
                 }
-
-                CurrentOperation.PipelineParameter = pipelineParam;
             }
         }
 
@@ -1253,7 +1281,7 @@ namespace AWSPowerShellGenerator.Analysis
                 sb.AppendFormat("cannot determine target parameter, ");
                 if (potentialTargets.Count == 0)
                 {
-                    sb.AppendFormat("no parameter ends with a recognized suffix from set: {0}", string.Join(",", _supportsShouldProcessParameterSuffixes));
+                    sb.AppendFormat("multiple possible targets exist (no parameter ends with a recognized suffix) - {0}", string.Join(",", NonIterationParameters.Select(pt => pt.AnalyzedName)));
                 }
                 else
                 {
@@ -1761,22 +1789,6 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 yield return property;
             }
-        }
-
-        private string GetPropertyTypeName(string propertyName, Type type)
-        {
-            return IsEmitLimiter(propertyName) ? "int" : GetValidTypeName(type);
-        }
-
-        private bool IsEmitLimiter(string propertyName)
-        {
-            var autoIteration = AutoIterateSettings;
-            if (autoIteration == null)
-            {
-                return false;
-            }
-
-            return IsEmitLimiter(propertyName, autoIteration, CurrentOperation.MethodName);
         }
 
         public static bool AreRequestFieldsPresent(IEnumerable<SimplePropertyInfo> requestProperties, params string[] fieldNames)

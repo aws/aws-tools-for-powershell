@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// The volume can remain in the <code>deleting</code> state for several minutes.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html">Deleting
     /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <summary>
     /// Returns a list of container instances in a specified cluster. You can filter the results
     /// of a <code>ListContainerInstances</code> operation with cluster query language statements
-    /// inside the <code>filter</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
+    /// inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
     /// Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSContainerInstanceList")]
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>You can filter the results of a <code>ListContainerInstances</code> operation with
-        /// cluster query language statements. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
+        /// cluster query language statements. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
         /// Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -88,8 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -99,7 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -152,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.Marker != null)
             {
@@ -225,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             public System.String AuthenticationToken { get; set; }
             public System.String DocumentId { get; set; }
             public System.String Fields { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String Marker { get; set; }
         }
         

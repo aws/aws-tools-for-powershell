@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Returns the configuration for the specified name.
+    /// Returns the playback configuration for the specified name.
     /// </summary>
     [Cmdlet("Get", "EMTPlaybackConfiguration")]
     [OutputType("Amazon.MediaTailor.Model.GetPlaybackConfigurationResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier for the configuration.</para>
+        /// <para>The identifier for the playback configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// in the game session. If successful, a match backfill ticket is created and returned
     /// with status set to QUEUED. The ticket is placed in the matchmaker's ticket pool and
     /// processed. Track the status of the ticket to respond as needed. For more detail how
-    /// to set up backfilling, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
+    /// to set up backfilling, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-backfill.html">
     /// Backfill Existing Games with FlexMatch</a>. 
     /// </para><para>
     /// The process of finding backfill matches is essentially identical to the initial matchmaking
@@ -51,10 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// formed, the matchmaker creates player sessions for the new players. All tickets in
     /// the match are updated with the game session's connection information, and the <a>GameSession</a>
     /// object is updated to include matchmaker data on the new players. For more detail on
-    /// how match backfill requests are processed, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
+    /// how match backfill requests are processed, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
     /// How Amazon GameLift FlexMatch Works</a>. 
-    /// </para><para>
-    /// Matchmaking-related operations include:
     /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "GMLMatchBackfill", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to a game session and uniquely identifies it. </para>
         /// </para>
         /// </summary>
@@ -100,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// existing game.</para><ul><li><para>PlayerID, PlayerAttributes, Team -\\- This information is maintained in the <a>GameSession</a>
         /// object, <code>MatchmakerData</code> property, for all players who are currently assigned
         /// to the game session. The matchmaker data is in JSON syntax, formatted as a string.
-        /// For more details, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">
+        /// For more details, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-server.html#match-server-data">
         /// Match Data</a>. </para></li><li><para>LatencyInMs -\\- If the matchmaker uses player latency, include a latency value, in
         /// milliseconds, for the region that the game session is currently in. Do not include
         /// latency values for any other region.</para></li></ul>

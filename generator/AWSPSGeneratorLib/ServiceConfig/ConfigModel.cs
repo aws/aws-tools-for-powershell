@@ -1488,20 +1488,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
             if (parentSettings == null && childSettings == null)
                 return null;
 
-            if (parentSettings != null && childSettings == null)
-                return parentSettings;
-            
-            if (parentSettings == null)
-                return childSettings;
-
             return new AutoIteration
             {
-                Start = childSettings.Start ?? parentSettings.Start,
-                Next = childSettings.Next ?? parentSettings.Next,
-                ServicePageSize = childSettings.ServicePageSize == -1 ? parentSettings.ServicePageSize : childSettings.ServicePageSize,
-                Exclusions = childSettings.Exclusions ?? parentSettings.Exclusions,
-                EmitLimit = childSettings.EmitLimit ?? parentSettings.EmitLimit,
-                TruncatedFlag = childSettings.TruncatedFlag ?? parentSettings.TruncatedFlag
+                Start = childSettings?.Start ?? parentSettings?.Start,
+                Next = childSettings?.Next ?? parentSettings?.Next,
+                ServicePageSize = childSettings?.ServicePageSize ?? parentSettings?.ServicePageSize ?? -1,
+                Exclusions = childSettings?.Exclusions ?? parentSettings?.Exclusions,
+                EmitLimit = childSettings?.EmitLimit ?? parentSettings?.EmitLimit,
+                TruncatedFlag = childSettings?.TruncatedFlag ?? parentSettings?.TruncatedFlag
             };
         }
 

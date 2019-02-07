@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// Manager console stores the information as a JSON structure of key/value pairs that
         /// the Lambda rotation function knows how to parse.</para><para>For storing multiple values, we recommend that you use a JSON text string argument
         /// and specify key/value pairs. For information on how to format a JSON parameter for
-        /// the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+        /// the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</para><para><code>[{"username":"bob"},{"password":"abc123xyz456"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
         /// should use single quotes to avoid confusion with the double quotes required in the
         /// JSON text. </para>
@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// strategy, then adding or removing a tag can change permissions. If the successful
         /// completion of this operation would result in you losing your permissions for this
         /// secret, then this operation is blocked and returns an <code>Access Denied</code> error.</para></li></ul></important><para>This parameter requires a JSON text string argument. For information on how to format
-        /// a JSON parameter for the various command line tool environments, see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+        /// a JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>. For example:</para><para><code>[{"Key":"CostCenter","Value":"12345"},{"Key":"environment","Value":"production"}]</code></para><para>If your command-line tool or SDK requires quotation marks around the parameter, you
         /// should use single quotes to avoid confusion with the double quotes required in the
         /// JSON text. </para><para>The following basic restrictions apply to tags:</para><ul><li><para>Maximum number of tags per secret—50</para></li><li><para>Maximum key length—127 Unicode characters in UTF-8</para></li><li><para>Maximum value length—255 Unicode characters in UTF-8</para></li><li><para>Tag keys and values are case sensitive.</para></li><li><para>Do not use the <code>aws:</code> prefix in your tag names or values because it is

@@ -32,10 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// has already been used to create a peering connection, call <a>DeleteVpcPeeringConnection</a>
     /// to remove the connection. 
     /// 
-    ///  
-    /// <para>
-    /// VPC peering connection operations include:
-    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
+    ///  <ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLVpcPeeringAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -62,9 +59,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Unique identifier for a VPC with resources to be accessed by your Amazon GameLift
-        /// fleet. The VPC must be in the same region where your fleet is deployed. To get VPC
-        /// information, including IDs, use the Virtual Private Cloud service tools, including
-        /// the VPC Dashboard in the AWS Management Console.</para>
+        /// fleet. The VPC must be in the same region where your fleet is deployed. Look up a
+        /// VPC ID using the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in
+        /// the AWS Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// Peering with Amazon GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

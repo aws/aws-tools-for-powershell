@@ -74,14 +74,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -127,14 +120,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -180,14 +166,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -233,14 +212,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -286,14 +258,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SelectionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -339,14 +304,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupVaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -392,14 +350,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupVaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -410,7 +361,7 @@
     },
     "DeleteBackupVaultNotifications": {
       "verb": "Remove",
-      "noun": "BackupVaultNotifications",
+      "noun": "BackupVaultNotification",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "Void",
@@ -445,14 +396,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupVaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -498,14 +442,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RecoveryPointArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -551,14 +488,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -599,14 +529,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -647,14 +570,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -695,14 +611,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -743,14 +652,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -791,14 +693,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -844,14 +739,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -892,14 +780,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -940,14 +821,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -988,14 +862,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1036,14 +903,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1084,14 +944,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1132,14 +985,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1178,14 +1024,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1688,7 +1527,7 @@
         "targetParameter": ""
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "Tags",
+        "confirmationMessageNoun": "Tag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
         "passThruSource": "",
@@ -1742,14 +1581,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupVaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1795,14 +1627,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupVaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1848,14 +1673,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1901,14 +1719,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1954,14 +1765,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: BackupJobId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2001,20 +1805,13 @@
         "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "Resource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2054,20 +1851,13 @@
         "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "Resource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2113,14 +1903,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2166,14 +1949,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

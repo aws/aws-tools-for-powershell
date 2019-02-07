@@ -100,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// A confidence value, <code>Confidence</code>, which indicates the confidence that the
     /// bounding box contains a face.
     /// </para></li><li><para>
-    /// A face ID, <code>faceId</code>, assigned by the service for each face that's detected
+    /// A face ID, <code>FaceId</code>, assigned by the service for each face that's detected
     /// and stored.
     /// </para></li><li><para>
     /// An image ID, <code>ImageId</code>, assigned by the service for the input image.

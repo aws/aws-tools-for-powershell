@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+    /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

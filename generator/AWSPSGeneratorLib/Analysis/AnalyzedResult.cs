@@ -67,10 +67,13 @@ namespace AWSPowerShellGenerator.Analysis
 
             OutputType = ResultOutputTypes.Empty;
 
+            var autoIterateSettings = operationAnalyzer.AutoIterateSettings;
+
             Func<PropertyInfo, bool> isMetadataProperty = p =>
                         operationAnalyzer.AllModels.MetadataPropertyNames.Contains(p.Name) ||
                         operationAnalyzer.CurrentModel.MetadataPropertyNames.Contains(p.Name) ||
-                        operationAnalyzer.CurrentOperation.MetadataPropertiesList.Contains(p.Name);
+                        operationAnalyzer.CurrentOperation.MetadataPropertiesList.Contains(p.Name) ||
+                        (autoIterateSettings?.Next == p.Name || autoIterateSettings?.TruncatedFlag == p.Name);
             Func<PropertyInfo, bool> notMetadataProperty = p => !isMetadataProperty(p);
 
             // if the response type has a base class with matching prefix but ending

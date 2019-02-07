@@ -28,7 +28,15 @@ using Amazon.RoboMaker.Model;
 namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
-    /// Creates a deployment job.
+    /// Deploys a specific version of a robot application to robots in a fleet.
+    /// 
+    ///  
+    /// <para>
+    /// The robot application must have a numbered <code>applicationVersion</code> for consistency
+    /// reasons. To create a new version, use <code>CreateRobotApplicationVersion</code> or
+    /// see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating
+    /// a Robot Application Version</a>. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ROBODeploymentJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.CreateDeploymentJobResponse")]
@@ -81,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public System.String Fleet { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the deployment job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -117,6 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             }
             context.DeploymentConfig = this.DeploymentConfig;
             context.Fleet = this.Fleet;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -148,6 +175,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.Fleet != null)
             {
                 request.Fleet = cmdletContext.Fleet;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -217,6 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             public List<Amazon.RoboMaker.Model.DeploymentApplicationConfig> DeploymentApplicationConfigs { get; set; }
             public Amazon.RoboMaker.Model.DeploymentConfig DeploymentConfig { get; set; }
             public System.String Fleet { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

@@ -162,6 +162,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A collection of key-value pairs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -210,6 +221,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.Reserved = this.Reserved;
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             context.RoleArn = this.RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -299,6 +318,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -375,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             [System.ObsoleteAttribute]
             public System.String Reserved { get; set; }
             public System.String RoleArn { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

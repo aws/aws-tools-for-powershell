@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
     /// depend on the type of VPC endpoint (interface or gateway). For more information, see
-    /// <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+    /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
     /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

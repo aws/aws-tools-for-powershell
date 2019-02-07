@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The dynamic thing group search query string.</para><para>See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query
+        /// <para>The dynamic thing group search query string.</para><para>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query
         /// Syntax</a> for information about query string syntax.</para>
         /// </para>
         /// </summary>

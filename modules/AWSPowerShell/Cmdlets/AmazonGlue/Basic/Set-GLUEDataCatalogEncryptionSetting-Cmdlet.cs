@@ -28,7 +28,7 @@ using Amazon.Glue.Model;
 namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
-    /// Sets the security configuration for a specified catalog. Once the configuration has
+    /// Sets the security configuration for a specified catalog. After the configuration has
     /// been set, the specified encryption is applied to every catalog write thereafter.
     /// </summary>
     [Cmdlet("Set", "GLUEDataCatalogEncryptionSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,10 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter ConnectionPasswordEncryption_AwsKmsKeyId
         /// <summary>
         /// <para>
-        /// <para>A KMS key used to protect access to the JDBC source. </para><para>All users in your account should be granted the <code>kms:encrypt</code> permission
-        /// to encrypt passwords before storing them in the Data Catalog (through the AWS Glue
-        /// <code>CreateConnection</code> operation).</para><para>The decrypt permission should be granted only to KMS key admins and IAM roles designated
-        /// for AWS Glue crawlers.</para>
+        /// <para>An AWS KMS key that is used to encrypt the connection password. </para><para>If connection password protection is enabled, the caller of <code>CreateConnection</code>
+        /// and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission
+        /// on the specified AWS KMS key, to encrypt passwords before storing them in the Data
+        /// Catalog. </para><para>You can set the decrypt permission to enable or restrict access on the password key
+        /// according to your security requirements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <summary>
         /// <para>
         /// <para>The ID of the Data Catalog for which to set the security configuration. If none is
-        /// supplied, the AWS account ID is used by default.</para>
+        /// provided, the AWS account ID is used by default.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

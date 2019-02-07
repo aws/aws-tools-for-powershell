@@ -71,17 +71,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -127,17 +117,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -183,17 +163,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -239,17 +209,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -295,17 +255,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -351,17 +301,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -407,17 +347,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -463,17 +393,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -519,17 +439,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -575,17 +485,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -631,17 +531,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: CommentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -687,17 +577,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -743,17 +623,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -799,17 +669,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -855,17 +715,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -911,17 +761,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Label",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -967,17 +807,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SubscriptionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1023,17 +853,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1263,17 +1083,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1569,17 +1379,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1620,17 +1420,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1671,17 +1461,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1722,17 +1502,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1773,17 +1543,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1824,17 +1584,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1875,17 +1625,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1926,17 +1666,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1982,17 +1712,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2038,17 +1758,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2094,17 +1804,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DocumentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2150,17 +1850,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: FolderId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2206,17 +1896,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeFolderContents",
-            "GetResources"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

@@ -105,20 +105,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -166,20 +153,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -227,20 +201,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -288,20 +249,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -349,20 +297,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -410,20 +345,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -471,20 +393,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: OldPassword",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -530,20 +439,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -589,20 +485,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -650,20 +533,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -711,20 +581,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -772,20 +629,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -831,20 +675,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -892,20 +723,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -953,20 +771,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1015,20 +820,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1074,20 +866,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1133,20 +912,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1192,20 +958,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1253,20 +1006,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1314,20 +1054,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1375,20 +1102,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1436,20 +1150,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1495,20 +1196,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1552,20 +1240,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
@@ -1611,20 +1286,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1672,20 +1334,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1731,20 +1380,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1790,20 +1426,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1851,20 +1474,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1912,20 +1522,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1973,20 +1570,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VersionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2032,20 +1616,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2091,20 +1662,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2152,20 +1710,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2211,20 +1756,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SAMLProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2270,20 +1802,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2329,20 +1848,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2388,20 +1894,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2449,20 +1942,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2508,20 +1988,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2567,20 +2034,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2626,20 +2080,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2687,20 +2128,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2746,20 +2174,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SerialNumber",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2807,20 +2222,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2868,20 +2270,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2929,20 +2318,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2992,20 +2368,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3049,20 +2412,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
@@ -3108,20 +2458,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3167,20 +2504,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3221,20 +2545,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3273,20 +2584,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3325,20 +2623,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3379,20 +2664,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3431,20 +2703,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3485,20 +2744,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3541,20 +2787,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3595,20 +2828,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3649,20 +2869,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3705,20 +2912,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3761,20 +2955,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3816,20 +2997,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3870,20 +3038,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3926,20 +3081,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3980,20 +3122,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4034,20 +3163,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4088,20 +3204,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4140,20 +3243,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4194,20 +3284,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4248,20 +3325,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4302,20 +3366,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4358,20 +3409,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4682,20 +3720,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5058,20 +4083,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5172,9 +4184,9 @@
           ],
           "requestMember": "Marker",
           "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
+          "resultLimitMember": "",
           "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
+          "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
       }
@@ -5430,20 +4442,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5538,20 +4537,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5919,20 +4905,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5978,20 +4951,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6040,20 +5000,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6099,20 +5046,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6161,20 +5095,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6220,20 +5141,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ClientID",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6281,20 +5189,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6342,20 +5237,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6401,20 +5283,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6464,20 +5333,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6524,20 +5380,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -6687,20 +5530,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6746,20 +5576,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6805,20 +5622,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6864,20 +5668,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6926,20 +5717,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6983,20 +5761,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -7044,20 +5809,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7106,20 +5858,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7167,20 +5906,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7226,20 +5952,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7285,20 +5998,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7344,20 +6044,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7403,20 +6090,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7465,20 +6139,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7524,20 +6185,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7586,20 +6234,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7645,20 +6280,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7707,20 +6329,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7771,20 +6380,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7832,20 +6428,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -7891,20 +6474,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetGroup",
-            "GetAccountAuthorizationDetails",
-            "ListEntitiesForPolicy",
-            "GetServiceLastAccessedDetails",
-            "GetServiceLastAccessedDetailsWithEntities"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

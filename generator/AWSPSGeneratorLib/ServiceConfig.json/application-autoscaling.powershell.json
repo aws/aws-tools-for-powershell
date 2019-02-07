@@ -70,14 +70,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -123,14 +116,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ScheduledActionName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -176,14 +162,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -421,14 +400,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -474,14 +446,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -527,14 +492,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceNamespace",
         "passThruTypeName": "Amazon.ApplicationAutoScaling.ServiceNamespace",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

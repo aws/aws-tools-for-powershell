@@ -64,10 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter IamRole
         /// <summary>
         /// <para>
-        /// <para>The IAM role that allows the simulation instance to call the AWS APIs that are specified
-        /// in its associated policies on your behalf. This is how credentials are passed in to
-        /// your simulation job. See how to <a href="https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/deployment-ecs-specify-credentials">specify
-        /// AWS security credentials for your application</a>. </para>
+        /// <para>The IAM role name that allows the simulation instance to call the AWS APIs that are
+        /// specified in its associated policies on your behalf. This is how credentials are passed
+        /// in to your simulation job. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -117,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         [System.Management.Automation.Parameter]
         [Alias("SimulationApplications")]
         public Amazon.RoboMaker.Model.SimulationApplicationConfig[] SimulationApplication { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the simulation job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter VpcConfig
@@ -174,6 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             {
                 context.SimulationApplications = new List<Amazon.RoboMaker.Model.SimulationApplicationConfig>(this.SimulationApplication);
             }
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.VpcConfig = this.VpcConfig;
             
             // allow further manipulation of loaded context prior to processing
@@ -218,6 +236,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.SimulationApplications != null)
             {
                 request.SimulationApplications = cmdletContext.SimulationApplications;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.VpcConfig != null)
             {
@@ -294,6 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             public Amazon.RoboMaker.Model.OutputLocation OutputLocation { get; set; }
             public List<Amazon.RoboMaker.Model.RobotApplicationConfig> RobotApplications { get; set; }
             public List<Amazon.RoboMaker.Model.SimulationApplicationConfig> SimulationApplications { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public Amazon.RoboMaker.Model.VPCConfig VpcConfig { get; set; }
         }
         

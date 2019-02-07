@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the <a href="http://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
+    /// Returns the <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">resource-based
     /// IAM policy</a> for a function, version, or alias.
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]

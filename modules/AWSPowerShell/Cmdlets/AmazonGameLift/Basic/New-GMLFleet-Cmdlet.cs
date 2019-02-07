@@ -31,33 +31,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Creates a new fleet to run your game servers. A fleet is a set of Amazon Elastic Compute
     /// Cloud (Amazon EC2) instances, each of which can run multiple server processes to host
     /// game sessions. You set up a fleet to use instances with certain hardware specifications
-    /// (see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>
-    /// for more information), and deploy your game build to run on each instance. 
+    /// (see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>),
+    /// and deploy your game build to the fleet. 
     /// 
     ///  
     /// <para>
-    /// To create a new fleet, you must specify the following: (1) a fleet name, (2) the build
-    /// ID of a successfully uploaded game build, (3) an EC2 instance type, and (4) a run-time
-    /// configuration, which describes the server processes to run on each instance in the
-    /// fleet. If you don't specify a fleet type (on-demand or spot), the new fleet uses on-demand
-    /// instances by default.
-    /// </para><para>
-    /// You can also configure the new fleet with the following settings:
-    /// </para><ul><li><para>
-    /// Fleet description
-    /// </para></li><li><para>
-    /// Access permissions for inbound traffic
-    /// </para></li><li><para>
-    /// Fleet-wide game session protection
-    /// </para></li><li><para>
-    /// Resource usage limits
-    /// </para></li></ul><ul><li><para>
-    /// VPC peering connection (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
-    /// Peering with Amazon GameLift Fleets</a>)
-    /// </para></li></ul><para>
-    /// If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group.
-    /// By adding multiple fleets to a metric group, you can view aggregated metrics for all
-    /// the fleets in the group. 
+    /// To create a new fleet, you must provide the following: (1) a fleet name, (2) an EC2
+    /// instance type, (3) the build ID for your game build, and (4) a run-time configuration,
+    /// which specifies the server processes to run on each instance in the fleet. If fleet
+    /// type is not set, the new fleet will use on-demand instances by default.
     /// </para><para>
     /// If the <code>CreateFleet</code> call is successful, Amazon GameLift performs the following
     /// tasks. You can track the process of a fleet by checking the fleet status or by monitoring
@@ -80,9 +62,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process is ready
     /// to host a game session.
-    /// </para></li></ul><para>
-    /// Fleet-related operations include:
-    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
+    /// </para></li></ul><para><b>Learn more</b></para><para>
+    /// See Amazon GameLift Developer Guide topics in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// Working with Fleets</a>.
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
     /// Describe fleets:
     /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
     /// Update fleets:
@@ -160,8 +143,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// on-demand instances at any time for a fixed price and keep them as long as you need
         /// them. Spot instances have lower prices, but spot pricing is variable, and while in
         /// use they can be interrupted (with a two-minute notification). Learn more about Amazon
-        /// GameLift spot instances with at <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html">
-        /// Choose Computing Resources</a>. </para>
+        /// GameLift spot instances with at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-credentials.html">
+        /// Set up Access to External Services</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -188,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>This parameter is no longer used. Instead, to specify where Amazon GameLift should
         /// store log files once a server process shuts down, use the Amazon GameLift server API
         /// <code>ProcessReady()</code> and specify one or more directory paths in <code>logParameters</code>.
-        /// See more information in the <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server
+        /// See more information in the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api-ref.html#gamelift-sdk-server-api-ref-dataypes-process">Server
         /// API Reference</a>. </para>
         /// </para>
         /// </summary>
@@ -213,10 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricGroup
         /// <summary>
         /// <para>
-        /// <para>Name of a metric group to add this fleet to. A metric group tracks metrics across
-        /// all fleets in the group. Use an existing metric group name to add this fleet to the
-        /// group, or use a new name to create a new metric group. A fleet can only be included
-        /// in one metric group at a time.</para>
+        /// <para>Name of an Amazon CloudWatch metric group to add this fleet to. A metric group aggregates
+        /// the metrics for all fleets in the group. Specify an existing metric group name, or
+        /// provide a new name to create a new metric group. A fleet can only be included in one
+        /// metric group at a time. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -266,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Unique identifier for the AWS account with the VPC that you want to peer your Amazon
         /// GameLift fleet with. You can find your Account ID in the AWS Management Console under
-        /// account settings.</para>
+        /// account settings. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -277,9 +260,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Unique identifier for a VPC with resources to be accessed by your Amazon GameLift
-        /// fleet. The VPC must be in the same region where your fleet is deployed. To get VPC
-        /// information, including IDs, use the Virtual Private Cloud service tools, including
-        /// the VPC Dashboard in the AWS Management Console.</para>
+        /// fleet. The VPC must be in the same region where your fleet is deployed. Look up a
+        /// VPC ID using the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in
+        /// the AWS Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// Peering with Amazon GameLift Fleets</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -51,8 +51,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// more players failed to accept the match, the ticket status is set to <code>FAILED</code>,
     /// and processing is terminated. A new matchmaking request for these players can be submitted
     /// as needed. 
-    /// </para><para>
-    /// Matchmaking-related operations include:
     /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Confirm", "GMLMatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

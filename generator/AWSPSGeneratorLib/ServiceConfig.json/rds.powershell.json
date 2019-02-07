@@ -122,16 +122,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterIdentifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -177,16 +168,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -234,16 +216,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -294,16 +267,7 @@
         "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.RDS.Model.Tag",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -349,16 +313,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -406,16 +361,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -486,16 +432,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -541,16 +478,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -598,16 +526,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -656,16 +575,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -713,16 +623,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -771,16 +672,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -826,16 +718,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -881,16 +764,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -936,16 +810,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -991,16 +856,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1048,16 +904,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1105,16 +952,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1162,16 +1000,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1219,16 +1048,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1276,16 +1096,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1334,16 +1145,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1392,16 +1194,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1447,16 +1240,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1506,16 +1290,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1561,16 +1336,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1616,16 +1382,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1671,16 +1428,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1726,16 +1474,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1781,16 +1520,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1836,16 +1566,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1891,16 +1612,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1946,16 +1658,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBSecurityGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2001,16 +1704,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2056,16 +1750,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBSubnetGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2111,16 +1796,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2166,16 +1842,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2221,16 +1888,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: OptionGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2274,16 +1932,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2616,16 +2265,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3078,16 +2718,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3229,16 +2860,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3248,8 +2870,8 @@
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
-        "outputMemberSelector": "EngineDefaults",
-        "outputMemberWrapper": "",
+        "outputMemberSelector": "Parameters",
+        "outputMemberWrapper": "EngineDefaults",
         "passThru": {}
       },
       "parameterCustomizations": [],
@@ -3258,7 +2880,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "DBParameterGroupFamily"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -3275,7 +2899,7 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "EngineDefaultParameters",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
+        "iterationPattern": "Pattern2",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
@@ -3329,16 +2953,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3912,16 +3527,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3973,16 +3579,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4023,16 +3620,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4072,22 +3660,13 @@
         "targetParameter": ""
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "TagsForResource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4128,16 +3707,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4183,16 +3753,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4238,16 +3799,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4295,16 +3847,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4350,16 +3893,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4405,16 +3939,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4462,16 +3987,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4517,16 +4033,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4572,16 +4079,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4630,16 +4128,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4687,16 +4176,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4742,16 +4222,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4799,16 +4270,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4854,16 +4316,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4909,16 +4362,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4964,16 +4408,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5019,16 +4454,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5074,16 +4500,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5131,16 +4548,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DBClusterIdentifier",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5186,16 +4594,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5243,16 +4642,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5303,16 +4693,7 @@
         "passThruSource": "Config override: cmdletContext.TagKeys",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5360,16 +4741,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5415,16 +4787,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5470,16 +4833,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5525,16 +4879,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5597,16 +4942,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5654,16 +4990,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5709,16 +5036,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5783,16 +5101,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5840,16 +5149,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5895,16 +5195,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5950,16 +5241,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6005,16 +5287,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6060,16 +5333,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DownloadDBLogFilePortion"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "MaxRecords",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

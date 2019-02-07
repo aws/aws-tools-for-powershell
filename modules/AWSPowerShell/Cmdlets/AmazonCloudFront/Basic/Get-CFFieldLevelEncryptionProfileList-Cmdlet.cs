@@ -29,14 +29,15 @@ namespace Amazon.PowerShell.Cmdlets.CF
 {
     /// <summary>
     /// Request a list of field-level encryption profiles that have been created in CloudFront
-    /// for this account.
+    /// for this account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFFieldLevelEncryptionProfileList")]
-    [OutputType("Amazon.CloudFront.Model.FieldLevelEncryptionProfileList")]
+    [OutputType("Amazon.CloudFront.Model.FieldLevelEncryptionProfileSummary")]
     [AWSCmdlet("Calls the Amazon CloudFront ListFieldLevelEncryptionProfiles API operation.", Operation = new[] {"ListFieldLevelEncryptionProfiles"})]
-    [AWSCmdletOutput("Amazon.CloudFront.Model.FieldLevelEncryptionProfileList",
-        "This cmdlet returns a FieldLevelEncryptionProfileList object.",
-        "The service call response (type Amazon.CloudFront.Model.ListFieldLevelEncryptionProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CloudFront.Model.FieldLevelEncryptionProfileSummary",
+        "This cmdlet returns a collection of FieldLevelEncryptionProfileSummary objects.",
+        "The service call response (type Amazon.CloudFront.Model.ListFieldLevelEncryptionProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: MaxItems (type System.Int32), NextMarker (type System.String), Quantity (type System.Int32)"
     )]
     public partial class GetCFFieldLevelEncryptionProfileListCmdlet : AmazonCloudFrontClientCmdlet, IExecutor
     {
@@ -50,6 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// from the current page's response (which is also the ID of the last profile on that
         /// page). </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextMarker, for subsequent calls, to this parameter.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
@@ -61,6 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// <para>
         /// <para>The maximum number of field-level encryption profiles you want in the response body.
         /// </para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,40 +105,86 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CloudFront.Model.ListFieldLevelEncryptionProfilesRequest();
             
-            if (cmdletContext.Marker != null)
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
-                request.Marker = cmdletContext.Marker;
+                _nextMarker = cmdletContext.Marker;
             }
-            if (cmdletContext.MaxItems != null)
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeString(cmdletContext.MaxItems.Value);
+                _emitLimit = cmdletContext.MaxItems;
             }
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
+            bool _continueIteration = true;
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FieldLevelEncryptionProfileList;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.FieldLevelEncryptionProfileList.Items;
+                        notes = new Dictionary<string, object>();
+                        notes["MaxItems"] = response.FieldLevelEncryptionProfileList.MaxItems;
+                        notes["NextMarker"] = response.FieldLevelEncryptionProfileList.NextMarker;
+                        notes["Quantity"] = response.FieldLevelEncryptionProfileList.Quantity;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.FieldLevelEncryptionProfileList.Items.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.FieldLevelEncryptionProfileList.NextMarker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

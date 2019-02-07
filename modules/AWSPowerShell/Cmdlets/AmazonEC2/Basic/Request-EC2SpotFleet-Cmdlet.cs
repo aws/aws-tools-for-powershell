@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can specify tags for the Spot Instances. You cannot tag other resource types in
     /// a Spot Fleet request because only the <code>instance</code> resource type is supported.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
     /// Fleet Requests</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.
     /// </para>
     /// </summary>
@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// your listings. This helps to avoid duplicate listings. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+        /// your listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
         /// Idempotency</a>.</para>
         /// </para>
         /// </summary>

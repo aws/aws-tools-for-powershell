@@ -85,17 +85,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -141,17 +131,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -197,17 +177,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -253,17 +223,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -309,17 +269,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -365,17 +315,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -421,17 +361,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -477,17 +407,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -533,17 +453,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -589,17 +499,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -645,17 +545,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -701,17 +591,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -755,17 +635,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -811,17 +681,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -865,17 +725,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -921,17 +771,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ApiKey",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -977,17 +817,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1033,17 +863,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1089,17 +909,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ClientCertificateId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1145,17 +955,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1201,17 +1001,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1257,17 +1047,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1313,17 +1093,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DomainName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1369,17 +1139,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1425,17 +1185,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1481,17 +1231,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1537,17 +1277,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1593,17 +1323,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1649,17 +1369,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1705,17 +1415,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RequestValidatorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1761,17 +1461,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1817,17 +1507,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1873,17 +1553,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1929,17 +1599,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UsagePlanId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1985,17 +1645,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UsagePlanId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2041,17 +1691,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VpcLinkId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2097,17 +1737,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2153,17 +1783,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: RestApiId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2209,17 +1829,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2263,17 +1873,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2312,17 +1912,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2361,17 +1951,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2412,17 +1992,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2512,17 +2082,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2614,17 +2174,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2714,17 +2264,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2816,17 +2356,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2918,17 +2448,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3020,17 +2540,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3120,17 +2630,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3171,17 +2671,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3273,17 +2763,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3324,17 +2804,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3375,17 +2845,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3426,17 +2886,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3477,17 +2927,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3579,17 +3019,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3630,17 +3060,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3732,17 +3152,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3834,17 +3244,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3934,17 +3334,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3985,17 +3375,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4085,17 +3465,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4136,17 +3506,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4187,17 +3547,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4238,17 +3588,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4289,17 +3629,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4338,17 +3668,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4491,17 +3811,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -4589,17 +3899,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -4645,17 +3945,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4703,17 +3993,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4759,17 +4039,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4824,17 +4094,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4880,17 +4140,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4936,17 +4186,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4992,17 +4232,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5048,17 +4278,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5098,23 +4318,13 @@
         "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "Resource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5160,17 +4370,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5211,17 +4411,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -5256,23 +4446,13 @@
         "targetParameter": "ResourceArn"
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "Resource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5318,17 +4498,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5374,17 +4544,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5430,17 +4590,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5486,17 +4636,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5542,17 +4682,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5598,17 +4728,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5654,17 +4774,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5710,17 +4820,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5766,17 +4866,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5822,17 +4912,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5878,17 +4958,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5934,17 +5004,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -5990,17 +5050,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6046,17 +5096,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6102,17 +5142,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6158,17 +5188,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6214,17 +5234,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6270,17 +5280,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6326,17 +5326,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6382,17 +5372,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6438,17 +5418,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -6494,17 +5464,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
-          "requestMember": "Position",
-          "responseMember": "Position",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

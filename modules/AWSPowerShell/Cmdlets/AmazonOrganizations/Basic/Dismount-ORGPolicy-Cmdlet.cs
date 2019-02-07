@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <para><b>Note:</b> Every root, OU, and account must have at least one SCP attached. If
     /// you want to replace the default <code>FullAWSAccess</code> policy with one that limits
     /// the permissions that can be delegated, then you must attach the replacement policy
-    /// before you can remove the default one. This is the authorization strategy of <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist">whitelisting</a>.
+    /// before you can remove the default one. This is the authorization strategy of <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_whitelist">whitelisting</a>.
     /// If you instead attach a second SCP and leave the <code>FullAWSAccess</code> SCP still
     /// attached, and specify <code>"Effect": "Deny"</code> in the second SCP to override
     /// the <code>"Effect": "Allow"</code> in the <code>FullAWSAccess</code> policy (or any
-    /// other attached SCP), then you are using the authorization strategy of <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist">blacklisting</a>.
+    /// other attached SCP), then you are using the authorization strategy of <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_about-scps.html#orgs_policies_blacklist">blacklisting</a>.
     /// 
     /// </para><para>
     /// This operation can be called only from the organization's master account.

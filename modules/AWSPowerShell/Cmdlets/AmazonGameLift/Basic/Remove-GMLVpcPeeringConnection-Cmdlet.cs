@@ -38,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Once a valid authorization exists, call this operation from the AWS account that is
     /// used to manage the Amazon GameLift fleets. Identify the connection to delete by the
     /// connection ID and fleet ID. If successful, the connection is removed. 
-    /// </para><para>
-    /// VPC peering connection operations include:
     /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

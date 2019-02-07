@@ -64,14 +64,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// mode can scale to higher levels of aggregate throughput and operations per second
     /// with a tradeoff of slightly higher latencies for most file operations. The performance
     /// mode can't be changed after the file system has been created. For more information,
-    /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
+    /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon
     /// EFS: Performance Modes</a>.
     /// </para><para>
     /// After the file system is fully created, Amazon EFS sets its lifecycle state to <code>available</code>,
     /// at which point you can create one or more mount targets for the file system in your
     /// VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS
-    /// file system on an EC2 instances in your VPC via the mount target. For more information,
-    /// see <a href="http://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
+    /// file system on an EC2 instances in your VPC by using the mount target. For more information,
+    /// see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS:
     /// How it Works</a>. 
     /// </para><para>
     ///  This operation requires permissions for the <code>elasticfilesystem:CreateFileSystem</code>
@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter CreationToken
         /// <summary>
         /// <para>
-        /// <para>String of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</para>
+        /// <para>A string of up to 64 ASCII characters. Amazon EFS uses this to ensure idempotent creation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>A Boolean value that, if true, creates an encrypted file system. When creating an
-        /// encrypted file system, you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a>
+        /// encrypted file system, you have the option of specifying <a>CreateFileSystemRequest$KmsKeyId</a>
         /// for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If
         /// you don't specify a CMK, then the default CMK for Amazon EFS, <code>/aws/elasticfilesystem</code>,
         /// is used to protect the encrypted file system. </para>
@@ -115,9 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>The ID of the AWS KMS CMK to be used to protect the encrypted file system. This parameter
-        /// is only required if you want to use a non-default CMK. If this parameter is not specified,
-        /// the default CMK for Amazon EFS is used. This ID can be in one of the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key. For example, <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example, <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a> parameter must
-        /// be set to true.</para>
+        /// is only required if you want to use a nondefault CMK. If this parameter is not specified,
+        /// the default CMK for Amazon EFS is used. This ID can be in one of the following formats:</para><ul><li><para>Key ID - A unique identifier of the key, for example <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name (ARN) for the key, for example <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key, for example <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An ARN for a key alias, for example <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>If <code>KmsKeyId</code> is specified, the <a>CreateFileSystemRequest$Encrypted</a>
+        /// parameter must be set to true.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -127,11 +127,11 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter PerformanceMode
         /// <summary>
         /// <para>
-        /// <para>The <code>PerformanceMode</code> of the file system. We recommend <code>generalPurpose</code>
+        /// <para>The performance mode of the file system. We recommend <code>generalPurpose</code>
         /// performance mode for most file systems. File systems using the <code>maxIO</code>
         /// performance mode can scale to higher levels of aggregate throughput and operations
         /// per second with a tradeoff of slightly higher latencies for most file operations.
-        /// This can't be changed after the file system has been created.</para>
+        /// The performance mode can't be changed after the file system has been created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -144,13 +144,26 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>
         /// <para>The throughput, measured in MiB/s, that you want to provision for a file system that
         /// you're creating. The limit on throughput is 1024 MiB/s. You can get these limits increased
-        /// by contacting AWS Support. For more information, see <a href="http://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
+        /// by contacting AWS Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon
         /// EFS Limits That You Can Increase</a> in the <i>Amazon EFS User Guide.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("ProvisionedThroughputInMibps")]
         public System.Double ProvisionedThroughputInMibp { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A value that specifies to create one or more tags associated with the file system.
+        /// Each tag is a user-defined key-value pair. Name your file system on creation by including
+        /// a <code>"Key":"Name","Value":"{value}"</code> key-value pair.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ElasticFileSystem.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter ThroughputMode
@@ -204,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             context.PerformanceMode = this.PerformanceMode;
             if (ParameterWasBound("ProvisionedThroughputInMibp"))
                 context.ProvisionedThroughputInMibps = this.ProvisionedThroughputInMibp;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ElasticFileSystem.Model.Tag>(this.Tag);
+            }
             context.ThroughputMode = this.ThroughputMode;
             
             // allow further manipulation of loaded context prior to processing
@@ -240,6 +257,10 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             if (cmdletContext.ProvisionedThroughputInMibps != null)
             {
                 request.ProvisionedThroughputInMibps = cmdletContext.ProvisionedThroughputInMibps.Value;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.ThroughputMode != null)
             {
@@ -314,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             public System.String KmsKeyId { get; set; }
             public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
             public System.Double? ProvisionedThroughputInMibps { get; set; }
+            public List<Amazon.ElasticFileSystem.Model.Tag> Tags { get; set; }
             public Amazon.ElasticFileSystem.ThroughputMode ThroughputMode { get; set; }
         }
         

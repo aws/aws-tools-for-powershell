@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// To create an endpoint service configuration, you must first create a Network Load
-    /// Balancer for your service. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC
+    /// Balancer for your service. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC
     /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
     /// </para>
     /// </summary>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>

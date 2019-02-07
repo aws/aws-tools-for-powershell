@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a default VPC with a size <code>/16</code> IPv4 CIDR block and a default subnet
     /// in each Availability Zone. For more information about the components of a default
-    /// VPC, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">Default
+    /// VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html">Default
     /// VPC and Default Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// You cannot specify the components of the default VPC yourself.
     /// 

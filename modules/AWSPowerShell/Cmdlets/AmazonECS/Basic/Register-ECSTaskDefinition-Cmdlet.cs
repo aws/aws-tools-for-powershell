@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Registers a new task definition from the supplied <code>family</code> and <code>containerDefinitions</code>.
     /// Optionally, you can add data volumes to your containers with the <code>volumes</code>
     /// parameter. For more information about task definition parameters and defaults, see
-    /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
+    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
     /// ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// 
     ///  
@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// You can specify an IAM role for your task with the <code>taskRoleArn</code> parameter.
     /// When you specify an IAM role for a task, its containers can then use the latest versions
     /// of the AWS CLI or SDKs to make API requests to the AWS services that are specified
-    /// in the IAM policy associated with the role. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+    /// in the IAM policy associated with the role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
     /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// You can specify a Docker networking mode for the containers in your task definition
@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The short name or full Amazon Resource Name (ARN) of the IAM role that containers
         /// in this task can assume. All containers in this task are granted the permissions that
-        /// are specified in this role. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
+        /// are specified in this role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
         /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -115,9 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with
-        /// allocated processing as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>.
-        /// Glue ETL jobs running in any other way cannot have fractional DPU allocations.</para>
+        /// <para>The number of AWS Glue data processing units (DPUs) that can be allocated when this
+        /// job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs
+        /// of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
+        /// Glue pricing page</a>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
+        /// are running a python shell job, or an Apache Spark ETL job:</para><ul><li><para>When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"),
+        /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"),
+        /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
+        /// have a fractional DPU allocation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,6 +192,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SecurityConfiguration { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to use with this job. You may use tags to limit access to the job. For more
+        /// information about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS
+        /// Tags in AWS Glue</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Timeout
@@ -260,6 +278,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
             context.Role = this.Role;
             context.SecurityConfiguration = this.SecurityConfiguration;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
             
@@ -377,6 +403,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
@@ -459,6 +489,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
             public System.String Role { get; set; }
             public System.String SecurityConfiguration { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public System.Int32? Timeout { get; set; }
         }
         

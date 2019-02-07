@@ -28,7 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Runs (executes) the SQL query statements contained in the <code>Query</code> string.
+    /// Runs the SQL query statements contained in the <code>Query</code>. Requires you to
+    /// have access to the workgroup in which the query ran.
     /// 
     ///  
     /// <para>
@@ -76,7 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <para>
         /// <para>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>),
         /// server-side encryption with KMS-managed keys (<code>SSE-KMS</code>), or client-side
-        /// encryption with KMS-managed keys (CSE-KMS) is used.</para>
+        /// encryption with KMS-managed keys (CSE-KMS) is used.</para><para>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+        /// the workgroup's setting for encryption is used. It specifies whether query results
+        /// must be encrypted, for all queries that run in this workgroup. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,8 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// <summary>
         /// <para>
         /// <para>The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>.
-        /// For more information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries
-        /// and Query Result Files. </a></para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Queries
+        /// and Query Result Files.</a> If workgroup settings override client-side settings, then
+        /// the query uses the location for the query results and the encryption configuration
+        /// that are specified for the workgroup. The "workgroup settings override" is specified
+        /// in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,6 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String QueryString { get; set; }
+        #endregion
+        
+        #region Parameter WorkGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup in which the query is being started.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String WorkGroup { get; set; }
         #endregion
         
         #region Parameter Force
@@ -153,6 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.ResultConfiguration_EncryptionConfiguration_EncryptionOption = this.EncryptionConfiguration_EncryptionOption;
             context.ResultConfiguration_EncryptionConfiguration_KmsKey = this.EncryptionConfiguration_KmsKey;
             context.ResultConfiguration_OutputLocation = this.ResultConfiguration_OutputLocation;
+            context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +267,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             {
                 request.ResultConfiguration = null;
             }
+            if (cmdletContext.WorkGroup != null)
+            {
+                request.WorkGroup = cmdletContext.WorkGroup;
+            }
             
             CmdletOutput output;
             
@@ -320,6 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public Amazon.Athena.EncryptionOption ResultConfiguration_EncryptionConfiguration_EncryptionOption { get; set; }
             public System.String ResultConfiguration_EncryptionConfiguration_KmsKey { get; set; }
             public System.String ResultConfiguration_OutputLocation { get; set; }
+            public System.String WorkGroup { get; set; }
         }
         
     }

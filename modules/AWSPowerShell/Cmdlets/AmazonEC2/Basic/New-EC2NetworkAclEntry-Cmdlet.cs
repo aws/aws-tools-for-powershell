@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// After you add an entry, you can't modify it; you must either replace it, or create
     /// an entry and delete the old one.
     /// </para><para>
-    /// For more information about network ACLs, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network
+    /// For more information about network ACLs, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network
     /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

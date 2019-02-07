@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// placement group places groups of instances in different partitions, where instances
     /// in one partition do not share the same hardware with instances in another partition.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
     /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

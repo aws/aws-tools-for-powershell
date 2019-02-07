@@ -38,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// events as triggered by the fleet's scaling policies. If actions on the fleet were
     /// never stopped, this operation will have no effect. You can view a fleet's stopped
     /// actions using <a>DescribeFleetAttributes</a>.
-    /// </para><para>
-    /// Operations related to fleet capacity scaling include:
     /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
     /// Manage scaling policies:
     /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)

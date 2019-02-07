@@ -104,6 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean Overwrite { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
+        /// in different ways, such as by purpose, owner, or environment. For example, you might
+        /// want to tag a Systems Manager parameter to identify the type of resource to which
+        /// it applies, the environment, or the type of configuration data referenced by the parameter.
+        /// In this case, you could specify the following key name/value pairs:</para><ul><li><para><code>Key=Resource,Value=S3bucket</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=ParameterType,Value=LicenseKey</code></para></li></ul><note><para>To add tags to an existing Systems Manager parameter, use the <a>AddTagsToResource</a>
+        /// action.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -163,6 +179,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Name = this.Name;
             if (ParameterWasBound("Overwrite"))
                 context.Overwrite = this.Overwrite;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
             context.Type = this.Type;
             context.Value = this.Value;
             
@@ -200,6 +220,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Overwrite != null)
             {
                 request.Overwrite = cmdletContext.Overwrite.Value;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.Type != null)
             {
@@ -278,6 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? Overwrite { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tags { get; set; }
             public Amazon.SimpleSystemsManagement.ParameterType Type { get; set; }
             public System.String Value { get; set; }
         }

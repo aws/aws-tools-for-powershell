@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
     /// The tenancy of any existing instances in the VPC is not affected.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
     /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

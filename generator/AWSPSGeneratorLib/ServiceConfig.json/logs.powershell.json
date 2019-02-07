@@ -77,16 +77,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: KmsKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -132,16 +123,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: TaskId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -187,16 +169,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -244,16 +217,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -301,16 +265,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -356,16 +311,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -411,16 +357,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -468,16 +405,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -525,16 +453,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: FilterName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -580,16 +499,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PolicyName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -635,16 +545,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -692,16 +593,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: FilterName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1003,7 +895,7 @@
           ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
+          "resultLimitMember": "",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
@@ -1145,16 +1037,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1200,16 +1083,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1252,16 +1126,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1302,16 +1167,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1352,16 +1208,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1402,16 +1249,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1452,16 +1290,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1502,16 +1331,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1557,16 +1377,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: DestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1615,16 +1426,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1673,16 +1475,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1728,16 +1521,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1794,16 +1578,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1852,16 +1627,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1907,16 +1673,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1962,16 +1719,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2017,16 +1765,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2074,16 +1813,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2124,16 +1854,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LogGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "FilterLogEvents"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

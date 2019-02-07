@@ -87,7 +87,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
         public System.Int32 Limit { get; set; }
         #endregion
         
@@ -98,7 +97,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String Position { get; set; }
         #endregion
         

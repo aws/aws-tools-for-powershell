@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>ID of the mount target whose security groups you want to retrieve.</para>
+        /// <para>The ID of the mount target whose security groups you want to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -49,11 +49,24 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// <para>
         /// <para>A regular expression used to determine which repository branches are built when a
         /// webhook is triggered. If the name of a branch matches the regular expression, then
-        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para>
+        /// it is built. If <code>branchFilter</code> is empty, then all branches are built.</para><note><para> It is recommended that you use <code>filterGroups</code> instead of <code>branchFilter</code>.
+        /// </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String BranchFilter { get; set; }
+        #endregion
+        
+        #region Parameter FilterGroup
+        /// <summary>
+        /// <para>
+        /// <para> An array of arrays of <code>WebhookFilter</code> objects used to determine if a webhook
+        /// event can trigger a build. A filter group must pcontain at least one <code>EVENT</code><code>WebhookFilter</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("FilterGroups")]
+        public Amazon.CodeBuild.Model.WebhookFilter[][] FilterGroup { get; set; }
         #endregion
         
         #region Parameter ProjectName
@@ -108,6 +121,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
             PreExecutionContextLoad(context);
             
             context.BranchFilter = this.BranchFilter;
+            if (this.FilterGroup != null)
+            {
+                context.FilterGroups = new List<List<Amazon.CodeBuild.Model.WebhookFilter>>();
+                foreach (var innerList in this.FilterGroup)
+                {
+                    context.FilterGroups.Add(new List<Amazon.CodeBuild.Model.WebhookFilter>(innerList));
+                }
+            }
             context.ProjectName = this.ProjectName;
             if (ParameterWasBound("RotateSecret"))
                 context.RotateSecret = this.RotateSecret;
@@ -130,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (cmdletContext.BranchFilter != null)
             {
                 request.BranchFilter = cmdletContext.BranchFilter;
+            }
+            if (cmdletContext.FilterGroups != null)
+            {
+                request.FilterGroups = cmdletContext.FilterGroups;
             }
             if (cmdletContext.ProjectName != null)
             {
@@ -204,6 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BranchFilter { get; set; }
+            public List<List<Amazon.CodeBuild.Model.WebhookFilter>> FilterGroups { get; set; }
             public System.String ProjectName { get; set; }
             public System.Boolean? RotateSecret { get; set; }
         }

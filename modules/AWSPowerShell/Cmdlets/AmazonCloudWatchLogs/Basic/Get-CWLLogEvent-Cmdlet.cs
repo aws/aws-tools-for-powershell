@@ -109,8 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -170,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -257,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String LogGroupName { get; set; }
             public System.String LogStreamName { get; set; }
             public System.String NextToken { get; set; }

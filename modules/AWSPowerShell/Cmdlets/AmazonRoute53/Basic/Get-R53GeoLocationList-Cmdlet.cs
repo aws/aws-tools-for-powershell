@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int MaxItem { get; set; }
+        public System.String MaxItem { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -123,8 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             context.StartContinentCode = this.StartContinentCode;
             context.StartCountryCode = this.StartCountryCode;
             context.StartSubdivisionCode = this.StartSubdivisionCode;
-            if (ParameterWasBound("MaxItem"))
-                context.MaxItems = this.MaxItem;
+            context.MaxItems = this.MaxItem;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             }
             if (cmdletContext.MaxItems != null)
             {
-                request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToServiceTypeString(cmdletContext.MaxItems.Value);
+                request.MaxItems = cmdletContext.MaxItems;
             }
             
             CmdletOutput output;
@@ -224,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
             public System.String StartContinentCode { get; set; }
             public System.String StartCountryCode { get; set; }
             public System.String StartSubdivisionCode { get; set; }
-            public int? MaxItems { get; set; }
+            public System.String MaxItems { get; set; }
         }
         
     }

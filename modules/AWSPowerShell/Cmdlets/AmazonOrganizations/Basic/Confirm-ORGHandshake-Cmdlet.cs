@@ -47,10 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li><li><para><b>Enable all features final confirmation</b> handshake: only a principal from the
     /// master account.
     /// </para><para>
-    /// For more information about invitations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting
+    /// For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting
     /// an AWS Account to Join Your Organization</a> in the <i>AWS Organizations User Guide</i>.
     /// For more information about requests to enable all features in the organization, see
-    /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
+    /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
     /// All Features in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li></ul><para>
     /// After you accept a handshake, it continues to appear in the results of relevant APIs

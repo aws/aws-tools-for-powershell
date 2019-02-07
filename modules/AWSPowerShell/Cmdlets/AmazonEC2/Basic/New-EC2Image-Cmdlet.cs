@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// those volumes. When you launch an instance from this new AMI, the instance automatically
     /// launches with those additional volumes.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
     /// Amazon EBS-Backed Linux AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

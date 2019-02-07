@@ -28,7 +28,7 @@ using Amazon.MediaTailor.Model;
 namespace Amazon.PowerShell.Cmdlets.EMT
 {
     /// <summary>
-    /// Adds a new configuration to AWS Elemental MediaTailor.
+    /// Adds a new playback configuration to AWS Elemental MediaTailor.
     /// </summary>
     [Cmdlet("Set", "EMTPlaybackConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MediaTailor.Model.PutPlaybackConfigurationResponse")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The URL for the ad decision server (ADS). This includes the specification of static
         /// parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes
         /// player-specific and session-specific parameters as needed when calling the ADS. Alternately,
-        /// for testing you can provide a static VAST URL. The maximum length is 25000 characters.</para>
+        /// for testing you can provide a static VAST URL. The maximum length is 25,000 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter DashConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration object for DASH content. </para>
+        /// <para>The configuration for DASH content. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The identifier for the configuration.</para>
+        /// <para>The identifier for the playback configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -89,21 +89,32 @@ namespace Amazon.PowerShell.Cmdlets.EMT
         /// <para>The URL for a high-quality video asset to transcode and use to fill in time that's
         /// not used by ads. AWS Elemental MediaTailor shows the slate to fill in gaps in media
         /// content. Configuring the slate is optional for non-VPAID configurations. For VPAID,
-        /// the slate is required because AWS Elemental MediaTailor provides it in the slots that
-        /// are designated for dynamic ad content. The slate must be a high-quality asset that
-        /// contains both audio and video. </para>
+        /// the slate is required because MediaTailor provides it in the slots that are designated
+        /// for dynamic ad content. The slate must be a high-quality asset that contains both
+        /// audio and video. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SlateAdUrl { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to assign to the playback configuration. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TranscodeProfileName
         /// <summary>
         /// <para>
-        /// <para>Associate this playbackConfiguration with a custom transcode profile, overriding MediaTailor's
-        /// dynamic transcoding defaults. Do not include this field if you have not setup custom
-        /// profiles with the MediaTailor service team. </para>
+        /// <para>The name that is used to associate this playback configuration with a custom transcode
+        /// profile. This overrides the dynamic transcoding defaults of MediaTailor. Use this
+        /// only if you have already set up custom profiles with the help of AWS Support.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,6 +166,14 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             context.DashConfiguration = this.DashConfiguration;
             context.Name = this.Name;
             context.SlateAdUrl = this.SlateAdUrl;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.TranscodeProfileName = this.TranscodeProfileName;
             context.VideoContentSourceUrl = this.VideoContentSourceUrl;
             
@@ -192,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             if (cmdletContext.SlateAdUrl != null)
             {
                 request.SlateAdUrl = cmdletContext.SlateAdUrl;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TranscodeProfileName != null)
             {
@@ -270,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
             public Amazon.MediaTailor.Model.DashConfigurationForPut DashConfiguration { get; set; }
             public System.String Name { get; set; }
             public System.String SlateAdUrl { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public System.String TranscodeProfileName { get; set; }
             public System.String VideoContentSourceUrl { get; set; }
         }

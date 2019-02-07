@@ -45,8 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the current run-time configuration. As a result, the run-time configuration changes
     /// are applied gradually as existing processes shut down and new processes are launched
     /// in Amazon GameLift's normal process recycling activity.
-    /// </para><para>
-    /// Fleet-related operations include:
     /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
     /// Describe fleets:
     /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>

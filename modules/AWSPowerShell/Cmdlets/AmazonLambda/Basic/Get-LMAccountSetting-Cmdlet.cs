@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Retrieves details about your account's <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a>
-    /// and usage in a region.
+    /// Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a>
+    /// and usage in an AWS Region.
     /// </summary>
     [Cmdlet("Get", "LMAccountSetting")]
     [OutputType("Amazon.Lambda.Model.GetAccountSettingsResponse")]

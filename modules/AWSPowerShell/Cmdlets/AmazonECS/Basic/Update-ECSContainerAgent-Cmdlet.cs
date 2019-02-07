@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para><code>UpdateContainerAgent</code> requires the Amazon ECS-optimized AMI or Amazon
     /// Linux with the <code>ecs-init</code> service installed and running. For help updating
-    /// the Amazon ECS container agent on other operating systems, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
+    /// the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
     /// Updating the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
     /// Developer Guide</i>.
     /// </para>

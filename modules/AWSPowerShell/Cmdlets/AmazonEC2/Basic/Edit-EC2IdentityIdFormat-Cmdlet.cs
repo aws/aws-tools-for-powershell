@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code>
     /// | <code>vpn-connection</code> | <code>vpn-gateway</code>. 
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
     /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// </para><para>
     /// This setting applies to the principal specified in the request; it does not apply

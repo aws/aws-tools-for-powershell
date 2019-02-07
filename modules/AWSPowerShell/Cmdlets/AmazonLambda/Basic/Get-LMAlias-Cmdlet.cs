@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns details about a Lambda function <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+    /// Returns details about a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
     /// </summary>
     [Cmdlet("Get", "LMAlias")]
     [OutputType("Amazon.Lambda.Model.GetAliasResponse")]

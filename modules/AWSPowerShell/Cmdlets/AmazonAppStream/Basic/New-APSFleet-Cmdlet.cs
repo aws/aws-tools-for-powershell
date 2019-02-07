@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The time after disconnection when a session is considered to have ended, in seconds.
         /// If a user who was disconnected reconnects within this time interval, the user is connected
-        /// to their previous session. Specify a value between 60 and 57600.</para>
+        /// to their previous session. Specify a value between 60 and 360000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The maximum time that a streaming session can run, in seconds. Specify a value between
-        /// 600 and 57600.</para>
+        /// 600 and 360000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -208,8 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate with the fleet. A tag is a key-value pair (the value is optional).
-        /// For example, Environment=Test, or, if you do not specify a value, Environment=. </para><para>If you do not specify a value, we set the value to an empty string.</para><para>For more information, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
+        /// <para>The tags to associate with the fleet. A tag is a key-value pair, and the value is
+        /// optional. For example, Environment=Test. If you do not specify a value, Environment=.
+        /// </para><para>If you do not specify a value, the value is set to an empty string.</para><para>For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
         /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</para>
         /// </para>
         /// </summary>

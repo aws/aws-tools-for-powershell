@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>ID of the mount target whose security groups you want to modify.</para>
+        /// <para>The ID of the mount target whose security groups you want to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>Array of up to five VPC security group IDs.</para>
+        /// <para>An array of up to five VPC security group IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

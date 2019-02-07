@@ -28,7 +28,9 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the things associated with the specified principal.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the things associated with the specified principal. A principal can be X.509
+    /// certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+    /// identities.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTPrincipalThingList")]
     [OutputType("System.String")]

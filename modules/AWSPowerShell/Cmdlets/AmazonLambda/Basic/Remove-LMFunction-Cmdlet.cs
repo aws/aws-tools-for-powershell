@@ -61,8 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Specify a version to delete. You cannot delete a version that is referenced by an
-        /// alias.</para>
+        /// <para>Specify a version to delete. You can't delete a version that's referenced by an alias.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

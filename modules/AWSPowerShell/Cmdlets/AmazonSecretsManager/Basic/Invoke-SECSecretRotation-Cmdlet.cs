@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// to match. After testing the new credentials, the function marks the new secret with
     /// the staging label <code>AWSCURRENT</code> so that your clients all immediately begin
     /// to use the new version. For more information about rotating secrets and how to configure
-    /// a Lambda function to rotate the secrets for your protected service, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating
+    /// a Lambda function to rotate the secrets for your protected service, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html">Rotating
     /// Secrets in AWS Secrets Manager</a> in the <i>AWS Secrets Manager User Guide</i>.
     /// </para><para>
     /// Secrets Manager schedules the next rotation when the previous one is complete. Secrets

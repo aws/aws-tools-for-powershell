@@ -32,10 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// operation, specify the ticket ID. If successful, work on the ticket is stopped, and
     /// the ticket status is changed to <code>CANCELLED</code>.
     /// 
-    ///  
-    /// <para>
-    /// Matchmaking-related operations include:
-    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
+    ///  <ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Stop", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

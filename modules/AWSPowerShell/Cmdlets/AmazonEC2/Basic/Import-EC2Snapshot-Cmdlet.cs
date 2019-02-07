@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies whether the destination snapshot of the imported image should be encrypted.
         /// The default CMK for EBS is used unless you specify a non-default AWS Key Management
-        /// Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

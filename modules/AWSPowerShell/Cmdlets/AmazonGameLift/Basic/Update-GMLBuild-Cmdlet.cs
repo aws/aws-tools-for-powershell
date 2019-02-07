@@ -32,10 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// the metadata, specify the build ID to update and provide the new values. If successful,
     /// a build object containing the updated metadata is returned.
     /// 
-    ///  
-    /// <para>
-    /// Build-related operations include:
-    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    ///  <ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Build")]

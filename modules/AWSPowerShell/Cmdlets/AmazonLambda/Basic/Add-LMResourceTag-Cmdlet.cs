@@ -28,8 +28,8 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Adds <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to
-    /// a function.
+    /// Adds <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
+    /// to a function.
     /// </summary>
     [Cmdlet("Add", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

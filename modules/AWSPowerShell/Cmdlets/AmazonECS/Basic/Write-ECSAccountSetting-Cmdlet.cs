@@ -28,10 +28,16 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Modifies the ARN and resource ID format of a resource for a specified IAM user, IAM
-    /// role, or the root user for an account. You can specify whether the new ARN and resource
-    /// ID format are enabled for new resources that are created. Enabling this setting is
-    /// required to use new Amazon ECS features such as resource tagging.
+    /// Modifies the ARN and resource ID format of a resource type for a specified IAM user,
+    /// IAM role, or the root user for an account. If the account setting for the root user
+    /// is changed, it sets the default setting for all of the IAM users and roles for which
+    /// no individual account setting has been set. The opt-in and opt-out account setting
+    /// can be set for each Amazon ECS resource separately. The ARN and resource ID format
+    /// of a resource will be defined by the opt-in status of the IAM user or role that created
+    /// the resource. Enabling this setting is required to use new Amazon ECS features such
+    /// as resource tagging. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-resource-ids.html">Amazon
+    /// Resource Names (ARNs) and IDs</a> in the <i>Amazon Elastic Container Service Developer
+    /// Guide</i>.
     /// </summary>
     [Cmdlet("Write", "ECSAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Setting")]
@@ -63,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The ARN of the principal, which can be an IAM user, IAM role, or the root user. If
         /// you specify the root user, it modifies the ARN and resource ID format for all IAM
         /// users, IAM roles, and the root user of the account unless an IAM user or role explicitly
-        /// overrides these settings for themselves. If this field is omitted, the setting are
+        /// overrides these settings for themselves. If this field is omitted, the settings are
         /// changed only for the authenticated user.</para>
         /// </para>
         /// </summary>

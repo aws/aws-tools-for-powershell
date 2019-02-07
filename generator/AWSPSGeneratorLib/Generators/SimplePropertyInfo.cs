@@ -326,7 +326,7 @@ namespace AWSPowerShellGenerator.Generators
         /// <param name="propertyTypeName"></param>
         /// <param name="documentationSource"></param>
         public SimplePropertyInfo(PropertyInfo propertyInfo, SimplePropertyInfo parent, string propertyTypeName, XmlDocument documentationSource)
-            : this(propertyInfo, parent, propertyTypeName, documentationSource, PropertyCollectionType.NoCollection, null, false)
+            : this(propertyInfo, parent, propertyTypeName, documentationSource, PropertyCollectionType.NoCollection, null)
         {
         }
 
@@ -342,14 +342,12 @@ namespace AWSPowerShellGenerator.Generators
         /// <param name="documentationSource"></param>
         /// <param name="collectionType"></param>
         /// <param name="genericCollectionTypes"></param>
-        /// <param name="isEmitLimiter"></param>
         public SimplePropertyInfo(PropertyInfo propertyInfo, 
                                   SimplePropertyInfo parent, 
                                   string propertyTypeName, 
                                   XmlDocument documentationSource,
                                   PropertyCollectionType collectionType,
-                                  Type[] genericCollectionTypes,
-                                  bool isEmitLimiter)
+                                  Type[] genericCollectionTypes)
         {
             BaseProperty = propertyInfo;
             Name = propertyInfo.Name;
@@ -367,7 +365,7 @@ namespace AWSPowerShellGenerator.Generators
             DocumentationSource = documentationSource;
             IsMemoryStreamType = propertyTypeName.Equals("System.IO.MemoryStream", StringComparison.Ordinal);
 
-            UseParameterValueOnlyIfBound = isEmitLimiter || IsNullableValueType(propertyInfo.PropertyType);
+            UseParameterValueOnlyIfBound = IsNullableValueType(propertyInfo.PropertyType);
 
             // if analysing properties on a cmdlet for help purposes, extract 
             // the Parameter attribute info

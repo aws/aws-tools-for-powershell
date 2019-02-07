@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Deletes a version of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
     /// Lambda layer</a>. Deleted versions can no longer be viewed or added to functions.
     /// To avoid breaking functions, a copy of the version remains in Lambda until no functions
     /// refer to it.

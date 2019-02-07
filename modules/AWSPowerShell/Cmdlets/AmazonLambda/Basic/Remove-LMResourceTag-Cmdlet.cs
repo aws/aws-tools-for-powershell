@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Removes <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
+    /// Removes <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>
     /// from a function.
     /// </summary>
     [Cmdlet("Remove", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class NewIOTSecurityProfileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalMetricsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
+        /// any metric used in the profile's <code>behaviors</code> but it is also retained for
+        /// any metric specified here.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] AdditionalMetricsToRetain { get; set; }
+        #endregion
+        
         #region Parameter AlertTarget
         /// <summary>
         /// <para>
@@ -122,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AdditionalMetricsToRetain != null)
+            {
+                context.AdditionalMetricsToRetain = new List<System.String>(this.AdditionalMetricsToRetain);
+            }
             if (this.AlertTarget != null)
             {
                 context.AlertTargets = new Dictionary<System.String, Amazon.IoT.Model.AlertTarget>(StringComparer.Ordinal);
@@ -156,6 +172,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.CreateSecurityProfileRequest();
             
+            if (cmdletContext.AdditionalMetricsToRetain != null)
+            {
+                request.AdditionalMetricsToRetain = cmdletContext.AdditionalMetricsToRetain;
+            }
             if (cmdletContext.AlertTargets != null)
             {
                 request.AlertTargets = cmdletContext.AlertTargets;
@@ -240,6 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalMetricsToRetain { get; set; }
             public Dictionary<System.String, Amazon.IoT.Model.AlertTarget> AlertTargets { get; set; }
             public List<Amazon.IoT.Model.Behavior> Behaviors { get; set; }
             public System.String SecurityProfileDescription { get; set; }

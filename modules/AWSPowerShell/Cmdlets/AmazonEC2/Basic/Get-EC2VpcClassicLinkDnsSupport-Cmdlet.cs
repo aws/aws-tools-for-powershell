@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// DNS hostname of a linked EC2-Classic instance resolves to its private IP address when
     /// addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname
     /// of an instance in a VPC resolves to its private IP address when addressed from a linked
-    /// EC2-Classic instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+    /// EC2-Classic instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
     /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2VpcClassicLinkDnsSupport")]

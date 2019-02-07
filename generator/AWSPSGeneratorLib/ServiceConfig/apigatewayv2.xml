@@ -15,7 +15,9 @@
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
-    <LegacyAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-AG2ApiList">Get-AG2ApiLis</AliasSet>
+    </LegacyAliases>
     <ParamEmitters />
     <MetadataProperties />
     <PipelineByNameProperties>
@@ -103,7 +105,7 @@
         <ServiceOperation MethodName="GetApiMappings" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApiMappingList" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApis" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApiLis" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetApis" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApiList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAuthorizer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Authorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

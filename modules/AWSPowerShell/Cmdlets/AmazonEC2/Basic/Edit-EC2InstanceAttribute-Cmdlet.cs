@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <a>ModifyNetworkInterfaceAttribute</a> action.
     /// </para><para>
     /// To modify some attributes, the instance must be stopped. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_ChangingAttributesWhileInstanceStopped.html">Modifying
     /// Attributes of a Stopped Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Modifies the <code>DeleteOnTermination</code> attribute for volumes that are currently
         /// attached. The volume must be owned by the caller. If no value is specified for <code>DeleteOnTermination</code>,
         /// the default is <code>true</code> and the volume is deleted when the instance is terminated.</para><para>To add instance store volumes to an Amazon EBS-backed instance, you must add them
-        /// when you launch the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating
+        /// when you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Updating
         /// the Block Device Mapping when Launching an Instance</a> in the <i>Amazon Elastic Compute
         /// Cloud User Guide</i>.</para>
         /// </para>
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Changes the instance type to the specified value. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+        /// <para>Changes the instance type to the specified value. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// Types</a>. If the instance type is not valid, the error returned is <code>InvalidInstanceAttributeValue</code>.</para>
         /// </para>
         /// </summary>
@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Changes the instance's kernel to the specified value. We recommend that you use PV-GRUB
-        /// instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</para>
+        /// instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Changes the instance's RAM disk to the specified value. We recommend that you use
-        /// PV-GRUB instead of kernels and RAM disks. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</para>
+        /// PV-GRUB instead of kernels and RAM disks. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">PV-GRUB</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

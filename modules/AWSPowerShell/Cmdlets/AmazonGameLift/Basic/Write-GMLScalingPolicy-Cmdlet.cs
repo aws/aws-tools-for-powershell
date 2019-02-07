@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// with the same fleet action. To stop just one scaling policy--or to permanently remove
     /// it, you must delete the policy with <a>DeleteScalingPolicy</a>.
     /// </para><para>
-    /// Learn more about how to work with auto-scaling in <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html">Set
+    /// Learn more about how to work with auto-scaling in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-autoscaling.html">Set
     /// Up Fleet Automatic Scaling</a>.
     /// </para><para><b>Target-based policy</b></para><para>
     /// A target-based policy tracks a single metric: PercentAvailableGameSessions. This metric
@@ -98,8 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// are automatically in force as soon as they're successfully created. If the fleet's
     /// auto-scaling actions are temporarily suspended, the new policy will be in force once
     /// the fleet actions are restarted.
-    /// </para><para>
-    /// Operations related to fleet capacity scaling include:
     /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
     /// Manage scaling policies:
     /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)
@@ -157,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-        /// For detailed descriptions of fleet metrics, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor
+        /// For detailed descriptions of fleet metrics, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html">Monitor
         /// Amazon GameLift with Amazon CloudWatch</a>. </para><ul><li><para><b>ActivatingGameSessions</b> -- Game sessions in the process of being created.</para></li><li><para><b>ActiveGameSessions</b> -- Game sessions that are currently running.</para></li><li><para><b>ActiveInstances</b> -- Fleet instances that are currently running at least one
         /// game session.</para></li><li><para><b>AvailableGameSessions</b> -- Additional game sessions that fleet could host simultaneously,
         /// given current capacity.</para></li><li><para><b>AvailablePlayerSessions</b> -- Empty player slots in currently active game sessions.

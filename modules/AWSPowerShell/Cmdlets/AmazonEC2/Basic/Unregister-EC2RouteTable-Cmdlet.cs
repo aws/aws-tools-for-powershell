@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <para>
     /// After you perform this action, the subnet no longer uses the routes in the route table.
     /// Instead, it uses the routes in the VPC's main route table. For more information about
-    /// route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
+    /// route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

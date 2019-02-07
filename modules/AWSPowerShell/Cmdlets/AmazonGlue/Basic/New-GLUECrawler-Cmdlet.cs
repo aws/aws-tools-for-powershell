@@ -149,6 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String TablePrefix { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to use with this crawler request. You may use tags to limit access to the
+        /// crawler. For more information about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS
+        /// Tags in AWS Glue</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
@@ -211,6 +224,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             context.Schedule = this.Schedule;
             context.SchemaChangePolicy = this.SchemaChangePolicy;
             context.TablePrefix = this.TablePrefix;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Targets = this.Target;
             
             // allow further manipulation of loaded context prior to processing
@@ -267,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.TablePrefix != null)
             {
                 request.TablePrefix = cmdletContext.TablePrefix;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.Targets != null)
             {
@@ -348,6 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String Schedule { get; set; }
             public Amazon.Glue.Model.SchemaChangePolicy SchemaChangePolicy { get; set; }
             public System.String TablePrefix { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public Amazon.Glue.Model.CrawlerTargets Targets { get; set; }
         }
         

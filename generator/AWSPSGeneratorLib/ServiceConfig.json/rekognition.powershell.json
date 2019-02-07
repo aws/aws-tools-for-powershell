@@ -148,23 +148,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -213,23 +197,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -275,23 +243,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -337,23 +289,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -399,23 +335,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -461,23 +381,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -523,23 +427,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -580,23 +468,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -668,23 +540,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": [
           "ImageContent"
         ]
@@ -758,23 +614,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": [
           "ImageContent"
         ]
@@ -815,23 +655,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": [
           "Image_Bytes"
         ]
@@ -905,23 +729,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": [
           "ImageContent"
         ]
@@ -964,23 +772,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1019,23 +811,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1074,23 +850,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1131,23 +891,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1186,23 +930,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1241,23 +969,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1296,23 +1008,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1386,23 +1082,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1432,7 +1112,7 @@
       "outputMetadataMembers": [],
       "pagination": {},
       "pipeline": {
-        "byValueMembers": [],
+        "omitPipelineByValue": "true",
         "byNameMembers": []
       },
       "shouldProcess": {
@@ -1448,23 +1128,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1505,29 +1169,13 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
     "ListStreamProcessors": {
       "verb": "Get",
-      "noun": "StreamProcessorsList",
+      "noun": "StreamProcessorList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -1648,23 +1296,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": [
           "ImageContent"
         ]
@@ -1707,23 +1339,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1802,23 +1418,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1864,23 +1464,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -1924,23 +1508,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -1984,23 +1552,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -2046,23 +1598,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2106,23 +1642,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -2166,23 +1686,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -2228,23 +1732,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2290,23 +1778,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Name",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
-          "requestMember": "NextToken",
-          "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

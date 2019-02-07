@@ -34,6 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <code>SendTask*</code> API actions. This function lets Step Functions know the existence
     /// of your activity and returns an identifier for use in a state machine and when polling
     /// from the activity.
+    /// 
+    ///  <note><para>
+    /// This operation is eventually consistent. The results are best effort and may not reflect
+    /// very recent updates and changes.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateActivityResponse")]
@@ -48,13 +53,24 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>The name of the activity to create. This name must be unique for your AWS account
-        /// and region for 90 days. For more information, see <a href="http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// and region for 90 days. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
         /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
         /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>whitespace</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of tags to add to a resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StepFunctions.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -87,6 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             PreExecutionContextLoad(context);
             
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StepFunctions.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -106,6 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -172,6 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public List<Amazon.StepFunctions.Model.Tag> Tags { get; set; }
         }
         
     }

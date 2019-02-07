@@ -41,8 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This action does not affect the status of the scaling policies, which remains ACTIVE.
     /// To see whether a fleet's scaling policies are in force or suspended, call <a>DescribeFleetAttributes</a>
     /// and check the stopped actions.
-    /// </para><para>
-    /// Operations related to fleet capacity scaling include:
     /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
     /// Manage scaling policies:
     /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)

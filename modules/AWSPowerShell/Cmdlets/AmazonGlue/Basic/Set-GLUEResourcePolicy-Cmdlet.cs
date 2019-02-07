@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter PolicyHashCondition
         /// <summary>
         /// <para>
-        /// <para>This is the hash value returned when the previous policy was set using PutResourcePolicy.
+        /// <para>The hash value returned when the previous policy was set using <code>PutResourcePolicy</code>.
         /// Its purpose is to prevent concurrent modifications of a policy. Do not use this parameter
         /// if no previous policy has been set.</para>
         /// </para>

@@ -118,6 +118,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String[] VpcSettings_SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be assigned to the AWS Managed Microsoft AD directory.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.DirectoryService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter VpcSettings_VpcId
         /// <summary>
         /// <para>
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.Name = this.Name;
             context.Password = this.Password;
             context.ShortName = this.ShortName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.DirectoryService.Model.Tag>(this.Tag);
+            }
             if (this.VpcSettings_SubnetId != null)
             {
                 context.VpcSettings_SubnetIds = new List<System.String>(this.VpcSettings_SubnetId);
@@ -202,6 +217,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             if (cmdletContext.ShortName != null)
             {
                 request.ShortName = cmdletContext.ShortName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
              // populate VpcSettings
@@ -301,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             public System.String Name { get; set; }
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
+            public List<Amazon.DirectoryService.Model.Tag> Tags { get; set; }
             public List<System.String> VpcSettings_SubnetIds { get; set; }
             public System.String VpcSettings_VpcId { get; set; }
         }

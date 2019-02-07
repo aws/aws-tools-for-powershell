@@ -920,9 +920,20 @@ $ATH_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.Athena.EncryptionOption
-        "Start-ATHQueryExecution/ResultConfiguration_EncryptionConfiguration_EncryptionOption"
+        {
+            ($_ -eq "New-ATHWorkGroup/Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption") -Or
+            ($_ -eq "Update-ATHWorkGroup/ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption") -Or
+            ($_ -eq "Start-ATHQueryExecution/ResultConfiguration_EncryptionConfiguration_EncryptionOption")
+        }
         {
             $v = "CSE_KMS","SSE_KMS","SSE_S3"
+            break
+        }
+        
+        # Amazon.Athena.WorkGroupState
+        "Update-ATHWorkGroup/State"
+        {
+            $v = "DISABLED","ENABLED"
             break
         }
         
@@ -934,7 +945,10 @@ $ATH_Completers = {
 }
 
 $ATH_map = @{
+    "Configuration_ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("New-ATHWorkGroup")
+    "ConfigurationUpdates_ResultConfigurationUpdates_EncryptionConfiguration_EncryptionOption"=@("Update-ATHWorkGroup")
     "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
+    "State"=@("Update-ATHWorkGroup")
 }
 
 _awsArgumentCompleterRegistration $ATH_Completers $ATH_map
@@ -1110,7 +1124,7 @@ $BAT_Completers = {
         }
         
         # Amazon.Batch.JobStatus
-        "Get-BATJobsList/JobStatus"
+        "Get-BATJobList/JobStatus"
         {
             $v = "FAILED","PENDING","RUNNABLE","RUNNING","STARTING","SUBMITTED","SUCCEEDED"
             break
@@ -1135,7 +1149,7 @@ $BAT_Completers = {
 
 $BAT_map = @{
     "ComputeResources_Type"=@("New-BATComputeEnvironment")
-    "JobStatus"=@("Get-BATJobsList")
+    "JobStatus"=@("Get-BATJobList")
     "State"=@("New-BATComputeEnvironment","New-BATJobQueue","Update-BATComputeEnvironment","Update-BATJobQueue")
     "Type"=@("New-BATComputeEnvironment","Register-BATJobDefinition")
 }
@@ -1869,7 +1883,7 @@ $CB_Completers = {
             ($_ -eq "Start-CBBuild/CacheOverride_Type")
         }
         {
-            $v = "NO_CACHE","S3"
+            $v = "LOCAL","NO_CACHE","S3"
             break
         }
         
@@ -3268,7 +3282,7 @@ $DDB_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.DynamoDBv2.BackupTypeFilter
-        "Get-DDBBackupsList/BackupType"
+        "Get-DDBBackupList/BackupType"
         {
             $v = "ALL","AWS_BACKUP","SYSTEM","USER"
             break
@@ -3348,7 +3362,7 @@ $DDB_Completers = {
 }
 
 $DDB_map = @{
-    "BackupType"=@("Get-DDBBackupsList")
+    "BackupType"=@("Get-DDBBackupList")
     "BillingMode"=@("Update-DDBTable")
     "GlobalTableBillingMode"=@("Update-DDBGlobalTableSetting")
     "HashKeyDataType"=@("Add-DDBIndexSchema")
@@ -3412,7 +3426,7 @@ $EC2_Completers = {
         # Amazon.EC2.CapacityReservationInstancePlatform
         "Add-EC2CapacityReservation/InstancePlatform"
         {
-            $v = "Linux/UNIX","Red Hat Enterprise Linux","SUSE Linux","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
+            $v = "Linux with SQL Server Enterprise","Linux with SQL Server Standard","Linux with SQL Server Web","Linux/UNIX","Red Hat Enterprise Linux","SUSE Linux","Windows","Windows with SQL Server","Windows with SQL Server Enterprise","Windows with SQL Server Standard","Windows with SQL Server Web"
             break
         }
         
@@ -3640,7 +3654,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.xlarge"
+            $v = "a1.2xlarge","a1.4xlarge","a1.large","a1.medium","a1.xlarge","c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","c5d.18xlarge","c5d.2xlarge","c5d.4xlarge","c5d.9xlarge","c5d.large","c5d.xlarge","c5n.18xlarge","c5n.2xlarge","c5n.4xlarge","c5n.9xlarge","c5n.large","c5n.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","f1.4xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","g3s.xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.metal","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.metal","m5.xlarge","m5a.12xlarge","m5a.24xlarge","m5a.2xlarge","m5a.4xlarge","m5a.large","m5a.xlarge","m5d.12xlarge","m5d.24xlarge","m5d.2xlarge","m5d.4xlarge","m5d.large","m5d.metal","m5d.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","p3dn.24xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","r5.12xlarge","r5.24xlarge","r5.2xlarge","r5.4xlarge","r5.large","r5.metal","r5.xlarge","r5a.12xlarge","r5a.24xlarge","r5a.2xlarge","r5a.4xlarge","r5a.large","r5a.xlarge","r5d.12xlarge","r5d.24xlarge","r5d.2xlarge","r5d.4xlarge","r5d.large","r5d.metal","r5d.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","t3.2xlarge","t3.large","t3.medium","t3.micro","t3.nano","t3.small","t3.xlarge","u-12tb1.metal","u-6tb1.metal","u-9tb1.metal","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge","z1d.12xlarge","z1d.2xlarge","z1d.3xlarge","z1d.6xlarge","z1d.large","z1d.metal","z1d.xlarge"
             break
         }
         
@@ -4065,7 +4079,8 @@ $ECS_Completers = {
         {
             ($_ -eq "Get-ECSAccountSetting/Name") -Or
             ($_ -eq "Remove-ECSAccountSetting/Name") -Or
-            ($_ -eq "Write-ECSAccountSetting/Name")
+            ($_ -eq "Write-ECSAccountSetting/Name") -Or
+            ($_ -eq "Write-ECSAccountSettingDefault/Name")
         }
         {
             $v = "containerInstanceLongArnFormat","serviceLongArnFormat","taskLongArnFormat"
@@ -4112,7 +4127,7 @@ $ECS_map = @{
     "DesiredStatus"=@("Get-ECSTaskList")
     "IpcMode"=@("Register-ECSTaskDefinition")
     "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask")
-    "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting")
+    "Name"=@("Get-ECSAccountSetting","Remove-ECSAccountSetting","Write-ECSAccountSetting","Write-ECSAccountSettingDefault")
     "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "PidMode"=@("Register-ECSTaskDefinition")
@@ -5246,7 +5261,7 @@ $IOT_Completers = {
         
         # Amazon.IoT.AuthorizerStatus
         {
-            ($_ -eq "Get-IOTAuthorizersList/Status") -Or
+            ($_ -eq "Get-IOTAuthorizerList/Status") -Or
             ($_ -eq "New-IOTAuthorizer/Status") -Or
             ($_ -eq "Update-IOTAuthorizer/Status")
         }
@@ -5322,7 +5337,7 @@ $IOT_Completers = {
         }
         
         # Amazon.IoT.JobStatus
-        "Get-IOTJobsList/Status"
+        "Get-IOTJobList/Status"
         {
             $v = "CANCELED","COMPLETED","DELETION_IN_PROGRESS","IN_PROGRESS"
             break
@@ -5342,7 +5357,7 @@ $IOT_Completers = {
         # Amazon.IoT.LogTargetType
         {
             ($_ -eq "Set-IOTV2LoggingLevel/LogTarget_TargetType") -Or
-            ($_ -eq "Get-IOTV2LoggingLevelsList/TargetType") -Or
+            ($_ -eq "Get-IOTV2LoggingLevelList/TargetType") -Or
             ($_ -eq "Remove-IOTV2LoggingLevel/TargetType")
         }
         {
@@ -5368,14 +5383,14 @@ $IOT_Completers = {
         }
         
         # Amazon.IoT.ReportType
-        "Get-IOTThingRegistrationTaskReportsList/ReportType"
+        "Get-IOTThingRegistrationTaskReportList/ReportType"
         {
             $v = "ERRORS","RESULTS"
             break
         }
         
         # Amazon.IoT.Status
-        "Get-IOTThingRegistrationTasksList/Status"
+        "Get-IOTThingRegistrationTaskList/Status"
         {
             $v = "Cancelled","Cancelling","Completed","Failed","InProgress"
             break
@@ -5383,7 +5398,7 @@ $IOT_Completers = {
         
         # Amazon.IoT.TargetSelection
         {
-            ($_ -eq "Get-IOTJobsList/TargetSelection") -Or
+            ($_ -eq "Get-IOTJobList/TargetSelection") -Or
             ($_ -eq "New-IOTJob/TargetSelection") -Or
             ($_ -eq "New-IOTOTAUpdate/TargetSelection")
         }
@@ -5430,10 +5445,10 @@ $IOT_map = @{
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
     "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
-    "ReportType"=@("Get-IOTThingRegistrationTaskReportsList")
-    "Status"=@("Get-IOTAuthorizersList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobsList","Get-IOTThingRegistrationTasksList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
-    "TargetSelection"=@("Get-IOTJobsList","New-IOTJob","New-IOTOTAUpdate")
-    "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
+    "ReportType"=@("Get-IOTThingRegistrationTaskReportList")
+    "Status"=@("Get-IOTAuthorizerList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobList","Get-IOTThingRegistrationTaskList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
+    "TargetSelection"=@("Get-IOTJobList","New-IOTJob","New-IOTOTAUpdate")
+    "TargetType"=@("Get-IOTV2LoggingLevelList","Remove-IOTV2LoggingLevel")
     "TaskStatus"=@("Get-IOTTaskList")
     "TaskType"=@("Get-IOTTaskList")
     "ThingGroupIndexingConfiguration_ThingGroupIndexingMode"=@("Update-IOTIndexingConfiguration")
@@ -8320,7 +8335,7 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.PortfolioShareType
         {
             ($_ -eq "Deny-SCPortfolioShare/PortfolioShareType") -Or
-            ($_ -eq "Get-SCAcceptedPortfolioSharesList/PortfolioShareType") -Or
+            ($_ -eq "Get-SCAcceptedPortfolioShareList/PortfolioShareType") -Or
             ($_ -eq "Receive-SCPortfolioShare/PortfolioShareType")
         }
         {
@@ -8415,7 +8430,7 @@ $SC_map = @{
     "OrganizationNodeType"=@("Get-SCOrganizationPortfolioAccessList")
     "Parameters_Type"=@("New-SCProvisioningArtifact")
     "PlanType"=@("New-SCProvisionedProductPlan")
-    "PortfolioShareType"=@("Deny-SCPortfolioShare","Get-SCAcceptedPortfolioSharesList","Receive-SCPortfolioShare")
+    "PortfolioShareType"=@("Deny-SCPortfolioShare","Get-SCAcceptedPortfolioShareList","Receive-SCPortfolioShare")
     "PrincipalType"=@("Register-SCPrincipalWithPortfolio")
     "ProductSource"=@("Find-SCProductsAsAdmin")
     "ProductType"=@("New-SCProduct")

@@ -15,7 +15,9 @@
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
-    <LegacyAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Remove-ALXBSmartHomeAppliance">Remove-ALXBSmartHomeAppliances</AliasSet>
+    </LegacyAliases>
     <ParamEmitters />
     <MetadataProperties />
     <PipelineByNameProperties />
@@ -112,7 +114,7 @@
         <ServiceOperation MethodName="DisassociateSkillGroupFromRoom" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SkillGroupFromRoom" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SkillGroupArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SkillGroupArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ForgetSmartHomeAppliances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SmartHomeAppliances" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoomArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoomArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ForgetSmartHomeAppliances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SmartHomeAppliance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoomArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoomArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAddressBook" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AddressBook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AddressBookArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

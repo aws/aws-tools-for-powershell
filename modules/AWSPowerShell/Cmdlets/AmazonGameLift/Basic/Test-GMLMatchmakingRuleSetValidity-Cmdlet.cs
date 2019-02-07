@@ -29,13 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Validates the syntax of a matchmaking rule or rule set. This operation checks that
-    /// the rule set uses syntactically correct JSON and that it conforms to allowed property
-    /// expressions. To validate syntax, provide a rule set string.
+    /// the rule set is using syntactically correct JSON and that it conforms to allowed property
+    /// expressions. To validate syntax, provide a rule set JSON string.
     /// 
     ///  
-    /// <para>
-    /// Operations related to match configurations and rule sets include:
-    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul>
+    /// <para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build
+    /// a Rule Set</a></para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("Test", "GMLMatchmakingRuleSetValidity")]
     [OutputType("System.Boolean")]

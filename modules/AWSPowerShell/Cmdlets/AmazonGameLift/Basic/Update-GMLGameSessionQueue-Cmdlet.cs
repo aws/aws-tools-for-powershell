@@ -33,10 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// and provide the new settings. When updating destinations, provide a complete list
     /// of destinations. 
     /// 
-    ///  
-    /// <para>
-    /// Queue-related operations include:
-    /// </para><ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
+    ///  <ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionQueue")]

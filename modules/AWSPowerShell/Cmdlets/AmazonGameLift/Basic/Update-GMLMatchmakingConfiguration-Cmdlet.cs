@@ -31,10 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Updates settings for a FlexMatch matchmaking configuration. To update settings, specify
     /// the configuration name to be updated and provide the new settings. 
     /// 
-    ///  
-    /// <para>
-    /// Operations related to match configurations and rule sets include:
-    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul>
+    ///  <ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
@@ -107,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Set of custom properties for a game session, formatted as key:value pairs. These properties
         /// are passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match. </para>
         /// </para>
@@ -122,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Set of custom game session properties, formatted as a single string value. This data
         /// is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match. </para>
         /// </para>
@@ -134,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameSessionQueueArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// that is assigned to a game session queue and uniquely identifies it. Format is <code>arn:aws:gamelift:&lt;region&gt;::fleet/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912</code>.
         /// These queues are used when placing game sessions for matches that are created with
         /// this matchmaking configuration. Queues can be located in any region.</para>
@@ -158,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter NotificationTarget
         /// <summary>
         /// <para>
-        /// <para>SNS topic ARN that is set up to receive matchmaking notifications. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
+        /// <para>SNS topic ARN that is set up to receive matchmaking notifications. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-notification.html">
         /// Setting up Notifications for Matchmaking</a> for more information.</para>
         /// </para>
         /// </summary>

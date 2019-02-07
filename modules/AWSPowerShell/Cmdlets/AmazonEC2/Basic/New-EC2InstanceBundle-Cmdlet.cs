@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The access key ID of the owner of the bucket. Before you specify a value for your
-        /// access key ID, review and follow the guidance in <a href="http://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best
+        /// access key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best
         /// Practices for Managing AWS Access Keys</a>.</para>
         /// </para>
         /// </summary>

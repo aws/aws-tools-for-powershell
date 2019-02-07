@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// <summary>
     /// Updates the settings for the specified Amazon Chime account. You can update settings
     /// for remote control of shared screens, or for the dial-out option. For more information
-    /// about these settings, see <a href="http://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
+    /// about these settings, see <a href="https://docs.aws.amazon.com/chime/latest/ag/policies.html">Use
     /// the Policies Page</a> in the <i>Amazon Chime Administration Guide</i>.
     /// </summary>
     [Cmdlet("Update", "CHMAccountSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
         /// <summary>
         /// <para>
         /// <para>Setting that allows meeting participants to choose the <b>Call me at a phone number</b>
-        /// option. For more information, see <a href="http://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join
+        /// option. For more information, see <a href="https://docs.aws.amazon.com/chime/latest/ug/chime-join-meeting.html">Join
         /// a Meeting without the Amazon Chime App</a>.</para>
         /// </para>
         /// </summary>

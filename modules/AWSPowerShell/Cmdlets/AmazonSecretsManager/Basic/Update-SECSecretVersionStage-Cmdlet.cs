@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// can attach a staging label to only one version of a secret at a time. If a staging
     /// label to be added is already attached to another version, then it is moved--removed
     /// from the other version first and then attached to this one. For more information about
-    /// staging labels, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
+    /// staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/terms-concepts.html#term_staging-label">Staging
     /// Labels</a> in the <i>AWS Secrets Manager User Guide</i>. 
     /// 
     ///  

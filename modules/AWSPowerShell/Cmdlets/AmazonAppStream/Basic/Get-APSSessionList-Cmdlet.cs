@@ -28,10 +28,10 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Retrieves a list that describes the streaming sessions for a specified stack and fleet.
-    /// If a UserId is provided for the stack and fleet, only streaming sessions for that
-    /// user are described. If an authentication type is not provided, the default is to authenticate
-    /// users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list that describes the active streaming sessions for a specified stack
+    /// and fleet. If a value for <code>UserId</code> is provided for the stack and fleet,
+    /// only streaming sessions for that user are described. If an authentication type is
+    /// not provided, the default is to authenticate users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]
@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The authentication method. Specify <code>API</code> for a user authenticated using
-        /// a streaming URL or <code>SAML</code> for a SAML federated user. The default is to
-        /// authenticate users using a streaming URL.</para>
+        /// a streaming URL, <code>SAML</code> for a SAML 2.0-federated user, or <code>USERPOOL</code>
+        /// for a user in the AppStream 2.0 user pool. The default is to authenticate users using
+        /// a streaming URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

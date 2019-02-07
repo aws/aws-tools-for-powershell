@@ -73,7 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
         public System.Int32 PageSize { get; set; }
         #endregion
         
@@ -85,7 +84,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String PageToken { get; set; }
         #endregion
         

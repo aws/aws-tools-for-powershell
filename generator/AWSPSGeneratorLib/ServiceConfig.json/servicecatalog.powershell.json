@@ -78,18 +78,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -135,18 +124,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -192,18 +170,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ProductId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -249,18 +216,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceActionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -306,18 +262,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -361,18 +306,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -416,18 +350,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "AnonymousShouldProcessTarget specified in config",
           "status": "AnonymousTarget",
@@ -473,18 +396,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -530,18 +442,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -585,18 +486,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -642,18 +532,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -697,18 +576,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -754,18 +622,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -811,18 +668,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -868,18 +714,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -925,18 +760,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -982,18 +806,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1039,18 +852,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1096,18 +898,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1153,18 +944,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1210,18 +990,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PlanId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1267,18 +1036,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ProvisioningArtifactId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1324,18 +1082,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1381,18 +1128,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1438,18 +1174,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1488,18 +1213,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1540,18 +1254,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1592,18 +1295,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1644,18 +1336,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1696,18 +1377,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1759,18 +1429,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1822,18 +1481,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1872,18 +1520,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1933,18 +1570,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1985,18 +1611,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2037,18 +1652,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2089,18 +1693,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2141,18 +1734,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2191,18 +1773,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
@@ -2248,18 +1819,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PrincipalARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2305,18 +1865,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ProductId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2362,18 +1911,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ServiceActionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2419,18 +1957,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: TagOptionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2474,18 +2001,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "No parameters, setting anonymous target",
           "status": "AnonymousTarget",
@@ -2531,18 +2047,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2588,18 +2093,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -2643,24 +2137,13 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
     "ListAcceptedPortfolioShares": {
       "verb": "Get",
-      "noun": "AcceptedPortfolioSharesList",
+      "noun": "AcceptedPortfolioShareList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -2901,18 +2384,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2968,7 +2440,7 @@
     },
     "ListPortfoliosForProduct": {
       "verb": "Get",
-      "noun": "ProductPortfoliosList",
+      "noun": "ProductPortfolioList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -3157,18 +2629,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3527,18 +2988,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3584,18 +3034,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: PortfolioId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3689,18 +3128,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3845,18 +3273,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3902,18 +3319,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3959,18 +3365,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4016,18 +3411,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4073,18 +3457,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4130,18 +3503,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4187,18 +3549,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -4244,18 +3595,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
-          "requestMember": "PageToken",
-          "responseMember": "NextPageToken",
-          "resultLimitMember": "PageSize",
-          "forceMaxResultSize": "false",
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

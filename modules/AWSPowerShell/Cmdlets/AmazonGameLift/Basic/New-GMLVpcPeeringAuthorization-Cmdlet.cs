@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Amazon GameLift fleet and a virtual private cloud (VPC) in your AWS account. VPC peering
     /// enables the game servers on your fleet to communicate directly with other AWS resources.
     /// Once you've received authorization, call <a>CreateVpcPeeringConnection</a> to establish
-    /// the peering connection. For more information, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+    /// the peering connection. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
     /// Peering with Amazon GameLift Fleets</a>.
     /// 
     ///  
@@ -57,8 +57,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// The authorization remains valid for 24 hours unless it is canceled by a call to <a>DeleteVpcPeeringAuthorization</a>.
     /// You must create or delete the peering connection while the authorization is valid.
     /// 
-    /// </para><para>
-    /// VPC peering connection operations include:
     /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLVpcPeeringAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -86,9 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Unique identifier for a VPC with resources to be accessed by your Amazon GameLift
-        /// fleet. The VPC must be in the same region where your fleet is deployed. To get VPC
-        /// information, including IDs, use the Virtual Private Cloud service tools, including
-        /// the VPC Dashboard in the AWS Management Console.</para>
+        /// fleet. The VPC must be in the same region where your fleet is deployed. Look up a
+        /// VPC ID using the <a href="https://console.aws.amazon.com/vpc/">VPC Dashboard</a> in
+        /// the AWS Management Console. Learn more about VPC peering in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+        /// Peering with Amazon GameLift Fleets</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

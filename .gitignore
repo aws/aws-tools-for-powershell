@@ -22,7 +22,8 @@ Packages/**
 
 **/.vs/
 **/project.lock.json
-**/AWSPowerShell.project.lock.json
+**/*.project.lock.json
+**/launchSettings.json
 
 AWSPowerShell.Src_*.zip
 

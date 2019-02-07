@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
     /// and resource-based policies. The affected users and roles receive the permissions
     /// that are permitted by all of the relevant policies. For more information, see <a href="http://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html">Using
     /// Resource-Based Policies for AWS Secrets Manager</a>. For the complete description
-    /// of the AWS policy syntax and grammar, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
+    /// of the AWS policy syntax and grammar, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM
     /// JSON Policy Reference</a> in the <i>IAM User Guide</i>.
     /// 
     ///  

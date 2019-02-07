@@ -30,29 +30,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// <summary>
     /// Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of
     /// match to create, such as the number and size of teams, and sets the parameters for
-    /// acceptable player matches, such as minimum skill level or character type. Rule sets
-    /// are used in matchmaking configurations, which define how matchmaking requests are
-    /// handled. Each <a>MatchmakingConfiguration</a> uses one rule set; you can set up multiple
-    /// rule sets to handle the scenarios that suit your game (such as for different game
-    /// modes), and create a separate matchmaking configuration for each rule set. See additional
-    /// information on rule set content in the <a>MatchmakingRuleSet</a> structure. For help
-    /// creating rule sets, including useful examples, see the topic <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
-    /// Adding FlexMatch to Your Game</a>.
+    /// acceptable player matches, such as minimum skill level or character type. A rule set
+    /// is used by a <a>MatchmakingConfiguration</a>. 
     /// 
     ///  
     /// <para>
-    /// Once created, matchmaking rule sets cannot be changed or deleted, so we recommend
-    /// checking the rule set syntax using <a>ValidateMatchmakingRuleSet</a> before creating
-    /// the rule set.
+    /// To create a matchmaking rule set, provide unique rule set name and the rule set body
+    /// in JSON format. Rule sets must be defined in the same region as the matchmaking configuration
+    /// they will be used with.
     /// </para><para>
-    /// To create a matchmaking rule set, provide the set of rules and a unique name. Rule
-    /// sets must be defined in the same region as the matchmaking configuration they will
-    /// be used with. Rule sets cannot be edited or deleted. If you need to change a rule
-    /// set, create a new one with the necessary edits and then update matchmaking configurations
-    /// to use the new rule set.
-    /// </para><para>
-    /// Operations related to match configurations and rule sets include:
-    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul>
+    /// Since matchmaking rule sets cannot be edited, it is a good idea to check the rule
+    /// set syntax using <a>ValidateMatchmakingRuleSet</a> before creating a new rule set.
+    /// </para><para><b>Learn more</b></para><ul><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-rulesets.html">Build
+    /// a Rule Set</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-configuration.html">Design
+    /// a Matchmaker</a></para></li><li><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">Matchmaking
+    /// with FlexMatch</a></para></li></ul><para><b>Related operations</b></para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li><li><para><a>DeleteMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLMatchmakingRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingRuleSet")]
@@ -67,8 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a matchmaking rule set. This name is used to identify the rule
-        /// set associated with a matchmaking configuration.</para>
+        /// <para>Unique identifier for a matchmaking rule set. A matchmaking configuration identifies
+        /// the rule set it uses by this name value. (Note: The rule set name is different from
+        /// the optional "name" field in the rule set body.) </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -78,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuleSetBody
         /// <summary>
         /// <para>
-        /// <para>Collection of matchmaking rules, formatted as a JSON string. (Note that comments are
-        /// not allowed in JSON, but most elements support a description field.)</para>
+        /// <para>Collection of matchmaking rules, formatted as a JSON string. Note that comments are
+        /// not allowed in JSON, but most elements support a description field.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

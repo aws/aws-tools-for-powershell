@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MasterRegion
         /// <summary>
         /// <para>
-        /// <para>For Lambda@Edge functions, the region of the master function. For example, <code>us-east-2</code>
+        /// <para>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-2</code>
         /// or <code>ALL</code>. If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</para>
         /// </para>
         /// </summary>
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token returned by a previous request to retrieve the next page
-        /// of results.</para>
+        /// <para>Specify the pagination token that's returned by a previous request to retrieve the
+        /// next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

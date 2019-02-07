@@ -110,6 +110,19 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Vpc_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// A list of up to 5 EC2 VPC security group
+        /// IDs to attach to the Input VPC network interfaces.Requires subnetIds. If none are
+        /// specified then the VPC default security group will be used.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Vpc_SecurityGroupIds")]
+        public System.String[] Vpc_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter Source
         /// <summary>
         /// <para>
@@ -121,6 +134,29 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter]
         [Alias("Sources")]
         public Amazon.MediaLive.Model.InputSourceRequest[] Source { get; set; }
+        #endregion
+        
+        #region Parameter Vpc_SubnetId
+        /// <summary>
+        /// <para>
+        /// A list of 2 VPC subnet IDs from the same VPC.Subnet
+        /// IDs must be mapped to two unique availability zones (AZ).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Vpc_SubnetIds")]
+        public System.String[] Vpc_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A collection of key-value pairs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Type
@@ -182,7 +218,23 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 context.Sources = new List<Amazon.MediaLive.Model.InputSourceRequest>(this.Source);
             }
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             context.Type = this.Type;
+            if (this.Vpc_SecurityGroupId != null)
+            {
+                context.Vpc_SecurityGroupIds = new List<System.String>(this.Vpc_SecurityGroupId);
+            }
+            if (this.Vpc_SubnetId != null)
+            {
+                context.Vpc_SubnetIds = new List<System.String>(this.Vpc_SubnetId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -227,9 +279,42 @@ namespace Amazon.PowerShell.Cmdlets.EML
             {
                 request.Sources = cmdletContext.Sources;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.Type != null)
             {
                 request.Type = cmdletContext.Type;
+            }
+            
+             // populate Vpc
+            bool requestVpcIsNull = true;
+            request.Vpc = new Amazon.MediaLive.Model.InputVpcRequest();
+            List<System.String> requestVpc_vpc_SecurityGroupId = null;
+            if (cmdletContext.Vpc_SecurityGroupIds != null)
+            {
+                requestVpc_vpc_SecurityGroupId = cmdletContext.Vpc_SecurityGroupIds;
+            }
+            if (requestVpc_vpc_SecurityGroupId != null)
+            {
+                request.Vpc.SecurityGroupIds = requestVpc_vpc_SecurityGroupId;
+                requestVpcIsNull = false;
+            }
+            List<System.String> requestVpc_vpc_SubnetId = null;
+            if (cmdletContext.Vpc_SubnetIds != null)
+            {
+                requestVpc_vpc_SubnetId = cmdletContext.Vpc_SubnetIds;
+            }
+            if (requestVpc_vpc_SubnetId != null)
+            {
+                request.Vpc.SubnetIds = requestVpc_vpc_SubnetId;
+                requestVpcIsNull = false;
+            }
+             // determine if request.Vpc should be set to null
+            if (requestVpcIsNull)
+            {
+                request.Vpc = null;
             }
             
             CmdletOutput output;
@@ -302,7 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String RequestId { get; set; }
             public System.String RoleArn { get; set; }
             public List<Amazon.MediaLive.Model.InputSourceRequest> Sources { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public Amazon.MediaLive.InputType Type { get; set; }
+            public List<System.String> Vpc_SecurityGroupIds { get; set; }
+            public List<System.String> Vpc_SubnetIds { get; set; }
         }
         
     }

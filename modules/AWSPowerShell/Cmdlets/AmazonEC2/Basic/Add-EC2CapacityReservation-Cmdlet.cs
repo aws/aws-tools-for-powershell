@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// selectively add capacity reservations and still get the Regional RI discounts for
     /// that usage. By creating Capacity Reservations, you ensure that you always have access
     /// to Amazon EC2 capacity when you need it, for as long as you need it. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">Capacity
     /// Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// Your request to create a Capacity Reservation could fail if Amazon EC2 does not have
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Your request could also fail if the requested quantity exceeds your On-Demand Instance
     /// limit for the selected instance type. If your request fails due to limit constraints,
     /// increase your On-Demand Instance limit for the required instance type and try again.
-    /// For more information about increasing your instance limits, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
+    /// For more information about increasing your instance limits, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html">Amazon
     /// EC2 Service Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para><para>Constraint: Maximum 64 ASCII characters.</para>
         /// </para>
         /// </summary>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type for which to reserve capacity. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
+        /// <para>The instance type for which to reserve capacity. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
         /// Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

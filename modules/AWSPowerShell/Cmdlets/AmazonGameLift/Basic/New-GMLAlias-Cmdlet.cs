@@ -47,8 +47,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a new alias record is returned, including an alias ID, which you can
     /// reference when creating a game session. You can reassign an alias to another fleet
     /// by calling <code>UpdateAlias</code>.
-    /// </para><para>
-    /// Alias-related operations include:
     /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to have a subnet with no running instances (they're all stopped), but no remaining
     /// IP addresses available.
     /// </para><para>
-    /// For more information about subnets, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
+    /// For more information about subnets, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
     /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

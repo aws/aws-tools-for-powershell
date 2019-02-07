@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// interface in the specified subnet with a private IP address from the IP address range
     /// of the subnet. Internet-bound traffic from a private subnet can be routed to the NAT
     /// gateway, therefore enabling instances in the private subnet to connect to the internet.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">NAT
     /// Gateways</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-        /// request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
+        /// request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How
         /// to Ensure Idempotency</a>.</para><para>Constraint: Maximum 64 ASCII characters.</para>
         /// </para>
         /// </summary>

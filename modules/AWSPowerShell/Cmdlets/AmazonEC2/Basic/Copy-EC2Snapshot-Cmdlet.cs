@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Snapshots created by copying another snapshot have an arbitrary volume ID that should
     /// not be used for any purpose.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-copy-snapshot.html">Copying
     /// an Amazon EBS Snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// copy of an unencrypted snapshot, but you cannot use it to create an unencrypted copy
         /// of an encrypted snapshot. Your default CMK for EBS is used unless you specify a non-default
         /// AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>

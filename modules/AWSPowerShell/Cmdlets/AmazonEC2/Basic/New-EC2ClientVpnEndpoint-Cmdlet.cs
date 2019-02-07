@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">
         /// How to Ensure Idempotency</a>.</para>
         /// </para>
         /// </summary>
@@ -142,6 +142,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String ServerCertificateArn { get; set; }
         #endregion
         
+        #region Parameter TagSpecification
+        /// <summary>
+        /// <para>
+        /// <para>The tags to apply to the Client VPN endpoint during creation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagSpecifications")]
+        public Amazon.EC2.Model.TagSpecification[] TagSpecification { get; set; }
+        #endregion
+        
         #region Parameter TransportProtocol
         /// <summary>
         /// <para>
@@ -198,6 +209,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.DnsServers = new List<System.String>(this.DnsServer);
             }
             context.ServerCertificateArn = this.ServerCertificateArn;
+            if (this.TagSpecification != null)
+            {
+                context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
+            }
             context.TransportProtocol = this.TransportProtocol;
             
             // allow further manipulation of loaded context prior to processing
@@ -278,6 +293,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ServerCertificateArn = cmdletContext.ServerCertificateArn;
             }
+            if (cmdletContext.TagSpecifications != null)
+            {
+                request.TagSpecifications = cmdletContext.TagSpecifications;
+            }
             if (cmdletContext.TransportProtocol != null)
             {
                 request.TransportProtocol = cmdletContext.TransportProtocol;
@@ -355,6 +374,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Description { get; set; }
             public List<System.String> DnsServers { get; set; }
             public System.String ServerCertificateArn { get; set; }
+            public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
             public Amazon.EC2.TransportProtocol TransportProtocol { get; set; }
         }
         

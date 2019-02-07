@@ -39,9 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// alias ID. You can filter this request by game session status. Use the pagination parameters
     /// to retrieve results as a set of sequential pages. If successful, a <a>GameSession</a>
     /// object is returned for each game session matching the request.
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para>
-    /// Game-session-related operations include:
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
     /// Game session placements
     /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

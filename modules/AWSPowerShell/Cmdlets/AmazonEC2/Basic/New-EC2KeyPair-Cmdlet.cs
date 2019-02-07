@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If you prefer, you can create your own key pair using a third-party tool and upload
     /// it to any region using <a>ImportKeyPair</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
     /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

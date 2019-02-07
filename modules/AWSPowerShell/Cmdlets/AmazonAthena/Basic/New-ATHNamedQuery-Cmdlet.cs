@@ -28,7 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Creates a named query.
+    /// Creates a named query in the specified workgroup. Requires that you have access to
+    /// the workgroup.
     /// 
     ///  
     /// <para>
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A brief explanation of the query.</para>
+        /// <para>The query description.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The plain language name for the query.</para>
+        /// <para>The query name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -94,11 +95,21 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The text of the query itself. In other words, all query statements.</para>
+        /// <para>The contents of the query with all query statements.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String QueryString { get; set; }
+        #endregion
+        
+        #region Parameter WorkGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup in which the named query is being created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String WorkGroup { get; set; }
         #endregion
         
         #region Parameter Force
@@ -135,6 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             context.Description = this.Description;
             context.Name = this.Name;
             context.QueryString = this.QueryString;
+            context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -170,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (cmdletContext.QueryString != null)
             {
                 request.QueryString = cmdletContext.QueryString;
+            }
+            if (cmdletContext.WorkGroup != null)
+            {
+                request.WorkGroup = cmdletContext.WorkGroup;
             }
             
             CmdletOutput output;
@@ -240,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String QueryString { get; set; }
+            public System.String WorkGroup { get; set; }
         }
         
     }

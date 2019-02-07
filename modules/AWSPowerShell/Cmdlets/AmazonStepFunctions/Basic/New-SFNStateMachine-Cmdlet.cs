@@ -32,6 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// do work (<code>Task</code> states), determine to which states to transition next (<code>Choice</code>
     /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
     /// machines are specified using a JSON-based, structured language.
+    /// 
+    ///  <note><para>
+    /// This operation is eventually consistent. The results are best effort and may not reflect
+    /// very recent updates and changes.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateStateMachineResponse")]
@@ -45,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The Amazon States Language definition of the state machine. See <a href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
+        /// <para>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
         /// States Language</a>.</para>
         /// </para>
         /// </summary>
@@ -71,6 +76,17 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be added when creating a state machine.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StepFunctions.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -105,6 +121,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             context.Definition = this.Definition;
             context.Name = this.Name;
             context.RoleArn = this.RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StepFunctions.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +152,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             if (cmdletContext.RoleArn != null)
             {
                 request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -200,6 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
             public System.String Definition { get; set; }
             public System.String Name { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.StepFunctions.Model.Tag> Tags { get; set; }
         }
         
     }

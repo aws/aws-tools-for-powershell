@@ -68,7 +68,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxRecords")]
+        [Alias("MaxRecords")]
         public System.Int32 MaxRecord { get; set; }
         #endregion
         

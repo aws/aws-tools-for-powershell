@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The Amazon S3 canned ACL that controls access to the object identified by the object
-        /// key. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3
+        /// key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3
         /// canned ACLs</a>.</para>
         /// </para>
         /// </summary>
@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <para>(Optional) The message format of the message to publish. Accepted values are "JSON"
         /// and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine
         /// if the payload should be parsed and relevant platform-specific bits of the payload
-        /// should be extracted. To read more about SNS message formats, see <a href="http://docs.aws.amazon.com/sns/latest/dg/json-formats.html">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a>
+        /// should be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a>
         /// refer to their official documentation.</para>
         /// </para>
         /// </summary>
@@ -307,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter CloudwatchMetric_MetricTimestamp
         /// <summary>
         /// <para>
-        /// <para>An optional <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix
+        /// <para>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix
         /// timestamp</a>.</para>
         /// </para>
         /// </summary>
@@ -319,7 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter CloudwatchMetric_MetricUnit
         /// <summary>
         /// <para>
-        /// <para>The <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
+        /// <para>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric
         /// unit</a> supported by CloudWatch.</para>
         /// </para>
         /// </summary>
@@ -612,7 +612,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter TopicRulePayload_Sql
         /// <summary>
         /// <para>
-        /// <para>The SQL statement used to query the topic. For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS
+        /// <para>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS
         /// IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</para>
         /// </para>
         /// </summary>

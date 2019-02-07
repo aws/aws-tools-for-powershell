@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.SD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
             }
             if (cmdletContext.MaxResults != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
+                request.MaxResults = cmdletContext.MaxResults.Value;
             }
             if (cmdletContext.NamespaceName != null)
             {
@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
         internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ServiceDiscovery.HealthStatusFilter HealthStatus { get; set; }
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NamespaceName { get; set; }
             public Dictionary<System.String, System.String> QueryParameters { get; set; }
             public System.String ServiceName { get; set; }

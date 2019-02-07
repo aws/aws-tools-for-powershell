@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter CatalogId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Data Catalog in which to create the connection. If none is supplied,
+        /// <para>The ID of the Data Catalog in which to create the connection. If none is provided,
         /// the AWS account ID is used by default.</para>
         /// </para>
         /// </summary>

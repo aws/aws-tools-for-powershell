@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Revokes function use permission from an AWS service or another account. You can get
+    /// Revokes function-use permission from an AWS service or another account. You can get
     /// the ID of the statement from the output of <a>GetPolicy</a>.
     /// </summary>
     [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Only update the policy if the revision ID matches the ID specified. Use this option
-        /// to avoid modifying a policy that has changed since you last read it.</para>
+        /// <para>Only update the policy if the revision ID matches the ID that's specified. Use this
+        /// option to avoid modifying a policy that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

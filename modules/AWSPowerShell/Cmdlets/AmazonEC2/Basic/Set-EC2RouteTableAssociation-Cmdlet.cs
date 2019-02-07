@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Changes the route table associated with a given subnet in a VPC. After the operation
     /// completes, the subnet uses the routes in the new route table it's associated with.
-    /// For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
+    /// For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  

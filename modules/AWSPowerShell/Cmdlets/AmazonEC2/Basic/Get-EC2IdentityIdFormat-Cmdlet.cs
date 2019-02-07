@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// or root user. For example, you can view the resource types that are enabled for longer
     /// IDs. This request only returns information about resource types whose ID formats can
     /// be modified; it does not return information about other resource types. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
     /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
     /// 
     ///  

@@ -32,10 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// operation returns all VPC peering authorizations and requests for peering. This includes
     /// those initiated and received by this account. 
     /// 
-    ///  
-    /// <para>
-    /// VPC peering connection operations include:
-    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
+    ///  <ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLVpcPeeringAuthorization")]
     [OutputType("Amazon.GameLift.Model.VpcPeeringAuthorization")]

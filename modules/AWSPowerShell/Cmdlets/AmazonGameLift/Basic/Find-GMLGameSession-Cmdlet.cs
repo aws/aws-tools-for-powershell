@@ -68,8 +68,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// multiple fleets, you must search each fleet separately and combine the results. This
     /// search feature finds only game sessions that are in <code>ACTIVE</code> status. To
     /// locate games in statuses other than active, use <a>DescribeGameSessionDetails</a>.
-    /// </para><para>
-    /// Game-session-related operations include:
     /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
     /// Game session placements
     /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.

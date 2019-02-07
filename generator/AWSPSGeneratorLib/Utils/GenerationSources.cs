@@ -99,12 +99,6 @@ namespace AWSPowerShellGenerator.Utils
             NDocs.Add(baseName, ndoc);
         }
 
-        struct DotNetPlatformAndArtifacts
-        {
-            public string ProjectFile { get; set; }
-            public string ModuleManifestFile { get; set; }
-        }
-
         /// <summary>
         /// Updates the references to the SDK assemblies in the project files and nuget package
         /// configs, and sdk references and exported aliases data in the module manifests. Adding
@@ -120,20 +114,19 @@ namespace AWSPowerShellGenerator.Utils
         /// </param>
         public void UpdateReferencesAndExports(string moduleRootFolder, IEnumerable<string> legacyAliases)
         {
-            var projectFiles = new[]            
+            var projectFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellProjectFilename);
+            UpdateProjectReferences(projectFile);
+
+
+            var manifestFiles = new[]
             {
-                new DotNetPlatformAndArtifacts
-                {
-                    ProjectFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellProjectFilename),
-                    ModuleManifestFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename)
-                }
+                Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename),
+                Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellNetCoreModuleManifestFilename)
             };
 
-            foreach (var p in projectFiles)
+            foreach (var manifestFile in manifestFiles)
             {
-                UpdateProjectReferences(p.ProjectFile);
-                UpdateManifestRequiredAssemblies(p.ModuleManifestFile);
-                UpdateManifestAliasExports(p.ModuleManifestFile, legacyAliases);
+                UpdateManifestRequiredAssemblies(manifestFile);
             }
         }
 
@@ -372,23 +365,6 @@ namespace AWSPowerShellGenerator.Utils
             }
 
             PatchManifestContent(moduleManifestFile, "RequiredAssemblies = @(", replacementContent.ToString());
-        }
-
-        /// <summary>
-        /// Patches the specified aliases into the AliasesToExport member of the manifest.
-        /// </summary>
-        /// <param name="moduleManifestFile"></param>
-        /// <param name="exportedAliases"></param>
-        private void UpdateManifestAliasExports(string moduleManifestFile, IEnumerable<string> exportedAliases)
-        {
-            var replacementContent = new StringBuilder();
-            foreach (var alias in exportedAliases)
-            {
-                replacementContent.AppendLine();
-                replacementContent.AppendFormat("  \"{0}\",", alias); 
-            }
-
-            PatchManifestContent(moduleManifestFile, "AliasesToExport = @(", replacementContent.ToString());
         }
 
         /// <summary>

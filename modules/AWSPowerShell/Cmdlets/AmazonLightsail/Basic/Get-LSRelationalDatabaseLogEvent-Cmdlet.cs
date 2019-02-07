@@ -102,7 +102,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String PageToken { get; set; }
         #endregion
         

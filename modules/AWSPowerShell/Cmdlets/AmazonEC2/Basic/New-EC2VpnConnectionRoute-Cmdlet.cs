@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
+    /// For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html">AWS
     /// Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.
     /// </para>
     /// </summary>

@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// A security group is for use with instances either in the EC2-Classic platform or in
-    /// a specific VPC. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
+    /// a specific VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
     /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i> and
-    /// <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
+    /// <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
     /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

@@ -43,6 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </para><para>
     /// You can view the scheduled actions using <a>DescribeScheduledActions</a>. If you are
     /// no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
+    /// </para><para>
+    /// Learn more about how to work with scheduled actions in the <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/what-is-application-auto-scaling.html">Application
+    /// Auto Scaling User Guide</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "AASScheduledAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -111,9 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter ScalableDimension
         /// <summary>
         /// <para>
-        /// <para>The scalable dimension. This parameter is required if you are creating a scheduled
-        /// action. This string consists of the service namespace, resource type, and scaling
-        /// property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
+        /// <para>The scalable dimension. This string consists of the service namespace, resource type,
+        /// and scaling property.</para><ul><li><para><code>ecs:service:DesiredCount</code> - The desired task count of an ECS service.</para></li><li><para><code>ec2:spot-fleet-request:TargetCapacity</code> - The target capacity of a Spot
         /// fleet request.</para></li><li><para><code>elasticmapreduce:instancegroup:InstanceCount</code> - The instance count of
         /// an EMR Instance Group.</para></li><li><para><code>appstream:fleet:DesiredCapacity</code> - The desired capacity of an AppStream
         /// 2.0 fleet.</para></li><li><para><code>dynamodb:table:ReadCapacityUnits</code> - The provisioned read capacity for

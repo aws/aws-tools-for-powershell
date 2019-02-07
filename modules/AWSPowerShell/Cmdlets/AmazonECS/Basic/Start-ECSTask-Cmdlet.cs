@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// Alternatively, you can use <a>RunTask</a> to place tasks for you. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used. There is a limit of five security
-        /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// group, the default security group for the VPC is used. There is a limit of 5 security
+        /// groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,8 +175,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets able
-        /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets that
+        /// can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

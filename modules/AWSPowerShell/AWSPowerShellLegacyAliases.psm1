@@ -9,6 +9,15 @@ Set-Alias -Name Initialize-AWSDefaults -Value Initialize-AWSDefaultConfiguration
 Set-Alias -Name New-AWSCredentials -Value New-AWSCredential
 Set-Alias -Name Set-AWSCredentials -Value Set-AWSCredential
 
+# Alexa For Business
+Set-Alias -Name Remove-ALXBSmartHomeAppliances -Value Remove-ALXBSmartHomeAppliance
+
+# Amazon API Gateway V2
+Set-Alias -Name Get-AG2ApiLis -Value Get-AG2ApiList
+
+# Amazon Backup
+Set-Alias -Name Remove-BAKBackupVaultNotifications -Value Remove-BAKBackupVaultNotification
+
 # Amazon CloudFront
 Set-Alias -Name Get-CFCloudFrontOriginAccessIdentities -Value Get-CFCloudFrontOriginAccessIdentityList
 Set-Alias -Name Get-CFDistributions -Value Get-CFDistributionList
@@ -45,7 +54,9 @@ Set-Alias -Name Get-CWLSubscriptionFilters -Value Get-CWLSubscriptionFilter
 Set-Alias -Name Write-CWLLogEvents -Value Write-CWLLogEvent
 
 # Amazon DynamoDB
+Set-Alias -Name Get-DDBBackupsList -Value Get-DDBBackupList
 Set-Alias -Name Get-DDBTables -Value Get-DDBTableList
+Set-Alias -Name Get-GlobalTablesList -Value Get-GlobalTableList
 
 # Amazon EC2 Container Service
 Set-Alias -Name Get-ECSClusters -Value Get-ECSClusterList
@@ -93,6 +104,9 @@ Set-Alias -Name Add-ESTag -Value Add-ESResourceTag
 Set-Alias -Name Get-ESTag -Value Get-ESResourceTag
 Set-Alias -Name Remove-ESTag -Value Remove-ESResourceTag
 
+# Amazon Glacier
+Set-Alias -Name Get-GLCVaultTagsList -Value Get-GLCVaultTagList
+
 # Amazon Kinesis
 Set-Alias -Name Get-KINStreams -Value Get-KINStreamList
 
@@ -126,6 +140,9 @@ Set-Alias -Name Get-RSReservedNodes -Value Get-RSReservedNode
 Set-Alias -Name Get-RSTags -Value Get-RSResourceTag
 Set-Alias -Name New-RSTags -Value New-RSResourceTag
 Set-Alias -Name Remove-RSTags -Value Remove-RSResourceTag
+
+# Amazon Rekognition
+Set-Alias -Name Get-REKStreamProcessorsList -Value Get-REKStreamProcessorList
 
 # Amazon Relational Database Service
 Set-Alias -Name Get-RDSAccountAttributes -Value Get-RDSAccountAttribute
@@ -194,6 +211,9 @@ Set-Alias -Name Get-ASAccountLimits -Value Get-ASAccountLimit
 Set-Alias -Name Get-ASLifecycleHooks -Value Get-ASLifecycleHook
 Set-Alias -Name Get-ASLifecycleHookTypes -Value Get-ASLifecycleHookType
 
+# AWS Batch
+Set-Alias -Name Get-BATJobsList -Value Get-BATJobList
+
 # AWS Cloud HSM
 Set-Alias -Name Get-HSMAvailableZones -Value Get-HSMAvailableZone
 
@@ -253,6 +273,9 @@ Set-Alias -Name Get-EBEnvironmentResources -Value Get-EBEnvironmentResource
 Set-Alias -Name Set-EBEnvironmentCNAMEs -Value Set-EBEnvironmentCNAME
 Set-Alias -Name Test-EBConfigurationSettings -Value Test-EBConfigurationSetting
 
+# AWS Glue
+Set-Alias -Name Get-GLUECrawlerMetricsList -Value Get-GLUECrawlerMetricList
+
 # AWS Identity and Access Management
 Set-Alias -Name Get-IAMAccountAuthorizationDetails -Value Get-IAMAccountAuthorizationDetail
 Set-Alias -Name Get-IAMAttachedGroupPolicies -Value Get-IAMAttachedGroupPolicyList
@@ -271,8 +294,23 @@ Set-Alias -Name Get-IAMServerCertificates -Value Get-IAMServerCertificateList
 Set-Alias -Name Get-IAMUserPolicies -Value Get-IAMUserPolicyList
 Set-Alias -Name Get-IAMUsers -Value Get-IAMUserList
 
+# AWS Import/Export Snowball
+Set-Alias -Name Get-SNOWJobsList -Value Get-SNOWJobList
+
 # AWS IoT
+Set-Alias -Name Get-IOTAttachedPoliciesList -Value Get-IOTAttachedPolicyList
+Set-Alias -Name Get-IOTAuthorizersList -Value Get-IOTAuthorizerList
+Set-Alias -Name Get-IOTIndicesList -Value Get-IOTIndexList
+Set-Alias -Name Get-IOTJobsList -Value Get-IOTJobList
 Set-Alias -Name Get-IOTLoggingOptions -Value Get-IOTLoggingOption
+Set-Alias -Name Get-IOTPolicyPrincipalsList -Value Get-IOTPolicyPrincipalList
+Set-Alias -Name Get-IOTRoleAliasesList -Value Get-IOTRoleAliasList
+Set-Alias -Name Get-IOTThingGroupsList -Value Get-IOTThingGroupList
+Set-Alias -Name Get-IOTThingRegistrationTaskReportsList -Value Get-IOTThingRegistrationTaskReportList
+Set-Alias -Name Get-IOTThingRegistrationTasksList -Value Get-IOTThingRegistrationTaskList
+Set-Alias -Name Get-IOTThingTypesList -Value Get-IOTThingTypeList
+Set-Alias -Name Get-IOTV2LoggingLevelsList -Value Get-IOTV2LoggingLevelList
+Set-Alias -Name Get-IOTViolationEventsList -Value Get-IOTViolationEventList
 Set-Alias -Name Set-IOTLoggingOptions -Value Set-IOTLoggingOption
 
 # AWS Key Management Service
@@ -305,6 +343,10 @@ Set-Alias -Name Get-OPSVolumes -Value Get-OPSVolume
 # AWS Organizations
 Set-Alias -Name Enable-ORGAllFeatures -Value Enable-ORGAllFeature
 
+# AWS Service Catalog
+Set-Alias -Name Get-SCAcceptedPortfolioSharesList -Value Get-SCAcceptedPortfolioShareList
+Set-Alias -Name Get-SCProductPortfoliosList -Value Get-SCProductPortfolioList
+
 # AWS Storage Gateway
 Set-Alias -Name Get-SGChapCredentials -Value Get-SGChapCredential
 Set-Alias -Name Get-SGResourceTags -Value Get-SGResourceTag
@@ -327,8 +369,12 @@ Set-Alias -Name Get-ASATrustedAdvisorChecks -Value Get-ASATrustedAdvisorCheck
 Set-Alias -Name Get-ASATrustedAdvisorCheckSummaries -Value Get-ASATrustedAdvisorCheckSummary
 
 # AWS Systems Manager
+Set-Alias -Name Get-SSMComplianceItemsList -Value Get-SSMComplianceItemList
+Set-Alias -Name Get-SSMComplianceSummariesList -Value Get-SSMComplianceSummaryList
+Set-Alias -Name Get-SSMInventoryEntriesList -Value Get-SSMInventoryEntryList
 Set-Alias -Name Get-SSMMaintenanceWindowTargets -Value Get-SSMMaintenanceWindowTarget
 Set-Alias -Name Get-SSMParameterNameList -Value Get-SSMParameterValue
+Set-Alias -Name Get-SSMResourceComplianceSummariesList -Value Get-SSMResourceComplianceSummaryList
 
 # Elastic Load Balancing
 Set-Alias -Name Add-ELBTags -Value Add-ELBResourceTag

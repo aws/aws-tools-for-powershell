@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can allocate an Elastic IP address from an address pool owned by AWS or from an
     /// address pool created from a public IPv4 address range that you have brought to AWS
     /// for use with your AWS resources using bring your own IP addresses (BYOIP). For more
-    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html">Bring
     /// Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// [EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
     /// Elastic IP addresses for EC2-VPC per region.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

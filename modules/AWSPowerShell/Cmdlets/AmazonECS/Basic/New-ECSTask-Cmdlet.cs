@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <para>
     /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
     /// places tasks using placement constraints and placement strategies. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
     /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter LaunchType
         /// <summary>
         /// <para>
-        /// <para>The launch type on which to run your task. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+        /// <para>The launch type on which to run your task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
         /// ECS Launch Types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The platform version the task should run. A platform version is only specified for
         /// tasks using the Fargate launch type. If one is not specified, the <code>LATEST</code>
-        /// platform version is used by default. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
+        /// platform version is used by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">AWS
         /// Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.</para>
         /// </para>
@@ -220,8 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The security groups associated with the task or service. If you do not specify a security
-        /// group, the default security group for the VPC is used. There is a limit of five security
-        /// groups able to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
+        /// group, the default security group for the VPC is used. There is a limit of 5 security
+        /// groups that can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified security groups must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,8 +248,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter AwsvpcConfiguration_Subnet
         /// <summary>
         /// <para>
-        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets able
-        /// to be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
+        /// <para>The subnets associated with the task or service. There is a limit of 16 subnets that
+        /// can be specified per <code>AwsVpcConfiguration</code>.</para><note><para>All specified subnets must be from the same VPC.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

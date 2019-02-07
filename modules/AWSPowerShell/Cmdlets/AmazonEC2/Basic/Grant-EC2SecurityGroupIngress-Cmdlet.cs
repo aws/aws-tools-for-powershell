@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// to access a security group in your VPC, or gives one or more other security groups
     /// (called the <i>source groups</i>) permission to access a security group for your VPC.
     /// The security groups must all be for the same VPC or a peer VPC in a VPC peering connection.
-    /// For more information about VPC security group limits, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
+    /// For more information about VPC security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
     /// VPC Limits</a>.
     /// </para><para>
     /// You can optionally specify a description for the security group rule.

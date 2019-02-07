@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class NewEMLInputSecurityGroupCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A collection of key-value pairs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter WhitelistRule
         /// <summary>
         /// <para>
@@ -80,6 +91,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.WhitelistRule != null)
             {
                 context.WhitelistRules = new List<Amazon.MediaLive.Model.InputWhitelistRuleCidr>(this.WhitelistRule);
@@ -100,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.CreateInputSecurityGroupRequest();
             
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.WhitelistRules != null)
             {
                 request.WhitelistRules = cmdletContext.WhitelistRules;
@@ -168,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public List<Amazon.MediaLive.Model.InputWhitelistRuleCidr> WhitelistRules { get; set; }
         }
         

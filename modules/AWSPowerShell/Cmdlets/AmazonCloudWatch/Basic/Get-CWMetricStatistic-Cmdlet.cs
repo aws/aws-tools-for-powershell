@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para><para>
     /// CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
     /// </para><para>
-    /// For information about metrics and dimensions supported by AWS services, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon
+    /// For information about metrics and dimensions supported by AWS services, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon
     /// CloudWatch Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para>
     /// </summary>
@@ -97,9 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// for each dimension. CloudWatch treats each unique combination of dimensions as a separate
         /// metric. If a specific combination of dimensions was not published, you can't retrieve
         /// statistics for it. You must specify the same dimensions that were used when the metrics
-        /// were created. For an example, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension
+        /// were created. For an example, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension
         /// Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information
-        /// about specifying dimensions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
+        /// about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
         /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</para>
         /// </para>
         /// </summary>

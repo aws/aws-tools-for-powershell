@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String InputSecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A collection of key-value pairs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter WhitelistRule
         /// <summary>
         /// <para>
@@ -92,6 +103,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             PreExecutionContextLoad(context);
             
             context.InputSecurityGroupId = this.InputSecurityGroupId;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.WhitelistRule != null)
             {
                 context.WhitelistRules = new List<Amazon.MediaLive.Model.InputWhitelistRuleCidr>(this.WhitelistRule);
@@ -115,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.InputSecurityGroupId != null)
             {
                 request.InputSecurityGroupId = cmdletContext.InputSecurityGroupId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.WhitelistRules != null)
             {
@@ -185,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String InputSecurityGroupId { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public List<Amazon.MediaLive.Model.InputWhitelistRuleCidr> WhitelistRules { get; set; }
         }
         

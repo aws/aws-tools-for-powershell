@@ -190,6 +190,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public Amazon.SimpleSystemsManagement.Model.PatchSource[] Source { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
+        /// in different ways, such as by purpose, owner, or environment. For example, you might
+        /// want to tag a patch baseline to identify the severity level of patches it specifies
+        /// and the operating system family it applies to. In this case, you could specify the
+        /// following key name/value pairs:</para><ul><li><para><code>Key=PatchSeverity,Value=Critical</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li></ul><note><para>To add tags to an existing patch baseline, use the <a>AddTagsToResource</a> action.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -246,6 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (this.Source != null)
             {
                 context.Sources = new List<Amazon.SimpleSystemsManagement.Model.PatchSource>(this.Source);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -341,6 +360,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.Sources = cmdletContext.Sources;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -417,6 +440,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public List<System.String> RejectedPatches { get; set; }
             public Amazon.SimpleSystemsManagement.PatchAction RejectedPatchesAction { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchSource> Sources { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tags { get; set; }
         }
         
     }

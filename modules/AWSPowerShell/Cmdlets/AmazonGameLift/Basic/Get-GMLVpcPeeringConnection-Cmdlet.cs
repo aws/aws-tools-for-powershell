@@ -38,8 +38,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// empty to retrieve all connection records. If successful, the retrieved information
     /// includes both active and pending connections. Active connections identify the IpV4
     /// CIDR block that the VPC uses to connect. 
-    /// </para><para>
-    /// VPC peering connection operations include:
     /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLVpcPeeringConnection")]

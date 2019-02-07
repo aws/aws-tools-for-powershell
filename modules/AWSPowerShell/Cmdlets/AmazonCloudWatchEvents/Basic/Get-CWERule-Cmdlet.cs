@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// <para>
     /// ListRules does not list the targets of a rule. To see the targets associated with
     /// a rule, use <a>ListTargetsByRule</a>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWERule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Rule")]
@@ -63,6 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <para>
         /// <para>The maximum number of results to return.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
@@ -73,6 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         /// <summary>
         /// <para>
         /// <para>The token returned by a previous call to retrieve the next set of results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,46 +116,88 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.CloudWatchEvents.Model.ListRulesRequest();
             
-            if (cmdletContext.Limit != null)
-            {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
-            }
+            // create request and set iteration invariants
+            var request = new Amazon.CloudWatchEvents.Model.ListRulesRequest();
             if (cmdletContext.NamePrefix != null)
             {
                 request.NamePrefix = cmdletContext.NamePrefix;
             }
-            if (cmdletContext.NextToken != null)
+            
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
-                request.NextToken = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.NextToken;
             }
+            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            {
+                _emitLimit = cmdletContext.Limit;
+            }
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("Limit");
+            bool _continueIteration = true;
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Rules;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Rules;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.Rules.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class UpdateIOTSecurityProfileCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter AdditionalMetricsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>A list of metrics whose data is retained (stored). By default, data is retained for
+        /// any metric used in the profile's <code>behaviors</code> but it is also retained for
+        /// any metric specified here.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] AdditionalMetricsToRetain { get; set; }
+        #endregion
+        
         #region Parameter AlertTarget
         /// <summary>
         /// <para>
@@ -59,6 +71,42 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("Behaviors")]
         public Amazon.IoT.Model.Behavior[] Behavior { get; set; }
+        #endregion
+        
+        #region Parameter DeleteAdditionalMetricsToRetain
+        /// <summary>
+        /// <para>
+        /// <para>If true, delete all <code>additionalMetricsToRetain</code> defined for this security
+        /// profile. If any <code>additionalMetricsToRetain</code> are defined in the current
+        /// invocation an exception occurs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeleteAdditionalMetricsToRetain { get; set; }
+        #endregion
+        
+        #region Parameter DeleteAlertTarget
+        /// <summary>
+        /// <para>
+        /// <para>If true, delete all <code>alertTargets</code> defined for this security profile. If
+        /// any <code>alertTargets</code> are defined in the current invocation an exception occurs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteAlertTargets")]
+        public System.Boolean DeleteAlertTarget { get; set; }
+        #endregion
+        
+        #region Parameter DeleteBehavior
+        /// <summary>
+        /// <para>
+        /// <para>If true, delete all <code>behaviors</code> defined for this security profile. If any
+        /// <code>behaviors</code> are defined in the current invocation an exception occurs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteBehaviors")]
+        public System.Boolean DeleteBehavior { get; set; }
         #endregion
         
         #region Parameter ExpectedVersion
@@ -122,6 +170,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AdditionalMetricsToRetain != null)
+            {
+                context.AdditionalMetricsToRetain = new List<System.String>(this.AdditionalMetricsToRetain);
+            }
             if (this.AlertTarget != null)
             {
                 context.AlertTargets = new Dictionary<System.String, Amazon.IoT.Model.AlertTarget>(StringComparer.Ordinal);
@@ -134,6 +186,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 context.Behaviors = new List<Amazon.IoT.Model.Behavior>(this.Behavior);
             }
+            if (ParameterWasBound("DeleteAdditionalMetricsToRetain"))
+                context.DeleteAdditionalMetricsToRetain = this.DeleteAdditionalMetricsToRetain;
+            if (ParameterWasBound("DeleteAlertTarget"))
+                context.DeleteAlertTargets = this.DeleteAlertTarget;
+            if (ParameterWasBound("DeleteBehavior"))
+                context.DeleteBehaviors = this.DeleteBehavior;
             if (ParameterWasBound("ExpectedVersion"))
                 context.ExpectedVersion = this.ExpectedVersion;
             context.SecurityProfileDescription = this.SecurityProfileDescription;
@@ -154,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.UpdateSecurityProfileRequest();
             
+            if (cmdletContext.AdditionalMetricsToRetain != null)
+            {
+                request.AdditionalMetricsToRetain = cmdletContext.AdditionalMetricsToRetain;
+            }
             if (cmdletContext.AlertTargets != null)
             {
                 request.AlertTargets = cmdletContext.AlertTargets;
@@ -161,6 +223,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.Behaviors != null)
             {
                 request.Behaviors = cmdletContext.Behaviors;
+            }
+            if (cmdletContext.DeleteAdditionalMetricsToRetain != null)
+            {
+                request.DeleteAdditionalMetricsToRetain = cmdletContext.DeleteAdditionalMetricsToRetain.Value;
+            }
+            if (cmdletContext.DeleteAlertTargets != null)
+            {
+                request.DeleteAlertTargets = cmdletContext.DeleteAlertTargets.Value;
+            }
+            if (cmdletContext.DeleteBehaviors != null)
+            {
+                request.DeleteBehaviors = cmdletContext.DeleteBehaviors.Value;
             }
             if (cmdletContext.ExpectedVersion != null)
             {
@@ -238,8 +312,12 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<System.String> AdditionalMetricsToRetain { get; set; }
             public Dictionary<System.String, Amazon.IoT.Model.AlertTarget> AlertTargets { get; set; }
             public List<Amazon.IoT.Model.Behavior> Behaviors { get; set; }
+            public System.Boolean? DeleteAdditionalMetricsToRetain { get; set; }
+            public System.Boolean? DeleteAlertTargets { get; set; }
+            public System.Boolean? DeleteBehaviors { get; set; }
             public System.Int64? ExpectedVersion { get; set; }
             public System.String SecurityProfileDescription { get; set; }
             public System.String SecurityProfileName { get; set; }

@@ -32,13 +32,13 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    /// This operation forcibly breaks any mounts of the file system via the mount target
+    /// This operation forcibly breaks any mounts of the file system by using the mount target
     /// that is being deleted, which might disrupt instances or applications using those mounts.
     /// To avoid applications getting cut off abruptly, you might consider unmounting any
     /// mounts of the mount target, if feasible. The operation also deletes the associated
-    /// network interface. Uncommitted writes may be lost, but breaking a mount target using
+    /// network interface. Uncommitted writes might be lost, but breaking a mount target using
     /// this operation does not corrupt the file system itself. The file system you created
-    /// remains. You can mount an EC2 instance in your VPC via another mount target.
+    /// remains. You can mount an EC2 instance in your VPC by using another mount target.
     /// </para><para>
     /// This operation requires permissions for the following action on the file system:
     /// </para><ul><li><para><code>elasticfilesystem:DeleteMountTarget</code></para></li></ul><note><para>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter MountTargetId
         /// <summary>
         /// <para>
-        /// <para>ID of the mount target to delete (String).</para>
+        /// <para>The ID of the mount target to delete (String).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

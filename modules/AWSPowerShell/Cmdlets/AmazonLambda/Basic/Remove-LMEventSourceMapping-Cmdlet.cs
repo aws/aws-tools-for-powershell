@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Deletes an <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event
+    /// Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event
     /// source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.
     /// </summary>
     [Cmdlet("Remove", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

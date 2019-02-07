@@ -153,6 +153,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String StartDate { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
+        /// in different ways, such as by purpose, owner, or environment. For example, you might
+        /// want to tag a Maintenance Window to identify the type of tasks it will run, the types
+        /// of targets, and the environment it will run in. In this case, you could specify the
+        /// following key name/value pairs:</para><ul><li><para><code>Key=TaskType,Value=AgentUpdate</code></para></li><li><para><code>Key=OS,Value=Windows</code></para></li><li><para><code>Key=Environment,Value=Production</code></para></li></ul><note><para>To add tags to an existing Maintenance Window, use the <a>AddTagsToResource</a> action.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -195,6 +210,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Schedule = this.Schedule;
             context.ScheduleTimezone = this.ScheduleTimezone;
             context.StartDate = this.StartDate;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -250,6 +269,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.StartDate != null)
             {
                 request.StartDate = cmdletContext.StartDate;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -325,6 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String Schedule { get; set; }
             public System.String ScheduleTimezone { get; set; }
             public System.String StartDate { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tags { get; set; }
         }
         
     }

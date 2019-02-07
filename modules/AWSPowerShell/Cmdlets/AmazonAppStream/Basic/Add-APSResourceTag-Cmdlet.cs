@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate
     /// tags from your resources, use <a>UntagResource</a>.
     /// </para><para>
-    /// For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
+    /// For more information about tags, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic.html">Tagging
     /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -66,9 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The tags to associate. A tag is a key-value pair (the value is optional). For example,
-        /// <code>Environment=Test</code>, or, if you do not specify a value, <code>Environment=</code>.
-        /// </para><para>If you do not specify a value, we set the value to an empty string.</para>
+        /// <para>The tags to associate. A tag is a key-value pair, and the value is optional. For example,
+        /// Environment=Test. If you do not specify a value, Environment=. </para><para>If you do not specify a value, the value is set to an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

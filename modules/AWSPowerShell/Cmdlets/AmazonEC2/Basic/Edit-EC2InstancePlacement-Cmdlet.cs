@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Modifies the placement attributes for a specified instance. You can do the following:
     /// 
     ///  <ul><li><para>
-    /// Modify the affinity between an instance and a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+    /// Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
     /// Host</a>. When affinity is set to <code>host</code> and the instance is not associated
     /// with a specific Dedicated Host, the next time the instance is launched, it is automatically
     /// associated with the host on which it lands. If the instance is restarted or rebooted,
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Change the instance tenancy of an instance from <code>host</code> to <code>dedicated</code>,
     /// or from <code>dedicated</code> to <code>host</code>.
     /// </para></li><li><para>
-    /// Move an instance to or from a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
+    /// Move an instance to or from a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
     /// group</a>.
     /// </para></li></ul><para>
     /// At least one attribute for affinity, host ID, tenancy, or placement group name must

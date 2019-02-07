@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
 {
     /// <summary>
     /// Suspends up to 50 users from a <code>Team</code> or <code>EnterpriseLWA</code> Amazon
-    /// Chime account. For more information about different account types, see <a href="http://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
+    /// Chime account. For more information about different account types, see <a href="https://docs.aws.amazon.com/chime/latest/ag/manage-chime-account.html">Managing
     /// Your Amazon Chime Accounts</a> in the <i>Amazon Chime Administration Guide</i>.
     /// 
     ///  

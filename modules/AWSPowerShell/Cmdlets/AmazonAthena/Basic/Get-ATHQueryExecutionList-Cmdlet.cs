@@ -28,7 +28,8 @@ using Amazon.Athena.Model;
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
-    /// Provides a list of all available query execution IDs.
+    /// Provides a list of available query execution IDs for the queries in the specified
+    /// workgroup. Requires you to have access to the workgroup in which the queries ran.
     /// 
     ///  
     /// <para>
@@ -46,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     )]
     public partial class GetATHQueryExecutionListCmdlet : AmazonAthenaClientCmdlet, IExecutor
     {
+        
+        #region Parameter WorkGroup
+        /// <summary>
+        /// <para>
+        /// <para>The name of the workgroup from which queries are being returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String WorkGroup { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -91,6 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.WorkGroup = this.WorkGroup;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -107,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
             
             // create request and set iteration invariants
             var request = new Amazon.Athena.Model.ListQueryExecutionsRequest();
+            if (cmdletContext.WorkGroup != null)
+            {
+                request.WorkGroup = cmdletContext.WorkGroup;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -225,6 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         {
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.String WorkGroup { get; set; }
         }
         
     }

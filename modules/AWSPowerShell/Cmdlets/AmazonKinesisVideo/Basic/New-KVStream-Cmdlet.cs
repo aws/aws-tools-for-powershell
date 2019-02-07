@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// you change the stream's metadata, Kinesis Video Streams updates the version. 
     /// </para><para><code>CreateStream</code> is an asynchronous operation.
     /// </para><para>
-    /// For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How
+    /// For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How
     /// it Works</a>. 
     /// </para><para>
     /// You must have permissions for the <code>KinesisVideo:CreateStream</code> action.
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>
         /// <para>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video
         /// Streams to use to encrypt stream data.</para><para>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>)
-        /// is used.</para><para> For more information, see <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>.
+        /// is used.</para><para> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -96,8 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// <para>The media type of the stream. Consumers of the stream can use this information when
         /// processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media
         /// Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming
-        /// Requirements</a> for guidelines.</para><para>To play video on the console, the media must be H.264 encoded, and you need to specify
-        /// this video type in this parameter as <code>video/h264</code>. </para><para>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</para>
+        /// Requirements</a> for guidelines.</para><para>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,6 +112,18 @@ namespace Amazon.PowerShell.Cmdlets.KV
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to associate with the specified stream. Each tag is a key-value pair
+        /// (the value is optional).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -150,6 +161,14 @@ namespace Amazon.PowerShell.Cmdlets.KV
             context.KmsKeyId = this.KmsKeyId;
             context.MediaType = this.MediaType;
             context.StreamName = this.StreamName;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.KV
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -255,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
             public System.String KmsKeyId { get; set; }
             public System.String MediaType { get; set; }
             public System.String StreamName { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

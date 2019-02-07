@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// <para>A list of tag key names to remove from the secret. You don't specify the value. Both
         /// the key and its associated value are removed.</para><para>This parameter to the API requires a JSON text string argument. For information on
         /// how to format a JSON parameter for the various command line tool environments, see
-        /// <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
+        /// <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using
         /// JSON for Parameters</a> in the <i>AWS CLI User Guide</i>.</para>
         /// </para>
         /// </summary>

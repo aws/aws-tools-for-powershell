@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// For more information about OUs, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing
+    /// For more information about OUs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html">Managing
     /// Organizational Units</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><para>
     /// This operation can be called only from the organization's master account.

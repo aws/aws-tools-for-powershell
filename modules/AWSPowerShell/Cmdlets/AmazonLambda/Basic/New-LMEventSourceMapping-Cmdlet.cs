@@ -34,9 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// For details about each event source type, see the following topics.
-    /// </para><ul><li><para><a href="http://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
-    /// Lambda with Amazon Kinesis</a></para></li><li><para><a href="http://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
-    /// with Amazon SQS</a></para></li><li><para><a href="http://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
+    /// </para><ul><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS
+    /// Lambda with Amazon Kinesis</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda
+    /// with Amazon SQS</a></para></li><li><para><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda
     /// with Amazon DynamoDB</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

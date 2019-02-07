@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create
     /// uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536
-    /// IPv4 addresses). For more information about how large to make your VPC, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
+    /// IPv4 addresses). For more information about how large to make your VPC, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">Your
     /// VPC and Subnets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  
@@ -41,11 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para><para>
     /// By default, each instance you launch in the VPC has the default DHCP options, which
     /// include only a default DNS server that we provide (AmazonProvidedDNS). For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
+    /// see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
     /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><para>
     /// You can specify the instance tenancy value for the VPC when you create it. You can't
-    /// change this value for the VPC after you create it. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+    /// change this value for the VPC after you create it. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
     /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Import single or multi-volume disk images or EBS snapshots into an Amazon Machine
-    /// Image (AMI). For more information, see <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
+    /// Image (AMI). For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html">Importing
     /// a VM as an Image Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.
     /// </summary>
     [Cmdlet("Import", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>Specifies whether the destination AMI of the imported image should be encrypted. The
         /// default CMK for EBS is used unless you specify a non-default AWS Key Management Service
-        /// (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -140,8 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The license type to be used for the Amazon Machine Image (AMI) after importing.</para><para><b>Note:</b> You may only use BYOL if you have existing licenses with rights to use
-        /// these licenses in a third party cloud like AWS. For more information, see <a href="http://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
-        /// in the VM Import/Export User Guide.</para><para>Valid values: <code>AWS</code> | <code>BYOL</code></para>
+        /// these licenses in a third party cloud like AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a>
+        /// in the VM Import/Export User Guide.</para><para>Valid values include:</para><ul><li><para><code>Auto</code> - Detects the source-system operating system (OS) and applies the
+        /// appropriate license.</para></li><li><para><code>AWS</code> - Replaces the source-system license with an AWS license, if appropriate.</para></li><li><para><code>BYOL</code> - Retains the source-system license, if appropriate.</para></li></ul><para>Default value: <code>Auto</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
     /// Registers or updates a scalable target. A scalable target is a resource that Application
-    /// Auto Scaling can scale in and scale out. Each scalable target has a resource ID, scalable
+    /// Auto Scaling can scale out and scale in. Each scalable target has a resource ID, scalable
     /// dimension, and namespace, as well as values for minimum and maximum capacity. 
     /// 
     ///  
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>The maximum value to scale to in response to a scale out event. This parameter is
+        /// <para>The maximum value to scale to in response to a scale-out event. This parameter is
         /// required to register a scalable target.</para>
         /// </para>
         /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter MinCapacity
         /// <summary>
         /// <para>
-        /// <para>The minimum value to scale to in response to a scale in event. This parameter is required
+        /// <para>The minimum value to scale to in response to a scale-in event. This parameter is required
         /// to register a scalable target.</para>
         /// </para>
         /// </summary>

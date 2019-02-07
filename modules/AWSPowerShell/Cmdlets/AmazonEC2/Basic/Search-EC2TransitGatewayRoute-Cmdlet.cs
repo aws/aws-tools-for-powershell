@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter Force
@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             if (cmdletContext.MaxResults != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
+                request.MaxResults = cmdletContext.MaxResults.Value;
             }
             if (cmdletContext.TransitGatewayRouteTableId != null)
             {
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filters { get; set; }
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String TransitGatewayRouteTableId { get; set; }
         }
         

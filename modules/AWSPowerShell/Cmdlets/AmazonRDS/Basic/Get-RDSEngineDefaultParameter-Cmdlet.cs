@@ -29,27 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Returns the default engine and system parameter information for the specified database
-    /// engine.
+    /// engine.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSEngineDefaultParameter")]
-    [OutputType("Amazon.RDS.Model.EngineDefaults")]
+    [OutputType("Amazon.RDS.Model.Parameter")]
     [AWSCmdlet("Calls the Amazon Relational Database Service DescribeEngineDefaultParameters API operation.", Operation = new[] {"DescribeEngineDefaultParameters"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.EngineDefaults",
-        "This cmdlet returns a EngineDefaults object.",
-        "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.RDS.Model.Parameter",
+        "This cmdlet returns a collection of Parameter objects.",
+        "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: DBParameterGroupFamily (type System.String), Marker (type System.String)"
     )]
     public partial class GetRDSEngineDefaultParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
-        
-        #region Parameter DBParameterGroupFamily
-        /// <summary>
-        /// <para>
-        /// <para>The name of the DB parameter group family.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DBParameterGroupFamily { get; set; }
-        #endregion
         
         #region Parameter Filter
         /// <summary>
@@ -62,12 +53,26 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter DBParameterGroupFamily
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB parameter group family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DBParameterGroupFamily { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para> An optional pagination token provided by a previous <code>DescribeEngineDefaultParameters</code>
         /// request. If this parameter is specified, the response includes only records beyond
         /// the marker, up to the value specified by <code>MaxRecords</code>. </para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.Marker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -81,6 +86,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
         /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,9 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.RDS.Model.DescribeEngineDefaultParametersRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.RDS.Model.DescribeEngineDefaultParametersRequest();
             if (cmdletContext.DBParameterGroupFamily != null)
             {
                 request.DBParameterGroupFamily = cmdletContext.DBParameterGroupFamily;
@@ -133,37 +141,82 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.Filters = cmdletContext.Filters;
             }
-            if (cmdletContext.Marker != null)
-            {
-                request.Marker = cmdletContext.Marker;
-            }
-            if (cmdletContext.MaxRecords != null)
-            {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecords.Value);
-            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
+            {
+                _nextMarker = cmdletContext.Marker;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
+            {
+                _emitLimit = cmdletContext.MaxRecords;
+            }
+            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxRecord");
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.EngineDefaults;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.Marker = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.EngineDefaults.Parameters;
+                        notes = new Dictionary<string, object>();
+                        notes["DBParameterGroupFamily"] = response.EngineDefaults.DBParameterGroupFamily;
+                        notes["Marker"] = response.EngineDefaults.Marker;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.EngineDefaults.Parameters.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
+                        }
+                        
+                        _nextMarker = response.EngineDefaults.Marker;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

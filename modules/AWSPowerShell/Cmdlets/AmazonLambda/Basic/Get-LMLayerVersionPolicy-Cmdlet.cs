@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns the permission policy for a version of an <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
     /// Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.
     /// </summary>
     [Cmdlet("Get", "LMLayerVersionPolicy")]

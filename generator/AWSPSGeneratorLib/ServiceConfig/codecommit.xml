@@ -26,6 +26,9 @@
         <ServiceOperation MethodName="CreateBranch" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Branch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateCommit" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Commit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreatePullRequest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PullRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Title" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>

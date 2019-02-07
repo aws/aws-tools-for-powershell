@@ -1,5 +1,111 @@
-﻿### 3.3.450.0 (2018-02-06)
-  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.448.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+﻿### 3.3.462.0 (2018-02-25)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Updated AWSPowerShell.NetCore manifest to reference missing assemblies.
+  * Enabled pagination support for multiple cmdlets.
+  * Amazon Athena
+    * Added cmdlet Add-ATHResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ATHResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Get-ATHWorkGroup leveraging the GetWorkGroup service API.
+    * Added cmdlet Get-ATHWorkGroupList leveraging the ListWorkGroups service API.
+    * Added cmdlet New-ATHWorkGroup leveraging the CreateWorkGroup service API.
+    * Added cmdlet Remove-ATHResourceTag leveraging the UntagResource service API.
+    * Added cmdlet Remove-ATHWorkGroup leveraging the DeleteWorkGroup service API.
+    * Added cmdlet Update-ATHWorkGroup leveraging the UpdateWorkGroup service API.
+    * Modified cmdlet Get-ATHNamedQueryList: added parameter WorkGroup.
+    * Modified cmdlet Get-ATHQueryExecutionList: added parameter WorkGroup.
+    * Modified cmdlet New-ATHNamedQuery: added parameter WorkGroup.
+    * Modified cmdlet Start-ATHQueryExecution: added parameter WorkGroup.
+  * Amazon CloudFront
+    * [Breaking Change] Modified cmdlets Get-CFFieldLevelEncryptionConfigList, Get-CFFieldLevelEncryptionProfileList and Get-CFPublicKeyList: enabled pagination support, this required a change of the cmdlets result type.
+  * Amazon CodeBuild
+    * Modified cmdlet New-CBProject: added parameter Cache_Mode.
+    * Modified cmdlet New-CBWebhook: added parameter FilterGroup.
+    * Modified cmdlet Start-CBBuild: added parameter CacheOverride_Mode.
+    * Modified cmdlet Update-CBProject: added parameter Cache_Mode.
+    * Modified cmdlet Update-CBWebhook: added parameter FilterGroup.
+  * Amazon CodeCommit
+    * Added cmdlet New-CCCommit leveraging the CreateCommit service API.
+  * Amazon EC2 Container Service
+    * Added cmdlet Write-ECSAccountSettingDefault leveraging the PutAccountSettingDefault service API.
+  * Amazon Elastic Compute Cloud
+    * Modified cmdlet New-EC2ClientVpnEndpoint: added parameter TagSpecification.
+  * Amazon Directory Service
+    * Modified cmdlet Connect-DSDirectory: added parameter Tag.
+    * Modified cmdlet New-DSDirectory: added parameter Tag.
+    * Modified cmdlet New-DSMicrosoftAD: added parameter Tag.
+  * Amazon Elastic File System
+    * Added cmdlet Get-EFSLifecycleConfiguration leveraging the DescribeLifecycleConfiguration service API.
+    * Added cmdlet Write-EFSLifecycleConfiguration leveraging the PutLifecycleConfiguration service API.
+    * Modified cmdlet New-EFSFileSystem: added parameter Tag.
+  * Amazon Elasticsearch
+    * Modified cmdlet New-ESDomain: added parameter ZoneAwarenessConfig_AvailabilityZoneCount.
+    * Modified cmdlet Update-ESDomainConfig: added parameter ZoneAwarenessConfig_AvailabilityZoneCount.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Add-EMLResourceTag leveraging the CreateTags service API.
+    * Added cmdlet Get-EMLResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-EMLResourceTag leveraging the DeleteTags service API.
+    * Modified cmdlet New-EMLChannel: added parameter Tag.
+    * Modified cmdlet New-EMLInput: added parameters Tag, Vpc_SecurityGroupId and Vpc_SubnetId.
+    * Modified cmdlet New-EMLInputSecurityGroup: added parameter Tag.
+    * Modified cmdlet Update-EMLInputSecurityGroup: added parameter Tag.
+  * Amazon Elemental MediaTailor
+    * Added cmdlet Add-EMTResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-EMTResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-EMTResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Set-EMTPlaybackConfiguration: added parameter Tag.
+  * Amazon GameLift Service
+    * Added cmdlet Remove-GMLMatchmakingRuleSet leveraging the DeleteMatchmakingRuleSet service API.
+  * Amazon DynamoDB
+    * [Breaking Change] Modified cmdlets Get-DDBBackupList and Get-DDBGlobalTableList: enabled pagination support, this required a change of the cmdlets result type.
+  * Amazon Glue
+    * Added cmdlet Add-GLUEResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-GLUECrawlerBatch leveraging the BatchGetCrawlers service API.
+    * Added cmdlet Get-GLUECrawlerNameList leveraging the ListCrawlers service API.
+    * Added cmdlet Get-GLUEDevEndpointBatch leveraging the BatchGetDevEndpoints service API.
+    * Added cmdlet Get-GLUEDevEndpointNameList leveraging the ListDevEndpoints service API.
+    * Added cmdlet Get-GLUEJobBatch leveraging the BatchGetJobs service API.
+    * Added cmdlet Get-GLUEJobNameList leveraging the ListJobs service API.
+    * Added cmdlet Get-GLUETag leveraging the GetTags service API.
+    * Added cmdlet Get-GLUETriggerBatch leveraging the BatchGetTriggers service API.
+    * Added cmdlet Get-GLUETriggerNameList leveraging the ListTriggers service API.
+    * Added cmdlet Remove-GLUEResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-GLUECrawler: added parameter Tag.
+    * Modified cmdlet New-GLUEDevEndpoint: added parameter Tag.
+    * Modified cmdlet New-GLUEJob: added parameter Tag.
+    * Modified cmdlet New-GLUETrigger: added parameter Tag.
+  * Amazon IoT
+    * [Breaking Change] Modified cmdlet Get-IOTThingRegistrationTaskReportList: enabled pagination support, this required a change of the cmdlet result type.
+    * Modified cmdlet New-IOTScheduledAudit: added parameter Tag.
+    * Modified cmdlet New-IOTSecurityProfile: added parameter AdditionalMetricsToRetain.
+    * Modified cmdlet Update-IOTSecurityProfile: added parameters AdditionalMetricsToRetain, DeleteAdditionalMetricsToRetain, DeleteAlertTarget and DeleteBehavior.
+  * Amazon Kinesis Video Streams
+    * Modified cmdlet New-KVStream: added parameter Tag.
+  * Amazon Redshift
+    * [Breaking Change] Modified cmdlet Get-RSDefaultClusterParameter: enabled pagination support, this required a change of the cmdlet result type.
+  * Amazon Relational Database Service
+    * [Breaking Change] Modified cmdlet Get-RDSEngineDefaultParameter: enabled pagination support, this required a change of the cmdlet result type.
+  * Amazon RoboMaker
+    * Added cmdlet Add-ROBOResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ROBOResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-ROBOResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-ROBODeploymentJob: added parameter Tag.
+    * Modified cmdlet New-ROBOFleet: added parameter Tag.
+    * Modified cmdlet New-ROBORobot: added parameter Tag.
+    * Modified cmdlet New-ROBORobotApplication: added parameter Tag.
+    * Modified cmdlet New-ROBOSimulationApplication: added parameter Tag.
+    * Modified cmdlet New-ROBOSimulationJob: added parameter Tag.
+  * Amazon Step Functions
+    * Modified cmdlet New-SFNActivity: added parameter Tag.
+    * Modified cmdlet New-SFNStateMachine: added parameter Tag.
+  * Amazon Systems Manager
+    * Modified cmdlet New-SSMActivation: added parameter Tag.
+    * Modified cmdlet New-SSMDocument: added parameter Tag.
+    * Modified cmdlet New-SSMMaintenanceWindow: added parameter Tag.
+    * Modified cmdlet New-SSMPatchBaseline: added parameter Tag.
+    * Modified cmdlet Write-SSMParameter: added parameter Tag.
+
+### 3.3.450.0 (2018-02-06)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Fixed all autopaginating cmdlets so that specifying -NextToken $null correctly enables manual control of pagination.
   * Amazon API Gateway Management API. Added cmdlets to support the service. Amazon API Gateway Management API allows you to directly manage runtime aspects of your APIs. Cmdlets for the service have the noun prefix AGM and can be listed using the command 'Get-AWSCmdletName -Service AGM'.
   * Amazon API Gateway V2. Added cmdlets to support the service. Amazon API Gateway V2 allows you to programmatically setup and manage WebSocket APIs end to end. Cmdlets for the service have the noun prefix AG2 and can be listed using the command 'Get-AWSCmdletName -Service AG2'.

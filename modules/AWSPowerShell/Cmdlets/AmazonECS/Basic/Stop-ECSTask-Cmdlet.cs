@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><note><para>
     /// The default 30-second timeout can be configured on the Amazon ECS container agent
     /// with the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
+    /// <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
     /// ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
     /// </para></note>

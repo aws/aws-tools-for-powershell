@@ -49,6 +49,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -79,6 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             PreExecutionContextLoad(context);
             
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -98,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -164,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

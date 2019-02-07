@@ -133,6 +133,17 @@ namespace Amazon.PowerShell.Cmdlets.DS
         public System.String[] ConnectSettings_SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to be assigned to AD Connector.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.DirectoryService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ConnectSettings_VpcId
         /// <summary>
         /// <para>
@@ -187,6 +198,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             context.Password = this.Password;
             context.ShortName = this.ShortName;
             context.Size = this.Size;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.DirectoryService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -272,6 +287,10 @@ namespace Amazon.PowerShell.Cmdlets.DS
             {
                 request.Size = cmdletContext.Size;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -345,6 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
             public System.String Password { get; set; }
             public System.String ShortName { get; set; }
             public Amazon.DirectoryService.DirectorySize Size { get; set; }
+            public List<Amazon.DirectoryService.Model.Tag> Tags { get; set; }
         }
         
     }

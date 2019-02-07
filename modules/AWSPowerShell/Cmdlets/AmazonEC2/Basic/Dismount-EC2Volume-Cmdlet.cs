@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// When a volume with an AWS Marketplace product code is detached from an instance, the
     /// product code is no longer associated with the instance.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detaching
     /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

@@ -40,12 +40,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// private key must be saved in the proper format to a <code>.pem</code> file before
     /// using. If you're making this request using the AWS CLI, saving the secret can be handled
     /// as part of the GetInstanceAccess request. (See the example later in this topic). For
-    /// more information on remote access, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
+    /// more information on remote access, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-remote-access.html">Remotely
     /// Accessing an Instance</a>.
     /// </para><para>
-    /// To request access to a specific instance, specify the IDs of the instance and the
-    /// fleet it belongs to. If successful, an <a>InstanceAccess</a> object is returned containing
-    /// the instance's IP address and a set of credentials.
+    /// To request access to a specific instance, specify the IDs of both the instance and
+    /// the fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>.
+    /// If successful, an <a>InstanceAccess</a> object is returned containing the instance's
+    /// IP address and a set of credentials.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "GMLInstanceAccess")]

@@ -29,9 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.ATH
 {
     /// <summary>
     /// Returns the details of a single query execution or a list of up to 50 query executions,
-    /// which you provide as an array of query execution ID strings. To get a list of query
-    /// execution IDs, use <a>ListQueryExecutions</a>. Query executions are different from
-    /// named (saved) queries. Use <a>BatchGetNamedQuery</a> to get details about named queries.
+    /// which you provide as an array of query execution ID strings. Requires you to have
+    /// access to the workgroup in which the queries ran. To get a list of query execution
+    /// IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named
+    /// (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.
     /// </summary>
     [Cmdlet("Get", "ATHQueryExecutionBatch")]
     [OutputType("Amazon.Athena.Model.BatchGetQueryExecutionResponse")]

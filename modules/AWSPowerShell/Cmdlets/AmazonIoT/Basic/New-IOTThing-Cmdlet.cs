@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Creates a thing record in the registry.
     /// 
     ///  <note><para>
-    /// This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
+    /// This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
     /// for information about authorizing control plane actions.
     /// </para></note>
     /// </summary>

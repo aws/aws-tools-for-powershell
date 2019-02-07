@@ -76,6 +76,19 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Int32 SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         #endregion
         
+        #region Parameter ZoneAwarenessConfig_AvailabilityZoneCount
+        /// <summary>
+        /// <para>
+        /// <para>An integer value to indicate the number of availability zones for a domain when zone
+        /// awareness is enabled. This should be equal to number of subnets if VPC endpoints is
+        /// enabled</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount")]
+        public System.Int32 ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchClusterConfig_DedicatedMasterCount
         /// <summary>
         /// <para>
@@ -323,6 +336,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (ParameterWasBound("ElasticsearchClusterConfig_InstanceCount"))
                 context.ElasticsearchClusterConfig_InstanceCount = this.ElasticsearchClusterConfig_InstanceCount;
             context.ElasticsearchClusterConfig_InstanceType = this.ElasticsearchClusterConfig_InstanceType;
+            if (ParameterWasBound("ZoneAwarenessConfig_AvailabilityZoneCount"))
+                context.ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount = this.ZoneAwarenessConfig_AvailabilityZoneCount;
             if (ParameterWasBound("ElasticsearchClusterConfig_ZoneAwarenessEnabled"))
                 context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
             if (this.LogPublishingOption != null)
@@ -533,6 +548,31 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.ElasticsearchClusterConfig.ZoneAwarenessEnabled = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessEnabled.Value;
                 requestElasticsearchClusterConfigIsNull = false;
             }
+            Amazon.Elasticsearch.Model.ZoneAwarenessConfig requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig = null;
+            
+             // populate ZoneAwarenessConfig
+            bool requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfigIsNull = true;
+            requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig = new Amazon.Elasticsearch.Model.ZoneAwarenessConfig();
+            System.Int32? requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig_zoneAwarenessConfig_AvailabilityZoneCount = null;
+            if (cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig_zoneAwarenessConfig_AvailabilityZoneCount = cmdletContext.ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount.Value;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig_zoneAwarenessConfig_AvailabilityZoneCount != null)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig.AvailabilityZoneCount = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig_zoneAwarenessConfig_AvailabilityZoneCount.Value;
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfigIsNull = false;
+            }
+             // determine if requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig should be set to null
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfigIsNull)
+            {
+                requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig = null;
+            }
+            if (requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig != null)
+            {
+                request.ElasticsearchClusterConfig.ZoneAwarenessConfig = requestElasticsearchClusterConfig_elasticsearchClusterConfig_ZoneAwarenessConfig;
+                requestElasticsearchClusterConfigIsNull = false;
+            }
              // determine if request.ElasticsearchClusterConfig should be set to null
             if (requestElasticsearchClusterConfigIsNull)
             {
@@ -670,6 +710,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_DedicatedMasterType { get; set; }
             public System.Int32? ElasticsearchClusterConfig_InstanceCount { get; set; }
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
+            public System.Int32? ElasticsearchClusterConfig_ZoneAwarenessConfig_AvailabilityZoneCount { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOptions { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }

@@ -75,7 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.KV
         #region Parameter DataRetentionChangeInHour
         /// <summary>
         /// <para>
-        /// <para>The retention period, in hours. The value you specify replaces the current value.</para>
+        /// <para>The retention period, in hours. The value you specify replaces the current value.
+        /// The maximum value for this parameter is 87600 (ten years).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

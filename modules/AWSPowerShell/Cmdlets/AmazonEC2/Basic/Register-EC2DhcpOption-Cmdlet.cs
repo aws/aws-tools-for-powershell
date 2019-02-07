@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// on how frequently the instance renews its DHCP lease. You can explicitly renew the
     /// lease using the operating system on the instance.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
     /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

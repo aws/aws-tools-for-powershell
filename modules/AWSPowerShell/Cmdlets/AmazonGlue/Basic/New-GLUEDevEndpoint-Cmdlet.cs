@@ -151,6 +151,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String SubnetId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint.
+        /// For more information about tags in AWS Glue, see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">AWS
+        /// Tags in AWS Glue</a> in the developer guide.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -197,6 +210,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
             }
             context.SubnetId = this.SubnetId;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -252,6 +273,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.SubnetId != null)
             {
                 request.SubnetId = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -327,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String SecurityConfiguration { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }
             public System.String SubnetId { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

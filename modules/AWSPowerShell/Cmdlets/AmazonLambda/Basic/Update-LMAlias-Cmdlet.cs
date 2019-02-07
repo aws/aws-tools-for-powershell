@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Updates the configuration of a Lambda function <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
+    /// Updates the configuration of a Lambda function <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>.
     /// </summary>
     [Cmdlet("Update", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateAliasResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>
-        /// <para>The name of the second alias, and the percentage of traffic that is routed to it.</para>
+        /// <para>The name of the second alias, and the percentage of traffic that's routed to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Only update the alias if the revision ID matches the ID specified. Use this option
-        /// to avoid modifying an alias that has changed since you last read it.</para>
+        /// <para>Only update the alias if the revision ID matches the ID that's specified. Use this
+        /// option to avoid modifying an alias that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

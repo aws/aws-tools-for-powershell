@@ -41,8 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para></li><li><para>
     /// Check the AWS CloudTrail log for the <code>CreateAccountResult</code> event. For information
     /// on using AWS CloudTrail with Organizations, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring
-    /// the Activity in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
-    /// </para></li></ul><para>
+    /// the Activity in Your Organization</a> in the <i>AWS Organizations User Guide.</i></para></li></ul><para>
     /// The user who calls the API to create an account must have the <code>organizations:CreateAccount</code>
     /// permission. If you enabled all features in the organization, AWS Organizations will
     /// create the required service-linked role named <code>AWSServiceRoleForOrganizations</code>.
@@ -57,9 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para><para>
-    /// For more information about creating accounts, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
-    /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
-    /// </para><important><ul><li><para>
+    /// For more information about creating accounts, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
+    /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide.</i></para><important><ul><li><para>
     /// When you create an account in an organization using the AWS Organizations console,
     /// API, or CLI commands, the information required for the account to operate as a standalone
     /// account, such as a payment method and signing the end user license agreement (EULA)
@@ -77,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// is still initializing, wait one hour and then try again. If the error persists, contact
     /// <a href="https://console.aws.amazon.com/support/home#/">AWS Support</a>.
     /// </para></li><li><para>
-    /// Using CreateAccount to create multiple temporary accounts is not recommended. You
-    /// can only close an account from the Billing and Cost Management Console, and you must
-    /// be signed in as the root user. For information on the requirements and process for
-    /// closing an account, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
+    /// Using CreateAccount to create multiple temporary accounts isn't recommended. You can
+    /// only close an account from the Billing and Cost Management Console, and you must be
+    /// signed in as the root user. For information on the requirements and process for closing
+    /// an account, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing
     /// an AWS Account</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li></ul></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
@@ -88,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// enabled. If you enable it, IAM users and roles that have appropriate permissions can
     /// view billing information for the account. If you disable it, only the account root
     /// user can access billing information. For information about how to disable this switch
-    /// for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
+    /// for an account, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
     /// Access to Your Billing Information and Tools</a>.
     /// </para></note>
     /// </summary>
@@ -131,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <para>If set to <code>ALLOW</code>, the new account enables IAM users to access account
         /// billing information <i>if</i> they have the required permissions. If set to <code>DENY</code>,
         /// only the root user of the new account can access account billing information. For
-        /// more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
+        /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
         /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
         /// Management User Guide</i>.</para><para>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
         /// IAM users and roles with the required permissions can access billing information for
@@ -150,9 +148,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// new member account. This role trusts the master account, allowing users in the master
         /// account to assume the role, as permitted by the master account administrator. The
         /// role has administrator permissions in the new member account.</para><para>If you don't specify this parameter, the role name defaults to <code>OrganizationAccountAccessRole</code>.</para><para>For more information about how to use this role to access the member account, see
-        /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
+        /// <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing
         /// and Administering the Member Accounts in Your Organization</a> in the <i>AWS Organizations
-        /// User Guide</i>, and steps 2 and 3 in <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:
+        /// User Guide</i>, and steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:
         /// Delegate Access Across AWS Accounts Using IAM Roles</a> in the <i>IAM User Guide</i>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that is used to validate
         /// this parameter is a string of characters that can consist of uppercase letters, lowercase
         /// letters, digits with no spaces, and any of the following characters: =,.@-</para>

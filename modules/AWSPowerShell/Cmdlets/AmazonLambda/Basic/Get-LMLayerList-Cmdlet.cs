@@ -28,9 +28,9 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Lists <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
+    /// Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS
     /// Lambda layers</a> and shows information about the latest version of each. Specify
-    /// a <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
+    /// a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime
     /// identifier</a> to list only layers that indicate that they're compatible with that
     /// runtime.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

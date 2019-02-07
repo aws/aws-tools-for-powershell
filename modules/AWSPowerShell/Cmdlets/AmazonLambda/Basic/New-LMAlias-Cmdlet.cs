@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Creates an <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>
+    /// Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">alias</a>
     /// for a Lambda function version. Use aliases to provide clients with a function identifier
     /// that you can update to invoke a different version.
     /// 
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RoutingConfig_AdditionalVersionWeight
         /// <summary>
         /// <para>
-        /// <para>The name of the second alias, and the percentage of traffic that is routed to it.</para>
+        /// <para>The name of the second alias, and the percentage of traffic that's routed to it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

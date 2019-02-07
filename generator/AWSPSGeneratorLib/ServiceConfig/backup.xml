@@ -15,7 +15,9 @@
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
-    <LegacyAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Remove-BAKBackupVaultNotification">Remove-BAKBackupVaultNotifications</AliasSet>
+    </LegacyAliases>
     <ParamEmitters />
     <MetadataProperties />
     <PipelineByNameProperties>
@@ -47,7 +49,7 @@
         <ServiceOperation MethodName="DeleteBackupVaultAccessPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BackupVaultAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BackupVaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BackupVaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackupVaultNotifications" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BackupVaultNotifications" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BackupVaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BackupVaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBackupVaultNotifications" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BackupVaultNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BackupVaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BackupVaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteRecoveryPoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RecoveryPoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RecoveryPointArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RecoveryPointArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

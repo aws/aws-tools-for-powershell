@@ -34,12 +34,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     ///  
     /// <para>
     /// Encrypted EBS volumes may only be attached to instances that support Amazon EBS encryption.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// For a list of supported device names, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
+    /// For a list of supported device names, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
     /// an EBS Volume to an Instance</a>. Any device names that aren't reserved for instance
-    /// store volumes can be used for EBS volumes. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
+    /// store volumes can be used for EBS volumes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon
     /// EC2 Instance Store</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
     /// If a volume has an AWS Marketplace product code:
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// example, you can't detach a volume from a Windows instance and attach it to a Linux
     /// instance.
     /// </para></li></ul><para>
-    /// For more information about EBS volumes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
+    /// For more information about EBS volumes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attaching
     /// Amazon EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>

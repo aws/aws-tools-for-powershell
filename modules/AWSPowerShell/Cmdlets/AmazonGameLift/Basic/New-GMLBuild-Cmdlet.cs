@@ -35,18 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Game server binaries must be combined into a <code>.zip</code> file for use with Amazon
-    /// GameLift. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
+    /// GameLift. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game</a> for more information. 
     /// </para><important><para>
-    /// To create new builds quickly and easily, use the AWS CLI command <b><a href="http://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command uploads your build and creates a new build record in one
-    /// step, and automatically handles the necessary permissions. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html">
+    /// To create new builds quickly and easily, use the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command uploads your build and creates a new build record in one
+    /// step, and automatically handles the necessary permissions. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html">
     /// Upload Build Files to Amazon GameLift</a> for more help.
     /// </para></important><para>
     /// The <code>CreateBuild</code> operation should be used only when you need to manually
     /// upload your build files, as in the following scenarios:
     /// </para><ul><li><para>
     /// Store a build file in an Amazon S3 bucket under your own AWS account. To use this
-    /// option, you must first give Amazon GameLift access to that Amazon S3 bucket. See <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
+    /// option, you must first give Amazon GameLift access to that Amazon S3 bucket. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
     /// Create a Build with Files in Amazon S3</a> for detailed help. To create a new build
     /// record using files in your Amazon S3 bucket, call <code>CreateBuild</code> and specify
     /// a build name, operating system, and the storage location of your game build.
@@ -55,15 +55,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// you first call <code>CreateBuild</code> with a build name and operating system. This
     /// action creates a new build record and returns an Amazon S3 storage location (bucket
     /// and key only) and temporary access credentials. Use the credentials to manually upload
-    /// your build file to the storage location (see the Amazon S3 topic <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
+    /// your build file to the storage location (see the Amazon S3 topic <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading
     /// Objects</a>). You can upload files to a location only once. 
     /// </para></li></ul><para>
     /// If successful, this operation creates a new build record with a unique build ID and
     /// places it in <code>INITIALIZED</code> status. You can use <a>DescribeBuild</a> to
     /// check the status of your build. A build must be in <code>READY</code> status before
     /// it can be used to create fleets.
-    /// </para><para>
-    /// Build-related operations include:
     /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -124,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StorageLocation_RoleArn
         /// <summary>
         /// <para>
-        /// <para>Amazon Resource Name (<a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
+        /// <para>Amazon Resource Name (<a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html">ARN</a>)
         /// for the access role that allows Amazon GameLift to access your S3 bucket.</para>
         /// </para>
         /// </summary>

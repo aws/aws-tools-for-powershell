@@ -61,7 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         
@@ -74,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxRecords")]
-        public int MaxRecord { get; set; }
+        [Alias("MaxRecords")]
+        public System.Int32 MaxRecord { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -121,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             }
             if (cmdletContext.MaxRecords != null)
             {
-                request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxRecords.Value);
+                request.MaxRecords = cmdletContext.MaxRecords.Value;
             }
             
             CmdletOutput output;
@@ -189,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             public System.String CacheParameterGroupFamily { get; set; }
             public System.String Marker { get; set; }
-            public int? MaxRecords { get; set; }
+            public System.Int32? MaxRecords { get; set; }
         }
         
     }

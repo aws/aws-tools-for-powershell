@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter FileSystemId
         /// <summary>
         /// <para>
-        /// <para>ID of the file system whose tags you want to modify (String). This operation modifies
+        /// <para>The ID of the file system whose tags you want to modify (String). This operation modifies
         /// the tags only, not the file system.</para>
         /// </para>
         /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
+        /// <para>An array of <code>Tag</code> objects to add. Each <code>Tag</code> object is a key-value
         /// pair. </para>
         /// </para>
         /// </summary>

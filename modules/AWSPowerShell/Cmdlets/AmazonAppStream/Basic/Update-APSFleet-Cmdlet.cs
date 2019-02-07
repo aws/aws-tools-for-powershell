@@ -106,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <para>
         /// <para>The time after disconnection when a session is considered to have ended, in seconds.
         /// If a user who was disconnected reconnects within this time interval, the user is connected
-        /// to their previous session. Specify a value between 60 and 57600.</para>
+        /// to their previous session. Specify a value between 60 and 360000. By default, the
+        /// value is 900 seconds (15 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The maximum time that a streaming session can run, in seconds. Specify a value between
-        /// 600 and 57600.</para>
+        /// 600 and 360000. By default, the value is 900 seconds (15 minutes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

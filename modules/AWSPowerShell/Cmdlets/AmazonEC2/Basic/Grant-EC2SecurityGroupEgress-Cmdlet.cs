@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Specifically, this action permits instances to send traffic to one or more destination
     /// IPv4 or IPv6 CIDR address ranges, or to one or more destination security groups for
     /// the same VPC. This action doesn't apply to security groups for use in EC2-Classic.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
     /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. For
-    /// more information about security group limits, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
+    /// more information about security group limits, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
     /// VPC Limits</a>.
     /// 
     ///  

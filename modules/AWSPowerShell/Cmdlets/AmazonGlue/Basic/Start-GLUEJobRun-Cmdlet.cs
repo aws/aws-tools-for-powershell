@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter Argument
         /// <summary>
         /// <para>
-        /// <para>The job arguments specifically for this run. They override the equivalent default
-        /// arguments set for in the job definition itself.</para><para>You can specify arguments here that your own job-execution script consumes, as well
+        /// <para>The job arguments specifically for this run. For this job run, they replace the default
+        /// arguments set in the job definition itself.</para><para>You can specify arguments here that your own job-execution script consumes, as well
         /// as arguments that AWS Glue itself consumes.</para><para>For information about how to specify and consume your own Job arguments, see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
         /// AWS Glue APIs in Python</a> topic in the developer guide.</para><para>For information about the key-value pairs that AWS Glue consumes to set up your job,
         /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special
@@ -95,9 +95,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         #region Parameter MaxCapacity
         /// <summary>
         /// <para>
-        /// <para>AWS Glue supports running jobs on a <code>JobCommand.Name</code>="pythonshell" with
-        /// allocated processing as low as 0.0625 DPU, which can be specified using <code>MaxCapacity</code>.
-        /// Glue ETL jobs running in any other way cannot have fractional DPU allocations.</para>
+        /// <para>The number of AWS Glue data processing units (DPUs) that can be allocated when this
+        /// job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs
+        /// of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
+        /// Glue pricing page</a>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
+        /// are running a python shell job, or an Apache Spark ETL job:</para><ul><li><para>When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"),
+        /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"),
+        /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
+        /// have a fractional DPU allocation.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

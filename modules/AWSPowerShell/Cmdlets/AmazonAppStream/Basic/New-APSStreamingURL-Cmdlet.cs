@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SessionContext
         /// <summary>
         /// <para>
-        /// <para>The session context. For more information, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session
+        /// <para>The session context. For more information, see <a href="https://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session
         /// Context</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</para>
         /// </para>
         /// </summary>

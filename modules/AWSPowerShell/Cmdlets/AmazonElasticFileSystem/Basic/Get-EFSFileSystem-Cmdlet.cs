@@ -35,20 +35,18 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// 
     ///  
     /// <para>
-    ///  When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
-    /// parameter to limit the number of descriptions in a response. If more file system descriptions
-    /// remain, Amazon EFS returns a <code>NextMarker</code>, an opaque token, in the response.
-    /// In this case, you should send a subsequent request with the <code>Marker</code> request
-    /// parameter set to the value of <code>NextMarker</code>. 
+    /// When retrieving all file system descriptions, you can optionally specify the <code>MaxItems</code>
+    /// parameter to limit the number of descriptions in a response. Currently, this number
+    /// is automatically set to 10. If more file system descriptions remain, Amazon EFS returns
+    /// a <code>NextMarker</code>, an opaque token, in the response. In this case, you should
+    /// send a subsequent request with the <code>Marker</code> request parameter set to the
+    /// value of <code>NextMarker</code>. 
     /// </para><para>
     /// To retrieve a list of your file system descriptions, this operation is used in an
     /// iterative process, where <code>DescribeFileSystems</code> is called first without
     /// the <code>Marker</code> and then the operation continues to call it with the <code>Marker</code>
     /// parameter set to the value of the <code>NextMarker</code> from the previous response
     /// until the response has no <code>NextMarker</code>. 
-    /// </para><para>
-    /// The implementation may return fewer than <code>MaxItems</code> file system descriptions
-    /// while still including a <code>NextMarker</code> value. 
     /// </para><para>
     ///  The order of file systems returned in the response of one <code>DescribeFileSystems</code>
     /// call and the order of file systems returned across the responses of a multi-call iteration
@@ -111,9 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <summary>
         /// <para>
         /// <para>(Optional) Specifies the maximum number of file systems to return in the response
-        /// (integer). This parameter value must be greater than 0. The number of items that Amazon
-        /// EFS returns is the minimum of the <code>MaxItems</code> parameter specified in the
-        /// request and the service's internal maximum number of items per page. </para>
+        /// (integer). Currently, this number is automatically set to 10. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

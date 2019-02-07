@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
+        [Alias("MaxResults")]
         public System.Int32 MaxResult { get; set; }
         #endregion
         

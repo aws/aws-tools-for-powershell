@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public int Quota_Limit { get; set; }
+        public System.Int32 Quota_Limit { get; set; }
         #endregion
         
         #region Parameter Force
@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             System.Int32? requestQuota_quota_Limit = null;
             if (cmdletContext.Quota_Limit != null)
             {
-                requestQuota_quota_Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Quota_Limit.Value);
+                requestQuota_quota_Limit = cmdletContext.Quota_Limit.Value;
             }
             if (requestQuota_quota_Limit != null)
             {
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public List<Amazon.APIGateway.Model.ApiStage> ApiStages { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
-            public int? Quota_Limit { get; set; }
+            public System.Int32? Quota_Limit { get; set; }
             public System.Int32? Quota_Offset { get; set; }
             public Amazon.APIGateway.QuotaPeriodType Quota_Period { get; set; }
             public System.Int32? Throttle_BurstLimit { get; set; }

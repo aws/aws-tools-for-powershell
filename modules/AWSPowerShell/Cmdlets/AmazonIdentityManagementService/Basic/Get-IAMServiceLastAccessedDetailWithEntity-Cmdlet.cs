@@ -93,7 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
         public System.String Marker { get; set; }
         #endregion
         

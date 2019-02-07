@@ -28,7 +28,7 @@ using Amazon.Lambda.Model;
 namespace Amazon.PowerShell.Cmdlets.LM
 {
     /// <summary>
-    /// Returns a list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
+    /// Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">aliases</a>
     /// for a Lambda function.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMAliasList")]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>Specify the pagination token returned by a previous request to retrieve the next page
-        /// of results.</para>
+        /// <para>Specify the pagination token that's returned by a previous request to retrieve the
+        /// next page of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

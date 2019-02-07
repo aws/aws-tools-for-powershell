@@ -28,7 +28,9 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Attaches the specified principal to the specified thing.
+    /// Attaches the specified principal to the specified thing. A principal can be X.509
+    /// certificates, IAM users, groups, and roles, Amazon Cognito identities or federated
+    /// identities.
     /// </summary>
     [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// player or a group of players who want to play together. FlexMatch finds additional
     /// players as needed to fill the match. Match type, rules, and the queue used to place
     /// a new game session are defined in a <code>MatchmakingConfiguration</code>. For complete
-    /// information on setting up and using FlexMatch, see the topic <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
+    /// information on setting up and using FlexMatch, see the topic <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
     /// Adding FlexMatch to Your Game</a>.
     /// 
     ///  
@@ -86,9 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// status. Connection information (including game session endpoint and player session)
     /// is added to the matchmaking tickets. Matched players can use the connection information
     /// to join the game. 
-    /// </para></li></ol><para>
-    /// Matchmaking-related operations include:
-    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
+    /// </para></li></ol><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li><li><para><a>StartMatchBackfill</a></para></li></ul>
     /// </summary>
     [Cmdlet("Start", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]

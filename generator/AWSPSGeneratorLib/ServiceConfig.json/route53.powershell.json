@@ -100,21 +100,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -174,21 +160,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -234,21 +206,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ResourceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -294,21 +252,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -352,21 +296,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -412,21 +342,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -483,21 +399,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -543,21 +445,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -603,21 +491,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -663,21 +537,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -723,21 +583,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -783,21 +629,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: HealthCheckId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -843,21 +675,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -903,21 +721,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -963,21 +767,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1023,21 +813,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1083,21 +859,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1143,21 +905,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VPC_VPCId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1214,21 +962,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1272,21 +1006,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1327,21 +1047,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1380,21 +1086,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1433,21 +1125,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1488,21 +1166,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1541,21 +1205,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1596,21 +1246,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1651,21 +1287,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1706,21 +1328,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1759,21 +1367,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1814,21 +1408,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1869,21 +1449,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1924,21 +1490,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1979,21 +1531,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2034,21 +1572,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2089,21 +1613,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2142,21 +1652,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2195,21 +1691,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2358,21 +1840,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2427,21 +1895,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2529,27 +1983,13 @@
         "targetParameter": ""
       },
       "tempAnalyzerResults": {
-        "confirmationMessageNoun": "TagsForResource",
+        "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2590,21 +2030,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2643,21 +2069,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2709,21 +2121,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2764,21 +2162,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2830,21 +2214,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2885,21 +2255,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -2940,21 +2296,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3000,21 +2342,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -3060,21 +2388,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
-          "requestMember": "Marker",
-          "responseMember": "NextMarker",
-          "resultLimitMember": "MaxItems",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
-          "resultsTruncatedMember": "IsTruncated"
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

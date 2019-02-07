@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
-    /// For more information about policies and their use, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
+    /// For more information about policies and their use, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html">Managing
     /// Organization Policies</a>.
     /// </para><para>
     /// This operation can be called only from the organization's master account.
@@ -52,10 +52,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter Content
         /// <summary>
         /// <para>
-        /// <para>The policy content to add to the new policy. For example, if you create a <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service
+        /// <para>The policy content to add to the new policy. For example, if you create a <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html">service
         /// control policy</a> (SCP), this string must be JSON text that specifies the permissions
         /// that admins in attached accounts can delegate to their users, groups, and roles. For
-        /// more information about the SCP syntax, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
+        /// more information about the SCP syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
         /// Control Policy Syntax</a> in the <i>AWS Organizations User Guide</i>.</para>
         /// </para>
         /// </summary>

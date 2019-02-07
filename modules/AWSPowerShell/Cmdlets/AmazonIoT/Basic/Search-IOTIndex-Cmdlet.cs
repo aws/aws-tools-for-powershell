@@ -76,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             if (cmdletContext.MaxResults != null)
             {
-                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
+                request.MaxResults = cmdletContext.MaxResults.Value;
             }
             if (cmdletContext.NextToken != null)
             {
@@ -227,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String IndexName { get; set; }
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String QueryString { get; set; }
             public System.String QueryVersion { get; set; }

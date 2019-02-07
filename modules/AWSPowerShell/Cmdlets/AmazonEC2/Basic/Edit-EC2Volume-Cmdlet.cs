@@ -32,31 +32,31 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// volume type, and IOPS capacity. If your EBS volume is attached to a current-generation
     /// EC2 instance type, you may be able to apply these changes without stopping the instance
     /// or detaching the volume from it. For more information about modifying an EBS volume
-    /// running Linux, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
+    /// running Linux, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
     /// the Size, IOPS, or Type of an EBS Volume on Linux</a>. For more information about
-    /// modifying an EBS volume running Windows, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
+    /// modifying an EBS volume running Windows, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
     /// the Size, IOPS, or Type of an EBS Volume on Windows</a>. 
     /// 
     ///  
     /// <para>
     ///  When you complete a resize operation on your volume, you need to extend the volume's
     /// file-system size to take advantage of the new storage capacity. For information about
-    /// extending a Linux file system, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending
+    /// extending a Linux file system, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#recognize-expanded-volume-linux">Extending
     /// a Linux File System</a>. For information about extending a Windows file system, see
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html#recognize-expanded-volume-windows">Extending
     /// a Windows File System</a>. 
     /// </para><para>
     ///  You can use CloudWatch Events to check the status of a modification to an EBS volume.
-    /// For information about CloudWatch Events, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
+    /// For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon
     /// CloudWatch Events User Guide</a>. You can also track the status of a modification
     /// using the <a>DescribeVolumesModifications</a> API. For information about tracking
-    /// status changes using either method, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
+    /// status changes using either method, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html#monitoring_mods">Monitoring
     /// Volume Modifications</a>. 
     /// </para><para>
     /// With previous-generation instance types, resizing an EBS volume may require detaching
     /// and reattaching the volume or stopping and restarting the instance. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
-    /// the Size, IOPS, or Type of an EBS Volume on Linux</a> and <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
+    /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-expand-volume.html">Modifying
+    /// the Size, IOPS, or Type of an EBS Volume on Linux</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ebs-expand-volume.html">Modifying
     /// the Size, IOPS, or Type of an EBS Volume on Windows</a>.
     /// </para><para>
     /// If you reach the maximum volume modification rate per volume limit, you will need
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The target IOPS rate of the volume.</para><para>This is only valid for Provisioned IOPS SSD (<code>io1</code>) volumes. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html#EBSVolumeTypes_piops">Provisioned
         /// IOPS SSD (io1) Volumes</a>.</para><para>Default: If no IOPS value is specified, the existing value is retained.</para>
         /// </para>
         /// </summary>
@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The target size of the volume, in GiB. The target volume size must be greater than
         /// or equal to than the existing size of the volume. For information about available
-        /// EBS volume sizes, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// EBS volume sizes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
         /// EBS Volume Types</a>.</para><para>Default: If no size is specified, the existing size is retained.</para>
         /// </para>
         /// </summary>

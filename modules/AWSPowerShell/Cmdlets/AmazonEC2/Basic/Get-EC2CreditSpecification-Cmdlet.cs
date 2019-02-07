@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// IDs in the affected zone, or do not specify any instance IDs at all, the call fails.
     /// If you specify only instance IDs in an unaffected zone, the call works normally.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
     /// Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

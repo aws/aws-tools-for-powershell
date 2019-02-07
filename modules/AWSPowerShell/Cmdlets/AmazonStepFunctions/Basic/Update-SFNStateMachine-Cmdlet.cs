@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Definition
         /// <summary>
         /// <para>
-        /// <para>The Amazon States Language definition of the state machine. See <a href="http://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
+        /// <para>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon
         /// States Language</a>.</para>
         /// </para>
         /// </summary>

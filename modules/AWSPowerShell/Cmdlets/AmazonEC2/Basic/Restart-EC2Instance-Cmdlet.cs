@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// If an instance does not cleanly shut down within four minutes, Amazon EC2 performs
     /// a hard reboot.
     /// </para><para>
-    /// For more information about troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting
+    /// For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-console.html">Getting
     /// Console Output and Rebooting Instances</a> in the <i>Amazon Elastic Compute Cloud
     /// User Guide</i>.
     /// </para>

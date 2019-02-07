@@ -137,7 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
         public System.Int32 Limit { get; set; }
         #endregion
         

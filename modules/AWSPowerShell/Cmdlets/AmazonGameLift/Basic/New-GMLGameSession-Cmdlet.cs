@@ -53,9 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// to change the game session's player session creation policy.
     /// </para><para><b>Game session logs.</b> Logs are retained for all active game sessions for 14 days.
     /// To access the logs, call <a>GetGameSessionLogUrl</a> to download the log files.
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para>
-    /// Game-session-related operations include:
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
     /// Game session placements
     /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
     /// </summary>
@@ -108,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Set of custom properties for a game session, formatted as key:value pairs. These properties
         /// are passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
@@ -122,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Set of custom game session properties, formatted as a single string value. This data
         /// is passed to a game server process in the <a>GameSession</a> object with a request
-        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>).</para>
         /// </para>
         /// </summary>

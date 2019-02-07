@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// explicitly associated with any route table, it is implicitly associated with the main
     /// route table. This command does not return the subnet ID for implicit associations.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

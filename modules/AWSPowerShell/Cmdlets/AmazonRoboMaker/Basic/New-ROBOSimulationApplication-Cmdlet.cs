@@ -91,6 +91,17 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         public Amazon.RoboMaker.Model.SourceConfig[] Source { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A map that contains tag keys and tag values that are attached to the simulation application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter RenderingEngine_Version
         /// <summary>
         /// <para>
@@ -138,6 +149,14 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (this.Source != null)
             {
                 context.Sources = new List<Amazon.RoboMaker.Model.SourceConfig>(this.Source);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -199,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             if (cmdletContext.Sources != null)
             {
                 request.Sources = cmdletContext.Sources;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -270,6 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
             public Amazon.RoboMaker.Model.RobotSoftwareSuite RobotSoftwareSuite { get; set; }
             public Amazon.RoboMaker.Model.SimulationSoftwareSuite SimulationSoftwareSuite { get; set; }
             public List<Amazon.RoboMaker.Model.SourceConfig> Sources { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

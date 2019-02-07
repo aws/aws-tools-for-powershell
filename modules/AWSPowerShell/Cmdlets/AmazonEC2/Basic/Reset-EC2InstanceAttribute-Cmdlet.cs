@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The <code>sourceDestCheck</code> attribute controls whether source/destination checking
     /// is enabled. The default value is <code>true</code>, which means checking is enabled.
     /// This value must be <code>false</code> for a NAT instance to perform NAT. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT
+    /// information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html">NAT
     /// Instances</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

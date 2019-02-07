@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// DNS server that we provide (AmazonProvidedDNS). If you create a set of options, and
     /// if your VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
     /// option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
-    /// choice. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
+    /// choice. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html">DHCP
     /// Options Sets</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

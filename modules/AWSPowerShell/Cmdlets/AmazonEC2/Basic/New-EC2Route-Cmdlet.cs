@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// second route in the list covers a smaller number of IP addresses and is therefore
     /// more specific, so we use that route to determine where to target the traffic.
     /// </para><para>
-    /// For more information about route tables, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
+    /// For more information about route tables, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html">Route
     /// Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>

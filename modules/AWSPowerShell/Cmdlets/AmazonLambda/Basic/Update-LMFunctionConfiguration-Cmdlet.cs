@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// These settings can vary between versions of a function and are locked when you publish
-    /// a version. You cannot modify the configuration of a published version, only the unpublished
+    /// a version. You can't modify the configuration of a published version, only the unpublished
     /// version.
     /// </para><para>
     /// To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke
@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A short user-defined function description. AWS Lambda does not use this value. Assign
-        /// a meaningful description as you see fit.</para>
+        /// <para>A description of the function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,8 +72,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Handler
         /// <summary>
         /// <para>
-        /// <para>The function that Lambda calls to begin executing your function. For Node.js, it is
-        /// the <code>module-name.export</code> value in your function. </para>
+        /// <para>The name of the method within your code that Lambda calls to execute your function.
+        /// The format includes the file name. It can also include namespaces and other qualifiers,
+        /// depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming
+        /// Model</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter KMSKeyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment
-        /// variables. If you elect to use the AWS Lambda default service key, pass in an empty
-        /// string ("") for this parameter.</para>
+        /// <para>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your
+        /// function's environment variables. If it's not provided, AWS Lambda uses a default
+        /// service key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Layer
         /// <summary>
         /// <para>
-        /// <para>A list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function
-        /// layers</a> to add to the function's execution environment.</para>
+        /// <para>A list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function
+        /// layers</a> to add to the function's execution environment. Specify each layer by its
+        /// ARN, including the version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,11 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter MemorySize
         /// <summary>
         /// <para>
-        /// <para>The amount of memory, in MB, your Lambda function is given. AWS Lambda uses this memory
-        /// size to infer the amount of CPU allocated to your function. Your function use-case
-        /// determines your CPU and memory requirements. For example, a database operation might
-        /// need less memory compared to an image processing function. The default value is 128
-        /// MB. The value must be a multiple of 64 MB.</para>
+        /// <para>The amount of memory that your function has access to. Increasing the function's memory
+        /// also increases its CPU allocation. The default value is 128 MB. The value must be
+        /// a multiple of 64 MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,8 +133,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter RevisionId
         /// <summary>
         /// <para>
-        /// <para>Only update the function if the revision ID matches the ID specified. Use this option
-        /// to avoid modifying a function that has changed since you last read it.</para>
+        /// <para>Only update the function if the revision ID matches the ID that's specified. Use this
+        /// option to avoid modifying a function that has changed since you last read it.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -144,8 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM role that Lambda will assume when it executes
-        /// your function.</para>
+        /// <para>The Amazon Resource Name (ARN) of the function's execution role.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Runtime
         /// <summary>
         /// <para>
-        /// <para>The runtime version for the function.</para>
+        /// <para>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -198,8 +197,8 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Timeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time that Lambda allows a function to run before terminating it. The
-        /// default is 3 seconds. The maximum allowed value is 900 seconds.</para>
+        /// <para>The amount of time that Lambda allows a function to run before stopping it. The default
+        /// is 3 seconds. The maximum allowed value is 900 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

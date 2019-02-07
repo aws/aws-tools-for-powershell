@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information about network interfaces, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic
+    /// For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic
     /// Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// you specify a number of secondary IPv4 addresses, Amazon EC2 selects these IP addresses
         /// within the subnet's IPv4 CIDR range. You can't specify this option and specify more
         /// than one private IP address using <code>privateIpAddresses</code>.</para><para>The number of IP addresses you can assign to a network interface varies by instance
-        /// type. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
+        /// type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP
         /// Addresses Per ENI Per Instance Type</a> in the <i>Amazon Virtual Private Cloud User
         /// Guide</i>.</para>
         /// </para>

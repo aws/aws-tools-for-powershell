@@ -95,15 +95,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: UploadId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -149,15 +141,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -203,15 +187,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -257,15 +233,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: LockId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -311,15 +279,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -365,15 +325,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: ArchiveId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -419,15 +371,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -473,15 +417,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -527,15 +463,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -581,15 +509,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -630,15 +550,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -679,15 +591,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -728,15 +632,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -777,15 +673,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -826,15 +714,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -976,15 +856,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1030,15 +902,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1190,21 +1054,13 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
     "ListTagsForVault": {
       "verb": "Get",
-      "noun": "VaultTagsList",
+      "noun": "VaultTagList",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -1239,15 +1095,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -1337,15 +1185,7 @@
         "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1391,15 +1231,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1445,15 +1277,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: AccountId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1499,15 +1323,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",
@@ -1553,15 +1369,7 @@
         "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
-        "autoIterateSettings": {
-          "excludedOperations": [],
-          "requestMember": "Marker",
-          "responseMember": "Marker",
-          "resultLimitMember": "Limit",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 50,
-          "resultsTruncatedMember": ""
-        },
+        "autoIterateSettings": {},
         "supportsShouldProcessInspectionResult": {
           "analysisMessage": "",
           "status": "TargetFromConfig",

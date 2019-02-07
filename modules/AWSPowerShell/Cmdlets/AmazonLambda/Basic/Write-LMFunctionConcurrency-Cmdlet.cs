@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     ///  
     /// <para>
     /// Concurrency settings apply to the function as a whole, including all published versions
-    /// and the unpublished version. Reserving concurrency both guarantees that your function
+    /// and the unpublished version. Reserving concurrency both ensures that your function
     /// has capacity to process the specified number of events simultaneously, and prevents
     /// it from scaling beyond that level. Use <a>GetFunction</a> to see the current setting
     /// for a function.
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// Use <a>GetAccountSettings</a> to see your regional concurrency limit. You can reserve
     /// concurrency for as many functions as you like, as long as you leave at least 100 simultaneous
     /// executions unreserved for functions that aren't configured with a per-function limit.
-    /// For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
+    /// For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing
     /// Concurrency</a>.
     /// </para>
     /// </summary>

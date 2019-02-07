@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  <note><para>
     /// Limitations and rules apply to a VPC peering connection. For more information, see
-    /// the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-basics.html#vpc-peering-limitations">limitations</a>
+    /// the <a href="https://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-basics.html#vpc-peering-limitations">limitations</a>
     /// section in the <i>VPC Peering Guide</i>.
     /// </para></note><para>
     /// The owner of the accepter VPC must accept the peering request to activate the peering

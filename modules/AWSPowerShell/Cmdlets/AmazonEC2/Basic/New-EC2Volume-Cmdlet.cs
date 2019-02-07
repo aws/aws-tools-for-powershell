@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Creates an EBS volume that can be attached to an instance in the same Availability
     /// Zone. The volume is created in the regional endpoint that you send the HTTP request
-    /// to. For more information see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
+    /// to. For more information see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html">Regions
     /// and Endpoints</a>.
     /// 
     ///  
@@ -41,13 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// You can create encrypted volumes with the <code>Encrypted</code> parameter. Encrypted
     /// volumes may only be attached to instances that support Amazon EBS encryption. Volumes
     /// that are created from encrypted snapshots are also automatically encrypted. For more
-    /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
     /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// You can tag your volumes during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+    /// You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
     /// Your Amazon EC2 Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
+    /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Creating
     /// an Amazon EBS Volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// created from encrypted snapshots are automatically encrypted. There is no way to create
         /// an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted
         /// volumes, you can only launch it on supported instance types. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions.
         /// Maximum IOPS of 64,000 is guaranteed only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
         /// EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</para>
         /// </para>
         /// </summary>

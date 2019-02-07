@@ -88,6 +88,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String ScheduledAuditName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage the scheduled audit.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetCheckName
         /// <summary>
         /// <para>
@@ -135,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.DayOfWeek = this.DayOfWeek;
             context.Frequency = this.Frequency;
             context.ScheduledAuditName = this.ScheduledAuditName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             if (this.TargetCheckName != null)
             {
                 context.TargetCheckNames = new List<System.String>(this.TargetCheckName);
@@ -170,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.ScheduledAuditName != null)
             {
                 request.ScheduledAuditName = cmdletContext.ScheduledAuditName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TargetCheckNames != null)
             {
@@ -243,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public Amazon.IoT.DayOfWeek DayOfWeek { get; set; }
             public Amazon.IoT.AuditFrequency Frequency { get; set; }
             public System.String ScheduledAuditName { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
             public List<System.String> TargetCheckNames { get; set; }
         }
         
