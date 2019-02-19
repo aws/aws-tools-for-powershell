@@ -165,6 +165,17 @@
     <Path>xray.xml</Path>
   </Configs>
 
+  <OperationNameMappings>
+    <Map From="Tag" To="AddTag" />
+    <Map From="NewTags" To="AddTag" />
+    <Map From="NewTag" To="AddTag" />
+    <Map From="Untag" To="RemoveTag" />
+    <Map From="ListTags" To="GetTag" />
+    <Map From="TagResource" To="AddResourceTag" />
+    <Map From="UntagResource" To="RemoveResourceTag" />
+    <Map From="ListTagsForResource" To="GetResourceTag" />
+  </OperationNameMappings>
+
   <VerbMappings>
     <Map From="Create" To="New" />
     <Map From="Allocate" To="New" />

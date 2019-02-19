@@ -876,35 +876,30 @@ namespace AWSPowerShellGenerator.Analysis
             var methodName = CurrentOperation.MethodName;
 
             string noun = null;
-            var verb = methodName;
 
-            for (var i = 1; i < methodName.Length; i++)
+            string verb;
+            if (AllModels.OperationNameMappings.TryGetValue(methodName, out verb))
             {
-                if (Char.IsUpper(methodName[i]))
+                Logger.Log("Replaced SDK operation name [{0}] with Global PS cmdlet name [{1}]", methodName, verb);
+            }
+            else
+            {
+                verb = methodName;
+            }
+
+            for (var i = 1; i < verb.Length; i++)
+            {
+                if (Char.IsUpper(verb[i]))
                 {
-                    verb = methodName.Substring(0, i);
-                    noun = methodName.Substring(i);
+                    noun = verb.Substring(i);
+                    verb = verb.Substring(0, i);
                     break;
                 }
             }
 
-            // some services are now adopting 'Tag' and 'Untag'
-            if (string.IsNullOrEmpty(noun) && CurrentOperation.IsAutoConfiguring)
+            if (CurrentOperation.IsAutoConfiguring && string.IsNullOrEmpty(noun))
             {
-                switch(methodName)
-                {
-                    case "Tag":
-                        verb = "Add";
-                        noun = "ResourceTag";
-                        break;
-                    case "Untag":
-                        verb = "Remove";
-                        noun = "ResourceTag";
-                        break;
-                    default:
-                        Logger.LogError("{0}: method name {1} cannot be split into verb-noun automatically", CurrentModel.ServiceName, methodName);
-                        break;
-                }
+                Logger.LogError("{0}: method name {1} cannot be split into verb-noun automatically", CurrentModel.ServiceName, methodName);
             }
 
             // save the noun part of the split method name so we can potentially use it for the 'operation'

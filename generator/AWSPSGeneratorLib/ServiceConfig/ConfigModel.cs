@@ -37,6 +37,26 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        [XmlArray("OperationNameMappings")]
+        public List<Map> OperationNameMappingsList = new List<Map>();
+
+        Dictionary<string, string> _operationNameMappings;
+        /// <summary>
+        /// Cross-service operation name remaps
+        /// </summary>
+        [XmlIgnore]
+        public Dictionary<string, string> OperationNameMappings
+        {
+            get
+            {
+                if (_operationNameMappings == null)
+                    _operationNameMappings = OperationNameMappingsList.ToDictionary(m => m.From, m => m.To);
+
+                return _operationNameMappings;
+            }
+        }
+
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [XmlArray("NounMappings")]
         public List<Map> NounMappingsList = new List<Map>();
 
