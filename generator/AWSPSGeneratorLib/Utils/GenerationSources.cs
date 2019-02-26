@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Xml;
 using AWSPowerShellGenerator.Generators;
 
@@ -117,7 +118,6 @@ namespace AWSPowerShellGenerator.Utils
             var projectFile = Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellProjectFilename);
             UpdateProjectReferences(projectFile);
 
-
             var manifestFiles = new[]
             {
                 Path.Combine(moduleRootFolder, CmdletGenerator.AWSPowerShellDesktopModuleManifestFilename),
@@ -206,91 +206,64 @@ namespace AWSPowerShellGenerator.Utils
             var project = new XmlDocument();
             project.Load(projectFile);
 
+            var targetFrameworkRegex = new Regex(@"'\$\(TargetFramework\)'=='([\w\.]+)'");
+
             // helps to keep references in some defined order in the project file
             var usedSdkAssemblies = new SortedSet<string>(Assemblies.Keys);
 
-            var assemblyReferences = project.GetElementsByTagName("PackageReference");
-            foreach (var assemblyReference in assemblyReferences)
+            var itemGroups = project.GetElementsByTagName("ItemGroup");
+            foreach (XmlNode itemGroup in itemGroups)
             {
-                var xn = assemblyReference as XmlNode;
-                var include = xn.Attributes["Include"];
-                if (include == null)
+                var condition = itemGroup.Attributes["Condition"];
+                if (condition == null)
                     continue;
 
-                var assemblyName = include.InnerText;
-                if (!assemblyName.StartsWith(SDKAssemblyNamePrefix, StringComparison.OrdinalIgnoreCase))
+                var match = targetFrameworkRegex.Match(condition.Value);
+                if (!match.Success)
                     continue;
 
-                if (usedSdkAssemblies.Contains(assemblyName))
+                var platform = match.Groups[1].Value;
+                if (platform == "netstandard2.0")
                 {
-                    var version = GetNugetPackageVersionForAssembly(assemblyName);
-
-                    // for simplicy, always update the hintpath of existing assemblies
-                    xn.Attributes["Version"].Value = version;
-
-                    usedSdkAssemblies.Remove(assemblyName);
+                    platform = "netstandard1.3";
                 }
-            }
 
-            if (usedSdkAssemblies.Any())
-            {
-                Console.WriteLine("......!missing references detected, updating project file");
+                var sdkReferences = itemGroup.ChildNodes
+                    .OfType<XmlNode>()
+                    .Where(child => child.Name == "Reference")
+                    .Where(child => child.Attributes["Include"]?.InnerText.StartsWith(SDKAssemblyNamePrefix, StringComparison.OrdinalIgnoreCase) ?? false)
+                    .ToArray();
 
-                // project file needs updating with one or more new service assemblies
-                var parentGroup = assemblyReferences[0].ParentNode;
-
-                foreach (var assembly in usedSdkAssemblies)
+                if (sdkReferences.Any())
                 {
-                    Console.WriteLine(".........adding {0}", assembly);
+                    foreach (var assemblyReference in sdkReferences)
+                    {
+                        itemGroup.RemoveChild(assemblyReference);
+                    }
 
-                    // create reference node for the new service
-                    var referenceNode = CreatePackageReferenceNode(project, assembly);
-                    var newIncludeAttribute = referenceNode.Attributes["Include"].Value;
-
-                    var childToInsertAfter = FindInsertionPoint(parentGroup, newIncludeAttribute);
-                    parentGroup.InsertAfter(referenceNode, childToInsertAfter);
+                    foreach (var assembly in usedSdkAssemblies)
+                    {
+                        var referenceNode = CreatePackageReferenceNode(project, assembly, platform);
+                        itemGroup.AppendChild(referenceNode);
+                    }
                 }
             }
 
             project.Save(projectFile);
         }
 
-        private static XmlNode FindInsertionPoint(XmlNode parentGroup, string newIncludeAttribute)
-        {
-            int insertionIndex = parentGroup.ChildNodes.Count - 1;
-            for (int i = 0; i < parentGroup.ChildNodes.Count; i++)
-            {
-                var child = parentGroup.ChildNodes[i];
-                var includeAttribute = child.Attributes["Include"].Value;
-
-                if (!includeAttribute.StartsWith("AWSSDK."))
-                    continue;
-
-                // if new include < current child, we found insertion point
-                if (string.Compare(newIncludeAttribute, includeAttribute) < 0)
-                {
-                    insertionIndex = i - 1;
-                    break;
-                }
-            }
-            var childToInsertAfter = (insertionIndex < 0) ? null : parentGroup.ChildNodes[insertionIndex];
-            return childToInsertAfter;
-        }
-
-        private XmlElement CreatePackageReferenceNode(XmlDocument project, string assembly)
+        private XmlElement CreatePackageReferenceNode(XmlDocument project, string assembly, string platform)
         {
             // pass doc namespace to avoid empty xmlns attributing on the elements
-            var referenceNode = project.CreateElement("PackageReference", project.DocumentElement.NamespaceURI);
+            var referenceNode = project.CreateElement("Reference", project.DocumentElement.NamespaceURI);
 
             var xa = project.CreateAttribute("Include");
             xa.Value = assembly;
             referenceNode.Attributes.Append(xa);
 
-            var version = GetNugetPackageVersionForAssembly(assembly);
-
-            var xb = project.CreateAttribute("Version");
-            xb.Value = version;
-            referenceNode.Attributes.Append(xb);
+            var xb = project.CreateElement("HintPath");
+            xb.InnerText = $"..\\..\\Include\\sdk\\ExtractedNuGet\\{platform}\\{assembly}.dll";
+            referenceNode.AppendChild(xb);
 
             return referenceNode;
         }
@@ -322,26 +295,6 @@ namespace AWSPowerShellGenerator.Utils
             }
 
             return nugetPackage;
-        }
-
-        /// <summary>
-        /// Probes the packages folder to return the nuget package containing
-        /// the supplied SDK assembly name.
-        /// </summary>
-        /// <param name="assemblyName"></param>
-        /// <returns></returns>
-        private string GetNugetPackageVersionForAssembly(string assemblyName)
-        {
-            var nugetPackage = LocateNugetPackageForAssembly(assemblyName);
-            // First two dotted parts are sdk assembly name by convention, the rest is the version
-            // (there is no extension in the package name returned above). Further convention is
-            // to drop any trailing .0.
-            var versionStart = nugetPackage.IndexOf('.', nugetPackage.IndexOf('.') + 1) + 1;
-            var version = nugetPackage.Substring(versionStart);
-            if (version.EndsWith(".0", StringComparison.Ordinal))
-                version = version.Substring(0, version.Length - 2);
-
-            return version;
         }
 
         /// <summary>

@@ -355,20 +355,8 @@ namespace AWSPowerShellGenerator.Generators
             {
                 Logger.Log();
                 Logger.Log(new string('>', 20));
-                if (Options.Services == null
-                        || (Options.Services.Length != 0
-                                && Options.Services.Contains(configModel.ServiceNounPrefix, StringComparer.InvariantCultureIgnoreCase)))
+                if (Options.Services?.Contains(configModel.ServiceNounPrefix, StringComparer.InvariantCultureIgnoreCase) ?? true)
                 {
-                    if (Options.SkipCmdletGeneration)
-                    {
-#if DEBUG
-                        configModel.SkipCmdletGeneration = true;
-#else
-                        Logger.LogError("SkipCmdletGeneration is supported only in Debug builds");
-                        return;
-#endif
-                    }
-
                     // hold some state to model under work so we can make use of
                     // static helpers
                     CurrentModel = configModel;
@@ -376,33 +364,38 @@ namespace AWSPowerShellGenerator.Generators
                     Logger.Log("=======================================================");
                     Logger.Log("Processing service: {0}", CurrentModel.ServiceName);
 
-                    GenerateClientAndCmdlets(CurrentModel);
-                    GenerateArgumentCompleters(CurrentModel);
-                    ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
+                    LoadCurrentService(CurrentModel);
 
-                    if (CurrentModel.ModelUpdated)
+                    if (!Options.SkipCmdletGeneration)
                     {
-                        // for browsing convenience re-order the operations in case this was an existing service we 
-                        // added new operations to
-                        CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
-                        CurrentModel.Serialize(configurationsFolder);
-                    }
+                        GenerateClientAndCmdlets(CurrentModel);
+                        GenerateArgumentCompleters(CurrentModel);
+                        ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
 
-                    // always serialize the json format, so we have reliable test data to work
-                    // on in the new ps generator
-                    new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
-
-                    if (!Options.BreakOnOutputMismatchError)
-                    {
-                        Console.WriteLine("Completed processing for {0}", CurrentModel.ServiceName);
-                        if (!CurrentModel.SkipCmdletGeneration)
+                        if (CurrentModel.ModelUpdated)
                         {
-                            Console.WriteLine("    Cmdlets generated for prefix: {0}", CurrentModel.ServiceNounPrefix);
-                            Console.WriteLine("    Single-property result operations: {0}", string.Join(", ", CurrentModel.SinglePropertyResultOperations));
-                            Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
-                            Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
+                            // for browsing convenience re-order the operations in case this was an existing service we 
+                            // added new operations to
+                            CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
+                            CurrentModel.Serialize(configurationsFolder);
                         }
-                        Console.WriteLine();
+
+                        // always serialize the json format, so we have reliable test data to work
+                        // on in the new ps generator
+                        new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
+
+                        if (!Options.BreakOnOutputMismatchError)
+                        {
+                            Console.WriteLine("Completed processing for {0}", CurrentModel.ServiceName);
+                            if (!CurrentModel.SkipCmdletGeneration)
+                            {
+                                Console.WriteLine("    Cmdlets generated for prefix: {0}", CurrentModel.ServiceNounPrefix);
+                                Console.WriteLine("    Single-property result operations: {0}", string.Join(", ", CurrentModel.SinglePropertyResultOperations));
+                                Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
+                                Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
+                            }
+                            Console.WriteLine();
+                        }
                     }
                 }
                 else
@@ -414,21 +407,24 @@ namespace AWSPowerShellGenerator.Generators
                 Logger.Log();
             }
 
-            SourceArtifacts.UpdateReferencesAndExports(OutputFolder, GetLegacyAliasNames());
-
-            Console.WriteLine("...updating script completers module");
-            var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
-            SourceArtifacts.WriteCompletionScriptsFile(argumentCompleterScriptModuleFile, GetArgumentCompletionScriptContent());
-
-            Console.WriteLine("...updating legacy aliases module");
-            var legacyAliasesScriptModuleFile = Path.Combine(OutputFolder, LegacyAliasesScriptModuleFilename);
-            SourceArtifacts.WriteLegacyAliasesFile(legacyAliasesScriptModuleFile, GetLegacyAliasesFileContent());
-
-            Console.WriteLine("...updating service_operation -> cmdlet name aliases file");
-            var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
-            using (var sw = new StreamWriter(aliasSourceFile, false, new System.Text.UTF8Encoding(false)))
+            if (!Options.SkipCmdletGeneration)
             {
-                sw.WriteLine(Aliases);
+                SourceArtifacts.UpdateReferencesAndExports(OutputFolder, GetLegacyAliasNames());
+
+                Console.WriteLine("...updating script completers module");
+                var argumentCompleterScriptModuleFile = Path.Combine(OutputFolder, ArgumentCompleterScriptModuleFilename);
+                SourceArtifacts.WriteCompletionScriptsFile(argumentCompleterScriptModuleFile, GetArgumentCompletionScriptContent());
+
+                Console.WriteLine("...updating legacy aliases module");
+                var legacyAliasesScriptModuleFile = Path.Combine(OutputFolder, LegacyAliasesScriptModuleFilename);
+                SourceArtifacts.WriteLegacyAliasesFile(legacyAliasesScriptModuleFile, GetLegacyAliasesFileContent());
+
+                Console.WriteLine("...updating service_operation -> cmdlet name aliases file");
+                var aliasSourceFile = Path.Combine(OutputFolder, AliasesFilename);
+                using (var sw = new StreamWriter(aliasSourceFile, false, new System.Text.UTF8Encoding(false)))
+                {
+                    sw.WriteLine(Aliases);
+                }
             }
         }
 
@@ -436,7 +432,7 @@ namespace AWSPowerShellGenerator.Generators
 
 #region Private client methods
 
-        private void GenerateClientAndCmdlets(ConfigModel configModel)
+        private void LoadCurrentService(ConfigModel configModel)
         {
             // infer sdk service assembly name from the namespace and load the artifacts into the store
             // and in-progress properties. We do this even if the config requests we skip cmdlet
@@ -445,7 +441,10 @@ namespace AWSPowerShellGenerator.Generators
             var svcAssemblyBasename = string.Concat("AWSSDK.", svcNamespaceParts[1]);
 
             (CurrentServiceAssembly, CurrentServiceNDoc) = SourceArtifacts.Load(svcAssemblyBasename);
+        }
 
+        private void GenerateClientAndCmdlets(ConfigModel configModel)
+        {
             if (configModel.SkipCmdletGeneration)
             {
                 Logger.Log("...skipping cmdlet generation, ExcludeCmdletGeneration set true for service");

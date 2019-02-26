@@ -45,7 +45,7 @@
         <!-- default to build break if we see unconfigured sdk client operations -->
         <BreakOnUnknownOperations Condition="'$(BreakOnUnknownOp)' == ''">true</BreakOnUnknownOperations>
 
-        <!-- set to true to build without reflecting over the service client to generate cmdlets -->
+        <!-- set to true to build without reflecting over the service client to generate cmdlets, aliases and completers. If set to true the generator will only download the nupkg files and unzip the SDK dlls -->
         <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
         
         <!-- set to false to skip generating the release notes draft -->
@@ -80,16 +80,10 @@
     
         <MakeDir Directories="$(SDKNuGetFolder)"/>
     </Target>
-
-    <!-- If a package is cached in the global NuGet cache it will be used even if it is different (same version but different) than the one pointed to by NuGet.Config, for this reason it is best to clean the caches before restoring  -->
-    <Target Name="clean-nuget-cache" Condition="'$(CleanNugetCache)'">
-        <Message Text="Clean NuGet caches"/>
-        <Exec Command="dotnet nuget locals all --clear" />
-    </Target>
-
-    <Target Name="build-generator" DependsOnTargets="clean-nuget-cache">
+    
+    <Target Name="build-generator">
         <Message Text="Building AWS PowerShell generator"/>
-        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental --configfile ..\NuGet.Config --no-cache ..\solutions\AWSPowerShellGenerator.sln"/>    
+        <Exec Command="dotnet build -c $(Configuration) --force --no-incremental ..\solutions\AWSPowerShellGenerator.sln"/>    
     </Target>
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
@@ -99,9 +93,9 @@
 
     <Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />
 
-    <Target Name="build-desktop-module" DependsOnTargets="clean-nuget-cache">
+    <Target Name="build-desktop-module" >
         <Message Text="Building AWSPowerShell desktop module edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f net35 --force --no-incremental --configfile ..\NuGet.Config --no-cache ..\solutions\AWSPowerShell.sln"/>   
+        <Exec Command="dotnet build -c $(Configuration) -f net35 --force --no-incremental ..\solutions\AWSPowerShell.sln"/>   
 
         <Message Text="Generating custom view formats ps1xml file"/>
         <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t formats -e desktop" />
@@ -110,9 +104,9 @@
         <Copy SourceFiles="$(DesktopDeploymentArtifacts)\AWSPowerShell.Format.ps1xml" DestinationFolder="$(NetCoreDeploymentArtifacts)" />
     </Target>
 
-    <Target Name="build-netcore-module" DependsOnTargets="clean-nuget-cache">
+    <Target Name="build-netcore-module" >
         <Message Text="Building AWSPowerShell netcore module edition"/>
-        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental --configfile ..\NuGet.Config --no-cache ..\solutions\AWSPowerShell.sln"/>   
+        <Exec Command="dotnet build -c $(Configuration) -f netstandard2.0  --force --no-incremental ..\solutions\AWSPowerShell.sln"/>   
     </Target>
 
     <Target Name="create-help" DependsOnTargets="create-pshelp;create-webhelp" />
@@ -228,13 +222,13 @@
     <Target Name="patch-manifests" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
         <!-- TEMP DISABLE WHILE WE RESOLVE > 4000 CMDLETS LIMIT ISSUE
         <Message Text="Building manifest patch util for desktop module"/>
-        <Exec Command="dotnet build -c $(Configuration) - -force - -no-incremental - -configfile ..\NuGet.Config - -no-cache ..\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher.sln"/>   
+        <Exec Command="dotnet build -c $(Configuration) - -force - -no-incremental ..\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher.sln"/>   
 
         <Message Text="Patching desktop manifest to declare exported cmdlets" />
         <Exec Command="$(RootPath)\buildtools\Tools\DesktopManifestPatcher\DesktopManifestPatcher\bin\$(Configuration)\net40\DesktopManifestPatcher.exe $(DesktopDeploymentArtifacts)" />
     
         <Message Text="Building manifest patch util for netcore module"/>
-        <Exec Command="dotnet build -c $(Configuration) - -force - -no-incremental - -configfile ..\NuGet.Config - -no-cache ..\buildtools\Tools\NetCoreManifestPatcher\NetCoreManifestPatcher.sln"/>
+        <Exec Command="dotnet build -c $(Configuration) - -force - -no-incremental ..\buildtools\Tools\NetCoreManifestPatcher\NetCoreManifestPatcher.sln"/>
         
         <Message Text="Patching netcore manifest to declare exported cmdlets" />
         <Exec Command="dotnet $(RootPath)\buildtools\Tools\NetCoreManifestPatcher\NetCoreManifestPatcher\bin\$(Configuration)\netcoreapp2.0\NetCoreManifestPatcher.dll $(NetCoreDeploymentArtifacts)" />
