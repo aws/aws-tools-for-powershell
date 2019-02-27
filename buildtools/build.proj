@@ -62,7 +62,6 @@
         <RunKeyScan Condition="'$(RunKeyScan)'==''">false</RunKeyScan>
 
         <UpdateVersions Condition="'$(UpdateVersions)'==''">false</UpdateVersions>
-        <AWSPowerShellPatchNumber Condition="'$(AWSPowerShellVersionNumber)'==''">0</AWSPowerShellPatchNumber>
 
         <SignModule Condition="'$(SignModule)'==''">false</SignModule>
     </PropertyGroup>
@@ -236,26 +235,13 @@
     </Target>
 
     <Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">
-        <!-- grab the logical SDK product version and use the first 3 components,
-             appending our own patch number to make the final PowerShell version
-        -->
-        <GetSdkProductVersionTask SdkVersionsFile="..\Include\sdk\_sdk-versions.json" OutputFile="$(RootPath)\AWSSDK.v3.Info.xml" />
-        <XmlPeek XmlInputPath="$(RootPath)\AWSSDK.v3.Info.xml" Query="/output/version/text()">
-            <Output TaskParameter="Result" PropertyName="SDKV3Version" />
+        <!-- grab the AWSPowerShell product version from the changelog file -->
+        <GetAWSPowerShellProductVersionTask ChangelogFile="..\CHANGELOG.txt" OutputFile="$(RootPath)\AWSPowerShell.Info.xml" />
+        <XmlPeek XmlInputPath="$(RootPath)\AWSPowerShell.Info.xml" Query="/output/version/text()">
+            <Output TaskParameter="Result" PropertyName="AWSPowerShellVersionNumber" />
         </XmlPeek>
-        <Delete Files="$(RootPath)\AWSSDK.v3.Info.xml" />
-
-        <PropertyGroup>
-            <!-- see https://thedevstop.wordpress.com/2013/07/24/msbuild-string-manipulation-chaos/ -->
-            <Major>$(SDKV3Version.Split('.')[0])</Major>
-            <Minor>$(SDKV3Version.Split('.')[1])</Minor>
-            <Build>$(SDKV3Version.Split('.')[2])</Build>
-
-            <AWSPowerShellVersionNumber>$(Major).$(Minor).$(Build).$(AWSPowerShellPatchNumber)</AWSPowerShellVersionNumber>
-        </PropertyGroup>
-
+        <Delete Files="$(RootPath)\AWSPowerShell.Info.xml" />
         <UpdatePowerShellVersionTask RepositoryRoot="$(MSBuildProjectDirectory)\.." AssemblyInfoPaths="modules\AWSPowerShell" VersionNumber="$(AWSPowerShellVersionNumber)" />
-
         <!-- emit the version data into a json file that gets uploaded to S3. EC2 then
              reads this to know if it needs to update EC2 images during image prep.
         -->
