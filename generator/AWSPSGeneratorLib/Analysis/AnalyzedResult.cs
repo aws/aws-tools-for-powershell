@@ -28,15 +28,6 @@ namespace AWSPowerShellGenerator.Analysis
         /// </summary>
         public Type ReturnType { get; private set; }
 
-        public enum ResultOutputTypes
-        {
-            Empty,
-            SingleProperty,
-            MultiProperty
-        }
-
-        public ResultOutputTypes OutputType { get; private set; }
-
         // analyzed outputs contained in the Response class
         private List<PropertyInfo> AllOutputProperties { get; set; }
         private List<PropertyInfo> NonMetadataProperties { get; set; }
@@ -45,8 +36,6 @@ namespace AWSPowerShellGenerator.Analysis
         // The inner property representing the true output for Response classes 
         // analyzed as a SinglePropertyResult output type
         public SimplePropertyInfo SingleResultProperty { get; private set; }
-
-        public string[] ReturnTypeDescription { get; private set; }
 
         /// <summary>
         /// If not empty, this holds the parameter that can be piped into the
@@ -64,8 +53,6 @@ namespace AWSPowerShellGenerator.Analysis
             // type hosting the collection.
             ResponseType = operationAnalyzer.ResponseType;
             ReturnType = operationAnalyzer.ReturnType;
-
-            OutputType = ResultOutputTypes.Empty;
 
             var autoIterateSettings = operationAnalyzer.AutoIterateSettings;
 
@@ -93,89 +80,89 @@ namespace AWSPowerShellGenerator.Analysis
             NonMetadataProperties = AllOutputProperties.Where(notMetadataProperty).ToList();
             MetadataProperties = AllOutputProperties.Where(isMetadataProperty).ToList();
 
-            if (this.NonMetadataProperties.Count == 1)
+            ServiceOperation.OutputMode identifiedOutputMode;
+            if (this.NonMetadataProperties.Count == 0)
             {
-                OutputType = ResultOutputTypes.SingleProperty;
+                identifiedOutputMode = ServiceOperation.OutputMode.Void;
+            }
+            else if (this.NonMetadataProperties.Count == 1)
+            {
+                identifiedOutputMode = ServiceOperation.OutputMode.DefaultSingleMember;
+            }
+            else
+            {
+                identifiedOutputMode = ServiceOperation.OutputMode.Response;
+            }
 
-                var property = NonMetadataProperties.First();
-                SingleResultProperty = operationAnalyzer.CreateSimplePropertyFor(property, null, false);
-                // if the output is a collection, extract the inner type so we report that as the cmdlet
-                // output in help, not the List wrapper (grab the full name so we can be explicit in help)
-                if (property.PropertyType.IsGenericType)
+            if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
+            {
+                operationAnalyzer.CurrentOperation.Output = identifiedOutputMode;
+            }
+            else if (operationAnalyzer.CurrentOperation.SkipOutputComputationCheck)
+            {
+                if (operationAnalyzer.CurrentOperation.Output == ServiceOperation.OutputMode.Response ||
+                    identifiedOutputMode == ServiceOperation.OutputMode.DefaultSingleMember)
                 {
-                    SingleResultProperty.GenericCollectionTypes = property.PropertyType.GetGenericArguments();
-                    if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
-                    {
-                        var innerCollectionType = property.PropertyType.GetGenericArguments();
-                        if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
-                            SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
-                        else if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
-                            SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
-                        else
-                            SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
-                    }
-                    else if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("Dictionary`", StringComparison.Ordinal))
-                        SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary;
+                    identifiedOutputMode = ServiceOperation.OutputMode.Response;
+                }
+                else
+                {
+                    operationAnalyzer.Logger.LogError($"{operationAnalyzer.CurrentModel.ServiceName}: Operation {operationAnalyzer.MethodName} cannot be forced to return {operationAnalyzer.CurrentOperation.Output} when it returns {identifiedOutputMode}");
                 }
             }
-            else if (this.NonMetadataProperties.Count > 1)
-                OutputType = ResultOutputTypes.MultiProperty;
+            else if (operationAnalyzer.CurrentOperation.Output != identifiedOutputMode)
+            {
+                operationAnalyzer.Logger.LogError($"{operationAnalyzer.CurrentModel.ServiceName}: Operation {operationAnalyzer.MethodName} returns {identifiedOutputMode} but is configured to return {operationAnalyzer.CurrentOperation.Output}");
+            }
 
             var returnTypeDescription = new List<string>();
-            switch (OutputType)
+            switch (identifiedOutputMode)
             {
-                case ResultOutputTypes.Empty:
+                case ServiceOperation.OutputMode.Void:
                     {
-                        // the 'standard' text declaring no output (except with -passthru) is added in the cmdlet source writer,
-                        // as there are some variants
                         ReturnType = null;
-                        returnTypeDescription.Add(string.Format(StringConstants.ServiceResponseFormatText, 
-                                                                OperationAnalyzer.GetValidTypeName(ResponseType, operationAnalyzer.CurrentModel)));
-                        if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
-                        {
-                            operationAnalyzer.CurrentOperation.Output = ServiceOperation.OutputMode.Void;
-                        }
                     }
                     break;
-                case ResultOutputTypes.MultiProperty:
+                case ServiceOperation.OutputMode.Response:
                     {
                         ReturnType = inspectedType;
-                        returnTypeDescription.Add(string.Format(StringConstants.MultipleOutputPropertiesFormatText, 
-                                                                OperationAnalyzer.GetValidTypeName(inspectedType, operationAnalyzer.CurrentModel)));
-                        if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
-                        {
-                            operationAnalyzer.CurrentOperation.Output = ServiceOperation.OutputMode.Response;
-                        }
                     }
                     break;
-                case ResultOutputTypes.SingleProperty:
+                case ServiceOperation.OutputMode.DefaultSingleMember:
                     {
-                        var isEnumerableOutput = SingleResultProperty.GenericCollectionTypes != null;
-                        ReturnType = isEnumerableOutput ? SingleResultProperty.GenericCollectionTypes[0] : SingleResultProperty.PropertyType;
-
-                        // prefer the short name of the emitted type in the description, to make it more readable
-                        returnTypeDescription.Add(isEnumerableOutput
-                                                      ? string.Format("This cmdlet returns a collection of {0} objects.",
-                                                                      SingleResultProperty.GenericCollectionTypes[0].Name)
-                                                      : string.Format("This cmdlet returns a {0} object.",
-                                                                      ReturnType.Name));
-                        returnTypeDescription.Add(string.Format("The service call response (type {0}) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-                                                                OperationAnalyzer.GetValidTypeName(ResponseType, operationAnalyzer.CurrentModel)));
-
-                        if (MetadataProperties.Count > 0)
+                        var property = NonMetadataProperties.First();
+                        SingleResultProperty = operationAnalyzer.CreateSimplePropertyFor(property, null, false);
+                        // if the output is a collection, extract the inner type so we report that as the cmdlet
+                        // output in help, not the List wrapper (grab the full name so we can be explicit in help)
+                        if (property.PropertyType.IsGenericType)
                         {
-                            var notes = "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: ";
-                            notes += string.Join(", ", MetadataProperties
-                                .Select(metadata => string.Format("{0} (type {1})",
-                                                                  metadata.Name,
-                                                                  OperationAnalyzer.GetValidTypeName(metadata.PropertyType, operationAnalyzer.CurrentModel))));
-                            returnTypeDescription.Add(notes);
+                            SingleResultProperty.GenericCollectionTypes = property.PropertyType.GetGenericArguments();
+                            if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
+                            {
+                                var innerCollectionType = property.PropertyType.GetGenericArguments();
+                                if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
+                                {
+                                    SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                                }
+                                else if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                                {
+                                    SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
+                                }
+                                else
+                                {
+                                    SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
+                                }
+                            }
+                            else if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                            {
+                                SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary;
+                            }
                         }
+
+                        ReturnType = SingleResultProperty.GenericCollectionTypes?[0] ?? SingleResultProperty.PropertyType;
                     }
                     break;
             }
-
-            ReturnTypeDescription = returnTypeDescription.Select(SecurityElement.Escape).ToArray();
         }
     }
 }

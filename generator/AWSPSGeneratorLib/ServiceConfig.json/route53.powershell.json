@@ -976,8 +976,8 @@
       "noun": "AccountLimit",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "Response",
-        "outputMemberSelector": "",
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Count",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -1376,8 +1376,8 @@
       "noun": "HostedZoneLimit",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "Response",
-        "outputMemberSelector": "",
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Count",
         "outputMemberWrapper": "",
         "passThru": {}
       },
@@ -1499,8 +1499,8 @@
       "noun": "ReusableDelegationSetLimit",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
-        "output": "Response",
-        "outputMemberSelector": "",
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Count",
         "outputMemberWrapper": "",
         "passThru": {}
       },

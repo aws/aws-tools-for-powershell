@@ -39,14 +39,14 @@
         <!-- build log containing results of generator analysis of service operations -->
         <CmdletAnalysisLog Condition="'$(CmdletAnalysisLog)'==''">$(RootPath)\logs\CmdletAnalysis.log</CmdletAnalysisLog>
 
-        <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
-        <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
-
-        <!-- default to build break if we see unconfigured sdk client operations -->
-        <BreakOnUnknownOperations Condition="'$(BreakOnUnknownOp)' == ''">true</BreakOnUnknownOperations>
+        <!-- if true (default), the generator will attempt to generate cmdlets for new operations found in the SDK. Set false to perform emergency maintenance releases without needing to configure new service operations changes first. -->
+        <CreateNewCmdlets Condition="'$(CreateNewCmdlets)' == ''">true</CreateNewCmdlets>
 
         <!-- set to true to build without reflecting over the service client to generate cmdlets, aliases and completers. If set to true the generator will only download the nupkg files and unzip the SDK dlls -->
         <SkipCmdletGeneration Condition="'$(SkipCmdletGeneration)'==''">false</SkipCmdletGeneration>
+
+        <!-- set to true to fail the build if new operations are present in the SDK, this can be used during release builds when all configurations are expected to be already committed -->
+        <BreakOnNewOperations Condition="'$(BreakOnNewOperations)'==''">false</BreakOnNewOperations>
         
         <!-- set to false to skip generating the release notes draft -->
         <DraftReleaseNotes Condition="'$(DraftReleaseNotes)'==''">true</DraftReleaseNotes>
@@ -87,7 +87,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
         <Message Text="Generating cmdlets for all services"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations) -scg $(SkipCmdletGeneration)" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations)" />
     </Target>
 
     <Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />

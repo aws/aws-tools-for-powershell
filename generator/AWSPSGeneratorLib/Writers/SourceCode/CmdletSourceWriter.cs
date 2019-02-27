@@ -103,12 +103,16 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 // namespace collisions on collection members (eg EMR and PowerShell both have 'Job' classes)
                 var returnTypeNames = new List<string>();
                 if (analyzedResult.ReturnType != null)
+                {
                     returnTypeNames.Add(analyzedResult.ReturnType.FullName);
+                }
                 else
                 {
                     returnTypeNames.Add("None");
                     if (MethodAnalysis.RequiresPassThruGeneration)
+                    {
                         returnTypeNames.Add(MethodAnalysis.PassThruTypeName);
+                    }
                 }
                 WriteOutputTypeAttribute(writer, returnTypeNames);
 
@@ -352,7 +356,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var analyzedResult = MethodAnalysis.AnalyzedResult;
             string returnTypeName;
             if (analyzedResult.ReturnType != null)
+            {
                 returnTypeName = analyzedResult.ReturnType.FullName;
+            }
             else
             {
                 // emulate what other cmdlets do in terms of the wording
@@ -382,16 +388,51 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     }
                 }
                 else if (analyzedResult.ReturnType == null)
-                    writer.WriteLine("\"This cmdlet does not generate any output. \" +");
-
-                // if generating an iteration pattern, it's ok to leave the description of the output in 
-                // terms of a collection of things. If the cmdlet has no output, the description here tells
-                // the user how to get to the service response.
-                var count = 1;
-                foreach (var description in analyzedResult.ReturnTypeDescription)
                 {
-                    writer.WriteLine("\"{0}\"{1}", description, count < analyzedResult.ReturnTypeDescription.Length ? "," : "");
-                    count++;
+                    writer.WriteLine("\"This cmdlet does not generate any output. \" +");
+                }
+
+                switch (MethodAnalysis.CurrentOperation.Output)
+                {
+                    case ServiceOperation.OutputMode.Void:
+                        {
+                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ResponseType, MethodAnalysis.CurrentModel));
+                            writer.WriteLine($"\"The service response (type {type}) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+                        }
+                        break;
+                    case ServiceOperation.OutputMode.Response:
+                        {
+                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ReturnType, MethodAnalysis.CurrentModel));
+                            writer.WriteLine($"\"This cmdlet returns a {type} object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+                        }
+                        break;
+                    case ServiceOperation.OutputMode.DefaultSingleMember:
+                        {
+                            if (analyzedResult.SingleResultProperty.GenericCollectionTypes != null)
+                            {
+                                writer.WriteLine($"\"This cmdlet returns a collection of {analyzedResult.ReturnType.Name} objects.\",");
+                            }
+                            else
+                            {
+                                writer.WriteLine($"\"This cmdlet returns a {analyzedResult.ReturnType.Name} object.\",");
+                            }
+
+                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ResponseType, MethodAnalysis.CurrentModel));
+                            writer.Write($"\"The service call response (type {type}) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
+
+                            if (analyzedResult.MetadataProperties.Count > 0)
+                            {
+                                writer.WriteLine(",");
+                                var metadataProperties = string.Join(", ", analyzedResult.MetadataProperties
+                                    .Select(metadata => string.Format("{0} (type {1})", metadata.Name, SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(metadata.PropertyType, MethodAnalysis.CurrentModel)))));
+                                writer.WriteLine($"\"Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: {metadataProperties}\"");
+                            }
+                            else
+                            {
+                                writer.WriteLine();
+                            }
+                        }
+                        break;
                 }
             }
 
@@ -548,7 +589,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             writer.WriteLine("#region Parameter PassThru");
             writer.WriteLine("/// <summary>");
             writer.WriteLine("/// {0}", documentation);
-            writer.WriteLine("/// {0}", StringConstants.NoCmdletOutputText);
+            writer.WriteLine("/// By default, this cmdlet does not generate any output.");
             writer.WriteLine("/// </summary>");
             writer.WriteLine("[System.Management.Automation.Parameter]");
             writer.WriteLine("public SwitchParameter PassThru { get; set; }");
@@ -1210,7 +1251,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("try");
                     writer.OpenRegion();
                     writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                    WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, ComputeResponseMemberPath(operationAnalysis));
+                    WriteResultOutput(writer, operationAnalysis, ComputeResponseMemberPath(operationAnalysis));
                     writer.CloseRegion();
                     writer.WriteLine("catch (Exception e)");
                     writer.OpenRegion();
@@ -1322,7 +1363,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
                                 writer.WriteLine();
 
-                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, responseMemberReferencePath);
+                                WriteResultOutput(writer, operationAnalysis, responseMemberReferencePath);
 
                                 // Most if not all collections are marshalled as List<T>, so assume we have a Count
                                 // property available (if not, compile will break post-generation and we can investigate).
@@ -1532,7 +1573,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine();
 
                                 writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
-                                WriteResultOutput(writer, operationAnalysis, Options.BreakOnOutputMismatchError, responseMemberReferencePath);
+                                WriteResultOutput(writer, operationAnalysis, responseMemberReferencePath);
 
                                 // most if not all collections are marshalled as List<T>, so assume we have a Count
                                 // property available (if not, compile will break post-generation and we can investigate)
@@ -1627,19 +1668,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="responseMemberReferencePath"></param>
         private void WriteResultOutput(IndentedTextWriter writer,
                                        OperationAnalyzer operationAnalysis,
-                                       bool errorOnAnalyzedResultMismatch,
                                        string responseMemberReferencePath)
         {
             var analyzedResult = operationAnalysis.AnalyzedResult;
-            var emitErrorOnResultMismatch = errorOnAnalyzedResultMismatch;
-            if (operationAnalysis.CurrentOperation.SkipOutputComputationCheck)
-                emitErrorOnResultMismatch = false;
 
             writer.WriteLine("Dictionary<string, object> notes = null;");
 
-            switch (analyzedResult.OutputType)
+            switch (Operation.Output)
             {
-                case AnalyzedResult.ResultOutputTypes.Empty:
+                case ServiceOperation.OutputMode.Void:
                     {
                         writer.WriteLine("object pipelineOutput = null;");
                         if (operationAnalysis.RequiresPassThruGeneration)
@@ -1652,23 +1689,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("pipelineOutput = {0};", passThruExpression);
                             writer.DecreaseIndent();
                         }
-
-                        if (emitErrorOnResultMismatch)
-                        {
-                            if (Operation.Output != ServiceOperation.OutputMode.Void)
-                            {
-                                Logger.LogError(string.Format(
-                                    "Method [{0} {1}]: the service response is empty but the ServiceOperation does not contain attribute 'Output=\"Void\"'. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.", 
-                                    ServiceConfig.ServiceNounPrefix,
-                                    operationAnalysis.MethodName));
-                            }
-                        }
-                        else
-                            ServiceConfig.EmptyResultOperations.Add(operationAnalysis.MethodName);
                     }
                     break;
-
-                case AnalyzedResult.ResultOutputTypes.SingleProperty:
+                case ServiceOperation.OutputMode.DefaultSingleMember:
                     {
                         writer.WriteLine("object pipelineOutput = {0}.{1};",
                                          responseMemberReferencePath,
@@ -1683,36 +1706,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine("notes[\"{1}\"] = {0}.{1};", responseMemberReferencePath, prop.Name);
                             }
                         }
-
-                        if (emitErrorOnResultMismatch)
-                        {
-                            if (Operation.Output != ServiceOperation.OutputMode.DefaultSingleMember)
-                            {
-                                Logger.LogError(string.Format(
-                                    "Method [{0} {1}]: the service response contains a single property but the ServiceOperation contains the 'Output' attribute with value 'Void' or 'Response'. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.",
-                                    ServiceConfig.ServiceNounPrefix, operationAnalysis.MethodName));
-                            }
-                        }
-                        else
-                            ServiceConfig.SinglePropertyResultOperations.Add(operationAnalysis.MethodName);
                     }
                     break;
-
-                case AnalyzedResult.ResultOutputTypes.MultiProperty:
+                case ServiceOperation.OutputMode.Response:
                     {
                         writer.WriteLine("object pipelineOutput = response;");
-
-                        if (emitErrorOnResultMismatch)
-                        {
-                            if (Operation.Output != ServiceOperation.OutputMode.Response)
-                            {
-                                Logger.LogError(string.Format(
-                                    "Method [{0} {1}]: the service response contains more than one property but the ServiceOperation does not contain the attribute 'Output=\"Response\"'. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.",
-                                    ServiceConfig.ServiceNounPrefix, operationAnalysis.MethodName));
-                            }
-                        }
-                        else
-                            ServiceConfig.MultiPropertyResultOperations.Add(operationAnalysis.MethodName);
                     }
                     break;
             }

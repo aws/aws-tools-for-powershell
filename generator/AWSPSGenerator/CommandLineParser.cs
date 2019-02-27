@@ -205,19 +205,19 @@ namespace AWSPowerShellGenerator
             },
             new ArgDeclaration
             {
-                OptionName = "breakonmismatch",
-                ShortName = "bm",
-                HasValue = false,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.BreakOnOutputMismatchError = true,
-                HelpText = "If set, cmdlet outputs that don't match configuration declaration trigger a build break."
+                OptionName = "createnewcmdlets",
+                ShortName = "cnc",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.CreateNewCmdlets = bool.Parse(argValue),
+                HelpText = "If true (default), cmdlets are created for discovered service operations. Set false to generate code for an emergency maintenance releases without needing to configure new service operations changes first."
             },
             new ArgDeclaration
             {
-                OptionName = "breakonunknownop",
-                ShortName = "bu",
+                OptionName = "breakonnewoperations",
+                ShortName = "bno",
                 HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.BreakOnUnknownOperationError = bool.Parse(argValue),
-                HelpText = "If true (default), a build break occurs if the generator finds an unconfigured service operations. Set false to perform emergency maintenance releases without needing to configure new service operations changes first."
+                Parse = (arguments, argValue) => arguments.ParsedOptions.BreakOnNewOperations = bool.Parse(argValue),
+                HelpText = "If true (the default is false), the build will fail if new operations are present in the SDK. Set to true for release builds when all configurations are expected to be already committed."
             },
             new ArgDeclaration
             {

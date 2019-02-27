@@ -1324,7 +1324,7 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DeterminePassThruRequirement(CmdletGenerator generator)
         {
-            if (AnalyzedResult.OutputType != AnalyzedResult.ResultOutputTypes.Empty)
+            if (CurrentOperation.Output != ServiceOperation.OutputMode.Void)
             {
                 return;
             }

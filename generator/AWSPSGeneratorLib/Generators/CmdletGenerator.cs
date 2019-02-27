@@ -383,19 +383,6 @@ namespace AWSPowerShellGenerator.Generators
                         // always serialize the json format, so we have reliable test data to work
                         // on in the new ps generator
                         new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
-
-                        if (!Options.BreakOnOutputMismatchError)
-                        {
-                            Console.WriteLine("Completed processing for {0}", CurrentModel.ServiceName);
-                            if (!CurrentModel.SkipCmdletGeneration)
-                            {
-                                Console.WriteLine("    Cmdlets generated for prefix: {0}", CurrentModel.ServiceNounPrefix);
-                                Console.WriteLine("    Single-property result operations: {0}", string.Join(", ", CurrentModel.SinglePropertyResultOperations));
-                                Console.WriteLine("    Multi-property result operations: {0}", string.Join(", ", CurrentModel.MultiPropertyResultOperations));
-                                Console.WriteLine("    Empty result operations: {0}", string.Join(", ", CurrentModel.EmptyResultOperations));
-                            }
-                            Console.WriteLine();
-                        }
                     }
                 }
                 else
@@ -492,7 +479,9 @@ namespace AWSPowerShellGenerator.Generators
             foreach (var method in methods)
             {
                 if (ShouldEmitMethod(method))
+                {
                     CreateCmdlet(method, configModel);
+                }
                 else
                 {
                     ServiceOperation so;
@@ -503,18 +492,9 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var so in configModel.ServiceOperationsList)
             {
-                if (so.Processed)
-                    continue;
-
-                if (Options.BreakOnUnknownOperationError)
+                if (!so.Processed)
                 {
                     Logger.LogError("{0}: no SDK client method found for ServiceOperation {1}", configModel.ServiceName, so.MethodName);
-                }
-                else
-                {
-                    Logger.Log("Warning - {0}: no SDK client method found for ServiceOperation {1}. Skipping as BreakOnUnknownOperationError set false.",
-                                configModel.ServiceName, 
-                                so.MethodName);
                 }
             }
 
@@ -966,8 +946,11 @@ namespace AWSPowerShellGenerator.Generators
             {
                 if (CurrentModel.ServiceOperations.ContainsKey(method.Name))
                 {
-                    if (CurrentModel.ServiceOperations[method.Name].Exclude)
-                        return false;
+                    return !CurrentModel.ServiceOperations[method.Name].Exclude;
+                }
+                else if (!Options.CreateNewCmdlets)
+                {
+                    return false;
                 }
                 else
                 {
@@ -981,21 +964,17 @@ namespace AWSPowerShellGenerator.Generators
                     CurrentModel.ServiceOperationsList.Add(serviceOperation);
                     CurrentModel.ServiceOperations.Add(method.Name, serviceOperation);
 
+                    if (Options.BreakOnNewOperations)
+                    {
+                        Logger.LogError("Method {0} has no ServiceOperation defined in model {1}", method.Name, CurrentModel.ServiceNamespace);
+                    }
+
                     // this triggers the generator to write out the modified config file
                     // with the changes
                     CurrentModel.ModelUpdated = true;
+
+                    return true;
                 }
-
-                //if (Options.BreakOnUnknownOperationError)
-                //{
-                //    Logger.LogError("Method {0} has no ServiceOperation definition in model {1}", method.Name, CurrentModel.ServiceNamespace);
-                //}
-                //else
-                //{
-                //    Logger.Log("Method {0} has no ServiceOperation definition in model {1}, IGNORING as BreakOnUnknownOperationError option FALSE", method.Name, CurrentModel.ServiceNamespace);
-                //}
-
-                return true;
             }
                 
             return false;

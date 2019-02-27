@@ -775,29 +775,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
         #region Generated Output Properties
 
-        private readonly List<string> _singlePropertyResultOperations = new List<string>();
-        private readonly List<string> _multiPropertyResultOperations = new List<string>();
-        private readonly List<string> _emptyResultOperations = new List<string>();
         private readonly List<string> _createdFiles = new List<string>();
         
-        [XmlIgnore]
-        public List<string> SinglePropertyResultOperations 
-        { 
-            get { return _singlePropertyResultOperations; }
-        }
-
-        [XmlIgnore]
-        public List<string> MultiPropertyResultOperations
-        {
-            get { return _multiPropertyResultOperations; }
-        }
-
-        [XmlIgnore]
-        public List<string> EmptyResultOperations
-        {
-            get { return _emptyResultOperations; }
-        }
-
         [XmlIgnore]
         public List<string> CreatedFiles
         {
@@ -886,7 +865,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             /// Not used in this version of the generator, but allows a specific member
             /// selector expression to be used to determine the output.
             /// </summary>
-            SelectedMember,
+            //SelectedMember,
 
             /// <summary>
             /// The response from the service contains more than one property; output

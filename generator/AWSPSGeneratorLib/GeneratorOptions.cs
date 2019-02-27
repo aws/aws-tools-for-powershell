@@ -23,33 +23,33 @@ namespace AWSPowerShellGenerator
         /// If set, the generation pauses after all tasks are complete waiting
         /// for a key before shutting down.
         /// </summary>
-        public bool WaitOnExit { get; set; }
+        public bool WaitOnExit { get; set; } = false;
 
         /// <summary>
         /// If set, causes the generator to emit additional diagnostic messages 
         /// whilst running.
         /// </summary>
-        public bool Verbose { get; set; }
+        public bool Verbose { get; set; } = false;
 
         /// <summary>
-        /// If set, the generator triggers a build break if analysis of the output
-        /// of an operation does not match what is configured.
+        /// If true (default), cmdlets are created for discovered service operations.
+        /// Set false to generate code for an emergency maintenance releases without
+        /// needing to configure new service operations changes first.
         /// </summary>
-        public bool BreakOnOutputMismatchError { get; set; }
+        public bool CreateNewCmdlets { get; set; } = true;
 
         /// <summary>
-        /// If true (the default) the generator throws a build break if it encounters
-        /// operations in an SDK client that have no ServiceOperation configuration.
-        /// Set false to enable builds for emergency patch releases, allowing builds
-        /// to skip unconfigured operations.
+        /// If true (the default is false), the build will fail if new operations are
+        /// present in the SDK. Set to true for release builds when all configurations
+        /// are expected to be already committed.
         /// </summary>
-        public bool BreakOnUnknownOperationError { get; set; }
+        public bool BreakOnNewOperations { get; set; } = false;
 
         /// <summary>
         /// Optional log file used to contain results of the generator's
         /// analysis of sdk operations and the settings it chose as a result.
         /// </summary>
-        public string AnalysisLog { get; set; }
+        public string AnalysisLog { get; set; } = string.Empty;
 
         /// <summary>
         /// The folder containing the SDK nupkg files.
@@ -58,9 +58,9 @@ namespace AWSPowerShellGenerator
 
         /// <summary>
         /// Used when generating cmdlets, contains the comma-delimited service names to
-       /// constrain generation to. If empty, all services are processed.
+        /// constrain generation to. If empty, all services are processed.
         /// </summary>
-        public string[] Services { get; set; }
+        public string[] Services { get; set; } = null;
 
         /// <summary>
         /// Setting this to true is equivalent to setting SkipCmdletGeneration to true in
@@ -68,7 +68,7 @@ namespace AWSPowerShellGenerator
         /// over the service client to generate cmdlets but still process other data in 
         /// the config (eg legacy aliases). 
         /// </summary>
-        public bool SkipCmdletGeneration { get; set; }
+        public bool SkipCmdletGeneration { get; set; } = false;
 
         /// <summary>
         /// The root folder location containing the generator and artifacts. Subpaths to the various 
@@ -175,14 +175,6 @@ namespace AWSPowerShellGenerator
         /// </summary>
         public GeneratorOptions()
         {
-            WaitOnExit = false;
-            Verbose = false;
-            BreakOnOutputMismatchError = true;
-            BreakOnUnknownOperationError = true;
-            AnalysisLog = string.Empty; // no logging by default
-            Services = null; // process all
-            SkipCmdletGeneration = false;
-
             // to support F5-and-go (to test generator changes), set cmdlet gen to be the 
             // default task in debug builds.
             Tasks = new HashSet<string> { GeneratorTasknames.GenerateCmdlets };
@@ -199,8 +191,8 @@ namespace AWSPowerShellGenerator
         {
             WaitOnExit = rhs.WaitOnExit;
             Verbose = rhs.Verbose;
-            BreakOnOutputMismatchError = rhs.BreakOnOutputMismatchError;
-            BreakOnUnknownOperationError = rhs.BreakOnUnknownOperationError;
+            CreateNewCmdlets = rhs.CreateNewCmdlets;
+            BreakOnNewOperations = rhs.BreakOnNewOperations;
             AnalysisLog = rhs.AnalysisLog;
             Services = rhs.Services;
             Tasks = rhs.Tasks;
