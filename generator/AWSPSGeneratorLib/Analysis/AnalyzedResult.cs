@@ -56,13 +56,6 @@ namespace AWSPowerShellGenerator.Analysis
 
             var autoIterateSettings = operationAnalyzer.AutoIterateSettings;
 
-            Func<PropertyInfo, bool> isMetadataProperty = p =>
-                        operationAnalyzer.AllModels.MetadataPropertyNames.Contains(p.Name) ||
-                        operationAnalyzer.CurrentModel.MetadataPropertyNames.Contains(p.Name) ||
-                        operationAnalyzer.CurrentOperation.MetadataPropertiesList.Contains(p.Name) ||
-                        (autoIterateSettings?.Next == p.Name || autoIterateSettings?.TruncatedFlag == p.Name);
-            Func<PropertyInfo, bool> notMetadataProperty = p => !isMetadataProperty(p);
-
             // if the response type has a base class with matching prefix but ending
             // in 'Result', use that to get the real properties considered output. S3 does
             // not have this structure.
@@ -77,15 +70,50 @@ namespace AWSPowerShellGenerator.Analysis
                 .GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
                 .Where(p => p.GetCustomAttributes(false).Count(a => a is ObsoleteAttribute) == 0)
                 .ToList();
+
+            if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
+            {
+                Func<PropertyInfo, bool> isCandidateMetadataProperty = p =>
+                    (operationAnalyzer.AllModels.MetadataPropertyNames.Contains(p.Name) ||
+                     operationAnalyzer.CurrentModel.MetadataPropertyNames.Contains(p.Name) ||
+                     operationAnalyzer.CurrentOperation.MetadataPropertiesList.Contains(p.Name)) &&
+                    autoIterateSettings?.Next != p.Name &&        //We don't include autoiteration output properties as metadata properties because 
+                    autoIterateSettings?.TruncatedFlag != p.Name; //they will be included automatically and we don't want to clutter the configuration
+
+                //We write Metadata output properties also for cmdlets with a "Response" output so that it is
+                //easier to convert them to DefaultSingleMember during review
+                operationAnalyzer.CurrentOperation.MetadataPropertiesList = AllOutputProperties
+                    .Where(isCandidateMetadataProperty)
+                    .Select(property => property.Name)
+                    .ToArray();
+            }
+            else
+            {
+                var nonExistingMetadataProperties = operationAnalyzer.CurrentOperation.MetadataPropertiesList
+                    .Where(propertyName => !AllOutputProperties.Select(property => property.Name).Contains(propertyName))
+                    .ToArray();
+
+                if (nonExistingMetadataProperties.Length > 0)
+                {
+                    operationAnalyzer.Logger.LogError($"{operationAnalyzer.CurrentModel.ServiceName}: Operation {operationAnalyzer.MethodName} the following configured metadata properties don't exist: {string.Join(", ", nonExistingMetadataProperties)}.");
+                }
+            }
+
+            Func<PropertyInfo, bool> isMetadataProperty = p =>
+                        operationAnalyzer.CurrentOperation.MetadataPropertiesList.Contains(p.Name) ||
+                        (autoIterateSettings?.Next == p.Name || autoIterateSettings?.TruncatedFlag == p.Name);
+            Func<PropertyInfo, bool> notMetadataProperty = p => !isMetadataProperty(p);
+
+
             NonMetadataProperties = AllOutputProperties.Where(notMetadataProperty).ToList();
             MetadataProperties = AllOutputProperties.Where(isMetadataProperty).ToList();
 
             ServiceOperation.OutputMode identifiedOutputMode;
-            if (this.NonMetadataProperties.Count == 0)
+            if (NonMetadataProperties.Count == 0)
             {
                 identifiedOutputMode = ServiceOperation.OutputMode.Void;
             }
-            else if (this.NonMetadataProperties.Count == 1)
+            else if (NonMetadataProperties.Count == 1)
             {
                 identifiedOutputMode = ServiceOperation.OutputMode.DefaultSingleMember;
             }
@@ -126,6 +154,11 @@ namespace AWSPowerShellGenerator.Analysis
                 case ServiceOperation.OutputMode.Response:
                     {
                         ReturnType = inspectedType;
+
+                        if (autoIterateSettings != null)
+                        {
+                            operationAnalyzer.Logger.LogError($"{operationAnalyzer.CurrentModel.ServiceName}: Operation {operationAnalyzer.MethodName} is configured to produce iteration code, but there are multiple properties being returned.");
+                        }
                     }
                     break;
                 case ServiceOperation.OutputMode.DefaultSingleMember:

@@ -902,32 +902,15 @@ namespace AWSPowerShellGenerator.Generators
         /// <param name="analyzer"></param>
         private void WriteCmdlet(IndentedTextWriter writer, OperationAnalyzer analyzer)
         {
-            var currentModel = analyzer.CurrentModel;
-
-            string serviceDisplayName = currentModel.ServiceName;
-
-            if (analyzer.IterationPattern != AutoIteration.AutoIteratePattern.None)
+            try
             {
-                var methodName = analyzer.Method.Name;
-                var currentOperation = analyzer.CurrentOperation;
-                var analyzedResult = analyzer.AnalyzedResult;
-
-                Logger.Log("Method {0} (cmdlet {1}-{2}) assessed for iteration pattern '{3}'",
-                           methodName,
-                           currentOperation.SelectedVerb,
-                           currentOperation.SelectedNoun,
-                           Enum.GetName(typeof(AutoIteration.AutoIteratePattern), analyzer.IterationPattern));
-
-                if (analyzedResult.SingleResultProperty == null)
-                {
-                    Logger.LogError("Method {0} is configured to produce iteration code, but SingleResultProperty is null (there are multiple properties being returned). This operation may need to be added to Exclusions for the service.",
-                                    methodName);
-                    return;
-                }
+                var cmdletWriter = new CmdletSourceWriter(analyzer, analyzer.CurrentModel.ServiceName, Options);
+                cmdletWriter.Write(writer);
             }
-
-            var cmdletWriter = new CmdletSourceWriter(analyzer, serviceDisplayName, Options);
-            cmdletWriter.Write(writer);
+            catch (Exception e)
+            {
+                Logger.LogError($"{analyzer.CurrentModel.ServiceName}: Operation {analyzer.MethodName} error while generating cmdlet code", e);
+            }
         }
 
         private bool ShouldEmitMethod(MethodInfo method)

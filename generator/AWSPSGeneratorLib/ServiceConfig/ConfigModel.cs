@@ -87,12 +87,21 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public List<string> TypesNotToFlatten { get; set; }
 
         /// <summary>
-        /// List of acceptable next-token property names; these will be added as notes to the
-        /// service responses for users who want to do their own paging
+        /// List of cmdlet output properties that are considered metadata, this is used to fill in the
+        /// list of metadata properties for an operation during its first automated configuration.
+        /// We include common pagination properties here in order to have them show up for in the configuration
+        /// and help identifying cmdlets with misconfigured pagination
         /// </summary>
         [XmlArray("MetadataProperties")]
         [XmlArrayItem("Property")]
         public List<string> MetadataPropertyNames { get; set; }
+
+        /// <summary>
+        /// List of cmdlet parameters that are considered metadata and moved to the end of the parameters list
+        /// </summary>
+        [XmlArray("MetadataParameters")]
+        [XmlArrayItem("Parameter")]
+        public List<string> MetadataParameterNames { get; set; }
 
         /// <summary>
         /// Collection of xml config files that the generator should operate on
@@ -553,7 +562,9 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         /// <summary>
-        /// List of acceptable next-token property names
+        /// List of common service-specific output properties to be considered as metadata, this
+        /// is used to fill in the list of metadata properties for an operation during its first
+        /// automated configuration
         /// </summary>
         [XmlArray("MetadataProperties")]
         [XmlArrayItem("Property")]
@@ -1067,20 +1078,18 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlAttribute]
         public string MetadataProperties = string.Empty;
 
-        string[] _metadataPropertiesList;
         [XmlIgnore]
         public string[] MetadataPropertiesList
         {
             get
             {
-                if (_metadataPropertiesList == null)
-                {
-                    _metadataPropertiesList = !string.IsNullOrEmpty(MetadataProperties) 
-                        ? MetadataProperties.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
-                        : new string[] { };
-                }
+                return !string.IsNullOrEmpty(MetadataProperties) ? MetadataProperties.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
+                                                                 : new string[0];
+            }
 
-                return _metadataPropertiesList;
+            set
+            {
+                MetadataProperties = value == null ? string.Empty : string.Join(";", value);
             }
         }
 

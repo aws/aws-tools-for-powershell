@@ -198,6 +198,21 @@
     <Type>System.Collections.Generic.Dictionary`2</Type>
   </TypesNotToFlatten>
 
+  <MetadataParameters>
+    <Parameter>NextToken</Parameter>
+    <Parameter>NextPageToken</Parameter>
+    <Parameter>PageToken</Parameter>
+    <Parameter>Marker</Parameter>
+    <Parameter>NextMarker</Parameter>
+    <Parameter>ETag</Parameter>
+    <Parameter>Owner</Parameter>
+    <Parameter>MaxRecords</Parameter>
+    <Parameter>MaxResults</Parameter>
+    <Parameter>MaxItems</Parameter>
+    <Parameter>Limit</Parameter>
+    <Parameter>PaginationToken</Parameter>
+  </MetadataParameters>
+
   <MetadataProperties>
     <Property>NextToken</Property>
     <Property>NextPageToken</Property>

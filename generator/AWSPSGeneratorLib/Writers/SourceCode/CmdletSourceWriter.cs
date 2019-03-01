@@ -500,7 +500,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var paramDoc = property.MemberDocumentation;
             if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None
                 && MethodAnalysis.AutoIterateSettings != null 
-                && MethodAnalysis.AutoIterateSettings.IsIterationParameter(property.Name))
+                && MethodAnalysis.AutoIterateSettings.IsIterationParameter(property.AnalyzedName))
             {
 
 
@@ -1830,9 +1830,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
         /// <summary>
         /// Reorders the parameters for the source file so the 'real' parameters come first, in alpha
-        /// order for consistency, and metadata/paging properties come last so they dont't clutter tab
-        /// expansion in the cli. Properties marked for exclusion are retained at this stage, we 
-        /// exclude them during the actual write phase.
+        /// order for consistency, and metadata/paging/deprecated properties come last so they dont't
+        /// clutter tab expansion in the cli. Properties marked for exclusion are retained at this
+        /// stage, we  exclude them during the actual write phase.
         /// </summary>
         /// <param name="allProperties"></param>
         /// <param name="serviceOperation"></param>
@@ -1842,15 +1842,18 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var orderedParams = new List<SimplePropertyInfo>();
             var deferToEnd = new List<SimplePropertyInfo>();
 
-            Func<SimplePropertyInfo, bool> isMetadataProperty = p =>
-                        MethodAnalysis.AllModels.MetadataPropertyNames.Contains(p.Name) ||
-                        ServiceConfig.MetadataPropertyNames.Contains(p.Name) ||
-                        serviceOperation.MetadataPropertiesList.Contains(p.Name);
-            var metadataProperties = allProperties.Where(isMetadataProperty).ToList();
+            var autoIterateSettings = MethodAnalysis.AutoIterateSettings;
+
+            Func<SimplePropertyInfo, bool> isMetadataOrDeprecatedProperty = p =>
+                        MethodAnalysis.AllModels.MetadataParameterNames.Contains(p.AnalyzedName) ||
+                        p.IsDeprecated ||
+                        (autoIterateSettings?.IsIterationParameter(p.AnalyzedName) ?? false);
+
+            var metadataOrDeprecatedProperties = allProperties.Where(isMetadataOrDeprecatedProperty).ToList();
 
             foreach (var property in allProperties.OrderBy(p => p.Name))
             {
-                if (metadataProperties.Contains(property))
+                if (metadataOrDeprecatedProperties.Contains(property))
                 {
                     deferToEnd.Add(property);
                     continue;
