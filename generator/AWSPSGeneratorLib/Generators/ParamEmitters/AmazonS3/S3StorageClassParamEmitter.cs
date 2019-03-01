@@ -6,7 +6,7 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
 {
     internal class S3StorageClassParamEmitter : IParamEmitter
     {
-        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param param, ref int usedPositionalCount)
+        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param param)
         {
             // for S3StorageClass, we replace the enum type with two string switches instead
             writer.WriteLine("/// <summary>");

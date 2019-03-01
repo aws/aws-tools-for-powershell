@@ -251,7 +251,6 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartObject();
             WriteSimpleProperty("nounPrefix", Model.ServiceNounPrefix);
-            WriteStringListProperty("positionalMemberNames", Model.PositionalParametersList);
             WriteParamEmittersList();
             _jsonWriter.WriteEndObject();
         }

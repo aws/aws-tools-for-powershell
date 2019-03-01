@@ -12,10 +12,10 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonEC2
     /// </summary>
     internal class InstanceIdsParamEmitter : IParamEmitter
     {
-        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, Param param, ref int usedPositionalCount)
+        public void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, Param param)
         {
             writer.WriteLine(DocumentationUtils.CommentDocumentation(spi.MemberDocumentation/*FlattenedDocumentation*/));
-            CmdletSourceWriter.WriteParamAttribute(writer, analyzer, spi, param, ref usedPositionalCount);
+            CmdletSourceWriter.WriteParamAttribute(writer, analyzer, spi, param);
             CmdletSourceWriter.WriteParamAliases(writer, analyzer, spi);
             writer.WriteLine("public object[] {0} {{ get; set; }}", spi.CmdletParameterName);
         }

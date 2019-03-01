@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonDynamoDBStreams</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBStreamsClient</ServiceClient>
     <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
-    <PositionalParameters>TableName</PositionalParameters>
     <PipelineParameter>TableName</PipelineParameter>
     <VerbMappings />
     <NounMappings />
@@ -29,7 +28,7 @@
         <ServiceOperation MethodName="GetShardIterator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Limit;ExclusiveStartStreamName" PipelineParameter="TableName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListStreams" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Limit" PipelineParameter="TableName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
     <ServiceClient>AmazonRDSClient</ServiceClient>
     <ServiceNamespace>Amazon.RDS</ServiceNamespace>
-    <PositionalParameters>DBInstanceIdentifier</PositionalParameters>
     <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="DownloadDBLogFilePortion" />
     <VerbMappings>
@@ -70,7 +69,7 @@
         <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="RoleToDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddRoleToDBInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="RoleToDBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddRoleToDBInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="RoleToDBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="AddSourceIdentifierToSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="SourceIdentifierToSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -363,7 +362,7 @@
         <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RoleFromDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveRoleFromDBInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RoleFromDBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveRoleFromDBInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RoleFromDBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBInstanceIdentifier" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SourceIdentifierFromSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

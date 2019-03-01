@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
     <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>
-    <PositionalParameters>ApplicationName</PositionalParameters>
     <PipelineParameter>ApplicationName</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="1000" />
     <VerbMappings>
@@ -66,7 +65,7 @@
         <ServiceOperation MethodName="CreateApplicationVersion" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ApplicationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VersionLabel;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ConfigurationTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ConfigurationTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Environment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

@@ -15,12 +15,11 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters
         /// <param name="analyzer"></param>
         /// <param name="spi"></param>
         /// <param name="paramCustomization"></param>
-        /// <param name="usedPositionalCount">How many parameters have been tagged as positional (PS recommends no more than 5)</param>
         /// <remarks>
         /// Make sure we stick to the PS recommendation of no more than 5 positional parameters, not
         /// including any credentials or region parameters we get from the base cmdlet class.
         /// </remarks>
-        void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, Param paramCustomization, ref int usedPositionalCount);
+        void WriteParams(IndentedTextWriter writer, OperationAnalyzer analyzer, SimplePropertyInfo spi, Param paramCustomization);
 
         /// <summary>
         /// Populate the context member with values the user has assigned to the custom parameter(s)

@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
     <ServiceClient>AmazonCloudWatchClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudWatch</ServiceNamespace>
-    <PositionalParameters>AlarmNames</PositionalParameters>
     <PipelineParameter>AlarmNames</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
     <VerbMappings>
@@ -70,7 +69,7 @@
                 <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricStatistics" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricName;Dimensions;StartDate;EndDate" PipelineParameter="Namespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWMetricStatistics">
+        <ServiceOperation MethodName="GetMetricStatistics" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWMetricStatistics">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
                 <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />

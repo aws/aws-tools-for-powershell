@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
     <ServiceClient>AmazonCloudSearchClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudSearch</ServiceNamespace>
-    <PositionalParameters>DomainName</PositionalParameters>
     <PipelineParameter>DomainName</PipelineParameter>
     <VerbMappings>
         <Map From="Define" To="Set" />

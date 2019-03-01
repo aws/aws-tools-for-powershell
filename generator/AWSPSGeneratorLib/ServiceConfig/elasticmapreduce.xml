@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonElasticMapReduce</ServiceClientInterface>
     <ServiceClient>AmazonElasticMapReduceClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticMapReduce</ServiceNamespace>
-    <PositionalParameters>JobFlowId</PositionalParameters>
     <PipelineParameter>JobFlowId</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" ServicePageSize="-1" />
     <VerbMappings>
@@ -112,7 +111,7 @@
                 <Documentation>Returns the collection of Tag keys that were removed</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="RunJobFlow" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="JobFlow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;LogUri" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RunJobFlow" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="JobFlow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogUri" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
                 <Param Name="Instances_Placement_AvailabilityZone" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
                 <Param Name="Instances_Placement_AvailabilityZones" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />

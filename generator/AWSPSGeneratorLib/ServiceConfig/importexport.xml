@@ -9,7 +9,6 @@
     <ServiceClient>AmazonImportExportClient</ServiceClient>
     <ServiceNamespace>Amazon.ImportExport</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
-    <PositionalParameters>JobId</PositionalParameters>
     <PipelineParameter>JobId</PipelineParameter>
     <VerbMappings>
         <Map From="List" To="Get" />

@@ -17,7 +17,6 @@
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
-    <LegacyAliases />
     <LegacyAliases>
         <AliasSet Cmdlet="Get-SNOWJobList">Get-SNOWJobsList</AliasSet>
     </LegacyAliases>

@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonElasticLoadBalancing</ServiceClientInterface>
     <ServiceClient>AmazonElasticLoadBalancingClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticLoadBalancing</ServiceNamespace>
-    <PositionalParameters>LoadBalancerName</PositionalParameters>
     <PipelineParameter>LoadBalancerName</PipelineParameter>
     <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="-1" />
     <VerbMappings>
@@ -119,7 +118,7 @@
         <ServiceOperation MethodName="EnableAvailabilityZonesForLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="AvailabilityZoneForLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LoadBalancerAttributes" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="InstanceWithLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

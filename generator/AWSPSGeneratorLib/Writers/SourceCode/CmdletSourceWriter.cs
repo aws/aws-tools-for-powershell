@@ -128,7 +128,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.OpenRegion();
                 {
                     // create cmdlet parameters
-                    var usedPositionalCount = 0;
 
                     // we emit the 'real' parameters in alpha order to allow for consistent tabbing
                     // and comparison of changes, but put metadata/paging properties at the end so
@@ -148,11 +147,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("{0} {1}", ParameterRegionMarker, property.CmdletParameterName);
                         var p = FindCustomEmitterForParam(property);
                         if (p == null)
-                            WriteParam(writer, property, paramCustomization, ref usedPositionalCount);
+                            WriteParam(writer, property, paramCustomization);
                         else
                         {
                             customParamEmitters.Add(p);
-                            p.WriteParams(writer, MethodAnalysis, property, paramCustomization, ref usedPositionalCount);
+                            p.WriteParams(writer, MethodAnalysis, property, paramCustomization);
                         }                        
                         writer.WriteLine("#endregion");
                     }
@@ -163,7 +162,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     {
                         writer.WriteLine();
                         customParamEmitters.Add(paramEmitter);
-                        paramEmitter.WriteParams(writer, MethodAnalysis, null, null, ref usedPositionalCount);
+                        paramEmitter.WriteParams(writer, MethodAnalysis, null, null);
                     }
 
                     if (MethodAnalysis.RequiresPassThruGeneration)
@@ -496,8 +495,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="usedPositionalCount"></param>
         public void WriteParam(IndentedTextWriter writer,
                                SimplePropertyInfo property,
-                               Param param,
-                               ref int usedPositionalCount)
+                               Param param)
         {
             var paramDoc = property.MemberDocumentation;
             if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None
@@ -538,7 +536,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             }
 
             writer.WriteLine(DocumentationUtils.CommentDocumentation(paramDoc));
-            WriteParamProperty(writer, property, param, ref usedPositionalCount);
+            WriteParamProperty(writer, property, param);
         }
 
         /// <summary>
@@ -626,10 +624,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="usedPositionalCount">How many parameters have been tagged as positional (PS recommends no more than 5)</param>
         public void WriteParamProperty(IndentedTextWriter writer,
                                        SimplePropertyInfo property,
-                                       Param paramCustomization,
-                                       ref int usedPositionalCount)
+                                       Param paramCustomization)
         {
-            WriteParamAttribute(writer, MethodAnalysis, property, paramCustomization, ref usedPositionalCount);
+            WriteParamAttribute(writer, MethodAnalysis, property, paramCustomization);
             WriteParamAliases(writer, MethodAnalysis, property);
 
             if (property.IsConstrainedToSet)
@@ -795,19 +792,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public static void WriteParamAttribute(IndentedTextWriter writer,
                                                OperationAnalyzer analyzer, 
                                                SimplePropertyInfo property,
-                                               Param paramCustomization,
-                                               ref int usedPositionalCount)
+                                               Param paramCustomization)
         {
             var paramAttrib = new StringBuilder();
 
-            int paramPos = -1;
-            if (usedPositionalCount < 5)
-                paramPos = analyzer.GetParameterPositionData(property.AnalyzedName);
+            int paramPos = analyzer.GetParameterPositionData(property.AnalyzedName);
 
             if (paramPos != -1)
             {
                 paramAttrib.AppendFormat("Position = {0}", paramPos);
-                usedPositionalCount++;
             }
 
             // after singularization, a parameter name may now match a member name in a structure

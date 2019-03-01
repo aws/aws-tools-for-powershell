@@ -107,7 +107,7 @@
         <ServiceOperation MethodName="StopStreamEncryption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="StreamEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateShardCount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ShardCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ShardCount;ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateShardCount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ShardCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

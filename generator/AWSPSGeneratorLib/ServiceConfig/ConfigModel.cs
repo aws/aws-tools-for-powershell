@@ -383,32 +383,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         /// <summary>
-        /// Cross-operation set of parameters, ;-delimited, that should have Position data emitted
-        /// in order of definition (starting at 0) for each cmdlet that uses the parameter. PS
-        /// recommendation is no more than 5 per cmdlet. This list will be suffixed with operation-
-        /// specific sets of positional data.
-        /// NOTE: We prefer to not specify positional parameters these days. This config option is
-        /// present to support older services only.
-        /// </summary>
-        public string PositionalParameters;
-
-        string[] _positionalParametersList;
-        [XmlIgnore]
-        public string[] PositionalParametersList
-        {
-            get
-            {
-                if (_positionalParametersList == null)
-                {
-                    _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
-                        ? PositionalParameters.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) 
-                        : new string[] {};
-                }
-                return _positionalParametersList;
-            }
-        }
-
-        /// <summary>
         /// Optional name of a parameter across one or more cmdlets that we should apply
         /// PipelineParameter to, unless the service operation being generated has an
         /// override.

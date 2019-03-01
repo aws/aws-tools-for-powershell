@@ -7,7 +7,7 @@ namespace AWSPowerShellGenerator.Generators.ParamEmitters.AmazonS3
 {
     internal class DualstackParamEmitter : IParamEmitter
     {
-        public void WriteParams(Writers.IndentedTextWriter writer, Analysis.OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param paramCustomization, ref int usedPositionalCount)
+        public void WriteParams(Writers.IndentedTextWriter writer, Analysis.OperationAnalyzer analyzer, SimplePropertyInfo spi, ServiceConfig.Param paramCustomization)
         {
             writer.WriteLine("#region Parameter UseDualstackEndpoint");
             writer.WriteLine("/// <summary>");

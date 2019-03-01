@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
     <ServiceClient>AmazonAutoScalingClient</ServiceClient>
     <ServiceNamespace>Amazon.AutoScaling</ServiceNamespace>
-    <PositionalParameters>AutoScalingGroupName</PositionalParameters>
     <PipelineParameter>AutoScalingGroupName</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
     <VerbMappings>
@@ -55,7 +54,7 @@
                 <Documentation>Returns the ids of the EC2 instances that were attached</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LoadBalancerTargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AutoScalingGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -168,7 +167,7 @@
         <ServiceOperation MethodName="DetachInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Dismount-ASInstances">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="LoadBalancerTargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AutoScalingGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AutoScalingGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

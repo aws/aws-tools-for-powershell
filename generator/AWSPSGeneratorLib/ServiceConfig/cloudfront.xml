@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonCloudFront</ServiceClientInterface>
     <ServiceClient>AmazonCloudFrontClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudFront</ServiceNamespace>
-    <PositionalParameters>Id</PositionalParameters>
     <PipelineParameter>Id</PipelineParameter>
     <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" ServicePageSize="-1" />
     <VerbMappings>

@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonRedshift</ServiceClientInterface>
     <ServiceClient>AmazonRedshiftClient</ServiceClient>
     <ServiceNamespace>Amazon.Redshift</ServiceNamespace>
-    <PositionalParameters>ClusterIdentifier</PositionalParameters>
     <PipelineParameter>ClusterIdentifier</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="100" />
     <VerbMappings>
@@ -263,7 +262,7 @@
                 <Param Name="Force" NewName="Enforce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterSnapshotSchedule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterSnapshotSchedule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ClusterIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyClusterSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

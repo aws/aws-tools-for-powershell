@@ -9,7 +9,6 @@
     <ServiceClient>AmazonAWSSupportClient</ServiceClient>
     <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
-    <PositionalParameters>CaseId</PositionalParameters>
     <PipelineParameter>CaseId</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
     <VerbMappings />

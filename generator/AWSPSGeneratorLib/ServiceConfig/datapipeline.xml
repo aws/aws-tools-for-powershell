@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonDataPipeline</ServiceClientInterface>
     <ServiceClient>AmazonDataPipelineClient</ServiceClient>
     <ServiceNamespace>Amazon.DataPipeline</ServiceNamespace>
-    <PositionalParameters>PipelineId</PositionalParameters>
     <PipelineParameter>PipelineId</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" TruncatedFlag="HasMoreResults" ServicePageSize="-1" />
     <VerbMappings>

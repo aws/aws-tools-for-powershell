@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonElastiCache</ServiceClientInterface>
     <ServiceClient>AmazonElastiCacheClient</ServiceClient>
     <ServiceNamespace>Amazon.ElastiCache</ServiceNamespace>
-    <PositionalParameters>CacheClusterId</PositionalParameters>
     <PipelineParameter>CacheClusterId</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="DescribeCacheParameters" />
     <VerbMappings>
@@ -78,7 +77,7 @@
         <ServiceOperation MethodName="CreateCacheSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CacheSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PrimaryClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ReplicationGroupId,ReplicationGroupDescription" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateReplicationGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PrimaryClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -152,7 +151,7 @@
         <ServiceOperation MethodName="ListAllowedNodeTypeModifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AllowedNodeTypeModification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ModifyCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -176,7 +175,7 @@
         <ServiceOperation MethodName="RebootCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ResetCacheParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

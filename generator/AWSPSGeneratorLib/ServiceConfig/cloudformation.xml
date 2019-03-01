@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
     <ServiceClient>AmazonCloudFormationClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudFormation</ServiceNamespace>
-    <PositionalParameters>StackName</PositionalParameters>
     <PipelineParameter>StackName</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="DescribeChangeSet" />
     <VerbMappings>
@@ -62,7 +61,7 @@
         <ServiceOperation MethodName="CreateStackSet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StackSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChangeSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChangeSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -79,7 +78,7 @@
         <ServiceOperation MethodName="DescribeAccountLimits" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNAccountLimits">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChangeSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeChangeSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeStackDriftDetectionStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StackDriftDetectionStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackDriftDetectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -118,7 +117,7 @@
         <ServiceOperation MethodName="EstimateTemplateCost" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Measure" Noun="TemplateCost" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TemplateBody" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateBody" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChangeSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExecuteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChangeSetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StackName" PipelineParameter="ChangeSetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetStackPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StackPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

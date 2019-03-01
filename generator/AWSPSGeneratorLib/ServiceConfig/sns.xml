@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonSimpleNotificationService</ServiceClientInterface>
     <ServiceClient>AmazonSimpleNotificationServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.SimpleNotificationService</ServiceNamespace>
-    <PositionalParameters>TopicArn</PositionalParameters>
     <PipelineParameter>TopicArn</PipelineParameter>
     <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
     <VerbMappings>
@@ -119,7 +118,7 @@
         <ServiceOperation MethodName="SetPlatformApplicationAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="PlatformApplicationAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlatformApplicationArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSPlatformApplicationAttributes">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetSMSAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="SMSAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Attributes" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="Attributes" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSSMSAttributes">
+        <ServiceOperation MethodName="SetSMSAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="SMSAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Attributes" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Attributes" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSSMSAttributes">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SetSubscriptionAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="SubscriptionAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

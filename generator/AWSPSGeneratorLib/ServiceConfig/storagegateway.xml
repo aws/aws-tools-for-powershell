@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonStorageGateway</ServiceClientInterface>
     <ServiceClient>AmazonStorageGatewayClient</ServiceClient>
     <ServiceNamespace>Amazon.StorageGateway</ServiceNamespace>
-    <PositionalParameters>GatewayARN</PositionalParameters>
     <PipelineParameter>GatewayARN</PipelineParameter>
     <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit" ServicePageSize="-1" />
     <VerbMappings>
@@ -59,7 +58,7 @@
         <ServiceOperation MethodName="AddWorkingStorage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="WorkingStorage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DiskIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DiskIds" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VolumeARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="GatewayARN" PipelineParameter="VolumeARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CancelArchival" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Archival" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -68,7 +67,7 @@
         <ServiceOperation MethodName="CancelRetrieval" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Retrieval" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCachediSCSIVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CachediSCSIVolume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCachediSCSIVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CachediSCSIVolume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotId;TargetName;NetworkInterfaceId;ClientToken" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
                 <Param Name="VolumeSizeInBytes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
             </Params>
@@ -85,7 +84,7 @@
         <ServiceOperation MethodName="CreateSnapshotFromVolumeRecoveryPoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SnapshotFromVolumeRecoveryPoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotDescription" PipelineParameter="VolumeARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StorediSCSIVolume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StorediSCSIVolume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotId;TargetName;NetworkInterfaceId" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateTapes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Tape" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="New-SGTapes">
@@ -177,7 +176,7 @@
         <ServiceOperation MethodName="DisableGateway" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="Gateway" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GatewayARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="JoinDomain" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Join" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="JoinDomain" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Join" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="GatewayARN" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListFileShares" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FileShareList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -195,7 +194,7 @@
         <ServiceOperation MethodName="ListTapes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tape" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVolumeInitiators" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VolumeInitiatorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VolumeARN" PipelineParameter="VolumeARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-SGVolumeInitiators">
+        <ServiceOperation MethodName="ListVolumeInitiators" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VolumeInitiatorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VolumeARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-SGVolumeInitiators">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVolumeRecoveryPoints" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VolumeRecoveryPoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

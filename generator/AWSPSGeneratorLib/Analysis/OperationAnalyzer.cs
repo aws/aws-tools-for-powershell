@@ -790,38 +790,18 @@ namespace AWSPowerShellGenerator.Analysis
             // To simplify the configuration and avoid data duplication, we rule that the pipelineable parameter 
             // is always position 0. A service configuration containing just positional data without a pipeline
             // value is technically invalid.
-            if (string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
-            {
-                if (paramName == CurrentModel.PipelineParameter)
-                {
-                    return 0;
-                }
-            }
-            else if (paramName ==CurrentOperation.PipelineParameter)
+            if (paramName == CurrentOperation.PipelineParameter)
             {
                 return 0;
             }
 
             // we also allow the config to override value-from-pipeline but reuse service-global positional
             // data
-            if (CurrentOperation.PositionalParametersList.Length > 0)
+            for (int i = 0; i < CurrentOperation.PositionalParametersList.Length; i++)
             {
-                for (int i = 0; i < CurrentOperation.PositionalParametersList.Length; i++)
+                if (paramName == CurrentOperation.PositionalParametersList[i])
                 {
-                    if (paramName == CurrentOperation.PositionalParametersList[i])
-                    {
-                        return i + 1;
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < CurrentModel.PositionalParametersList.Length; i++)
-                {
-                    if (paramName == CurrentModel.PositionalParametersList[i])
-                    {
-                        return i + 1;
-                    }
+                    return i + 1;
                 }
             }
 

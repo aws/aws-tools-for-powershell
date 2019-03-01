@@ -8,7 +8,6 @@
     <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
     <ServiceClient>AmazonDynamoDBClient</ServiceClient>
     <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
-    <PositionalParameters>TableName</PositionalParameters>
     <PipelineParameter>TableName</PipelineParameter>
     <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" ServicePageSize="-1" />
     <VerbMappings />
