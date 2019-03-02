@@ -20,229 +20,229 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddTags" Output="DefaultSingleMember" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlgorithm" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Algorithm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlgorithmName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlgorithmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAlgorithm" Output="DefaultSingleMember" Verb="New" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCodeRepository" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CodeRepository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CodeRepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCodeRepository" Output="DefaultSingleMember" Verb="New" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCompilationJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CompilationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CompilationJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CompilationJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCompilationJob" Output="DefaultSingleMember" Verb="New" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEndpoint" Output="DefaultSingleMember" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEndpointConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEndpointConfig" Output="DefaultSingleMember" Verb="New" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHyperParameterTuningJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HyperParameterTuningJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HyperParameterTuningJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHyperParameterTuningJob" Output="DefaultSingleMember" Verb="New" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLabelingJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LabelingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LabelingJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LabelingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLabelingJob" Output="DefaultSingleMember" Verb="New" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrimaryContainer" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateModel" Output="DefaultSingleMember" Verb="New" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="PrimaryContainer" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModelPackage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ModelPackage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelPackageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelPackageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateModelPackage" Output="DefaultSingleMember" Verb="New" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotebookInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateNotebookInstance" Output="DefaultSingleMember" Verb="New" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotebookInstanceLifecycleConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="NotebookInstanceLifecycleConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateNotebookInstanceLifecycleConfig" Output="DefaultSingleMember" Verb="New" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePresignedNotebookInstanceUrl" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PresignedNotebookInstanceUrl" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePresignedNotebookInstanceUrl" Output="DefaultSingleMember" Verb="New" Noun="PresignedNotebookInstanceUrl" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrainingJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TrainingJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTrainingJob" Output="DefaultSingleMember" Verb="New" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTransformJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TransformJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TransformJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TransformJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTransformJob" Output="DefaultSingleMember" Verb="New" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Workteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkteamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateWorkteam" Output="DefaultSingleMember" Verb="New" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlgorithm" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Algorithm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlgorithmName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlgorithmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAlgorithm" Output="Void" Verb="Remove" Noun="Algorithm" ShouldProcessTarget="AlgorithmName" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCodeRepository" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CodeRepository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CodeRepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCodeRepository" Output="Void" Verb="Remove" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEndpoint" Output="Void" Verb="Remove" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpointConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEndpointConfig" Output="Void" Verb="Remove" Noun="EndpointConfig" ShouldProcessTarget="EndpointConfigName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteModel" Output="Void" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModelPackage" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ModelPackage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelPackageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelPackageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteModelPackage" Output="Void" Verb="Remove" Noun="ModelPackage" ShouldProcessTarget="ModelPackageName" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNotebookInstance" Output="Void" Verb="Remove" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotebookInstanceLifecycleConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NotebookInstanceLifecycleConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNotebookInstanceLifecycleConfig" Output="Void" Verb="Remove" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Workteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkteamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteWorkteam" Output="DefaultSingleMember" Verb="Remove" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlgorithm" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Algorithm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlgorithmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAlgorithm" Output="Response" Verb="Get" Noun="Algorithm" PipelineParameter="AlgorithmName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCodeRepository" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CodeRepository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCodeRepository" Output="Response" Verb="Get" Noun="CodeRepository" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCompilationJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CompilationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CompilationJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCompilationJob" Output="Response" Verb="Get" Noun="CompilationJob" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEndpoint" Output="Response" Verb="Get" Noun="Endpoint" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpointConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEndpointConfig" Output="Response" Verb="Get" Noun="EndpointConfig" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHyperParameterTuningJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HyperParameterTuningJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeHyperParameterTuningJob" Output="Response" Verb="Get" Noun="HyperParameterTuningJob" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLabelingJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LabelingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LabelingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLabelingJob" Output="Response" Verb="Get" Noun="LabelingJob" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeModel" Output="Response" Verb="Get" Noun="Model" PipelineParameter="ModelName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeModelPackage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelPackage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelPackageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeModelPackage" Output="Response" Verb="Get" Noun="ModelPackage" PipelineParameter="ModelPackageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotebookInstance" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeNotebookInstance" Output="Response" Verb="Get" Noun="NotebookInstance" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotebookInstanceLifecycleConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstanceLifecycleConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeNotebookInstanceLifecycleConfig" Output="Response" Verb="Get" Noun="NotebookInstanceLifecycleConfig" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscribedWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SubscribedWorkteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSubscribedWorkteam" Output="DefaultSingleMember" Verb="Get" Noun="SubscribedWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTrainingJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTrainingJob" Output="Response" Verb="Get" Noun="TrainingJob" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTransformJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TransformJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TransformJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTransformJob" Output="Response" Verb="Get" Noun="TransformJob" PipelineParameter="TransformJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Workteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWorkteam" Output="DefaultSingleMember" Verb="Get" Noun="Workteam" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSearchSuggestions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SearchSuggestion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSearchSuggestions" Output="DefaultSingleMember" Verb="Get" Noun="SearchSuggestion" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAlgorithms" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AlgorithmList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NameContains" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAlgorithms" Output="DefaultSingleMember" Verb="Get" Noun="AlgorithmList" PipelineParameter="NameContains" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCodeRepositories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CodeRepositoryList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListCodeRepositories" Output="DefaultSingleMember" Verb="Get" Noun="CodeRepositoryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCompilationJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CompilationJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NameContains" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListCompilationJobs" Output="DefaultSingleMember" Verb="Get" Noun="CompilationJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointConfigs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEndpointConfigs" Output="DefaultSingleMember" Verb="Get" Noun="ConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpoints" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEndpoints" Output="DefaultSingleMember" Verb="Get" Noun="EndpointList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHyperParameterTuningJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HyperParameterTuningJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListHyperParameterTuningJobs" Output="DefaultSingleMember" Verb="Get" Noun="HyperParameterTuningJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabelingJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LabelingJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NameContains" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListLabelingJobs" Output="DefaultSingleMember" Verb="Get" Noun="LabelingJobList" PipelineParameter="NameContains" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLabelingJobsForWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LabelingJobListForWorkteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListLabelingJobsForWorkteam" Output="DefaultSingleMember" Verb="Get" Noun="LabelingJobListForWorkteam" PipelineParameter="WorkteamArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModelPackages" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelPackageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NameContains" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListModelPackages" Output="DefaultSingleMember" Verb="Get" Noun="ModelPackageList" PipelineParameter="NameContains" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListModels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListModels" Output="DefaultSingleMember" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListNotebookInstanceLifecycleConfigs" Output="DefaultSingleMember" Verb="Get" Noun="NotebookInstanceLifecycleConfigList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNotebookInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListNotebookInstances" Output="DefaultSingleMember" Verb="Get" Noun="NotebookInstanceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSubscribedWorkteams" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SubscribedWorkteamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NameContains" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSubscribedWorkteams" Output="DefaultSingleMember" Verb="Get" Noun="SubscribedWorkteamList" PipelineParameter="NameContains" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrainingJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrainingJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrainingJobs" Output="DefaultSingleMember" Verb="Get" Noun="TrainingJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrainingJobsForHyperParameterTuningJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrainingJobsForHyperParameterTuningJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrainingJobsForHyperParameterTuningJob" Output="DefaultSingleMember" Verb="Get" Noun="TrainingJobsForHyperParameterTuningJobList" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTransformJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TransformJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTransformJobs" Output="DefaultSingleMember" Verb="Get" Noun="TransformJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkteams" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkteamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWorkteams" Output="DefaultSingleMember" Verb="Get" Noun="WorkteamList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenderUiTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="UiTemplateRendering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UiTemplate_Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RenderUiTemplate" Output="Response" Verb="Invoke" Noun="UiTemplateRendering" ShouldProcessTarget="RoleArn" PipelineParameter="UiTemplate_Content" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="Search" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Search" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resource" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Search" Output="DefaultSingleMember" Verb="Search" Noun="Resource" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartNotebookInstance" Output="Void" Verb="Start" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopCompilationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="CompilationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CompilationJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CompilationJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopCompilationJob" Output="Void" Verb="Stop" Noun="CompilationJob" ShouldProcessTarget="CompilationJobName" PipelineParameter="CompilationJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopHyperParameterTuningJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="HyperParameterTuningJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HyperParameterTuningJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopHyperParameterTuningJob" Output="Void" Verb="Stop" Noun="HyperParameterTuningJob" ShouldProcessTarget="HyperParameterTuningJobName" PipelineParameter="HyperParameterTuningJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopLabelingJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="LabelingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LabelingJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LabelingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopLabelingJob" Output="Void" Verb="Stop" Noun="LabelingJob" ShouldProcessTarget="LabelingJobName" PipelineParameter="LabelingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopNotebookInstance" Output="Void" Verb="Stop" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTrainingJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TrainingJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopTrainingJob" Output="Void" Verb="Stop" Noun="TrainingJob" ShouldProcessTarget="TrainingJobName" PipelineParameter="TrainingJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTransformJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="TransformJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TransformJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TransformJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopTransformJob" Output="Void" Verb="Stop" Noun="TransformJob" ShouldProcessTarget="TransformJobName" PipelineParameter="TransformJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCodeRepository" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="CodeRepository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CodeRepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateCodeRepository" Output="DefaultSingleMember" Verb="Update" Noun="CodeRepository" ShouldProcessTarget="CodeRepositoryName" PipelineParameter="CodeRepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateEndpoint" Output="DefaultSingleMember" Verb="Update" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpointWeightsAndCapacities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="EndpointWeightAndCapacity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateEndpointWeightsAndCapacities" Output="DefaultSingleMember" Verb="Update" Noun="EndpointWeightAndCapacity" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateNotebookInstance" Output="Void" Verb="Update" Noun="NotebookInstance" ShouldProcessTarget="NotebookInstanceName" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="NotebookInstanceLifecycleConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateNotebookInstanceLifecycleConfig" Output="Void" Verb="Update" Noun="NotebookInstanceLifecycleConfig" ShouldProcessTarget="NotebookInstanceLifecycleConfigName" PipelineParameter="NotebookInstanceLifecycleConfigName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWorkteam" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Workteam" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkteamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkteamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateWorkteam" Output="DefaultSingleMember" Verb="Update" Noun="Workteam" ShouldProcessTarget="WorkteamName" PipelineParameter="WorkteamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

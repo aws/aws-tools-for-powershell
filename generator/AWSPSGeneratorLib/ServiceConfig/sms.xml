@@ -24,88 +24,88 @@
         <Property>ConnectorId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApp" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateApp" Output="Response" Verb="New" Noun="App" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ReplicationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateReplicationJob" Output="DefaultSingleMember" Verb="New" Noun="ReplicationJob" ShouldProcessTarget="ServerId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApp" Output="Void" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppLaunchConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="AppLaunchConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAppLaunchConfiguration" Output="Void" Verb="Remove" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAppReplicationConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="AppReplicationConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAppReplicationConfiguration" Output="Void" Verb="Remove" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ReplicationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationJobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteReplicationJob" Output="Void" Verb="Remove" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServerCatalog" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ServerCatalog" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteServerCatalog" Output="Void" Verb="Remove" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConnector" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Connector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateConnector" Output="Void" Verb="Unregister" Noun="Connector" ShouldProcessTarget="ConnectorId" PipelineParameter="ConnectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateChangeSet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ChangeSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GenerateChangeSet" Output="DefaultSingleMember" Verb="New" Noun="ChangeSet" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateTemplate" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Template" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GenerateTemplate" Output="DefaultSingleMember" Verb="New" Noun="Template" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApp" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetApp" Output="Response" Verb="Get" Noun="App" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppLaunchConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AppLaunchConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAppLaunchConfiguration" Output="Response" Verb="Get" Noun="AppLaunchConfiguration" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppReplicationConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AppReplicationConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAppReplicationConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="AppReplicationConfiguration" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetConnectors" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Connector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetConnectors" Output="DefaultSingleMember" Verb="Get" Noun="Connector" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReplicationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReplicationJobs" Output="DefaultSingleMember" Verb="Get" Noun="ReplicationJob" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReplicationRuns" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReplicationRun" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReplicationRuns" Output="Response" Verb="Get" Noun="ReplicationRun" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetServers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetServers" Output="Response" Verb="Get" Noun="Server" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportServerCatalog" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="ServerCatalog" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportServerCatalog" Output="Void" Verb="Import" Noun="ServerCatalog" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="LaunchApp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="LaunchApp" Output="Void" Verb="Start" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AppList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListApps" Output="DefaultSingleMember" Verb="Get" Noun="AppList" PipelineParameter="AppIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppLaunchConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="AppLaunchConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutAppLaunchConfiguration" Output="Void" Verb="Write" Noun="AppLaunchConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAppReplicationConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="AppReplicationConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutAppReplicationConfiguration" Output="Void" Verb="Write" Noun="AppReplicationConfiguration" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartAppReplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="AppReplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartAppReplication" Output="Void" Verb="Start" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartOnDemandReplicationRun" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="OnDemandReplicationRun" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationJobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartOnDemandReplicationRun" Output="DefaultSingleMember" Verb="Start" Noun="OnDemandReplicationRun" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopAppReplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="AppReplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopAppReplication" Output="Void" Verb="Stop" Noun="AppReplication" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateApp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TerminateApp" Output="Void" Verb="Stop" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApp" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateApp" Output="Response" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateReplicationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ReplicationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationJobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationJobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateReplicationJob" Output="Void" Verb="Update" Noun="ReplicationJob" ShouldProcessTarget="ReplicationJobId" PipelineParameter="ReplicationJobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

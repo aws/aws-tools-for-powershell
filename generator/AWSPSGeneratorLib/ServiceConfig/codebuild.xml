@@ -20,61 +20,61 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDeleteBuilds" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BuildBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Ids" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ids" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDeleteBuilds" Output="Response" Verb="Remove" Noun="BuildBatch" ShouldProcessTarget="Ids" PipelineParameter="Ids" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetBuilds" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BuildBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ids" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchGetBuilds" Output="Response" Verb="Get" Noun="BuildBatch" PipelineParameter="Ids" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetProjects" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProjectBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchGetProjects" Output="Response" Verb="Get" Noun="ProjectBatch" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateProject" Output="DefaultSingleMember" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWebhook" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Webhook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProjectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateWebhook" Output="DefaultSingleMember" Verb="New" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteProject" Output="Void" Verb="Remove" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSourceCredentials" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SourceCredential" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSourceCredentials" Output="DefaultSingleMember" Verb="Remove" Noun="SourceCredential" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebhook" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Webhook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProjectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteWebhook" Output="Void" Verb="Remove" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportSourceCredentials" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="SourceCredential" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Token" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportSourceCredentials" Output="DefaultSingleMember" Verb="Import" Noun="SourceCredential" AnonymousShouldProcessTarget="true" PipelineParameter="Token" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvalidateProjectCache" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="ProjectCache" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProjectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InvalidateProjectCache" Output="Void" Verb="Reset" Noun="ProjectCache" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuilds" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BuildIdList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListBuilds" Output="DefaultSingleMember" Verb="Get" Noun="BuildIdList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBuildsForProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BuildIdListForProject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListBuildsForProject" Output="DefaultSingleMember" Verb="Get" Noun="BuildIdListForProject" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCuratedEnvironmentImages" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CuratedEnvironmentImageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListCuratedEnvironmentImages" Output="DefaultSingleMember" Verb="Get" Noun="CuratedEnvironmentImageList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProjectList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProjects" Output="DefaultSingleMember" Verb="Get" Noun="ProjectList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSourceCredentials" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SourceCredentialList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSourceCredentials" Output="DefaultSingleMember" Verb="Get" Noun="SourceCredentialList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartBuild" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Build" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProjectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartBuild" Output="DefaultSingleMember" Verb="Start" Noun="Build" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopBuild" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Build" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopBuild" Output="DefaultSingleMember" Verb="Stop" Noun="Build" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateProject" Output="DefaultSingleMember" Verb="Update" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateWebhook" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Webhook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProjectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProjectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateWebhook" Output="DefaultSingleMember" Verb="Update" Noun="Webhook" ShouldProcessTarget="ProjectName" PipelineParameter="ProjectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

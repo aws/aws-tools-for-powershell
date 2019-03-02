@@ -23,196 +23,196 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDevicePool" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DevicePool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Rules" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDevicePool" Output="DefaultSingleMember" Verb="New" Noun="DevicePool" ShouldProcessTarget="Name" PipelineParameter="Rules" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstanceProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="InstanceProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInstanceProfile" Output="DefaultSingleMember" Verb="New" Noun="InstanceProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNetworkProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="NetworkProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateNetworkProfile" Output="DefaultSingleMember" Verb="New" Noun="NetworkProfile" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateProject" Output="DefaultSingleMember" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRemoteAccessSession" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RemoteAccessSession" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeviceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeviceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRemoteAccessSession" Output="DefaultSingleMember" Verb="New" Noun="RemoteAccessSession" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUpload" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Upload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ProjectArn;Type;ContentType" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUpload" Output="DefaultSingleMember" Verb="New" Noun="Upload" ShouldProcessTarget="Name" PositionalParameters="ProjectArn;Type;ContentType" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVPCEConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="VPCEConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VpceConfigurationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VpceConfigurationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateVPCEConfiguration" Output="DefaultSingleMember" Verb="New" Noun="VPCEConfiguration" ShouldProcessTarget="VpceConfigurationName" PipelineParameter="VpceConfigurationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDevicePool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DevicePool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDevicePool" Output="Void" Verb="Remove" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstanceProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="InstanceProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInstanceProfile" Output="Void" Verb="Remove" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNetworkProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NetworkProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNetworkProfile" Output="Void" Verb="Remove" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteProject" Output="Void" Verb="Remove" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRemoteAccessSession" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RemoteAccessSession" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRemoteAccessSession" Output="Void" Verb="Remove" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRun" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Run" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRun" Output="Void" Verb="Remove" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUpload" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Upload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUpload" Output="Void" Verb="Remove" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVPCEConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VPCEConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVPCEConfiguration" Output="Void" Verb="Remove" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountSettingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccountSettings" Output="DefaultSingleMember" Verb="Get" Noun="AccountSettingList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevice" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Device" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDevice" Output="DefaultSingleMember" Verb="Get" Noun="Device" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeviceInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDeviceInstance" Output="DefaultSingleMember" Verb="Get" Noun="DeviceInstance" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePool" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DevicePool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDevicePool" Output="DefaultSingleMember" Verb="Get" Noun="DevicePool" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DevicePoolCompatibility" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDevicePoolCompatibility" Output="Response" Verb="Get" Noun="DevicePoolCompatibility" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InstanceProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceProfile" Output="DefaultSingleMember" Verb="Get" Noun="InstanceProfile" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetJob" Output="DefaultSingleMember" Verb="Get" Noun="Job" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNetworkProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NetworkProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetNetworkProfile" Output="DefaultSingleMember" Verb="Get" Noun="NetworkProfile" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOfferingStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OfferingStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOfferingStatus" Output="Response" Verb="Get" Noun="OfferingStatus" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetProject" Output="DefaultSingleMember" Verb="Get" Noun="Project" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRemoteAccessSession" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RemoteAccessSession" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRemoteAccessSession" Output="DefaultSingleMember" Verb="Get" Noun="RemoteAccessSession" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRun" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Run" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRun" Output="DefaultSingleMember" Verb="Get" Noun="Run" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSuite" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Suite" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSuite" Output="DefaultSingleMember" Verb="Get" Noun="Suite" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Test" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTest" Output="DefaultSingleMember" Verb="Get" Noun="Test" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUpload" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Upload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUpload" Output="DefaultSingleMember" Verb="Get" Noun="Upload" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVPCEConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VPCEConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVPCEConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="VPCEConfiguration" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InstallToRemoteAccessSession" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Install" Noun="ToRemoteAccessSession" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InstallToRemoteAccessSession" Output="DefaultSingleMember" Verb="Install" Noun="ToRemoteAccessSession" ShouldProcessTarget="AppArn" PipelineParameter="AppArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListArtifacts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ArtifactList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListArtifacts" Output="DefaultSingleMember" Verb="Get" Noun="ArtifactList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeviceInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MaxResults" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDeviceInstances" Output="DefaultSingleMember" Verb="Get" Noun="DeviceInstanceList" PipelineParameter="MaxResults" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevicePools" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DevicePoolList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDevicePools" Output="DefaultSingleMember" Verb="Get" Noun="DevicePoolList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDevices" Output="DefaultSingleMember" Verb="Get" Noun="DeviceList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInstanceProfiles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InstanceProfileList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MaxResults" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListInstanceProfiles" Output="DefaultSingleMember" Verb="Get" Noun="InstanceProfileList" PipelineParameter="MaxResults" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" Verb="Get" Noun="JobList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNetworkProfiles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NetworkProfileList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListNetworkProfiles" Output="DefaultSingleMember" Verb="Get" Noun="NetworkProfileList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferingPromotions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OfferingPromotion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOfferingPromotions" Output="DefaultSingleMember" Verb="Get" Noun="OfferingPromotion" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Offering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOfferings" Output="DefaultSingleMember" Verb="Get" Noun="Offering" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferingTransactions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OfferingTransaction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOfferingTransactions" Output="DefaultSingleMember" Verb="Get" Noun="OfferingTransaction" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProjects" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProjectList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProjects" Output="DefaultSingleMember" Verb="Get" Noun="ProjectList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRemoteAccessSessions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RemoteAccessSessionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRemoteAccessSessions" Output="DefaultSingleMember" Verb="Get" Noun="RemoteAccessSessionList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRuns" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RunList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRuns" Output="DefaultSingleMember" Verb="Get" Noun="RunList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSamples" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SampleList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSamples" Output="DefaultSingleMember" Verb="Get" Noun="SampleList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSuites" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SuiteList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSuites" Output="DefaultSingleMember" Verb="Get" Noun="SuiteList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTests" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TestList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTests" Output="DefaultSingleMember" Verb="Get" Noun="TestList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUniqueProblems" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UniqueProblemList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListUniqueProblems" Output="DefaultSingleMember" Verb="Get" Noun="UniqueProblemList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUploads" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UploadList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListUploads" Output="DefaultSingleMember" Verb="Get" Noun="UploadList" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVPCEConfigurations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VPCEConfigurationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListVPCEConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="VPCEConfigurationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseOffering" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="OfferingPurchase" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OfferingId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PurchaseOffering" Output="DefaultSingleMember" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RenewOffering" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="OfferingRenewal" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OfferingId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RenewOffering" Output="DefaultSingleMember" Verb="New" Noun="OfferingRenewal" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScheduleRun" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="TestRun" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ScheduleRun" Output="DefaultSingleMember" Verb="Submit" Noun="TestRun" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopJob" Output="DefaultSingleMember" Verb="Stop" Noun="Job" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRemoteAccessSession" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="RemoteAccessSession" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopRemoteAccessSession" Output="DefaultSingleMember" Verb="Stop" Noun="RemoteAccessSession" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopRun" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Run" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopRun" Output="DefaultSingleMember" Verb="Stop" Noun="Run" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDeviceInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DeviceInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDeviceInstance" Output="DefaultSingleMember" Verb="Update" Noun="DeviceInstance" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDevicePool" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DevicePool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDevicePool" Output="DefaultSingleMember" Verb="Update" Noun="DevicePool" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstanceProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="InstanceProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateInstanceProfile" Output="DefaultSingleMember" Verb="Update" Noun="InstanceProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNetworkProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="NetworkProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateNetworkProfile" Output="DefaultSingleMember" Verb="Update" Noun="NetworkProfile" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Project" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateProject" Output="DefaultSingleMember" Verb="Update" Noun="Project" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUpload" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Upload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUpload" Output="DefaultSingleMember" Verb="Update" Noun="Upload" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVPCEConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="VPCEConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateVPCEConfiguration" Output="DefaultSingleMember" Verb="Update" Noun="VPCEConfiguration" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

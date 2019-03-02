@@ -20,138 +20,138 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateFleet" Output="Void" Verb="Register" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateUserStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="UserStackBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserStackAssociations" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserStackAssociations" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchAssociateUserStack" Output="DefaultSingleMember" Verb="Register" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateUserStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="UserStackBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserStackAssociations" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserStackAssociations" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDisassociateUserStack" Output="DefaultSingleMember" Verb="Unregister" Noun="UserStackBatch" ShouldProcessTarget="UserStackAssociations" PipelineParameter="UserStackAssociations" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyImage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="Image" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceImageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceImageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyImage" Output="DefaultSingleMember" Verb="Copy" Noun="Image" ShouldProcessTarget="SourceImageName" PipelineParameter="SourceImageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectoryConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DirectoryConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDirectoryConfig" Output="DefaultSingleMember" Verb="New" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFleet" Output="DefaultSingleMember" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImageBuilder" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ImageBuilder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ImageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ImageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateImageBuilder" Output="DefaultSingleMember" Verb="New" Noun="ImageBuilder" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateImageBuilderStreamingURL" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ImageBuilderStreamingURL" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateImageBuilderStreamingURL" Output="Response" Verb="New" Noun="ImageBuilderStreamingURL" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStack" Output="DefaultSingleMember" Verb="New" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamingURL" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StreamingURL" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStreamingURL" Output="Response" Verb="New" Noun="StreamingURL" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUser" Output="Void" Verb="New" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectoryConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DirectoryConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDirectoryConfig" Output="Void" Verb="Remove" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFleet" Output="Void" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Image" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteImage" Output="DefaultSingleMember" Verb="Remove" Noun="Image" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImageBuilder" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ImageBuilder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteImageBuilder" Output="DefaultSingleMember" Verb="Remove" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteImagePermissions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ImagePermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteImagePermissions" Output="Void" Verb="Remove" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStack" Output="Void" Verb="Remove" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUser" Output="Void" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectoryConfigs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DirectoryConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImageBuilders" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ImageBuilderList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImagePermissions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ImagePermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="Name" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDirectoryConfigs" Output="DefaultSingleMember" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeImages" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ImageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFleets" Output="DefaultSingleMember" Verb="Get" Noun="FleetList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSessions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SessionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeImageBuilders" Output="DefaultSingleMember" Verb="Get" Noun="ImageBuilderList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStacks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StackList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeImagePermissions" Output="DefaultSingleMember" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="Name">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImages" Output="DefaultSingleMember" Verb="Get" Noun="ImageList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSessions" Output="DefaultSingleMember" Verb="Get" Noun="SessionList" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserStackAssociations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserStackAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStacks" Output="DefaultSingleMember" Verb="Get" Noun="StackList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeUsers" Output="DefaultSingleMember" Verb="Get" Noun="User" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeUserStackAssociations" Output="DefaultSingleMember" Verb="Get" Noun="UserStackAssociation" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableUser" Output="Void" Verb="Disable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExpireSession" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="Session" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SessionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SessionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateFleet" Output="Void" Verb="Unregister" Noun="Fleet" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedFleets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AssociatedFleetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableUser" Output="Void" Verb="Enable" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssociatedStacks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AssociatedStackList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExpireSession" Output="Void" Verb="Revoke" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagsForResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAssociatedFleets" Output="DefaultSingleMember" Verb="Get" Noun="AssociatedFleetList" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAssociatedStacks" Output="DefaultSingleMember" Verb="Get" Noun="AssociatedStackList" PipelineParameter="FleetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartImageBuilder" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ImageBuilder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartFleet" Output="Void" Verb="Start" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopImageBuilder" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="ImageBuilder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartImageBuilder" Output="DefaultSingleMember" Verb="Start" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopFleet" Output="Void" Verb="Stop" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopImageBuilder" Output="DefaultSingleMember" Verb="Stop" Noun="ImageBuilder" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDirectoryConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DirectoryConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="TagKeys" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateImagePermissions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ImagePermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDirectoryConfig" Output="DefaultSingleMember" Verb="Update" Noun="DirectoryConfig" ShouldProcessTarget="DirectoryName" PipelineParameter="DirectoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFleet" Output="DefaultSingleMember" Verb="Update" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateImagePermissions" Output="Void" Verb="Update" Noun="ImagePermission" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStack" Output="DefaultSingleMember" Verb="Update" Noun="Stack" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

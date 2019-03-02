@@ -22,22 +22,22 @@
         <Property>ClusterArn</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCluster" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCluster" Output="Response" Verb="New" Noun="Cluster" ShouldProcessTarget="ClusterName" PipelineParameter="ClusterName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCluster" Output="Response" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterArn" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCluster" Output="DefaultSingleMember" Verb="Get" Noun="Cluster" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBootstrapBrokers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BootstrapBroker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBootstrapBrokers" Output="DefaultSingleMember" Verb="Get" Noun="BootstrapBroker" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClusters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListClusters" Output="DefaultSingleMember" Verb="Get" Noun="ClusterList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListNodes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NodeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListNodes" Output="DefaultSingleMember" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

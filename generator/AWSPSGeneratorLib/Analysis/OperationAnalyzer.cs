@@ -1281,9 +1281,10 @@ namespace AWSPowerShellGenerator.Analysis
                     Logger.LogError("{0}: Operation {1} should process configuration must be updated. Suggested value is {2}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
                         SupportsShouldProcessInspectionResult.TargetParameter.AnalyzedName);
                 }
-
-                CurrentOperation.ShouldProcessTarget = SupportsShouldProcessInspectionResult.TargetParameter.AnalyzedName;
             }
+
+            //Setting the value to string.Empty instead of null makes the attribute appear in the configuration file so that it is easy to fill the value in.
+            CurrentOperation.ShouldProcessTarget = SupportsShouldProcessInspectionResult.TargetParameter?.AnalyzedName ?? string.Empty;
         }
 
         /// <summary>
@@ -1704,12 +1705,6 @@ namespace AWSPowerShellGenerator.Analysis
             }
 
             customization.NewName = newName;
-
-            if (customization.AutoApplyAlias)
-            {
-                var aliasList = customization.Aliases;
-                aliasList.Add(property.AnalyzedName);
-            }
         }
 
         private IEnumerable<SimplePropertyInfo> GetRootSimpleProperties(Type requestType)

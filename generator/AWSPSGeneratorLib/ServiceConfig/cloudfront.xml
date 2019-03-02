@@ -27,143 +27,143 @@
         <Property>DistributionId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CloudFrontOriginAccessIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" Output="Response" Verb="New" Noun="CloudFrontOriginAccessIdentity" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDistribution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Distribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDistribution" Output="Response" Verb="New" Noun="Distribution" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDistributionWithTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DistributionWithTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDistributionWithTags" Output="Response" Verb="New" Noun="DistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFieldLevelEncryptionConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="FieldLevelEncryptionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FieldLevelEncryptionConfig" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFieldLevelEncryptionConfig" Output="Response" Verb="New" Noun="FieldLevelEncryptionConfig" AnonymousShouldProcessTarget="true" PipelineParameter="FieldLevelEncryptionConfig" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFieldLevelEncryptionProfile" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="FieldLevelEncryptionProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FieldLevelEncryptionProfileConfig_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FieldLevelEncryptionProfileConfig_Name" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFieldLevelEncryptionProfile" Output="Response" Verb="New" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="FieldLevelEncryptionProfileConfig_Name" PipelineParameter="FieldLevelEncryptionProfileConfig_Name" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInvalidation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Invalidation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DistributionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DistributionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInvalidation" Output="Response" Verb="New" Noun="Invalidation" ShouldProcessTarget="DistributionId" PipelineParameter="DistributionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePublicKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PublicKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PublicKeyConfig_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePublicKey" Output="Response" Verb="New" Noun="PublicKey" ShouldProcessTarget="PublicKeyConfig_Name" PipelineParameter="PublicKeyConfig_Name" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamingDistribution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StreamingDistribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamingDistributionConfig_S3Origin_DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamingDistributionConfig_S3Origin_DomainName" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStreamingDistribution" Output="Response" Verb="New" Noun="StreamingDistribution" ShouldProcessTarget="StreamingDistributionConfig_S3Origin_DomainName" PipelineParameter="StreamingDistributionConfig_S3Origin_DomainName" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamingDistributionWithTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StreamingDistributionWithTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStreamingDistributionWithTags" Output="Response" Verb="New" Noun="StreamingDistributionWithTag" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CloudFrontOriginAccessIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Output="Void" Verb="Remove" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDistribution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Distribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDistribution" Output="Void" Verb="Remove" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFieldLevelEncryptionConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FieldLevelEncryptionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFieldLevelEncryptionConfig" Output="Void" Verb="Remove" Noun="FieldLevelEncryptionConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFieldLevelEncryptionProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FieldLevelEncryptionProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFieldLevelEncryptionProfile" Output="Void" Verb="Remove" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePublicKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="PublicKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePublicKey" Output="Void" Verb="Remove" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStreamingDistribution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="StreamingDistribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStreamingDistribution" Output="Void" Verb="Remove" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CloudFrontOriginAccessIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentity" Output="DefaultSingleMember" Verb="Get" Noun="CloudFrontOriginAccessIdentity" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentityConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CloudFrontOriginAccessIdentityConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentityConfig" Output="DefaultSingleMember" Verb="Get" Noun="CloudFrontOriginAccessIdentityConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDistribution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Distribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDistribution" Output="DefaultSingleMember" Verb="Get" Noun="Distribution" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDistributionConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DistributionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDistributionConfig" Output="DefaultSingleMember" Verb="Get" Noun="DistributionConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFieldLevelEncryption" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FieldLevelEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFieldLevelEncryption" Output="DefaultSingleMember" Verb="Get" Noun="FieldLevelEncryption" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFieldLevelEncryptionConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FieldLevelEncryptionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFieldLevelEncryptionConfig" Output="DefaultSingleMember" Verb="Get" Noun="FieldLevelEncryptionConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFieldLevelEncryptionProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FieldLevelEncryptionProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFieldLevelEncryptionProfile" Output="DefaultSingleMember" Verb="Get" Noun="FieldLevelEncryptionProfile" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFieldLevelEncryptionProfileConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FieldLevelEncryptionProfileConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFieldLevelEncryptionProfileConfig" Output="DefaultSingleMember" Verb="Get" Noun="FieldLevelEncryptionProfileConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvalidation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Invalidation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Id" PipelineParameter="DistributionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInvalidation" Output="DefaultSingleMember" Verb="Get" Noun="Invalidation" PositionalParameters="Id" PipelineParameter="DistributionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicKey" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PublicKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPublicKey" Output="DefaultSingleMember" Verb="Get" Noun="PublicKey" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPublicKeyConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PublicKeyConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPublicKeyConfig" Output="DefaultSingleMember" Verb="Get" Noun="PublicKeyConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStreamingDistribution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamingDistribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStreamingDistribution" Output="DefaultSingleMember" Verb="Get" Noun="StreamingDistribution" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStreamingDistributionConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamingDistributionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStreamingDistributionConfig" Output="DefaultSingleMember" Verb="Get" Noun="StreamingDistributionConfig" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
+        <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" Output="DefaultSingleMember" OutputWrapper="CloudFrontOriginAccessIdentityList" Verb="Get" Noun="CloudFrontOriginAccessIdentityList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDistributions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFDistributions">
+        <ServiceOperation MethodName="ListDistributions" Output="DefaultSingleMember" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" LegacyAlias="Get-CFDistributions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDistributionsByWebACLId" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDistributionsByWebACLId" Output="DefaultSingleMember" OutputWrapper="DistributionList" Verb="Get" Noun="DistributionListByWebACLId" PipelineParameter="WebACLId" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFieldLevelEncryptionConfigs" Output="DefaultSingleMember" OutputWrapper="FieldLevelEncryptionList" Verb="Get" Noun="FieldLevelEncryptionConfigList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFieldLevelEncryptionProfiles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="FieldLevelEncryptionProfileList" Verb="Get" Noun="FieldLevelEncryptionProfileList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFieldLevelEncryptionProfiles" Output="DefaultSingleMember" OutputWrapper="FieldLevelEncryptionProfileList" Verb="Get" Noun="FieldLevelEncryptionProfileList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvalidations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DistributionId" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFInvalidations">
+        <ServiceOperation MethodName="ListInvalidations" Output="DefaultSingleMember" OutputWrapper="InvalidationList" Verb="Get" Noun="InvalidationList" PipelineParameter="DistributionId" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" LegacyAlias="Get-CFInvalidations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublicKeys" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPublicKeys" Output="DefaultSingleMember" OutputWrapper="PublicKeyList" Verb="Get" Noun="PublicKeyList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxItems;Quantity">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamingDistributions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="StreamingDistributionList" Verb="Get" Noun="StreamingDistributionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFStreamingDistributions">
+        <ServiceOperation MethodName="ListStreamingDistributions" Output="DefaultSingleMember" OutputWrapper="StreamingDistributionList" Verb="Get" Noun="StreamingDistributionList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker;MaxItems;Quantity" LegacyAlias="Get-CFStreamingDistributions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resource" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params>
-                <Param Name="Tags_Items" NewName="Tag" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resource" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params>
-                <Param Name="TagKeys_Items" NewName="TagKey" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="TagKeys_Items" NewName="TagKey" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="CloudFrontOriginAccessIdentity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" Output="DefaultSingleMember" Verb="Update" Noun="CloudFrontOriginAccessIdentity" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDistribution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Distribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDistribution" Output="DefaultSingleMember" Verb="Update" Noun="Distribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFieldLevelEncryptionConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FieldLevelEncryptionConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFieldLevelEncryptionConfig" Output="DefaultSingleMember" Verb="Update" Noun="FieldLevelEncryptionConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FieldLevelEncryptionProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFieldLevelEncryptionProfile" Output="DefaultSingleMember" Verb="Update" Noun="FieldLevelEncryptionProfile" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePublicKey" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PublicKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePublicKey" Output="DefaultSingleMember" Verb="Update" Noun="PublicKey" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStreamingDistribution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="StreamingDistribution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateStreamingDistribution" Output="DefaultSingleMember" Verb="Update" Noun="StreamingDistribution" ShouldProcessTarget="Id" PositionalParameters="IfMatch" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

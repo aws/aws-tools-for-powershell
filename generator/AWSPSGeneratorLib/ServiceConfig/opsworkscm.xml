@@ -21,52 +21,52 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateNode" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="Node" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateNode" Output="DefaultSingleMember" Verb="Add" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBackup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Backup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBackup" Output="DefaultSingleMember" Verb="New" Noun="Backup" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateServer" Output="DefaultSingleMember" Verb="New" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBackup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Backup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BackupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BackupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBackup" Output="Void" Verb="Remove" Noun="Backup" ShouldProcessTarget="BackupId" PipelineParameter="BackupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteServer" Output="Void" Verb="Remove" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccountAttributes" Output="DefaultSingleMember" Verb="Get" Noun="AccountAttribute" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBackups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BackupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeBackups" Output="DefaultSingleMember" Verb="Get" Noun="BackupList" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" Verb="Get" Noun="EventList" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNodeAssociationStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NodeAssociationStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeNodeAssociationStatus" Output="Response" Verb="Get" Noun="NodeAssociationStatus" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeServers" Output="DefaultSingleMember" Verb="Get" Noun="ServerList" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateNode" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Node" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateNode" Output="DefaultSingleMember" Verb="Remove" Noun="Node" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExportServerEngineAttribute" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Export" Noun="ServerEngineAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExportServerEngineAttribute" Output="Response" Verb="Export" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreServer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreServer" Output="Void" Verb="Restore" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMaintenance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Maintenance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartMaintenance" Output="DefaultSingleMember" Verb="Start" Noun="Maintenance" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateServer" Output="DefaultSingleMember" Verb="Update" Noun="Server" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServerEngineAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ServerEngineAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateServerEngineAttributes" Output="DefaultSingleMember" Verb="Update" Noun="ServerEngineAttribute" ShouldProcessTarget="ServerName" PipelineParameter="ServerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

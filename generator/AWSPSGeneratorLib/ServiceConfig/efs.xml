@@ -25,46 +25,46 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateFileSystem" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="FileSystem" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFileSystem" Output="Response" Verb="New" Noun="FileSystem" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMountTarget" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="MountTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateMountTarget" Output="Response" Verb="New" Noun="MountTarget" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTags" Output="Void" Verb="New" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFileSystem" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FileSystem" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFileSystem" Output="Void" Verb="Remove" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMountTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MountTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MountTargetId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MountTargetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMountTarget" Output="Void" Verb="Remove" Noun="MountTarget" ShouldProcessTarget="MountTargetId" PipelineParameter="MountTargetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="Tag" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFileSystems" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FileSystem" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFileSystems" Output="DefaultSingleMember" Verb="Get" Noun="FileSystem" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLifecycleConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LifecycleConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLifecycleConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="LifecycleConfiguration" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMountTargets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MountTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeMountTargets" Output="DefaultSingleMember" Verb="Get" Noun="MountTarget" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MountTargetSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MountTargetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeMountTargetSecurityGroups" Output="DefaultSingleMember" Verb="Get" Noun="MountTargetSecurityGroup" PipelineParameter="MountTargetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" Verb="Get" Noun="Tag" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="MountTargetSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MountTargetId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SecurityGroups" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyMountTargetSecurityGroups" Output="Void" Verb="Edit" Noun="MountTargetSecurityGroup" ShouldProcessTarget="MountTargetId" PipelineParameter="SecurityGroups" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecycleConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="LifecycleConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutLifecycleConfiguration" Output="DefaultSingleMember" Verb="Write" Noun="LifecycleConfiguration" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFileSystem" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FileSystem" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FileSystemId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FileSystemId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFileSystem" Output="Response" Verb="Update" Noun="FileSystem" ShouldProcessTarget="FileSystemId" PipelineParameter="FileSystemId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

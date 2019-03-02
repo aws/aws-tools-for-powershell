@@ -20,88 +20,88 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchUpdateSchedule" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ScheduleBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChannelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchUpdateSchedule" Output="Response" Verb="Update" Noun="ScheduleBatch" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateChannel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateChannel" Output="DefaultSingleMember" Verb="New" Noun="Channel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInput" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Input" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInput" Output="DefaultSingleMember" Verb="New" Noun="Input" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInputSecurityGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="InputSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WhitelistRules" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInputSecurityGroup" Output="DefaultSingleMember" Verb="New" Noun="InputSecurityGroup" ShouldProcessTarget="WhitelistRules" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTags" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChannelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteChannel" Output="Response" Verb="Remove" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInput" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Input" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InputId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInput" Output="Void" Verb="Remove" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInputSecurityGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="InputSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InputSecurityGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInputSecurityGroup" Output="Void" Verb="Remove" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReservation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Reservation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReservationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteReservation" Output="Response" Verb="Remove" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeChannel" Output="Response" Verb="Get" Noun="Channel" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Input" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeInput" Output="Response" Verb="Get" Noun="Input" PipelineParameter="InputId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInputSecurityGroup" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InputSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeInputSecurityGroup" Output="Response" Verb="Get" Noun="InputSecurityGroup" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOffering" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Offering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeOffering" Output="Response" Verb="Get" Noun="Offering" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Reservation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeReservation" Output="Response" Verb="Get" Noun="Reservation" PipelineParameter="ReservationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSchedule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Schedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSchedule" Output="DefaultSingleMember" Verb="Get" Noun="Schedule" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ChannelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListChannels" Output="DefaultSingleMember" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InputList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListInputs" Output="DefaultSingleMember" Verb="Get" Noun="InputList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInputSecurityGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InputSecurityGroupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListInputSecurityGroups" Output="DefaultSingleMember" Verb="Get" Noun="InputSecurityGroupList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOfferings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OfferingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOfferings" Output="DefaultSingleMember" Verb="Get" Noun="OfferingList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReservations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListReservations" Output="DefaultSingleMember" Verb="Get" Noun="ReservationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseOffering" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="OfferingPurchase" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OfferingId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PurchaseOffering" Output="DefaultSingleMember" Verb="New" Noun="OfferingPurchase" ShouldProcessTarget="OfferingId" PipelineParameter="OfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChannelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartChannel" Output="Response" Verb="Start" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChannelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopChannel" Output="Response" Verb="Stop" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ChannelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateChannel" Output="DefaultSingleMember" Verb="Update" Noun="Channel" ShouldProcessTarget="ChannelId" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInput" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Input" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InputId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateInput" Output="DefaultSingleMember" Verb="Update" Noun="Input" ShouldProcessTarget="InputId" PipelineParameter="InputId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInputSecurityGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="InputSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InputSecurityGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateInputSecurityGroup" Output="DefaultSingleMember" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

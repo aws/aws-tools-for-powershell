@@ -20,124 +20,124 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetRepositories" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RepositoryBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchGetRepositories" Output="Response" Verb="Get" Noun="RepositoryBatch" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBranch" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Branch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBranch" Output="Void" Verb="New" Noun="Branch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCommit" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Commit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCommit" Output="Response" Verb="New" Noun="Commit" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePullRequest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PullRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Title" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePullRequest" Output="DefaultSingleMember" Verb="New" Noun="PullRequest" ShouldProcessTarget="Title" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRepository" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Repository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRepository" Output="DefaultSingleMember" Verb="New" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBranch" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Branch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BranchName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BranchName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBranch" Output="DefaultSingleMember" Verb="Remove" Noun="Branch" ShouldProcessTarget="BranchName" PipelineParameter="BranchName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCommentContent" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CommentContent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CommentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CommentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCommentContent" Output="DefaultSingleMember" Verb="Remove" Noun="CommentContent" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFile" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="File" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFile" Output="Response" Verb="Remove" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRepository" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Repository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRepository" Output="DefaultSingleMember" Verb="Remove" Noun="Repository" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePullRequestEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PullRequestEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PullRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePullRequestEvents" Output="DefaultSingleMember" Verb="Get" Noun="PullRequestEvent" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Blob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBlob" Output="DefaultSingleMember" Verb="Get" Noun="Blob" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBranch" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Branch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBranch" Output="DefaultSingleMember" Verb="Get" Noun="Branch" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Comment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CommentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComment" Output="DefaultSingleMember" Verb="Get" Noun="Comment" PipelineParameter="CommentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommentsForComparedCommit" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CommentsForComparedCommit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AfterCommitId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCommentsForComparedCommit" Output="DefaultSingleMember" Verb="Get" Noun="CommentsForComparedCommit" PipelineParameter="AfterCommitId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommentsForPullRequest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CommentsForPullRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PullRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCommentsForPullRequest" Output="DefaultSingleMember" Verb="Get" Noun="CommentsForPullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCommit" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Commit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CommitId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCommit" Output="DefaultSingleMember" Verb="Get" Noun="Commit" PipelineParameter="CommitId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDifferences" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DifferenceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDifferences" Output="DefaultSingleMember" Verb="Get" Noun="DifferenceList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFile" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="File" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFile" Output="Response" Verb="Get" Noun="File" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFolder" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Folder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFolder" Output="Response" Verb="Get" Noun="Folder" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMergeConflicts" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MergeConflict" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMergeConflicts" Output="Response" Verb="Get" Noun="MergeConflict" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPullRequest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PullRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PullRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPullRequest" Output="DefaultSingleMember" Verb="Get" Noun="PullRequest" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepository" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Repository" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRepository" Output="DefaultSingleMember" Verb="Get" Noun="Repository" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRepositoryTriggers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RepositoryTrigger" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRepositoryTriggers" Output="Response" Verb="Get" Noun="RepositoryTrigger" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBranches" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BranchList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListBranches" Output="DefaultSingleMember" Verb="Get" Noun="BranchList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPullRequests" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PullRequestList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPullRequests" Output="DefaultSingleMember" Verb="Get" Noun="PullRequestList" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRepositories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RepositoryList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRepositories" Output="DefaultSingleMember" Verb="Get" Noun="RepositoryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergePullRequestByFastForward" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Merge" Noun="PullRequestByFastForward" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PullRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PullRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="MergePullRequestByFastForward" Output="DefaultSingleMember" Verb="Merge" Noun="PullRequestByFastForward" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentForComparedCommit" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="CommentForComparedCommit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AfterCommitId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostCommentForComparedCommit" Output="Response" Verb="Send" Noun="CommentForComparedCommit" ShouldProcessTarget="AfterCommitId" PipelineParameter="Content" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentForPullRequest" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="CommentForPullRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PullRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostCommentForPullRequest" Output="Response" Verb="Send" Noun="CommentForPullRequest" ShouldProcessTarget="PullRequestId" PipelineParameter="Content" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostCommentReply" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="CommentReply" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Content" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostCommentReply" Output="DefaultSingleMember" Verb="Send" Noun="CommentReply" ShouldProcessTarget="Content" PipelineParameter="Content" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFile" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="File" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutFile" Output="Response" Verb="Write" Noun="File" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRepositoryTriggers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="RepositoryTrigger" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Triggers" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRepositoryTriggers" Output="DefaultSingleMember" Verb="Set" Noun="RepositoryTrigger" ShouldProcessTarget="RepositoryName" PipelineParameter="Triggers" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestRepositoryTriggers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="RepositoryTrigger" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Triggers" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestRepositoryTriggers" Output="Response" Verb="Test" Noun="RepositoryTrigger" PipelineParameter="Triggers" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateComment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Comment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CommentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateComment" Output="DefaultSingleMember" Verb="Update" Noun="Comment" ShouldProcessTarget="CommentId" PipelineParameter="Content" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDefaultBranch" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DefaultBranch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDefaultBranch" Output="Void" Verb="Update" Noun="DefaultBranch" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestDescription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PullRequestDescription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PullRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Description" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePullRequestDescription" Output="DefaultSingleMember" Verb="Update" Noun="PullRequestDescription" ShouldProcessTarget="PullRequestId" PipelineParameter="Description" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PullRequestStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PullRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PullRequestStatus" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePullRequestStatus" Output="DefaultSingleMember" Verb="Update" Noun="PullRequestStatus" ShouldProcessTarget="PullRequestId" PipelineParameter="PullRequestStatus" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePullRequestTitle" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PullRequestTitle" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PullRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Title" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePullRequestTitle" Output="DefaultSingleMember" Verb="Update" Noun="PullRequestTitle" ShouldProcessTarget="PullRequestId" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RepositoryDescription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RepositoryName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RepositoryName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void" Verb="Update" Noun="RepositoryDescription" ShouldProcessTarget="RepositoryName" PipelineParameter="RepositoryName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RepositoryName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OldName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OldName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" Verb="Update" Noun="RepositoryName" ShouldProcessTarget="OldName" PipelineParameter="OldName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -29,139 +29,139 @@
         <Property>VirtualInterfaceId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="ConnectionOnInterconnect" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InterconnectId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan" PipelineParameter="InterconnectId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Output="Response" Verb="Enable" Noun="ConnectionOnInterconnect" ShouldProcessTarget="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocateHostedConnection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HostedConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AllocateHostedConnection" Output="Response" Verb="New" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocatePrivateVirtualInterface" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="PrivateVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AllocatePrivateVirtualInterface" Output="Response" Verb="Enable" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AllocatePublicVirtualInterface" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="PublicVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AllocatePublicVirtualInterface" Output="Response" Verb="Enable" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PositionalParameters="OwnerAccount" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateConnectionWithLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="ConnectionWithLag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateConnectionWithLag" Output="Response" Verb="Register" Noun="ConnectionWithLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateHostedConnection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="HostedConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateHostedConnection" Output="Response" Verb="Register" Noun="HostedConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateVirtualInterface" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="VirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateVirtualInterface" Output="Response" Verb="Register" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmConnection" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="Connection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ConfirmConnection" Output="DefaultSingleMember" Verb="Confirm" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="PrivateVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VirtualGatewayId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ConfirmPrivateVirtualInterface" Output="DefaultSingleMember" Verb="Confirm" Noun="PrivateVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PositionalParameters="VirtualGatewayId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfirmPublicVirtualInterface" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="PublicVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ConfirmPublicVirtualInterface" Output="DefaultSingleMember" Verb="Confirm" Noun="PublicVirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBGPPeer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="BGPPeer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBGPPeer" Output="DefaultSingleMember" Verb="New" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConnection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Connection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Bandwidth;Location" PipelineParameter="ConnectionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateConnection" Output="Response" Verb="New" Noun="Connection" ShouldProcessTarget="ConnectionName" PositionalParameters="Bandwidth;Location" PipelineParameter="ConnectionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectConnectGateway" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Gateway" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectConnectGatewayName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectConnectGatewayName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDirectConnectGateway" Output="DefaultSingleMember" Verb="New" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayName" PipelineParameter="DirectConnectGatewayName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="GatewayAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualGatewayId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" Output="DefaultSingleMember" Verb="New" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInterconnect" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Interconnect" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InterconnectName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Bandwidth;Location" PipelineParameter="InterconnectName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInterconnect" Output="Response" Verb="New" Noun="Interconnect" ShouldProcessTarget="InterconnectName" PositionalParameters="Bandwidth;Location" PipelineParameter="InterconnectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Lag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLag" Output="Response" Verb="New" Noun="Lag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePrivateVirtualInterface" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PrivateVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePrivateVirtualInterface" Output="Response" Verb="New" Noun="PrivateVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePublicVirtualInterface" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PublicVirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePublicVirtualInterface" Output="Response" Verb="New" Noun="PublicVirtualInterface" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBGPPeer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BGPPeer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBGPPeer" Output="DefaultSingleMember" Verb="Remove" Noun="BGPPeer" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConnection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Connection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteConnection" Output="Response" Verb="Remove" Noun="Connection" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectConnectGateway" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Gateway" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectConnectGatewayId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDirectConnectGateway" Output="DefaultSingleMember" Verb="Remove" Noun="Gateway" ShouldProcessTarget="DirectConnectGatewayId" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="GatewayAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualGatewayId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" Output="DefaultSingleMember" Verb="Remove" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInterconnect" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Interconnect" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InterconnectId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InterconnectId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInterconnect" Output="DefaultSingleMember" Verb="Remove" Noun="Interconnect" ShouldProcessTarget="InterconnectId" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Lag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LagId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LagId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLag" Output="Response" Verb="Remove" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVirtualInterface" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVirtualInterface" Output="DefaultSingleMember" Verb="Remove" Noun="VirtualInterface" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionLoa" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConnectionLoa" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConnectionLoa" Output="DefaultSingleMember" Verb="Get" Noun="ConnectionLoa" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnections" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Connection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConnections" Output="DefaultSingleMember" Verb="Get" Noun="Connection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConnectionsOnInterconnect" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InterconnectId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" Output="DefaultSingleMember" Verb="Get" Noun="ConnectionsOnInterconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GatewayAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" Output="DefaultSingleMember" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GatewayAttachment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" Output="DefaultSingleMember" Verb="Get" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDirectConnectGateways" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Gateway" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDirectConnectGateways" Output="DefaultSingleMember" Verb="Get" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHostedConnections" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostedConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeHostedConnections" Output="DefaultSingleMember" Verb="Get" Noun="HostedConnection" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInterconnectLoa" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InterconnectLoa" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InterconnectId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeInterconnectLoa" Output="DefaultSingleMember" Verb="Get" Noun="InterconnectLoa" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInterconnects" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Interconnect" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InterconnectId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeInterconnects" Output="DefaultSingleMember" Verb="Get" Noun="Interconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Lag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LagId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLags" Output="DefaultSingleMember" Verb="Get" Noun="Lag" PipelineParameter="LagId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoa" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Loa" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoa" Output="Response" Verb="Get" Noun="Loa" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLocations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Location" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-DCLocations">
+        <ServiceOperation MethodName="DescribeLocations" Output="DefaultSingleMember" Verb="Get" Noun="Location" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DCLocations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArns" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArns" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVirtualGateways" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VirtualGateway" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeVirtualGateways" Output="DefaultSingleMember" Verb="Get" Noun="VirtualGateway" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVirtualInterfaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VirtualInterface" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VirtualInterfaceId" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeVirtualInterfaces" Output="DefaultSingleMember" Verb="Get" Noun="VirtualInterface" PositionalParameters="VirtualInterfaceId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateConnectionFromLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="ConnectionFromLag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateConnectionFromLag" Output="Response" Verb="Unregister" Noun="ConnectionFromLag" ShouldProcessTarget="ConnectionId" PipelineParameter="ConnectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Lag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LagId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LagId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateLag" Output="Response" Verb="Update" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVirtualInterfaceAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="VirtualInterfaceAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VirtualInterfaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateVirtualInterfaceAttributes" Output="Response" Verb="Update" Noun="VirtualInterfaceAttribute" ShouldProcessTarget="VirtualInterfaceId" PipelineParameter="VirtualInterfaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

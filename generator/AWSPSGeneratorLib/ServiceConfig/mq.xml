@@ -24,66 +24,66 @@
         <Property>Username</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBroker" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Broker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBroker" Output="Response" Verb="New" Noun="Broker" ShouldProcessTarget="BrokerName" PipelineParameter="BrokerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Configuration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateConfiguration" Output="Response" Verb="New" Noun="Configuration" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTags" Output="Void" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUser" Output="Void" Verb="New" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBroker" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Broker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBroker" Output="DefaultSingleMember" Verb="Remove" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="ResourceArn" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceArn" ShouldProcessMsgNoun="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUser" Output="Void" Verb="Remove" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBroker" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Broker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeBroker" Output="Response" Verb="Get" Noun="Broker" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Configuration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfiguration" Output="Response" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationRevision" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationRevision" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRevision" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfigurationRevision" Output="Response" Verb="Get" Noun="ConfigurationRevision" PipelineParameter="ConfigurationRevision" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUser" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeUser" Output="Response" Verb="Get" Noun="User" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBrokers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BrokerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListBrokers" Output="DefaultSingleMember" Verb="Get" Noun="BrokerList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurationRevisions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationRevisionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationId" NoPipelineParameter="false" MetadataProperties="ConfigurationId;MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListConfigurationRevisions" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationRevisionList" PipelineParameter="ConfigurationId" NoPipelineParameter="false" MetadataProperties="ConfigurationId;MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConfigurations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="TagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="BrokerId;MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListUsers" Output="DefaultSingleMember" Verb="Get" Noun="UserList" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="BrokerId;MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootBroker" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="Broker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootBroker" Output="Void" Verb="Restart" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBroker" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Broker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BrokerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateBroker" Output="Response" Verb="Update" Noun="Broker" ShouldProcessTarget="BrokerId" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Configuration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Data" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateConfiguration" Output="Response" Verb="Update" Noun="Configuration" ShouldProcessTarget="ConfigurationId" PipelineParameter="Data" NoPipelineParameter="false">
             <Params>
-                <Param Name="Data" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="ToBase64" />
+                <Param Name="Data" AutoConvert="ToBase64" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BrokerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUser" Output="Void" Verb="Update" Noun="User" ShouldProcessTarget="BrokerId" PipelineParameter="Username" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

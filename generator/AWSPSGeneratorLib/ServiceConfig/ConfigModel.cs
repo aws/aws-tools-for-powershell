@@ -8,6 +8,7 @@ using System.Text;
 using System.Xml;
 using AWSPowerShellGenerator.Analysis;
 using Microsoft.PowerShell.Commands;
+using System.ComponentModel;
 
 namespace AWSPowerShellGenerator.ServiceConfig
 {
@@ -464,11 +465,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             {
                 if (_customParameters == null)
                 {
-                    _customParameters = new Dictionary<string, Param>(StringComparer.Ordinal);
-                    foreach (var cp in CustomParametersList)
-                    {
-                        _customParameters.Add(cp.Name, cp);
-                    }
+                    _customParameters = CustomParametersList.ToDictionary(p => p.Name, p => p);
                 }
 
                 return _customParameters;
@@ -876,6 +873,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// metadata but for the api in question, carry real data.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(false)]
         public bool SkipOutputComputationCheck;
 
         /// <summary>
@@ -888,25 +886,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// class.
         /// </summary>
         [XmlAttribute]
-        public string OutputWrapper = string.Empty;
-
-        /// <summary>
-        /// The path to the properties contained in the service call output. Usually this
-        /// is just 'response' but if the SDK wrapped the output in a nested class, we
-        /// may have one more level to navigate.
-        /// </summary>
-        [XmlIgnore]
-        public string ResponseMemberPath
-        {
-            get
-            {
-                // choosing not to cache but if generator perf gets affected
-                // we have that option
-                return string.IsNullOrEmpty(OutputWrapper)
-                                ? "response"
-                                : string.Concat("response.", OutputWrapper);
-            }
-        }
+        public string OutputWrapper;
 
         [XmlAttribute("Verb")] 
         public string RequestedVerb = string.Empty;
@@ -927,11 +907,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
             {
                 if (_customParameters == null)
                 {
-                    _customParameters = new Dictionary<string, Param>(StringComparer.Ordinal);
-                    foreach (var cp in CustomParametersList)
-                    {
-                        _customParameters.Add(cp.Name, cp);                                                
-                    }    
+                    _customParameters = CustomParametersList?.ToDictionary(param => param.Name, param => param) ?? new Dictionary<string, Param>();
                 }
 
                 return _customParameters;
@@ -955,6 +931,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// If set, the operation is excluded from generation.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(false)]
         public bool Exclude;
 
         /// <summary>
@@ -963,6 +940,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// system state but whose verb is not on the 'ignore' list.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(false)]
         public bool IgnoreSupportsShouldProcess;
 
         /// <summary>
@@ -971,8 +949,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// indicates the name of the cmdlet property that we will prompt
         /// for confirmation on. 
         /// </summary>
-        [XmlAttribute] 
-        public string ShouldProcessTarget = string.Empty;
+        [XmlAttribute]
+        public string ShouldProcessTarget;
 
         /// <summary>
         /// If the resources the cmdlet is going to operate on can't be
@@ -982,6 +960,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// target be set in the config.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(false)]
         public bool AnonymousShouldProcessTarget;
 
         /// <summary>
@@ -992,7 +971,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// in any confirmation messages we generate.
         /// </summary>
         [XmlAttribute]
-        public string ShouldProcessMsgNoun = string.Empty;
+        public string ShouldProcessMsgNoun;
 
         /// <summary>
         /// The type of anonymous authentication permitted for a given operation.
@@ -1013,6 +992,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// we could detect this from attribution on the operation in the SDK or C2j model).
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(AnonymousAuthenticationMode.Never)]
         public AnonymousAuthenticationMode AnonymousAuthentication = AnonymousAuthenticationMode.Never;
 
         [XmlIgnore]
@@ -1033,20 +1013,17 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlAttribute]
         public string PositionalParameters;
 
-        string[] _positionalParametersList;
         [XmlIgnore]
         public string[] PositionalParametersList
         {
             get
             {
-                if (_positionalParametersList == null)
-                {
-                    _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
-                        ? PositionalParameters.Split(new [] {';'}, StringSplitOptions.RemoveEmptyEntries) 
-                        : new string[] {};
-                }
+                return PositionalParameters?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) ?? new string[0];
+            }
 
-                return _positionalParametersList;
+            set
+            {
+                PositionalParameters = value == null ? null : string.Join(";", value);
             }
         }
 
@@ -1064,8 +1041,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
 
         /// <summary>
         /// If set true, the cmdlet can be generated without triggering an
-        /// error due to a missing PipelineParameter attribute when more
-        /// than one parameter exists.
+        /// error due to a missing PipelineParameter attribute.
         /// </summary>
         [XmlAttribute]
         public bool NoPipelineParameter;
@@ -1076,20 +1052,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// lost, they will be attached as notes to the service response in the history stack.
         /// </summary>
         [XmlAttribute]
-        public string MetadataProperties = string.Empty;
+        public string MetadataProperties;
 
         [XmlIgnore]
         public string[] MetadataPropertiesList
         {
             get
             {
-                return !string.IsNullOrEmpty(MetadataProperties) ? MetadataProperties.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries)
-                                                                 : new string[0];
+                return MetadataProperties?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) ?? new string[0];
             }
 
             set
             {
-                MetadataProperties = value == null ? string.Empty : string.Join(";", value);
+                MetadataProperties = value == null ? null : string.Join(";", value);
             }
         }
 
@@ -1098,13 +1073,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// emitted the parameter marked for pipeline input to the output, for
         /// operations that have an output type of 'void'.
         /// </summary>
-        public PassThruOverride PassThru { get; set; }
+        public PassThruOverride PassThru;
 
         /// <summary>
         /// Overrides the service level iteration settings for an operation, for
         /// services that use inconsistent markers etc across their apis
         /// </summary>
-        public AutoIteration AutoIterate = null;
+        public AutoIteration AutoIterate;
 
         /// <summary>
         /// If set false, MemoryStream parameters to the cmdlet will not be translated to
@@ -1114,7 +1089,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// breaking customers.
         /// </summary>
         [XmlAttribute]
-        public bool RemapMemoryStreamParameters { get; set; }
+        [DefaultValue(true)]
+        public bool RemapMemoryStreamParameters = true;
 
         /// <summary>
         /// <para>
@@ -1130,7 +1106,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </para>
         /// </summary>
         [XmlAttribute]
-        public string LegacyAlias { get; set; }
+        public string LegacyAlias;
 
         #region Data constructed during generation
 
@@ -1138,19 +1114,19 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// The analyzer instance and its results for this op
         /// </summary>
         [XmlIgnore]
-        internal OperationAnalyzer Analyzer { get; set; }
+        internal OperationAnalyzer Analyzer;
 
         /// <summary>
         /// The verb we decided, or were directed, to use for the cmdlet
         /// </summary>
         [XmlIgnore]
-        public string SelectedVerb { get; set; }
+        public string SelectedVerb;
 
         /// <summary>
         /// The noun we decided, or were directed, to use for the cmdlet
         /// </summary>
         [XmlIgnore]
-        public string SelectedNoun { get; set; }
+        public string SelectedNoun;
 
         /// <summary>
         /// The noun from the split-apart service method name; for use as 
@@ -1158,7 +1134,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// the ShouldSupportProcess pattern
         /// </summary>
         [XmlIgnore]
-        public string OriginalNoun { get; set; }
+        public string OriginalNoun;
 
         /// <summary>
         /// Set true once we've encountered the operation config and matched it
@@ -1167,7 +1143,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// indicates we could be building against an out-of-date sdk.
         /// </summary>
         [XmlIgnore]
-        public bool Processed { get; set; }
+        public bool Processed;
 
         /// <summary>
         /// Set when the generator detects a method that is not configured already.
@@ -1175,20 +1151,15 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// entry that can then be adjusted by hand if needed.
         /// </summary>
         [XmlIgnore]
-        public bool IsAutoConfiguring { get; set; }
+        public bool IsAutoConfiguring;
 
         /// <summary>
         /// Set when auto-configuring if we detect an SDK 'List' verb. We'll
         /// auto-remap to 'Get' and then append 'List' to the noun.
         /// </summary>
         [XmlIgnore]
-        public bool IsRemappedListOperation { get; set; }
+        public bool IsRemappedListOperation;
         #endregion
-
-        public ServiceOperation()
-        {
-            RemapMemoryStreamParameters = true;
-        }
     }
 
     /// <summary>
@@ -1209,7 +1180,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         }
 
         [XmlIgnore]
-        public CustomizationOrigin Origin { get; set; }
+        public CustomizationOrigin Origin;
 
         /// <summary>
         /// The analyzed (and fully flattened) name of the parameter
@@ -1223,7 +1194,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// renamed.
         /// </summary>
         [XmlAttribute]
-        public string NewName = string.Empty;
+        public string NewName;
 
         /// <summary>
         /// If set false, the parameter will not be automatically renamed (by shortening
@@ -1232,6 +1203,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// be emitted.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(true)]
         public bool AutoRename = true;
 
         /// <summary>
@@ -1239,6 +1211,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// end-user visible.
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(false)]
         public bool Exclude = false;
 
         /// <summary>
@@ -1247,15 +1220,8 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// case).
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(true)]
         public bool AutoApplyAlias = true;
-
-        /// <summary>
-        /// If specified, contains a set of one or more aliases, ;-delimited, to apply 
-        /// for the parameter that have been read from the configuration file. Access this
-        /// collection via the Aliases property, do not modify this string.
-        /// </summary>
-        [XmlAttribute(AttributeName = "Alias")]
-        public string AliasesList = string.Empty;
 
         /// <summary>
         /// Sets a default value to be used if the user does not specify the parameter
@@ -1263,10 +1229,16 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// only.
         /// </summary>
         [XmlAttribute]
-        public string DefaultValue = string.Empty;
+        public string DefaultValue;
 
-        private HashSet<string> _aliasesSet;
-        
+        /// <summary>
+        /// If specified, contains a set of one or more aliases, ;-delimited, to apply 
+        /// for the parameter that have been read from the configuration file. Access this
+        /// collection via the Aliases property, do not modify this string.
+        /// </summary>
+        [XmlAttribute(AttributeName = "Alias")]
+        public string AliasesList;
+       
         /// <summary>
         /// The processed set of aliases for use when emitting code. This collection can
         /// be updated as we inspect the parameters for a cmdlet.
@@ -1276,19 +1248,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         {
             get
             {
-                if (_aliasesSet == null)
-                {
-                    _aliasesSet = new HashSet<string>(StringComparer.Ordinal);
-                    if (!string.IsNullOrEmpty(AliasesList))
-                    {
-                        foreach (var a in AliasesList.Split(new [] { ";" }, StringSplitOptions.RemoveEmptyEntries))
-                        {
-                            _aliasesSet.Add(a);
-                        }
-                    }
-                }
+                return AliasesList == null ? new HashSet<string>()
+                                           : new HashSet<string>(AliasesList.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
+            }
 
-                return _aliasesSet;
+            set
+            {
+                AliasesList = value == null ? null : string.Join(";", value);
             }
         }
 
@@ -1297,9 +1263,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// be used together with the current one.
         /// </summary>
         [XmlAttribute(AttributeName = "ExclusiveParameters")]
-        public string ExclusiveParametersList = string.Empty;
-
-        private HashSet<string> _exclusiveParametersSet;
+        public string ExclusiveParametersList;
 
         /// <summary>
         /// The processed set of parameters that are not allowed when the current one is
@@ -1310,19 +1274,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         {
             get
             {
-                if (_exclusiveParametersSet == null)
-                {
-                    _exclusiveParametersSet = new HashSet<string>(StringComparer.Ordinal);
-                    if (!string.IsNullOrEmpty(ExclusiveParametersList))
-                    {
-                        foreach (var a in ExclusiveParametersList.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries))
-                        {
-                            _exclusiveParametersSet.Add(a);
-                        }
-                    }
-                }
+                return ExclusiveParametersList == null ? new HashSet<string>()
+                                                       : new HashSet<string>(ExclusiveParametersList.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
+            }
 
-                return _exclusiveParametersSet;
+            set
+            {
+                ExclusiveParametersList = value == null ? null : string.Join(";", value);
             }
         }
 
@@ -1337,13 +1295,14 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// byte array) to a base64 representation required by the service.
         /// </summary>
         [XmlAttribute]
-        public AutoConversion AutoConvert { get; set; }
+        [DefaultValue(AutoConversion.None)]
+        public AutoConversion AutoConvert = AutoConversion.None;
 
         /// <summary>
         /// If set, this message is used for the Obsolete attribute.
         /// </summary>
         [XmlAttribute]
-        public string ReplacementObsoleteMessage { get; set; }
+        public string ReplacementObsoleteMessage;
     }
 
     public class AliasSet

@@ -20,43 +20,43 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateAdminAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="AdminAccountAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AdminAccount" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AdminAccount" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateAdminAccount" Output="Void" Verb="Add" Noun="AdminAccountAssociation" ShouldProcessTarget="AdminAccount" PipelineParameter="AdminAccount" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotificationChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NotificationChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNotificationChannel" Output="Void" Verb="Remove" Noun="NotificationChannel" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Policy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePolicy" Output="Void" Verb="Remove" Noun="Policy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateAdminAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="AdminAccountAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateAdminAccount" Output="Void" Verb="Remove" Noun="AdminAccountAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAdminAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AdminAccount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAdminAccount" Output="Response" Verb="Get" Noun="AdminAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceDetail" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComplianceDetail" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceDetail" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetNotificationChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotificationChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetNotificationChannel" Output="Response" Verb="Get" Noun="NotificationChannel" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Policy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPolicy" Output="Response" Verb="Get" Noun="Policy" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListComplianceStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceStatusList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListComplianceStatus" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMemberAccounts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MemberAccountList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListMemberAccounts" Output="DefaultSingleMember" Verb="Get" Noun="MemberAccountList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PolicyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPolicies" Output="DefaultSingleMember" Verb="Get" Noun="PolicyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutNotificationChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="NotificationChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnsTopicArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnsTopicArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutNotificationChannel" Output="Void" Verb="Write" Noun="NotificationChannel" ShouldProcessTarget="SnsTopicArn" PipelineParameter="SnsTopicArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Policy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Policy" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Policy" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutPolicy" Output="Response" Verb="Set" Noun="Policy" ShouldProcessTarget="Policy" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

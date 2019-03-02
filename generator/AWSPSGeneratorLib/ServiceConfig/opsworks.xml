@@ -36,232 +36,232 @@
         <Property>RaidArrayId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AssignInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="InstanceAssignment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssignInstance" Output="Void" Verb="Register" Noun="InstanceAssignment" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssignVolume" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssignVolume" Output="Void" Verb="Add" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateElasticIp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateElasticIp" Output="Void" Verb="Add" Noun="ElasticIp" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachElasticLoadBalancer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ElasticLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ElasticLoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachElasticLoadBalancer" Output="Void" Verb="Add" Noun="ElasticLoadBalancer" ShouldProcessTarget="ElasticLoadBalancerName" PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CloneStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceStackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;Region" PipelineParameter="SourceStackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CloneStack" Output="DefaultSingleMember" Verb="Copy" Noun="Stack" ShouldProcessTarget="SourceStackId" PositionalParameters="Name;Region" PipelineParameter="SourceStackId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Region" NewName="StackRegion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Region" NewName="StackRegion" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApp" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;Shortname;Description;Type" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateApp" Output="DefaultSingleMember" Verb="New" Noun="App" ShouldProcessTarget="StackId" PositionalParameters="Name;Shortname;Description;Type" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AppId;InstanceIds;Comment;CustomJson" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDeployment" Output="DefaultSingleMember" Verb="New" Noun="Deployment" ShouldProcessTarget="StackId" PositionalParameters="AppId;InstanceIds;Comment;CustomJson" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerIds;InstanceType" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInstance" Output="DefaultSingleMember" Verb="New" Noun="Instance" ShouldProcessTarget="StackId" PositionalParameters="LayerIds;InstanceType" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLayer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Layer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Type;Name" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLayer" Output="DefaultSingleMember" Verb="New" Noun="Layer" ShouldProcessTarget="StackId" PositionalParameters="Type;Name" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStack" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Region" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStack" Output="DefaultSingleMember" Verb="New" Noun="Stack" ShouldProcessTarget="Name" PositionalParameters="Region" PipelineParameter="Name" NoPipelineParameter="false">
             <Params>
-                <Param Name="Region" NewName="StackRegion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Region" NewName="StackRegion" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUserProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="UserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IamUserArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SshUsername;SshPublicKey" PipelineParameter="IamUserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUserProfile" Output="DefaultSingleMember" Verb="New" Noun="UserProfile" ShouldProcessTarget="IamUserArn" PositionalParameters="SshUsername;SshPublicKey" PipelineParameter="IamUserArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApp" Output="Void" Verb="Remove" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DeleteElasticIp;DeleteVolumes" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInstance" Output="Void" Verb="Remove" Noun="Instance" ShouldProcessTarget="InstanceId" PositionalParameters="DeleteElasticIp;DeleteVolumes" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLayer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Layer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLayer" Output="Void" Verb="Remove" Noun="Layer" ShouldProcessTarget="LayerId" PipelineParameter="LayerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStack" Output="Void" Verb="Remove" Noun="Stack" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUserProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IamUserArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IamUserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUserProfile" Output="Void" Verb="Remove" Noun="UserProfile" ShouldProcessTarget="IamUserArn" PipelineParameter="IamUserArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterEcsCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="EcsCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EcsClusterArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EcsClusterArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterEcsCluster" Output="Void" Verb="Unregister" Noun="EcsCluster" ShouldProcessTarget="EcsClusterArn" PipelineParameter="EcsClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterElasticIp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ElasticIp" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ElasticIp" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterElasticIp" Output="Void" Verb="Unregister" Noun="ElasticIp" ShouldProcessTarget="ElasticIp" PipelineParameter="ElasticIp" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterInstance" Output="Void" Verb="Unregister" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterRdsDbInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="RdsDbInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RdsDbInstanceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RdsDbInstanceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterRdsDbInstance" Output="Void" Verb="Unregister" Noun="RdsDbInstance" ShouldProcessTarget="RdsDbInstanceArn" PipelineParameter="RdsDbInstanceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterVolume" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterVolume" Output="Void" Verb="Unregister" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAgentVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AgentVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAgentVersions" Output="DefaultSingleMember" Verb="Get" Noun="AgentVersion" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AppIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSApps">
+        <ServiceOperation MethodName="DescribeApps" Output="DefaultSingleMember" Verb="Get" Noun="App" PositionalParameters="AppIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSApps">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCommands" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Command" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InstanceId;CommandIds" PipelineParameter="DeploymentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSCommands">
+        <ServiceOperation MethodName="DescribeCommands" Output="DefaultSingleMember" Verb="Get" Noun="Command" PositionalParameters="InstanceId;CommandIds" PipelineParameter="DeploymentId" NoPipelineParameter="false" LegacyAlias="Get-OPSCommands">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeployments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AppId;DeploymentIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSDeployments">
+        <ServiceOperation MethodName="DescribeDeployments" Output="DefaultSingleMember" Verb="Get" Noun="Deployment" PositionalParameters="AppId;DeploymentIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSDeployments">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEcsClusters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EcsCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEcsClusters" Output="DefaultSingleMember" Verb="Get" Noun="EcsCluster" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticIps" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ips" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSElasticIps">
+        <ServiceOperation MethodName="DescribeElasticIps" Output="DefaultSingleMember" Verb="Get" Noun="ElasticIp" PositionalParameters="Ips" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyAlias="Get-OPSElasticIps">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeElasticLoadBalancers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ElasticLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSElasticLoadBalancers">
+        <ServiceOperation MethodName="DescribeElasticLoadBalancers" Output="DefaultSingleMember" Verb="Get" Noun="ElasticLoadBalancer" PositionalParameters="LayerIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSElasticLoadBalancers">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerId;InstanceIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSInstances">
+        <ServiceOperation MethodName="DescribeInstances" Output="DefaultSingleMember" Verb="Get" Noun="Instance" PositionalParameters="LayerId;InstanceIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSInstances">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLayers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Layer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSLayers">
+        <ServiceOperation MethodName="DescribeLayers" Output="DefaultSingleMember" Verb="Get" Noun="Layer" PositionalParameters="LayerIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSLayers">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBasedAutoScaling" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBasedAutoScaling" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoadBasedAutoScaling" Output="DefaultSingleMember" Verb="Get" Noun="LoadBasedAutoScaling" PipelineParameter="LayerIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMyUserProfile" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MyUserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeMyUserProfile" Output="DefaultSingleMember" Verb="Get" Noun="MyUserProfile" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOperatingSystems" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OperatingSystem" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeOperatingSystems" Output="DefaultSingleMember" Verb="Get" Noun="OperatingSystem" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePermissions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Permission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IamUserArn" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSPermissions">
+        <ServiceOperation MethodName="DescribePermissions" Output="DefaultSingleMember" Verb="Get" Noun="Permission" PositionalParameters="IamUserArn" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSPermissions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRaidArrays" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RaidArray" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RaidArrayIds" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSRaidArrays">
+        <ServiceOperation MethodName="DescribeRaidArrays" Output="DefaultSingleMember" Verb="Get" Noun="RaidArray" PositionalParameters="RaidArrayIds" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyAlias="Get-OPSRaidArrays">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRdsDbInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RdsDbInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSRdsDbInstances">
+        <ServiceOperation MethodName="DescribeRdsDbInstances" Output="DefaultSingleMember" Verb="Get" Noun="RdsDbInstance" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSRdsDbInstances">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceErrors" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServiceError" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InstanceId;ServiceErrorIds" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSServiceErrors">
+        <ServiceOperation MethodName="DescribeServiceErrors" Output="DefaultSingleMember" Verb="Get" Noun="ServiceError" PositionalParameters="InstanceId;ServiceErrorIds" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSServiceErrors">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackProvisioningParameters" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StackProvisioningParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSStackProvisioningParameters">
+        <ServiceOperation MethodName="DescribeStackProvisioningParameters" Output="Response" Verb="Get" Noun="StackProvisioningParameter" PipelineParameter="StackId" NoPipelineParameter="false" LegacyAlias="Get-OPSStackProvisioningParameters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStacks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSStacks">
+        <ServiceOperation MethodName="DescribeStacks" Output="DefaultSingleMember" Verb="Get" Noun="Stack" PipelineParameter="StackIds" NoPipelineParameter="false" LegacyAlias="Get-OPSStacks">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStackSummary" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StackSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStackSummary" Output="DefaultSingleMember" Verb="Get" Noun="StackSummary" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTimeBasedAutoScaling" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TimeBasedAutoScaling" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTimeBasedAutoScaling" Output="DefaultSingleMember" Verb="Get" Noun="TimeBasedAutoScaling" PipelineParameter="InstanceIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUserProfiles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IamUserArns" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSUserProfiles">
+        <ServiceOperation MethodName="DescribeUserProfiles" Output="DefaultSingleMember" Verb="Get" Noun="UserProfile" PipelineParameter="IamUserArns" NoPipelineParameter="false" LegacyAlias="Get-OPSUserProfiles">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVolumes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RaidArrayId;VolumeIds" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-OPSVolumes">
+        <ServiceOperation MethodName="DescribeVolumes" Output="DefaultSingleMember" Verb="Get" Noun="Volume" PositionalParameters="RaidArrayId;VolumeIds" PipelineParameter="InstanceId" NoPipelineParameter="false" LegacyAlias="Get-OPSVolumes">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachElasticLoadBalancer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="ElasticLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ElasticLoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachElasticLoadBalancer" Output="Void" Verb="Dismount" Noun="ElasticLoadBalancer" ShouldProcessTarget="ElasticLoadBalancerName" PositionalParameters="LayerId" PipelineParameter="ElasticLoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateElasticIp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ElasticIp" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ElasticIp" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateElasticIp" Output="Void" Verb="Remove" Noun="ElasticIp" ShouldProcessTarget="ElasticIp" PipelineParameter="ElasticIp" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostnameSuggestion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostnameSuggestion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHostnameSuggestion" Output="Response" Verb="Get" Noun="HostnameSuggestion" PipelineParameter="LayerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GrantAccess" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Grant" Noun="Access" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GrantAccess" Output="DefaultSingleMember" Verb="Grant" Noun="Access" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootInstance" Output="Void" Verb="Restart" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterEcsCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="EcsCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterEcsCluster" Output="DefaultSingleMember" Verb="Register" Noun="EcsCluster" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterElasticIp" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterElasticIp" Output="DefaultSingleMember" Verb="Register" Noun="ElasticIp" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterInstance" Output="DefaultSingleMember" Verb="Register" Noun="Instance" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterRdsDbInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="RdsDbInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RdsDbInstanceArn" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterRdsDbInstance" Output="Void" Verb="Register" Noun="RdsDbInstance" ShouldProcessTarget="StackId" PositionalParameters="RdsDbInstanceArn" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterVolume" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterVolume" Output="DefaultSingleMember" Verb="Register" Noun="Volume" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoadBasedAutoScaling" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="LoadBasedAutoScaling" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Enable" PipelineParameter="LayerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetLoadBasedAutoScaling" Output="Void" Verb="Set" Noun="LoadBasedAutoScaling" ShouldProcessTarget="LayerId" PositionalParameters="Enable" PipelineParameter="LayerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetPermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Permission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IamUserArn;AllowSsh;AllowSudo" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetPermission" Output="Void" Verb="Set" Noun="Permission" ShouldProcessTarget="StackId" PositionalParameters="IamUserArn;AllowSsh;AllowSudo" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTimeBasedAutoScaling" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="TimeBasedAutoScaling" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetTimeBasedAutoScaling" Output="Void" Verb="Set" Noun="TimeBasedAutoScaling" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartInstance" Output="Void" Verb="Start" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartStack" Output="Void" Verb="Start" Noun="Stack" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopInstance" Output="Void" Verb="Stop" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Force" NewName="StopWithForce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Force" NewName="StopWithForce" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopStack" Output="Void" Verb="Stop" Noun="Stack" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnassignInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="InstanceAssignment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnassignInstance" Output="Void" Verb="Unregister" Noun="InstanceAssignment" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnassignVolume" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnassignVolume" Output="Void" Verb="Remove" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="App" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AppId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AppId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateApp" Output="Void" Verb="Update" Noun="App" ShouldProcessTarget="AppId" PipelineParameter="AppId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateElasticIp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ElasticIp" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateElasticIp" Output="Void" Verb="Update" Noun="ElasticIp" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateInstance" Output="Void" Verb="Update" Noun="Instance" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLayer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Layer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateLayer" Output="Void" Verb="Update" Noun="Layer" ShouldProcessTarget="LayerId" PipelineParameter="LayerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMyUserProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="MyUserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SshPublicKey" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SshPublicKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateMyUserProfile" Output="Void" Verb="Update" Noun="MyUserProfile" ShouldProcessTarget="SshPublicKey" PipelineParameter="SshPublicKey" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRdsDbInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RdsDbInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RdsDbInstanceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RdsDbInstanceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRdsDbInstance" Output="Void" Verb="Update" Noun="RdsDbInstance" ShouldProcessTarget="RdsDbInstanceArn" PipelineParameter="RdsDbInstanceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Stack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StackId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateStack" Output="Void" Verb="Update" Noun="Stack" ShouldProcessTarget="StackId" PipelineParameter="StackId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUserProfile" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="UserProfile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IamUserArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IamUserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUserProfile" Output="Void" Verb="Update" Noun="UserProfile" ShouldProcessTarget="IamUserArn" PipelineParameter="IamUserArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVolume" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Volume" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VolumeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateVolume" Output="Void" Verb="Update" Noun="Volume" ShouldProcessTarget="VolumeId" PipelineParameter="VolumeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -32,366 +32,366 @@
         <Property>AuthorizerId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateApiKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ApiKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Value" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Value" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateApiKey" Output="Response" Verb="New" Noun="ApiKey" ShouldProcessTarget="Value" PipelineParameter="Value" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAuthorizer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Authorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAuthorizer" Output="Response" Verb="New" Noun="Authorizer" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="BasePathMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" Verb="New" Noun="BasePathMapping" ShouldProcessTarget="DomainName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeployment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDeployment" Output="Response" Verb="New" Noun="Deployment" ShouldProcessTarget="StageName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDocumentationPart" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DocumentationPart" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDocumentationPart" Output="Response" Verb="New" Noun="DocumentationPart" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDocumentationVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DocumentationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDocumentationVersion" Output="Response" Verb="New" Noun="DocumentationVersion" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainName" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DomainName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDomainName" Output="Response" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateModel" Output="Response" Verb="New" Noun="Model" ShouldProcessTarget="Name" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRequestValidator" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RequestValidator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRequestValidator" Output="Response" Verb="New" Noun="RequestValidator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ParentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateResource" Output="Response" Verb="New" Noun="Resource" ShouldProcessTarget="ParentId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRestApi" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRestApi" Output="Response" Verb="New" Noun="RestApi" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Stage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStage" Output="Response" Verb="New" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUsagePlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="UsagePlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUsagePlan" Output="Response" Verb="New" Noun="UsagePlan" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUsagePlanKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="UsagePlanKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="KeyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUsagePlanKey" Output="Response" Verb="New" Noun="UsagePlanKey" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVpcLink" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="VpcLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateVpcLink" Output="Response" Verb="New" Noun="VpcLink" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApiKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApiKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApiKey" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApiKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApiKey" Output="Void" Verb="Remove" Noun="ApiKey" ShouldProcessTarget="ApiKey" PipelineParameter="ApiKey" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAuthorizer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Authorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AuthorizerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAuthorizer" Output="Void" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBasePathMapping" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BasePathMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBasePathMapping" Output="Void" Verb="Remove" Noun="BasePathMapping" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClientCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClientCertificateId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientCertificateId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteClientCertificate" Output="Void" Verb="Remove" Noun="ClientCertificate" ShouldProcessTarget="ClientCertificateId" PipelineParameter="ClientCertificateId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeployment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeploymentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDeployment" Output="Void" Verb="Remove" Noun="Deployment" ShouldProcessTarget="DeploymentId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDocumentationPart" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DocumentationPart" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDocumentationPart" Output="Void" Verb="Remove" Noun="DocumentationPart" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDocumentationVersion" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DocumentationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDocumentationVersion" Output="Void" Verb="Remove" Noun="DocumentationVersion" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainName" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DomainName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDomainName" Output="Void" Verb="Remove" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGatewayResponse" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="GatewayResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteGatewayResponse" Output="Void" Verb="Remove" Noun="GatewayResponse" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Integration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIntegration" Output="Void" Verb="Remove" Noun="Integration" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIntegrationResponse" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="IntegrationResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIntegrationResponse" Output="Void" Verb="Remove" Noun="IntegrationResponse" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMethod" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Method" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMethod" Output="Void" Verb="Remove" Noun="Method" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMethodResponse" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MethodResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMethodResponse" Output="Void" Verb="Remove" Noun="MethodResponse" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteModel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteModel" Output="Void" Verb="Remove" Noun="Model" ShouldProcessTarget="ModelName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRequestValidator" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RequestValidator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RequestValidatorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RequestValidatorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRequestValidator" Output="Void" Verb="Remove" Noun="RequestValidator" ShouldProcessTarget="RequestValidatorId" PipelineParameter="RequestValidatorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteResource" Output="Void" Verb="Remove" Noun="Resource" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRestApi" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRestApi" Output="Void" Verb="Remove" Noun="RestApi" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStage" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Stage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStage" Output="Void" Verb="Remove" Noun="Stage" ShouldProcessTarget="StageName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUsagePlan" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UsagePlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UsagePlanId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUsagePlan" Output="Void" Verb="Remove" Noun="UsagePlan" ShouldProcessTarget="UsagePlanId" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUsagePlanKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UsagePlanKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UsagePlanId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUsagePlanKey" Output="Void" Verb="Remove" Noun="UsagePlanKey" ShouldProcessTarget="UsagePlanId" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVpcLink" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VpcLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VpcLinkId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VpcLinkId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVpcLink" Output="Void" Verb="Remove" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="FlushStageAuthorizersCache" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Clear" Noun="StageAuthorizersCache" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="FlushStageAuthorizersCache" Output="Void" Verb="Clear" Noun="StageAuthorizersCache" ShouldProcessTarget="StageName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="FlushStageCache" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Clear" Noun="StageCache" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="FlushStageCache" Output="Void" Verb="Clear" Noun="StageCache" ShouldProcessTarget="StageName" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GenerateClientCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Description" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Description" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GenerateClientCertificate" Output="Response" Verb="New" Noun="ClientCertificate" ShouldProcessTarget="Description" PipelineParameter="Description" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccount" Output="Response" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApiKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetApiKey" Output="Response" Verb="Get" Noun="ApiKey" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiKeys" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApiKeyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Position" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetApiKeys" Output="Response" Verb="Get" Noun="ApiKeyList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Position">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Authorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAuthorizer" Output="Response" Verb="Get" Noun="Authorizer" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAuthorizers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AuthorizerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAuthorizers" Output="DefaultSingleMember" Verb="Get" Noun="AuthorizerList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBasePathMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BasePathMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBasePathMapping" Output="Response" Verb="Get" Noun="BasePathMapping" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBasePathMappings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BasePathMappingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBasePathMappings" Output="DefaultSingleMember" Verb="Get" Noun="BasePathMappingList" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClientCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientCertificateId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetClientCertificate" Output="Response" Verb="Get" Noun="ClientCertificate" PipelineParameter="ClientCertificateId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClientCertificates" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClientCertificateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetClientCertificates" Output="DefaultSingleMember" Verb="Get" Noun="ClientCertificateList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDeployment" Output="Response" Verb="Get" Noun="Deployment" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDeployments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDeployments" Output="DefaultSingleMember" Verb="Get" Noun="DeploymentList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationPart" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentationPart" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentationPart" Output="Response" Verb="Get" Noun="DocumentationPart" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationParts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentationPartList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentationParts" Output="DefaultSingleMember" Verb="Get" Noun="DocumentationPartList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentationVersion" Output="Response" Verb="Get" Noun="DocumentationVersion" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentationVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentationVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentationVersions" Output="DefaultSingleMember" Verb="Get" Noun="DocumentationVersionList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainName" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDomainName" Output="Response" Verb="Get" Noun="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomainNames" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDomainNames" Output="DefaultSingleMember" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetExport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Export" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Parameters" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetExport" Output="Response" Verb="Get" Noun="Export" PipelineParameter="Parameters" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGatewayResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GatewayResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetGatewayResponse" Output="Response" Verb="Get" Noun="GatewayResponse" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGatewayResponses" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GatewayResponseList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetGatewayResponses" Output="DefaultSingleMember" Verb="Get" Noun="GatewayResponseList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Integration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetIntegration" Output="Response" Verb="Get" Noun="Integration" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIntegrationResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IntegrationResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetIntegrationResponse" Output="Response" Verb="Get" Noun="IntegrationResponse" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMethod" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Method" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMethod" Output="Response" Verb="Get" Noun="Method" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMethodResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MethodResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMethodResponse" Output="Response" Verb="Get" Noun="MethodResponse" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetModel" Output="Response" Verb="Get" Noun="Model" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetModels" Output="DefaultSingleMember" Verb="Get" Noun="ModelList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetModelTemplate" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetModelTemplate" Output="DefaultSingleMember" Verb="Get" Noun="ModelTemplate" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRequestValidator" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RequestValidator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RequestValidatorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRequestValidator" Output="Response" Verb="Get" Noun="RequestValidator" PipelineParameter="RequestValidatorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRequestValidators" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ValidatorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRequestValidators" Output="DefaultSingleMember" Verb="Get" Noun="ValidatorList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResource" Output="Response" Verb="Get" Noun="Resource" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResources" Output="DefaultSingleMember" Verb="Get" Noun="ResourceList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestApi" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRestApi" Output="Response" Verb="Get" Noun="RestApi" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRestApis" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RestApiList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRestApis" Output="DefaultSingleMember" Verb="Get" Noun="RestApiList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSdk" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Sdk" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSdk" Output="Response" Verb="Get" Noun="Sdk" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSdkType" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SdkType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSdkType" Output="Response" Verb="Get" Noun="SdkType" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSdkTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SdkTypeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSdkTypes" Output="DefaultSingleMember" Verb="Get" Noun="SdkTypeList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Stage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStage" Output="Response" Verb="Get" Noun="Stage" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStages" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStages" Output="DefaultSingleMember" Verb="Get" Noun="StageList" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Usage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="Position" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUsage" Output="Response" Verb="Get" Noun="Usage" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="Position">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UsagePlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUsagePlan" Output="Response" Verb="Get" Noun="UsagePlan" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlanKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UsagePlanKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUsagePlanKey" Output="Response" Verb="Get" Noun="UsagePlanKey" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlanKeys" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UsagePlanKeyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUsagePlanKeys" Output="DefaultSingleMember" Verb="Get" Noun="UsagePlanKeyList" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUsagePlans" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UsagePlanList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUsagePlans" Output="DefaultSingleMember" Verb="Get" Noun="UsagePlanList" PipelineParameter="KeyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpcLink" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VpcLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VpcLinkId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVpcLink" Output="Response" Verb="Get" Noun="VpcLink" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVpcLinks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VpcLinkList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVpcLinks" Output="DefaultSingleMember" Verb="Get" Noun="VpcLinkList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportApiKeys" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="ApiKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="false">
+        <ServiceOperation MethodName="ImportApiKeys" Output="Response" Verb="Import" Noun="ApiKey" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportDocumentationParts" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="DocumentationPartList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportDocumentationParts" Output="Response" Verb="Import" Noun="DocumentationPartList" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportRestApi" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Parameters" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Parameters" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="false">
+        <ServiceOperation MethodName="ImportRestApi" Output="Response" Verb="Import" Noun="RestApi" ShouldProcessTarget="Parameters" PipelineParameter="Parameters" NoPipelineParameter="false" RemapMemoryStreamParameters="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutGatewayResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="GatewayResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutGatewayResponse" Output="Response" Verb="Write" Noun="GatewayResponse" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIntegration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Integration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutIntegration" Output="Response" Verb="Write" Noun="Integration" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Credentials" NewName="TargetCredential" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Credentials" NewName="TargetCredential" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="PutIntegrationResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="IntegrationResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutIntegrationResponse" Output="Response" Verb="Write" Noun="IntegrationResponse" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMethod" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Method" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutMethod" Output="Response" Verb="Write" Noun="Method" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMethodResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="MethodResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutMethodResponse" Output="Response" Verb="Write" Noun="MethodResponse" ShouldProcessTarget="ResourceId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRestApi" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Parameters" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="false">
+        <ServiceOperation MethodName="PutRestApi" Output="Response" Verb="Write" Noun="RestApi" ShouldProcessTarget="RestApiId" PipelineParameter="Parameters" NoPipelineParameter="false" RemapMemoryStreamParameters="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestInvokeAuthorizer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="InvokeAuthorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestInvokeAuthorizer" Output="Response" Verb="Test" Noun="InvokeAuthorizer" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestInvokeMethod" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="InvokeMethod" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="Headers" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestInvokeMethod" Output="Response" Verb="Test" Noun="InvokeMethod" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="Headers">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PatchOperations" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PatchOperations" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAccount" Output="Response" Verb="Update" Noun="Account" ShouldProcessTarget="PatchOperations" PipelineParameter="PatchOperations" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApiKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ApiKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApiKey" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApiKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateApiKey" Output="Response" Verb="Update" Noun="ApiKey" ShouldProcessTarget="ApiKey" PipelineParameter="ApiKey" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuthorizer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Authorizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAuthorizer" Output="Response" Verb="Update" Noun="Authorizer" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBasePathMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="BasePathMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateBasePathMapping" Output="Response" Verb="Update" Noun="BasePathMapping" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateClientCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClientCertificateId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientCertificateId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateClientCertificate" Output="Response" Verb="Update" Noun="ClientCertificate" ShouldProcessTarget="ClientCertificateId" PipelineParameter="ClientCertificateId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDeployment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDeployment" Output="Response" Verb="Update" Noun="Deployment" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDocumentationPart" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DocumentationPart" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDocumentationPart" Output="Response" Verb="Update" Noun="DocumentationPart" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDocumentationVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DocumentationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDocumentationVersion" Output="Response" Verb="Update" Noun="DocumentationVersion" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainName" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DomainName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDomainName" Output="Response" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGatewayResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="GatewayResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateGatewayResponse" Output="Response" Verb="Update" Noun="GatewayResponse" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Integration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateIntegration" Output="Response" Verb="Update" Noun="Integration" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegrationResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="IntegrationResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateIntegrationResponse" Output="Response" Verb="Update" Noun="IntegrationResponse" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMethod" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Method" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateMethod" Output="Response" Verb="Update" Noun="Method" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMethodResponse" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="MethodResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateMethodResponse" Output="Response" Verb="Update" Noun="MethodResponse" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateModel" Output="Response" Verb="Update" Noun="Model" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRequestValidator" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RequestValidator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RequestValidatorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RequestValidatorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRequestValidator" Output="Response" Verb="Update" Noun="RequestValidator" ShouldProcessTarget="RequestValidatorId" PipelineParameter="RequestValidatorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateResource" Output="Response" Verb="Update" Noun="Resource" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRestApi" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RestApi" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRestApi" Output="Response" Verb="Update" Noun="RestApi" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateStage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Stage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RestApiId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RestApiId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateStage" Output="Response" Verb="Update" Noun="Stage" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Usage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="KeyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" MetadataProperties="Position" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUsage" Output="Response" Verb="Update" Noun="Usage" ShouldProcessTarget="KeyId" PipelineParameter="KeyId" NoPipelineParameter="false" MetadataProperties="Position">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUsagePlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="UsagePlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UsagePlanId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UsagePlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUsagePlan" Output="Response" Verb="Update" Noun="UsagePlan" ShouldProcessTarget="UsagePlanId" PipelineParameter="UsagePlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVpcLink" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="VpcLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VpcLinkId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VpcLinkId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateVpcLink" Output="Response" Verb="Update" Noun="VpcLink" ShouldProcessTarget="VpcLinkId" PipelineParameter="VpcLinkId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -23,46 +23,46 @@
         <Property>AccountId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateBudget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Budget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBudget" Output="Void" Verb="New" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotification" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Notification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateNotification" Output="Void" Verb="New" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSubscriber" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Subscriber" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSubscriber" Output="Void" Verb="New" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBudget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Budget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBudget" Output="Void" Verb="Remove" Noun="Budget" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotification" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Notification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNotification" Output="Void" Verb="Remove" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriber" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Subscriber" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSubscriber" Output="Void" Verb="Remove" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudget" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Budget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeBudget" Output="DefaultSingleMember" Verb="Get" Noun="Budget" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BudgetPerformanceHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeBudgetPerformanceHistory" Output="DefaultSingleMember" Verb="Get" Noun="BudgetPerformanceHistory" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBudgets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BudgetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeBudgets" Output="DefaultSingleMember" Verb="Get" Noun="BudgetList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationsForBudget" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotificationsForBudget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeNotificationsForBudget" Output="DefaultSingleMember" Verb="Get" Noun="NotificationsForBudget" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscribersForNotification" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SubscribersForNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSubscribersForNotification" Output="DefaultSingleMember" Verb="Get" Noun="SubscribersForNotification" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBudget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Budget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateBudget" Output="Void" Verb="Update" Noun="Budget" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotification" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Notification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateNotification" Output="Void" Verb="Update" Noun="Notification" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSubscriber" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Subscriber" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BudgetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BudgetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateSubscriber" Output="Void" Verb="Update" Noun="Subscriber" ShouldProcessTarget="BudgetName" PipelineParameter="BudgetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

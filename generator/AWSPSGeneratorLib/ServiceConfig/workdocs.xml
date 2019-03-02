@@ -20,132 +20,132 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AbortDocumentVersionUpload" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="DocumentVersionUpload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AbortDocumentVersionUpload" Output="Void" Verb="Stop" Noun="DocumentVersionUpload" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ActivateUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ActivateUser" Output="DefaultSingleMember" Verb="Enable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddResourcePermissions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourcePermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddResourcePermissions" Output="DefaultSingleMember" Verb="Add" Noun="ResourcePermission" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Comment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VersionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateComment" Output="DefaultSingleMember" Verb="New" Noun="Comment" ShouldProcessTarget="VersionId" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomMetadata" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CustomMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCustomMetadata" Output="Void" Verb="New" Noun="CustomMetadata" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFolder" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Folder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ParentFolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFolder" Output="DefaultSingleMember" Verb="New" Noun="Folder" ShouldProcessTarget="Name" PipelineParameter="ParentFolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLabels" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Label" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLabels" Output="Void" Verb="New" Noun="Label" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateNotificationSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="NotificationSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OrganizationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OrganizationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateNotificationSubscription" Output="DefaultSingleMember" Verb="New" Noun="NotificationSubscription" ShouldProcessTarget="OrganizationId" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GivenName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OrganizationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateUser" Output="DefaultSingleMember" Verb="New" Noun="User" ShouldProcessTarget="GivenName" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivateUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeactivateUser" Output="Void" Verb="Disable" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Comment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CommentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CommentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteComment" Output="Void" Verb="Remove" Noun="Comment" ShouldProcessTarget="CommentId" PipelineParameter="CommentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomMetadata" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CustomMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCustomMetadata" Output="Void" Verb="Remove" Noun="CustomMetadata" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDocument" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Document" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDocument" Output="Void" Verb="Remove" Noun="Document" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFolder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Folder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FolderId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFolder" Output="Void" Verb="Remove" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFolderContents" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FolderContent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FolderId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFolderContents" Output="Void" Verb="Remove" Noun="FolderContent" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLabels" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Label" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Labels" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLabels" Output="Void" Verb="Remove" Noun="Label" ShouldProcessTarget="ResourceId" PipelineParameter="Labels" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteNotificationSubscription" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NotificationSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteNotificationSubscription" Output="Void" Verb="Remove" Noun="NotificationSubscription" ShouldProcessTarget="SubscriptionId" PipelineParameter="SubscriptionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteUser" Output="Void" Verb="Remove" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Activity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeActivities" Output="DefaultSingleMember" Verb="Get" Noun="Activity" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Comment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VersionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeComments" Output="DefaultSingleMember" Verb="Get" Noun="Comment" PipelineParameter="VersionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDocumentVersions" Output="DefaultSingleMember" Verb="Get" Noun="DocumentVersionList" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFolderContents" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FolderContent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFolderContents" Output="Response" Verb="Get" Noun="FolderContent" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Group" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeGroups" Output="DefaultSingleMember" Verb="Get" Noun="Group" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeNotificationSubscriptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotificationSubscriptionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OrganizationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeNotificationSubscriptions" Output="DefaultSingleMember" Verb="Get" Noun="NotificationSubscriptionList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePermissions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourcePermissionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeResourcePermissions" Output="DefaultSingleMember" Verb="Get" Noun="ResourcePermissionList" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRootFolders" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RootFolder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AuthenticationToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeRootFolders" Output="DefaultSingleMember" Verb="Get" Noun="RootFolder" PipelineParameter="AuthenticationToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeUsers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OrganizationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeUsers" Output="DefaultSingleMember" Verb="Get" Noun="UserList" PipelineParameter="OrganizationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCurrentUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CurrentUser" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AuthenticationToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCurrentUser" Output="DefaultSingleMember" Verb="Get" Noun="CurrentUser" PipelineParameter="AuthenticationToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocument" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Document" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocument" Output="Response" Verb="Get" Noun="Document" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentPath" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentPath" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentPath" Output="DefaultSingleMember" Verb="Get" Noun="DocumentPath" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDocumentVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDocumentVersion" Output="Response" Verb="Get" Noun="DocumentVersion" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFolder" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Folder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFolder" Output="Response" Verb="Get" Noun="Folder" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFolderPath" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FolderPath" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFolderPath" Output="DefaultSingleMember" Verb="Get" Noun="FolderPath" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResources" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionType" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResources" Output="Response" Verb="Get" Noun="Resource" PipelineParameter="CollectionType" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateDocumentVersionUpload" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DocumentVersionUpload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InitiateDocumentVersionUpload" Output="Response" Verb="Start" Noun="DocumentVersionUpload" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveAllResourcePermissions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveAllResourcePermissions" Output="Void" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveResourcePermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourcePermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveResourcePermission" Output="Void" Verb="Remove" Noun="ResourcePermission" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDocument" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Document" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDocument" Output="Void" Verb="Update" Noun="Document" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDocumentVersion" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DocumentVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDocumentVersion" Output="Void" Verb="Update" Noun="DocumentVersion" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFolder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Folder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FolderId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FolderId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFolder" Output="Void" Verb="Update" Noun="Folder" ShouldProcessTarget="FolderId" PipelineParameter="FolderId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUser" Output="DefaultSingleMember" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

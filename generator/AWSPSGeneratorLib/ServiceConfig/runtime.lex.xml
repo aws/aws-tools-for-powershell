@@ -19,10 +19,10 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="PostContent" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="Content" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostContent" Output="Response" Verb="Send" Noun="Content" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PostText" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="Text" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputText" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostText" Output="Response" Verb="Send" Noun="Text" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="InputText" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -82,10 +82,15 @@ namespace AWSPowerShellGenerator.Analysis
 
                 //We write Metadata output properties also for cmdlets with a "Response" output so that it is
                 //easier to convert them to DefaultSingleMember during review
-                operationAnalyzer.CurrentOperation.MetadataPropertiesList = AllOutputProperties
+                var suggestedMetadataProperties = AllOutputProperties
                     .Where(isCandidateMetadataProperty)
                     .Select(property => property.Name)
                     .ToArray();
+
+                if (suggestedMetadataProperties.Length > 0)
+                {
+                    operationAnalyzer.CurrentOperation.MetadataPropertiesList = suggestedMetadataProperties;
+                }
             }
             else
             {

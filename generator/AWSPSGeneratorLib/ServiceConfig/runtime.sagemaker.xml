@@ -19,7 +19,7 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="InvokeEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InvokeEndpoint" Output="Response" Verb="Invoke" Noun="Endpoint" ShouldProcessTarget="EndpointName" PipelineParameter="EndpointName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

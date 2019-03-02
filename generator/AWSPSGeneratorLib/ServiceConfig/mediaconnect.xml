@@ -25,55 +25,55 @@
         <Property>SourceArn</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddFlowOutputs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="FlowOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FlowArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="FlowArn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddFlowOutputs" Output="DefaultSingleMember" Verb="Add" Noun="FlowOutput" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="FlowArn">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFlow" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Flow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFlow" Output="DefaultSingleMember" Verb="New" Noun="Flow" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFlow" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Flow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FlowArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFlow" Output="Response" Verb="Remove" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFlow" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Flow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFlow" Output="Response" Verb="Get" Noun="Flow" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GrantFlowEntitlements" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Grant" Noun="FlowEntitlement" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FlowArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="FlowArn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GrantFlowEntitlements" Output="DefaultSingleMember" Verb="Grant" Noun="FlowEntitlement" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="FlowArn">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitlements" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntitlementList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEntitlements" Output="DefaultSingleMember" Verb="Get" Noun="EntitlementList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFlows" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FlowList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFlows" Output="DefaultSingleMember" Verb="Get" Noun="FlowList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFlowOutput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FlowOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OutputArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OutputArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveFlowOutput" Output="Response" Verb="Remove" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeFlowEntitlement" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="FlowEntitlement" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EntitlementArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EntitlementArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeFlowEntitlement" Output="Response" Verb="Revoke" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFlow" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Flow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FlowArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartFlow" Output="Response" Verb="Start" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopFlow" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Flow" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FlowArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FlowArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopFlow" Output="Response" Verb="Stop" Noun="Flow" ShouldProcessTarget="FlowArn" PipelineParameter="FlowArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowEntitlement" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FlowEntitlement" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EntitlementArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EntitlementArn" NoPipelineParameter="false" MetadataProperties="FlowArn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFlowEntitlement" Output="DefaultSingleMember" Verb="Update" Noun="FlowEntitlement" ShouldProcessTarget="EntitlementArn" PipelineParameter="EntitlementArn" NoPipelineParameter="false" MetadataProperties="FlowArn">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowOutput" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FlowOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OutputArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OutputArn" NoPipelineParameter="false" MetadataProperties="FlowArn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFlowOutput" Output="DefaultSingleMember" Verb="Update" Noun="FlowOutput" ShouldProcessTarget="OutputArn" PipelineParameter="OutputArn" NoPipelineParameter="false" MetadataProperties="FlowArn">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFlowSource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FlowSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceArn" NoPipelineParameter="false" MetadataProperties="FlowArn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFlowSource" Output="DefaultSingleMember" Verb="Update" Noun="FlowSource" ShouldProcessTarget="SourceArn" PipelineParameter="SourceArn" NoPipelineParameter="false" MetadataProperties="FlowArn">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

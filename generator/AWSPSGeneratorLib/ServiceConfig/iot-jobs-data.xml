@@ -19,16 +19,16 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeJobExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeJobExecution" Output="DefaultSingleMember" Verb="Get" Noun="JobExecution" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPendingJobExecutions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PendingJobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPendingJobExecutions" Output="Response" Verb="Get" Noun="PendingJobExecution" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartNextPendingJobExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="NextPendingJobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ThingName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartNextPendingJobExecution" Output="DefaultSingleMember" Verb="Start" Noun="NextPendingJobExecution" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobExecution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateJobExecution" Output="Response" Verb="Update" Noun="JobExecution" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

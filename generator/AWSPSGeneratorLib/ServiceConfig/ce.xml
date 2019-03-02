@@ -20,25 +20,25 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetCostAndUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CostAndUsage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCostAndUsage" Output="Response" Verb="Get" Noun="CostAndUsage" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCostForecast" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CostForecast" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCostForecast" Output="Response" Verb="Get" Noun="CostForecast" PipelineParameter="TimePeriod" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDimensionValues" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DimensionValue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDimensionValues" Output="Response" Verb="Get" Noun="DimensionValue" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationCoverage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservationCoverage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReservationCoverage" Output="Response" Verb="Get" Noun="ReservationCoverage" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservationPurchaseRecommendation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Service" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReservationPurchaseRecommendation" Output="Response" Verb="Get" Noun="ReservationPurchaseRecommendation" PipelineParameter="Service" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservationUtilization" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservationUtilization" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReservationUtilization" Output="Response" Verb="Get" Noun="ReservationUtilization" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTags" Output="Response" Verb="Get" Noun="Tag" PipelineParameter="TimePeriod" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

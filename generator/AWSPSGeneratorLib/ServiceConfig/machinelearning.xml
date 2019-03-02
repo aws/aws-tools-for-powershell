@@ -22,119 +22,119 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-MLTag">
+        <ServiceOperation MethodName="AddTags" Output="Response" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Add-MLTag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateBatchPrediction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="BatchPrediction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateBatchPrediction" Output="DefaultSingleMember" Verb="New" Noun="BatchPrediction" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="BatchPredictionName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="BatchPredictionName" Alias="Name" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromRDS" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DataSourceFromRDS" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DataSourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDataSourceFromRDS" Output="DefaultSingleMember" Verb="New" Noun="DataSourceFromRDS" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromRedshift" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DataSourceFromRedshift" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DataSourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDataSourceFromRedshift" Output="DefaultSingleMember" Verb="New" Noun="DataSourceFromRedshift" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDataSourceFromS3" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DataSourceFromS3" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DataSourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDataSourceFromS3" Output="DefaultSingleMember" Verb="New" Noun="DataSourceFromS3" ShouldProcessTarget="DataSourceName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEvaluation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEvaluation" Output="DefaultSingleMember" Verb="New" Noun="Evaluation" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="EvaluationName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="EvaluationName" Alias="Name" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMLModel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateMLModel" Output="DefaultSingleMember" Verb="New" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="MLModelName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="MLModelType" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelType" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
+                <Param Name="MLModelName" Alias="Name" />
+                <Param Name="MLModelType" Alias="ModelType" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRealtimeEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RealtimeEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRealtimeEndpoint" Output="Response" Verb="New" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteBatchPrediction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="BatchPrediction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BatchPredictionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BatchPredictionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteBatchPrediction" Output="DefaultSingleMember" Verb="Remove" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionId" PipelineParameter="BatchPredictionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataSource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DataSourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DataSourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDataSource" Output="DefaultSingleMember" Verb="Remove" Noun="DataSource" ShouldProcessTarget="DataSourceId" PipelineParameter="DataSourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEvaluation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EvaluationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EvaluationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEvaluation" Output="DefaultSingleMember" Verb="Remove" Noun="Evaluation" ShouldProcessTarget="EvaluationId" PipelineParameter="EvaluationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMLModel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMLModel" Output="DefaultSingleMember" Verb="Remove" Noun="Model" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRealtimeEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RealtimeEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRealtimeEndpoint" Output="Response" Verb="Remove" Noun="RealtimeEndpoint" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-MLTag">
+        <ServiceOperation MethodName="DeleteTags" Output="Response" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Remove-MLTag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeBatchPredictions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BatchPredictionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-MLBatchPredictions">
+        <ServiceOperation MethodName="DescribeBatchPredictions" Output="DefaultSingleMember" Verb="Get" Noun="BatchPredictionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLBatchPredictions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataSources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DataSourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-MLDataSources">
+        <ServiceOperation MethodName="DescribeDataSources" Output="DefaultSingleMember" Verb="Get" Noun="DataSourceList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLDataSources">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvaluations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EvaluationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-MLEvaluations">
+        <ServiceOperation MethodName="DescribeEvaluations" Output="DefaultSingleMember" Verb="Get" Noun="EvaluationList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLEvaluations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMLModels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-MLModels">
+        <ServiceOperation MethodName="DescribeMLModels" Output="DefaultSingleMember" Verb="Get" Noun="ModelList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-MLModels">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-MLTag">
+        <ServiceOperation MethodName="DescribeTags" Output="Response" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" NoPipelineParameter="false" LegacyAlias="Get-MLTag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBatchPrediction" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BatchPrediction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BatchPredictionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBatchPrediction" Output="Response" Verb="Get" Noun="BatchPrediction" PipelineParameter="BatchPredictionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataSource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDataSource" Output="Response" Verb="Get" Noun="DataSource" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Verbose" NewName="VerboseResponse" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEvaluation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EvaluationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetEvaluation" Output="Response" Verb="Get" Noun="Evaluation" PipelineParameter="EvaluationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMLModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMLModel" Output="Response" Verb="Get" Noun="Model" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Verbose" NewName="VerboseResponse" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
+                <Param Name="Verbose" NewName="VerboseResponse" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="Predict" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Prediction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Predict" Output="DefaultSingleMember" Verb="Get" Noun="Prediction" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateBatchPrediction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="BatchPrediction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BatchPredictionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BatchPredictionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateBatchPrediction" Output="DefaultSingleMember" Verb="Update" Noun="BatchPrediction" ShouldProcessTarget="BatchPredictionName" PipelineParameter="BatchPredictionName" NoPipelineParameter="false">
             <Params>
-                <Param Name="BatchPredictionName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="BatchPredictionName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDataSource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DataSourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DataSourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDataSource" Output="DefaultSingleMember" Verb="Update" Noun="DataSource" ShouldProcessTarget="DataSourceName" PipelineParameter="DataSourceName" NoPipelineParameter="false">
             <Params>
-                <Param Name="DataSourceName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="DataSourceName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEvaluation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EvaluationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EvaluationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateEvaluation" Output="DefaultSingleMember" Verb="Update" Noun="Evaluation" ShouldProcessTarget="EvaluationName" PipelineParameter="EvaluationName" NoPipelineParameter="false">
             <Params>
-                <Param Name="EvaluationName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="EvaluationName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateMLModel" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="MLModel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MLModelId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MLModelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateMLModel" Output="DefaultSingleMember" Verb="Update" Noun="MLModel" ShouldProcessTarget="MLModelId" PipelineParameter="MLModelId" NoPipelineParameter="false">
             <Params>
-                <Param Name="MLModelId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ModelId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="MLModelId" Alias="ModelId" />
             </Params>
         </ServiceOperation>
     </ServiceOperations>

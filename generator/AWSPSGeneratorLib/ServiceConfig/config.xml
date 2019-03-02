@@ -23,149 +23,149 @@
     </MetadataProperties>
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchGetAggregateResourceConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateResourceConfigBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchGetAggregateResourceConfig" Output="Response" Verb="Get" Noun="AggregateResourceConfigBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetResourceConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GetResourceConfigBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchGetResourceConfig" Output="Response" Verb="Get" Noun="GetResourceConfigBatch" PipelineParameter="ResourceKeys" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAggregationAuthorization" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="AggregationAuthorization" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AuthorizedAccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAggregationAuthorization" Output="Void" Verb="Remove" Noun="AggregationAuthorization" ShouldProcessTarget="AuthorizedAccountId" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigRuleName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteConfigRule" Output="Void" Verb="Remove" Noun="ConfigRule" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationAggregator" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ConfigurationAggregator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationAggregatorName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteConfigurationAggregator" Output="Void" Verb="Remove" Noun="ConfigurationAggregator" ShouldProcessTarget="ConfigurationAggregatorName" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationRecorderName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" Verb="Remove" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DeliveryChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryChannelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" Verb="Remove" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannelName" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEvaluationResults" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EvaluationResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigRuleName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEvaluationResults" Output="Void" Verb="Remove" Noun="EvaluationResult" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePendingAggregationRequest" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="PendingAggregationRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RequesterAccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RequesterAccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePendingAggregationRequest" Output="Void" Verb="Remove" Noun="PendingAggregationRequest" ShouldProcessTarget="RequesterAccountId" PipelineParameter="RequesterAccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRetentionConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RetentionConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RetentionConfigurationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRetentionConfiguration" Output="Void" Verb="Remove" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionConfigurationName" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeliverConfigSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="ConfigSnapshotDelivery" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryChannelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeliverConfigSnapshot" Output="DefaultSingleMember" Verb="Submit" Noun="ConfigSnapshotDelivery" ShouldProcessTarget="DeliveryChannelName" PipelineParameter="DeliveryChannelName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregateComplianceByConfigRules" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateComplianceByConfigRuleList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAggregateComplianceByConfigRules" Output="DefaultSingleMember" Verb="Get" Noun="AggregateComplianceByConfigRuleList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAggregationAuthorizations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregationAuthorizationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAggregationAuthorizations" Output="DefaultSingleMember" Verb="Get" Noun="AggregationAuthorizationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComplianceByConfigRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceByConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeComplianceByConfigRule" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceByConfigRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComplianceByResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceByResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeComplianceByResource" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceByResource" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigRuleEvaluationStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" Output="DefaultSingleMember" Verb="Get" Noun="ConfigRuleEvaluationStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigRules" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGConfigRules">
+        <ServiceOperation MethodName="DescribeConfigRules" Output="DefaultSingleMember" Verb="Get" Noun="ConfigRule" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CFGConfigRules">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationAggregators" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationAggregatorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfigurationAggregators" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationAggregatorList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationAggregatorSourcesStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationAggregatorSourcesStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfigurationAggregatorSourcesStatus" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationAggregatorSourcesStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationRecorders" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGConfigurationRecorders">
+        <ServiceOperation MethodName="DescribeConfigurationRecorders" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationRecorder" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false" LegacyAlias="Get-CFGConfigurationRecorders">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationRecorderStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" Output="DefaultSingleMember" Verb="Get" Noun="ConfigurationRecorderStatus" PipelineParameter="ConfigurationRecorderNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveryChannels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliveryChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGDeliveryChannels">
+        <ServiceOperation MethodName="DescribeDeliveryChannels" Output="DefaultSingleMember" Verb="Get" Noun="DeliveryChannel" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" LegacyAlias="Get-CFGDeliveryChannels">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveryChannelStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliveryChannelStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDeliveryChannelStatus" Output="DefaultSingleMember" Verb="Get" Noun="DeliveryChannelStatus" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingAggregationRequests" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PendingAggregationRequestList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePendingAggregationRequests" Output="DefaultSingleMember" Verb="Get" Noun="PendingAggregationRequestList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRetentionConfigurations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RetentionConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeRetentionConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="RetentionConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAggregateComplianceDetailsByConfigRule" Output="DefaultSingleMember" Verb="Get" Noun="AggregateComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAggregateConfigRuleComplianceSummary" Output="Response" Verb="Get" Noun="AggregateConfigRuleComplianceSummary" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateDiscoveredResourceCounts" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateDiscoveredResourceCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAggregateDiscoveredResourceCounts" Output="Response" Verb="Get" Noun="AggregateDiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAggregateResourceConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateResourceConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAggregateResourceConfig" Output="DefaultSingleMember" Verb="Get" Noun="AggregateResourceConfig" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceDetailsByConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceDetailsByConfigRule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceDetailsByResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceDetailsByResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComplianceDetailsByResource" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceDetailsByResource" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceSummaryByConfigRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceSummaryByConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComplianceSummaryByConfigRule" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceSummaryByConfigRule" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetComplianceSummaryByResourceType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComplianceSummaryByResourceType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceTypes" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetComplianceSummaryByResourceType" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceSummaryByResourceType" PipelineParameter="ResourceTypes" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDiscoveredResourceCounts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DiscoveredResourceCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="TotalDiscoveredResources" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDiscoveredResourceCounts" Output="DefaultSingleMember" Verb="Get" Noun="DiscoveredResourceCount" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="TotalDiscoveredResources">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResourceConfigHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceConfigHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResourceConfigHistory" Output="DefaultSingleMember" Verb="Get" Noun="ResourceConfigHistory" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAggregateDiscoveredResources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AggregateDiscoveredResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAggregateDiscoveredResources" Output="DefaultSingleMember" Verb="Get" Noun="AggregateDiscoveredResourceList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDiscoveredResources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DiscoveredResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDiscoveredResources" Output="DefaultSingleMember" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutAggregationAuthorization" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="AggregationAuthorization" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AuthorizedAccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutAggregationAuthorization" Output="DefaultSingleMember" Verb="Write" Noun="AggregationAuthorization" ShouldProcessTarget="AuthorizedAccountId" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigRule_ConfigRuleName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRule_ConfigRuleName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutConfigRule" Output="Void" Verb="Write" Noun="ConfigRule" ShouldProcessTarget="ConfigRule_ConfigRuleName" PipelineParameter="ConfigRule_ConfigRuleName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationAggregator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationAggregator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationAggregatorName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutConfigurationAggregator" Output="DefaultSingleMember" Verb="Write" Noun="ConfigurationAggregator" ShouldProcessTarget="ConfigurationAggregatorName" PipelineParameter="ConfigurationAggregatorName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationRecorder_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" Verb="Write" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorder_Name" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false">
             <Params>
-                <Param Name="ConfigurationRecorder_Name" NewName="ConfigurationRecorderName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ConfigurationRecorder_Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ConfigurationRecorder_Name" NewName="ConfigurationRecorderName" Alias="ConfigurationRecorder_Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDeliveryChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DeliveryChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryChannel_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannel_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutDeliveryChannel" Output="Void" Verb="Write" Noun="DeliveryChannel" ShouldProcessTarget="DeliveryChannel_Name" PipelineParameter="DeliveryChannel_Name" NoPipelineParameter="false">
             <Params>
-                <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeliveryChannel_Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" Alias="DeliveryChannel_Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="PutEvaluations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Evaluations" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Evaluations" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Write-CFGEvaluations">
+        <ServiceOperation MethodName="PutEvaluations" Output="DefaultSingleMember" Verb="Write" Noun="Evaluation" ShouldProcessTarget="Evaluations" PipelineParameter="Evaluations" NoPipelineParameter="false" LegacyAlias="Write-CFGEvaluations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRetentionConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="RetentionConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RetentionPeriodInDays" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRetentionConfiguration" Output="DefaultSingleMember" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ConfigRulesEvaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigRuleNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" Verb="Start" Noun="ConfigRulesEvaluation" ShouldProcessTarget="ConfigRuleNames" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationRecorderName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" Verb="Start" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConfigurationRecorderName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" Verb="Stop" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

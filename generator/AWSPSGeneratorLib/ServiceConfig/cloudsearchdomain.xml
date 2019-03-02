@@ -23,13 +23,13 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="Search" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Search" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="Suggest" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Suggest" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadDocuments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UploadDocuments" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

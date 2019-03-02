@@ -25,55 +25,55 @@
         <Property>DeviceId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BulkPublish" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Publish" Noun="BulkDataset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BulkPublish" Output="DefaultSingleMember" Verb="Publish" Noun="BulkDataset" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDataset" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Dataset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DatasetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDataset" Output="DefaultSingleMember" Verb="Remove" Noun="Dataset" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDataset" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Dataset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDataset" Output="DefaultSingleMember" Verb="Get" Noun="Dataset" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityPoolUsage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPoolUsage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIdentityPoolUsage" Output="DefaultSingleMember" Verb="Get" Noun="IdentityPoolUsage" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityUsage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityUsage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIdentityUsage" Output="DefaultSingleMember" Verb="Get" Noun="IdentityUsage" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBulkPublishDetails" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BulkPublishDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBulkPublishDetails" Output="Response" Verb="Get" Noun="BulkPublishDetail" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCognitoEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CognitoEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCognitoEvents" Output="DefaultSingleMember" Verb="Get" Noun="CognitoEvent" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityPoolConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPoolConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetIdentityPoolConfiguration" Output="Response" Verb="Get" Noun="IdentityPoolConfiguration" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDatasets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DatasetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityId" NoPipelineParameter="false" MetadataProperties="Count" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDatasets" Output="DefaultSingleMember" Verb="Get" Noun="DatasetList" PipelineParameter="IdentityId" NoPipelineParameter="false" MetadataProperties="Count">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPoolUsage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPoolUsageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults;Count" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIdentityPoolUsage" Output="DefaultSingleMember" Verb="Get" Noun="IdentityPoolUsageList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults;Count">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecords" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RecordList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRecords" Output="Response" Verb="Get" Noun="RecordList" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDevice" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Device" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterDevice" Output="DefaultSingleMember" Verb="Register" Noun="Device" ShouldProcessTarget="IdentityId" PipelineParameter="IdentityId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetCognitoEvents" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="CognitoEventLambdaFunction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetCognitoEvents" Output="Void" Verb="Set" Noun="CognitoEventLambdaFunction" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityPoolConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="IdentityPoolConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetIdentityPoolConfiguration" Output="Response" Verb="Set" Noun="IdentityPoolConfiguration" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubscribeToDataset" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="DatasetSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DatasetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SubscribeToDataset" Output="Void" Verb="Add" Noun="DatasetSubscription" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnsubscribeFromDataset" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DatasetSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DatasetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnsubscribeFromDataset" Output="Void" Verb="Remove" Noun="DatasetSubscription" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRecords" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Record" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DatasetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DatasetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRecords" Output="DefaultSingleMember" Verb="Update" Noun="Record" ShouldProcessTarget="DatasetName" PipelineParameter="DatasetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

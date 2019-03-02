@@ -22,58 +22,58 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateIdentityPool" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="IdentityPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateIdentityPool" Output="Response" Verb="New" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolName" PipelineParameter="IdentityPoolName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIdentities" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIdentityPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="IdentityPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIdentityPool" Output="Void" Verb="Remove" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityPool" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIdentityPool" Output="Response" Verb="Get" Noun="IdentityPool" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCredentialsForIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCredentialsForIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetId" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetId" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIdentityPoolRoles" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPoolRole" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetIdentityPoolRoles" Output="Response" Verb="Get" Noun="IdentityPoolRole" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdToken" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOpenIdToken" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOpenIdTokenForDeveloperIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIdentities" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIdentityPools" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityPoolList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIdentityPools" Output="DefaultSingleMember" Verb="Get" Noun="IdentityPoolList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupDeveloperIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="LookupDeveloperIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeDeveloperIdentities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="MergeDeveloperIdentities" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetIdentityPoolRoles" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="IdentityPoolRole" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetIdentityPoolRoles" Output="Void" Verb="Set" Noun="IdentityPoolRole" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnlinkDeveloperIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnlinkIdentity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnlinkIdentity" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityPool" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="IdentityPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IdentityPoolId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityPoolId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateIdentityPool" Output="Response" Verb="Update" Noun="IdentityPool" ShouldProcessTarget="IdentityPoolId" PipelineParameter="IdentityPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

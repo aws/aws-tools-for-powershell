@@ -53,138 +53,138 @@
         <Property>SnapshotName</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddTagsToResource" Output="DefaultSingleMember" Verb="Add" Noun="Tag" ShouldProcessTarget="ResourceName" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="CacheSecurityGroupIngress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AuthorizeCacheSecurityGroupIngress" Output="DefaultSingleMember" Verb="Approve" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopySnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceSnapshotName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopySnapshot" Output="DefaultSingleMember" Verb="Copy" Noun="Snapshot" ShouldProcessTarget="SourceSnapshotName" PositionalParameters="TargetSnapshotName" PipelineParameter="SourceSnapshotName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCacheCluster" Output="DefaultSingleMember" Verb="New" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params>
-                <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Groups" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GroupId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="PreferredAvailabilityZones" NewName="PreferredAvailabilityZoneSet" />
+                <Param Name="Groups" Alias="GroupId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheParameterGroupFamily;Description" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCacheParameterGroup" Output="DefaultSingleMember" Verb="New" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="CacheParameterGroupFamily;Description" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheSecurityGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CacheSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCacheSecurityGroup" Output="DefaultSingleMember" Verb="New" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="Description" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCacheSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CacheSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCacheSubnetGroup" Output="DefaultSingleMember" Verb="New" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReplicationGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PrimaryClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateReplicationGroup" Output="DefaultSingleMember" Verb="New" Noun="ReplicationGroup" ShouldProcessTarget="PrimaryClusterId" PipelineParameter="PrimaryClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSnapshot" Output="DefaultSingleMember" Verb="New" Noun="Snapshot" ShouldProcessTarget="CacheClusterId" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseReplicaCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="ReplicaCountDecrease" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DecreaseReplicaCount" Output="DefaultSingleMember" Verb="Request" Noun="ReplicaCountDecrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCacheCluster" Output="DefaultSingleMember" Verb="Remove" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCacheParameterGroup" Output="Void" Verb="Remove" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheSecurityGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CacheSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCacheSecurityGroup" Output="Void" Verb="Remove" Noun="CacheSecurityGroup" ShouldProcessTarget="CacheSecurityGroupName" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCacheSubnetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CacheSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCacheSubnetGroup" Output="Void" Verb="Remove" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReplicationGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteReplicationGroup" Output="DefaultSingleMember" Verb="Remove" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSnapshot" Output="DefaultSingleMember" Verb="Remove" Noun="Snapshot" ShouldProcessTarget="SnapshotName" PipelineParameter="SnapshotName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheClusters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCacheClusters" Output="DefaultSingleMember" Verb="Get" Noun="CacheCluster" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheEngineVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheEngineVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECCacheEngineVersions">
+        <ServiceOperation MethodName="DescribeCacheEngineVersions" Output="DefaultSingleMember" Verb="Get" Noun="CacheEngineVersion" PositionalParameters="EngineVersion;CacheParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" LegacyAlias="Get-ECCacheEngineVersions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameterGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCacheParameterGroups" Output="DefaultSingleMember" Verb="Get" Noun="CacheParameterGroup" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheParameters" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="Marker" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCacheParameters" Output="Response" Verb="Get" Noun="CacheParameter" PositionalParameters="Source" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSecurityGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCacheSecurityGroups" Output="DefaultSingleMember" Verb="Get" Noun="CacheSecurityGroup" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCacheSubnetGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CacheSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECCacheSubnetGroups">
+        <ServiceOperation MethodName="DescribeCacheSubnetGroups" Output="DefaultSingleMember" Verb="Get" Noun="CacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-ECCacheSubnetGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EngineDefaultParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheParameterGroupFamily" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" Output="DefaultSingleMember" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="CacheParameterGroupFamily" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReplicationGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECReplicationGroups">
+        <ServiceOperation MethodName="DescribeReplicationGroups" Output="DefaultSingleMember" Verb="Get" Noun="ReplicationGroup" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" LegacyAlias="Get-ECReplicationGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedCacheNode" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeReservedCacheNodes" Output="DefaultSingleMember" Verb="Get" Noun="ReservedCacheNode" PositionalParameters="ReservedCacheNodesOfferingId;CacheNodeType" PipelineParameter="ReservedCacheNodeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedCacheNodesOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeReservedCacheNodesOfferings" Output="DefaultSingleMember" Verb="Get" Noun="ReservedCacheNodesOffering" PositionalParameters="CacheNodeType" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Snapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSnapshots">
+        <ServiceOperation MethodName="DescribeSnapshots" Output="DefaultSingleMember" Verb="Get" Noun="Snapshot" PositionalParameters="SnapshotName" PipelineParameter="CacheClusterId" NoPipelineParameter="false" LegacyAlias="Get-ECSnapshots">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseReplicaCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="ReplicaCountIncrease" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IncreaseReplicaCount" Output="DefaultSingleMember" Verb="Request" Noun="ReplicaCountIncrease" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAllowedNodeTypeModifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AllowedNodeTypeModification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAllowedNodeTypeModifications" Output="DefaultSingleMember" Verb="Get" Noun="AllowedNodeTypeModification" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="Tag" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyCacheCluster" Output="DefaultSingleMember" Verb="Edit" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="NumCacheNodes" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ParameterNameValues" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyCacheParameterGroup" Output="DefaultSingleMember" Verb="Edit" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PositionalParameters="ParameterNameValues" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCacheSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="CacheSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyCacheSubnetGroup" Output="DefaultSingleMember" Verb="Edit" Noun="CacheSubnetGroup" ShouldProcessTarget="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds" PipelineParameter="CacheSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyReplicationGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ReplicationGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyReplicationGroup" Output="DefaultSingleMember" Verb="Edit" Noun="ReplicationGroup" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ReplicationGroupShardConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationGroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" Output="DefaultSingleMember" Verb="Edit" Noun="ReplicationGroupShardConfiguration" ShouldProcessTarget="ReplicationGroupId" PipelineParameter="ReplicationGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="ReservedCacheNodesOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReservedCacheNodesOfferingId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" Output="DefaultSingleMember" Verb="Request" Noun="ReservedCacheNodesOffering" ShouldProcessTarget="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount" PipelineParameter="ReservedCacheNodesOfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootCacheCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="CacheCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheClusterId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootCacheCluster" Output="DefaultSingleMember" Verb="Restart" Noun="CacheCluster" ShouldProcessTarget="CacheClusterId" PositionalParameters="CacheNodeIdsToReboot" PipelineParameter="CacheClusterId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="DefaultSingleMember" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetCacheParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="CacheParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResetCacheParameterGroup" Output="DefaultSingleMember" Verb="Reset" Noun="CacheParameterGroup" ShouldProcessTarget="CacheParameterGroupName" PipelineParameter="CacheParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="CacheSecurityGroupIngress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CacheSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeCacheSecurityGroupIngress" Output="DefaultSingleMember" Verb="Revoke" Noun="CacheSecurityGroupIngress" ShouldProcessTarget="CacheSecurityGroupName" PositionalParameters="EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="CacheSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestFailover" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="Failover" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NodeGroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestFailover" Output="DefaultSingleMember" Verb="Test" Noun="Failover" PipelineParameter="NodeGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

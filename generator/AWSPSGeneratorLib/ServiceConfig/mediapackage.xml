@@ -20,40 +20,40 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateChannel" Output="Response" Verb="New" Noun="Channel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="OriginEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateOriginEndpoint" Output="Response" Verb="New" Noun="OriginEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteChannel" Output="Void" Verb="Remove" Noun="Channel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteOriginEndpoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="OriginEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteOriginEndpoint" Output="Void" Verb="Remove" Noun="OriginEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeChannel" Output="Response" Verb="Get" Noun="Channel" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OriginEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeOriginEndpoint" Output="Response" Verb="Get" Noun="OriginEndpoint" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListChannels" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ChannelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListChannels" Output="DefaultSingleMember" Verb="Get" Noun="ChannelList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOriginEndpoints" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OriginEndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOriginEndpoints" Output="DefaultSingleMember" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="ChannelCredentialRotation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" Verb="Invoke" Noun="ChannelCredentialRotation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RotateIngestEndpointCredentials" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="IngestEndpointCredentialRotation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IngestEndpointId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IngestEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RotateIngestEndpointCredentials" Output="Response" Verb="Invoke" Noun="IngestEndpointCredentialRotation" ShouldProcessTarget="IngestEndpointId" PipelineParameter="IngestEndpointId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Channel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateChannel" Output="Response" Verb="Update" Noun="Channel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="OriginEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateOriginEndpoint" Output="Response" Verb="Update" Noun="OriginEndpoint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

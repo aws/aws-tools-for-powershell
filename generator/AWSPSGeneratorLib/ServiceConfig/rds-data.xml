@@ -19,7 +19,7 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="ExecuteSql" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="SqlStatement" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SqlStatements" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExecuteSql" Output="DefaultSingleMember" Verb="Invoke" Noun="SqlStatement" AnonymousShouldProcessTarget="true" PipelineParameter="SqlStatements" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

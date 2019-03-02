@@ -27,243 +27,243 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptPortfolioShare" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Receive" Noun="PortfolioShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PortfolioId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcceptPortfolioShare" Output="Void" Verb="Receive" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociatePrincipalWithPortfolio" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="PrincipalWithPortfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PortfolioId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrincipalARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociatePrincipalWithPortfolio" Output="Void" Verb="Register" Noun="PrincipalWithPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateProductWithPortfolio" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="ProductWithPortfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateProductWithPortfolio" Output="Void" Verb="Register" Noun="ProductWithPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateServiceActionWithProvisioningArtifact" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceActionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceActionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateServiceActionWithProvisioningArtifact" Output="Void" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateTagOptionWithResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="TagOptionToResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagOptionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagOptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateTagOptionWithResource" Output="Void" Verb="Add" Noun="TagOptionToResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchAssociateServiceActionWithProvisioningArtifact" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifactBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchAssociateServiceActionWithProvisioningArtifact" Output="DefaultSingleMember" Verb="Add" Noun="ServiceActionAssociationWithProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisassociateServiceActionFromProvisioningArtifact" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifactBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDisassociateServiceActionFromProvisioningArtifact" Output="DefaultSingleMember" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifactBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetProductName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyProduct" Output="DefaultSingleMember" Verb="Copy" Noun="Product" ShouldProcessTarget="TargetProductName" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateConstraint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Constraint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateConstraint" Output="Response" Verb="New" Noun="Constraint" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortfolio" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Portfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DisplayName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePortfolio" Output="Response" Verb="New" Noun="Portfolio" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePortfolioShare" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PortfolioShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="PortfolioId" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePortfolioShare" Output="DefaultSingleMember" Verb="New" Noun="PortfolioShare" ShouldProcessTarget="AccountId" ShouldProcessMsgNoun="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProduct" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateProduct" Output="Response" Verb="New" Noun="Product" ShouldProcessTarget="Name" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisionedProductPlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ProvisionedProductPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlanName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateProvisionedProductPlan" Output="Response" Verb="New" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanName" PipelineParameter="PlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateProvisioningArtifact" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateProvisioningArtifact" Output="Response" Verb="New" Noun="ProvisioningArtifact" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateServiceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ServiceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateServiceAction" Output="DefaultSingleMember" Verb="New" Noun="ServiceAction" ShouldProcessTarget="Name" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTagOption" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TagOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Value" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Value" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTagOption" Output="DefaultSingleMember" Verb="New" Noun="TagOption" ShouldProcessTarget="Value" PipelineParameter="Value" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteConstraint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Constraint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteConstraint" Output="Void" Verb="Remove" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortfolio" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Portfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePortfolio" Output="Void" Verb="Remove" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePortfolioShare" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="PortfolioShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PortfolioId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePortfolioShare" Output="DefaultSingleMember" Verb="Remove" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProduct" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteProduct" Output="Void" Verb="Remove" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisionedProductPlan" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ProvisionedProductPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlanId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlanId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteProvisionedProductPlan" Output="Void" Verb="Remove" Noun="ProvisionedProductPlan" ShouldProcessTarget="PlanId" PipelineParameter="PlanId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteProvisioningArtifact" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProvisioningArtifactId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteProvisioningArtifact" Output="Void" Verb="Remove" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteServiceAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ServiceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteServiceAction" Output="Void" Verb="Remove" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTagOption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TagOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTagOption" Output="Void" Verb="Remove" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeConstraint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Constraint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeConstraint" Output="Response" Verb="Get" Noun="Constraint" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCopyProductStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CopyProductStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCopyProductStatus" Output="Response" Verb="Get" Noun="CopyProductStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortfolio" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Portfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePortfolio" Output="Response" Verb="Get" Noun="Portfolio" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePortfolioShareStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PortfolioShareStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioShareToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePortfolioShareStatus" Output="Response" Verb="Get" Noun="PortfolioShareStatus" PipelineParameter="PortfolioShareToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProduct" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProduct" Output="Response" Verb="Get" Noun="Product" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProductAsAdmin" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProductAsAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProductAsAdmin" Output="Response" Verb="Get" Noun="ProductAsAdmin" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProductView" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProductView" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProductView" Output="Response" Verb="Get" Noun="ProductView" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
-                <Param Name="Id" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ProductId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Id" Alias="ProductId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisionedProduct" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisionedProductDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProvisionedProduct" Output="Response" Verb="Get" Noun="ProvisionedProductDetail" PipelineParameter="Id" NoPipelineParameter="false">
             <Params>
-                <Param Name="Id" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ProductId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Id" Alias="ProductId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisionedProductPlan" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisionedProductPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProvisionedProductPlan" Output="Response" Verb="Get" Noun="ProvisionedProductPlan" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningArtifact" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProvisioningArtifact" Output="Response" Verb="Get" Noun="ProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Verbose" NewName="ReturnCloudFormationTemplate" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Verbose" NewName="ReturnCloudFormationTemplate" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeProvisioningParameters" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisioningParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeProvisioningParameters" Output="Response" Verb="Get" Noun="ProvisioningParameter" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRecord" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Record" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeRecord" Output="Response" Verb="Get" Noun="Record" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServiceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeServiceAction" Output="DefaultSingleMember" Verb="Get" Noun="ServiceAction" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTagOption" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTagOption" Output="DefaultSingleMember" Verb="Get" Noun="TagOption" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAWSOrganizationsAccess" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="AWSOrganizationsAccess" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableAWSOrganizationsAccess" Output="Void" Verb="Disable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="PrincipalFromPortfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PortfolioId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrincipalARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" Output="Void" Verb="Unregister" Noun="PrincipalFromPortfolio" ShouldProcessTarget="PortfolioId" PipelineParameter="PrincipalARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateProductFromPortfolio" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="ProductFromPortfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateProductFromPortfolio" Output="Void" Verb="Unregister" Noun="ProductFromPortfolio" ShouldProcessTarget="ProductId" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateServiceActionFromProvisioningArtifact" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceActionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceActionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateServiceActionFromProvisioningArtifact" Output="Void" Verb="Remove" Noun="ServiceActionAssociationFromProvisioningArtifact" ShouldProcessTarget="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateTagOptionFromResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TagOptionFromResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagOptionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagOptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateTagOptionFromResource" Output="Void" Verb="Remove" Noun="TagOptionFromResource" ShouldProcessTarget="TagOptionId" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAWSOrganizationsAccess" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="AWSOrganizationsAccess" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableAWSOrganizationsAccess" Output="Void" Verb="Enable" Noun="AWSOrganizationsAccess" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteProvisionedProductPlan" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ProvisionedProductPlanExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlanId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdempotencyToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExecuteProvisionedProductPlan" Output="DefaultSingleMember" Verb="Start" Noun="ProvisionedProductPlanExecution" ShouldProcessTarget="PlanId" PipelineParameter="IdempotencyToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ExecuteProvisionedProductServiceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ProvisionedProductServiceActionExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceActionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="ServiceActionId" AnonymousAuthentication="Never" PipelineParameter="ServiceActionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ExecuteProvisionedProductServiceAction" Output="DefaultSingleMember" Verb="Start" Noun="ProvisionedProductServiceActionExecution" ShouldProcessTarget="ServiceActionId" ShouldProcessMsgNoun="ServiceActionId" PipelineParameter="ServiceActionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAWSOrganizationsAccessStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AWSOrganizationsAccessStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAWSOrganizationsAccessStatus" Output="DefaultSingleMember" Verb="Get" Noun="AWSOrganizationsAccessStatus" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAcceptedPortfolioShares" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AcceptedPortfolioShareList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAcceptedPortfolioShares" Output="DefaultSingleMember" Verb="Get" Noun="AcceptedPortfolioShareList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListConstraintsForPortfolio" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConstrainsForPortfolioList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListConstraintsForPortfolio" Output="DefaultSingleMember" Verb="Get" Noun="ConstrainsForPortfolioList" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLaunchPaths" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LaunchPath" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListLaunchPaths" Output="DefaultSingleMember" Verb="Get" Noun="LaunchPath" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OrganizationPortfolioAccessList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOrganizationPortfolioAccess" Output="DefaultSingleMember" Verb="Get" Noun="OrganizationPortfolioAccessList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfolioAccess" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PortfolioAccessList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPortfolioAccess" Output="DefaultSingleMember" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfolios" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PortfolioList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPortfolios" Output="DefaultSingleMember" Verb="Get" Noun="PortfolioList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPortfoliosForProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProductPortfolioList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPortfoliosForProduct" Output="DefaultSingleMember" Verb="Get" Noun="ProductPortfolioList" PipelineParameter="ProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPrincipalsForPortfolio" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PrincipalsForPortfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPrincipalsForPortfolio" Output="DefaultSingleMember" Verb="Get" Noun="PrincipalsForPortfolio" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedProductPlans" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisionedProductPlanList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProvisionedProductPlans" Output="DefaultSingleMember" Verb="Get" Noun="ProvisionedProductPlanList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningArtifacts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisioningArtifactList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProvisioningArtifacts" Output="DefaultSingleMember" Verb="Get" Noun="ProvisioningArtifactList" PipelineParameter="ProductId" NoPipelineParameter="false" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProvisioningArtifactsForServiceAction" Output="DefaultSingleMember" Verb="Get" Noun="ProvisioningArtifactsForServiceActionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRecordHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RecordHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRecordHistory" Output="DefaultSingleMember" Verb="Get" Noun="RecordHistory" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourcesForTagOption" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourcesForTagOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagOptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResourcesForTagOption" Output="DefaultSingleMember" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServiceActionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceptLanguage" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListServiceActions" Output="DefaultSingleMember" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListServiceActionsForProvisioningArtifact" Output="DefaultSingleMember" Verb="Get" Noun="ServiceActionsForProvisioningArtifactList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagOptionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagOptions" Output="DefaultSingleMember" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ProvisionProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ProvisionedProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProvisionedProductName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ProvisionProduct" Output="DefaultSingleMember" Verb="New" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductName" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectPortfolioShare" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="PortfolioShare" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PortfolioId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RejectPortfolioShare" Output="Void" Verb="Deny" Noun="PortfolioShare" ShouldProcessTarget="PortfolioId" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ScanProvisionedProducts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisionedProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ScanProvisionedProducts" Output="DefaultSingleMember" Verb="Get" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProducts" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchProducts" Output="Response" Verb="Find" Noun="Product" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextPageToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProductsAsAdmin" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="ProductsAsAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PortfolioId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchProductsAsAdmin" Output="DefaultSingleMember" Verb="Find" Noun="ProductsAsAdmin" PipelineParameter="PortfolioId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchProvisionedProducts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="ProvisionedProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="TotalResultsCount" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchProvisionedProducts" Output="DefaultSingleMember" Verb="Find" Noun="ProvisionedProduct" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="TotalResultsCount">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateProvisionedProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ProvisionedProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProvisionedProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TerminateProvisionedProduct" Output="DefaultSingleMember" Verb="Remove" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateConstraint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Constraint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateConstraint" Output="Response" Verb="Update" Noun="Constraint" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePortfolio" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Portfolio" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePortfolio" Output="Response" Verb="Update" Noun="Portfolio" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProduct" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateProduct" Output="Response" Verb="Update" Noun="Product" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisionedProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ProvisionedProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProvisionedProductId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateProvisionedProduct" Output="DefaultSingleMember" Verb="Update" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductId" PipelineParameter="ProvisionedProductId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateProvisioningArtifact" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ProvisioningArtifact" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProvisioningArtifactId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateProvisioningArtifact" Output="Response" Verb="Update" Noun="ProvisioningArtifact" ShouldProcessTarget="ProvisioningArtifactId" PipelineParameter="ProvisioningArtifactId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ServiceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateServiceAction" Output="DefaultSingleMember" Verb="Update" Noun="ServiceAction" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTagOption" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TagOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Value" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateTagOption" Output="DefaultSingleMember" Verb="Update" Noun="TagOption" ShouldProcessTarget="Id" PipelineParameter="Value" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -20,52 +20,52 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateGroup" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Group" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceQuery" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateGroup" Output="Response" Verb="New" Noun="Group" ShouldProcessTarget="Name" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Group" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteGroup" Output="DefaultSingleMember" Verb="Remove" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Group" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetGroup" Output="DefaultSingleMember" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGroupQuery" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GroupQuery" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetGroupQuery" Output="DefaultSingleMember" Verb="Get" Noun="GroupQuery" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="Arn" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="Arn">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroupResources" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GroupResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListGroupResources" Output="Response" Verb="Get" Noun="GroupResourceList" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GroupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListGroups" Output="DefaultSingleMember" Verb="Get" Noun="GroupList" PipelineParameter="Filters" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchResources" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceQuery" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchResources" Output="Response" Verb="Find" Noun="Resource" PipelineParameter="ResourceQuery" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="Tag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Tag" Output="Response" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="Untag" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Keys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Untag" Output="Response" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Arn" PipelineParameter="Keys" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Group" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Description" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateGroup" Output="DefaultSingleMember" Verb="Update" Noun="Group" ShouldProcessTarget="GroupName" PipelineParameter="Description" NoPipelineParameter="false">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateGroupQuery" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="GroupQuery" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceQuery" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateGroupQuery" Output="DefaultSingleMember" Verb="Update" Noun="GroupQuery" ShouldProcessTarget="GroupName" PipelineParameter="ResourceQuery" NoPipelineParameter="false">
             <Params>
-                <Param Name="GroupName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="GroupName" Alias="Name" />
             </Params>
         </ServiceOperation>
     </ServiceOperations>

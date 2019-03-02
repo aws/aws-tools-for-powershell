@@ -26,145 +26,145 @@
         <Property>ExternalImageId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CompareFaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Compare" Noun="Face" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CompareFaces" Output="Response" Verb="Compare" Noun="Face" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="SourceImage_S3Object_Name" NewName="SourceImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="SourceImage_S3Object_Version" NewName="SourceImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="SourceImage_Bytes" NewName="SourceImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="TargetImage_S3Object_Bucket" NewName="TargetImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="TargetImage_S3Object_Name" NewName="TargetImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="TargetImage_S3Object_Version" NewName="TargetImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="TargetImage_Bytes" NewName="TargetImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="SourceImage_S3Object_Bucket" NewName="SourceImageBucket" AutoApplyAlias="false" />
+                <Param Name="SourceImage_S3Object_Name" NewName="SourceImageName" AutoApplyAlias="false" />
+                <Param Name="SourceImage_S3Object_Version" NewName="SourceImageVersion" AutoApplyAlias="false" />
+                <Param Name="SourceImage_Bytes" NewName="SourceImageContent" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Bucket" NewName="TargetImageBucket" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Name" NewName="TargetImageName" AutoApplyAlias="false" />
+                <Param Name="TargetImage_S3Object_Version" NewName="TargetImageVersion" AutoApplyAlias="false" />
+                <Param Name="TargetImage_Bytes" NewName="TargetImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCollection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Collection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCollection" Output="Response" Verb="New" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStreamProcessor" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="StreamProcessor" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStreamProcessor" Output="DefaultSingleMember" Verb="New" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCollection" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Collection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCollection" Output="DefaultSingleMember" Verb="Remove" Noun="Collection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Face" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FaceIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFaces" Output="DefaultSingleMember" Verb="Remove" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="FaceIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStreamProcessor" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="StreamProcessor" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStreamProcessor" Output="Void" Verb="Remove" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCollection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Collection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCollection" Output="Response" Verb="Get" Noun="Collection" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamProcessor" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamProcessor" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStreamProcessor" Output="Response" Verb="Get" Noun="StreamProcessor" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectFaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Face" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectFaces" Output="Response" Verb="Find" Noun="Face" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectLabels" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Label" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectLabels" Output="Response" Verb="Find" Noun="Label" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectModerationLabels" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="ModerationLabel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectModerationLabels" Output="Response" Verb="Find" Noun="ModerationLabel" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectText" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Text" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectText" Output="DefaultSingleMember" Verb="Find" Noun="Text" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityInfo" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CelebrityInfo" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCelebrityInfo" Output="Response" Verb="Get" Noun="CelebrityInfo" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCelebrityRecognition" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CelebrityRecognition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCelebrityRecognition" Output="Response" Verb="Get" Noun="CelebrityRecognition" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContentModeration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ContentModeration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetContentModeration" Output="Response" Verb="Get" Noun="ContentModeration" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceDetection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FaceDetection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFaceDetection" Output="Response" Verb="Get" Noun="FaceDetection" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFaceSearch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FaceSearch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFaceSearch" Output="Response" Verb="Get" Noun="FaceSearch" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLabelDetection" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LabelDetection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLabelDetection" Output="Response" Verb="Get" Noun="LabelDetection" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPersonTracking" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PersonTracking" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPersonTracking" Output="Response" Verb="Get" Noun="PersonTracking" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IndexFaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="DetectedFacesToCollection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IndexFaces" Output="Response" Verb="Add" Noun="DetectedFacesToCollection" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollections" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CollectionIdList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListCollections" Output="Response" Verb="Get" Noun="CollectionIdList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FaceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFaces" Output="Response" Verb="Get" Noun="FaceList" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamProcessors" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamProcessorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListStreamProcessors" Output="DefaultSingleMember" Verb="Get" Noun="StreamProcessorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RecognizeCelebrities" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Celebrity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RecognizeCelebrities" Output="Response" Verb="Find" Noun="Celebrity" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Search" Noun="Face" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchFaces" Output="Response" Verb="Search" Noun="Face" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SearchFacesByImage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Search" Noun="FacesByImage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SearchFacesByImage" Output="Response" Verb="Search" Noun="FacesByImage" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Image_Bytes" NewName="ImageContent" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="StartCelebrityRecognition" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="CelebrityRecognition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartCelebrityRecognition" Output="DefaultSingleMember" Verb="Start" Noun="CelebrityRecognition" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartContentModeration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="ContentModeration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartContentModeration" Output="DefaultSingleMember" Verb="Start" Noun="ContentModeration" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFaceDetection" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="FaceDetection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartFaceDetection" Output="DefaultSingleMember" Verb="Start" Noun="FaceDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartFaceSearch" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="FaceSearch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CollectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CollectionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartFaceSearch" Output="DefaultSingleMember" Verb="Start" Noun="FaceSearch" ShouldProcessTarget="CollectionId" PipelineParameter="CollectionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartLabelDetection" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="LabelDetection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartLabelDetection" Output="DefaultSingleMember" Verb="Start" Noun="LabelDetection" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPersonTracking" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="PersonTracking" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartPersonTracking" Output="DefaultSingleMember" Verb="Start" Noun="PersonTracking" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartStreamProcessor" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="StreamProcessor" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartStreamProcessor" Output="Void" Verb="Start" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStreamProcessor" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="StreamProcessor" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopStreamProcessor" Output="Void" Verb="Stop" Noun="StreamProcessor" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

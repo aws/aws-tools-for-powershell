@@ -32,64 +32,64 @@
         <Property>PipelineId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CancelJob" Output="Void" Verb="Stop" Noun="Job" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateJob" Output="DefaultSingleMember" Verb="New" Noun="Job" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params>
-                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" />
+                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" />
+                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" />
+                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" />
+                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" />
+                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" />
+                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" />
+                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InputBucket;OutputBucket;Role" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="Warnings" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" Verb="New" Noun="Pipeline" ShouldProcessTarget="Name" PositionalParameters="InputBucket;OutputBucket;Role" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="Warnings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePreset" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Preset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description;Container" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePreset" Output="Response" Verb="New" Noun="Preset" ShouldProcessTarget="Name" PositionalParameters="Description;Container" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePipeline" Output="Void" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePreset" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Preset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePreset" Output="Void" Verb="Remove" Noun="Preset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobsByPipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobsByPipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListJobsByPipeline" Output="DefaultSingleMember" Verb="Get" Noun="JobsByPipeline" PositionalParameters="Ascending" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobsByStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobsByStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="Status" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListJobsByStatus" Output="DefaultSingleMember" Verb="Get" Noun="JobsByStatus" PositionalParameters="Ascending" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ascending" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" Verb="Get" Noun="Pipeline" PipelineParameter="Ascending" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPresets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Preset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Ascending" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPresets" Output="DefaultSingleMember" Verb="Get" Noun="Preset" PipelineParameter="Ascending" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReadJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Read" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReadJob" Output="DefaultSingleMember" Verb="Read" Noun="Job" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReadPipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Read" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="Warnings" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReadPipeline" Output="DefaultSingleMember" Verb="Read" Noun="Pipeline" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="Warnings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReadPreset" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Read" Noun="Preset" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReadPreset" Output="DefaultSingleMember" Verb="Read" Noun="Preset" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestRole" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestRole" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;InputBucket;Role" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="Warnings" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePipeline" Output="DefaultSingleMember" Verb="Update" Noun="Pipeline" ShouldProcessTarget="Id" PositionalParameters="Name;InputBucket;Role" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="Warnings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipelineNotifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PipelineNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Update-ETSPipelineNotifications">
+        <ServiceOperation MethodName="UpdatePipelineNotifications" Output="DefaultSingleMember" Verb="Update" Noun="PipelineNotification" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false" LegacyAlias="Update-ETSPipelineNotifications">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipelineStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PipelineStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Status" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePipelineStatus" Output="DefaultSingleMember" Verb="Update" Noun="PipelineStatus" ShouldProcessTarget="Id" PositionalParameters="Status" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -26,118 +26,118 @@
         <Property>UUID</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddLayerVersionPermission" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LayerVersionPermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddLayerVersionPermission" Output="Response" Verb="Add" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddPermission" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="Permission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddPermission" Output="DefaultSingleMember" Verb="Add" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAlias" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Alias" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAlias" Output="Response" Verb="New" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventSourceMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EventSourceMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEventSourceMapping" Output="Response" Verb="New" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFunction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFunction" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAlias" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Alias" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAlias" Output="Void" Verb="Remove" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventSourceMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EventSourceMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UUID" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UUID" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEventSourceMapping" Output="Response" Verb="Remove" Noun="EventSourceMapping" ShouldProcessTarget="UUID" PipelineParameter="UUID" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Function" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFunction" Output="Void" Verb="Remove" Noun="Function" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFunctionConcurrency" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FunctionConcurrency" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFunctionConcurrency" Output="Void" Verb="Remove" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLayerVersion" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LayerVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLayerVersion" Output="Void" Verb="Remove" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccountSettings" Output="Response" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAlias" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Alias" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAlias" Output="Response" Verb="Get" Noun="Alias" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEventSourceMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventSourceMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UUID" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetEventSourceMapping" Output="Response" Verb="Get" Noun="EventSourceMapping" PipelineParameter="UUID" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunction" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Function" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFunction" Output="Response" Verb="Get" Noun="Function" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFunctionConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FunctionConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFunctionConfiguration" Output="Response" Verb="Get" Noun="FunctionConfiguration" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayerVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LayerVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLayerVersion" Output="Response" Verb="Get" Noun="LayerVersion" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLayerVersionPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LayerVersionPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLayerVersionPolicy" Output="Response" Verb="Get" Noun="LayerVersionPolicy" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Policy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPolicy" Output="Response" Verb="Get" Noun="Policy" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="Invoke" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="Invoke" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InvokeAsync" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InvokeAsync" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAliases" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AliasList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAliases" Output="DefaultSingleMember" Verb="Get" Noun="AliasList" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEventSourceMappings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventSourceMappingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-LMEventSourceMappings">
+        <ServiceOperation MethodName="ListEventSourceMappings" Output="DefaultSingleMember" Verb="Get" Noun="EventSourceMappingList" PipelineParameter="FunctionName" NoPipelineParameter="false" LegacyAlias="Get-LMEventSourceMappings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFunctions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FunctionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-LMFunctions">
+        <ServiceOperation MethodName="ListFunctions" Output="DefaultSingleMember" Verb="Get" Noun="FunctionList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-LMFunctions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LayerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListLayers" Output="DefaultSingleMember" Verb="Get" Noun="LayerList" PipelineParameter="CompatibleRuntime" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListLayerVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LayerVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListLayerVersions" Output="DefaultSingleMember" Verb="Get" Noun="LayerVersionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVersionsByFunction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VersionsByFunction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListVersionsByFunction" Output="DefaultSingleMember" Verb="Get" Noun="VersionsByFunction" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishLayerVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Publish" Noun="LayerVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PublishLayerVersion" Output="Response" Verb="Publish" Noun="LayerVersion" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Publish" Noun="Version" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PublishVersion" Output="Response" Verb="Publish" Noun="Version" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutFunctionConcurrency" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="FunctionConcurrency" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutFunctionConcurrency" Output="DefaultSingleMember" Verb="Write" Noun="FunctionConcurrency" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveLayerVersionPermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LayerVersionPermission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LayerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LayerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveLayerVersionPermission" Output="Void" Verb="Remove" Noun="LayerVersionPermission" ShouldProcessTarget="LayerName" PipelineParameter="LayerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemovePermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Permission" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemovePermission" Output="Void" Verb="Remove" Noun="Permission" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resource" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="Resource" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resource" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Resource" PipelineParameter="TagKeys" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAlias" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Alias" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAlias" Output="Response" Verb="Update" Noun="Alias" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="EventSourceMapping" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateEventSourceMapping" Output="Response" Verb="Update" Noun="EventSourceMapping" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionCode" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFunctionCode" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FunctionConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FunctionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FunctionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFunctionConfiguration" Output="Response" Verb="Update" Noun="FunctionConfiguration" ShouldProcessTarget="FunctionName" PipelineParameter="FunctionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -33,55 +33,55 @@
         <Property>TaskId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="ActivatePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ActivatePipeline" Output="Void" Verb="Enable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-DPTags">
+        <ServiceOperation MethodName="AddTags" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Add-DPTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="UniqueId;Description" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" Verb="New" Noun="Pipeline" ShouldProcessTarget="Name" PositionalParameters="UniqueId;Description" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeactivatePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeactivatePipeline" Output="Void" Verb="Disable" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePipeline" Output="Void" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeObjects" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ObjectIds;EvaluateExpressions" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="HasMoreResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeObjects" Output="DefaultSingleMember" Verb="Get" Noun="Object" PositionalParameters="ObjectIds;EvaluateExpressions" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="HasMoreResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePipelines" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineDescription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePipelines" Output="DefaultSingleMember" Verb="Get" Noun="PipelineDescription" PipelineParameter="PipelineIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EvaluateExpression" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="Expression" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ObjectId;Expression" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EvaluateExpression" Output="DefaultSingleMember" Verb="Invoke" Noun="Expression" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectId;Expression" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineDefinition" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Version" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPipelineDefinition" Output="Response" Verb="Get" Noun="PipelineDefinition" PositionalParameters="Version" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="HasMoreResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" Verb="Get" Noun="Pipeline" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="HasMoreResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForTask" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Task" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Hostname" PipelineParameter="WorkerGroup" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PollForTask" Output="DefaultSingleMember" Verb="Get" Noun="Task" PositionalParameters="Hostname" PipelineParameter="WorkerGroup" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutPipelineDefinition" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="PipelineDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutPipelineDefinition" Output="Response" Verb="Write" Noun="PipelineDefinition" ShouldProcessTarget="PipelineId" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="QueryObjects" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="HasMoreResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="QueryObjects" Output="DefaultSingleMember" Verb="Find" Noun="Object" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="HasMoreResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-DPTags">
+        <ServiceOperation MethodName="RemoveTags" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="PipelineId" PipelineParameter="PipelineId" NoPipelineParameter="false" LegacyAlias="Remove-DPTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReportTaskProgress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TaskProgress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReportTaskProgress" Output="DefaultSingleMember" Verb="Update" Noun="TaskProgress" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReportTaskRunnerHeartbeat" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TaskRunnerHeartbeat" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskrunnerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="WorkerGroup;Hostname" PipelineParameter="TaskrunnerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReportTaskRunnerHeartbeat" Output="DefaultSingleMember" Verb="Update" Noun="TaskRunnerHeartbeat" ShouldProcessTarget="TaskrunnerId" PositionalParameters="WorkerGroup;Hostname" PipelineParameter="TaskrunnerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Status" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ObjectIds;Status" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetStatus" Output="Void" Verb="Set" Noun="Status" ShouldProcessTarget="PipelineId" PositionalParameters="ObjectIds;Status" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
             <PassThru>
                 <Expression>cmdletContext.ObjectIds</Expression>
@@ -89,10 +89,10 @@
                 <Documentation>Returns the object ids</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="SetTaskStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="TaskStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace" PipelineParameter="TaskId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetTaskStatus" Output="Void" Verb="Set" Noun="TaskStatus" ShouldProcessTarget="TaskId" PositionalParameters="TaskStatus;ErrorId;ErrorMessage;ErrorStackTrace" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ValidatePipelineDefinition" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="PipelineDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ValidatePipelineDefinition" Output="Response" Verb="Test" Noun="PipelineDefinition" PositionalParameters="PipelineObjects" PipelineParameter="PipelineId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

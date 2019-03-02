@@ -23,130 +23,130 @@
         <Property>ThreatIntelSetId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInvitation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcceptInvitation" Output="Void" Verb="Confirm" Noun="Invitation" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ArchiveFindings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Backup" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ArchiveFindings" Output="Void" Verb="Backup" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDetector" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Detector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Enable" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Enable" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDetector" Output="DefaultSingleMember" Verb="New" Noun="Detector" ShouldProcessTarget="Enable" PipelineParameter="Enable" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFilter" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Filter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFilter" Output="DefaultSingleMember" Verb="New" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIPSet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="IPSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateIPSet" Output="DefaultSingleMember" Verb="New" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountDetails" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateMembers" Output="DefaultSingleMember" Verb="New" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountDetails" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSampleFindings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SampleFinding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSampleFindings" Output="Void" Verb="New" Noun="SampleFinding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateThreatIntelSet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ThreatIntelSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateThreatIntelSet" Output="DefaultSingleMember" Verb="New" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeclineInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeclineInvitations" Output="DefaultSingleMember" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDetector" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Detector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDetector" Output="Void" Verb="Remove" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Filter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFilter" Output="Void" Verb="Remove" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInvitations" Output="DefaultSingleMember" Verb="Remove" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIPSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="IPSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IpSetId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpSetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIPSet" Output="Void" Verb="Remove" Noun="IPSet" ShouldProcessTarget="IpSetId" PipelineParameter="IpSetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMembers" Output="DefaultSingleMember" Verb="Remove" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteThreatIntelSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ThreatIntelSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ThreatIntelSetId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteThreatIntelSet" Output="Void" Verb="Remove" Noun="ThreatIntelSet" ShouldProcessTarget="ThreatIntelSetId" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFromMasterAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="FromMasterAccount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateFromMasterAccount" Output="Void" Verb="Unregister" Noun="FromMasterAccount" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateMembers" Output="DefaultSingleMember" Verb="Unregister" Noun="Member" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDetector" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Detector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDetector" Output="Response" Verb="Get" Noun="Detector" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFilter" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Filter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFilter" Output="Response" Verb="Get" Noun="Filter" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFindings" Output="DefaultSingleMember" Verb="Get" Noun="Finding" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindingsStatistics" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FindingStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFindingsStatistics" Output="DefaultSingleMember" Verb="Get" Noun="FindingStatistic" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvitationsCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InvitationCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInvitationsCount" Output="DefaultSingleMember" Verb="Get" Noun="InvitationCount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetIPSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IPSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpSetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetIPSet" Output="Response" Verb="Get" Noun="IPSet" PipelineParameter="IpSetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMasterAccount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MasterAccount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMasterAccount" Output="DefaultSingleMember" Verb="Get" Noun="MasterAccount" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMembers" Output="Response" Verb="Get" Noun="Member" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetThreatIntelSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ThreatIntelSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetThreatIntelSet" Output="Response" Verb="Get" Noun="ThreatIntelSet" PipelineParameter="ThreatIntelSetId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InviteMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MemberInvitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InviteMembers" Output="DefaultSingleMember" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDetectors" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DetectorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDetectors" Output="DefaultSingleMember" Verb="Get" Noun="DetectorList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFilters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FilterList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFilters" Output="DefaultSingleMember" Verb="Get" Noun="FilterList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFindings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FindingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFindings" Output="DefaultSingleMember" Verb="Get" Noun="FindingList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InvitationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListInvitations" Output="DefaultSingleMember" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIPSets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IPSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIPSets" Output="DefaultSingleMember" Verb="Get" Noun="IPSetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MemberList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListMembers" Output="DefaultSingleMember" Verb="Get" Noun="MemberList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListThreatIntelSets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ThreatIntelSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListThreatIntelSets" Output="DefaultSingleMember" Verb="Get" Noun="ThreatIntelSetList" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartMonitoringMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="MonitoringMember" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartMonitoringMembers" Output="DefaultSingleMember" Verb="Start" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopMonitoringMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="MonitoringMember" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopMonitoringMembers" Output="DefaultSingleMember" Verb="Stop" Noun="MonitoringMember" ShouldProcessTarget="DetectorId" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UnarchiveFindings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnarchiveFindings" Output="Void" Verb="Restore" Noun="Finding" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDetector" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Detector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDetector" Output="Void" Verb="Update" Noun="Detector" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFilter" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Filter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFilter" Output="DefaultSingleMember" Verb="Update" Noun="Filter" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFindingsFeedback" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FindingFeedback" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFindingsFeedback" Output="Void" Verb="Update" Noun="FindingFeedback" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIPSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="IPSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateIPSet" Output="Void" Verb="Update" Noun="IPSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateThreatIntelSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ThreatIntelSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DetectorId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DetectorId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateThreatIntelSet" Output="Void" Verb="Update" Noun="ThreatIntelSet" ShouldProcessTarget="DetectorId" PipelineParameter="DetectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -38,76 +38,76 @@
         <Property>IndexFieldName</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BuildSuggesters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="SuggestersBuild" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BuildSuggesters" Output="DefaultSingleMember" Verb="Start" Noun="SuggestersBuild" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomain" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDomain" Output="DefaultSingleMember" Verb="New" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DefineAnalysisScheme" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="AnalysisScheme" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DefineAnalysisScheme" Output="DefaultSingleMember" Verb="Set" Noun="AnalysisScheme" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DefineExpression" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Expression" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DefineExpression" Output="DefaultSingleMember" Verb="Set" Noun="Expression" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DefineIndexField" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="IndexField" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DefineIndexField" Output="DefaultSingleMember" Verb="Set" Noun="IndexField" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DefineSuggester" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Suggester" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DefineSuggester" Output="DefaultSingleMember" Verb="Set" Noun="Suggester" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAnalysisScheme" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="AnalysisScheme" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AnalysisSchemeName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AnalysisSchemeName" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAnalysisScheme" Output="DefaultSingleMember" Verb="Remove" Noun="AnalysisScheme" ShouldProcessTarget="AnalysisSchemeName" PositionalParameters="AnalysisSchemeName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDomain" Output="DefaultSingleMember" Verb="Remove" Noun="Domain" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteExpression" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Expression" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ExpressionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ExpressionName" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteExpression" Output="DefaultSingleMember" Verb="Remove" Noun="Expression" ShouldProcessTarget="ExpressionName" PositionalParameters="ExpressionName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIndexField" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="IndexField" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IndexFieldName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IndexFieldName" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIndexField" Output="DefaultSingleMember" Verb="Remove" Noun="IndexField" ShouldProcessTarget="IndexFieldName" PositionalParameters="IndexFieldName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSuggester" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Suggester" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SuggesterName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SuggesterName" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSuggester" Output="DefaultSingleMember" Verb="Remove" Noun="Suggester" ShouldProcessTarget="SuggesterName" PositionalParameters="SuggesterName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAnalysisSchemes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AnalysisScheme" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSAnalysisSchemes">
+        <ServiceOperation MethodName="DescribeAnalysisSchemes" Output="DefaultSingleMember" Verb="Get" Noun="AnalysisScheme" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAnalysisSchemes">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAvailabilityOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AvailabilityOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSAvailabilityOptions">
+        <ServiceOperation MethodName="DescribeAvailabilityOptions" Output="DefaultSingleMember" Verb="Get" Noun="AvailabilityOption" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSAvailabilityOptions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomains" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDomains" Output="DefaultSingleMember" Verb="Get" Noun="Domain" PipelineParameter="DomainNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExpressions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Expression" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeExpressions" Output="DefaultSingleMember" Verb="Get" Noun="Expression" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIndexFields" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IndexField" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="FieldNames" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSIndexFields">
+        <ServiceOperation MethodName="DescribeIndexFields" Output="DefaultSingleMember" Verb="Get" Noun="IndexField" PositionalParameters="FieldNames" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSIndexFields">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSScalingParameters">
+        <ServiceOperation MethodName="DescribeScalingParameters" Output="DefaultSingleMember" Verb="Get" Noun="ScalingParameter" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSScalingParameters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServiceAccessPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServiceAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSServiceAccessPolicies">
+        <ServiceOperation MethodName="DescribeServiceAccessPolicies" Output="DefaultSingleMember" Verb="Get" Noun="ServiceAccessPolicy" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Get-CSServiceAccessPolicies">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSuggesters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Suggester" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSuggesters" Output="DefaultSingleMember" Verb="Get" Noun="Suggester" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IndexDocuments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Index" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IndexDocuments" Output="DefaultSingleMember" Verb="Start" Noun="Index" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomainNames" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSListDomainNames">
+        <ServiceOperation MethodName="ListDomainNames" Output="DefaultSingleMember" Verb="Get" Noun="DomainNameList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-CSListDomainNames">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAvailabilityOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AvailabilityOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSAvailabilityOptions">
+        <ServiceOperation MethodName="UpdateAvailabilityOptions" Output="DefaultSingleMember" Verb="Update" Noun="AvailabilityOption" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSAvailabilityOptions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScalingParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ScalingParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSScalingParameters">
+        <ServiceOperation MethodName="UpdateScalingParameters" Output="DefaultSingleMember" Verb="Update" Noun="ScalingParameter" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSScalingParameters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateServiceAccessPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ServiceAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AccessPolicies" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSServiceAccessPolicies">
+        <ServiceOperation MethodName="UpdateServiceAccessPolicies" Output="DefaultSingleMember" Verb="Update" Noun="ServiceAccessPolicy" ShouldProcessTarget="DomainName" PositionalParameters="AccessPolicies" PipelineParameter="DomainName" NoPipelineParameter="false" LegacyAlias="Update-CSServiceAccessPolicies">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

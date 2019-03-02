@@ -20,19 +20,19 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteTerminology" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTerminology" Output="Void" Verb="Remove" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTerminology" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTerminology" Output="Response" Verb="Get" Noun="Terminology" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportTerminology" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="Terminology" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportTerminology" Output="DefaultSingleMember" Verb="Import" Noun="Terminology" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTerminologies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TerminologyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTerminologies" Output="DefaultSingleMember" Verb="Get" Noun="TerminologyList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TranslateText" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TranslateText" Output="Response" Verb="ConvertTo" Noun="TargetLanguage" ShouldProcessTarget="TargetLanguageCode" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -22,31 +22,31 @@
     </MetadataProperties>
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateVocabulary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VocabularyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VocabularyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateVocabulary" Output="Response" Verb="New" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTranscriptionJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TranscriptionJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTranscriptionJob" Output="Void" Verb="Remove" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVocabulary" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VocabularyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VocabularyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVocabulary" Output="Void" Verb="Remove" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTranscriptionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTranscriptionJob" Output="DefaultSingleMember" Verb="Get" Noun="TranscriptionJob" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVocabulary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VocabularyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVocabulary" Output="Response" Verb="Get" Noun="Vocabulary" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTranscriptionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TranscriptionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Status" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTranscriptionJobs" Output="DefaultSingleMember" Verb="Get" Noun="TranscriptionJobList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Status">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVocabularies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VocabularyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Status" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListVocabularies" Output="DefaultSingleMember" Verb="Get" Noun="VocabularyList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Status">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTranscriptionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="TranscriptionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TranscriptionJobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartTranscriptionJob" Output="DefaultSingleMember" Verb="Start" Noun="TranscriptionJob" ShouldProcessTarget="TranscriptionJobName" PipelineParameter="TranscriptionJobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateVocabulary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Vocabulary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VocabularyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VocabularyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateVocabulary" Output="Response" Verb="Update" Noun="Vocabulary" ShouldProcessTarget="VocabularyName" PipelineParameter="VocabularyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

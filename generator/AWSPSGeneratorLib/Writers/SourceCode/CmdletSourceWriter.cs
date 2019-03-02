@@ -751,6 +751,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 {
                     aliases.Add(a);
                 }
+
+                if (property.Customization.AutoApplyAlias && property.CmdletParameterName != property.AnalyzedName)
+                {
+                    aliases.Add(property.AnalyzedName);
+                }
             }
 
             // apply a cross-service alias if it's an iteration parameter?
@@ -762,23 +767,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     aliases.Add(iterAlias);
             }
 
-            if (aliases.Count <= 0) return;
-
-            // sort the aliases into ascending order so that it's easier to spot
-            // changes in version control
-            var aliasList = new List<string>(aliases);
-            aliasList.Sort(StringComparer.Ordinal);
-
-            // need to expand otherwise we get Linq output :-(
-            var sb = new StringBuilder("[Alias(");
-            for (var i = 0; i < aliasList.Count; i++)
+            if (aliases.Count > 0)
             {
-                if (i > 0)
-                    sb.Append(",");
-                sb.AppendFormat("\"{0}\"", aliasList[i]);
+                // sort the aliases into ascending order so that it's easier to spot
+                // changes in version control
+                var aliasesString = string.Join(",", aliases
+                    .OrderBy(a => a)
+                    .Select(a => $"\"{a}\""));
+                writer.WriteLine($"[Alias({aliasesString})]");
             }
-            sb.Append(")]");
-            writer.WriteLine(sb);
         }
 
         /// <summary>

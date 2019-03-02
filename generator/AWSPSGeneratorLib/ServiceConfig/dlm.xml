@@ -20,19 +20,19 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateLifecyclePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ExecutionRoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLifecyclePolicy" Output="DefaultSingleMember" Verb="New" Noun="LifecyclePolicy" ShouldProcessTarget="ExecutionRoleArn" PipelineParameter="ExecutionRoleArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLifecyclePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" Output="Void" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LifecyclePolicySummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLifecyclePolicies" Output="DefaultSingleMember" Verb="Get" Noun="LifecyclePolicySummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLifecyclePolicy" Output="DefaultSingleMember" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLifecyclePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateLifecyclePolicy" Output="Void" Verb="Update" Noun="LifecyclePolicy" ShouldProcessTarget="PolicyId" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

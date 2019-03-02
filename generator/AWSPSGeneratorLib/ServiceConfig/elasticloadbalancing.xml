@@ -41,103 +41,103 @@
         <Property>PolicyName</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-ELBTags">
+        <ServiceOperation MethodName="AddTags" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="LoadBalancerNames" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Add-ELBTags">
             <Params />
             <PassThru>
                 <Expression>cmdletContext.Tags</Expression>
                 <Documentation>Returns the collection of Tag objects that were added</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="ApplySecurityGroupsToLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Join" Noun="SecurityGroupToLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SecurityGroups" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ApplySecurityGroupsToLoadBalancer" Output="DefaultSingleMember" Verb="Join" Noun="SecurityGroupToLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="SecurityGroups" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachLoadBalancerToSubnets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LoadBalancerToSubnet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachLoadBalancerToSubnets" Output="DefaultSingleMember" Verb="Add" Noun="LoadBalancerToSubnet" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ConfigureHealthCheck" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="HealthCheck" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ConfigureHealthCheck" Output="DefaultSingleMember" Verb="Set" Noun="HealthCheck" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAppCookieStickinessPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="AppCookieStickinessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName;CookieName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAppCookieStickinessPolicy" Output="Void" Verb="New" Noun="AppCookieStickinessPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;CookieName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLBCookieStickinessPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LBCookieStickinessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName;CookieExpirationPeriod" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLBCookieStickinessPolicy" Output="Void" Verb="New" Noun="LBCookieStickinessPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;CookieExpirationPeriod" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Listeners;AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLoadBalancer" Output="DefaultSingleMember" Verb="New" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Listeners;AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancerListeners" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LoadBalancerListener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Listeners" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLoadBalancerListeners" Output="Void" Verb="New" Noun="LoadBalancerListener" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Listeners" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
             <PassThru>
                 <Expression>cmdletContext.Listeners</Expression>
                 <Documentation>Returns the collection of Listener objects that were created</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LoadBalancerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName;PolicyTypeName;PolicyAttributes" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLoadBalancerPolicy" Output="Void" Verb="New" Noun="LoadBalancerPolicy" ShouldProcessTarget="LoadBalancerName" PositionalParameters="PolicyName;PolicyTypeName;PolicyAttributes" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancerListeners" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LoadBalancerListener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerPorts" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LoadBalancerPorts" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLoadBalancerListeners" Output="Void" Verb="Remove" Noun="LoadBalancerListener" ShouldProcessTarget="LoadBalancerPorts" PositionalParameters="LoadBalancerPorts" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LoadBalancerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLoadBalancerPolicy" Output="Void" Verb="Remove" Noun="LoadBalancerPolicy" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterInstancesFromLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="InstanceFromLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Instances" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterInstancesFromLoadBalancer" Output="DefaultSingleMember" Verb="Remove" Noun="InstanceFromLoadBalancer" ShouldProcessTarget="Instances" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountLimits" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccountLimits" Output="DefaultSingleMember" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeInstanceHealth" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InstanceHealth" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeInstanceHealth" Output="DefaultSingleMember" Verb="Get" Noun="InstanceHealth" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" Output="DefaultSingleMember" Verb="Get" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoadBalancerPolicies" Output="DefaultSingleMember" Verb="Get" Noun="LoadBalancerPolicy" PositionalParameters="PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancerPolicyTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerPolicyType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyTypeNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoadBalancerPolicyTypes" Output="DefaultSingleMember" Verb="Get" Noun="LoadBalancerPolicyType" PipelineParameter="PolicyTypeNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoadBalancers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoadBalancers" Output="DefaultSingleMember" Verb="Get" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ELBTags">
+        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Get-ELBTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachLoadBalancerFromSubnets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="LoadBalancerFromSubnet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachLoadBalancerFromSubnets" Output="DefaultSingleMember" Verb="Dismount" Noun="LoadBalancerFromSubnet" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Subnets" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAvailabilityZonesForLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="AvailabilityZoneForLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableAvailabilityZonesForLoadBalancer" Output="DefaultSingleMember" Verb="Disable" Noun="AvailabilityZoneForLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAvailabilityZonesForLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="AvailabilityZoneForLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableAvailabilityZonesForLoadBalancer" Output="DefaultSingleMember" Verb="Enable" Noun="AvailabilityZoneForLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="AvailabilityZones" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Response" Verb="Edit" Noun="LoadBalancerAttribute" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="InstanceWithLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterInstancesWithLoadBalancer" Output="DefaultSingleMember" Verb="Register" Noun="InstanceWithLoadBalancer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="Instances" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Tags" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-ELBTags">
+        <ServiceOperation MethodName="RemoveTags" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="Tags" PositionalParameters="Tags" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" LegacyAlias="Remove-ELBTags">
             <Params />
             <PassThru>
                 <Expression>cmdletContext.Tags</Expression>
                 <Documentation>Returns the collection of tag keys that were removed</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoadBalancerListenerSSLCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="LoadBalancerListenerSSLCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LoadBalancerPort;SSLCertificateId" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetLoadBalancerListenerSSLCertificate" Output="Void" Verb="Set" Noun="LoadBalancerListenerSSLCertificate" ShouldProcessTarget="LoadBalancerName" PositionalParameters="LoadBalancerPort;SSLCertificateId" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoadBalancerPoliciesForBackendServer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="LoadBalancerPolicyForBackendServer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InstancePort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetLoadBalancerPoliciesForBackendServer" Output="Void" Verb="Set" Noun="LoadBalancerPolicyForBackendServer" ShouldProcessTarget="LoadBalancerName" PositionalParameters="InstancePort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetLoadBalancerPoliciesOfListener" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="LoadBalancerPolicyOfListener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LoadBalancerPort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetLoadBalancerPoliciesOfListener" Output="Void" Verb="Set" Noun="LoadBalancerPolicyOfListener" ShouldProcessTarget="LoadBalancerName" PositionalParameters="LoadBalancerPort;PolicyNames" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

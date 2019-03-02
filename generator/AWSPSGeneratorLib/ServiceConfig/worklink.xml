@@ -20,64 +20,64 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateWebsiteCertificateAuthority" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="WebsiteCertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateWebsiteCertificateAuthority" Output="DefaultSingleMember" Verb="Register" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFleet" Output="DefaultSingleMember" Verb="New" Noun="Fleet" ShouldProcessTarget="FleetName" PipelineParameter="FleetName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFleet" Output="Void" Verb="Remove" Noun="Fleet" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAuditStreamConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AuditStreamConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAuditStreamConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="AuditStreamConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCompanyNetworkConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CompanyNetworkConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCompanyNetworkConfiguration" Output="Response" Verb="Get" Noun="CompanyNetworkConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDevice" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Device" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDevice" Output="Response" Verb="Get" Noun="Device" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDevicePolicyConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DevicePolicyConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDevicePolicyConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="DevicePolicyConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleetMetadata" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFleetMetadata" Output="Response" Verb="Get" Noun="FleetMetadata" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityProviderConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIdentityProviderConfiguration" Output="Response" Verb="Get" Noun="IdentityProviderConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWebsiteCertificateAuthority" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WebsiteCertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWebsiteCertificateAuthority" Output="Response" Verb="Get" Noun="WebsiteCertificateAuthority" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateWebsiteCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="WebsiteCertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateWebsiteCertificateAuthority" Output="Void" Verb="Unregister" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevices" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDevices" Output="DefaultSingleMember" Verb="Get" Noun="DeviceList" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFleets" Output="DefaultSingleMember" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WebsiteCertificateAuthorityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" Output="DefaultSingleMember" Verb="Get" Noun="WebsiteCertificateAuthorityList" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SignOutUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disconnect" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SignOutUser" Output="Void" Verb="Disconnect" Noun="User" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAuditStreamConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AuditStreamConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAuditStreamConfiguration" Output="Void" Verb="Update" Noun="AuditStreamConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCompanyNetworkConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="CompanyNetworkConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateCompanyNetworkConfiguration" Output="Void" Verb="Update" Noun="CompanyNetworkConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDevicePolicyConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="DevicePolicyConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDevicePolicyConfiguration" Output="Void" Verb="Update" Noun="DevicePolicyConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFleetMetadata" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="FleetMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFleetMetadata" Output="Void" Verb="Update" Noun="FleetMetadata" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIdentityProviderConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="IdentityProviderConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FleetArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FleetArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateIdentityProviderConfiguration" Output="Void" Verb="Update" Noun="IdentityProviderConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

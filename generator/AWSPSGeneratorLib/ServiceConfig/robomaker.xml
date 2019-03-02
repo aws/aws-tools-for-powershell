@@ -25,109 +25,109 @@
         <Property>Robot</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDescribeSimulationJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SimulationJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Jobs" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDescribeSimulationJob" Output="Response" Verb="Get" Noun="SimulationJobList" PipelineParameter="Jobs" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelSimulationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="SimulationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Job" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Job" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CancelSimulationJob" Output="Void" Verb="Stop" Noun="SimulationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDeploymentJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DeploymentJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Fleet" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Fleet" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDeploymentJob" Output="Response" Verb="New" Noun="DeploymentJob" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFleet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFleet" Output="Response" Verb="New" Noun="Fleet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRobot" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Robot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRobot" Output="Response" Verb="New" Noun="Robot" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRobotApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RobotApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRobotApplication" Output="Response" Verb="New" Noun="RobotApplication" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRobotApplicationVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="RobotApplicationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CurrentRevisionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateRobotApplicationVersion" Output="Response" Verb="New" Noun="RobotApplicationVersion" ShouldProcessTarget="CurrentRevisionId" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSimulationApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SimulationApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSimulationApplication" Output="Response" Verb="New" Noun="SimulationApplication" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSimulationApplicationVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SimulationApplicationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CurrentRevisionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSimulationApplicationVersion" Output="Response" Verb="New" Noun="SimulationApplicationVersion" ShouldProcessTarget="CurrentRevisionId" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSimulationJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SimulationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IamRole" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IamRole" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSimulationJob" Output="Response" Verb="New" Noun="SimulationJob" ShouldProcessTarget="IamRole" PipelineParameter="IamRole" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFleet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Fleet" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Fleet" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFleet" Output="Void" Verb="Remove" Noun="Fleet" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRobot" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Robot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Robot" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Robot" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRobot" Output="Void" Verb="Remove" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRobotApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RobotApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Application" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRobotApplication" Output="Void" Verb="Remove" Noun="RobotApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSimulationApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SimulationApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Application" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSimulationApplication" Output="Void" Verb="Remove" Noun="SimulationApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterRobot" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="Robot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Robot" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Robot" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterRobot" Output="Response" Verb="Unregister" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeploymentJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Job" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDeploymentJob" Output="Response" Verb="Get" Noun="DeploymentJob" PipelineParameter="Job" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeFleet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Fleet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Fleet" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeFleet" Output="Response" Verb="Get" Noun="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRobot" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Robot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Robot" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeRobot" Output="Response" Verb="Get" Noun="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRobotApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RobotApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeRobotApplication" Output="Response" Verb="Get" Noun="RobotApplication" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSimulationApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SimulationApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSimulationApplication" Output="Response" Verb="Get" Noun="SimulationApplication" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSimulationJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SimulationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Job" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSimulationJob" Output="Response" Verb="Get" Noun="SimulationJob" PipelineParameter="Job" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeploymentJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDeploymentJobs" Output="DefaultSingleMember" Verb="Get" Noun="DeploymentJobList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFleets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FleetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFleets" Output="DefaultSingleMember" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRobotApplications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RobotApplicationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRobotApplications" Output="DefaultSingleMember" Verb="Get" Noun="RobotApplicationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListRobots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RobotList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListRobots" Output="DefaultSingleMember" Verb="Get" Noun="RobotList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSimulationApplications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SimulationApplicationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSimulationApplications" Output="DefaultSingleMember" Verb="Get" Noun="SimulationApplicationList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSimulationJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SimulationJobSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSimulationJobs" Output="DefaultSingleMember" Verb="Get" Noun="SimulationJobSummary" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterRobot" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Robot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Robot" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Robot" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterRobot" Output="Response" Verb="Register" Noun="Robot" ShouldProcessTarget="Robot" PipelineParameter="Robot" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestartSimulationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="SimulationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Job" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Job" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestartSimulationJob" Output="Void" Verb="Restart" Noun="SimulationJob" ShouldProcessTarget="Job" PipelineParameter="Job" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SyncDeploymentJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Sync" Noun="DeploymentJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Fleet" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Fleet" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SyncDeploymentJob" Output="Response" Verb="Sync" Noun="DeploymentJob" ShouldProcessTarget="Fleet" PipelineParameter="Fleet" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRobotApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RobotApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Application" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRobotApplication" Output="Response" Verb="Update" Noun="RobotApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSimulationApplication" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="SimulationApplication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Application" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Application" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateSimulationApplication" Output="Response" Verb="Update" Noun="SimulationApplication" ShouldProcessTarget="Application" PipelineParameter="Application" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

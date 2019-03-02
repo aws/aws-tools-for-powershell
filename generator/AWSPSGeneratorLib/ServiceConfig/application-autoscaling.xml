@@ -20,34 +20,34 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteScalingPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ScalingPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteScalingPolicy" Output="Void" Verb="Remove" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ScheduledAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduledActionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" Verb="Remove" Noun="ScheduledAction" ShouldProcessTarget="ScheduledActionName" PipelineParameter="ScheduledActionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterScalableTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ScalableTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterScalableTarget" Output="Void" Verb="Remove" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalableTargets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalableTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScalableTargets" Output="DefaultSingleMember" Verb="Get" Noun="ScalableTarget" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingActivities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingActivity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScalingActivities" Output="DefaultSingleMember" Verb="Get" Noun="ScalingActivity" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScalingPolicies" Output="DefaultSingleMember" Verb="Get" Noun="ScalingPolicy" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScheduledActions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScheduledAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScheduledActions" Output="DefaultSingleMember" Verb="Get" Noun="ScheduledAction" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScalingPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ScalingPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Write-AASScalingPolicy">
+        <ServiceOperation MethodName="PutScalingPolicy" Output="Response" Verb="Set" Noun="ScalingPolicy" ShouldProcessTarget="PolicyName" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" LegacyAlias="Write-AASScalingPolicy">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutScheduledAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ScheduledAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutScheduledAction" Output="Void" Verb="Set" Noun="ScheduledAction" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterScalableTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ScalableTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceNamespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterScalableTarget" Output="Void" Verb="Add" Noun="ScalableTarget" ShouldProcessTarget="ResourceId" PipelineParameter="ServiceNamespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

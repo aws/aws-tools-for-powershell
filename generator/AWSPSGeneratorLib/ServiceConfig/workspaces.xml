@@ -22,115 +22,115 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateIpGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="IpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateIpGroups" Output="Void" Verb="Register" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeIpRules" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="IpRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AuthorizeIpRules" Output="Void" Verb="Approve" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIpGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="IpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateIpGroup" Output="DefaultSingleMember" Verb="New" Noun="IpGroup" ShouldProcessTarget="GroupName" PipelineParameter="GroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTags" Output="Void" Verb="New" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="ResourceId" NewName="WorkspaceId" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ResourceId" NewName="WorkspaceId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkspaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Workspace" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Workspaces" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Workspaces" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateWorkspaces" Output="Response" Verb="New" Noun="Workspace" ShouldProcessTarget="Workspaces" PipelineParameter="Workspaces" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteIpGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="IpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteIpGroup" Output="Void" Verb="Remove" Noun="IpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="Tag" ShouldProcessTarget="ResourceId" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkspaceImage" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="WorkspaceImage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ImageId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ImageId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteWorkspaceImage" Output="Void" Verb="Remove" Noun="WorkspaceImage" ShouldProcessTarget="ImageId" PipelineParameter="ImageId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccount" Output="Response" Verb="Get" Noun="Account" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountModifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountModification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccountModifications" Output="DefaultSingleMember" Verb="Get" Noun="AccountModification" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClientProperties" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClientProperty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeClientProperties" Output="DefaultSingleMember" Verb="Get" Noun="ClientProperty" PipelineParameter="ResourceIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeIpGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeIpGroups" Output="DefaultSingleMember" Verb="Get" Noun="IpGroup" PipelineParameter="GroupIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" Verb="Get" Noun="Tag" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params>
-                <Param Name="ResourceId" NewName="WorkspaceId" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ResourceId" NewName="WorkspaceId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceBundles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkspaceBundle" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceBundles">
+        <ServiceOperation MethodName="DescribeWorkspaceBundles" Output="DefaultSingleMember" Verb="Get" Noun="WorkspaceBundle" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaceBundles">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceDirectories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkspaceDirectory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceDirectories">
+        <ServiceOperation MethodName="DescribeWorkspaceDirectories" Output="DefaultSingleMember" Verb="Get" Noun="WorkspaceDirectory" PipelineParameter="DirectoryIds" NoPipelineParameter="false" LegacyAlias="Get-WKSWorkspaceDirectories">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceImages" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkspaceImage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ImageIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWorkspaceImages" Output="DefaultSingleMember" Verb="Get" Noun="WorkspaceImage" PipelineParameter="ImageIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Workspace" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaces">
+        <ServiceOperation MethodName="DescribeWorkspaces" Output="DefaultSingleMember" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaces">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkspacesConnectionStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" Output="DefaultSingleMember" Verb="Get" Noun="WorkspacesConnectionStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateIpGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="IpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateIpGroups" Output="Void" Verb="Unregister" Noun="IpGroup" ShouldProcessTarget="GroupIds" PipelineParameter="GroupIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportWorkspaceImage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="WorkspaceImage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ImageName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ImageName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportWorkspaceImage" Output="DefaultSingleMember" Verb="Import" Noun="WorkspaceImage" ShouldProcessTarget="ImageName" PipelineParameter="ImageName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AvailableManagementCidrRangeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAvailableManagementCidrRanges" Output="DefaultSingleMember" Verb="Get" Noun="AvailableManagementCidrRangeList" PipelineParameter="ManagementCidrRangeConstraint" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyAccount" Output="Void" Verb="Edit" Noun="Account" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClientProperties" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClientProperty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClientProperties" Output="Void" Verb="Edit" Noun="ClientProperty" ShouldProcessTarget="ResourceId" PipelineParameter="ClientProperties_ReconnectEnabled" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceProperties" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="WorkspaceProperty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkspaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkspaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyWorkspaceProperties" Output="Void" Verb="Edit" Noun="WorkspaceProperty" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyWorkspaceState" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="WorkspaceState" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkspaceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkspaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyWorkspaceState" Output="Void" Verb="Edit" Noun="WorkspaceState" ShouldProcessTarget="WorkspaceId" PipelineParameter="WorkspaceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootWorkspaces" Output="DefaultSingleMember" Verb="Restart" Noun="Workspace" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params>
-                <Param Name="RebootWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebootWorkspaceRequest" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="RebootWorkspaceRequests" NewName="Request" Alias="RebootWorkspaceRequest" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="RebuildWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebuildWorkspaces" Output="DefaultSingleMember" Verb="Reset" Noun="Workspace" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params>
-                <Param Name="RebuildWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebuildWorkspaceRequest" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeIpRules" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="IpRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeIpRules" Output="Void" Verb="Revoke" Noun="IpRule" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartWorkspaces" Output="DefaultSingleMember" Verb="" Noun="Workspace" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="StartWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StartWorkspaceRequest" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="StopWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopWorkspaces" Output="DefaultSingleMember" Verb="" Noun="Workspace" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="StopWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StopWorkspaceRequest" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkspaces" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TerminateWorkspaces" Output="DefaultSingleMember" Verb="Stop" Noun="Workspace" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params>
-                <Param Name="TerminateWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateWorkspaceRequest" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRulesOfIpGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="RulesOfIpGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateRulesOfIpGroup" Output="Void" Verb="Update" Noun="RulesOfIpGroup" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

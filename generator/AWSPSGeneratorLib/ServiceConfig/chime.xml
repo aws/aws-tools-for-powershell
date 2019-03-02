@@ -23,52 +23,52 @@
         <Property>UserId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchSuspendUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="UserSuspensionBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserIdList" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchSuspendUser" Output="DefaultSingleMember" Verb="Enable" Noun="UserSuspensionBatch" ShouldProcessTarget="AccountId" PipelineParameter="UserIdList" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUnsuspendUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="UserSuspensionBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserIdList" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchUnsuspendUser" Output="DefaultSingleMember" Verb="Disable" Noun="UserSuspensionBatch" ShouldProcessTarget="AccountId" PipelineParameter="UserIdList" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchUpdateUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="UserBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UpdateUserRequestItems" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchUpdateUser" Output="DefaultSingleMember" Verb="Update" Noun="UserBatch" ShouldProcessTarget="AccountId" PipelineParameter="UpdateUserRequestItems" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAccount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAccount" Output="DefaultSingleMember" Verb="New" Noun="Account" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAccount" Output="Void" Verb="Remove" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccount" Output="DefaultSingleMember" Verb="Get" Noun="Account" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountSettings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccountSettings" Output="DefaultSingleMember" Verb="Get" Noun="AccountSetting" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetUser" Output="DefaultSingleMember" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InviteUsers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="UserInvitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserEmailList" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InviteUsers" Output="DefaultSingleMember" Verb="Send" Noun="UserInvitation" ShouldProcessTarget="AccountId" PipelineParameter="UserEmailList" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccounts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAccounts" Output="DefaultSingleMember" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListUsers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListUsers" Output="DefaultSingleMember" Verb="Get" Noun="UserList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="LogoutUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="UserLogout" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="LogoutUser" Output="Void" Verb="Invoke" Noun="UserLogout" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetPersonalPIN" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="PersonalPIN" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResetPersonalPIN" Output="DefaultSingleMember" Verb="Reset" Noun="PersonalPIN" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Account" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAccount" Output="DefaultSingleMember" Verb="Update" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccountSettings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AccountSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAccountSettings" Output="Void" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateUser" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateUser" Output="DefaultSingleMember" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

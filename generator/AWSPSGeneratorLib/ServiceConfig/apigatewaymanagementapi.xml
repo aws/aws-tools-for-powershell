@@ -21,7 +21,7 @@
         <Property>ConnectionId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="PostToConnection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="DataToConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Data" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PostToConnection" Output="Void" Verb="Send" Noun="DataToConnection" ShouldProcessTarget="ConnectionId" PipelineParameter="Data" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

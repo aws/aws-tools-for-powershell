@@ -24,121 +24,121 @@
     </MetadataProperties>
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptQualificationRequest" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Grant" Noun="QualificationRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QualificationRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcceptQualificationRequest" Output="Void" Verb="Grant" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ApproveAssignment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="Assignment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssignmentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssignmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ApproveAssignment" Output="Void" Verb="Approve" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateQualificationWithWorker" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="QualificationToWorker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateQualificationWithWorker" Output="Void" Verb="Add" Noun="QualificationToWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateAdditionalAssignmentsForHIT" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="AdditionalAssignmentsForHIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAdditionalAssignmentsForHIT" Output="Void" Verb="New" Noun="AdditionalAssignmentsForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHIT" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Title" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Title" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHIT" Output="DefaultSingleMember" Verb="New" Noun="HIT" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHITType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HITType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Title" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Title" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHITType" Output="DefaultSingleMember" Verb="New" Noun="HITType" ShouldProcessTarget="Title" PipelineParameter="Title" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHITWithHITType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HITWithHITType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITTypeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITTypeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHITWithHITType" Output="DefaultSingleMember" Verb="New" Noun="HITWithHITType" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQualificationType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="QualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateQualificationType" Output="DefaultSingleMember" Verb="New" Noun="QualificationType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateWorkerBlock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="WorkerBlock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateWorkerBlock" Output="Void" Verb="New" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHIT" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="HIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteHIT" Output="Void" Verb="Remove" Noun="HIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQualificationType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="QualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QualificationTypeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteQualificationType" Output="Void" Verb="Remove" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWorkerBlock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="WorkerBlock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteWorkerBlock" Output="Void" Verb="Remove" Noun="WorkerBlock" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateQualificationFromWorker" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="QualificationFromWorker" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateQualificationFromWorker" Output="Void" Verb="Remove" Noun="QualificationFromWorker" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountBalance" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountBalance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccountBalance" Output="Response" Verb="Get" Noun="AccountBalance" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAssignment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Assignment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssignmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAssignment" Output="Response" Verb="Get" Noun="Assignment" PipelineParameter="AssignmentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFileUploadURL" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FileUploadURL" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFileUploadURL" Output="DefaultSingleMember" Verb="Get" Noun="FileUploadURL" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHIT" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHIT" Output="DefaultSingleMember" Verb="Get" Noun="HIT" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQualificationScore" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QualificationScore" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetQualificationScore" Output="DefaultSingleMember" Verb="Get" Noun="QualificationScore" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQualificationType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetQualificationType" Output="DefaultSingleMember" Verb="Get" Noun="QualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAssignmentsForHIT" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HITAssignmentList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAssignmentsForHIT" Output="DefaultSingleMember" Verb="Get" Noun="HITAssignmentList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListBonusPayments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="BonusPaymentList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListBonusPayments" Output="DefaultSingleMember" Verb="Get" Noun="BonusPaymentList" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HITList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListHITs" Output="DefaultSingleMember" Verb="Get" Noun="HITList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHITsForQualificationType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HITListForQualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListHITsForQualificationType" Output="DefaultSingleMember" Verb="Get" Noun="HITListForQualificationType" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationRequests" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QualificationRequestList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListQualificationRequests" Output="DefaultSingleMember" Verb="Get" Noun="QualificationRequestList" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQualificationTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QualificationTypeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListQualificationTypes" Output="DefaultSingleMember" Verb="Get" Noun="QualificationTypeList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewableHITs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReviewableHITList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListReviewableHITs" Output="DefaultSingleMember" Verb="Get" Noun="ReviewableHITList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReviewPolicyResultList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListReviewPolicyResultsForHIT" Output="Response" Verb="Get" Noun="ReviewPolicyResultList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkerBlocks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkerBlockList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWorkerBlocks" Output="DefaultSingleMember" Verb="Get" Noun="WorkerBlockList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkersWithQualificationType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WorkersWithQualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWorkersWithQualificationType" Output="DefaultSingleMember" Verb="Get" Noun="WorkersWithQualificationType" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="NumResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="NotifyWorkers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="WorkerNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="NotifyWorkers" Output="DefaultSingleMember" Verb="Send" Noun="WorkerNotification" ShouldProcessTarget="WorkerIds" PipelineParameter="WorkerIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectAssignment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="Assignment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssignmentId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssignmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RejectAssignment" Output="Void" Verb="Deny" Noun="Assignment" ShouldProcessTarget="AssignmentId" PipelineParameter="AssignmentId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RejectQualificationRequest" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="QualificationRequest" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QualificationRequestId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationRequestId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RejectQualificationRequest" Output="Void" Verb="Deny" Noun="QualificationRequest" ShouldProcessTarget="QualificationRequestId" PipelineParameter="QualificationRequestId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendBonus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="Bonus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkerId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SendBonus" Output="Void" Verb="Send" Noun="Bonus" ShouldProcessTarget="WorkerId" PipelineParameter="WorkerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SendTestEventNotification" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="TestEventNotification" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SendTestEventNotification" Output="Void" Verb="Send" Noun="TestEventNotification" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateExpirationForHIT" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ExpirationForHIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateExpirationForHIT" Output="Void" Verb="Update" Noun="ExpirationForHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHITReviewStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="HITReviewStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateHITReviewStatus" Output="Void" Verb="Update" Noun="HITReviewStatus" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHITTypeOfHIT" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="HITTypeOfHIT" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateHITTypeOfHIT" Output="Void" Verb="Update" Noun="HITTypeOfHIT" ShouldProcessTarget="HITId" PipelineParameter="HITId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateNotificationSettings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="NotificationSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HITTypeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HITTypeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateNotificationSettings" Output="Void" Verb="Update" Noun="NotificationSetting" ShouldProcessTarget="HITTypeId" PipelineParameter="HITTypeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateQualificationType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="QualificationType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QualificationTypeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QualificationTypeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateQualificationType" Output="DefaultSingleMember" Verb="Update" Noun="QualificationType" ShouldProcessTarget="QualificationTypeId" PipelineParameter="QualificationTypeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

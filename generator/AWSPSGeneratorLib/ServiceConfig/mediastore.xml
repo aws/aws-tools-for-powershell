@@ -20,55 +20,55 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateContainer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Container" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateContainer" Output="DefaultSingleMember" Verb="New" Noun="Container" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContainer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Container" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteContainer" Output="Void" Verb="Remove" Noun="Container" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteContainerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ContainerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteContainerPolicy" Output="Void" Verb="Remove" Noun="ContainerPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCorsPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CorsPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCorsPolicy" Output="Void" Verb="Remove" Noun="CorsPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLifecyclePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLifecyclePolicy" Output="Void" Verb="Remove" Noun="LifecyclePolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContainer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Container" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeContainer" Output="DefaultSingleMember" Verb="Get" Noun="Container" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetContainerPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ContainerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetContainerPolicy" Output="DefaultSingleMember" Verb="Get" Noun="ContainerPolicy" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCorsPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CorsPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCorsPolicy" Output="DefaultSingleMember" Verb="Get" Noun="CorsPolicy" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLifecyclePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLifecyclePolicy" Output="DefaultSingleMember" Verb="Get" Noun="LifecyclePolicy" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListContainers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ContainerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListContainers" Output="DefaultSingleMember" Verb="Get" Noun="ContainerList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutContainerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ContainerPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Policy" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutContainerPolicy" Output="Void" Verb="Write" Noun="ContainerPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="Policy" NoPipelineParameter="false">
             <Params>
-                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="ContainerName" NewName="Name" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="PutCorsPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="CorsPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutCorsPolicy" Output="Void" Verb="Write" Noun="CorsPolicy" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecyclePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="LifecyclePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ContainerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LifecyclePolicy" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutLifecyclePolicy" Output="Void" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="ContainerName" PipelineParameter="LifecyclePolicy" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

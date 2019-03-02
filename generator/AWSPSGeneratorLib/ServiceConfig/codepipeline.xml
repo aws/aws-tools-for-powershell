@@ -20,101 +20,101 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcknowledgeJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcknowledgeJob" Output="DefaultSingleMember" Verb="Confirm" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AcknowledgeThirdPartyJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="ThirdPartyJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcknowledgeThirdPartyJob" Output="DefaultSingleMember" Verb="Confirm" Noun="ThirdPartyJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCustomActionType" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CustomActionType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Category" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCustomActionType" Output="DefaultSingleMember" Verb="New" Noun="CustomActionType" ShouldProcessTarget="Category" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Pipeline" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Pipeline" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreatePipeline" Output="DefaultSingleMember" Verb="New" Noun="Pipeline" ShouldProcessTarget="Pipeline" PipelineParameter="Pipeline" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCustomActionType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CustomActionType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Category" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCustomActionType" Output="Void" Verb="Remove" Noun="CustomActionType" ShouldProcessTarget="Category" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeletePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeletePipeline" Output="Void" Verb="Remove" Noun="Pipeline" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteWebhook" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Webhook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteWebhook" Output="Void" Verb="Remove" Noun="Webhook" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterWebhookWithThirdParty" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="WebhookWithThirdParty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WebhookName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WebhookName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterWebhookWithThirdParty" Output="Void" Verb="Unregister" Noun="WebhookWithThirdParty" ShouldProcessTarget="WebhookName" PipelineParameter="WebhookName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableStageTransition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="StageTransition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableStageTransition" Output="Void" Verb="Disable" Noun="StageTransition" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableStageTransition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="StageTransition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableStageTransition" Output="Void" Verb="Enable" Noun="StageTransition" ShouldProcessTarget="PipelineName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobDetails" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CPJobDetails">
+        <ServiceOperation MethodName="GetJobDetails" Output="DefaultSingleMember" Verb="Get" Noun="JobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPJobDetails">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipeline" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPipeline" Output="Response" Verb="Get" Noun="Pipeline" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPipelineExecution" Output="DefaultSingleMember" Verb="Get" Noun="PipelineExecution" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetPipelineState" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineState" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetPipelineState" Output="Response" Verb="Get" Noun="PipelineState" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetThirdPartyJobDetails" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ThirdPartyJobDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CPThirdPartyJobDetails">
+        <ServiceOperation MethodName="GetThirdPartyJobDetails" Output="DefaultSingleMember" Verb="Get" Noun="ThirdPartyJobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPThirdPartyJobDetails">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActionTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ActionType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListActionTypes" Output="DefaultSingleMember" Verb="Get" Noun="ActionType" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelineExecutions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineExecutionSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPipelineExecutions" Output="DefaultSingleMember" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PipelineList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWebhooks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="WebhookList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MaxResults" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWebhooks" Output="DefaultSingleMember" Verb="Get" Noun="WebhookList" PipelineParameter="MaxResults" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ActionableJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CPActionableJobs">
+        <ServiceOperation MethodName="PollForJobs" Output="DefaultSingleMember" Verb="Get" Noun="ActionableJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableJobs">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForThirdPartyJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ActionableThirdPartyJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CPActionableThirdPartyJobs">
+        <ServiceOperation MethodName="PollForThirdPartyJobs" Output="DefaultSingleMember" Verb="Get" Noun="ActionableThirdPartyJobList" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CPActionableThirdPartyJobs">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutActionRevision" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ActionRevision" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ActionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutActionRevision" Output="Response" Verb="Write" Noun="ActionRevision" ShouldProcessTarget="ActionName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutApprovalResult" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ApprovalResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ActionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutApprovalResult" Output="DefaultSingleMember" Verb="Write" Noun="ApprovalResult" ShouldProcessTarget="ActionName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutJobFailureResult" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="JobFailureResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutJobFailureResult" Output="Void" Verb="Write" Noun="JobFailureResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutJobSuccessResult" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="JobSuccessResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutJobSuccessResult" Output="Void" Verb="Write" Noun="JobSuccessResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutThirdPartyJobFailureResult" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ThirdPartyJobFailureResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutThirdPartyJobFailureResult" Output="Void" Verb="Write" Noun="ThirdPartyJobFailureResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutThirdPartyJobSuccessResult" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ThirdPartyJobSuccessResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutThirdPartyJobSuccessResult" Output="Void" Verb="Write" Noun="ThirdPartyJobSuccessResult" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutWebhook" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Webhook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Webhook_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Webhook_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutWebhook" Output="DefaultSingleMember" Verb="Write" Noun="Webhook" ShouldProcessTarget="Webhook_Name" PipelineParameter="Webhook_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterWebhookWithThirdParty" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="WebhookWithThirdParty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WebhookName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WebhookName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterWebhookWithThirdParty" Output="Void" Verb="Register" Noun="WebhookWithThirdParty" ShouldProcessTarget="WebhookName" PipelineParameter="WebhookName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RetryStageExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Redo" Noun="StageExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PipelineName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RetryStageExecution" Output="DefaultSingleMember" Verb="Redo" Noun="StageExecution" ShouldProcessTarget="PipelineName" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartPipelineExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="PipelineExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartPipelineExecution" Output="DefaultSingleMember" Verb="Start" Noun="PipelineExecution" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdatePipeline" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Pipeline" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Pipeline" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Pipeline" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdatePipeline" Output="DefaultSingleMember" Verb="Update" Noun="Pipeline" ShouldProcessTarget="Pipeline" PipelineParameter="Pipeline" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

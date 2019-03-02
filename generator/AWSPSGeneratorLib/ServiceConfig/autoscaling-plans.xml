@@ -20,22 +20,22 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateScalingPlan" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ScalingPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScalingPlanName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateScalingPlan" Output="DefaultSingleMember" Verb="New" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteScalingPlan" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ScalingPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScalingPlanName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteScalingPlan" Output="Void" Verb="Remove" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlanResources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingPlanResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScalingPlanResources" Output="DefaultSingleMember" Verb="Get" Noun="ScalingPlanResource" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeScalingPlans" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeScalingPlans" Output="DefaultSingleMember" Verb="Get" Noun="ScalingPlan" PipelineParameter="ScalingPlanNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetScalingPlanResourceForecastData" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ScalingPlanResourceForecastData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetScalingPlanResourceForecastData" Output="DefaultSingleMember" Verb="Get" Noun="ScalingPlanResourceForecastData" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateScalingPlan" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ScalingPlan" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScalingPlanName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScalingPlanName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateScalingPlan" Output="Void" Verb="Update" Noun="ScalingPlan" ShouldProcessTarget="ScalingPlanName" PipelineParameter="ScalingPlanName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

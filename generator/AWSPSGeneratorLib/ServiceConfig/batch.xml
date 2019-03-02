@@ -27,52 +27,52 @@
         <Property>JobId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CancelJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CancelJob" Output="Void" Verb="Stop" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateComputeEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ComputeEnvironment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ComputeEnvironmentName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateComputeEnvironment" Output="Response" Verb="New" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironmentName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateJobQueue" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="JobQueue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobQueueName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateJobQueue" Output="Response" Verb="New" Noun="JobQueue" ShouldProcessTarget="JobQueueName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteComputeEnvironment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ComputeEnvironment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ComputeEnvironment" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteComputeEnvironment" Output="Void" Verb="Remove" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteJobQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="JobQueue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobQueue" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobQueue" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteJobQueue" Output="Void" Verb="Remove" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterJobDefinition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="JobDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobDefinition" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobDefinition" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterJobDefinition" Output="Void" Verb="Unregister" Noun="JobDefinition" ShouldProcessTarget="JobDefinition" PipelineParameter="JobDefinition" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeComputeEnvironments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ComputeEnvironment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeComputeEnvironments" Output="DefaultSingleMember" Verb="Get" Noun="ComputeEnvironment" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobDefinitions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeJobDefinitions" Output="DefaultSingleMember" Verb="Get" Noun="JobDefinition" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobQueues" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobQueue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeJobQueues" Output="DefaultSingleMember" Verb="Get" Noun="JobQueue" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Jobs" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeJobs" Output="DefaultSingleMember" Verb="Get" Noun="JobDetail" PipelineParameter="Jobs" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobQueue" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" Verb="Get" Noun="JobList" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterJobDefinition" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="JobDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobDefinitionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobDefinitionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterJobDefinition" Output="Response" Verb="Register" Noun="JobDefinition" ShouldProcessTarget="JobDefinitionName" PipelineParameter="JobDefinitionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SubmitJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SubmitJob" Output="Response" Verb="Submit" Noun="Job" ShouldProcessTarget="JobName" PipelineParameter="JobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TerminateJob" Output="Void" Verb="Remove" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateComputeEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ComputeEnvironment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ComputeEnvironment" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateComputeEnvironment" Output="Response" Verb="Update" Noun="ComputeEnvironment" ShouldProcessTarget="ComputeEnvironment" PipelineParameter="ComputeEnvironment" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateJobQueue" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="JobQueue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobQueue" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobQueue" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateJobQueue" Output="Response" Verb="Update" Noun="JobQueue" ShouldProcessTarget="JobQueue" PipelineParameter="JobQueue" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

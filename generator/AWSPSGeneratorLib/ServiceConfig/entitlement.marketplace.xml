@@ -20,7 +20,7 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="GetEntitlements" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntitlementList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetEntitlements" Output="DefaultSingleMember" Verb="Get" Noun="EntitlementList" PipelineParameter="ProductCode" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

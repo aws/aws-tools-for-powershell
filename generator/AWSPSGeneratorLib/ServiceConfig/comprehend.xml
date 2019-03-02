@@ -20,130 +20,130 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchDetectDominantLanguage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="DominantLanguageBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDetectDominantLanguage" Output="Response" Verb="Find" Noun="DominantLanguageBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectEntities" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="EntityBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDetectEntities" Output="Response" Verb="Find" Noun="EntityBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectKeyPhrases" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="KeyPhrasesBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDetectKeyPhrases" Output="Response" Verb="Find" Noun="KeyPhrasesBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectSentiment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="SentimentBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDetectSentiment" Output="Response" Verb="Find" Noun="SentimentBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDetectSyntax" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="SyntaxBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDetectSyntax" Output="Response" Verb="Find" Noun="SyntaxBatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDocumentClassifier" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DocumentClassifier" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentClassifierName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDocumentClassifier" Output="DefaultSingleMember" Verb="New" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierName" PipelineParameter="DocumentClassifierName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEntityRecognizer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EntityRecognizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RecognizerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RecognizerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEntityRecognizer" Output="DefaultSingleMember" Verb="New" Noun="EntityRecognizer" ShouldProcessTarget="RecognizerName" PipelineParameter="RecognizerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDocumentClassifier" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DocumentClassifier" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentClassifierArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDocumentClassifier" Output="Void" Verb="Remove" Noun="DocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEntityRecognizer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EntityRecognizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EntityRecognizerArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEntityRecognizer" Output="Void" Verb="Remove" Noun="EntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentClassificationJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentClassificationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDocumentClassificationJob" Output="DefaultSingleMember" Verb="Get" Noun="DocumentClassificationJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDocumentClassifier" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentClassifier" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDocumentClassifier" Output="DefaultSingleMember" Verb="Get" Noun="DocumentClassifier" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDominantLanguageDetectionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DominantLanguageDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDominantLanguageDetectionJob" Output="DefaultSingleMember" Verb="Get" Noun="DominantLanguageDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntitiesDetectionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntitiesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEntitiesDetectionJob" Output="DefaultSingleMember" Verb="Get" Noun="EntitiesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEntityRecognizer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntityRecognizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEntityRecognizer" Output="DefaultSingleMember" Verb="Get" Noun="EntityRecognizer" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeKeyPhrasesDetectionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="KeyPhrasesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeKeyPhrasesDetectionJob" Output="DefaultSingleMember" Verb="Get" Noun="KeyPhrasesDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSentimentDetectionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SentimentDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSentimentDetectionJob" Output="DefaultSingleMember" Verb="Get" Noun="SentimentDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTopicsDetectionJob" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TopicsDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTopicsDetectionJob" Output="DefaultSingleMember" Verb="Get" Noun="TopicsDetectionJob" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectDominantLanguage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="DominantLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectDominantLanguage" Output="DefaultSingleMember" Verb="Find" Noun="DominantLanguage" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectEntities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Entity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectEntities" Output="DefaultSingleMember" Verb="Find" Noun="Entity" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectKeyPhrases" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="KeyPhrase" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectKeyPhrases" Output="DefaultSingleMember" Verb="Find" Noun="KeyPhrase" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectSentiment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Sentiment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectSentiment" Output="Response" Verb="Find" Noun="Sentiment" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetectSyntax" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Syntax" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetectSyntax" Output="DefaultSingleMember" Verb="Find" Noun="Syntax" PipelineParameter="Text" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassificationJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentClassificationJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter_JobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDocumentClassificationJobs" Output="DefaultSingleMember" Verb="Get" Noun="DocumentClassificationJobList" PipelineParameter="Filter_JobName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDocumentClassifiers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DocumentClassifierList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDocumentClassifiers" Output="DefaultSingleMember" Verb="Get" Noun="DocumentClassifierList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DominantLanguageDetectionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDominantLanguageDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="DominantLanguageDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntitiesDetectionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntitiesDetectionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEntitiesDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="EntitiesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEntityRecognizers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EntityRecognizerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter_Status" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEntityRecognizers" Output="DefaultSingleMember" Verb="Get" Noun="EntityRecognizerList" PipelineParameter="Filter_Status" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="KeyPhrasesDetectionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListKeyPhrasesDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="KeyPhrasesDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListSentimentDetectionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SentimentDetectionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListSentimentDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTopicsDetectionJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TopicsDetectionJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTopicsDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDocumentClassificationJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DocumentClassificationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentClassifierArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartDocumentClassificationJob" Output="Response" Verb="Start" Noun="DocumentClassificationJob" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDominantLanguageDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DominantLanguageDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputDataConfig" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartDominantLanguageDetectionJob" Output="Response" Verb="Start" Noun="DominantLanguageDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartEntitiesDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="EntitiesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputDataConfig" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartEntitiesDetectionJob" Output="Response" Verb="Start" Noun="EntitiesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartKeyPhrasesDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="KeyPhrasesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputDataConfig" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartKeyPhrasesDetectionJob" Output="Response" Verb="Start" Noun="KeyPhrasesDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartSentimentDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="SentimentDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputDataConfig" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartSentimentDetectionJob" Output="Response" Verb="Start" Noun="SentimentDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartTopicsDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="TopicsDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputDataConfig" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartTopicsDetectionJob" Output="Response" Verb="Start" Noun="TopicsDetectionJob" AnonymousShouldProcessTarget="true" PipelineParameter="InputDataConfig" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDominantLanguageDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="DominantLanguageDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopDominantLanguageDetectionJob" Output="Response" Verb="Stop" Noun="DominantLanguageDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopEntitiesDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="EntitiesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopEntitiesDetectionJob" Output="Response" Verb="Stop" Noun="EntitiesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopKeyPhrasesDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="KeyPhrasesDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopKeyPhrasesDetectionJob" Output="Response" Verb="Stop" Noun="KeyPhrasesDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopSentimentDetectionJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="SentimentDetectionJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="JobId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopSentimentDetectionJob" Output="Response" Verb="Stop" Noun="SentimentDetectionJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTrainingDocumentClassifier" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="TrainingDocumentClassifier" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DocumentClassifierArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopTrainingDocumentClassifier" Output="Void" Verb="Stop" Noun="TrainingDocumentClassifier" ShouldProcessTarget="DocumentClassifierArn" PipelineParameter="DocumentClassifierArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopTrainingEntityRecognizer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="TrainingEntityRecognizer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EntityRecognizerArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopTrainingEntityRecognizer" Output="Void" Verb="Stop" Noun="TrainingEntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

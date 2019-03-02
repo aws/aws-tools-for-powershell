@@ -19,16 +19,16 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="BatchMeterUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MeteringDataBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchMeterUsage" Output="Response" Verb="Send" Noun="MeteringDataBatch" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="MeterUsage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MeteringData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="MeterUsage" Output="DefaultSingleMember" Verb="Send" Noun="MeteringData" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="Usage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterUsage" Output="Response" Verb="Register" Noun="Usage" ShouldProcessTarget="ProductCode" PipelineParameter="ProductCode" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResolveCustomer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CustomerMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RegistrationToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResolveCustomer" Output="Response" Verb="Get" Noun="CustomerMetadata" PipelineParameter="RegistrationToken" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

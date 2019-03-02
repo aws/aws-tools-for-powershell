@@ -20,91 +20,91 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptInvitation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InvitationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InvitationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcceptInvitation" Output="Void" Verb="Confirm" Noun="Invitation" ShouldProcessTarget="InvitationId" PipelineParameter="InvitationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDisableStandards" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="StandardsBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StandardsSubscriptionArns" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StandardsSubscriptionArns" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDisableStandards" Output="DefaultSingleMember" Verb="Disable" Noun="StandardsBatch" ShouldProcessTarget="StandardsSubscriptionArns" PipelineParameter="StandardsSubscriptionArns" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchEnableStandards" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="StandardsBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StandardsSubscriptionRequests" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StandardsSubscriptionRequests" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchEnableStandards" Output="DefaultSingleMember" Verb="Enable" Noun="StandardsBatch" ShouldProcessTarget="StandardsSubscriptionRequests" PipelineParameter="StandardsSubscriptionRequests" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchImportFindings" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="FindingsBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Findings" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Findings" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchImportFindings" Output="Response" Verb="Import" Noun="FindingsBatch" ShouldProcessTarget="Findings" PipelineParameter="Findings" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInsight" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Insight" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInsight" Output="DefaultSingleMember" Verb="New" Noun="Insight" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountDetails" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountDetails" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateMembers" Output="DefaultSingleMember" Verb="New" Noun="Member" ShouldProcessTarget="AccountDetails" PipelineParameter="AccountDetails" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeclineInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Deny" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeclineInvitations" Output="DefaultSingleMember" Verb="Deny" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInsight" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Insight" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InsightArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InsightArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInsight" Output="DefaultSingleMember" Verb="Remove" Noun="Insight" ShouldProcessTarget="InsightArn" PipelineParameter="InsightArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Invitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInvitations" Output="DefaultSingleMember" Verb="Remove" Noun="Invitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMembers" Output="DefaultSingleMember" Verb="Remove" Noun="Member" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableImportFindingsForProduct" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="ImportFindingsForProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductSubscriptionArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductSubscriptionArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableImportFindingsForProduct" Output="Void" Verb="Disable" Noun="ImportFindingsForProduct" ShouldProcessTarget="ProductSubscriptionArn" PipelineParameter="ProductSubscriptionArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSecurityHub" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="SecurityHub" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableSecurityHub" Output="Void" Verb="Disable" Noun="SecurityHub" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateFromMasterAccount" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MasterAccountAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateFromMasterAccount" Output="Void" Verb="Remove" Noun="MasterAccountAssociation" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateMembers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MemberAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateMembers" Output="Void" Verb="Remove" Noun="MemberAssociation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableImportFindingsForProduct" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="ImportFindingsForProduct" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableImportFindingsForProduct" Output="DefaultSingleMember" Verb="Enable" Noun="ImportFindingsForProduct" ShouldProcessTarget="ProductArn" PipelineParameter="ProductArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableSecurityHub" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="SecurityHub" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableSecurityHub" Output="Void" Verb="Enable" Noun="SecurityHub" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetEnabledStandards" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnabledStandard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetEnabledStandards" Output="DefaultSingleMember" Verb="Get" Noun="EnabledStandard" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFindings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFindings" Output="DefaultSingleMember" Verb="Get" Noun="Finding" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsightResults" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InsightResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InsightArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInsightResults" Output="DefaultSingleMember" Verb="Get" Noun="InsightResult" PipelineParameter="InsightArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInsights" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Insight" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InsightArns" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInsights" Output="DefaultSingleMember" Verb="Get" Noun="Insight" PipelineParameter="InsightArns" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInvitationsCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InvitationsCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInvitationsCount" Output="DefaultSingleMember" Verb="Get" Noun="InvitationsCount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMasterAccount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MasterAccount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMasterAccount" Output="DefaultSingleMember" Verb="Get" Noun="MasterAccount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMembers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Member" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMembers" Output="Response" Verb="Get" Noun="Member" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InviteMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MemberInvitation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountIds" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InviteMembers" Output="DefaultSingleMember" Verb="Send" Noun="MemberInvitation" ShouldProcessTarget="AccountIds" PipelineParameter="AccountIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEnabledProductsForImport" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnabledProductsForImportList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEnabledProductsForImport" Output="DefaultSingleMember" Verb="Get" Noun="EnabledProductsForImportList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListInvitations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InvitationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListInvitations" Output="DefaultSingleMember" Verb="Get" Noun="InvitationList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMembers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MemberList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListMembers" Output="DefaultSingleMember" Verb="Get" Noun="MemberList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFindings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFindings" Output="Void" Verb="Update" Noun="Finding" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateInsight" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Insight" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InsightArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InsightArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateInsight" Output="Void" Verb="Update" Noun="Insight" ShouldProcessTarget="InsightArn" PipelineParameter="InsightArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

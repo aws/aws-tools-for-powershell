@@ -20,55 +20,55 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateCertificateAuthority" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCertificateAuthority" Output="DefaultSingleMember" Verb="New" Noun="CertificateAuthority" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCertificateAuthorityAuditReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="CertificateAuthorityAuditReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCertificateAuthorityAuditReport" Output="Response" Verb="New" Noun="CertificateAuthorityAuditReport" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCertificateAuthority" Output="Void" Verb="Remove" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificateAuthority" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCertificateAuthority" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthority" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeCertificateAuthorityAuditReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthorityAuditReport" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AuditReportId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeCertificateAuthorityAuditReport" Output="Response" Verb="Get" Noun="CertificateAuthorityAuditReport" PipelineParameter="AuditReportId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Certificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCertificate" Output="Response" Verb="Get" Noun="Certificate" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificateAuthorityCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthorityCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCertificateAuthorityCertificate" Output="Response" Verb="Get" Noun="CertificateAuthorityCertificate" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCertificateAuthorityCsr" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthorityCsr" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetCertificateAuthorityCsr" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthorityCsr" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportCertificateAuthorityCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Import" Noun="CertificateAuthorityCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportCertificateAuthorityCertificate" Output="Void" Verb="Import" Noun="CertificateAuthorityCertificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IssueCertificate" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Certificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IssueCertificate" Output="DefaultSingleMember" Verb="New" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCertificateAuthorities" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthorityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListCertificateAuthorities" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateAuthorityTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="CertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreCertificateAuthority" Output="Void" Verb="Restore" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="Certificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeCertificate" Output="Void" Verb="Revoke" Noun="Certificate" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="CertificateAuthorityTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagCertificateAuthority" Output="Void" Verb="Add" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="CertificateAuthorityTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagCertificateAuthority" Output="Void" Verb="Remove" Noun="CertificateAuthorityTag" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateCertificateAuthority" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="CertificateAuthority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateAuthorityArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateCertificateAuthority" Output="Void" Verb="Update" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

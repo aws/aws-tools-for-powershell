@@ -22,202 +22,202 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddFacetToObject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="FacetToObject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddFacetToObject" Output="Void" Verb="Add" Noun="FacetToObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ApplySchema" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ApplySchema" Output="Response" Verb="Add" Noun="Schema" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachObject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Connect" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachObject" Output="DefaultSingleMember" Verb="Connect" Noun="Object" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="Policy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachPolicy" Output="Void" Verb="Mount" Noun="Policy" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachToIndex" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="ObjectToIndex" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachToIndex" Output="DefaultSingleMember" Verb="Mount" Noun="ObjectToIndex" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachTypedLink" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="TypedLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachTypedLink" Output="DefaultSingleMember" Verb="Mount" Noun="TypedLink" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchRead" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Read" Noun="DirectoryBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchRead" Output="DefaultSingleMember" Verb="Read" Noun="DirectoryBatch" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchWrite" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DirectoryBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchWrite" Output="DefaultSingleMember" Verb="Write" Noun="DirectoryBatch" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDirectory" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Directory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDirectory" Output="Response" Verb="New" Noun="Directory" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Facet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateFacet" Output="Void" Verb="New" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIndex" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Index" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateIndex" Output="DefaultSingleMember" Verb="New" Noun="Index" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateObject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DirectoryObject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateObject" Output="DefaultSingleMember" Verb="New" Noun="DirectoryObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSchema" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSchema" Output="DefaultSingleMember" Verb="New" Noun="Schema" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTypedLinkFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TypedLinkFacet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTypedLinkFacet" Output="Void" Verb="New" Noun="TypedLinkFacet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Directory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDirectory" Output="DefaultSingleMember" Verb="Remove" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Facet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteFacet" Output="Void" Verb="Remove" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteObject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DirectoryObject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteObject" Output="Void" Verb="Remove" Noun="DirectoryObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSchema" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSchema" Output="DefaultSingleMember" Verb="Remove" Noun="Schema" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTypedLinkFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TypedLinkFacet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTypedLinkFacet" Output="Void" Verb="Remove" Noun="TypedLinkFacet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachFromIndex" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="ObjectFromIndex" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachFromIndex" Output="DefaultSingleMember" Verb="Dismount" Noun="ObjectFromIndex" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachObject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disconnect" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachObject" Output="DefaultSingleMember" Verb="Disconnect" Noun="Object" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="PolicyFromObject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachPolicy" Output="Void" Verb="Dismount" Noun="PolicyFromObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachTypedLink" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="TypedLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachTypedLink" Output="Void" Verb="Dismount" Noun="TypedLink" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="Directory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableDirectory" Output="DefaultSingleMember" Verb="Disable" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="Directory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableDirectory" Output="DefaultSingleMember" Verb="Enable" Noun="Directory" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAppliedSchemaVersion" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AppliedSchemaVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAppliedSchemaVersion" Output="DefaultSingleMember" Verb="Get" Noun="AppliedSchemaVersion" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDirectory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DirectoryMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDirectory" Output="DefaultSingleMember" Verb="Get" Noun="DirectoryMetadata" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetFacet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Facet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetFacet" Output="DefaultSingleMember" Verb="Get" Noun="Facet" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLinkAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LinkAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLinkAttributes" Output="DefaultSingleMember" Verb="Get" Noun="LinkAttribute" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttributeNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetObjectAttributes" Output="DefaultSingleMember" Verb="Get" Noun="ObjectAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObjectInformation" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectInformation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetObjectInformation" Output="Response" Verb="Get" Noun="ObjectInformation" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetSchemaAsJson" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SchemaAsJson" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetSchemaAsJson" Output="Response" Verb="Get" Noun="SchemaAsJson" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTypedLinkFacetInformation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TypedLinkFacetInformation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTypedLinkFacetInformation" Output="DefaultSingleMember" Verb="Get" Noun="TypedLinkFacetInformation" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAppliedSchemaArns" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AppliedSchemaArn" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAppliedSchemaArns" Output="DefaultSingleMember" Verb="Get" Noun="AppliedSchemaArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAttachedIndices" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectIndex" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAttachedIndices" Output="DefaultSingleMember" Verb="Get" Noun="ObjectIndex" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDevelopmentSchemaArns" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DevelopmentSchemaArn" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MaxResults" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDevelopmentSchemaArns" Output="DefaultSingleMember" Verb="Get" Noun="DevelopmentSchemaArn" PipelineParameter="MaxResults" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDirectories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Directory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDirectories" Output="DefaultSingleMember" Verb="Get" Noun="Directory" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFacetAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FacetAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFacetAttributes" Output="DefaultSingleMember" Verb="Get" Noun="FacetAttribute" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListFacetNames" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FacetName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListFacetNames" Output="DefaultSingleMember" Verb="Get" Noun="FacetName" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIncomingTypedLinks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IncomingTypedLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIncomingTypedLinks" Output="DefaultSingleMember" Verb="Get" Noun="IncomingTypedLink" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListIndex" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Index" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListIndex" Output="DefaultSingleMember" Verb="Get" Noun="Index" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListManagedSchemaArns" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ManagedSchemaArn" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListManagedSchemaArns" Output="DefaultSingleMember" Verb="Get" Noun="ManagedSchemaArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectAttributeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ObjectReference_Selector" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectAttributes" Output="DefaultSingleMember" Verb="Get" Noun="ObjectAttributeList" PipelineParameter="ObjectReference_Selector" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectChildren" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectChild" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectChildren" Output="DefaultSingleMember" Verb="Get" Noun="ObjectChild" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectParentPaths" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectParentPath" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectParentPaths" Output="DefaultSingleMember" Verb="Get" Noun="ObjectParentPath" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectParents" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectParent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectParents" Output="Response" Verb="Get" Noun="ObjectParent" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListObjectPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListObjectPolicies" Output="DefaultSingleMember" Verb="Get" Noun="ObjectPolicy" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOutgoingTypedLinks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OutgoingTypedLink" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOutgoingTypedLinks" Output="DefaultSingleMember" Verb="Get" Noun="OutgoingTypedLink" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPolicyAttachments" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PolicyAttachment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPolicyAttachments" Output="DefaultSingleMember" Verb="Get" Noun="PolicyAttachment" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListPublishedSchemaArns" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PublishedSchemaArn" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListPublishedSchemaArns" Output="DefaultSingleMember" Verb="Get" Noun="PublishedSchemaArn" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypedLinkFacetAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TypedLinkFacetAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTypedLinkFacetAttributes" Output="DefaultSingleMember" Verb="Get" Noun="TypedLinkFacetAttribute" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTypedLinkFacetNames" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TypedLinkFacetName" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTypedLinkFacetNames" Output="DefaultSingleMember" Verb="Get" Noun="TypedLinkFacetName" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="LookupPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DirectoryPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="LookupPolicy" Output="DefaultSingleMember" Verb="Get" Noun="DirectoryPolicy" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PublishSchema" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Publish" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DevelopmentSchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PublishSchema" Output="DefaultSingleMember" Verb="Publish" Noun="Schema" ShouldProcessTarget="DevelopmentSchemaArn" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSchemaFromJson" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="SchemaFromJson" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutSchemaFromJson" Output="DefaultSingleMember" Verb="Write" Noun="SchemaFromJson" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveFacetFromObject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="FacetFromObject" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveFacetFromObject" Output="Void" Verb="Remove" Noun="FacetFromObject" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Facet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateFacet" Output="Void" Verb="Update" Noun="Facet" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLinkAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="LinkAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateLinkAttributes" Output="Void" Verb="Update" Noun="LinkAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateObjectAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ObjectAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateObjectAttributes" Output="DefaultSingleMember" Verb="Update" Noun="ObjectAttribute" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateSchema" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateSchema" Output="DefaultSingleMember" Verb="Update" Noun="Schema" ShouldProcessTarget="SchemaArn" PipelineParameter="SchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTypedLinkFacet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TypedLinkFacet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateTypedLinkFacet" Output="Void" Verb="Update" Noun="TypedLinkFacet" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradeAppliedSchema" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AppliedSchema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DirectoryArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpgradeAppliedSchema" Output="Response" Verb="Update" Noun="AppliedSchema" ShouldProcessTarget="DirectoryArn" PipelineParameter="DirectoryArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpgradePublishedSchema" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="PublishedSchema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DevelopmentSchemaArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpgradePublishedSchema" Output="DefaultSingleMember" Verb="Update" Noun="PublishedSchema" ShouldProcessTarget="DevelopmentSchemaArn" PipelineParameter="DevelopmentSchemaArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

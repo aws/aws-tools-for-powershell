@@ -27,123 +27,123 @@
         <Property>SequenceToken</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateKmsKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="KmsKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="KmsKeyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KmsKeyId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateKmsKey" Output="Void" Verb="Register" Noun="KmsKey" ShouldProcessTarget="KmsKeyId" PipelineParameter="KmsKeyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelExportTask" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="ExportTask" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CancelExportTask" Output="Void" Verb="Stop" Noun="ExportTask" ShouldProcessTarget="TaskId" PipelineParameter="TaskId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateExportTask" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ExportTask" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateExportTask" Output="DefaultSingleMember" Verb="New" Noun="ExportTask" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LogGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLogGroup" Output="Void" Verb="New" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLogStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LogStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogStreamName" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLogStream" Output="Void" Verb="New" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogStreamName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Destination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DestinationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDestination" Output="Void" Verb="Remove" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LogGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLogGroup" Output="Void" Verb="Remove" Noun="LogGroup" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLogStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LogStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLogStream" Output="Void" Verb="Remove" Noun="LogStream" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MetricFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FilterName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteMetricFilter" Output="Void" Verb="Remove" Noun="MetricFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResourcePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteResourcePolicy" Output="Void" Verb="Remove" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RetentionPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteRetentionPolicy" Output="Void" Verb="Remove" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSubscriptionFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SubscriptionFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="FilterName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSubscriptionFilter" Output="Void" Verb="Remove" Noun="SubscriptionFilter" ShouldProcessTarget="FilterName" PositionalParameters="LogGroupName" PipelineParameter="FilterName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDestinations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Destination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDestinations" Output="DefaultSingleMember" Verb="Get" Noun="Destination" PipelineParameter="DestinationNamePrefix" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeExportTasks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ExportTask" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLExportTasks">
+        <ServiceOperation MethodName="DescribeExportTasks" Output="DefaultSingleMember" Verb="Get" Noun="ExportTask" PipelineParameter="TaskId" NoPipelineParameter="false" LegacyAlias="Get-CWLExportTasks">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLLogGroups">
+        <ServiceOperation MethodName="DescribeLogGroups" Output="DefaultSingleMember" Verb="Get" Noun="LogGroup" PipelineParameter="LogGroupNamePrefix" NoPipelineParameter="false" LegacyAlias="Get-CWLLogGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLogStreams" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLLogStreams">
+        <ServiceOperation MethodName="DescribeLogStreams" Output="DefaultSingleMember" Verb="Get" Noun="LogStream" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogStreams">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeMetricFilters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLMetricFilters">
+        <ServiceOperation MethodName="DescribeMetricFilters" Output="DefaultSingleMember" Verb="Get" Noun="MetricFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLMetricFilters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeQueries" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Query" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeQueries" Output="DefaultSingleMember" Verb="Get" Noun="Query" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResourcePolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeResourcePolicies" Output="DefaultSingleMember" Verb="Get" Noun="ResourcePolicy" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSubscriptionFilters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SubscriptionFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLSubscriptionFilters">
+        <ServiceOperation MethodName="DescribeSubscriptionFilters" Output="DefaultSingleMember" Verb="Get" Noun="SubscriptionFilter" PipelineParameter="LogGroupName" NoPipelineParameter="false" LegacyAlias="Get-CWLSubscriptionFilters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateKmsKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="KmsKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateKmsKey" Output="Void" Verb="Unregister" Noun="KmsKey" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="FilterLogEvents" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="FilteredLogEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="FilterLogEvents" Output="Response" Verb="Get" Noun="FilteredLogEvent" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogEvents" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWLLogEvents">
+        <ServiceOperation MethodName="GetLogEvents" Output="Response" Verb="Get" Noun="LogEvent" PositionalParameters="LogGroupName" PipelineParameter="LogStreamName" NoPipelineParameter="false" LegacyAlias="Get-CWLLogEvents">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogGroupFields" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogGroupField" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLogGroupFields" Output="DefaultSingleMember" Verb="Get" Noun="LogGroupField" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLogRecord" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogRecord" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogRecordPointer" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLogRecord" Output="DefaultSingleMember" Verb="Get" Noun="LogRecord" PipelineParameter="LogRecordPointer" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryResults" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueryResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetQueryResults" Output="Response" Verb="Get" Noun="QueryResult" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsLogGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LogGroupTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsLogGroup" Output="DefaultSingleMember" Verb="Get" Noun="LogGroupTag" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDestination" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Destination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DestinationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutDestination" Output="DefaultSingleMember" Verb="Write" Noun="Destination" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDestinationPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="DestinationPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DestinationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DestinationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutDestinationPolicy" Output="Void" Verb="Write" Noun="DestinationPolicy" ShouldProcessTarget="DestinationName" PipelineParameter="DestinationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutLogEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="LogEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" MetadataProperties="RejectedLogEventsInfo" RemapMemoryStreamParameters="true" LegacyAlias="Write-CWLLogEvents">
+        <ServiceOperation MethodName="PutLogEvents" Output="DefaultSingleMember" Verb="Write" Noun="LogEvent" ShouldProcessTarget="LogStreamName" PositionalParameters="LogGroupName;LogStreamName" PipelineParameter="SequenceToken" NoPipelineParameter="false" MetadataProperties="RejectedLogEventsInfo" LegacyAlias="Write-CWLLogEvents">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="MetricFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutMetricFilter" Output="Void" Verb="Write" Noun="MetricFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResourcePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ResourcePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutResourcePolicy" Output="DefaultSingleMember" Verb="Write" Noun="ResourcePolicy" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRetentionPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="RetentionPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RetentionInDays" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRetentionPolicy" Output="Void" Verb="Write" Noun="RetentionPolicy" ShouldProcessTarget="LogGroupName" PositionalParameters="RetentionInDays" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params>
-                <Param Name="RetentionInDays" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="RetentionInDays" AutoRename="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="PutSubscriptionFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="SubscriptionFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutSubscriptionFilter" Output="Void" Verb="Write" Noun="SubscriptionFilter" ShouldProcessTarget="LogGroupName" PositionalParameters="FilterName;FilterPattern" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartQuery" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Query" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryString" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartQuery" Output="DefaultSingleMember" Verb="Start" Noun="Query" ShouldProcessTarget="LogGroupName" PipelineParameter="QueryString" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopQuery" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Query" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QueryId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopQuery" Output="DefaultSingleMember" Verb="Stop" Noun="Query" ShouldProcessTarget="QueryId" PipelineParameter="QueryId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagLogGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LogGroupTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagLogGroup" Output="Void" Verb="Add" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TestMetricFilter" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="MetricFilter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestMetricFilter" Output="DefaultSingleMember" Verb="Test" Noun="MetricFilter" PositionalParameters="LogEventMessages" PipelineParameter="FilterPattern" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagLogGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LogGroupTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LogGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagLogGroup" Output="Void" Verb="Remove" Noun="LogGroupTag" ShouldProcessTarget="LogGroupName" PipelineParameter="LogGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

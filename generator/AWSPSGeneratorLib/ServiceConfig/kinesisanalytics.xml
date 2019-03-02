@@ -22,55 +22,55 @@
         <Property>ApplicationName</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Output="Void" Verb="Add" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationInput" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationInput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddApplicationInput" Output="Void" Verb="Add" Noun="ApplicationInput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationInputProcessingConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CurrentApplicationVersionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" Output="Void" Verb="Add" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationOutput" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddApplicationOutput" Output="Void" Verb="Add" Noun="ApplicationOutput" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddApplicationReferenceDataSource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ApplicationReferenceDataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddApplicationReferenceDataSource" Output="Void" Verb="Add" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateApplication" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateApplication" Output="DefaultSingleMember" Verb="New" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApplication" Output="Void" Verb="Remove" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CloudWatchLoggingOptionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" Output="Void" Verb="Remove" Noun="ApplicationCloudWatchLoggingOption" ShouldProcessTarget="CloudWatchLoggingOptionId" PipelineParameter="CloudWatchLoggingOptionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CurrentApplicationVersionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" Output="Void" Verb="Remove" Noun="ApplicationInputProcessingConfiguration" ShouldProcessTarget="CurrentApplicationVersionId" PipelineParameter="CurrentApplicationVersionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationOutput" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationOutput" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="OutputId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OutputId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApplicationOutput" Output="Void" Verb="Remove" Noun="ApplicationOutput" ShouldProcessTarget="OutputId" PipelineParameter="OutputId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ApplicationReferenceDataSource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReferenceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReferenceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteApplicationReferenceDataSource" Output="Void" Verb="Remove" Noun="ApplicationReferenceDataSource" ShouldProcessTarget="ReferenceId" PipelineParameter="ReferenceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeApplication" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeApplication" Output="DefaultSingleMember" Verb="Get" Noun="Application" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DiscoverInputSchema" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="InputSchema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DiscoverInputSchema" Output="Response" Verb="Find" Noun="InputSchema" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListApplications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListApplications" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartApplication" Output="Void" Verb="Start" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopApplication" Output="Void" Verb="Stop" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateApplication" Output="Void" Verb="Update" Noun="Application" ShouldProcessTarget="ApplicationName" PipelineParameter="ApplicationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

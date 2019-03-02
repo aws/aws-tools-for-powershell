@@ -24,70 +24,70 @@
         <Property>Arn</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverEndpointId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpAddress" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateResolverEndpointIpAddress" Output="DefaultSingleMember" Verb="Add" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AssociateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverRuleId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateResolverRule" Output="DefaultSingleMember" Verb="Add" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateResolverEndpoint" Output="DefaultSingleMember" Verb="New" Noun="ResolverEndpoint" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateResolverRule" Output="DefaultSingleMember" Verb="New" Noun="ResolverRule" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverEndpointId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteResolverEndpoint" Output="DefaultSingleMember" Verb="Remove" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverRuleId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteResolverRule" Output="DefaultSingleMember" Verb="Remove" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverEndpointId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IpAddress" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateResolverEndpointIpAddress" Output="DefaultSingleMember" Verb="Remove" Noun="ResolverEndpointIpAddressAssociation" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="IpAddress" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverRuleId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateResolverRule" Output="DefaultSingleMember" Verb="Remove" Noun="ResolverRuleAssociation" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResolverEndpoint" Output="DefaultSingleMember" Verb="Get" Noun="ResolverEndpoint" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResolverRule" Output="DefaultSingleMember" Verb="Get" Noun="ResolverRule" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRuleAssociation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResolverRuleAssociation" Output="DefaultSingleMember" Verb="Get" Noun="ResolverRuleAssociation" PipelineParameter="ResolverRuleAssociationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetResolverRulePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRulePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Arn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetResolverRulePolicy" Output="DefaultSingleMember" Verb="Get" Noun="ResolverRulePolicy" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpointIpAddressList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResolverEndpointIpAddresses" Output="DefaultSingleMember" Verb="Get" Noun="ResolverEndpointIpAddressList" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverEndpoints" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverEndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResolverEndpoints" Output="DefaultSingleMember" Verb="Get" Noun="ResolverEndpointList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRuleAssociations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleAssociationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResolverRuleAssociations" Output="DefaultSingleMember" Verb="Get" Noun="ResolverRuleAssociationList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResolverRules" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResolverRuleList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResolverRules" Output="DefaultSingleMember" Verb="Get" Noun="ResolverRuleList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="MaxResults">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutResolverRulePolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResolverRulePolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Arn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutResolverRulePolicy" Output="DefaultSingleMember" Verb="Set" Noun="ResolverRulePolicy" ShouldProcessTarget="Arn" PipelineParameter="ResolverRulePolicy" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverEndpoint" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ResolverEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverEndpointId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateResolverEndpoint" Output="DefaultSingleMember" Verb="Update" Noun="ResolverEndpoint" ShouldProcessTarget="ResolverEndpointId" PipelineParameter="ResolverEndpointId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateResolverRule" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ResolverRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResolverRuleId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResolverRuleId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateResolverRule" Output="DefaultSingleMember" Verb="Update" Noun="ResolverRule" ShouldProcessTarget="ResolverRuleId" PipelineParameter="ResolverRuleId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -38,187 +38,187 @@
         <Property>Id</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateVPCWithHostedZone" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="VPCWithHostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HostedZoneId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AssociateVPCWithHostedZone" Output="DefaultSingleMember" Verb="Register" Noun="VPCWithHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeResourceRecordSets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ResourceRecordSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HostedZoneId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ChangeResourceRecordSets" Output="DefaultSingleMember" Verb="Edit" Noun="ResourceRecordSet" ShouldProcessTarget="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="TagsForResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" Verb="Edit" Noun="TagsForResource" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHealthCheck" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HealthCheck" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CallerReference" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHealthCheck" Output="Response" Verb="New" Noun="HealthCheck" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" PipelineParameter="CallerReference" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHostedZone" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHostedZone" Output="Response" Verb="New" Noun="HostedZone" ShouldProcessTarget="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateQueryLoggingConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="QueryLoggingConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HostedZoneId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateQueryLoggingConfig" Output="Response" Verb="New" Noun="QueryLoggingConfig" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ReusableDelegationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HostedZoneId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" Verb="New" Noun="ReusableDelegationSet" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TrafficPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTrafficPolicy" Output="Response" Verb="New" Noun="TrafficPolicy" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicyInstance" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TrafficPolicyInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTrafficPolicyInstance" Output="Response" Verb="New" Noun="TrafficPolicyInstance" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTrafficPolicyVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TrafficPolicyVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTrafficPolicyVersion" Output="Response" Verb="New" Noun="TrafficPolicyVersion" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVPCAssociationAuthorization" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="VPCAssociationAuthorization" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VPC_VPCId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VPC_VPCId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateVPCAssociationAuthorization" Output="Response" Verb="New" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHealthCheck" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="HealthCheck" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HealthCheckId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HealthCheckId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteHealthCheck" Output="Void" Verb="Remove" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHostedZone" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="HostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteHostedZone" Output="DefaultSingleMember" Verb="Remove" Noun="HostedZone" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteQueryLoggingConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="QueryLoggingConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteQueryLoggingConfig" Output="Void" Verb="Remove" Noun="QueryLoggingConfig" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteReusableDelegationSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ReusableDelegationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteReusableDelegationSet" Output="Void" Verb="Remove" Noun="ReusableDelegationSet" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TrafficPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTrafficPolicy" Output="Void" Verb="Remove" Noun="TrafficPolicy" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TrafficPolicyInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Output="Void" Verb="Remove" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VPCAssociationAuthorization" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VPC_VPCId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VPC_VPCId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" Output="Void" Verb="Remove" Noun="VPCAssociationAuthorization" ShouldProcessTarget="VPC_VPCId" PipelineParameter="VPC_VPCId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisassociateVPCFromHostedZone" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="VPCFromHostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HostedZoneId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisassociateVPCFromHostedZone" Output="DefaultSingleMember" Verb="Unregister" Noun="VPCFromHostedZone" ShouldProcessTarget="HostedZoneId" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccountLimit" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Limit" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAccountLimit" Output="DefaultSingleMember" Verb="Get" Noun="AccountLimit" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="Limit">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetChange" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Change" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetChange" Output="DefaultSingleMember" Verb="Get" Noun="Change" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetCheckerIpRanges" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CheckerIpRange" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53CheckerIpRanges">
+        <ServiceOperation MethodName="GetCheckerIpRanges" Output="DefaultSingleMember" Verb="Get" Noun="CheckerIpRange" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-R53CheckerIpRanges">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetGeoLocation" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GeoLocation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetGeoLocation" Output="DefaultSingleMember" Verb="Get" Noun="GeoLocation" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheck" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HealthCheck" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HealthCheckId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHealthCheck" Output="DefaultSingleMember" Verb="Get" Noun="HealthCheck" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HealthCheckCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHealthCheckCount" Output="DefaultSingleMember" Verb="Get" Noun="HealthCheckCount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckLastFailureReason" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HealthCheckLastFailureReason" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HealthCheckId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHealthCheckLastFailureReason" Output="DefaultSingleMember" Verb="Get" Noun="HealthCheckLastFailureReason" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHealthCheckStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HealthCheckStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HealthCheckId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHealthCheckStatus" Output="DefaultSingleMember" Verb="Get" Noun="HealthCheckStatus" PipelineParameter="HealthCheckId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZone" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHostedZone" Output="Response" Verb="Get" Noun="HostedZone" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZoneCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostedZoneCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHostedZoneCount" Output="DefaultSingleMember" Verb="Get" Noun="HostedZoneCount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetHostedZoneLimit" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostedZoneLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="Limit" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetHostedZoneLimit" Output="DefaultSingleMember" Verb="Get" Noun="HostedZoneLimit" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="Limit">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetQueryLoggingConfig" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueryLoggingConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetQueryLoggingConfig" Output="DefaultSingleMember" Verb="Get" Noun="QueryLoggingConfig" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReusableDelegationSet" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReusableDelegationSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReusableDelegationSet" Output="DefaultSingleMember" Verb="Get" Noun="ReusableDelegationSet" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReusableDelegationSetLimit" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReusableDelegationSetLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DelegationSetId" NoPipelineParameter="false" MetadataProperties="Limit" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReusableDelegationSetLimit" Output="DefaultSingleMember" Verb="Get" Noun="ReusableDelegationSetLimit" PipelineParameter="DelegationSetId" NoPipelineParameter="false" MetadataProperties="Limit">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTrafficPolicy" Output="DefaultSingleMember" Verb="Get" Noun="TrafficPolicy" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicyInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicyInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTrafficPolicyInstance" Output="DefaultSingleMember" Verb="Get" Noun="TrafficPolicyInstance" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicyInstanceCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" Output="DefaultSingleMember" Verb="Get" Noun="TrafficPolicyInstanceCount" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListGeoLocations" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GeoLocationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="IsTruncated;MaxItems" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53GeoLocations">
+        <ServiceOperation MethodName="ListGeoLocations" Output="Response" Verb="Get" Noun="GeoLocationList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="IsTruncated;MaxItems" LegacyAlias="Get-R53GeoLocations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHealthChecks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HealthCheckList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53HealthChecks">
+        <ServiceOperation MethodName="ListHealthChecks" Output="DefaultSingleMember" Verb="Get" Noun="HealthCheckList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" LegacyAlias="Get-R53HealthChecks">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZones" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HostedZoneList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DelegationSetId" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53HostedZones">
+        <ServiceOperation MethodName="ListHostedZones" Output="DefaultSingleMember" Verb="Get" Noun="HostedZoneList" PipelineParameter="DelegationSetId" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" LegacyAlias="Get-R53HostedZones">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListHostedZonesByName" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListHostedZonesByName" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListQueryLoggingConfigs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueryLoggingConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListQueryLoggingConfigs" Output="DefaultSingleMember" Verb="Get" Noun="QueryLoggingConfigList" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" TruncatedFlag="IsTruncated" ServicePageSize="100" Exclusions="" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceRecordSet" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" Verb="Get" Noun="ResourceRecordSet" PositionalParameters="StartRecordName;StartRecordType" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ListReusableDelegationSets" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReusableDelegationSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53ReusableDelegationSets">
+        <ServiceOperation MethodName="ListReusableDelegationSets" Output="DefaultSingleMember" Verb="Get" Noun="ReusableDelegationSetList" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="Marker;MaxItems" LegacyAlias="Get-R53ReusableDelegationSets">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagsForResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="TagsForResource" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResources" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagsForResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53TagsForResources">
+        <ServiceOperation MethodName="ListTagsForResources" Output="DefaultSingleMember" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceIds" NoPipelineParameter="false" LegacyAlias="Get-R53TagsForResources">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicies" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrafficPolicies" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstances" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicyInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="IsTruncated;MaxItems" RemapMemoryStreamParameters="true" LegacyAlias="Get-R53TrafficPolicyInstances">
+        <ServiceOperation MethodName="ListTrafficPolicyInstances" Output="Response" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="IsTruncated;MaxItems" LegacyAlias="Get-R53TrafficPolicyInstances">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" Output="Response" Verb="Get" Noun="TrafficPolicyInstancesByHostedZone" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" Output="Response" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTrafficPolicyVersions" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VPCAssociationAuthorizationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="NextToken" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Output="Response" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params>
-                <Param Name="HostedZoneId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Id" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="HostedZoneId" Alias="Id" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="TestDNSAnswer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="DNSAnswer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TestDNSAnswer" Output="Response" Verb="Test" Noun="DNSAnswer" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHealthCheck" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateHealthCheck" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHostedZoneComment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="HostedZoneComment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateHostedZoneComment" Output="DefaultSingleMember" Verb="Update" Noun="HostedZoneComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficPolicyComment" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TrafficPolicyComment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateTrafficPolicyComment" Output="DefaultSingleMember" Verb="Update" Noun="TrafficPolicyComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateTrafficPolicyInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="TrafficPolicyInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Id" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateTrafficPolicyInstance" Output="DefaultSingleMember" Verb="Update" Noun="TrafficPolicyInstance" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

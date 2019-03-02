@@ -20,175 +20,175 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="RoleToDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" Verb="Add" Noun="RoleToDBCluster" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="SourceIdentifierToSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" Output="DefaultSingleMember" Verb="Add" Noun="SourceIdentifierToSubscription" ShouldProcessTarget="SourceIdentifier" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddTagsToResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="PendingMaintenanceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" Output="DefaultSingleMember" Verb="Submit" Noun="PendingMaintenanceAction" ShouldProcessTarget="ResourceIdentifier" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceDBClusterParameterGroupIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyDBClusterParameterGroup" Output="DefaultSingleMember" Verb="Copy" Noun="DBClusterParameterGroup" ShouldProcessTarget="SourceDBClusterParameterGroupIdentifier" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="DBClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceDBClusterSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceDBClusterSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyDBClusterSnapshot" Output="DefaultSingleMember" Verb="Copy" Noun="DBClusterSnapshot" ShouldProcessTarget="SourceDBClusterSnapshotIdentifier" PipelineParameter="SourceDBClusterSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyDBParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceDBParameterGroupIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceDBParameterGroupIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyDBParameterGroup" Output="DefaultSingleMember" Verb="Copy" Noun="DBParameterGroup" ShouldProcessTarget="SourceDBParameterGroupIdentifier" PipelineParameter="SourceDBParameterGroupIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBCluster" Output="DefaultSingleMember" Verb="New" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBClusterParameterGroup" Output="DefaultSingleMember" Verb="New" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBClusterSnapshot" Output="DefaultSingleMember" Verb="New" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBInstance" Output="DefaultSingleMember" Verb="New" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBParameterGroup" Output="DefaultSingleMember" Verb="New" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDBSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DBSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDBSubnetGroup" Output="DefaultSingleMember" Verb="New" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEventSubscription" Output="DefaultSingleMember" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBCluster" Output="DefaultSingleMember" Verb="Remove" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" Verb="Remove" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBClusterSnapshot" Output="DefaultSingleMember" Verb="Remove" Noun="DBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBInstance" Output="DefaultSingleMember" Verb="Remove" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBParameterGroup" Output="Void" Verb="Remove" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDBSubnetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DBSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDBSubnetGroup" Output="Void" Verb="Remove" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEventSubscription" Output="DefaultSingleMember" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterParameterGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBClusterParameterGroups" Output="DefaultSingleMember" Verb="Get" Noun="DBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBClusterParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBClusterParameters" Output="DefaultSingleMember" Verb="Get" Noun="DBClusterParameter" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBClusters" Output="DefaultSingleMember" Verb="Get" Noun="DBCluster" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBClusterSnapshotAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Output="DefaultSingleMember" Verb="Get" Noun="DBClusterSnapshotAttribute" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBClusterSnapshots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBClusterSnapshots" Output="DefaultSingleMember" Verb="Get" Noun="DBClusterSnapshot" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBEngineVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBEngineVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Engine" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBEngineVersions" Output="DefaultSingleMember" Verb="Get" Noun="DBEngineVersion" PipelineParameter="Engine" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBInstances" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBInstances" Output="DefaultSingleMember" Verb="Get" Noun="DBInstance" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBParameterGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBParameterGroups" Output="DefaultSingleMember" Verb="Get" Noun="DBParameterGroup" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBParameters" Output="DefaultSingleMember" Verb="Get" Noun="DBParameter" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDBSubnetGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DBSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDBSubnetGroups" Output="DefaultSingleMember" Verb="Get" Noun="DBSubnetGroup" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EngineDefaultClusterParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" Output="DefaultSingleMember" Verb="Get" Noun="EngineDefaultClusterParameter" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEngineDefaultParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EngineDefaultParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" Output="DefaultSingleMember" Verb="Get" Noun="EngineDefaultParameter" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventCategories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventCategory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceType" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEventCategories" Output="DefaultSingleMember" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" Verb="Get" Noun="Event" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="DefaultSingleMember" Verb="Get" Noun="EventSubscription" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OrderableDBInstanceOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Engine" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" Output="DefaultSingleMember" Verb="Get" Noun="OrderableDBInstanceOption" PipelineParameter="Engine" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribePendingMaintenanceActions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PendingMaintenanceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" Output="DefaultSingleMember" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ValidDBInstanceModifications" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="DefaultSingleMember" Verb="Get" Noun="ValidDBInstanceModifications" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="FailoverDBCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DBClusterFailover" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="FailoverDBCluster" Output="DefaultSingleMember" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTagList" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBCluster" Output="DefaultSingleMember" Verb="Edit" Noun="DBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBClusterParameterGroup" Output="DefaultSingleMember" Verb="Edit" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBClusterSnapshotAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" Output="DefaultSingleMember" Verb="Edit" Noun="DBClusterSnapshotAttribute" ShouldProcessTarget="DBClusterSnapshotIdentifier" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBInstance" Output="DefaultSingleMember" Verb="Edit" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBParameterGroup" Output="DefaultSingleMember" Verb="Edit" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyDBSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DBSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyDBSubnetGroup" Output="DefaultSingleMember" Verb="Edit" Noun="DBSubnetGroup" ShouldProcessTarget="DBSubnetGroupName" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyEventSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyEventSubscription" Output="DefaultSingleMember" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Convert" Noun="ReadReplicaDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Output="DefaultSingleMember" Verb="Convert" Noun="ReadReplicaDBCluster" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootDBInstance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="DBInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootDBInstance" Output="DefaultSingleMember" Verb="Restart" Noun="DBInstance" ShouldProcessTarget="DBInstanceIdentifier" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="RoleFromDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RoleArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" Verb="Remove" Noun="RoleFromDBCluster" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SourceIdentifierFromSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" Output="DefaultSingleMember" Verb="Remove" Noun="SourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier" PipelineParameter="SourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetDBClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="DBClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResetDBClusterParameterGroup" Output="DefaultSingleMember" Verb="Reset" Noun="DBClusterParameterGroup" ShouldProcessTarget="DBClusterParameterGroupName" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetDBParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="DBParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResetDBParameterGroup" Output="DefaultSingleMember" Verb="Reset" Noun="DBParameterGroup" ShouldProcessTarget="DBParameterGroupName" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="DBClusterFromSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" Output="DefaultSingleMember" Verb="Restore" Noun="DBClusterFromSnapshot" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreDBClusterToPointInTime" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="DBClusterToPointInTime" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreDBClusterToPointInTime" Output="DefaultSingleMember" Verb="Restore" Noun="DBClusterToPointInTime" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

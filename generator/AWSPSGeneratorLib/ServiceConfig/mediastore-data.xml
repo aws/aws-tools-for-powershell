@@ -20,19 +20,19 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteObject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Path" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteObject" Output="Void" Verb="Remove" Noun="Object" ShouldProcessTarget="Path" PipelineParameter="Path" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeObject" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ObjectMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeObject" Output="Response" Verb="Get" Noun="ObjectMetadata" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetObject" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Object" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="ETag" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetObject" Output="Response" Verb="Get" Noun="Object" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="ETag">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListItems" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ItemList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListItems" Output="DefaultSingleMember" Verb="Get" Noun="ItemList" PipelineParameter="Path" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutObject" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutObject" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

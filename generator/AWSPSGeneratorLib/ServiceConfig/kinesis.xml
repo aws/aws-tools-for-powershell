@@ -26,89 +26,89 @@
     </MetadataProperties>
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="AddTagsToStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="TagsToStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddTagsToStream" Output="Void" Verb="Add" Noun="TagsToStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Stream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ShardCount" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateStream" Output="Void" Verb="New" Noun="Stream" ShouldProcessTarget="StreamName" PositionalParameters="ShardCount" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DecreaseStreamRetentionPeriod" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="StreamRetentionPeriodDecrease" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DecreaseStreamRetentionPeriod" Output="Void" Verb="Request" Noun="StreamRetentionPeriodDecrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Stream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteStream" Output="Void" Verb="Remove" Noun="Stream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterStreamConsumer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="StreamConsumer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConsumerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConsumerARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeregisterStreamConsumer" Output="Void" Verb="Unregister" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLimits" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Limit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLimits" Output="Response" Verb="Get" Noun="Limit" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStream" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Stream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStream" Output="DefaultSingleMember" Verb="Get" Noun="Stream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamConsumer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamConsumer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConsumerARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStreamConsumer" Output="DefaultSingleMember" Verb="Get" Noun="StreamConsumer" PipelineParameter="ConsumerARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStreamSummary" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStreamSummary" Output="DefaultSingleMember" Verb="Get" Noun="StreamSummary" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableEnhancedMonitoring" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="EnhancedMonitoring" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableEnhancedMonitoring" Output="Response" Verb="Disable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableEnhancedMonitoring" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="EnhancedMonitoring" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableEnhancedMonitoring" Output="Response" Verb="Enable" Noun="EnhancedMonitoring" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRecords" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Record" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ShardIterator" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRecords" Output="Response" Verb="Get" Noun="Record" PipelineParameter="ShardIterator" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetShardIterator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ShardIterator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ShardId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetShardIterator" Output="DefaultSingleMember" Verb="Get" Noun="ShardIterator" PipelineParameter="ShardId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IncreaseStreamRetentionPeriod" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="StreamRetentionPeriodIncrease" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IncreaseStreamRetentionPeriod" Output="Void" Verb="Request" Noun="StreamRetentionPeriodIncrease" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListShards" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ShardList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListShards" Output="DefaultSingleMember" Verb="Get" Noun="ShardList" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreamConsumers" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamConsumerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamARN" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListStreamConsumers" Output="DefaultSingleMember" Verb="Get" Noun="StreamConsumerList" PipelineParameter="StreamARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListStreams" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="StreamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-KINStreams">
+        <ServiceOperation MethodName="ListStreams" Output="Response" Verb="Get" Noun="StreamList" PositionalParameters="Limit" PipelineParameter="ExclusiveStartStreamName" NoPipelineParameter="false" LegacyAlias="Get-KINStreams">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForStream" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagsForStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Limit" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForStream" Output="Response" Verb="Get" Noun="TagsForStream" PositionalParameters="Limit" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="MergeShards" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Merge" Noun="Shard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ShardToMerge;AdjacentShardToMerge" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="MergeShards" Output="Void" Verb="Merge" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToMerge;AdjacentShardToMerge" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRecord" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecords" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="MultipleRecord" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Records" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRecords" Output="Response" Verb="Write" Noun="MultipleRecord" ShouldProcessTarget="StreamName" PipelineParameter="Records" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterStreamConsumer" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="StreamConsumer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConsumerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConsumerName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterStreamConsumer" Output="DefaultSingleMember" Verb="Register" Noun="StreamConsumer" ShouldProcessTarget="ConsumerName" PipelineParameter="ConsumerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TagsFromStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveTagsFromStream" Output="Void" Verb="Remove" Noun="TagsFromStream" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
             <PassThru>
                 <Expression>cmdletContext.TagKeys</Expression>
                 <Documentation>Returns the collection of tag keys that were removed</Documentation>
             </PassThru>
         </ServiceOperation>
-        <ServiceOperation MethodName="SplitShard" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Split" Noun="Shard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SplitShard" Output="Void" Verb="Split" Noun="Shard" ShouldProcessTarget="StreamName" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartStreamEncryption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="StreamEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartStreamEncryption" Output="Void" Verb="Start" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopStreamEncryption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="StreamEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopStreamEncryption" Output="Void" Verb="Stop" Noun="StreamEncryption" ShouldProcessTarget="StreamName" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateShardCount" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="ShardCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="StreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateShardCount" Output="Response" Verb="Update" Noun="ShardCount" ShouldProcessTarget="StreamName" PositionalParameters="ScalingType" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

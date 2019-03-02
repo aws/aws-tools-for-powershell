@@ -13,7 +13,7 @@
     <VerbMappings />
     <NounMappings />
     <Params>
-        <Param Name="AccountId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="-" ExclusiveParameters="" AutoConvert="None" />
+        <Param Name="AccountId" DefaultValue="-" />
     </Params>
     <AdditionalNamespaces />
     <CustomAliases />
@@ -31,117 +31,117 @@
         <Property>UploadId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AbortMultipartUpload" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="MultipartUpload" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UploadId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UploadId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AbortMultipartUpload" Output="Void" Verb="Remove" Noun="MultipartUpload" ShouldProcessTarget="UploadId" PipelineParameter="UploadId" NoPipelineParameter="false">
             <Params>
-                <Param Name="UploadId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="MultipartUploadId" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="UploadId" Alias="MultipartUploadId" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="AbortVaultLock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="VaultLock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AbortVaultLock" Output="Void" Verb="Stop" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToVault" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="TagsToVault" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AddTagsToVault" Output="Void" Verb="Add" Noun="TagsToVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteMultipartUpload" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CompleteMultipartUpload" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CompleteVaultLock" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Complete" Noun="VaultLock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LockId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LockId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CompleteVaultLock" Output="Void" Verb="Complete" Noun="VaultLock" ShouldProcessTarget="LockId" PipelineParameter="LockId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateVault" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Vault" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateVault" Output="DefaultSingleMember" Verb="New" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteArchive" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Archive" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ArchiveId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ArchiveId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteArchive" Output="Void" Verb="Remove" Noun="Archive" ShouldProcessTarget="ArchiveId" PipelineParameter="ArchiveId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVault" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Vault" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVault" Output="Void" Verb="Remove" Noun="Vault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVaultAccessPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VaultAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVaultAccessPolicy" Output="Void" Verb="Remove" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteVaultNotifications" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="VaultNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteVaultNotifications" Output="Void" Verb="Remove" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeJob" Output="Response" Verb="Get" Noun="Job" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeVault" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Vault" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeVault" Output="Response" Verb="Get" Noun="Vault" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDataRetrievalPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DataRetrievalPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDataRetrievalPolicy" Output="DefaultSingleMember" Verb="Get" Noun="DataRetrievalPolicy" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetJobOutput" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobOutput" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetJobOutput" Output="Response" Verb="Get" Noun="JobOutput" Exclude="true" ShouldProcessTarget="" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultAccessPolicy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VaultAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVaultAccessPolicy" Output="DefaultSingleMember" Verb="Get" Noun="VaultAccessPolicy" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultLock" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VaultLock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVaultLock" Output="Response" Verb="Get" Noun="VaultLock" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetVaultNotifications" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VaultNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetVaultNotifications" Output="DefaultSingleMember" Verb="Get" Noun="VaultNotification" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Job" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InitiateJob" Output="Response" Verb="Start" Noun="Job" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params>
-                <Param Name="JobParameters_Description" NewName="JobDescription" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_ArchiveId" NewName="ArchiveId" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_Format" NewName="OutputFormat" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_InventoryRetrievalParameters" NewName="InventoryRetrieval" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_OutputLocation" NewName="OutputLocation" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_RetrievalByteRange" NewName="RetrievalByteRange" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_SelectParameters" NewName="Select" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_SNSTopic" NewName="SNSTopic" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_Tier" NewName="Tier" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="JobParameters_Type" NewName="JobType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="JobParameters_Description" NewName="JobDescription" />
+                <Param Name="JobParameters_ArchiveId" NewName="ArchiveId" />
+                <Param Name="JobParameters_Format" NewName="OutputFormat" />
+                <Param Name="JobParameters_InventoryRetrievalParameters" NewName="InventoryRetrieval" />
+                <Param Name="JobParameters_OutputLocation" NewName="OutputLocation" />
+                <Param Name="JobParameters_RetrievalByteRange" NewName="RetrievalByteRange" />
+                <Param Name="JobParameters_SelectParameters" NewName="Select" />
+                <Param Name="JobParameters_SNSTopic" NewName="SNSTopic" />
+                <Param Name="JobParameters_Tier" NewName="Tier" />
+                <Param Name="JobParameters_Type" NewName="JobType" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateMultipartUpload" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InitiateMultipartUpload" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="InitiateVaultLock" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="VaultLock" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="InitiateVaultLock" Output="DefaultSingleMember" Verb="Start" Noun="VaultLock" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListJobs" Output="DefaultSingleMember" Verb="Get" Noun="JobList" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMultipartUploads" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MultipartUploadList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListMultipartUploads" Output="DefaultSingleMember" Verb="Get" Noun="MultipartUploadList" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="UploadIdMarker" Next="Marker" EmitLimit="Limit" ServicePageSize="50" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListParts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListParts" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListProvisionedCapacity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProvisionedCapacityList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListProvisionedCapacity" Output="DefaultSingleMember" Verb="Get" Noun="ProvisionedCapacityList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForVault" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VaultTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForVault" Output="DefaultSingleMember" Verb="Get" Noun="VaultTagList" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListVaults" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VaultList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListVaults" Output="DefaultSingleMember" Verb="Get" Noun="VaultList" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseProvisionedCapacity" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ProvisionedCapacityPurchase" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PurchaseProvisionedCapacity" Output="DefaultSingleMember" Verb="New" Noun="ProvisionedCapacityPurchase" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromVault" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="TagsFromVault" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RemoveTagsFromVault" Output="Void" Verb="Remove" Noun="TagsFromVault" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetDataRetrievalPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="DataRetrievalPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccountId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AccountId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetDataRetrievalPolicy" Output="Void" Verb="Set" Noun="DataRetrievalPolicy" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVaultAccessPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="VaultAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetVaultAccessPolicy" Output="Void" Verb="Set" Noun="VaultAccessPolicy" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetVaultNotifications" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="VaultNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VaultName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="VaultName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetVaultNotifications" Output="Void" Verb="Set" Noun="VaultNotification" ShouldProcessTarget="VaultName" PipelineParameter="VaultName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadArchive" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UploadArchive" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UploadMultipartPart" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UploadMultipartPart" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

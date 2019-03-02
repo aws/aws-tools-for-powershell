@@ -19,40 +19,40 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateDeliveryStream" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="DeliveryStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDeliveryStream" Output="DefaultSingleMember" Verb="New" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DeliveryStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" Verb="Remove" Noun="DeliveryStream" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDeliveryStream" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliveryStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDeliveryStream" Output="DefaultSingleMember" Verb="Get" Noun="DeliveryStream" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDeliveryStreams" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliveryStreamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDeliveryStreams" Output="Response" Verb="Get" Noun="DeliveryStreamList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTagsForDeliveryStream" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TagsForDeliveryStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListTagsForDeliveryStream" Output="Response" Verb="Get" Noun="TagsForDeliveryStream" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecord" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRecord" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutRecordBatch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="RecordBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Records" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutRecordBatch" Output="Response" Verb="Write" Noun="RecordBatch" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="Records" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartDeliveryStreamEncryption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DeliveryStreamEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartDeliveryStreamEncryption" Output="Void" Verb="Start" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopDeliveryStreamEncryption" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="DeliveryStreamEncryption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopDeliveryStreamEncryption" Output="Void" Verb="Stop" Noun="DeliveryStreamEncryption" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TagDeliveryStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="DeliveryStreamTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TagDeliveryStream" Output="Void" Verb="Add" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UntagDeliveryStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="DeliveryStreamTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UntagDeliveryStream" Output="Void" Verb="Remove" Noun="DeliveryStreamTag" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Destination" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDestination" Output="Void" Verb="Update" Noun="Destination" ShouldProcessTarget="DeliveryStreamName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

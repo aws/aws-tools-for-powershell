@@ -20,13 +20,13 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteReportDefinition" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ReportDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReportName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReportName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteReportDefinition" Output="DefaultSingleMember" Verb="Remove" Noun="ReportDefinition" ShouldProcessTarget="ReportName" PipelineParameter="ReportName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReportDefinitions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReportDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CURReportDefinitions">
+        <ServiceOperation MethodName="DescribeReportDefinitions" Output="DefaultSingleMember" Verb="Get" Noun="ReportDefinition" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-CURReportDefinitions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutReportDefinition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="ReportDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReportDefinition_ReportName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutReportDefinition" Output="Void" Verb="Write" Noun="ReportDefinition" ShouldProcessTarget="ReportDefinition_ReportName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

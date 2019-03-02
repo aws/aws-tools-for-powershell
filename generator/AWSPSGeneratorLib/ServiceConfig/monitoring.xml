@@ -32,71 +32,71 @@
         <Property>Namespace</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="DeleteAlarms" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Alarm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlarmNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlarmNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAlarms" Output="Void" Verb="Remove" Noun="Alarm" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDashboards" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Dashboard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DashboardNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDashboards" Output="Void" Verb="Remove" Noun="Dashboard" ShouldProcessTarget="DashboardNames" PipelineParameter="DashboardNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AlarmHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAlarmHistory" Output="DefaultSingleMember" Verb="Get" Noun="AlarmHistory" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params>
-                <Param Name="EndDateUtc" NewName="UtcEndDate" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndDate" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndDate" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndDate instead." />
-                <Param Name="StartDateUtc" NewName="UtcStartDate" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartDate" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartDate" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartDate instead." />
+                <Param Name="EndDateUtc" NewName="UtcEndDate" AutoApplyAlias="false" />
+                <Param Name="EndDate" ExclusiveParameters="UtcEndDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndDate instead." />
+                <Param Name="StartDateUtc" NewName="UtcStartDate" AutoApplyAlias="false" />
+                <Param Name="StartDate" ExclusiveParameters="UtcStartDate" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartDate instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarms" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Alarm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlarmNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAlarms" Output="DefaultSingleMember" Verb="Get" Noun="Alarm" PipelineParameter="AlarmNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAlarmsForMetric" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AlarmForMetric" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAlarmsForMetric" Output="DefaultSingleMember" Verb="Get" Noun="AlarmForMetric" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableAlarmActions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="AlarmAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlarmNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlarmNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableAlarmActions" Output="Void" Verb="Disable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableAlarmActions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="AlarmAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlarmNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AlarmNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableAlarmActions" Output="Void" Verb="Enable" Noun="AlarmAction" ShouldProcessTarget="AlarmNames" PipelineParameter="AlarmNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDashboard" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Dashboard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDashboard" Output="Response" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMetricData" Output="DefaultSingleMember" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricStatistics" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWMetricStatistics">
+        <ServiceOperation MethodName="GetMetricStatistics" Output="Response" Verb="Get" Noun="MetricStatistic" PositionalParameters="MetricName;Dimensions" PipelineParameter="Namespace" NoPipelineParameter="false" LegacyAlias="Get-CWMetricStatistics">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricWidgetImage" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MetricWidgetImage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetMetricWidgetImage" Output="DefaultSingleMember" Verb="Get" Noun="MetricWidgetImage" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDashboards" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DashboardList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDashboards" Output="DefaultSingleMember" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" ServicePageSize="-1" />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListMetrics" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListMetrics" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutDashboard" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="Dashboard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DashboardName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardBody" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutDashboard" Output="DefaultSingleMember" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricAlarm" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="MetricAlarm" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlarmName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutMetricAlarm" Output="Void" Verb="Write" Noun="MetricAlarm" ShouldProcessTarget="AlarmName" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutMetricData" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Write" Noun="MetricData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Namespace" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutMetricData" Output="Void" Verb="Write" Noun="MetricData" ShouldProcessTarget="Namespace" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SetAlarmState" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="AlarmState" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AlarmName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SetAlarmState" Output="Void" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

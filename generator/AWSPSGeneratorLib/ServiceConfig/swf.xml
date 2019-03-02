@@ -31,97 +31,97 @@
         <Property>Execution_WorkflowId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CountClosedWorkflowExecutions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="ClosedWorkflowExecutionCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CountClosedWorkflowExecutions" Output="Response" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="ClosedWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountOpenWorkflowExecutions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="OpenWorkflowExecutionCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CountOpenWorkflowExecutions" Output="Response" OutputWrapper="WorkflowExecutionCount" Verb="Get" Noun="OpenWorkflowExecutionCount" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountPendingActivityTasks" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingActivityTaskCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskList_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskList_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CountPendingActivityTasks" Output="Response" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingActivityTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CountPendingDecisionTasks" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingDecisionTaskCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskList_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskList_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CountPendingDecisionTasks" Output="Response" OutputWrapper="PendingTaskCount" Verb="Get" Noun="PendingDecisionTaskCount" PipelineParameter="TaskList_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateActivityType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ActivityType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ActivityType_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ActivityType_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeprecateActivityType" Output="Void" Verb="Remove" Noun="ActivityType" ShouldProcessTarget="ActivityType_Name" PipelineParameter="ActivityType_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateDomain" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeprecateDomain" Output="Void" Verb="Remove" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeprecateWorkflowType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="WorkflowType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkflowType_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeprecateWorkflowType" Output="Void" Verb="Remove" Noun="WorkflowType" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeActivityType" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="ActivityTypeDetail" Verb="Get" Noun="ActivityType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ActivityType_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeActivityType" Output="Response" OutputWrapper="ActivityTypeDetail" Verb="Get" Noun="ActivityType" PipelineParameter="ActivityType_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDomain" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="DomainDetail" Verb="Get" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeDomain" Output="Response" OutputWrapper="DomainDetail" Verb="Get" Noun="Domain" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkflowExecution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="WorkflowExecutionDetail" Verb="Get" Noun="WorkflowExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Execution_RunId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWorkflowExecution" Output="Response" OutputWrapper="WorkflowExecutionDetail" Verb="Get" Noun="WorkflowExecution" PipelineParameter="Execution_RunId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkflowType" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="WorkflowTypeDetail" Verb="Get" Noun="WorkflowType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeWorkflowType" Output="Response" OutputWrapper="WorkflowTypeDetail" Verb="Get" Noun="WorkflowType" PipelineParameter="WorkflowType_Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetWorkflowExecutionHistory" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Execution_RunId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetWorkflowExecutionHistory" Output="DefaultSingleMember" OutputWrapper="History" Verb="Get" Noun="WorkflowExecutionHistory" PipelineParameter="Execution_RunId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListActivityTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListActivityTypes" Output="DefaultSingleMember" OutputWrapper="ActivityTypeInfos" Verb="Get" Noun="ActivityTypeList" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListClosedWorkflowExecutions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListClosedWorkflowExecutions" Output="DefaultSingleMember" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="ClosedWorkflowExecutionList" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListDomains" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListDomains" Output="DefaultSingleMember" OutputWrapper="DomainInfos" Verb="Get" Noun="DomainList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListOpenWorkflowExecutions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="OpenWorkflowExecutionList" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListOpenWorkflowExecutions" Output="DefaultSingleMember" OutputWrapper="WorkflowExecutionInfos" Verb="Get" Noun="OpenWorkflowExecutionList" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListWorkflowTypes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListWorkflowTypes" Output="DefaultSingleMember" OutputWrapper="WorkflowTypeInfos" Verb="Get" Noun="WorkflowTypeList" PipelineParameter="Domain" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForActivityTask" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="ActivityTask" Verb="Get" Noun="ActivityTask" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskList_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PollForActivityTask" Output="Response" OutputWrapper="ActivityTask" Verb="Get" Noun="ActivityTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PollForDecisionTask" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="DecisionTask" Verb="Get" Noun="DecisionTask" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TaskList_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PollForDecisionTask" Output="Response" OutputWrapper="DecisionTask" Verb="Get" Noun="DecisionTask" Exclude="true" ShouldProcessTarget="TaskList_Name" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RecordActivityTaskHeartbeat" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="ActivityTaskStatus" Verb="Record" Noun="ActivityTaskHeartbeat" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RecordActivityTaskHeartbeat" Output="Response" OutputWrapper="ActivityTaskStatus" Verb="Record" Noun="ActivityTaskHeartbeat" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterActivityType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ActivityType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterActivityType" Output="Void" Verb="New" Noun="ActivityType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterDomain" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterDomain" Output="Void" Verb="New" Noun="Domain" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RegisterWorkflowType" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="WorkflowType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RegisterWorkflowType" Output="Void" Verb="New" Noun="WorkflowType" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RequestCancelWorkflowExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="CancelWorkflowExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkflowId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkflowId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RequestCancelWorkflowExecution" Output="Void" Verb="Request" Noun="CancelWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskCanceled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Respond" Noun="ActivityTaskCanceled" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RespondActivityTaskCanceled" Output="Void" Verb="Respond" Noun="ActivityTaskCanceled" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskCompleted" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Respond" Noun="ActivityTaskCompleted" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RespondActivityTaskCompleted" Output="Void" Verb="Respond" Noun="ActivityTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondActivityTaskFailed" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Respond" Noun="ActivityTaskFailed" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RespondActivityTaskFailed" Output="Void" Verb="Respond" Noun="ActivityTaskFailed" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RespondDecisionTaskCompleted" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Respond" Noun="DecisionTaskCompleted" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RespondDecisionTaskCompleted" Output="Void" Verb="Respond" Noun="DecisionTaskCompleted" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="SignalWorkflowExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="SignalToWorkflowExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkflowId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SignalName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="SignalWorkflowExecution" Output="Void" Verb="Send" Noun="SignalToWorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="SignalName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartWorkflowExecution" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="Run" Verb="Start" Noun="WorkflowExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkflowType_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkflowId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartWorkflowExecution" Output="DefaultSingleMember" OutputWrapper="Run" Verb="Start" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowType_Name" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="TerminateWorkflowExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="WorkflowExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="WorkflowId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkflowId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="TerminateWorkflowExecution" Output="Void" Verb="Stop" Noun="WorkflowExecution" ShouldProcessTarget="WorkflowId" PipelineParameter="WorkflowId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

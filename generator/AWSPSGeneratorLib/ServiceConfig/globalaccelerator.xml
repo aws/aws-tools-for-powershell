@@ -24,55 +24,55 @@
         <Property>EndpointGroupArn</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="CreateAccelerator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Accelerator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateAccelerator" Output="DefaultSingleMember" Verb="New" Noun="Accelerator" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEndpointGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EndpointGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ListenerArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEndpointGroup" Output="DefaultSingleMember" Verb="New" Noun="EndpointGroup" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateListener" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Listener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AcceleratorArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateListener" Output="DefaultSingleMember" Verb="New" Noun="Listener" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccelerator" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Accelerator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AcceleratorArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteAccelerator" Output="Void" Verb="Remove" Noun="Accelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEndpointGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EndpointGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointGroupArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEndpointGroup" Output="Void" Verb="Remove" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteListener" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Listener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ListenerArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteListener" Output="Void" Verb="Remove" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccelerator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Accelerator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccelerator" Output="DefaultSingleMember" Verb="Get" Noun="Accelerator" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAcceleratorAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AcceleratorAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAcceleratorAttributes" Output="DefaultSingleMember" Verb="Get" Noun="AcceleratorAttribute" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEndpointGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeEndpointGroup" Output="DefaultSingleMember" Verb="Get" Noun="EndpointGroup" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeListener" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Listener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeListener" Output="DefaultSingleMember" Verb="Get" Noun="Listener" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListAccelerators" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AcceleratorList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListAccelerators" Output="DefaultSingleMember" Verb="Get" Noun="AcceleratorList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListEndpointGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointGroupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListEndpointGroups" Output="DefaultSingleMember" Verb="Get" Noun="EndpointGroupList" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListListeners" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ListenerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ListListeners" Output="DefaultSingleMember" Verb="Get" Noun="ListenerList" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccelerator" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Accelerator" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AcceleratorArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAccelerator" Output="DefaultSingleMember" Verb="Update" Noun="Accelerator" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAcceleratorAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AcceleratorAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AcceleratorArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AcceleratorArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateAcceleratorAttributes" Output="DefaultSingleMember" Verb="Update" Noun="AcceleratorAttribute" ShouldProcessTarget="AcceleratorArn" PipelineParameter="AcceleratorArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateEndpointGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="EndpointGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointGroupArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateEndpointGroup" Output="DefaultSingleMember" Verb="Update" Noun="EndpointGroup" ShouldProcessTarget="EndpointGroupArn" PipelineParameter="EndpointGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateListener" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Listener" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ListenerArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateListener" Output="DefaultSingleMember" Verb="Update" Noun="Listener" ShouldProcessTarget="ListenerArn" PipelineParameter="ListenerArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

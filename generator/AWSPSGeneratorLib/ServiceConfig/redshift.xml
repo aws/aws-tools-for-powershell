@@ -43,265 +43,265 @@
         <Property>SubscriptionName</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AcceptReservedNodeExchange" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Switch" Noun="ReservedNode" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReservedNodeId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AcceptReservedNodeExchange" Output="DefaultSingleMember" Verb="Switch" Noun="ReservedNode" ShouldProcessTarget="ReservedNodeId" PipelineParameter="ReservedNodeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeClusterSecurityGroupIngress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="ClusterSecurityGroupIngress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AuthorizeClusterSecurityGroupIngress" Output="DefaultSingleMember" Verb="Approve" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AuthorizeSnapshotAccess" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="SnapshotAccess" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AuthorizeSnapshotAccess" Output="DefaultSingleMember" Verb="Approve" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchDeleteClusterSnapshots" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClusterSnapshotBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Identifiers" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identifiers" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchDeleteClusterSnapshots" Output="Response" Verb="Remove" Noun="ClusterSnapshotBatch" ShouldProcessTarget="Identifiers" PipelineParameter="Identifiers" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchModifyClusterSnapshots" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSnapshotBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="BatchModifyClusterSnapshots" Output="Response" Verb="Edit" Noun="ClusterSnapshotBatch" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params>
-                <Param Name="Force" NewName="Enforce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CancelResize" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Resize" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CancelResize" Output="Response" Verb="Stop" Noun="Resize" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CopyClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="ClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetSnapshotIdentifier" PipelineParameter="SourceSnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CopyClusterSnapshot" Output="DefaultSingleMember" Verb="Copy" Noun="ClusterSnapshot" ShouldProcessTarget="SourceSnapshotIdentifier" PositionalParameters="TargetSnapshotIdentifier" PipelineParameter="SourceSnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ClusterIdentifier;ClusterType;NodeType" PipelineParameter="DBName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateCluster" Output="DefaultSingleMember" Verb="New" Noun="Cluster" ShouldProcessTarget="DBName" PositionalParameters="ClusterIdentifier;ClusterType;NodeType" PipelineParameter="DBName" NoPipelineParameter="false">
             <Params>
-                <Param Name="NumberOfNodes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="NumberOfNodes" AutoRename="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterParameterGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ParameterGroupFamily;Description" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateClusterParameterGroup" Output="DefaultSingleMember" Verb="New" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PositionalParameters="ParameterGroupFamily;Description" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterSecurityGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ClusterSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateClusterSecurityGroup" Output="DefaultSingleMember" Verb="New" Noun="ClusterSecurityGroup" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="Description" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ClusterIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateClusterSnapshot" Output="DefaultSingleMember" Verb="New" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="ClusterIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateClusterSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ClusterSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateClusterSubnetGroup" Output="DefaultSingleMember" Verb="New" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateEventSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateEventSubscription" Output="DefaultSingleMember" Verb="New" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHsmClientCertificate" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HsmClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HsmClientCertificateIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHsmClientCertificate" Output="DefaultSingleMember" Verb="New" Noun="HsmClientCertificate" ShouldProcessTarget="HsmClientCertificateIdentifier" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateHsmConfiguration" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="HsmConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HsmPartitionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmPartitionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateHsmConfiguration" Output="DefaultSingleMember" Verb="New" Noun="HsmConfiguration" ShouldProcessTarget="HsmPartitionName" PipelineParameter="HsmPartitionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshotCopyGrant" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SnapshotCopyGrant" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotCopyGrantName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSnapshotCopyGrant" Output="DefaultSingleMember" Verb="New" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateSnapshotSchedule" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="SnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduleIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateSnapshotSchedule" Output="Response" Verb="New" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="New-RSTags">
+        <ServiceOperation MethodName="CreateTags" Output="Void" Verb="New" Noun="ResourceTag" ShouldProcessTarget="ResourceName" PipelineParameter="ResourceName" NoPipelineParameter="false" LegacyAlias="New-RSTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteCluster" Output="DefaultSingleMember" Verb="Remove" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteClusterParameterGroup" Output="Void" Verb="Remove" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterSecurityGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClusterSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteClusterSecurityGroup" Output="Void" Verb="Remove" Noun="ClusterSecurityGroup" ShouldProcessTarget="ClusterSecurityGroupName" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteClusterSnapshot" Output="DefaultSingleMember" Verb="Remove" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteClusterSubnetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ClusterSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteClusterSubnetGroup" Output="Void" Verb="Remove" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteEventSubscription" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteEventSubscription" Output="Void" Verb="Remove" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHsmClientCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="HsmClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HsmClientCertificateIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteHsmClientCertificate" Output="Void" Verb="Remove" Noun="HsmClientCertificate" ShouldProcessTarget="HsmClientCertificateIdentifier" PipelineParameter="HsmClientCertificateIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteHsmConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="HsmConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HsmConfigurationIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmConfigurationIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteHsmConfiguration" Output="Void" Verb="Remove" Noun="HsmConfiguration" ShouldProcessTarget="HsmConfigurationIdentifier" PipelineParameter="HsmConfigurationIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshotCopyGrant" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SnapshotCopyGrant" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotCopyGrantName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotCopyGrantName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSnapshotCopyGrant" Output="Void" Verb="Remove" Noun="SnapshotCopyGrant" ShouldProcessTarget="SnapshotCopyGrantName" PipelineParameter="SnapshotCopyGrantName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteSnapshotSchedule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="SnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduleIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteSnapshotSchedule" Output="Void" Verb="Remove" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagKeys" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-RSTags">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="TagKeys" PipelineParameter="TagKeys" NoPipelineParameter="false" LegacyAlias="Remove-RSTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeAccountAttributes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AccountAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttributeNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeAccountAttributes" Output="DefaultSingleMember" Verb="Get" Noun="AccountAttribute" PipelineParameter="AttributeNames" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterDbRevisions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterDbRevision" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeClusterDbRevisions" Output="DefaultSingleMember" Verb="Get" Noun="ClusterDbRevision" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterParameterGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterParameterGroups">
+        <ServiceOperation MethodName="DescribeClusterParameterGroups" Output="DefaultSingleMember" Verb="Get" Noun="ClusterParameterGroup" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameterGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Source" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterParameters">
+        <ServiceOperation MethodName="DescribeClusterParameters" Output="DefaultSingleMember" Verb="Get" Noun="ClusterParameter" PositionalParameters="Source" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterParameters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusters">
+        <ServiceOperation MethodName="DescribeClusters" Output="DefaultSingleMember" Verb="Get" Noun="Cluster" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSecurityGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterSecurityGroups">
+        <ServiceOperation MethodName="DescribeClusterSecurityGroups" Output="DefaultSingleMember" Verb="Get" Noun="ClusterSecurityGroup" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSecurityGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSnapshots" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotIdentifier;SnapshotType" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterSnapshots">
+        <ServiceOperation MethodName="DescribeClusterSnapshots" Output="DefaultSingleMember" Verb="Get" Noun="ClusterSnapshot" PositionalParameters="SnapshotIdentifier;SnapshotType" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSnapshots">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterSubnetGroups" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterSubnetGroups">
+        <ServiceOperation MethodName="DescribeClusterSubnetGroups" Output="DefaultSingleMember" Verb="Get" Noun="ClusterSubnetGroup" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" LegacyAlias="Get-RSClusterSubnetGroups">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterTracks" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterTrack" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MaintenanceTrackName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeClusterTracks" Output="DefaultSingleMember" Verb="Get" Noun="ClusterTrack" PipelineParameter="MaintenanceTrackName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeClusterVersions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSClusterVersions">
+        <ServiceOperation MethodName="DescribeClusterVersions" Output="DefaultSingleMember" Verb="Get" Noun="ClusterVersion" PositionalParameters="ClusterParameterGroupFamily" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSClusterVersions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeDefaultClusterParameters" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" MetadataProperties="ParameterGroupFamily" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSDefaultClusterParameters">
+        <ServiceOperation MethodName="DescribeDefaultClusterParameters" Output="DefaultSingleMember" OutputWrapper="DefaultClusterParameters" Verb="Get" Noun="DefaultClusterParameter" PipelineParameter="ParameterGroupFamily" NoPipelineParameter="false" MetadataProperties="ParameterGroupFamily" LegacyAlias="Get-RSDefaultClusterParameters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventCategories" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventCategory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceType" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSEventCategories">
+        <ServiceOperation MethodName="DescribeEventCategories" Output="DefaultSingleMember" Verb="Get" Noun="EventCategory" PipelineParameter="SourceType" NoPipelineParameter="false" LegacyAlias="Get-RSEventCategories">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSEvents">
+        <ServiceOperation MethodName="DescribeEvents" Output="DefaultSingleMember" Verb="Get" Noun="Event" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" LegacyAlias="Get-RSEvents">
             <Params>
-                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="EndTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcEndTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
-                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
-                <Param Name="StartTime" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="UtcStartTime" AutoConvert="None" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
+                <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
+                <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />
+                <Param Name="StartTimeUtc" NewName="UtcStartTime" AutoApplyAlias="false" />
+                <Param Name="StartTime" ExclusiveParameters="UtcStartTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcStartTime instead." />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSEventSubscriptions">
+        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="DefaultSingleMember" Verb="Get" Noun="EventSubscription" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSEventSubscriptions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHsmClientCertificates" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HsmClientCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSHsmClientCertificates">
+        <ServiceOperation MethodName="DescribeHsmClientCertificates" Output="DefaultSingleMember" Verb="Get" Noun="HsmClientCertificate" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmClientCertificates">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeHsmConfigurations" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="HsmConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSHsmConfigurations">
+        <ServiceOperation MethodName="DescribeHsmConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="HsmConfiguration" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSHsmConfigurations">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeLoggingStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoggingStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeLoggingStatus" Output="Response" Verb="Get" Noun="LoggingStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeOrderableClusterOptions" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OrderableClusterOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="NodeType" PipelineParameter="ClusterVersion" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSOrderableClusterOptions">
+        <ServiceOperation MethodName="DescribeOrderableClusterOptions" Output="DefaultSingleMember" Verb="Get" Noun="OrderableClusterOption" PositionalParameters="NodeType" PipelineParameter="ClusterVersion" NoPipelineParameter="false" LegacyAlias="Get-RSOrderableClusterOptions">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedNodeOfferings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedNodeOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSReservedNodeOfferings">
+        <ServiceOperation MethodName="DescribeReservedNodeOfferings" Output="DefaultSingleMember" Verb="Get" Noun="ReservedNodeOffering" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodeOfferings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeReservedNodes" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedNode" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSReservedNodes">
+        <ServiceOperation MethodName="DescribeReservedNodes" Output="DefaultSingleMember" Verb="Get" Noun="ReservedNode" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" LegacyAlias="Get-RSReservedNodes">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeResize" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Resize" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeResize" Output="Response" Verb="Get" Noun="Resize" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotCopyGrants" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SnapshotCopyGrant" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSnapshotCopyGrants" Output="DefaultSingleMember" Verb="Get" Noun="SnapshotCopyGrant" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSnapshotSchedules" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="SnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeSnapshotSchedules" Output="DefaultSingleMember" Verb="Get" Noun="SnapshotSchedule" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeStorage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Storage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeStorage" Output="Response" Verb="Get" Noun="Storage" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTableRestoreStatus" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TableRestoreStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTableRestoreStatus" Output="DefaultSingleMember" Verb="Get" Noun="TableRestoreStatus" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-RSTags">
+        <ServiceOperation MethodName="DescribeTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-RSTags">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableLogging" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="Logging" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableLogging" Output="Response" Verb="Disable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DisableSnapshotCopy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="SnapshotCopy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DisableSnapshotCopy" Output="DefaultSingleMember" Verb="Disable" Noun="SnapshotCopy" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableLogging" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="Logging" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableLogging" Output="Response" Verb="Enable" Noun="Logging" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="EnableSnapshotCopy" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="SnapshotCopy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="EnableSnapshotCopy" Output="DefaultSingleMember" Verb="Enable" Noun="SnapshotCopy" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetClusterCredentials" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ClusterCredential" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetClusterCredentials" Output="Response" Verb="Get" Noun="ClusterCredential" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetReservedNodeExchangeOfferings" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedNodeExchangeOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedNodeId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetReservedNodeExchangeOfferings" Output="DefaultSingleMember" Verb="Get" Noun="ReservedNodeExchangeOffering" PipelineParameter="ReservedNodeId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyCluster" Output="DefaultSingleMember" Verb="Edit" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params>
-                <Param Name="NumberOfNodes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="NumberOfNodes" AutoRename="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterDbRevision" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterDbRevision" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterDbRevision" Output="DefaultSingleMember" Verb="Edit" Noun="ClusterDbRevision" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterIamRoles" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterIamRole" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Edit-RSClusterIamRoles">
+        <ServiceOperation MethodName="ModifyClusterIamRoles" Output="DefaultSingleMember" Verb="Edit" Noun="ClusterIamRole" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" LegacyAlias="Edit-RSClusterIamRoles">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterMaintenance" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterMaintenance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterMaintenance" Output="DefaultSingleMember" Verb="Edit" Noun="ClusterMaintenance" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterParameterGroup" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Parameters" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterParameterGroup" Output="Response" Verb="Edit" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PositionalParameters="Parameters" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterSnapshot" Output="DefaultSingleMember" Verb="Edit" Noun="ClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params>
-                <Param Name="Force" NewName="Enforce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" DefaultValue="" ExclusiveParameters="" AutoConvert="None" />
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterSnapshotSchedule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ClusterIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterSnapshotSchedule" Output="Void" Verb="Edit" Noun="ClusterSnapshotSchedule" ShouldProcessTarget="ClusterIdentifier" PositionalParameters="ClusterIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyClusterSubnetGroup" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="ClusterSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSubnetGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyClusterSubnetGroup" Output="DefaultSingleMember" Verb="Edit" Noun="ClusterSubnetGroup" ShouldProcessTarget="ClusterSubnetGroupName" PositionalParameters="Description;SubnetIds" PipelineParameter="ClusterSubnetGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifyEventSubscription" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SubscriptionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifyEventSubscription" Output="DefaultSingleMember" Verb="Edit" Noun="EventSubscription" ShouldProcessTarget="SubscriptionName" PipelineParameter="SubscriptionName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifySnapshotCopyRetentionPeriod" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="SnapshotCopyRetentionPeriod" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifySnapshotCopyRetentionPeriod" Output="DefaultSingleMember" Verb="Edit" Noun="SnapshotCopyRetentionPeriod" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ModifySnapshotSchedule" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="SnapshotSchedule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduleIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ModifySnapshotSchedule" Output="Response" Verb="Edit" Noun="SnapshotSchedule" ShouldProcessTarget="ScheduleIdentifier" PipelineParameter="ScheduleIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PurchaseReservedNodeOffering" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="ReservedNodeOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReservedNodeOfferingId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="NodeCount" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PurchaseReservedNodeOffering" Output="DefaultSingleMember" Verb="Request" Noun="ReservedNodeOffering" ShouldProcessTarget="ReservedNodeOfferingId" PositionalParameters="NodeCount" PipelineParameter="ReservedNodeOfferingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="Cluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootCluster" Output="DefaultSingleMember" Verb="Restart" Noun="Cluster" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResetClusterParameterGroup" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="ClusterParameterGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ParameterGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResetClusterParameterGroup" Output="Response" Verb="Reset" Noun="ClusterParameterGroup" ShouldProcessTarget="ParameterGroupName" PipelineParameter="ParameterGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ResizeCluster" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ClusterSize" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ResizeCluster" Output="DefaultSingleMember" Verb="Set" Noun="ClusterSize" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreFromClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="FromClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreFromClusterSnapshot" Output="DefaultSingleMember" Verb="Restore" Noun="FromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RestoreTableFromClusterSnapshot" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="TableFromClusterSnapshot" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RestoreTableFromClusterSnapshot" Output="DefaultSingleMember" Verb="Restore" Noun="TableFromClusterSnapshot" ShouldProcessTarget="SnapshotIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeClusterSecurityGroupIngress" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="ClusterSecurityGroupIngress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterSecurityGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeClusterSecurityGroupIngress" Output="DefaultSingleMember" Verb="Revoke" Noun="ClusterSecurityGroupIngress" ShouldProcessTarget="ClusterSecurityGroupName" PositionalParameters="CIDRIP;EC2SecurityGroupName;EC2SecurityGroupOwnerId" PipelineParameter="ClusterSecurityGroupName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RevokeSnapshotAccess" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Revoke" Noun="SnapshotAccess" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RevokeSnapshotAccess" Output="DefaultSingleMember" Verb="Revoke" Noun="SnapshotAccess" ShouldProcessTarget="SnapshotIdentifier" PositionalParameters="AccountWithRestoreAccess" PipelineParameter="SnapshotIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RotateEncryptionKey" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Switch" Noun="EncryptionKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RotateEncryptionKey" Output="DefaultSingleMember" Verb="Switch" Noun="EncryptionKey" ShouldProcessTarget="ClusterIdentifier" PipelineParameter="ClusterIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

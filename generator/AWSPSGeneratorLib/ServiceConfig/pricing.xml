@@ -22,13 +22,13 @@
     </MetadataProperties>
     <PipelineByNameProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeServices" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Service" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceCode" NoPipelineParameter="false" MetadataProperties="FormatVersion" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeServices" Output="DefaultSingleMember" Verb="Get" Noun="Service" PipelineParameter="ServiceCode" NoPipelineParameter="false" MetadataProperties="FormatVersion">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAttributeValues" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AttributeValue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttributeName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetAttributeValues" Output="DefaultSingleMember" Verb="Get" Noun="AttributeValue" PipelineParameter="AttributeName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetProducts" Output="DefaultSingleMember" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceCode" NoPipelineParameter="false" MetadataProperties="FormatVersion" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetProducts" Output="DefaultSingleMember" Verb="Get" Noun="Product" PipelineParameter="ServiceCode" NoPipelineParameter="false" MetadataProperties="FormatVersion">
             <Params />
         </ServiceOperation>
     </ServiceOperations>
