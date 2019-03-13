@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.DeprecateThingType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeprecateThingTypeAsync(request);
-                return task.Result;
+                return client.DeprecateThingTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

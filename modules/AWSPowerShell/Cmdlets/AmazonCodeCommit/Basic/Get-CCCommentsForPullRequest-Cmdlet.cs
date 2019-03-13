@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 #if DESKTOP
                 return client.GetCommentsForPullRequest(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetCommentsForPullRequestAsync(request);
-                return task.Result;
+                return client.GetCommentsForPullRequestAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

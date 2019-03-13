@@ -205,9 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 #if DESKTOP
                 return client.RegisterRdsDbInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterRdsDbInstanceAsync(request);
-                return task.Result;
+                return client.RegisterRdsDbInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 #if DESKTOP
                 return client.StopBackupJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopBackupJobAsync(request);
-                return task.Result;
+                return client.StopBackupJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

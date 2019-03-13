@@ -9,7 +9,7 @@
     <ServiceClient>AmazonFMSClient</ServiceClient>
     <ServiceNamespace>Amazon.FMS</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="GetProtectionStatus" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -42,6 +42,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPolicy" Output="Response" Verb="Get" Noun="Policy" PipelineParameter="PolicyId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProtectionStatus" Output="Response" Verb="Get" Noun="ProtectionStatus" PipelineParameter="PolicyId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListComplianceStatus" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceStatusList" PipelineParameter="PolicyId" NoPipelineParameter="false">

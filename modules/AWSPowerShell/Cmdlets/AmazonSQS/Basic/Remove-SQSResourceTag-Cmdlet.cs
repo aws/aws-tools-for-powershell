@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.UntagQueue(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UntagQueueAsync(request);
-                return task.Result;
+                return client.UntagQueueAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -29,6 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.FMS
 {
     /// <summary>
     /// Creates an AWS Firewall Manager policy.
+    /// 
+    ///  
+    /// <para>
+    /// Firewall Manager provides two types of policies: A Shield Advanced policy, which applies
+    /// Shield Advanced protection to specified accounts and resources, or a WAF policy, which
+    /// contains a rule group and defines which resources are to be protected by that rule
+    /// group. A policy is specific to either WAF or Shield Advanced. If you want to enforce
+    /// both WAF rules and Shield Advanced protection across accounts, you can create multiple
+    /// policies. You can create one or more policies for WAF rules, and one or more policies
+    /// for Shield Advanced.
+    /// </para><para>
+    /// You must be subscribed to Shield Advanced to create a Shield Advanced policy. For
+    /// more information on subscribing to Shield Advanced, see <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "FMSPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.FMS.Model.PutPolicyResponse")]
@@ -141,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 #if DESKTOP
                 return client.PutPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutPolicyAsync(request);
-                return task.Result;
+                return client.PutPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

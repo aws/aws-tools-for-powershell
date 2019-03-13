@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.RevokeGrant(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RevokeGrantAsync(request);
-                return task.Result;
+                return client.RevokeGrantAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

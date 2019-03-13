@@ -28,8 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Adds specified tags to a resource with the specified ARN. Existing tags on a resource
-    /// are not changed if they are not specified in the request parameters.
+    /// Adds tags to a resource group with the specified ARN. Existing tags on a resource
+    /// group are not changed if they are not specified in the request parameters.
     /// </summary>
     [Cmdlet("Add", "RGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ResourceGroups.Model.TagResponse")]
@@ -167,9 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 #if DESKTOP
                 return client.Tag(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagAsync(request);
-                return task.Result;
+                return client.TagAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

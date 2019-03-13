@@ -224,9 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.AuthorizeDBSecurityGroupIngress(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AuthorizeDBSecurityGroupIngressAsync(request);
-                return task.Result;
+                return client.AuthorizeDBSecurityGroupIngressAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

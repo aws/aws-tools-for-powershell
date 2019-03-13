@@ -399,9 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 #if DESKTOP
                 return client.UpdateCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateClusterAsync(request);
-                return task.Result;
+                return client.UpdateClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

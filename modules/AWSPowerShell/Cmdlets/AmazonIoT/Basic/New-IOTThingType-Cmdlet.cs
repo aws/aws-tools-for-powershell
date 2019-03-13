@@ -215,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.CreateThingType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateThingTypeAsync(request);
-                return task.Result;
+                return client.CreateThingTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

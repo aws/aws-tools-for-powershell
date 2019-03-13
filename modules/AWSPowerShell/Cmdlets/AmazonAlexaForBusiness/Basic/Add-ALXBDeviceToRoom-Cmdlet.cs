@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.AssociateDeviceWithRoom(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateDeviceWithRoomAsync(request);
-                return task.Result;
+                return client.AssociateDeviceWithRoomAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

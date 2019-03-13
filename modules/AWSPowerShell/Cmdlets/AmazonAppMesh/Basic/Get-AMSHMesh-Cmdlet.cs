@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.DescribeMesh(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeMeshAsync(request);
-                return task.Result;
+                return client.DescribeMeshAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

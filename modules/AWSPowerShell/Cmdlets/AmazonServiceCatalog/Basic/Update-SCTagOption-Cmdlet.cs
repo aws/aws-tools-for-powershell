@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.UpdateTagOption(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTagOptionAsync(request);
-                return task.Result;
+                return client.UpdateTagOptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

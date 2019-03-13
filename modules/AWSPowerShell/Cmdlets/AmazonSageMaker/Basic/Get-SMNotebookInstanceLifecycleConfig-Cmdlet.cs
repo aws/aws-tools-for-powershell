@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+    /// For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
     /// 2.1: (Optional) Customize a Notebook Instance</a>.
     /// </para>
     /// </summary>
@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.DescribeNotebookInstanceLifecycleConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeNotebookInstanceLifecycleConfigAsync(request);
-                return task.Result;
+                return client.DescribeNotebookInstanceLifecycleConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 #if DESKTOP
                 return client.UpdateUserPhoneConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateUserPhoneConfigAsync(request);
-                return task.Result;
+                return client.UpdateUserPhoneConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

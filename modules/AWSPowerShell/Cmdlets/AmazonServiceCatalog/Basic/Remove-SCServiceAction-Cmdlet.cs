@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.DeleteServiceAction(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteServiceActionAsync(request);
-                return task.Result;
+                return client.DeleteServiceActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

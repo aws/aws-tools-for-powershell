@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "FSX",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -74,15 +73,9 @@
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileSystemId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -118,15 +111,9 @@
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileSystemType"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -164,15 +151,9 @@
         "confirmationMessageNoun": "FileSystemFromBackup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "BackupId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -210,15 +191,9 @@
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "BackupId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -256,15 +231,9 @@
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileSystemId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -300,7 +269,6 @@
         "confirmationMessageNoun": "Backups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -346,7 +314,6 @@
         "confirmationMessageNoun": "FileSystems",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -394,7 +361,6 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -442,15 +408,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -488,15 +448,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -534,15 +488,9 @@
         "confirmationMessageNoun": "FileSystem",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileSystemId"
-        },
         "memoryStreamParameters": []
       }
     }

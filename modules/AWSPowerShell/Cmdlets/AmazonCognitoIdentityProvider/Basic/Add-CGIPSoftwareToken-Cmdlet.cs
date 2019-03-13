@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.AssociateSoftwareToken(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateSoftwareTokenAsync(request);
-                return task.Result;
+                return client.AssociateSoftwareTokenAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

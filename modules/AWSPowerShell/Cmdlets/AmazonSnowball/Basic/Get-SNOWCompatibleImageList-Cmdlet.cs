@@ -202,9 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 #if DESKTOP
                 return client.ListCompatibleImages(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListCompatibleImagesAsync(request);
-                return task.Result;
+                return client.ListCompatibleImagesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

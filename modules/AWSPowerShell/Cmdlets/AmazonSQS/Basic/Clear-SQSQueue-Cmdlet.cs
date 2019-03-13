@@ -167,9 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.PurgeQueue(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PurgeQueueAsync(request);
-                return task.Result;
+                return client.PurgeQueueAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.ResetDBParameterGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResetDBParameterGroupAsync(request);
-                return task.Result;
+                return client.ResetDBParameterGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

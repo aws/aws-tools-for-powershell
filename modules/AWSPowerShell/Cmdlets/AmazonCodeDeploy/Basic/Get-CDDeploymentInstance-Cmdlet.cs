@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.GetDeploymentInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDeploymentInstanceAsync(request);
-                return task.Result;
+                return client.GetDeploymentInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

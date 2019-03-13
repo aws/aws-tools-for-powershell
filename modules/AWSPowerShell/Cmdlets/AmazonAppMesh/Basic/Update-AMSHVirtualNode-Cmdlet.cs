@@ -43,12 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Spec_Backend
         /// <summary>
         /// <para>
-        /// <para>The backends to which the virtual node is expected to send outbound traffic.</para>
+        /// <para>The backends that the virtual node is expected to send outbound traffic to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Spec_Backends")]
-        public System.String[] Spec_Backend { get; set; }
+        public Amazon.AppMesh.Model.Backend[] Spec_Backend { get; set; }
         #endregion
         
         #region Parameter ClientToken
@@ -62,10 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String ClientToken { get; set; }
         #endregion
         
+        #region Parameter Dns_Hostname
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the DNS service discovery hostname for the virtual node. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Spec_ServiceDiscovery_Dns_Hostname")]
+        public System.String Dns_Hostname { get; set; }
+        #endregion
+        
         #region Parameter Spec_Listener
         /// <summary>
         /// <para>
-        /// <para>The listeners from which the virtual node is expected to receive inbound traffic.</para>
+        /// <para>The listeners that the virtual node is expected to receive inbound traffic from. Currently
+        /// only one listener is supported per virtual node.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,22 +88,27 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which the virtual node resides.</para>
+        /// <para>The name of the service mesh that the virtual node resides in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MeshName { get; set; }
         #endregion
         
-        #region Parameter Dns_ServiceName
+        #region Parameter File_Path
         /// <summary>
         /// <para>
-        /// <para>The DNS service name for your virtual node.</para>
+        /// <para>The file path to write access logs to. You can use <code>/dev/stdout</code> to send
+        ///         access logs to standard out and configure your Envoy container to use a log
+        /// driver, such as            <code>awslogs</code>, to export the access logs to a log
+        /// storage service such as Amazon CloudWatch         Logs. You can also specify a path
+        /// in the Envoy container's file system to write the files         to disk.</para><note><para>The Envoy process must have write permissions to the path that you specify here. 
+        ///           Otherwise, Envoy fails to bootstrap properly.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Spec_ServiceDiscovery_Dns_ServiceName")]
-        public System.String Dns_ServiceName { get; set; }
+        [Alias("Spec_Logging_AccessLog_File_Path")]
+        public System.String File_Path { get; set; }
         #endregion
         
         #region Parameter VirtualNodeName
@@ -137,13 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             context.MeshName = this.MeshName;
             if (this.Spec_Backend != null)
             {
-                context.Spec_Backends = new List<System.String>(this.Spec_Backend);
+                context.Spec_Backends = new List<Amazon.AppMesh.Model.Backend>(this.Spec_Backend);
             }
             if (this.Spec_Listener != null)
             {
                 context.Spec_Listeners = new List<Amazon.AppMesh.Model.Listener>(this.Spec_Listener);
             }
-            context.Spec_ServiceDiscovery_Dns_ServiceName = this.Dns_ServiceName;
+            context.Spec_Logging_AccessLog_File_Path = this.File_Path;
+            context.Spec_ServiceDiscovery_Dns_Hostname = this.Dns_Hostname;
             context.VirtualNodeName = this.VirtualNodeName;
             
             // allow further manipulation of loaded context prior to processing
@@ -173,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
              // populate Spec
             bool requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.VirtualNodeSpec();
-            List<System.String> requestSpec_spec_Backend = null;
+            List<Amazon.AppMesh.Model.Backend> requestSpec_spec_Backend = null;
             if (cmdletContext.Spec_Backends != null)
             {
                 requestSpec_spec_Backend = cmdletContext.Spec_Backends;
@@ -193,6 +211,61 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 request.Spec.Listeners = requestSpec_spec_Listener;
                 requestSpecIsNull = false;
             }
+            Amazon.AppMesh.Model.Logging requestSpec_spec_Logging = null;
+            
+             // populate Logging
+            bool requestSpec_spec_LoggingIsNull = true;
+            requestSpec_spec_Logging = new Amazon.AppMesh.Model.Logging();
+            Amazon.AppMesh.Model.AccessLog requestSpec_spec_Logging_spec_Logging_AccessLog = null;
+            
+             // populate AccessLog
+            bool requestSpec_spec_Logging_spec_Logging_AccessLogIsNull = true;
+            requestSpec_spec_Logging_spec_Logging_AccessLog = new Amazon.AppMesh.Model.AccessLog();
+            Amazon.AppMesh.Model.FileAccessLog requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File = null;
+            
+             // populate File
+            bool requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull = true;
+            requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File = new Amazon.AppMesh.Model.FileAccessLog();
+            System.String requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_file_Path = null;
+            if (cmdletContext.Spec_Logging_AccessLog_File_Path != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_file_Path = cmdletContext.Spec_Logging_AccessLog_File_Path;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_file_Path != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File.Path = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File_file_Path;
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull = false;
+            }
+             // determine if requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File should be set to null
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_FileIsNull)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File = null;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File != null)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog.File = requestSpec_spec_Logging_spec_Logging_AccessLog_spec_Logging_AccessLog_File;
+                requestSpec_spec_Logging_spec_Logging_AccessLogIsNull = false;
+            }
+             // determine if requestSpec_spec_Logging_spec_Logging_AccessLog should be set to null
+            if (requestSpec_spec_Logging_spec_Logging_AccessLogIsNull)
+            {
+                requestSpec_spec_Logging_spec_Logging_AccessLog = null;
+            }
+            if (requestSpec_spec_Logging_spec_Logging_AccessLog != null)
+            {
+                requestSpec_spec_Logging.AccessLog = requestSpec_spec_Logging_spec_Logging_AccessLog;
+                requestSpec_spec_LoggingIsNull = false;
+            }
+             // determine if requestSpec_spec_Logging should be set to null
+            if (requestSpec_spec_LoggingIsNull)
+            {
+                requestSpec_spec_Logging = null;
+            }
+            if (requestSpec_spec_Logging != null)
+            {
+                request.Spec.Logging = requestSpec_spec_Logging;
+                requestSpecIsNull = false;
+            }
             Amazon.AppMesh.Model.ServiceDiscovery requestSpec_spec_ServiceDiscovery = null;
             
              // populate ServiceDiscovery
@@ -203,14 +276,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
              // populate Dns
             bool requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = true;
             requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns = new Amazon.AppMesh.Model.DnsServiceDiscovery();
-            System.String requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ServiceName = null;
-            if (cmdletContext.Spec_ServiceDiscovery_Dns_ServiceName != null)
+            System.String requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname = null;
+            if (cmdletContext.Spec_ServiceDiscovery_Dns_Hostname != null)
             {
-                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ServiceName = cmdletContext.Spec_ServiceDiscovery_Dns_ServiceName;
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname = cmdletContext.Spec_ServiceDiscovery_Dns_Hostname;
             }
-            if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ServiceName != null)
+            if (requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname != null)
             {
-                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.ServiceName = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_ServiceName;
+                requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns.Hostname = requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns_dns_Hostname;
                 requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_DnsIsNull = false;
             }
              // determine if requestSpec_spec_ServiceDiscovery_spec_ServiceDiscovery_Dns should be set to null
@@ -284,9 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.UpdateVirtualNode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateVirtualNodeAsync(request);
-                return task.Result;
+                return client.UpdateVirtualNodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -308,9 +379,10 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
-            public List<System.String> Spec_Backends { get; set; }
+            public List<Amazon.AppMesh.Model.Backend> Spec_Backends { get; set; }
             public List<Amazon.AppMesh.Model.Listener> Spec_Listeners { get; set; }
-            public System.String Spec_ServiceDiscovery_Dns_ServiceName { get; set; }
+            public System.String Spec_Logging_AccessLog_File_Path { get; set; }
+            public System.String Spec_ServiceDiscovery_Dns_Hostname { get; set; }
             public System.String VirtualNodeName { get; set; }
         }
         

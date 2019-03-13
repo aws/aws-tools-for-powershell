@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.CreateDBSnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDBSnapshotAsync(request);
-                return task.Result;
+                return client.CreateDBSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

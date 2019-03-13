@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.BatchPutScheduledUpdateGroupAction(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchPutScheduledUpdateGroupActionAsync(request);
-                return task.Result;
+                return client.BatchPutScheduledUpdateGroupActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

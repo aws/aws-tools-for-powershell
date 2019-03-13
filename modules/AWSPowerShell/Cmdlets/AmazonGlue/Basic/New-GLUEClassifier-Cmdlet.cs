@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
 {
     /// <summary>
     /// Creates a classifier in the user's account. This may be a <code>GrokClassifier</code>,
-    /// an <code>XMLClassifier</code>, or abbrev <code>JsonClassifier</code>, depending on
-    /// which field of the request is present.
+    /// an <code>XMLClassifier</code>, a <code>JsonClassifier</code>, or a <code>CsvClassifier</code>,
+    /// depending on which field of the request is present.
     /// </summary>
     [Cmdlet("New", "GLUEClassifier", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -42,6 +42,48 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEClassifierCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter CsvClassifier_AllowSingleColumn
+        /// <summary>
+        /// <para>
+        /// <para>Enables the processing of files that contain only one column.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CsvClassifier_AllowSingleColumn { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_ContainsHeader
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the CSV file contains a header.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Glue.CsvHeaderOption")]
+        public Amazon.Glue.CsvHeaderOption CsvClassifier_ContainsHeader { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_Delimiter
+        /// <summary>
+        /// <para>
+        /// <para>A custom symbol to denote what separates each column entry in the row.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CsvClassifier_Delimiter { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_DisableValueTrimming
+        /// <summary>
+        /// <para>
+        /// <para>Specifies not to trim values before identifying the type of column values. The default
+        /// value is true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CsvClassifier_DisableValueTrimming { get; set; }
+        #endregion
+        
         #region Parameter GrokClassifier
         /// <summary>
         /// <para>
@@ -50,6 +92,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.Glue.Model.CreateGrokClassifierRequest GrokClassifier { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_Header
+        /// <summary>
+        /// <para>
+        /// <para>A list of strings representing column names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] CsvClassifier_Header { get; set; }
         #endregion
         
         #region Parameter JsonClassifier_JsonPath
@@ -64,6 +116,16 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         public System.String JsonClassifier_JsonPath { get; set; }
         #endregion
         
+        #region Parameter CsvClassifier_Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the classifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CsvClassifier_Name { get; set; }
+        #endregion
+        
         #region Parameter JsonClassifier_Name
         /// <summary>
         /// <para>
@@ -72,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String JsonClassifier_Name { get; set; }
+        #endregion
+        
+        #region Parameter CsvClassifier_QuoteSymbol
+        /// <summary>
+        /// <para>
+        /// <para>A custom symbol to denote what combines content into a single column value. Must be
+        /// different from the column delimiter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CsvClassifier_QuoteSymbol { get; set; }
         #endregion
         
         #region Parameter XMLClassifier
@@ -113,6 +186,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("CsvClassifier_AllowSingleColumn"))
+                context.CsvClassifier_AllowSingleColumn = this.CsvClassifier_AllowSingleColumn;
+            context.CsvClassifier_ContainsHeader = this.CsvClassifier_ContainsHeader;
+            context.CsvClassifier_Delimiter = this.CsvClassifier_Delimiter;
+            if (ParameterWasBound("CsvClassifier_DisableValueTrimming"))
+                context.CsvClassifier_DisableValueTrimming = this.CsvClassifier_DisableValueTrimming;
+            if (this.CsvClassifier_Header != null)
+            {
+                context.CsvClassifier_Header = new List<System.String>(this.CsvClassifier_Header);
+            }
+            context.CsvClassifier_Name = this.CsvClassifier_Name;
+            context.CsvClassifier_QuoteSymbol = this.CsvClassifier_QuoteSymbol;
             context.GrokClassifier = this.GrokClassifier;
             context.JsonClassifier_JsonPath = this.JsonClassifier_JsonPath;
             context.JsonClassifier_Name = this.JsonClassifier_Name;
@@ -133,6 +218,85 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.CreateClassifierRequest();
             
+            
+             // populate CsvClassifier
+            bool requestCsvClassifierIsNull = true;
+            request.CsvClassifier = new Amazon.Glue.Model.CreateCsvClassifierRequest();
+            System.Boolean? requestCsvClassifier_csvClassifier_AllowSingleColumn = null;
+            if (cmdletContext.CsvClassifier_AllowSingleColumn != null)
+            {
+                requestCsvClassifier_csvClassifier_AllowSingleColumn = cmdletContext.CsvClassifier_AllowSingleColumn.Value;
+            }
+            if (requestCsvClassifier_csvClassifier_AllowSingleColumn != null)
+            {
+                request.CsvClassifier.AllowSingleColumn = requestCsvClassifier_csvClassifier_AllowSingleColumn.Value;
+                requestCsvClassifierIsNull = false;
+            }
+            Amazon.Glue.CsvHeaderOption requestCsvClassifier_csvClassifier_ContainsHeader = null;
+            if (cmdletContext.CsvClassifier_ContainsHeader != null)
+            {
+                requestCsvClassifier_csvClassifier_ContainsHeader = cmdletContext.CsvClassifier_ContainsHeader;
+            }
+            if (requestCsvClassifier_csvClassifier_ContainsHeader != null)
+            {
+                request.CsvClassifier.ContainsHeader = requestCsvClassifier_csvClassifier_ContainsHeader;
+                requestCsvClassifierIsNull = false;
+            }
+            System.String requestCsvClassifier_csvClassifier_Delimiter = null;
+            if (cmdletContext.CsvClassifier_Delimiter != null)
+            {
+                requestCsvClassifier_csvClassifier_Delimiter = cmdletContext.CsvClassifier_Delimiter;
+            }
+            if (requestCsvClassifier_csvClassifier_Delimiter != null)
+            {
+                request.CsvClassifier.Delimiter = requestCsvClassifier_csvClassifier_Delimiter;
+                requestCsvClassifierIsNull = false;
+            }
+            System.Boolean? requestCsvClassifier_csvClassifier_DisableValueTrimming = null;
+            if (cmdletContext.CsvClassifier_DisableValueTrimming != null)
+            {
+                requestCsvClassifier_csvClassifier_DisableValueTrimming = cmdletContext.CsvClassifier_DisableValueTrimming.Value;
+            }
+            if (requestCsvClassifier_csvClassifier_DisableValueTrimming != null)
+            {
+                request.CsvClassifier.DisableValueTrimming = requestCsvClassifier_csvClassifier_DisableValueTrimming.Value;
+                requestCsvClassifierIsNull = false;
+            }
+            List<System.String> requestCsvClassifier_csvClassifier_Header = null;
+            if (cmdletContext.CsvClassifier_Header != null)
+            {
+                requestCsvClassifier_csvClassifier_Header = cmdletContext.CsvClassifier_Header;
+            }
+            if (requestCsvClassifier_csvClassifier_Header != null)
+            {
+                request.CsvClassifier.Header = requestCsvClassifier_csvClassifier_Header;
+                requestCsvClassifierIsNull = false;
+            }
+            System.String requestCsvClassifier_csvClassifier_Name = null;
+            if (cmdletContext.CsvClassifier_Name != null)
+            {
+                requestCsvClassifier_csvClassifier_Name = cmdletContext.CsvClassifier_Name;
+            }
+            if (requestCsvClassifier_csvClassifier_Name != null)
+            {
+                request.CsvClassifier.Name = requestCsvClassifier_csvClassifier_Name;
+                requestCsvClassifierIsNull = false;
+            }
+            System.String requestCsvClassifier_csvClassifier_QuoteSymbol = null;
+            if (cmdletContext.CsvClassifier_QuoteSymbol != null)
+            {
+                requestCsvClassifier_csvClassifier_QuoteSymbol = cmdletContext.CsvClassifier_QuoteSymbol;
+            }
+            if (requestCsvClassifier_csvClassifier_QuoteSymbol != null)
+            {
+                request.CsvClassifier.QuoteSymbol = requestCsvClassifier_csvClassifier_QuoteSymbol;
+                requestCsvClassifierIsNull = false;
+            }
+             // determine if request.CsvClassifier should be set to null
+            if (requestCsvClassifierIsNull)
+            {
+                request.CsvClassifier = null;
+            }
             if (cmdletContext.GrokClassifier != null)
             {
                 request.GrokClassifier = cmdletContext.GrokClassifier;
@@ -212,9 +376,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.CreateClassifier(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateClassifierAsync(request);
-                return task.Result;
+                return client.CreateClassifierAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -234,6 +396,13 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? CsvClassifier_AllowSingleColumn { get; set; }
+            public Amazon.Glue.CsvHeaderOption CsvClassifier_ContainsHeader { get; set; }
+            public System.String CsvClassifier_Delimiter { get; set; }
+            public System.Boolean? CsvClassifier_DisableValueTrimming { get; set; }
+            public List<System.String> CsvClassifier_Header { get; set; }
+            public System.String CsvClassifier_Name { get; set; }
+            public System.String CsvClassifier_QuoteSymbol { get; set; }
             public Amazon.Glue.Model.CreateGrokClassifierRequest GrokClassifier { get; set; }
             public System.String JsonClassifier_JsonPath { get; set; }
             public System.String JsonClassifier_Name { get; set; }

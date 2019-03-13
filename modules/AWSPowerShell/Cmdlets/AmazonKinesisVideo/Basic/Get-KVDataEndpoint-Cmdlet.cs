@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 #if DESKTOP
                 return client.GetDataEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDataEndpointAsync(request);
-                return task.Result;
+                return client.GetDataEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

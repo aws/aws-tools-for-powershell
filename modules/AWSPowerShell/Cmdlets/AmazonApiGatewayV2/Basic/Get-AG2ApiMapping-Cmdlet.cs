@@ -39,23 +39,13 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     public partial class GetAG2ApiMappingCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
         
-        #region Parameter ApiId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the API.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ApiId { get; set; }
-        #endregion
-        
         #region Parameter ApiMappingId
         /// <summary>
         /// <para>
         /// <para>The API mapping identifier.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApiMappingId { get; set; }
         #endregion
         
@@ -82,7 +72,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApiId = this.ApiId;
             context.ApiMappingId = this.ApiMappingId;
             context.DomainName = this.DomainName;
             
@@ -101,10 +90,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             // create request
             var request = new Amazon.ApiGatewayV2.Model.GetApiMappingRequest();
             
-            if (cmdletContext.ApiId != null)
-            {
-                request.ApiId = cmdletContext.ApiId;
-            }
             if (cmdletContext.ApiMappingId != null)
             {
                 request.ApiMappingId = cmdletContext.ApiMappingId;
@@ -155,9 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.GetApiMapping(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetApiMappingAsync(request);
-                return task.Result;
+                return client.GetApiMappingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -177,7 +160,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
             public System.String ApiMappingId { get; set; }
             public System.String DomainName { get; set; }
         }

@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 #if DESKTOP
                 return client.ValidateTemplate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ValidateTemplateAsync(request);
-                return task.Result;
+                return client.ValidateTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

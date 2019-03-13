@@ -42,7 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// To add or remove access for an AWS account to copy or restore a manual DB cluster
     /// snapshot, or to make the manual DB cluster snapshot public or private, use the <a>ModifyDBClusterSnapshotAttribute</a>
     /// API action.
-    /// </para>
+    /// </para><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "RDSDBClusterSnapshotAttribute")]
     [OutputType("Amazon.RDS.Model.DBClusterSnapshotAttributesResult")]
@@ -140,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeDBClusterSnapshotAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDBClusterSnapshotAttributesAsync(request);
-                return task.Result;
+                return client.DescribeDBClusterSnapshotAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

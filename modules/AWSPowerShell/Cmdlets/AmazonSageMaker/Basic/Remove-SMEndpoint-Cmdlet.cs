@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.DeleteEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteEndpointAsync(request);
-                return task.Result;
+                return client.DeleteEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

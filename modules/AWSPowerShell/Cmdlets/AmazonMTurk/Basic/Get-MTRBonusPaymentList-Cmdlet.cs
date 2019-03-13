@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 #if DESKTOP
                 return client.ListBonusPayments(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListBonusPaymentsAsync(request);
-                return task.Result;
+                return client.ListBonusPaymentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

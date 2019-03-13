@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "NPT",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -66,15 +65,9 @@
         "confirmationMessageNoun": "RoleToDBCluster",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -112,15 +105,9 @@
         "confirmationMessageNoun": "SourceIdentifierToSubscription",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SourceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -158,15 +145,9 @@
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -204,15 +185,9 @@
         "confirmationMessageNoun": "PendingMaintenanceAction",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -250,15 +225,9 @@
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SourceDBClusterParameterGroupIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -296,15 +265,9 @@
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SourceDBClusterSnapshotIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -342,15 +305,9 @@
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SourceDBParameterGroupIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -388,15 +345,9 @@
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -434,15 +385,9 @@
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -480,15 +425,9 @@
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -526,15 +465,9 @@
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBInstanceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -572,15 +505,9 @@
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -618,15 +545,9 @@
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBSubnetGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -664,15 +585,9 @@
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SubscriptionName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -710,15 +625,9 @@
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -756,15 +665,9 @@
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DBClusterParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -802,15 +705,9 @@
         "confirmationMessageNoun": "DBClusterSnapshot",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterSnapshotIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -848,15 +745,9 @@
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBInstanceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -894,15 +785,9 @@
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DBParameterGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -940,15 +825,9 @@
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DBSubnetGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBSubnetGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -986,15 +865,9 @@
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SubscriptionName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1032,7 +905,6 @@
         "confirmationMessageNoun": "DBClusterParameterGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1081,7 +953,6 @@
         "confirmationMessageNoun": "DBClusterParameters",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1130,7 +1001,6 @@
         "confirmationMessageNoun": "DBClusters",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1179,7 +1049,6 @@
         "confirmationMessageNoun": "DBClusterSnapshotAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1220,7 +1089,6 @@
         "confirmationMessageNoun": "DBClusterSnapshots",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1269,7 +1137,6 @@
         "confirmationMessageNoun": "DBEngineVersions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1318,7 +1185,6 @@
         "confirmationMessageNoun": "DBInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1367,7 +1233,6 @@
         "confirmationMessageNoun": "DBParameterGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1416,7 +1281,6 @@
         "confirmationMessageNoun": "DBParameters",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1465,7 +1329,6 @@
         "confirmationMessageNoun": "DBSubnetGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1514,7 +1377,6 @@
         "confirmationMessageNoun": "EngineDefaultClusterParameters",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1555,7 +1417,6 @@
         "confirmationMessageNoun": "EngineDefaultParameters",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1596,7 +1457,6 @@
         "confirmationMessageNoun": "EventCategories",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1637,7 +1497,6 @@
         "confirmationMessageNoun": "Events",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1686,7 +1545,6 @@
         "confirmationMessageNoun": "EventSubscriptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1735,7 +1593,6 @@
         "confirmationMessageNoun": "OrderableDBInstanceOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1784,7 +1641,6 @@
         "confirmationMessageNoun": "PendingMaintenanceActions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1801,7 +1657,7 @@
     },
     "DescribeValidDBInstanceModifications": {
       "verb": "Get",
-      "noun": "ValidDBInstanceModifications",
+      "noun": "ValidDBInstanceModification",
       "anonymousAuthentication": "Never",
       "cmdletOutput": {
         "output": "DefaultSingleMember",
@@ -1833,7 +1689,6 @@
         "confirmationMessageNoun": "ValidDBInstanceModifications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1874,15 +1729,9 @@
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1920,7 +1769,6 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1961,15 +1809,9 @@
         "confirmationMessageNoun": "DBCluster",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2007,15 +1849,9 @@
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2053,15 +1889,9 @@
         "confirmationMessageNoun": "DBClusterSnapshotAttribute",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterSnapshotIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2099,15 +1929,9 @@
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBInstanceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2145,15 +1969,9 @@
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2191,15 +2009,9 @@
         "confirmationMessageNoun": "DBSubnetGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBSubnetGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2237,15 +2049,9 @@
         "confirmationMessageNoun": "EventSubscription",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SubscriptionName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2283,15 +2089,9 @@
         "confirmationMessageNoun": "ReadReplicaDBCluster",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2329,15 +2129,9 @@
         "confirmationMessageNoun": "DBInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBInstanceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2375,15 +2169,9 @@
         "confirmationMessageNoun": "RoleFromDBCluster",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2421,15 +2209,9 @@
         "confirmationMessageNoun": "SourceIdentifierFromSubscription",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SourceIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2467,15 +2249,9 @@
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2513,15 +2289,9 @@
         "confirmationMessageNoun": "DBClusterParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2559,15 +2329,9 @@
         "confirmationMessageNoun": "DBParameterGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBParameterGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2605,15 +2369,9 @@
         "confirmationMessageNoun": "DBClusterFromSnapshot",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2651,15 +2409,9 @@
         "confirmationMessageNoun": "DBClusterToPointInTime",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DBClusterIdentifier"
-        },
         "memoryStreamParameters": []
       }
     }

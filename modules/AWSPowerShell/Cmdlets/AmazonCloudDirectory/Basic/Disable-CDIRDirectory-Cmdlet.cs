@@ -143,9 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.DisableDirectory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableDirectoryAsync(request);
-                return task.Result;
+                return client.DisableDirectoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

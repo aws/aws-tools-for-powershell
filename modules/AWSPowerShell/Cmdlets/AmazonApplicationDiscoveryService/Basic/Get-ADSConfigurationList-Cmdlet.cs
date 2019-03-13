@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// search results.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ADSConfigurationList")]
-    [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
+    [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]
     [AWSCmdlet("Calls the Application Discovery Service ListConfigurations API operation.", Operation = new[] {"ListConfigurations"})]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "This cmdlet returns a collection of Dictionary`2 objects.",
@@ -288,9 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.ListConfigurations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListConfigurationsAsync(request);
-                return task.Result;
+                return client.ListConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -198,9 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 #if DESKTOP
                 return client.CreatePullRequest(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePullRequestAsync(request);
-                return task.Result;
+                return client.CreatePullRequestAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

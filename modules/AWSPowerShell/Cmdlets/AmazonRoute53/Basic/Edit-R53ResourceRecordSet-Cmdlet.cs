@@ -261,9 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.ChangeResourceRecordSets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ChangeResourceRecordSetsAsync(request);
-                return task.Result;
+                return client.ChangeResourceRecordSetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

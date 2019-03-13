@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.PutDedicatedIpWarmupAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutDedicatedIpWarmupAttributesAsync(request);
-                return task.Result;
+                return client.PutDedicatedIpWarmupAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

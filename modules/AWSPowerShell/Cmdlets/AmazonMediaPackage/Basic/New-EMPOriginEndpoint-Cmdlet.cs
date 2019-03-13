@@ -255,6 +255,17 @@ namespace Amazon.PowerShell.Cmdlets.EMP
         public System.String[] SpekeKeyProvider_SystemId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter TimeDelaySecond
         /// <summary>
         /// <para>
@@ -350,6 +361,14 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             context.MssPackage = this.MssPackage;
             if (ParameterWasBound("StartoverWindowSecond"))
                 context.StartoverWindowSeconds = this.StartoverWindowSecond;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (ParameterWasBound("TimeDelaySecond"))
                 context.TimeDelaySeconds = this.TimeDelaySecond;
             if (this.Whitelist != null)
@@ -578,6 +597,10 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             {
                 request.StartoverWindowSeconds = cmdletContext.StartoverWindowSeconds.Value;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.TimeDelaySeconds != null)
             {
                 request.TimeDelaySeconds = cmdletContext.TimeDelaySeconds.Value;
@@ -628,9 +651,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 #if DESKTOP
                 return client.CreateOriginEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateOriginEndpointAsync(request);
-                return task.Result;
+                return client.CreateOriginEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -670,6 +691,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
             public System.String ManifestName { get; set; }
             public Amazon.MediaPackage.Model.MssPackage MssPackage { get; set; }
             public System.Int32? StartoverWindowSeconds { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public System.Int32? TimeDelaySeconds { get; set; }
             public List<System.String> Whitelist { get; set; }
         }

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// CloudWatch Events relies on resource-based policies. For EC2 instances, Kinesis data
     /// streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles
     /// that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Authentication
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Authentication
     /// and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.
     /// </para><para>
     /// If another AWS account is in the same region and has granted you permission (using
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// If you are setting the event bus of another account as the target, and that account
     /// granted permission to your account through an organization instead of directly by
     /// the account ID, then you must specify a <code>RoleArn</code> with proper permissions
-    /// in the <code>Target</code> structure. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
+    /// in the <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
     /// and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User
     /// Guide</i>.
     /// </para><para>
@@ -265,9 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.PutTargets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutTargetsAsync(request);
-                return task.Result;
+                return client.PutTargetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

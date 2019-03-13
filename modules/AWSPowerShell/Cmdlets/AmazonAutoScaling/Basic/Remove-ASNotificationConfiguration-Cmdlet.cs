@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DeleteNotificationConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteNotificationConfigurationAsync(request);
-                return task.Result;
+                return client.DeleteNotificationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.UpdateCodeRepository(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateCodeRepositoryAsync(request);
-                return task.Result;
+                return client.UpdateCodeRepositoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

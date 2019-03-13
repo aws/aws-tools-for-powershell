@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.GlobalSignOut(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GlobalSignOutAsync(request);
-                return task.Result;
+                return client.GlobalSignOutAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

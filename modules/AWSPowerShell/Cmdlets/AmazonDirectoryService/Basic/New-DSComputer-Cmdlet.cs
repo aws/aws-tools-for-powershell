@@ -210,9 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.CreateComputer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateComputerAsync(request);
-                return task.Result;
+                return client.CreateComputerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

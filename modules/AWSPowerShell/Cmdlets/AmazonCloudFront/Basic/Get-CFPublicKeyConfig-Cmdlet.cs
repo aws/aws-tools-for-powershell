@@ -129,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 #if DESKTOP
                 return client.GetPublicKeyConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetPublicKeyConfigAsync(request);
-                return task.Result;
+                return client.GetPublicKeyConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

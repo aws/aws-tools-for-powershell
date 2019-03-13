@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 #if DESKTOP
                 return client.DeleteBackupVaultNotifications(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteBackupVaultNotificationsAsync(request);
-                return task.Result;
+                return client.DeleteBackupVaultNotificationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

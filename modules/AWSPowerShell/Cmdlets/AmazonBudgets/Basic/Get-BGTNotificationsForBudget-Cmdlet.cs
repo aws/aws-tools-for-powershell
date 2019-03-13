@@ -228,9 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 #if DESKTOP
                 return client.DescribeNotificationsForBudget(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeNotificationsForBudgetAsync(request);
-                return task.Result;
+                return client.DescribeNotificationsForBudgetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

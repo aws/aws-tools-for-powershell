@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.EnableVpcClassicLink(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableVpcClassicLinkAsync(request);
-                return task.Result;
+                return client.EnableVpcClassicLinkAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

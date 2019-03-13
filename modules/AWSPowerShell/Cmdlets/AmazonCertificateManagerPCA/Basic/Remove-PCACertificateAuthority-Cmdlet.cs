@@ -41,13 +41,13 @@ namespace Amazon.PowerShell.Cmdlets.PCA
     /// it if the CA has been created but you haven't yet imported the signed certificate
     /// (the <b>Status</b> is <code>PENDING_CERTIFICATE</code>) into ACM PCA. 
     /// </para><para>
-    /// If the CA is in one of the aforementioned states and you call <a>DeleteCertificateAuthority</a>,
-    /// the CA's status changes to <code>DELETED</code>. However, the CA won't be permentantly
+    /// If the CA is in one of the previously mentioned states and you call <a>DeleteCertificateAuthority</a>,
+    /// the CA's status changes to <code>DELETED</code>. However, the CA won't be permanently
     /// deleted until the restoration period has passed. By default, if you do not set the
     /// <code>PermanentDeletionTimeInDays</code> parameter, the CA remains restorable for
     /// 30 days. You can set the parameter from 7 to 30 days. The <a>DescribeCertificateAuthority</a>
     /// operation returns the time remaining in the restoration window of a Private CA in
-    /// the <code>DELETED</code> state. To restore an eligable CA, call the <a>RestoreCertificateAuthority</a>
+    /// the <code>DELETED</code> state. To restore an eligible CA, call the <a>RestoreCertificateAuthority</a>
     /// operation.
     /// </para>
     /// </summary>
@@ -193,9 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
                 #if DESKTOP
                 return client.DeleteCertificateAuthority(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteCertificateAuthorityAsync(request);
-                return task.Result;
+                return client.DeleteCertificateAuthorityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

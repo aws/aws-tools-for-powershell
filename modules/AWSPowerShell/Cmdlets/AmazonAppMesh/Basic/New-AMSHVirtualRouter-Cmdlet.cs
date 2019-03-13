@@ -28,13 +28,16 @@ using Amazon.AppMesh.Model;
 namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
-    /// Creates a new virtual router within a service mesh.
+    /// Creates a virtual router within a service mesh.
     /// 
     ///          
     /// <para>
-    /// Virtual routers handle traffic for one or more service names within your mesh. After
-    /// you         create your virtual router, create and associate routes for your virtual
-    /// router that direct         incoming requests to different virtual nodes.
+    /// Any inbound traffic that your virtual router expects should be specified as a    
+    ///        <code>listener</code>. 
+    /// </para><para>
+    /// Virtual routers handle traffic for one or more virtual services within your mesh.
+    /// After         you create your virtual router, create and associate routes for your
+    /// virtual router that         direct incoming requests to different virtual nodes.
     /// </para>
     /// </summary>
     [Cmdlet("New", "AMSHVirtualRouter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -58,25 +61,40 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         public System.String ClientToken { get; set; }
         #endregion
         
+        #region Parameter Spec_Listener
+        /// <summary>
+        /// <para>
+        /// <para>The listeners that the virtual router is expected to receive inbound traffic from.
+        /// Currently only one listener is supported per virtual router.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Spec_Listeners")]
+        public Amazon.AppMesh.Model.VirtualRouterListener[] Spec_Listener { get; set; }
+        #endregion
+        
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which to create the virtual router.</para>
+        /// <para>The name of the service mesh to create the virtual router in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String MeshName { get; set; }
         #endregion
         
-        #region Parameter Spec_ServiceName
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The service mesh service names to associate with the virtual router.</para>
+        /// <para>Optional metadata that you can apply to the virtual router to assist with categorization
+        /// and organization.         Each tag consists of a key and an optional value, both of
+        /// which you define.         Tag keys can have a maximum character length of 128 characters,
+        /// and tag values can have            a maximum length of 256 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Spec_ServiceNames")]
-        public System.String[] Spec_ServiceName { get; set; }
+        [Alias("Tags")]
+        public Amazon.AppMesh.Model.TagRef[] Tag { get; set; }
         #endregion
         
         #region Parameter VirtualRouterName
@@ -120,9 +138,13 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             
             context.ClientToken = this.ClientToken;
             context.MeshName = this.MeshName;
-            if (this.Spec_ServiceName != null)
+            if (this.Spec_Listener != null)
             {
-                context.Spec_ServiceNames = new List<System.String>(this.Spec_ServiceName);
+                context.Spec_Listeners = new List<Amazon.AppMesh.Model.VirtualRouterListener>(this.Spec_Listener);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.AppMesh.Model.TagRef>(this.Tag);
             }
             context.VirtualRouterName = this.VirtualRouterName;
             
@@ -153,20 +175,24 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
              // populate Spec
             bool requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.VirtualRouterSpec();
-            List<System.String> requestSpec_spec_ServiceName = null;
-            if (cmdletContext.Spec_ServiceNames != null)
+            List<Amazon.AppMesh.Model.VirtualRouterListener> requestSpec_spec_Listener = null;
+            if (cmdletContext.Spec_Listeners != null)
             {
-                requestSpec_spec_ServiceName = cmdletContext.Spec_ServiceNames;
+                requestSpec_spec_Listener = cmdletContext.Spec_Listeners;
             }
-            if (requestSpec_spec_ServiceName != null)
+            if (requestSpec_spec_Listener != null)
             {
-                request.Spec.ServiceNames = requestSpec_spec_ServiceName;
+                request.Spec.Listeners = requestSpec_spec_Listener;
                 requestSpecIsNull = false;
             }
              // determine if request.Spec should be set to null
             if (requestSpecIsNull)
             {
                 request.Spec = null;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.VirtualRouterName != null)
             {
@@ -214,9 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.CreateVirtualRouter(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateVirtualRouterAsync(request);
-                return task.Result;
+                return client.CreateVirtualRouterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -238,7 +262,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         {
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
-            public List<System.String> Spec_ServiceNames { get; set; }
+            public List<Amazon.AppMesh.Model.VirtualRouterListener> Spec_Listeners { get; set; }
+            public List<Amazon.AppMesh.Model.TagRef> Tags { get; set; }
             public System.String VirtualRouterName { get; set; }
         }
         

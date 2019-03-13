@@ -37,8 +37,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <para>
     /// If you are requesting a private certificate, domain validation is not required. If
     /// you are requesting a public certificate, each domain name that you specify must be
-    /// validated to verify that you own or control the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
-    /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+    /// validated to verify that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+    /// validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
     /// validation</a>. We recommend that you use DNS validation. ACM issues public certificates
     /// after receiving approval from the domain owner. 
     /// </para>
@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will
         /// be used to issue the certificate. If you do not provide an ARN and you are trying
         /// to request a private certificate, ACM will attempt to issue a public certificate.
-        /// For more information about private CAs, see the <a href="http://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">AWS
+        /// For more information about private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">AWS
         /// Certificate Manager Private Certificate Authority (PCA)</a> user guide. The ARN must
         /// have the following form: </para><para><code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code></para>
         /// </para>
@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
         /// by using either name. The maximum number of domain names that you can add to an ACM
         /// certificate is 100. However, the initial limit is 10 domain names. If you need more
-        /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
+        /// than 10 names, you must request a limit increase. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
         /// labels separated by periods. No label can be longer than 63 octets. Consider the following
         /// examples: </para><ul><li><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
         /// total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because
@@ -147,8 +147,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>The method you want to use if you are requesting a public certificate to validate
-        /// that you own or control domain. You can <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate
-        /// with DNS</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate
+        /// that you own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate
+        /// with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate
         /// with email</a>. We recommend that you use DNS validation. </para>
         /// </para>
         /// </summary>
@@ -300,9 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 #if DESKTOP
                 return client.RequestCertificate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RequestCertificateAsync(request);
-                return task.Result;
+                return client.RequestCertificateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

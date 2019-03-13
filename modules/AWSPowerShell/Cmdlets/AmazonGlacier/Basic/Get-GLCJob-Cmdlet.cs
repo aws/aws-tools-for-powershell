@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.DescribeJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeJobAsync(request);
-                return task.Result;
+                return client.DescribeJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

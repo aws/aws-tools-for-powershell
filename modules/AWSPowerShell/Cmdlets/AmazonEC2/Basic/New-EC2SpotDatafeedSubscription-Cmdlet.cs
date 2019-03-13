@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CreateSpotDatafeedSubscription(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSpotDatafeedSubscriptionAsync(request);
-                return task.Result;
+                return client.CreateSpotDatafeedSubscriptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

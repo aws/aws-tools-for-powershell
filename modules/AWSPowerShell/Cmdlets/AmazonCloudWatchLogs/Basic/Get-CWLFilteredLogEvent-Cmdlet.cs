@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter FilterPattern
         /// <summary>
         /// <para>
-        /// <para>The filter pattern to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter
+        /// <para>The filter pattern to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter
         /// and Pattern Syntax</a>.</para><para>If not provided, all the events are matched.</para>
         /// </para>
         /// </summary>
@@ -274,9 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.FilterLogEvents(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.FilterLogEventsAsync(request);
-                return task.Result;
+                return client.FilterLogEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

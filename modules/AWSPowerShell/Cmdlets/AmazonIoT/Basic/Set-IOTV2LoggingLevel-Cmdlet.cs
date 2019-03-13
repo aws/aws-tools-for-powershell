@@ -206,9 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.SetV2LoggingLevel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetV2LoggingLevelAsync(request);
-                return task.Result;
+                return client.SetV2LoggingLevelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

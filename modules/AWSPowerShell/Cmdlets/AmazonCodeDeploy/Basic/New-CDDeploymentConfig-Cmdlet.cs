@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// AWS CodeDeploy attempts to ensure that all instances but one are kept in a healthy
         /// state during the deployment. Although this allows one instance at a time to be taken
         /// offline for a new deployment, it also means that if the deployment to the last instance
-        /// fails, the overall deployment is still successful.</para></note><para>For more information, see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">AWS
+        /// fails, the overall deployment is still successful.</para></note><para>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">AWS
         /// CodeDeploy Instance Health</a> in the <i>AWS CodeDeploy User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -382,9 +382,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.CreateDeploymentConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentConfigAsync(request);
-                return task.Result;
+                return client.CreateDeploymentConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

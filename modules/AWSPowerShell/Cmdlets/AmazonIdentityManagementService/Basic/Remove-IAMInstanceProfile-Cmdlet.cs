@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.DeleteInstanceProfile(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteInstanceProfileAsync(request);
-                return task.Result;
+                return client.DeleteInstanceProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

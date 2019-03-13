@@ -984,6 +984,9 @@
         <ServiceOperation MethodName="ModifyInstanceCreditSpecification" Output="Response" Verb="Edit" Noun="InstanceCreditSpecification" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceEventStartTime" Output="DefaultSingleMember" Verb="Edit" Noun="InstanceEventStartTime" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyInstancePlacement" Output="DefaultSingleMember" Verb="Edit" Noun="InstancePlacement" ShouldProcessTarget="InstanceId" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CF",
-    "positionalMemberNames": [
-      "Id"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -18,7 +15,9 @@
     "Amazon.CloudFront.Model.FieldLevelEncryptionConfig"
   ],
   "nounMaps": {},
-  "outputMetadataMembers": [],
+  "outputMetadataMembers": [
+    "ETag"
+  ],
   "paginationDefaults": {
     "excludedOperations": [],
     "requestMember": "Marker",
@@ -58,7 +57,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -74,15 +75,9 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -102,7 +97,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -118,15 +115,9 @@
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -146,7 +137,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -162,15 +155,9 @@
         "confirmationMessageNoun": "DistributionWithTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -190,7 +177,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -208,15 +197,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -236,7 +219,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -254,15 +239,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -300,15 +279,9 @@
         "confirmationMessageNoun": "Invalidation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DistributionId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -328,7 +301,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -346,15 +321,9 @@
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -374,7 +343,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -392,15 +363,9 @@
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DomainName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -420,7 +385,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -436,15 +403,9 @@
         "confirmationMessageNoun": "StreamingDistributionWithTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -484,15 +445,9 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -532,15 +487,9 @@
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -578,15 +527,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -624,15 +567,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -670,15 +607,9 @@
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -718,15 +649,9 @@
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Id",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -746,7 +671,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -764,7 +691,6 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -787,7 +713,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -805,7 +733,6 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentityConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -828,7 +755,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -846,7 +775,6 @@
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -869,7 +797,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -887,7 +817,6 @@
         "confirmationMessageNoun": "DistributionConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -910,7 +839,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -928,7 +859,6 @@
         "confirmationMessageNoun": "FieldLevelEncryption",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -951,7 +881,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -969,7 +901,6 @@
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -992,7 +923,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1010,7 +943,6 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1033,7 +965,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1051,7 +985,6 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfileConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1094,7 +1027,6 @@
         "confirmationMessageNoun": "Invalidation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1117,7 +1049,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1135,7 +1069,6 @@
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1158,7 +1091,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1176,7 +1111,6 @@
         "confirmationMessageNoun": "PublicKeyConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1199,7 +1133,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1217,7 +1153,6 @@
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1240,7 +1175,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1258,7 +1195,6 @@
         "confirmationMessageNoun": "StreamingDistributionConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1302,7 +1238,6 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentities",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1353,7 +1288,6 @@
         "confirmationMessageNoun": "Distributions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1406,7 +1340,6 @@
         "confirmationMessageNoun": "DistributionsByWebACLId",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1455,7 +1388,6 @@
         "confirmationMessageNoun": "FieldLevelEncryptionConfigs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1504,7 +1436,6 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfiles",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1557,7 +1488,6 @@
         "confirmationMessageNoun": "Invalidations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1606,7 +1536,6 @@
         "confirmationMessageNoun": "PublicKeys",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1657,7 +1586,6 @@
         "confirmationMessageNoun": "StreamingDistributions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1705,7 +1633,6 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1755,15 +1682,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Resource",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Resource"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1810,15 +1731,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Resource",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Resource"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1840,7 +1755,9 @@
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1858,15 +1775,9 @@
         "confirmationMessageNoun": "CloudFrontOriginAccessIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1888,7 +1799,9 @@
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1906,15 +1819,9 @@
         "confirmationMessageNoun": "Distribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1934,7 +1841,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1952,15 +1861,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1980,7 +1883,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1998,15 +1903,9 @@
         "confirmationMessageNoun": "FieldLevelEncryptionProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2026,7 +1925,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -2044,15 +1945,9 @@
         "confirmationMessageNoun": "PublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2074,7 +1969,9 @@
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "ETag"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -2092,15 +1989,9 @@
         "confirmationMessageNoun": "StreamingDistribution",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Id"
-        },
         "memoryStreamParameters": []
       }
     }

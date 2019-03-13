@@ -213,9 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.SetUICustomization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetUICustomizationAsync(request);
-                return task.Result;
+                return client.SetUICustomizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

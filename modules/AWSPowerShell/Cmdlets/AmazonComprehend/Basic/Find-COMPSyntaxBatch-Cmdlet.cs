@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.BatchDetectSyntax(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchDetectSyntaxAsync(request);
-                return task.Result;
+                return client.BatchDetectSyntaxAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -316,9 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.AdminCreateUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AdminCreateUserAsync(request);
-                return task.Result;
+                return client.AdminCreateUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

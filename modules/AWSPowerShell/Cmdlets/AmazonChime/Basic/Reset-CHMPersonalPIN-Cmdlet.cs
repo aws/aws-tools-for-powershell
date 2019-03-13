@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 #if DESKTOP
                 return client.ResetPersonalPIN(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResetPersonalPINAsync(request);
-                return task.Result;
+                return client.ResetPersonalPINAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

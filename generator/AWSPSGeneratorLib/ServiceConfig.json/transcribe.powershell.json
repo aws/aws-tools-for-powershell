@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "TRS",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -70,15 +69,9 @@
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VocabularyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -116,15 +109,9 @@
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: TranscriptionJobName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TranscriptionJobName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -162,15 +149,9 @@
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VocabularyName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VocabularyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -208,7 +189,6 @@
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -249,7 +229,6 @@
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -272,7 +251,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "Status"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -288,7 +269,6 @@
         "confirmationMessageNoun": "TranscriptionJobs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -319,7 +299,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "Status"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -335,7 +317,6 @@
         "confirmationMessageNoun": "Vocabularies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -384,15 +365,9 @@
         "confirmationMessageNoun": "TranscriptionJob",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TranscriptionJobName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -430,15 +405,9 @@
         "confirmationMessageNoun": "Vocabulary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VocabularyName"
-        },
         "memoryStreamParameters": []
       }
     }

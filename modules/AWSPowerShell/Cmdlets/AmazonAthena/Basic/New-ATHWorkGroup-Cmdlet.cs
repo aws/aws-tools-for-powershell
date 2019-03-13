@@ -372,9 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 #if DESKTOP
                 return client.CreateWorkGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateWorkGroupAsync(request);
-                return task.Result;
+                return client.CreateWorkGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

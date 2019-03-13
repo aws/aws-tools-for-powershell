@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 #if DESKTOP
                 return client.UnsubscribeFromEvent(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UnsubscribeFromEventAsync(request);
-                return task.Result;
+                return client.UnsubscribeFromEventAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

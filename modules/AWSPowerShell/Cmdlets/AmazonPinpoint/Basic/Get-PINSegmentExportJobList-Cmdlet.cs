@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.GetSegmentExportJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetSegmentExportJobsAsync(request);
-                return task.Result;
+                return client.GetSegmentExportJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

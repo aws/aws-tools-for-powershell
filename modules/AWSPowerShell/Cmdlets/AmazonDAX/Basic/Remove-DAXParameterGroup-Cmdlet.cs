@@ -143,9 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 #if DESKTOP
                 return client.DeleteParameterGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteParameterGroupAsync(request);
-                return task.Result;
+                return client.DeleteParameterGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

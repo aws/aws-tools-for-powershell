@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.UpdateDomainName(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDomainNameAsync(request);
-                return task.Result;
+                return client.UpdateDomainNameAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

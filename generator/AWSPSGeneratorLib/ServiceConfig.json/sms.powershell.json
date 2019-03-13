@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "SMS",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -74,15 +73,9 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -118,15 +111,9 @@
         "confirmationMessageNoun": "ReplicationJob",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServerId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -164,15 +151,9 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -210,15 +191,9 @@
         "confirmationMessageNoun": "AppLaunchConfiguration",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -256,15 +231,9 @@
         "confirmationMessageNoun": "AppReplicationConfiguration",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -302,15 +271,9 @@
         "confirmationMessageNoun": "ReplicationJob",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ReplicationJobId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReplicationJobId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -346,15 +309,9 @@
         "confirmationMessageNoun": "ServerCatalog",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "No parameters, setting anonymous target",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -392,15 +349,9 @@
         "confirmationMessageNoun": "Connector",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConnectorId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConnectorId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -438,15 +389,9 @@
         "confirmationMessageNoun": "ChangeSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -484,15 +429,9 @@
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -530,7 +469,6 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -571,7 +509,6 @@
         "confirmationMessageNoun": "AppLaunchConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -612,7 +549,6 @@
         "confirmationMessageNoun": "AppReplicationConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -651,7 +587,6 @@
         "confirmationMessageNoun": "Connectors",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -702,7 +637,6 @@
         "confirmationMessageNoun": "ReplicationJobs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -735,7 +669,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -753,7 +689,6 @@
         "confirmationMessageNoun": "ReplicationRuns",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -776,7 +711,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextToken"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -792,7 +729,6 @@
         "confirmationMessageNoun": "Servers",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -831,15 +767,9 @@
         "confirmationMessageNoun": "ServerCatalog",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "No parameters, setting anonymous target",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -877,15 +807,9 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -923,7 +847,6 @@
         "confirmationMessageNoun": "Apps",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -974,15 +897,9 @@
         "confirmationMessageNoun": "AppLaunchConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1020,15 +937,9 @@
         "confirmationMessageNoun": "AppReplicationConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1066,15 +977,9 @@
         "confirmationMessageNoun": "AppReplication",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1112,15 +1017,9 @@
         "confirmationMessageNoun": "OnDemandReplicationRun",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReplicationJobId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1158,15 +1057,9 @@
         "confirmationMessageNoun": "AppReplication",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1204,15 +1097,9 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AppId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1250,15 +1137,9 @@
         "confirmationMessageNoun": "App",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1296,15 +1177,9 @@
         "confirmationMessageNoun": "ReplicationJob",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ReplicationJobId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReplicationJobId"
-        },
         "memoryStreamParameters": []
       }
     }

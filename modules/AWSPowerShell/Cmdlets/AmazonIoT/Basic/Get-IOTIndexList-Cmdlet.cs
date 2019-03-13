@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token used to get the next set of results, or <b>null</b> if there are no additional
+        /// <para>The token used to get the next set of results, or null if there are no additional
         /// results.</para>
         /// </para>
         /// <para>
@@ -226,9 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ListIndices(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListIndicesAsync(request);
-                return task.Result;
+                return client.ListIndicesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

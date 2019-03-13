@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 #if DESKTOP
                 return client.DescribeConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeConfigurationAsync(request);
-                return task.Result;
+                return client.DescribeConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

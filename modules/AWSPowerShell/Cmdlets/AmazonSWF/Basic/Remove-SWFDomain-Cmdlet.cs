@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                 #if DESKTOP
                 return client.DeprecateDomain(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeprecateDomainAsync(request);
-                return task.Result;
+                return client.DeprecateDomainAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

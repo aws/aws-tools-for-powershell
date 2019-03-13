@@ -276,9 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.ConfigureHealthCheck(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ConfigureHealthCheckAsync(request);
-                return task.Result;
+                return client.ConfigureHealthCheckAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

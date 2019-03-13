@@ -36,13 +36,17 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// steps:
     /// </para><ol><li><para>
     /// Create an Amazon Kinesis Data Firehose . 
+    /// </para><para>
+    /// Create the data firehose with a PUT source and in the region that you are operating.
+    /// However, if you are capturing logs for Amazon CloudFront, always create the firehose
+    /// in US East (N. Virginia). 
     /// </para></li><li><para>
     /// Associate that firehose to your web ACL using a <code>PutLoggingConfiguration</code>
     /// request.
     /// </para></li></ol><para>
     /// When you successfully enable logging using a <code>PutLoggingConfiguration</code>
     /// request, AWS WAF will create a service linked role with the necessary permissions
-    /// to write logs to the Amazon Kinesis Data Firehose. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
+    /// to write logs to the Amazon Kinesis Data Firehose. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging
     /// Web ACL Traffic Information</a> in the <i>AWS WAF Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -225,9 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                 #if DESKTOP
                 return client.PutLoggingConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutLoggingConfigurationAsync(request);
-                return task.Result;
+                return client.PutLoggingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

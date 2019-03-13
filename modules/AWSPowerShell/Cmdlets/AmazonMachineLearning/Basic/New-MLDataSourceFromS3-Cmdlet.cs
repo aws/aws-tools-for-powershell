@@ -348,9 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.CreateDataSourceFromS3(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDataSourceFromS3Async(request);
-                return task.Result;
+                return client.CreateDataSourceFromS3Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

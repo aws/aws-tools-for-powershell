@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CSD",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {

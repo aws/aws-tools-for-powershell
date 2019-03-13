@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.DeleteGatewayResponse(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteGatewayResponseAsync(request);
-                return task.Result;
+                return client.DeleteGatewayResponseAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

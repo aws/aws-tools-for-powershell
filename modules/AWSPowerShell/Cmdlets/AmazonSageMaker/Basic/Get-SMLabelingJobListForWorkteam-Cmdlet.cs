@@ -324,9 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.ListLabelingJobsForWorkteam(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListLabelingJobsForWorkteamAsync(request);
-                return task.Result;
+                return client.ListLabelingJobsForWorkteamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

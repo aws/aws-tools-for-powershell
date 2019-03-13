@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.CreateDedicatedIpPool(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDedicatedIpPoolAsync(request);
-                return task.Result;
+                return client.CreateDedicatedIpPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

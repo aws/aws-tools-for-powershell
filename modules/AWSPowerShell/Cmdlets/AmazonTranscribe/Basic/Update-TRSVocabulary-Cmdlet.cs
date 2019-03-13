@@ -63,6 +63,21 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String[] Phras { get; set; }
         #endregion
         
+        #region Parameter VocabularyFileUri
+        /// <summary>
+        /// <para>
+        /// <para>The S3 location of the text file that contains the definition of the custom vocabulary.
+        /// The URI must be in the same region as the API endpoint that you are calling. The general
+        /// form is </para><para><code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
+        /// </code></para><para>For example:</para><para><code>https://s3-us-east-1.amazonaws.com/examplebucket/vocab.txt</code></para><para>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object
+        /// Keys</a> in the <i>Amazon S3 Developer Guide</i>.</para><para>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom
+        /// Vocabularies</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VocabularyFileUri { get; set; }
+        #endregion
+        
         #region Parameter VocabularyName
         /// <summary>
         /// <para>
@@ -107,6 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             {
                 context.Phrases = new List<System.String>(this.Phras);
             }
+            context.VocabularyFileUri = this.VocabularyFileUri;
             context.VocabularyName = this.VocabularyName;
             
             // allow further manipulation of loaded context prior to processing
@@ -131,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.TRS
             if (cmdletContext.Phrases != null)
             {
                 request.Phrases = cmdletContext.Phrases;
+            }
+            if (cmdletContext.VocabularyFileUri != null)
+            {
+                request.VocabularyFileUri = cmdletContext.VocabularyFileUri;
             }
             if (cmdletContext.VocabularyName != null)
             {
@@ -178,9 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 #if DESKTOP
                 return client.UpdateVocabulary(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateVocabularyAsync(request);
-                return task.Result;
+                return client.UpdateVocabularyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -202,6 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         {
             public Amazon.TranscribeService.LanguageCode LanguageCode { get; set; }
             public List<System.String> Phrases { get; set; }
+            public System.String VocabularyFileUri { get; set; }
             public System.String VocabularyName { get; set; }
         }
         

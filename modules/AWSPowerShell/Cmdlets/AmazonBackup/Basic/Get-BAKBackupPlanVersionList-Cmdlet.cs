@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 #if DESKTOP
                 return client.ListBackupPlanVersions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListBackupPlanVersionsAsync(request);
-                return task.Result;
+                return client.ListBackupPlanVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

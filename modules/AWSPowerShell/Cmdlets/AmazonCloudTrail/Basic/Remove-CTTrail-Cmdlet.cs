@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 #if DESKTOP
                 return client.DeleteTrail(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTrailAsync(request);
-                return task.Result;
+                return client.DeleteTrailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -111,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.GetConferencePreference(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetConferencePreferenceAsync(request);
-                return task.Result;
+                return client.GetConferencePreferenceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

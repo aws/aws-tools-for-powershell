@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 #if DESKTOP
                 return client.DeleteRemoteAccessSession(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRemoteAccessSessionAsync(request);
-                return task.Result;
+                return client.DeleteRemoteAccessSessionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

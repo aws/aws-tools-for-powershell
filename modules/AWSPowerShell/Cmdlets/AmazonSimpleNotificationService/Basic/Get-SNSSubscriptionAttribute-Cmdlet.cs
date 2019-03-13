@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 #if DESKTOP
                 return client.GetSubscriptionAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetSubscriptionAttributesAsync(request);
-                return task.Result;
+                return client.GetSubscriptionAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

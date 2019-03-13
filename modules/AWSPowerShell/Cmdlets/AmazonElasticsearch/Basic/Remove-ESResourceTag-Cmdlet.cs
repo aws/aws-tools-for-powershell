@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 #if DESKTOP
                 return client.RemoveTags(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveTagsAsync(request);
-                return task.Result;
+                return client.RemoveTagsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

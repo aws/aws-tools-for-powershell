@@ -320,9 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 #if DESKTOP
                 return client.UpdateBranch(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateBranchAsync(request);
-                return task.Result;
+                return client.UpdateBranchAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

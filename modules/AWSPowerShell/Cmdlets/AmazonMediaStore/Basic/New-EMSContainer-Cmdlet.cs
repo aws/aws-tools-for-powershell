@@ -147,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                 #if DESKTOP
                 return client.CreateContainer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateContainerAsync(request);
-                return task.Result;
+                return client.CreateContainerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

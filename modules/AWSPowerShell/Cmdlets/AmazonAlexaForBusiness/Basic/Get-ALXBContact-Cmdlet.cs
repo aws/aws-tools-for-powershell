@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.GetContact(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetContactAsync(request);
-                return task.Result;
+                return client.GetContactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

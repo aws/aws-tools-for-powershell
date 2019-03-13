@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.BatchGetDeploymentTargets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetDeploymentTargetsAsync(request);
-                return task.Result;
+                return client.BatchGetDeploymentTargetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

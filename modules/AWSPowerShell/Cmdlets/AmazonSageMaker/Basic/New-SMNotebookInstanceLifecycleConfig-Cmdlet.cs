@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// runs for longer than 5 minutes, it fails and the notebook instance is not created
     /// or started.
     /// </para><para>
-    /// For information about notebook instance lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+    /// For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
     /// 2.1: (Optional) Customize a Notebook Instance</a>.
     /// </para>
     /// </summary>
@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreateNotebookInstanceLifecycleConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateNotebookInstanceLifecycleConfigAsync(request);
-                return task.Result;
+                return client.CreateNotebookInstanceLifecycleConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

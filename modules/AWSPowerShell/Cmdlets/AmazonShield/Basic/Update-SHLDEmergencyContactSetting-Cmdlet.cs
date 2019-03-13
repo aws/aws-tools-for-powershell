@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 #if DESKTOP
                 return client.UpdateEmergencyContactSettings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEmergencyContactSettingsAsync(request);
-                return task.Result;
+                return client.UpdateEmergencyContactSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

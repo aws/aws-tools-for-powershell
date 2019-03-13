@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.PutSchemaFromJson(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutSchemaFromJsonAsync(request);
-                return task.Result;
+                return client.PutSchemaFromJsonAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

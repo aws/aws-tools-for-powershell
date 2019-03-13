@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.CreateScript(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateScriptAsync(request);
-                return task.Result;
+                return client.CreateScriptAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

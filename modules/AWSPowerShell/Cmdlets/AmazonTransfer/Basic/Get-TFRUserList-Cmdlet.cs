@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class GetTFRUserListCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        #region Parameter ServerId
+        /// <summary>
+        /// <para>
+        /// <para>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server
+        /// that has users are assigned to it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ServerId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -71,17 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        #endregion
-        
-        #region Parameter ServerId
-        /// <summary>
-        /// <para>
-        /// <para>A system-assigned unique identifier for a Secure File Transfer Protocol (SFTP) server
-        /// that has users are assigned to it.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ServerId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 #if DESKTOP
                 return client.ListUsers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListUsersAsync(request);
-                return task.Result;
+                return client.ListUsersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

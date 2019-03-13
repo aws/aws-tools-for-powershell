@@ -435,9 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.ModifyLoadBalancerAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyLoadBalancerAttributesAsync(request);
-                return task.Result;
+                return client.ModifyLoadBalancerAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

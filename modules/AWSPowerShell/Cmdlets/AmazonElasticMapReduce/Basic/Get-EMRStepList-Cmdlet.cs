@@ -220,9 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 #if DESKTOP
                 return client.ListSteps(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListStepsAsync(request);
-                return task.Result;
+                return client.ListStepsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

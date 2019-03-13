@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.SearchProfiles(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SearchProfilesAsync(request);
-                return task.Result;
+                return client.SearchProfilesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

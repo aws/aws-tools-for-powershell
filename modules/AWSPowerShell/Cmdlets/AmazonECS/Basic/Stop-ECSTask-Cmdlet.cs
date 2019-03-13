@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Task
         /// <summary>
         /// <para>
-        /// <para>The task ID or full ARN entry of the task to stop.</para>
+        /// <para>The task ID or full Amazon Resource Name (ARN) of the task to stop.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.StopTask(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopTaskAsync(request);
-                return task.Result;
+                return client.StopTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

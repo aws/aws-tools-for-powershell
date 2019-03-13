@@ -40,9 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.CHM
     /// account again. You can use the <a>InviteUsers</a> action to do so.
     /// </para><para>
     /// Users suspended from an <code>EnterpriseLWA</code> account are immediately signed
-    /// out of Amazon Chime and are no longer able to sign in. To remove the suspension from
-    /// suspended <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a>
-    /// action. 
+    /// out of Amazon Chime and can no longer sign in. To remove the suspension from suspended
+    /// <code>EnterpriseLWA</code> account users, use the <a>BatchUnsuspendUser</a> action.
+    /// 
     /// </para><para>
     /// To sign out users without suspending them, use the <a>LogoutUser</a> action.
     /// </para>
@@ -177,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 #if DESKTOP
                 return client.BatchSuspendUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchSuspendUserAsync(request);
-                return task.Result;
+                return client.BatchSuspendUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

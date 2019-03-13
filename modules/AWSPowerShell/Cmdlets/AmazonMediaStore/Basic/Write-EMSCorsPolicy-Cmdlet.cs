@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.EMS
     /// executed on your container. The policy can contain up to 398,000 characters. You can
     /// add up to 100 rules to a CORS policy. If more than one rule applies, the service uses
     /// the first applicable rule listed.
+    /// </para><para>
+    /// To learn more about CORS, see <a href="https://docs.aws.amazon.com/mediastore/latest/ug/cors-policy.html">Cross-Origin
+    /// Resource Sharing (CORS) in AWS Elemental MediaStore</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "EMSCorsPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -183,9 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                 #if DESKTOP
                 return client.PutCorsPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutCorsPolicyAsync(request);
-                return task.Result;
+                return client.PutCorsPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

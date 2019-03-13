@@ -356,9 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                 #if DESKTOP
                 return client.RegisterActivityType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterActivityTypeAsync(request);
-                return task.Result;
+                return client.RegisterActivityTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

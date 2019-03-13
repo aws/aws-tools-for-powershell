@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 #if DESKTOP
                 return client.DeleteLocation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteLocationAsync(request);
-                return task.Result;
+                return client.DeleteLocationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

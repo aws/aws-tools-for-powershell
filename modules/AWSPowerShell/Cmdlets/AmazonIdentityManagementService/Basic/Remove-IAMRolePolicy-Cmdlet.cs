@@ -181,9 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.DeleteRolePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRolePolicyAsync(request);
-                return task.Result;
+                return client.DeleteRolePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

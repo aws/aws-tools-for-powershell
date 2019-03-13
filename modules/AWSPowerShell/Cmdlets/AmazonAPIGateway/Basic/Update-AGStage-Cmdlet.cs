@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.UpdateStage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateStageAsync(request);
-                return task.Result;
+                return client.UpdateStageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

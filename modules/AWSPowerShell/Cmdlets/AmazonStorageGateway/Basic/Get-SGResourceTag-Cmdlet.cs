@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGResourceTagCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter ResourceARN
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceARN { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -70,16 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
-        #endregion
-        
-        #region Parameter ResourceARN
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource for which you want to list tags.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceARN { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.ListTagsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForResourceAsync(request);
-                return task.Result;
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

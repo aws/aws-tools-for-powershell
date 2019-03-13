@@ -129,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 #if DESKTOP
                 return client.DescribeScalingParameters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeScalingParametersAsync(request);
-                return task.Result;
+                return client.DescribeScalingParametersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

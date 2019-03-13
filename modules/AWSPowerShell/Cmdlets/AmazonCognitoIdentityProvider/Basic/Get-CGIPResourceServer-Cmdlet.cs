@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.DescribeResourceServer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeResourceServerAsync(request);
-                return task.Result;
+                return client.DescribeResourceServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

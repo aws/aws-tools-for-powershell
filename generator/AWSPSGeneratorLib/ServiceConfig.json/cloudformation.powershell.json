@@ -13,13 +13,13 @@
       ]
     },
     {
-      "cmdlet": "Get-CFNStackSummaries",
+      "cmdlet": "Get-CFNStackSummary",
       "aliasNames": [
         "List-CFNStacks"
       ]
     },
     {
-      "cmdlet": "Get-CFNStackResourceSummaries",
+      "cmdlet": "Get-CFNStackResourceSummary",
       "aliasNames": [
         "List-CFNStackResources"
       ]
@@ -28,9 +28,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CFN",
-    "positionalMemberNames": [
-      "StackName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -112,15 +109,9 @@
         "confirmationMessageNoun": "UpdateStack",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -158,15 +149,9 @@
         "confirmationMessageNoun": "UpdateRollback",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -213,15 +198,9 @@
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -268,15 +247,9 @@
         "confirmationMessageNoun": "StackInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -314,15 +287,9 @@
         "confirmationMessageNoun": "StackSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -339,7 +306,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "StackName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -360,15 +329,9 @@
         "confirmationMessageNoun": "ChangeSet",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ChangeSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ChangeSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -406,15 +369,9 @@
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -461,15 +418,9 @@
         "confirmationMessageNoun": "StackInstances",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -507,15 +458,9 @@
         "confirmationMessageNoun": "StackSet",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -551,7 +496,6 @@
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -580,10 +524,14 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "StackName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -601,7 +549,6 @@
         "confirmationMessageNoun": "ChangeSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -642,7 +589,6 @@
         "confirmationMessageNoun": "StackDriftDetectionStatus",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -683,7 +629,6 @@
         "confirmationMessageNoun": "StackEvents",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -733,7 +678,6 @@
         "confirmationMessageNoun": "StackInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -776,7 +720,6 @@
         "confirmationMessageNoun": "StackResource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -817,7 +760,6 @@
         "confirmationMessageNoun": "StackResourceDrifts",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -867,7 +809,6 @@
         "confirmationMessageNoun": "StackResources",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -908,7 +849,6 @@
         "confirmationMessageNoun": "Stacks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -958,7 +898,6 @@
         "confirmationMessageNoun": "StackSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -999,7 +938,6 @@
         "confirmationMessageNoun": "StackSetOperation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1040,15 +978,9 @@
         "confirmationMessageNoun": "StackDrift",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1086,7 +1018,6 @@
         "confirmationMessageNoun": "StackResourceDrift",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1127,15 +1058,9 @@
         "confirmationMessageNoun": "TemplateCost",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TemplateBody"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1152,7 +1077,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "StackName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1173,15 +1100,9 @@
         "confirmationMessageNoun": "ChangeSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ChangeSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ChangeSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1219,7 +1140,6 @@
         "confirmationMessageNoun": "StackPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1260,7 +1180,6 @@
         "confirmationMessageNoun": "TemplateSummary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1301,7 +1220,6 @@
         "confirmationMessageNoun": "ChangeSets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1349,7 +1267,6 @@
         "confirmationMessageNoun": "Exports",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1399,7 +1316,6 @@
         "confirmationMessageNoun": "Imports",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1456,7 +1372,6 @@
         "confirmationMessageNoun": "StackInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1506,7 +1421,6 @@
         "confirmationMessageNoun": "StackResources",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1556,7 +1470,6 @@
         "confirmationMessageNoun": "Stacks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1613,7 +1526,6 @@
         "confirmationMessageNoun": "StackSetOperationResults",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1670,7 +1582,6 @@
         "confirmationMessageNoun": "StackSetOperations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1727,7 +1638,6 @@
         "confirmationMessageNoun": "StackSets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1777,15 +1687,9 @@
         "confirmationMessageNoun": "StackPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1823,15 +1727,9 @@
         "confirmationMessageNoun": "Resource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1869,15 +1767,9 @@
         "confirmationMessageNoun": "StackSetOperation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StackSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1915,15 +1807,9 @@
         "confirmationMessageNoun": "Stack",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1970,15 +1856,9 @@
         "confirmationMessageNoun": "StackInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2025,15 +1905,9 @@
         "confirmationMessageNoun": "StackSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2071,15 +1945,9 @@
         "confirmationMessageNoun": "TerminationProtection",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StackName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2117,7 +1985,6 @@
         "confirmationMessageNoun": "Template",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},

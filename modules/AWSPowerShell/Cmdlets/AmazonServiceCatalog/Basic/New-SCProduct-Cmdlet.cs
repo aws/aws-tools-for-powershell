@@ -400,9 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.CreateProduct(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateProductAsync(request);
-                return task.Result;
+                return client.CreateProductAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

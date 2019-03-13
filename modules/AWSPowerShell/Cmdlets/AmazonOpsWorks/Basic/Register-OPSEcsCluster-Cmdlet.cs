@@ -167,9 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 #if DESKTOP
                 return client.RegisterEcsCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterEcsClusterAsync(request);
-                return task.Result;
+                return client.RegisterEcsClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

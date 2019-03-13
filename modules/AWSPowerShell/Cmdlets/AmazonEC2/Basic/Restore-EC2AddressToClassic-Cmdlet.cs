@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.RestoreAddressToClassic(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreAddressToClassicAsync(request);
-                return task.Result;
+                return client.RestoreAddressToClassicAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

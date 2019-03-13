@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.ChangeMessageVisibility(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ChangeMessageVisibilityAsync(request);
-                return task.Result;
+                return client.ChangeMessageVisibilityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

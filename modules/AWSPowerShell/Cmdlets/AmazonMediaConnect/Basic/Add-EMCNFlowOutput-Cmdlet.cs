@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
     public partial class AddEMCNFlowOutputCmdlet : AmazonMediaConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter FlowArn
+        /// <summary>
+        /// <para>
+        /// The flow that you want to add outputs to.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String FlowArn { get; set; }
+        #endregion
+        
         #region Parameter Output
         /// <summary>
         /// <para>
@@ -50,16 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter]
         [Alias("Outputs")]
         public Amazon.MediaConnect.Model.AddOutputRequest[] Output { get; set; }
-        #endregion
-        
-        #region Parameter FlowArn
-        /// <summary>
-        /// <para>
-        /// The flow that you want to add outputs to.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String FlowArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.AddFlowOutputs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddFlowOutputsAsync(request);
-                return task.Result;
+                return client.AddFlowOutputsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

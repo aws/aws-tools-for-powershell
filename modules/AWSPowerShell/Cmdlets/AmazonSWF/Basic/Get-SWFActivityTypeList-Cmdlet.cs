@@ -74,23 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         public System.String Domain { get; set; }
         #endregion
         
-        #region Parameter MaximumPageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results that are returned per call. <code>nextPageToken</code>
-        /// can be used to obtain futher pages of results. The default is 1000, which is the maximum
-        /// allowed page size. You can, however, specify a page size <i>smaller</i> than the maximum.</para><para>This is an upper limit only; the actual number of results returned per call may be
-        /// fewer than the specified maximum.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int MaximumPageSize { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -122,6 +105,23 @@ namespace Amazon.PowerShell.Cmdlets.SWF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean ReverseOrder { get; set; }
+        #endregion
+        
+        #region Parameter MaximumPageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results that are returned per call. <code>nextPageToken</code>
+        /// can be used to obtain futher pages of results. The default is 1000, which is the maximum
+        /// allowed page size. You can, however, specify a page size <i>smaller</i> than the maximum.</para><para>This is an upper limit only; the actual number of results returned per call may be
+        /// fewer than the specified maximum.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int MaximumPageSize { get; set; }
         #endregion
         
         #region Parameter NextPageToken
@@ -289,9 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                 #if DESKTOP
                 return client.ListActivityTypes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListActivityTypesAsync(request);
-                return task.Result;
+                return client.ListActivityTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

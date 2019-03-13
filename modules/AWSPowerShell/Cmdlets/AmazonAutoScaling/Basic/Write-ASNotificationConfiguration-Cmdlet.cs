@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// This configuration overwrites any existing configuration.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
-    /// SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User
-    /// Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting
+    /// Amazon SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Amazon
+    /// EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASNotificationConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.PutNotificationConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutNotificationConfigurationAsync(request);
-                return task.Result;
+                return client.PutNotificationConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

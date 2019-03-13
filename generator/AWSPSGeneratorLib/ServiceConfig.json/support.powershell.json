@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "ASA",
-    "positionalMemberNames": [
-      "CaseId"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -73,15 +70,9 @@
         "confirmationMessageNoun": "AttachmentsToSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AttachmentSetId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -122,15 +113,9 @@
         "confirmationMessageNoun": "CommunicationToCase",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "CaseId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -173,15 +158,9 @@
         "confirmationMessageNoun": "Case",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AttachmentSetId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -219,7 +198,6 @@
         "confirmationMessageNoun": "Attachment",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -260,7 +238,6 @@
         "confirmationMessageNoun": "Cases",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -308,7 +285,6 @@
         "confirmationMessageNoun": "Communications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -358,7 +334,6 @@
         "confirmationMessageNoun": "Services",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -399,7 +374,6 @@
         "confirmationMessageNoun": "SeverityLevels",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -440,7 +414,6 @@
         "confirmationMessageNoun": "TrustedAdvisorCheckRefreshStatuses",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -483,7 +456,6 @@
         "confirmationMessageNoun": "TrustedAdvisorCheckResult",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -524,7 +496,6 @@
         "confirmationMessageNoun": "TrustedAdvisorChecks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -565,7 +536,6 @@
         "confirmationMessageNoun": "TrustedAdvisorCheckSummaries",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -606,15 +576,9 @@
         "confirmationMessageNoun": "TrustedAdvisorCheck",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "CheckId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -652,15 +616,9 @@
         "confirmationMessageNoun": "Case",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "CaseId"
-        },
         "memoryStreamParameters": []
       }
     }

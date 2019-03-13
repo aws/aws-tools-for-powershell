@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.DeleteRetentionConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRetentionConfigurationAsync(request);
-                return task.Result;
+                return client.DeleteRetentionConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

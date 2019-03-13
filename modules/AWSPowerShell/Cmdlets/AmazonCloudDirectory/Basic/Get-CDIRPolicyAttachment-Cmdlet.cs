@@ -253,9 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.ListPolicyAttachments(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListPolicyAttachmentsAsync(request);
-                return task.Result;
+                return client.ListPolicyAttachmentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

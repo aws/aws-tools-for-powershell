@@ -193,9 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.ListInventoryEntries(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListInventoryEntriesAsync(request);
-                return task.Result;
+                return client.ListInventoryEntriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

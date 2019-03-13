@@ -948,6 +948,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String Schedule_StartTime { get; set; }
         #endregion
         
+        #region Parameter WriteCampaignRequest_Tag
+        /// <summary>
+        /// <para>
+        /// The Tags for the campaign.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Tags")]
+        public System.Collections.Hashtable WriteCampaignRequest_Tag { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_TimeToLive
         /// <summary>
         /// <para>
@@ -1385,6 +1396,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_SegmentId = this.WriteCampaignRequest_SegmentId;
             if (ParameterWasBound("WriteCampaignRequest_SegmentVersion"))
                 context.WriteCampaignRequest_SegmentVersion = this.WriteCampaignRequest_SegmentVersion;
+            if (this.WriteCampaignRequest_Tag != null)
+            {
+                context.WriteCampaignRequest_Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.WriteCampaignRequest_Tag.Keys)
+                {
+                    context.WriteCampaignRequest_Tags.Add((String)hashKey, (String)(this.WriteCampaignRequest_Tag[hashKey]));
+                }
+            }
             context.WriteCampaignRequest_TreatmentDescription = this.WriteCampaignRequest_TreatmentDescription;
             context.WriteCampaignRequest_TreatmentName = this.WriteCampaignRequest_TreatmentName;
             
@@ -1479,6 +1498,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion != null)
             {
                 request.WriteCampaignRequest.SegmentVersion = requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion.Value;
+                requestWriteCampaignRequestIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestWriteCampaignRequest_writeCampaignRequest_Tag = null;
+            if (cmdletContext.WriteCampaignRequest_Tags != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Tag = cmdletContext.WriteCampaignRequest_Tags;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Tag != null)
+            {
+                request.WriteCampaignRequest.Tags = requestWriteCampaignRequest_writeCampaignRequest_Tag;
                 requestWriteCampaignRequestIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_TreatmentDescription = null;
@@ -2633,9 +2662,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.CreateCampaign(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateCampaignAsync(request);
-                return task.Result;
+                return client.CreateCampaignAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -2749,6 +2776,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_Schedule_Timezone { get; set; }
             public System.String WriteCampaignRequest_SegmentId { get; set; }
             public System.Int32? WriteCampaignRequest_SegmentVersion { get; set; }
+            public Dictionary<System.String, System.String> WriteCampaignRequest_Tags { get; set; }
             public System.String WriteCampaignRequest_TreatmentDescription { get; set; }
             public System.String WriteCampaignRequest_TreatmentName { get; set; }
         }

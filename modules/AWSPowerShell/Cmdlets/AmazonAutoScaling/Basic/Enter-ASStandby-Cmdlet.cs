@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-enter-exit-standby.html">Temporarily
     /// Removing Instances from Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling
     /// User Guide</i>.
     /// </para>
@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.EnterStandby(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnterStandbyAsync(request);
-                return task.Result;
+                return client.EnterStandbyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

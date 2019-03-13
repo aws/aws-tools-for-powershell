@@ -28,8 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Sets permissions for a user or group. This replaces any pre-existing permissions set
-    /// for the entity.
+    /// Sets permissions for a user, group, or resource. This replaces any pre-existing permissions.
     /// </summary>
     [Cmdlet("Write", "WMMailboxPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the entity (user or group) for which to update mailbox permissions.</para>
+        /// <para>The identifier of the user, group, or resource for which to update mailbox permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GranteeId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the entity (user or group) to which to grant the permissions.</para>
+        /// <para>The identifier of the user, group, or resource to which to grant the permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the organization under which the entity (user or group) exists.</para>
+        /// <para>The identifier of the organization under which the user, group, or resource exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -208,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.PutMailboxPermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutMailboxPermissionsAsync(request);
-                return task.Result;
+                return client.PutMailboxPermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

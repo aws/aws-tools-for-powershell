@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.DescribeProductAsAdmin(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProductAsAdminAsync(request);
-                return task.Result;
+                return client.DescribeProductAsAdminAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

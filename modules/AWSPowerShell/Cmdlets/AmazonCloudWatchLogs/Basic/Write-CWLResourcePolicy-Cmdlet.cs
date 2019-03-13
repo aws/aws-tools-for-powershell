@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.PutResourcePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutResourcePolicyAsync(request);
-                return task.Result;
+                return client.PutResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

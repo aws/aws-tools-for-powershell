@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 #if DESKTOP
                 return client.DisassociateFromMasterAccount(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateFromMasterAccountAsync(request);
-                return task.Result;
+                return client.DisassociateFromMasterAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

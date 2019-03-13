@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.RG
                 #if DESKTOP
                 return client.UpdateGroupQuery(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateGroupQueryAsync(request);
-                return task.Result;
+                return client.UpdateGroupQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

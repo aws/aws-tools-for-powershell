@@ -133,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.DescribeReceiptRuleSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReceiptRuleSetAsync(request);
-                return task.Result;
+                return client.DescribeReceiptRuleSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

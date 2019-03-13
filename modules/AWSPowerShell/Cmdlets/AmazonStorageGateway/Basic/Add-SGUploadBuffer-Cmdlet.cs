@@ -52,7 +52,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DiskId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An array of strings that identify disks that are to be configured as working storage.
+        /// Each string have a minimum length of 1 and maximum length of 300. You can get the
+        /// disk IDs from the <a>ListLocalDisks</a> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -170,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.AddUploadBuffer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddUploadBufferAsync(request);
-                return task.Result;
+                return client.AddUploadBufferAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

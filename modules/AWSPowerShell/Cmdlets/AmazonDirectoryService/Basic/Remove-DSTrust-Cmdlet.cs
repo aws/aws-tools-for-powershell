@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.DeleteTrust(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTrustAsync(request);
-                return task.Result;
+                return client.DeleteTrustAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

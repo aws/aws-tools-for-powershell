@@ -295,9 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 #if DESKTOP
                 return client.CreateCommit(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateCommitAsync(request);
-                return task.Result;
+                return client.CreateCommitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

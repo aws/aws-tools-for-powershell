@@ -86,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String StreamId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage streams.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -122,6 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.RoleArn = this.RoleArn;
             context.StreamId = this.StreamId;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.StreamId != null)
             {
                 request.StreamId = cmdletContext.StreamId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -196,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.CreateStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateStreamAsync(request);
-                return task.Result;
+                return client.CreateStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -222,6 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.StreamFile> Files { get; set; }
             public System.String RoleArn { get; set; }
             public System.String StreamId { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
         }
         
     }

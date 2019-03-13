@@ -232,9 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.ListVirtualMFADevices(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListVirtualMFADevicesAsync(request);
-                return task.Result;
+                return client.ListVirtualMFADevicesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

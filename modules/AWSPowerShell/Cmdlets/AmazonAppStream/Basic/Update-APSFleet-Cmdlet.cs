@@ -58,18 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String[] AttributesToDelete { get; set; }
         #endregion
         
-        #region Parameter DeleteVpcConfig
-        /// <summary>
-        /// <para>
-        /// <para>Deletes the VPC association for the specified fleet.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        public System.Boolean DeleteVpcConfig { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -220,6 +208,18 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter]
         [Alias("VpcConfig_SubnetIds")]
         public System.String[] VpcConfig_SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter DeleteVpcConfig
+        /// <summary>
+        /// <para>
+        /// <para>Deletes the VPC association for the specified fleet.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        public System.Boolean DeleteVpcConfig { get; set; }
         #endregion
         
         #region Parameter Force
@@ -464,9 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.UpdateFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFleetAsync(request);
-                return task.Result;
+                return client.UpdateFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

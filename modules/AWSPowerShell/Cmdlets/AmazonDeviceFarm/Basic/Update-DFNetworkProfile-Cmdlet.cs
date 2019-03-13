@@ -324,9 +324,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 #if DESKTOP
                 return client.UpdateNetworkProfile(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateNetworkProfileAsync(request);
-                return task.Result;
+                return client.UpdateNetworkProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

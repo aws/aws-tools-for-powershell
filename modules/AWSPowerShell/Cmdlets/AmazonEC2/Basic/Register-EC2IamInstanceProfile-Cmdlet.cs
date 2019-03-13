@@ -194,9 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AssociateIamInstanceProfile(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateIamInstanceProfileAsync(request);
-                return task.Result;
+                return client.AssociateIamInstanceProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

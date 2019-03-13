@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies the properties of an endpoint in an Amazon Aurora DB cluster.
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSDBClusterEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ModifyDBClusterEndpointResponse")]
@@ -197,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.ModifyDBClusterEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyDBClusterEndpointAsync(request);
-                return task.Result;
+                return client.ModifyDBClusterEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

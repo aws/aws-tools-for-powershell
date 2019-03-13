@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.RegisterDefaultPatchBaseline(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterDefaultPatchBaselineAsync(request);
-                return task.Result;
+                return client.RegisterDefaultPatchBaselineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

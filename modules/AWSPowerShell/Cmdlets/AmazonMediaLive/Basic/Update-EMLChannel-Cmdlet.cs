@@ -319,9 +319,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 #if DESKTOP
                 return client.UpdateChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateChannelAsync(request);
-                return task.Result;
+                return client.UpdateChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

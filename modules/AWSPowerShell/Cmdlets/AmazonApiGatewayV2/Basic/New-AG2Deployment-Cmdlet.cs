@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.CreateDeployment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentAsync(request);
-                return task.Result;
+                return client.CreateDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

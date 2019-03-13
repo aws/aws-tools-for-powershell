@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.StopContinuousExport(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopContinuousExportAsync(request);
-                return task.Result;
+                return client.StopContinuousExportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

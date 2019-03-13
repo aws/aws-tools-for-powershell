@@ -131,6 +131,17 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String SolutionStackName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the tags applied to the configuration template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ElasticBeanstalk.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter SourceConfiguration_TemplateName
         /// <summary>
         /// <para>
@@ -192,6 +203,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.SolutionStackName = this.SolutionStackName;
             context.SourceConfiguration_ApplicationName = this.SourceConfiguration_ApplicationName;
             context.SourceConfiguration_TemplateName = this.SourceConfiguration_TemplateName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ElasticBeanstalk.Model.Tag>(this.Tag);
+            }
             context.TemplateName = this.TemplateName;
             
             // allow further manipulation of loaded context prior to processing
@@ -262,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.SourceConfiguration = null;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.TemplateName != null)
             {
                 request.TemplateName = cmdletContext.TemplateName;
@@ -308,9 +327,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CreateConfigurationTemplate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateConfigurationTemplateAsync(request);
-                return task.Result;
+                return client.CreateConfigurationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -338,6 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String SolutionStackName { get; set; }
             public System.String SourceConfiguration_ApplicationName { get; set; }
             public System.String SourceConfiguration_TemplateName { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.Tag> Tags { get; set; }
             public System.String TemplateName { get; set; }
         }
         

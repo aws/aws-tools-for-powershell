@@ -243,9 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 #if DESKTOP
                 return client.DescribeResourcePermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeResourcePermissionsAsync(request);
-                return task.Result;
+                return client.DescribeResourcePermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

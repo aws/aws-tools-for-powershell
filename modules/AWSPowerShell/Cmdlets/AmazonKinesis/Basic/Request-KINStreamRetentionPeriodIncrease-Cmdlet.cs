@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 #if DESKTOP
                 return client.IncreaseStreamRetentionPeriod(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.IncreaseStreamRetentionPeriodAsync(request);
-                return task.Result;
+                return client.IncreaseStreamRetentionPeriodAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

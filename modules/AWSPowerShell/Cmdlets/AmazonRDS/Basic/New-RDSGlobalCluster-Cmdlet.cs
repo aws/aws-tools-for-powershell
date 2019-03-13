@@ -38,7 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// cluster and a secondary cluster to it. Or you can specify an existing Aurora cluster
     /// during the create operation, and this cluster becomes the primary cluster of the global
     /// database. 
-    /// </para>
+    /// </para><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "RDSGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.GlobalCluster")]
@@ -248,9 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.CreateGlobalCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateGlobalClusterAsync(request);
-                return task.Result;
+                return client.CreateGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

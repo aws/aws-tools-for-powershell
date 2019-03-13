@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 #if DESKTOP
                 return client.ImportWorkspaceImage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ImportWorkspaceImageAsync(request);
-                return task.Result;
+                return client.ImportWorkspaceImageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

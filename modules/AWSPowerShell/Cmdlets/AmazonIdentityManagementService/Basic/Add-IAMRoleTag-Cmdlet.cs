@@ -206,9 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.TagRole(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagRoleAsync(request);
-                return task.Result;
+                return client.TagRoleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

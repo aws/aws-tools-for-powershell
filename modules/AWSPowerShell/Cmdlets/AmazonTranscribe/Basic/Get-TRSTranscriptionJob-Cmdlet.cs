@@ -129,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 #if DESKTOP
                 return client.GetTranscriptionJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTranscriptionJobAsync(request);
-                return task.Result;
+                return client.GetTranscriptionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

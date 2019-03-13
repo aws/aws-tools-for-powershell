@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.DeleteDeploymentConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDeploymentConfigAsync(request);
-                return task.Result;
+                return client.DeleteDeploymentConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.ListBucketInventoryConfigurations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListBucketInventoryConfigurationsAsync(request);
-                return task.Result;
+                return client.ListBucketInventoryConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

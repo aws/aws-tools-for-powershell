@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.SetIdentityNotificationTopic(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetIdentityNotificationTopicAsync(request);
-                return task.Result;
+                return client.SetIdentityNotificationTopicAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

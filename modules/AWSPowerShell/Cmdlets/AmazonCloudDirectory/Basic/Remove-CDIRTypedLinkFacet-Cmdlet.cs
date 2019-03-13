@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.DeleteTypedLinkFacet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTypedLinkFacetAsync(request);
-                return task.Result;
+                return client.DeleteTypedLinkFacetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

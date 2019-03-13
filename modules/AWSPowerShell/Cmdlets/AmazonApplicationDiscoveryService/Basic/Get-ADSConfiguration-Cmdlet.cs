@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "ADSConfiguration")]
-    [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
+    [OutputType("System.Collections.Generic.Dictionary<System.String, System.String>")]
     [AWSCmdlet("Calls the Application Discovery Service DescribeConfigurations API operation.", Operation = new[] {"DescribeConfigurations"})]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "This cmdlet returns a collection of Dictionary`2 objects.",
@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.DescribeConfigurations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeConfigurationsAsync(request);
-                return task.Result;
+                return client.DescribeConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

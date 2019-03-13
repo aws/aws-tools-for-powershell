@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.GetDataflowGraph(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDataflowGraphAsync(request);
-                return task.Result;
+                return client.GetDataflowGraphAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

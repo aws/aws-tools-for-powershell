@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "MH",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -75,15 +74,9 @@
         "confirmationMessageNoun": "CreatedArtifact",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: CreatedArtifact",
         "passThruTypeName": "Amazon.MigrationHub.Model.CreatedArtifact",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MigrationTaskName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -121,15 +114,9 @@
         "confirmationMessageNoun": "DiscoveredResource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DiscoveredResource",
         "passThruTypeName": "Amazon.MigrationHub.Model.DiscoveredResource",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MigrationTaskName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -167,15 +154,9 @@
         "confirmationMessageNoun": "ProgressUpdateStream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ProgressUpdateStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ProgressUpdateStreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -213,15 +194,9 @@
         "confirmationMessageNoun": "ProgressUpdateStream",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ProgressUpdateStreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ProgressUpdateStreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -259,7 +234,6 @@
         "confirmationMessageNoun": "ApplicationState",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -300,7 +274,6 @@
         "confirmationMessageNoun": "MigrationTask",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -341,15 +314,9 @@
         "confirmationMessageNoun": "CreatedArtifact",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: CreatedArtifactName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "CreatedArtifactName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -387,15 +354,9 @@
         "confirmationMessageNoun": "DiscoveredResource",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -433,15 +394,9 @@
         "confirmationMessageNoun": "MigrationTask",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: MigrationTaskName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MigrationTaskName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -479,7 +434,6 @@
         "confirmationMessageNoun": "CreatedArtifacts",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -527,7 +481,6 @@
         "confirmationMessageNoun": "DiscoveredResources",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -575,7 +528,6 @@
         "confirmationMessageNoun": "MigrationTasks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -621,7 +573,6 @@
         "confirmationMessageNoun": "ProgressUpdateStreams",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -669,15 +620,9 @@
         "confirmationMessageNoun": "ApplicationState",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -715,15 +660,9 @@
         "confirmationMessageNoun": "MigrationTaskState",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Task",
         "passThruTypeName": "Amazon.MigrationHub.Model.Task",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MigrationTaskName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -761,15 +700,9 @@
         "confirmationMessageNoun": "ResourceAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: MigrationTaskName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MigrationTaskName"
-        },
         "memoryStreamParameters": []
       }
     }

@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 #if DESKTOP
                 return client.DescribeServer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeServerAsync(request);
-                return task.Result;
+                return client.DescribeServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -260,9 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.DescribeReservedNodeOfferings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReservedNodeOfferingsAsync(request);
-                return task.Result;
+                return client.DescribeReservedNodeOfferingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

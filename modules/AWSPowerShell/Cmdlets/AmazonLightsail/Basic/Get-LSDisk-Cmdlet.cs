@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.GetDisk(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDiskAsync(request);
-                return task.Result;
+                return client.GetDiskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

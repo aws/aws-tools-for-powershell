@@ -31,13 +31,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// Creates or updates a policy for an Auto Scaling group. To update an existing policy,
     /// use the existing policy name and set the parameters to change. Any existing parameter
     /// not changed in an update to an existing policy is not changed in this update request.
-    /// 
-    ///  
-    /// <para>
-    /// If you exceed your maximum limit of step adjustments, which by default is 20 per region,
-    /// the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
-    /// Service Limits</a> in the <i>Amazon Web Services General Reference</i>.
-    /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.PutScalingPolicyResponse")]
@@ -52,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
-        /// and <code>PercentChangeInCapacity</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic
+        /// and <code>PercentChangeInCapacity</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scale-based-on-demand.html">Dynamic
         /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -75,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
         /// next scaling activity can start. If this parameter is not specified, the default cooldown
-        /// period for the group applies.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// period for the group applies.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
         /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -86,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter CustomizedMetricSpecification_Dimension
         /// <summary>
         /// <para>
-        /// <para>The dimensions of the metric.</para>
+        /// <para>The dimensions of the metric.</para><para>Conditional: If you published your metric with dimensions, you must specify the same
+        /// dimensions in your scaling policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,10 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetTrackingConfiguration_DisableScaleIn
         /// <summary>
         /// <para>
-        /// <para>Indicates whether scaling in by the target tracking policy is disabled. If scaling
-        /// in is disabled, the target tracking policy doesn't remove instances from the Auto
-        /// Scaling group. Otherwise, the target tracking policy can remove instances from the
-        /// Auto Scaling group. The default is disabled.</para>
+        /// <para>Indicates whether scaling in by the target tracking scaling policy is disabled. If
+        /// scaling in is disabled, the target tracking scaling policy doesn't remove instances
+        /// from the Auto Scaling group. Otherwise, the target tracking scaling policy can remove
+        /// instances from the Auto Scaling group. The default is disabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -218,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// group.</para></li><li><para><code>ASGAverageNetworkIn</code> - Average number of bytes received on all network
         /// interfaces by the Auto Scaling group.</para></li><li><para><code>ASGAverageNetworkOut</code> - Average number of bytes sent out on all network
         /// interfaces by the Auto Scaling group.</para></li><li><para><code>ALBRequestCountPerTarget</code> - Number of requests completed per target in
-        /// an Application Load Balancer target group.</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
+        /// an Application Load Balancer or a Network Load Balancer target group.</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
         /// and <code>ASGAverageNetworkOut</code>, the parameter must not be specified as the
         /// resource associated with the metric type is the Auto Scaling group. For predefined
         /// metric type <code>ALBRequestCountPerTarget</code>, the parameter must be specified
@@ -236,8 +230,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount by which to scale, based on the specified adjustment type. A positive value
-        /// adds to the current capacity while a negative number removes from the current capacity.</para><para>This parameter is required if the policy type is <code>SimpleScaling</code> and not
-        /// supported otherwise.</para>
+        /// adds to the current capacity while a negative number removes from the current capacity.</para><para>Conditional: This parameter is required if the policy type is <code>SimpleScaling</code>
+        /// and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -259,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter StepAdjustment
         /// <summary>
         /// <para>
-        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
-        /// supported otherwise.</para>
+        /// <para>A set of adjustments that enable you to scale based on the size of the alarm breach.</para><para>Conditional: This parameter is required if the policy type is <code>StepScaling</code>
+        /// and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -582,9 +576,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.PutScalingPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutScalingPolicyAsync(request);
-                return task.Result;
+                return client.PutScalingPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 #if DESKTOP
                 return client.CreateResourceGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateResourceGroupAsync(request);
-                return task.Result;
+                return client.CreateResourceGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

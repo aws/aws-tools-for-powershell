@@ -222,9 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.DescribeReplicationGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReplicationGroupsAsync(request);
-                return task.Result;
+                return client.DescribeReplicationGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

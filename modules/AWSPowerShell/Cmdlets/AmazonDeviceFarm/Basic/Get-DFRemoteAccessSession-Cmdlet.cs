@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 #if DESKTOP
                 return client.GetRemoteAccessSession(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetRemoteAccessSessionAsync(request);
-                return task.Result;
+                return client.GetRemoteAccessSessionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

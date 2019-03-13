@@ -235,9 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 #if DESKTOP
                 return client.GetDashboardEmbedUrl(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDashboardEmbedUrlAsync(request);
-                return task.Result;
+                return client.GetDashboardEmbedUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

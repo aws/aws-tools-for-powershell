@@ -334,9 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 #if DESKTOP
                 return client.UpdateSecret(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSecretAsync(request);
-                return task.Result;
+                return client.UpdateSecretAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

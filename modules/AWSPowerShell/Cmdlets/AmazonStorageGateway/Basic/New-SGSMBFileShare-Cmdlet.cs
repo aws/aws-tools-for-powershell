@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
     /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
     /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
-    /// activate it. For information about how to activate AWS STS, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
     /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
     /// User Guide.</i></para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
@@ -201,6 +201,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String Role { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 tags that can be assigned to the NFS file share. Each tag is a
+        /// key-value pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter ValidUserList
         /// <summary>
         /// <para>
@@ -262,6 +277,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (ParameterWasBound("RequesterPay"))
                 context.RequesterPays = this.RequesterPay;
             context.Role = this.Role;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             if (this.ValidUserList != null)
             {
                 context.ValidUserList = new List<System.String>(this.ValidUserList);
@@ -334,6 +353,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.Role = cmdletContext.Role;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.ValidUserList != null)
             {
                 request.ValidUserList = cmdletContext.ValidUserList;
@@ -380,9 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateSMBFileShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSMBFileShareAsync(request);
-                return task.Result;
+                return client.CreateSMBFileShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -415,6 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPays { get; set; }
             public System.String Role { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
             public List<System.String> ValidUserList { get; set; }
         }
         

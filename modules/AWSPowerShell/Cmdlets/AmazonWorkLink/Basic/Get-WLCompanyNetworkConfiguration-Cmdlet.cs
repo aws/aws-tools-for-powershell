@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
                 #if DESKTOP
                 return client.DescribeCompanyNetworkConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeCompanyNetworkConfigurationAsync(request);
-                return task.Result;
+                return client.DescribeCompanyNetworkConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

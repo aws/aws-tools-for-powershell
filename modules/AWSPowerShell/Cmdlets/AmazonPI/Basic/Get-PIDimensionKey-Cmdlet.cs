@@ -120,6 +120,26 @@ namespace Amazon.PowerShell.Cmdlets.PI
         public System.String Identifier { get; set; }
         #endregion
         
+        #region Parameter GroupBy_Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to fetch for this dimension group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 GroupBy_Limit { get; set; }
+        #endregion
+        
+        #region Parameter PartitionBy_Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to fetch for this dimension group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 PartitionBy_Limit { get; set; }
+        #endregion
+        
         #region Parameter Metric
         /// <summary>
         /// <para>
@@ -170,26 +190,6 @@ namespace Amazon.PowerShell.Cmdlets.PI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime StartTime { get; set; }
-        #endregion
-        
-        #region Parameter GroupBy_Limit
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to fetch for this dimension group.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 GroupBy_Limit { get; set; }
-        #endregion
-        
-        #region Parameter PartitionBy_Limit
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to fetch for this dimension group.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 PartitionBy_Limit { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -436,9 +436,7 @@ namespace Amazon.PowerShell.Cmdlets.PI
                 #if DESKTOP
                 return client.DescribeDimensionKeys(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDimensionKeysAsync(request);
-                return task.Result;
+                return client.DescribeDimensionKeysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

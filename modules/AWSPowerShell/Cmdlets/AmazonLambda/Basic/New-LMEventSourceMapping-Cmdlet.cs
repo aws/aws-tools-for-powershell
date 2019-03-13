@@ -232,9 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 #if DESKTOP
                 return client.CreateEventSourceMapping(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEventSourceMappingAsync(request);
-                return task.Result;
+                return client.CreateEventSourceMappingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

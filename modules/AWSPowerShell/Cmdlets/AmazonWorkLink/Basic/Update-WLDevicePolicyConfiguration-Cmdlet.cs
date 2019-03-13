@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
                 #if DESKTOP
                 return client.UpdateDevicePolicyConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDevicePolicyConfigurationAsync(request);
-                return task.Result;
+                return client.UpdateDevicePolicyConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

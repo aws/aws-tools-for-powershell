@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.DeleteGcmChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteGcmChannelAsync(request);
-                return task.Result;
+                return client.DeleteGcmChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

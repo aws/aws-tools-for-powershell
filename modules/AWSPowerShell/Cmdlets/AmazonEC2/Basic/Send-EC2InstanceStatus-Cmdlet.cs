@@ -55,26 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Descriptive text about the health state of your instance.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 5)]
+        [System.Management.Automation.Parameter(Position = 4)]
         public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
-        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
-        /// one of the two property is reflected in the value of both. EndTime is provided for
-        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state ended.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcEndTime instead.")]
-        public System.DateTime EndTime { get; set; }
         #endregion
         
         #region Parameter UtcEndTime
@@ -107,27 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// that I believe are related to an EBS volume.</para></li><li><para><code>performance-other</code>: My instance is experiencing performance problems.</para></li><li><para><code>other</code>: [explain using the description parameter]</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 4)]
+        [System.Management.Automation.Parameter(Position = 3)]
         [Alias("ReasonCodes")]
         public System.String[] ReasonCode { get; set; }
-        #endregion
-        
-        #region Parameter StartTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
-        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. StartTime
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state began.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcStartTime instead.")]
-        public System.DateTime StartTime { get; set; }
         #endregion
         
         #region Parameter UtcStartTime
@@ -149,6 +113,42 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.EC2.ReportStatusType")]
         public Amazon.EC2.ReportStatusType Status { get; set; }
+        #endregion
+        
+        #region Parameter EndTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state ended.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The time at which the reported instance health state began.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 1)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -315,9 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ReportInstanceStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReportInstanceStatusAsync(request);
-                return task.Result;
+                return client.ReportInstanceStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

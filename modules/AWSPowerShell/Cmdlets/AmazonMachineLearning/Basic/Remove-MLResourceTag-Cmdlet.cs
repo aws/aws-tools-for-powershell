@@ -182,9 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.DeleteTags(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
-                return task.Result;
+                return client.DeleteTagsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

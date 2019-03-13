@@ -162,9 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 #if DESKTOP
                 return client.DisassociateElasticIp(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateElasticIpAsync(request);
-                return task.Result;
+                return client.DisassociateElasticIpAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

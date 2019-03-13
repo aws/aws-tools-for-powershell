@@ -34,21 +34,11 @@ namespace Amazon.PowerShell.Cmdlets.AG2
     [OutputType("None","System.String")]
     [AWSCmdlet("Calls the Amazon API Gateway V2 DeleteApiMapping API operation.", Operation = new[] {"DeleteApiMapping"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApiId parameter. Otherwise, this cmdlet does not return any output. " +
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApiMappingId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApiGatewayV2.Model.DeleteApiMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class RemoveAG2ApiMappingCmdlet : AmazonApiGatewayV2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter ApiId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the API.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ApiId { get; set; }
-        #endregion
         
         #region Parameter ApiMappingId
         /// <summary>
@@ -56,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// <para>The API mapping identifier.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApiMappingId { get; set; }
         #endregion
         
@@ -72,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ApiId parameter.
+        /// Returns the value passed to the ApiMappingId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApiId = this.ApiId;
             context.ApiMappingId = this.ApiMappingId;
             context.DomainName = this.DomainName;
             
@@ -127,10 +116,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
             // create request
             var request = new Amazon.ApiGatewayV2.Model.DeleteApiMappingRequest();
             
-            if (cmdletContext.ApiId != null)
-            {
-                request.ApiId = cmdletContext.ApiId;
-            }
             if (cmdletContext.ApiMappingId != null)
             {
                 request.ApiMappingId = cmdletContext.ApiMappingId;
@@ -150,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ApiId;
+                    pipelineOutput = this.ApiMappingId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -183,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.DeleteApiMapping(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteApiMappingAsync(request);
-                return task.Result;
+                return client.DeleteApiMappingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -205,7 +188,6 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApiId { get; set; }
             public System.String ApiMappingId { get; set; }
             public System.String DomainName { get; set; }
         }

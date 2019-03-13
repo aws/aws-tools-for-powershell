@@ -308,9 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 #if DESKTOP
                 return client.GetReservationPurchaseRecommendation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetReservationPurchaseRecommendationAsync(request);
-                return task.Result;
+                return client.GetReservationPurchaseRecommendationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

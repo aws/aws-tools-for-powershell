@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 #if DESKTOP
                 return client.RestoreBackup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreBackupAsync(request);
-                return task.Result;
+                return client.RestoreBackupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

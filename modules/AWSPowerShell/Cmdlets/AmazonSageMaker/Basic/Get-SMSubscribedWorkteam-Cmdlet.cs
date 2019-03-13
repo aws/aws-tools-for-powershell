@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.DescribeSubscribedWorkteam(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSubscribedWorkteamAsync(request);
-                return task.Result;
+                return client.DescribeSubscribedWorkteamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

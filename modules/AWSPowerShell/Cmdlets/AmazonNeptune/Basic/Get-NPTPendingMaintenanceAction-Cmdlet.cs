@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.DescribePendingMaintenanceActions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribePendingMaintenanceActionsAsync(request);
-                return task.Result;
+                return client.DescribePendingMaintenanceActionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

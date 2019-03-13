@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.DeletePolicyVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeletePolicyVersionAsync(request);
-                return task.Result;
+                return client.DeletePolicyVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

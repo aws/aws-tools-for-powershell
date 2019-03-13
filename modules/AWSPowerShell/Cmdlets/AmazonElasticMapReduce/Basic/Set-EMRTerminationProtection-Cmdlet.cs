@@ -194,9 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 #if DESKTOP
                 return client.SetTerminationProtection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetTerminationProtectionAsync(request);
-                return task.Result;
+                return client.SetTerminationProtectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

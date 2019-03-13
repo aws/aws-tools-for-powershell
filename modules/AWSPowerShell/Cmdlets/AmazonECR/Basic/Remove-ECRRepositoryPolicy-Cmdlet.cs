@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 #if DESKTOP
                 return client.DeleteRepositoryPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRepositoryPolicyAsync(request);
-                return task.Result;
+                return client.DeleteRepositoryPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

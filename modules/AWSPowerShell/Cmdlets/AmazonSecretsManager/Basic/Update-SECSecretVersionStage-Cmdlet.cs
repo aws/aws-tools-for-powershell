@@ -233,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 #if DESKTOP
                 return client.UpdateSecretVersionStage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSecretVersionStageAsync(request);
-                return task.Result;
+                return client.UpdateSecretVersionStageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

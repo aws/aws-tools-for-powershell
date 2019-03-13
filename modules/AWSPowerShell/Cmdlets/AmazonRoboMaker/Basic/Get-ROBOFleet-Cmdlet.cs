@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.DescribeFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeFleetAsync(request);
-                return task.Result;
+                return client.DescribeFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -162,9 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 #if DESKTOP
                 return client.DeleteAgent(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteAgentAsync(request);
-                return task.Result;
+                return client.DeleteAgentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

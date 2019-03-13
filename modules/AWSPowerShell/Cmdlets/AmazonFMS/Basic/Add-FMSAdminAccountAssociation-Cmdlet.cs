@@ -166,9 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 #if DESKTOP
                 return client.AssociateAdminAccount(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateAdminAccountAsync(request);
-                return task.Result;
+                return client.AssociateAdminAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

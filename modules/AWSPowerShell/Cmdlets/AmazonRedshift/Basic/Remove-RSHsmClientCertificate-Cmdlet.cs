@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.DeleteHsmClientCertificate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteHsmClientCertificateAsync(request);
-                return task.Result;
+                return client.DeleteHsmClientCertificateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -120,9 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeLifecycleHookTypes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeLifecycleHookTypesAsync(request);
-                return task.Result;
+                return client.DescribeLifecycleHookTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

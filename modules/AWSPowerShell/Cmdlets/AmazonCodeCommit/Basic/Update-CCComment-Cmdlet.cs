@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 #if DESKTOP
                 return client.UpdateComment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateCommentAsync(request);
-                return task.Result;
+                return client.UpdateCommentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

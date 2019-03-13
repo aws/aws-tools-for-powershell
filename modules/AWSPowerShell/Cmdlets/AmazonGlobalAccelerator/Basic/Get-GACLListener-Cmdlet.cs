@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
                 #if DESKTOP
                 return client.DescribeListener(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeListenerAsync(request);
-                return task.Result;
+                return client.DescribeListenerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

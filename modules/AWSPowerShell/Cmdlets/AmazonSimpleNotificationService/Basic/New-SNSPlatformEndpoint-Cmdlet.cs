@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 #if DESKTOP
                 return client.CreatePlatformEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePlatformEndpointAsync(request);
-                return task.Result;
+                return client.CreatePlatformEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>One or more policy types. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.</para>
+        /// <para>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
+        /// and <code>TargetTrackingScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be returned with each call. The default value is 50
-        /// and the maximum value is 100.</para>
+        /// <para>The maximum number of items to be returned with each call. The default value is <code>50</code>
+        /// and the maximum value is <code>100</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -252,9 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribePolicies(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribePoliciesAsync(request);
-                return task.Result;
+                return client.DescribePoliciesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

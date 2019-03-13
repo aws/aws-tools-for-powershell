@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.GetVaultAccessPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetVaultAccessPolicyAsync(request);
-                return task.Result;
+                return client.GetVaultAccessPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

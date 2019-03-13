@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 #if DESKTOP
                 return client.DescribeCommunications(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeCommunicationsAsync(request);
-                return task.Result;
+                return client.DescribeCommunicationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

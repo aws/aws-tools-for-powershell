@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.DisassociateConfigurationItemsFromApplication(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateConfigurationItemsFromApplicationAsync(request);
-                return task.Result;
+                return client.DisassociateConfigurationItemsFromApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

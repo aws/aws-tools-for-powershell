@@ -254,9 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
                 #if DESKTOP
                 return client.StartSupportDataExport(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartSupportDataExportAsync(request);
-                return task.Result;
+                return client.StartSupportDataExportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

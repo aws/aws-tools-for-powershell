@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayTimezone
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A value that indicates the time zone of the gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -179,9 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.UpdateGatewayInformation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateGatewayInformationAsync(request);
-                return task.Result;
+                return client.UpdateGatewayInformationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

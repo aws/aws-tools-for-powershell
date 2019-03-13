@@ -389,9 +389,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.SendRawEmail(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SendRawEmailAsync(request);
-                return task.Result;
+                return client.SendRawEmailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
                 #if DESKTOP
                 return client.DisassociateTeamMember(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateTeamMemberAsync(request);
-                return task.Result;
+                return client.DisassociateTeamMemberAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

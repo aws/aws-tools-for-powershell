@@ -394,9 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.CreateImageBuilder(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateImageBuilderAsync(request);
-                return task.Result;
+                return client.CreateImageBuilderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

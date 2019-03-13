@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.StartFlow(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartFlowAsync(request);
-                return task.Result;
+                return client.StartFlowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

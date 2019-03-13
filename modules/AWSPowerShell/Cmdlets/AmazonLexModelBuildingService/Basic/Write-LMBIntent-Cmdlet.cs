@@ -679,9 +679,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 #if DESKTOP
                 return client.PutIntent(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutIntentAsync(request);
-                return task.Result;
+                return client.PutIntentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -281,9 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.DescribeDBClusterParameters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDBClusterParametersAsync(request);
-                return task.Result;
+                return client.DescribeDBClusterParametersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

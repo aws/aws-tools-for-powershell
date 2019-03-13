@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.EnableSharingWithAwsOrganization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableSharingWithAwsOrganizationAsync(request);
-                return task.Result;
+                return client.EnableSharingWithAwsOrganizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -189,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.StartConfigRulesEvaluation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartConfigRulesEvaluationAsync(request);
-                return task.Result;
+                return client.StartConfigRulesEvaluationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

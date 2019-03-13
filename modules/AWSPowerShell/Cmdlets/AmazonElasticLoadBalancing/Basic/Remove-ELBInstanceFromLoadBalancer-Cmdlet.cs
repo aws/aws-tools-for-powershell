@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.DeregisterInstancesFromLoadBalancer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeregisterInstancesFromLoadBalancerAsync(request);
-                return task.Result;
+                return client.DeregisterInstancesFromLoadBalancerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

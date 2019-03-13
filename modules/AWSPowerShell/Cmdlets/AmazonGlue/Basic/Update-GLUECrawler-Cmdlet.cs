@@ -315,9 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.UpdateCrawler(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateCrawlerAsync(request);
-                return task.Result;
+                return client.UpdateCrawlerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

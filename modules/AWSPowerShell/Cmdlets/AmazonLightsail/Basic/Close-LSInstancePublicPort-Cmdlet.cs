@@ -225,9 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.CloseInstancePublicPorts(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CloseInstancePublicPortsAsync(request);
-                return task.Result;
+                return client.CloseInstancePublicPortsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

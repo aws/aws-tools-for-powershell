@@ -39,6 +39,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEDevEndpointCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter Argument
+        /// <summary>
+        /// <para>
+        /// <para>A map of arguments used to configure the DevEndpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Arguments")]
+        public System.Collections.Hashtable Argument { get; set; }
+        #endregion
+        
         #region Parameter EndpointName
         /// <summary>
         /// <para>
@@ -193,6 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Argument != null)
+            {
+                context.Arguments = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Argument.Keys)
+                {
+                    context.Arguments.Add((String)hashKey, (String)(this.Argument[hashKey]));
+                }
+            }
             context.EndpointName = this.EndpointName;
             context.ExtraJarsS3Path = this.ExtraJarsS3Path;
             context.ExtraPythonLibsS3Path = this.ExtraPythonLibsS3Path;
@@ -234,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.CreateDevEndpointRequest();
             
+            if (cmdletContext.Arguments != null)
+            {
+                request.Arguments = cmdletContext.Arguments;
+            }
             if (cmdletContext.EndpointName != null)
             {
                 request.EndpointName = cmdletContext.EndpointName;
@@ -320,9 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.CreateDevEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDevEndpointAsync(request);
-                return task.Result;
+                return client.CreateDevEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -342,6 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> Arguments { get; set; }
             public System.String EndpointName { get; set; }
             public System.String ExtraJarsS3Path { get; set; }
             public System.String ExtraPythonLibsS3Path { get; set; }

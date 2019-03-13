@@ -186,9 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 #if DESKTOP
                 return client.TagDeliveryStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagDeliveryStreamAsync(request);
-                return task.Result;
+                return client.TagDeliveryStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

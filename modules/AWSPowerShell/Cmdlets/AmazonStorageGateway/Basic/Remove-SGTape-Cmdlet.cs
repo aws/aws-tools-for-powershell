@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DeleteTape(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTapeAsync(request);
-                return task.Result;
+                return client.DeleteTapeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.DeleteEmailIdentity(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteEmailIdentityAsync(request);
-                return task.Result;
+                return client.DeleteEmailIdentityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

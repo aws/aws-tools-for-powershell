@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 #if DESKTOP
                 return client.UpdateDomainContactPrivacy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDomainContactPrivacyAsync(request);
-                return task.Result;
+                return client.UpdateDomainContactPrivacyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.DeleteReplicationGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteReplicationGroupAsync(request);
-                return task.Result;
+                return client.DeleteReplicationGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

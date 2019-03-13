@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.GetServiceLinkedRoleDeletionStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetServiceLinkedRoleDeletionStatusAsync(request);
-                return task.Result;
+                return client.GetServiceLinkedRoleDeletionStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

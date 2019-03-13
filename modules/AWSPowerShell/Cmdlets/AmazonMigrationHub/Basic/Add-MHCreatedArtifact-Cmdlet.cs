@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
                 #if DESKTOP
                 return client.AssociateCreatedArtifact(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateCreatedArtifactAsync(request);
-                return task.Result;
+                return client.AssociateCreatedArtifactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

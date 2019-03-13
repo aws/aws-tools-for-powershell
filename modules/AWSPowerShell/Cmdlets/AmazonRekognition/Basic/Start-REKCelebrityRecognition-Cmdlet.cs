@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 #if DESKTOP
                 return client.StartCelebrityRecognition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartCelebrityRecognitionAsync(request);
-                return task.Result;
+                return client.StartCelebrityRecognitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

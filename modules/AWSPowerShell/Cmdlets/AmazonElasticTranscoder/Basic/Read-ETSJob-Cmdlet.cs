@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 #if DESKTOP
                 return client.ReadJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReadJobAsync(request);
-                return task.Result;
+                return client.ReadJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

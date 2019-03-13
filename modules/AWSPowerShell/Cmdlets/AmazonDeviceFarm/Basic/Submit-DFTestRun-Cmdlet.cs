@@ -909,9 +909,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 #if DESKTOP
                 return client.ScheduleRun(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ScheduleRunAsync(request);
-                return task.Result;
+                return client.ScheduleRunAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

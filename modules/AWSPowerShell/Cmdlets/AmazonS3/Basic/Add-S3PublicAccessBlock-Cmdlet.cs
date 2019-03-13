@@ -302,9 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.PutPublicAccessBlock(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutPublicAccessBlockAsync(request);
-                return task.Result;
+                return client.PutPublicAccessBlockAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

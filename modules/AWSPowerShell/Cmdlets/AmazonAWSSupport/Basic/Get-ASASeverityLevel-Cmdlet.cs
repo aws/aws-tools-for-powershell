@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 #if DESKTOP
                 return client.DescribeSeverityLevels(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSeverityLevelsAsync(request);
-                return task.Result;
+                return client.DescribeSeverityLevelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

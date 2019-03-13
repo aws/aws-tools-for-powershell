@@ -234,9 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.PutBucketNotification(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutBucketNotificationAsync(request);
-                return task.Result;
+                return client.PutBucketNotificationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

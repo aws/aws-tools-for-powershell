@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
     /// Mark a user, group, or resource as no longer used in Amazon WorkMail. This action
-    /// disassociates the mailbox and schedules it for clean-up. Amazon WorkMail keeps mailboxes
+    /// disassociates the mailbox and schedules it for clean-up. WorkMail keeps mailboxes
     /// for 30 days before they are permanently removed. The functionality in the console
     /// is <i>Disable</i>.
     /// </summary>
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the entity to be updated.</para>
+        /// <para>The identifier for the member (user or group) to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.DeregisterFromWorkMail(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeregisterFromWorkMailAsync(request);
-                return task.Result;
+                return client.DeregisterFromWorkMailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

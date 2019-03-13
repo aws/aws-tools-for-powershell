@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// configurations provided with AWS CodeDeploy or a custom deployment configuration that
         /// you create by calling the create deployment configuration operation.</para><para>CodeDeployDefault.OneAtATime is the default deployment configuration. It is used if
         /// a configuration isn't specified for the deployment or deployment group.</para><para>For more information about the predefined deployment configurations in AWS CodeDeploy,
-        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working
+        /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working
         /// with Deployment Groups in AWS CodeDeploy</a> in the AWS CodeDeploy User Guide.</para>
         /// </para>
         /// </summary>
@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Information about triggers to create when the deployment group is created. For examples,
-        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create
+        /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-sns.html">Create
         /// a Trigger for an AWS CodeDeploy Event</a> in the AWS CodeDeploy User Guide.</para>
         /// </para>
         /// </summary>
@@ -833,9 +833,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.CreateDeploymentGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentGroupAsync(request);
-                return task.Result;
+                return client.CreateDeploymentGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

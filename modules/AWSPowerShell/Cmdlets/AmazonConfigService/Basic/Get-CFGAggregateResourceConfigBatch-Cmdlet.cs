@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.BatchGetAggregateResourceConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetAggregateResourceConfigAsync(request);
-                return task.Result;
+                return client.BatchGetAggregateResourceConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

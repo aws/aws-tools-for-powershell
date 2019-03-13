@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
                 #if DESKTOP
                 return client.DescribeUserProfile(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeUserProfileAsync(request);
-                return task.Result;
+                return client.DescribeUserProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

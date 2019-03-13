@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CD",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -71,15 +70,9 @@
         "confirmationMessageNoun": "TagsToOnPremisesInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceNames"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -117,7 +110,6 @@
         "confirmationMessageNoun": "GetApplicationRevisions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -158,7 +150,6 @@
         "confirmationMessageNoun": "GetApplications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -199,7 +190,6 @@
         "confirmationMessageNoun": "GetDeploymentGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -240,7 +230,6 @@
         "confirmationMessageNoun": "GetDeploymentInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -281,7 +270,6 @@
         "confirmationMessageNoun": "GetDeployments",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -320,7 +308,6 @@
         "confirmationMessageNoun": "GetDeploymentTargets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -361,7 +348,6 @@
         "confirmationMessageNoun": "GetOnPremisesInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -402,15 +388,9 @@
         "confirmationMessageNoun": "Deployment",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -448,15 +428,9 @@
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -483,8 +457,7 @@
           "originalName": "TargetInstances_TagFilters",
           "replacementName": "TargetInstancesTagFilter",
           "aliases": [
-            "TargetInstances_TagFilter",
-            "TargetInstances_TagFilters"
+            "TargetInstances_TagFilter"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -493,9 +466,7 @@
         {
           "originalName": "Revision_RevisionType",
           "replacementName": "RevisionType",
-          "aliases": [
-            "Revision_RevisionType"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -504,8 +475,7 @@
           "originalName": "TargetInstances_AutoScalingGroups",
           "replacementName": "TargetInstancesAutoScalingGroup",
           "aliases": [
-            "TargetInstances_AutoScalingGroup",
-            "TargetInstances_AutoScalingGroups"
+            "TargetInstances_AutoScalingGroup"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -535,15 +505,9 @@
         "confirmationMessageNoun": "Deployment",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -581,15 +545,9 @@
         "confirmationMessageNoun": "DeploymentConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentConfigName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -624,8 +582,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
           "replacementName": "GreenFleetProvisioningOptionAction",
           "aliases": [
-            "GreenFleetProvisioningOption_Action",
-            "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+            "GreenFleetProvisioningOption_Action"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -635,8 +592,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
           "replacementName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
-            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
+            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -646,8 +602,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
           "replacementName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_Action",
-            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
+            "TerminateBlueInstancesOnDeploymentSuccess_Action"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -657,8 +612,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
           "replacementName": "DeploymentReadyOptionWaitTime",
           "aliases": [
-            "DeploymentReadyOption_WaitTimeInMinute",
-            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
+            "DeploymentReadyOption_WaitTimeInMinute"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -668,8 +622,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
           "replacementName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
-            "DeploymentReadyOption_ActionOnTimeout",
-            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
+            "DeploymentReadyOption_ActionOnTimeout"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -678,9 +631,7 @@
         {
           "originalName": "DeploymentStyle_DeploymentOption",
           "replacementName": "DeploymentStyleOption",
-          "aliases": [
-            "DeploymentStyle_DeploymentOption"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -688,9 +639,7 @@
         {
           "originalName": "DeploymentStyle_DeploymentType",
           "replacementName": "DeploymentStyleType",
-          "aliases": [
-            "DeploymentStyle_DeploymentType"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -698,9 +647,7 @@
         {
           "originalName": "LoadBalancerInfo_ElbInfoList",
           "replacementName": "LoadBalancerInfoList",
-          "aliases": [
-            "LoadBalancerInfo_ElbInfoList"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -729,15 +676,9 @@
         "confirmationMessageNoun": "DeploymentGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -775,15 +716,9 @@
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -821,15 +756,9 @@
         "confirmationMessageNoun": "DeploymentConfig",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentConfigName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentConfigName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -867,15 +796,9 @@
         "confirmationMessageNoun": "DeploymentGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -913,15 +836,9 @@
         "confirmationMessageNoun": "GitHubAccountToken",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TokenName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -959,15 +876,9 @@
         "confirmationMessageNoun": "OnPremisesInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1005,7 +916,6 @@
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1046,7 +956,6 @@
         "confirmationMessageNoun": "ApplicationRevision",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1087,7 +996,6 @@
         "confirmationMessageNoun": "Deployment",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1128,7 +1036,6 @@
         "confirmationMessageNoun": "DeploymentConfig",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1169,7 +1076,6 @@
         "confirmationMessageNoun": "DeploymentGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1208,7 +1114,6 @@
         "confirmationMessageNoun": "DeploymentInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1247,7 +1152,6 @@
         "confirmationMessageNoun": "DeploymentTarget",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1288,7 +1192,6 @@
         "confirmationMessageNoun": "OnPremisesInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1329,7 +1232,6 @@
         "confirmationMessageNoun": "ApplicationRevisions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1377,7 +1279,6 @@
         "confirmationMessageNoun": "Applications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1425,7 +1326,6 @@
         "confirmationMessageNoun": "DeploymentConfigs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1457,7 +1357,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -1475,7 +1377,6 @@
         "confirmationMessageNoun": "DeploymentGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1514,7 +1415,6 @@
         "confirmationMessageNoun": "DeploymentInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1564,7 +1464,6 @@
         "confirmationMessageNoun": "Deployments",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1612,7 +1511,6 @@
         "confirmationMessageNoun": "DeploymentTargets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1660,7 +1558,6 @@
         "confirmationMessageNoun": "GitHubAccountTokenNames",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1708,7 +1605,6 @@
         "confirmationMessageNoun": "OnPremisesInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1758,15 +1654,9 @@
         "confirmationMessageNoun": "LifecycleEventHookExecutionStatus",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LifecycleEventHookExecutionId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1804,15 +1694,9 @@
         "confirmationMessageNoun": "ApplicationRevision",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1850,15 +1734,9 @@
         "confirmationMessageNoun": "OnPremisesInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1896,15 +1774,9 @@
         "confirmationMessageNoun": "TagsFromOnPremisesInstances",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceNames"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1942,15 +1814,9 @@
         "confirmationMessageNoun": "WaitTimeForInstanceTermination",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DeploymentId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1988,15 +1854,9 @@
         "confirmationMessageNoun": "Deployment",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeploymentId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2034,15 +1894,9 @@
         "confirmationMessageNoun": "Application",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ApplicationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2077,8 +1931,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action",
           "replacementName": "GreenFleetProvisioningOptionAction",
           "aliases": [
-            "GreenFleetProvisioningOption_Action",
-            "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+            "GreenFleetProvisioningOption_Action"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -2088,8 +1941,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes",
           "replacementName": "OnSuccessBlueInstanceTerminationWaitTime",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute",
-            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
+            "TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -2099,8 +1951,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action",
           "replacementName": "OnSuccessBlueInstanceTerminationAction",
           "aliases": [
-            "TerminateBlueInstancesOnDeploymentSuccess_Action",
-            "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
+            "TerminateBlueInstancesOnDeploymentSuccess_Action"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -2110,8 +1961,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes",
           "replacementName": "DeploymentReadyOptionWaitTime",
           "aliases": [
-            "DeploymentReadyOption_WaitTimeInMinute",
-            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes"
+            "DeploymentReadyOption_WaitTimeInMinute"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -2121,8 +1971,7 @@
           "originalName": "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout",
           "replacementName": "DeploymentReadyOptionTimeoutAction",
           "aliases": [
-            "DeploymentReadyOption_ActionOnTimeout",
-            "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
+            "DeploymentReadyOption_ActionOnTimeout"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -2131,9 +1980,7 @@
         {
           "originalName": "DeploymentStyle_DeploymentOption",
           "replacementName": "DeploymentStyleOption",
-          "aliases": [
-            "DeploymentStyle_DeploymentOption"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -2141,9 +1988,7 @@
         {
           "originalName": "DeploymentStyle_DeploymentType",
           "replacementName": "DeploymentStyleType",
-          "aliases": [
-            "DeploymentStyle_DeploymentType"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -2151,9 +1996,7 @@
         {
           "originalName": "LoadBalancerInfo_ElbInfoList",
           "replacementName": "LoadBalancerInfoList",
-          "aliases": [
-            "LoadBalancerInfo_ElbInfoList"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -2182,15 +2025,9 @@
         "confirmationMessageNoun": "DeploymentGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ApplicationName"
-        },
         "memoryStreamParameters": []
       }
     }

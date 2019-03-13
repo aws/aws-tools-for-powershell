@@ -232,9 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.CreateRouteResponse(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateRouteResponseAsync(request);
-                return task.Result;
+                return client.CreateRouteResponseAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

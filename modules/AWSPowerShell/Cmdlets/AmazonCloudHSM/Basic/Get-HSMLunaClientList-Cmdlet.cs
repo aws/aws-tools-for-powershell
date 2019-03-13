@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 #if DESKTOP
                 return client.ListLunaClients(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListLunaClientsAsync(request);
-                return task.Result;
+                return client.ListLunaClientsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

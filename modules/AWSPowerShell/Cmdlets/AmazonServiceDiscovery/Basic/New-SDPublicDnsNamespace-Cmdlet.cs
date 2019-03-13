@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 #if DESKTOP
                 return client.CreatePublicDnsNamespace(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePublicDnsNamespaceAsync(request);
-                return task.Result;
+                return client.CreatePublicDnsNamespaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

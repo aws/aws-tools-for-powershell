@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     public partial class GetRDSEngineDefaultParameterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
+        #region Parameter DBParameterGroupFamily
+        /// <summary>
+        /// <para>
+        /// <para>The name of the DB parameter group family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DBParameterGroupFamily { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -51,16 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
         public Amazon.RDS.Model.Filter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter DBParameterGroupFamily
-        /// <summary>
-        /// <para>
-        /// <para>The name of the DB parameter group family.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DBParameterGroupFamily { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -236,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeEngineDefaultParameters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEngineDefaultParametersAsync(request);
-                return task.Result;
+                return client.DescribeEngineDefaultParametersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

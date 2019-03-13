@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "PINE",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -65,15 +64,9 @@
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -111,15 +104,9 @@
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EventDestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EventDestinationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -157,15 +144,9 @@
         "confirmationMessageNoun": "DedicatedIpPool",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: PoolName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PoolName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -203,15 +184,9 @@
         "confirmationMessageNoun": "DeliverabilityTestReport",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FromEmailAddress"
-        },
         "memoryStreamParameters": [
           "Content_Raw_Data"
         ]
@@ -251,15 +226,9 @@
         "confirmationMessageNoun": "EmailIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EmailIdentity"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -297,15 +266,9 @@
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -343,15 +306,9 @@
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EventDestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EventDestinationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -389,15 +346,9 @@
         "confirmationMessageNoun": "DedicatedIpPool",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: PoolName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PoolName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -435,15 +386,9 @@
         "confirmationMessageNoun": "EmailIdentity",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EmailIdentity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EmailIdentity"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -479,7 +424,6 @@
         "confirmationMessageNoun": "Account",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -520,7 +464,6 @@
         "confirmationMessageNoun": "BlacklistReports",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -561,7 +504,6 @@
         "confirmationMessageNoun": "ConfigurationSet",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -602,7 +544,6 @@
         "confirmationMessageNoun": "ConfigurationSetEventDestinations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -643,7 +584,6 @@
         "confirmationMessageNoun": "DedicatedIp",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -684,7 +624,6 @@
         "confirmationMessageNoun": "DedicatedIps",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -730,7 +669,6 @@
         "confirmationMessageNoun": "DeliverabilityDashboardOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -771,7 +709,6 @@
         "confirmationMessageNoun": "DeliverabilityTestReport",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -812,7 +749,6 @@
         "confirmationMessageNoun": "DomainStatisticsReport",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -853,7 +789,6 @@
         "confirmationMessageNoun": "EmailIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -892,7 +827,6 @@
         "confirmationMessageNoun": "ConfigurationSets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -938,7 +872,6 @@
         "confirmationMessageNoun": "DedicatedIpPools",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -984,7 +917,6 @@
         "confirmationMessageNoun": "DeliverabilityTestReports",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1030,7 +962,6 @@
         "confirmationMessageNoun": "EmailIdentities",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1078,15 +1009,9 @@
         "confirmationMessageNoun": "AccountDedicatedIpWarmupAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoWarmupEnabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoWarmupEnabled"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1124,15 +1049,9 @@
         "confirmationMessageNoun": "AccountSendingAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: SendingEnabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SendingEnabled"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1170,15 +1089,9 @@
         "confirmationMessageNoun": "ConfigurationSetDeliveryOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1216,15 +1129,9 @@
         "confirmationMessageNoun": "ConfigurationSetReputationOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1262,15 +1169,9 @@
         "confirmationMessageNoun": "ConfigurationSetSendingOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1308,15 +1209,9 @@
         "confirmationMessageNoun": "ConfigurationSetTrackingOptions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConfigurationSetName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1354,15 +1249,9 @@
         "confirmationMessageNoun": "DedicatedIpInPool",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Ip",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Ip"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1400,15 +1289,9 @@
         "confirmationMessageNoun": "DedicatedIpWarmupAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Ip",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Ip"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1446,15 +1329,9 @@
         "confirmationMessageNoun": "DeliverabilityDashboardOption",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: DashboardEnabled",
         "passThruTypeName": "System.Boolean",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DashboardEnabled"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1492,15 +1369,9 @@
         "confirmationMessageNoun": "EmailIdentityDkimAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EmailIdentity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EmailIdentity"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1538,15 +1409,9 @@
         "confirmationMessageNoun": "EmailIdentityFeedbackAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EmailIdentity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EmailIdentity"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1584,15 +1449,9 @@
         "confirmationMessageNoun": "EmailIdentityMailFromAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EmailIdentity",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EmailIdentity"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1630,15 +1489,9 @@
         "confirmationMessageNoun": "Email",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConfigurationSetName"
-        },
         "memoryStreamParameters": [
           "Content_Raw_Data"
         ]
@@ -1678,15 +1531,9 @@
         "confirmationMessageNoun": "ConfigurationSetEventDestination",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: EventDestinationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EventDestinationName"
-        },
         "memoryStreamParameters": []
       }
     }

@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 #if DESKTOP
                 return client.RegisterStreamConsumer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterStreamConsumerAsync(request);
-                return task.Result;
+                return client.RegisterStreamConsumerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -128,9 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
                 #if DESKTOP
                 return client.GetSpeechSynthesisTask(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetSpeechSynthesisTaskAsync(request);
-                return task.Result;
+                return client.GetSpeechSynthesisTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.RemoveAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveAttributesAsync(request);
-                return task.Result;
+                return client.RemoveAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

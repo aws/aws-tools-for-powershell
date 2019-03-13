@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 #if DESKTOP
                 return client.GetResolverEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetResolverEndpointAsync(request);
-                return task.Result;
+                return client.GetResolverEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

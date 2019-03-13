@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Adds an alias to the set of a given member of Amazon WorkMail.
+    /// Adds an alias to the set of a given member (user or group) of Amazon WorkMail.
     /// </summary>
     [Cmdlet("New", "WMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Alias
         /// <summary>
         /// <para>
-        /// <para>The alias to add to the user.</para>
+        /// <para>The alias to add to the member set.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The alias is added to this Amazon WorkMail entity.</para>
+        /// <para>The member (user or group) to which this alias is added.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The organization under which the member exists.</para>
+        /// <para>The organization under which the member (user or group) exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.CreateAlias(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAliasAsync(request);
-                return task.Result;
+                return client.CreateAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

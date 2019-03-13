@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.EnableRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableRuleAsync(request);
-                return task.Result;
+                return client.EnableRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

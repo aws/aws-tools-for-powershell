@@ -250,9 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeOptionGroupOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeOptionGroupOptionsAsync(request);
-                return task.Result;
+                return client.DescribeOptionGroupOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

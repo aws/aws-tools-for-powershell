@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                 #if DESKTOP
                 return client.DeleteCorsPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteCorsPolicyAsync(request);
-                return task.Result;
+                return client.DeleteCorsPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

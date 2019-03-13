@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DeleteDBInstanceAutomatedBackup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDBInstanceAutomatedBackupAsync(request);
-                return task.Result;
+                return client.DeleteDBInstanceAutomatedBackupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

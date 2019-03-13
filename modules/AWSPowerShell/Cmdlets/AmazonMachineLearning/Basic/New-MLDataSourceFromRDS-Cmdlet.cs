@@ -587,9 +587,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.CreateDataSourceFromRDS(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDataSourceFromRDSAsync(request);
-                return task.Result;
+                return client.CreateDataSourceFromRDSAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

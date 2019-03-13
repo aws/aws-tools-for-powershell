@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.DeleteEntityRecognizer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteEntityRecognizerAsync(request);
-                return task.Result;
+                return client.DeleteEntityRecognizerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

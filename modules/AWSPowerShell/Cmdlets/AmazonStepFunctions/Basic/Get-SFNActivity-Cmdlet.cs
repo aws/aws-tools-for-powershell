@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 #if DESKTOP
                 return client.DescribeActivity(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeActivityAsync(request);
-                return task.Result;
+                return client.DescribeActivityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.GetContextKeysForPrincipalPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetContextKeysForPrincipalPolicyAsync(request);
-                return task.Result;
+                return client.GetContextKeysForPrincipalPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -64,8 +64,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code>
         /// | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code>
-        /// | <code>instance-stop</code>).</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.not-after</code> - The latest end time for the scheduled event (for example,
+        /// | <code>instance-stop</code>).</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.instance-event-id</code> - The ID of the event whose date and time you
+        /// are modifying.</para></li><li><para><code>event.not-after</code> - The latest end time for the scheduled event (for example,
         /// <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>event.not-before</code> - The earliest start time for the scheduled event (for
+        /// example, <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>event.not-before-deadline</code> - The deadline for starting the event (for
         /// example, <code>2014-09-15T17:15:20.000Z</code>).</para></li><li><para><code>instance-state-code</code> - The code for the instance state, as a 16-bit unsigned
         /// integer. The high byte is used for internal purposes and should be ignored. The low
         /// byte is set based on the state represented. The valid values are 0 (pending), 16 (running),
@@ -290,9 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeInstanceStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeInstanceStatusAsync(request);
-                return task.Result;
+                return client.DescribeInstanceStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -268,9 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 #if DESKTOP
                 return client.StartLabelDetection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartLabelDetectionAsync(request);
-                return task.Result;
+                return client.StartLabelDetectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

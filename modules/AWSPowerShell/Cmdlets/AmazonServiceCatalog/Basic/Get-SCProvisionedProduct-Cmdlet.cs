@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
         #endregion
         
+        #region Parameter AccessLevelFilter_Value
+        /// <summary>
+        /// <para>
+        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AccessLevelFilter_Value { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -79,16 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter AccessLevelFilter_Value
-        /// <summary>
-        /// <para>
-        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String AccessLevelFilter_Value { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -269,9 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ScanProvisionedProducts(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ScanProvisionedProductsAsync(request);
-                return task.Result;
+                return client.ScanProvisionedProductsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

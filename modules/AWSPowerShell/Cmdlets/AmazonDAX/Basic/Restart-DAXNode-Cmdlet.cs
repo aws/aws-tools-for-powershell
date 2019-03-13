@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 #if DESKTOP
                 return client.RebootNode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebootNodeAsync(request);
-                return task.Result;
+                return client.RebootNodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

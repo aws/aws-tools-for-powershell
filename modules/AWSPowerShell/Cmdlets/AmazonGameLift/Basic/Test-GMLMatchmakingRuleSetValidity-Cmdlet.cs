@@ -132,9 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.ValidateMatchmakingRuleSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ValidateMatchmakingRuleSetAsync(request);
-                return task.Result;
+                return client.ValidateMatchmakingRuleSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

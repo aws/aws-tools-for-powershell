@@ -233,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 #if DESKTOP
                 return client.ListAssessmentTargets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAssessmentTargetsAsync(request);
-                return task.Result;
+                return client.ListAssessmentTargetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

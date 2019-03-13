@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
                 #if DESKTOP
                 return client.DeleteEndpointGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteEndpointGroupAsync(request);
-                return task.Result;
+                return client.DeleteEndpointGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

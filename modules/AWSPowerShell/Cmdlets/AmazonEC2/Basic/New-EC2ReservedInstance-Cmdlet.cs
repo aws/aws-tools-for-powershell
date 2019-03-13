@@ -225,9 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.PurchaseReservedInstancesOffering(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PurchaseReservedInstancesOfferingAsync(request);
-                return task.Result;
+                return client.PurchaseReservedInstancesOfferingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

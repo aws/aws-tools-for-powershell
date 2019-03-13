@@ -28,14 +28,14 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Creates an interconnect between an AWS Direct Connect partner's network and a specific
+    /// Creates an interconnect between an AWS Direct Connect Partner's network and a specific
     /// AWS Direct Connect location.
     /// 
     ///  
     /// <para>
-    /// An interconnect is a connection which is capable of hosting other connections. The
-    /// partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to
-    /// tier 2 customers who do not have their own connections. Like a standard connection,
+    /// An interconnect is a connection that is capable of hosting other connections. The
+    /// AWS Direct Connect partner can use an interconnect to provide AWS Direct Connect hosted
+    /// connections to customers through their own network services. Like a standard connection,
     /// an interconnect links the partner's network to an AWS Direct Connect location over
     /// a standard Ethernet fiber-optic cable. One end is connected to the partner's router,
     /// the other to an AWS Direct Connect router.
@@ -45,12 +45,12 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
     /// no available ports on the endpoint, the request fails and no interconnect is created.
     /// </para><para>
-    /// For each end customer, the AWS Direct Connect partner provisions a connection on their
-    /// interconnect by calling <a>AllocateConnectionOnInterconnect</a>. The end customer
-    /// can then connect to AWS resources by creating a virtual interface on their connection,
-    /// using the VLAN assigned to them by the partner.
+    /// For each end customer, the AWS Direct Connect Partner provisions a connection on their
+    /// interconnect by calling <a>AllocateHostedConnection</a>. The end customer can then
+    /// connect to AWS resources by creating a virtual interface on their connection, using
+    /// the VLAN assigned to them by the AWS Direct Connect Partner.
     /// </para><note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -209,9 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.CreateInterconnect(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateInterconnectAsync(request);
-                return task.Result;
+                return client.CreateInterconnectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

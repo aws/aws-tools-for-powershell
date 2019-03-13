@@ -50,6 +50,9 @@
         <ServiceOperation MethodName="DeletePendingAggregationRequest" Output="Void" Verb="Remove" Noun="PendingAggregationRequest" ShouldProcessTarget="RequesterAccountId" PipelineParameter="RequesterAccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRemediationConfiguration" Output="Void" Verb="Remove" Noun="RemediationConfiguration" ShouldProcessTarget="ConfigRuleName" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteRetentionConfiguration" Output="Void" Verb="Remove" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionConfigurationName" PipelineParameter="RetentionConfigurationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -95,6 +98,12 @@
         <ServiceOperation MethodName="DescribePendingAggregationRequests" Output="DefaultSingleMember" Verb="Get" Noun="PendingAggregationRequestList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRemediationConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="RemediationConfiguration" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRemediationExecutionStatus" Output="DefaultSingleMember" Verb="Get" Noun="RemediationExecutionStatus" PipelineParameter="ConfigRuleName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeRetentionConfigurations" Output="DefaultSingleMember" Verb="Get" Noun="RetentionConfiguration" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
@@ -134,6 +143,9 @@
         <ServiceOperation MethodName="ListDiscoveredResources" Output="DefaultSingleMember" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutAggregationAuthorization" Output="DefaultSingleMember" Verb="Write" Noun="AggregationAuthorization" ShouldProcessTarget="AuthorizedAccountId" PipelineParameter="AuthorizedAccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -156,7 +168,13 @@
         <ServiceOperation MethodName="PutEvaluations" Output="DefaultSingleMember" Verb="Write" Noun="Evaluation" ShouldProcessTarget="Evaluations" PipelineParameter="Evaluations" NoPipelineParameter="false" LegacyAlias="Write-CFGEvaluations">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutRemediationConfigurations" Output="DefaultSingleMember" Verb="Write" Noun="RemediationConfiguration" ShouldProcessTarget="RemediationConfigurations" PipelineParameter="RemediationConfigurations" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutRetentionConfiguration" Output="DefaultSingleMember" Verb="Write" Noun="RetentionConfiguration" ShouldProcessTarget="RetentionPeriodInDays" PipelineParameter="RetentionPeriodInDays" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SelectResourceConfig" Output="DefaultSingleMember" Verb="Select" Noun="ResourceConfig" ShouldProcessTarget="Expression" PipelineParameter="Expression" NoPipelineParameter="false" MetadataProperties="QueryInfo">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" Verb="Start" Noun="ConfigRulesEvaluation" ShouldProcessTarget="ConfigRuleNames" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false">
@@ -165,7 +183,16 @@
         <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" Verb="Start" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartRemediationExecution" Output="Response" Verb="Start" Noun="RemediationExecution" ShouldProcessTarget="ResourceKeys" PipelineParameter="ResourceKeys" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" Verb="Stop" Noun="ConfigurationRecorder" ShouldProcessTarget="ConfigurationRecorderName" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

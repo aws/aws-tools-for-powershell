@@ -28,13 +28,17 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Registers an existing and disabled user, group, or resource/entity for Amazon WorkMail
-    /// use by associating a mailbox and calendaring capabilities. It performs no change if
-    /// the entity is enabled and fails if the entity is deleted. This operation results in
-    /// the accumulation of costs. For more information, see <a href="http://aws.amazon.com/workmail/pricing">Pricing</a>.
-    /// The equivalent console functionality for this operation is <i>Enable</i>. Users can
-    /// either be created by calling the CreateUser API or they can be synchronized from your
-    /// directory. For more information, see DeregisterFromWorkMail.
+    /// Registers an existing and disabled user, group, or resource for Amazon WorkMail use
+    /// by associating a mailbox and calendaring capabilities. It performs no change if the
+    /// user, group, or resource is enabled and fails if the user, group, or resource is deleted.
+    /// This operation results in the accumulation of costs. For more information, see <a href="https://aws.amazon.com//workmail/pricing">Pricing</a>. The equivalent console
+    /// functionality for this operation is <i>Enable</i>. 
+    /// 
+    ///  
+    /// <para>
+    /// Users can either be created by calling the <a>CreateUser</a> API operation or they
+    /// can be synchronized from your directory. For more information, see <a>DeregisterFromWorkMail</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "WMToWorkMail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -49,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Email
         /// <summary>
         /// <para>
-        /// <para>The email for the entity to be updated.</para>
+        /// <para>The email for the user, group, or resource to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -59,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the entity to be updated.</para>
+        /// <para>The identifier for the user, group, or resource to be updated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -69,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the organization under which the Amazon WorkMail entity exists.</para>
+        /// <para>The identifier for the organization under which the user, group, or resource exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -189,9 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.RegisterToWorkMail(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterToWorkMailAsync(request);
-                return task.Result;
+                return client.RegisterToWorkMailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

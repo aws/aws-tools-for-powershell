@@ -249,9 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
                 #if DESKTOP
                 return client.UpdateScalingPlan(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateScalingPlanAsync(request);
-                return task.Result;
+                return client.UpdateScalingPlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

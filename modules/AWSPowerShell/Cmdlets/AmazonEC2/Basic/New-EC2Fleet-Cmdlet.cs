@@ -295,6 +295,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetType Type { get; set; }
         #endregion
         
+        #region Parameter UtcValidFrom
+        /// <summary>
+        /// <para>
+        /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// The default is to start fulfilling the request immediately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcValidFrom { get; set; }
+        #endregion
+        
+        #region Parameter UtcValidUntil
+        /// <summary>
+        /// <para>
+        /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
+        /// If no value is specified, the request remains until you cancel it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcValidUntil { get; set; }
+        #endregion
+        
         #region Parameter ValidFrom
         /// <summary>
         /// <para>
@@ -314,17 +337,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.DateTime ValidFrom { get; set; }
         #endregion
         
-        #region Parameter UtcValidFrom
-        /// <summary>
-        /// <para>
-        /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// The default is to start fulfilling the request immediately.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcValidFrom { get; set; }
-        #endregion
-        
         #region Parameter ValidUntil
         /// <summary>
         /// <para>
@@ -335,7 +347,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.</para>
+        /// If no value is specified, the request remains until you cancel it.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -343,18 +355,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use UtcValidUntil instead.")]
         public System.DateTime ValidUntil { get; set; }
-        #endregion
-        
-        #region Parameter UtcValidUntil
-        /// <summary>
-        /// <para>
-        /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// At this point, no new EC2 Fleet requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcValidUntil { get; set; }
         #endregion
         
         #region Parameter Force
@@ -718,9 +718,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CreateFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateFleetAsync(request);
-                return task.Result;
+                return client.CreateFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.StopMatchmaking(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopMatchmakingAsync(request);
-                return task.Result;
+                return client.StopMatchmakingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

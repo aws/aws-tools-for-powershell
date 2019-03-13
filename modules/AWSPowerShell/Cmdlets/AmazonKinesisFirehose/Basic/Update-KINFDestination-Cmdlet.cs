@@ -260,18 +260,6 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String ElasticsearchDestinationUpdate_RoleARN { get; set; }
         #endregion
         
-        #region Parameter S3DestinationUpdate
-        /// <summary>
-        /// <para>
-        /// <para>[Deprecated] Describes an update for a destination in Amazon S3.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationUpdate instead.")]
-        public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
-        #endregion
-        
         #region Parameter ElasticsearchDestinationUpdate_S3Update
         /// <summary>
         /// <para>
@@ -316,6 +304,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ElasticsearchDestinationUpdate_TypeName { get; set; }
+        #endregion
+        
+        #region Parameter S3DestinationUpdate
+        /// <summary>
+        /// <para>
+        /// <para>[Deprecated] Describes an update for a destination in Amazon S3.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationUpdate instead.")]
+        public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
         #endregion
         
         #region Parameter Force
@@ -675,9 +675,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 #if DESKTOP
                 return client.UpdateDestination(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDestinationAsync(request);
-                return task.Result;
+                return client.UpdateDestinationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

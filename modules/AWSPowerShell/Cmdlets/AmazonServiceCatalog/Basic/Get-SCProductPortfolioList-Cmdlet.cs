@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter ProductId
+        /// <summary>
+        /// <para>
+        /// <para>The product identifier.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProductId { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -63,16 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter ProductId
-        /// <summary>
-        /// <para>
-        /// <para>The product identifier.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -227,9 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListPortfoliosForProduct(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListPortfoliosForProductAsync(request);
-                return task.Result;
+                return client.ListPortfoliosForProductAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

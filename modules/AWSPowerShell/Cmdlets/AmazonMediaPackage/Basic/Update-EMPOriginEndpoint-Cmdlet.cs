@@ -611,9 +611,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 #if DESKTOP
                 return client.UpdateOriginEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateOriginEndpointAsync(request);
-                return task.Result;
+                return client.UpdateOriginEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

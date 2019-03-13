@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.UpdateRobotApplication(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateRobotApplicationAsync(request);
-                return task.Result;
+                return client.UpdateRobotApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

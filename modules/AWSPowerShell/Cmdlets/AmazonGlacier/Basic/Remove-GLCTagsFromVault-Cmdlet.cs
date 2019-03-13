@@ -203,9 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.RemoveTagsFromVault(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveTagsFromVaultAsync(request);
-                return task.Result;
+                return client.RemoveTagsFromVaultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

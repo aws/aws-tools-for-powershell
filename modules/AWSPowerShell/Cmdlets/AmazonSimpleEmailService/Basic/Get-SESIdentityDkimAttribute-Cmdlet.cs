@@ -152,9 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.GetIdentityDkimAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetIdentityDkimAttributesAsync(request);
-                return task.Result;
+                return client.GetIdentityDkimAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

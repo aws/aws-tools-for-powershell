@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 #if DESKTOP
                 return client.DeregisterStreamConsumer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeregisterStreamConsumerAsync(request);
-                return task.Result;
+                return client.DeregisterStreamConsumerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

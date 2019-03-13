@@ -29,9 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Disassociates an AWS Identity and Access Management (IAM) role from an Amazon Aurora
-    /// DB cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing
+    /// DB cluster. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Integrating.Authorizing.html">Authorizing
     /// Amazon Aurora MySQL to Access Other AWS Services on Your Behalf </a> in the <i>Amazon
     /// Aurora User Guide</i>.
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSRoleFromDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -172,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.RemoveRoleFromDBCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveRoleFromDBClusterAsync(request);
-                return task.Result;
+                return client.RemoveRoleFromDBClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

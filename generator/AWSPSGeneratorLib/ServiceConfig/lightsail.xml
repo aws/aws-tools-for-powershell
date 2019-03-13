@@ -122,6 +122,9 @@
         <ServiceOperation MethodName="DeleteKeyPair" Output="DefaultSingleMember" Verb="Remove" Noun="KeyPair" ShouldProcessTarget="KeyPairName" PipelineParameter="KeyPairName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKnownHostKeys" Output="DefaultSingleMember" Verb="Remove" Noun="KnownHostKey" ShouldProcessTarget="InstanceName" PipelineParameter="InstanceName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteLoadBalancer" Output="DefaultSingleMember" Verb="Remove" Noun="LoadBalancer" ShouldProcessTarget="LoadBalancerName" PipelineParameter="LoadBalancerName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

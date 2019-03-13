@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 #if DESKTOP
                 return client.InviteMembers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.InviteMembersAsync(request);
-                return task.Result;
+                return client.InviteMembersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

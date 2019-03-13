@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CreateStorageLocation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateStorageLocationAsync(request);
-                return task.Result;
+                return client.CreateStorageLocationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

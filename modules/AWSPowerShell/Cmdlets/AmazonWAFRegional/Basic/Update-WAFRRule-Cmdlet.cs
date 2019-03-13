@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// you delete the existing one and add the new one.
     /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
-    /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+    /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
     /// </para>
     /// </summary>
@@ -213,9 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                 #if DESKTOP
                 return client.UpdateRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateRuleAsync(request);
-                return task.Result;
+                return client.UpdateRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

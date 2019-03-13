@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance
-    /// that is not actively in service; for example, either when the instance launches or
-    /// before the instance terminates.
+    /// when the instance launches (before it is put into service) or as the instance terminates
+    /// (before it is fully terminated).
     /// </para><para>
     /// This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
     /// group:
@@ -48,16 +48,19 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para></li><li><para><b>Create the lifecycle hook. Specify whether the hook is used when the instances
     /// launch or terminate.</b></para></li><li><para>
     /// If you need more time, record the lifecycle action heartbeat to keep the instance
-    /// in a pending state.
+    /// in a pending state using using <a>RecordLifecycleActionHeartbeat</a>.
     /// </para></li><li><para>
-    /// If you finish before the timeout period ends, complete the lifecycle action.
+    /// If you finish before the timeout period ends, complete the lifecycle action using
+    /// <a>CompleteLifecycleAction</a>.
     /// </para></li></ol><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto
-    /// Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon
+    /// EC2 Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
     /// If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto
-    /// Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS
-    /// Service Limits</a> in the <i>Amazon Web Services General Reference</i>.
+    /// Scaling group, the call fails.
+    /// </para><para>
+    /// You can view the lifecycle hooks for an Auto Scaling group using <a>DescribeLifecycleHooks</a>.
+    /// If you are no longer using a lifecycle hook, you can delete it using <a>DeleteLifecycleHook</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASLifecycleHook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -96,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The maximum time, in seconds, that can elapse before the lifecycle hook times out.
-        /// The range is from 30 to 7200 seconds. The default is 3600 seconds (1 hour).</para><para>If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the default action.
-        /// You can prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.</para>
+        /// The range is from <code>30</code> to <code>7200</code> seconds. The default value
+        /// is <code>3600</code> seconds (1 hour).</para><para>If the lifecycle hook times out, Amazon EC2 Auto Scaling performs the action that
+        /// you specified in the <code>DefaultResult</code> parameter. You can prevent the lifecycle
+        /// hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,9 +122,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LifecycleTransition
         /// <summary>
         /// <para>
-        /// <para>The instance state to which you want to attach the lifecycle hook. The possible values
-        /// are:</para><ul><li><para>autoscaling:EC2_INSTANCE_LAUNCHING</para></li><li><para>autoscaling:EC2_INSTANCE_TERMINATING</para></li></ul><para>This parameter is required for new lifecycle hooks, but optional when updating existing
-        /// hooks.</para>
+        /// <para>The instance state to which you want to attach the lifecycle hook. The valid values
+        /// are:</para><ul><li><para>autoscaling:EC2_INSTANCE_LAUNCHING</para></li><li><para>autoscaling:EC2_INSTANCE_TERMINATING</para></li></ul><para>Conditional: This parameter is required for new lifecycle hooks, but optional when
+        /// updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter NotificationMetadata
         /// <summary>
         /// <para>
-        /// <para>Contains additional information that you want to include any time Amazon EC2 Auto
-        /// Scaling sends a message to the notification target.</para>
+        /// <para>Additional information that you want to include any time Amazon EC2 Auto Scaling sends
+        /// a message to the notification target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,8 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ARN of the notification target that Amazon EC2 Auto Scaling uses to notify you
         /// when an instance is in the transition state for the lifecycle hook. This target can
-        /// be either an SQS queue or an SNS topic. If you specify an empty string, this overrides
-        /// the current ARN.</para><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
+        /// be either an SQS queue or an SNS topic.</para><para>If you specify an empty string, this overrides the current ARN.</para><para>This operation uses the JSON format when sending notifications to an Amazon SQS queue,
         /// and an email key-value pair format when sending notifications to an Amazon SNS topic.</para><para>When you specify a notification target, Amazon EC2 Auto Scaling sends it a test message.
         /// Test messages contain the following additional key-value pair: <code>"Event": "autoscaling:TEST_NOTIFICATION"</code>.</para>
         /// </para>
@@ -156,8 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified
-        /// notification target.</para><para>This parameter is required for new lifecycle hooks, but optional when updating existing
-        /// hooks.</para>
+        /// notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</para><para>Conditional: This parameter is required for new lifecycle hooks, but optional when
+        /// updating existing hooks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -303,9 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.PutLifecycleHook(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutLifecycleHookAsync(request);
-                return task.Result;
+                return client.PutLifecycleHookAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

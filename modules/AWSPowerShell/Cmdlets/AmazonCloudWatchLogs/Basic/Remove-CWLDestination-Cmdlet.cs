@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.DeleteDestination(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDestinationAsync(request);
-                return task.Result;
+                return client.DeleteDestinationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

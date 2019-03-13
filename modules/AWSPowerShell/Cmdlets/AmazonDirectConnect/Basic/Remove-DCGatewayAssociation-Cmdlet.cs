@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class RemoveDCGatewayAssociationCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter AssociationId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Direct Connect gateway association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AssociationId { get; set; }
+        #endregion
+        
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
@@ -90,6 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AssociationId = this.AssociationId;
             context.DirectConnectGatewayId = this.DirectConnectGatewayId;
             context.VirtualGatewayId = this.VirtualGatewayId;
             
@@ -108,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.DeleteDirectConnectGatewayAssociationRequest();
             
+            if (cmdletContext.AssociationId != null)
+            {
+                request.AssociationId = cmdletContext.AssociationId;
+            }
             if (cmdletContext.DirectConnectGatewayId != null)
             {
                 request.DirectConnectGatewayId = cmdletContext.DirectConnectGatewayId;
@@ -158,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DeleteDirectConnectGatewayAssociation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDirectConnectGatewayAssociationAsync(request);
-                return task.Result;
+                return client.DeleteDirectConnectGatewayAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -180,6 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssociationId { get; set; }
             public System.String DirectConnectGatewayId { get; set; }
             public System.String VirtualGatewayId { get; set; }
         }

@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.PutConfigurationSetReputationOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutConfigurationSetReputationOptionsAsync(request);
-                return task.Result;
+                return client.PutConfigurationSetReputationOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

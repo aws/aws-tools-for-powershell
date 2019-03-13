@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// but you haven't used it yet in a call to create, update, or delete an AWS WAF object.
     /// </para></li><li><para><code>PENDING</code>: AWS WAF is propagating the create, update, or delete request
     /// to all AWS WAF servers.
-    /// </para></li><li><para><code>IN_SYNC</code>: Propagation is complete.
+    /// </para></li><li><para><code>INSYNC</code>: Propagation is complete.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Get", "WAFChangeTokenStatus")]
@@ -135,9 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 #if DESKTOP
                 return client.GetChangeTokenStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetChangeTokenStatusAsync(request);
-                return task.Result;
+                return client.GetChangeTokenStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

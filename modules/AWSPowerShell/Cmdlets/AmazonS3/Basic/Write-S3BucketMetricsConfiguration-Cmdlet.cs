@@ -256,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.PutBucketMetricsConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutBucketMetricsConfigurationAsync(request);
-                return task.Result;
+                return client.PutBucketMetricsConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

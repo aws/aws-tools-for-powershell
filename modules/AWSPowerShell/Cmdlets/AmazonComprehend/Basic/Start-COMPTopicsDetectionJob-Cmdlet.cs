@@ -225,9 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.StartTopicsDetectionJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartTopicsDetectionJobAsync(request);
-                return task.Result;
+                return client.StartTopicsDetectionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

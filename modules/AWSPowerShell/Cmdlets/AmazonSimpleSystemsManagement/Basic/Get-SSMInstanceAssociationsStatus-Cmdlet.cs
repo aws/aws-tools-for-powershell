@@ -242,9 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.DescribeInstanceAssociationsStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeInstanceAssociationsStatusAsync(request);
-                return task.Result;
+                return client.DescribeInstanceAssociationsStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeReplicationTaskAssessmentResults(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReplicationTaskAssessmentResultsAsync(request);
-                return task.Result;
+                return client.DescribeReplicationTaskAssessmentResultsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

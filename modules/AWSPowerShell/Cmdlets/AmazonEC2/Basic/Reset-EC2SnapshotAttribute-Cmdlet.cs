@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ResetSnapshotAttribute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResetSnapshotAttributeAsync(request);
-                return task.Result;
+                return client.ResetSnapshotAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -262,9 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.DescribeMetricFilters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeMetricFiltersAsync(request);
-                return task.Result;
+                return client.DescribeMetricFiltersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

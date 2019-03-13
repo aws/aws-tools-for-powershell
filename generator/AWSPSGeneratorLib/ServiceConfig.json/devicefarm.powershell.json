@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "DF",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -72,15 +71,9 @@
         "confirmationMessageNoun": "DevicePool",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -118,15 +111,9 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -164,15 +151,9 @@
         "confirmationMessageNoun": "NetworkProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -210,15 +191,9 @@
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -256,15 +231,9 @@
         "confirmationMessageNoun": "RemoteAccessSession",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DeviceArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -306,15 +275,9 @@
         "confirmationMessageNoun": "Upload",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -352,15 +315,9 @@
         "confirmationMessageNoun": "VPCEConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VpceConfigurationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -398,15 +355,9 @@
         "confirmationMessageNoun": "DevicePool",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -444,15 +395,9 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -490,15 +435,9 @@
         "confirmationMessageNoun": "NetworkProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -536,15 +475,9 @@
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -582,15 +515,9 @@
         "confirmationMessageNoun": "RemoteAccessSession",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -628,15 +555,9 @@
         "confirmationMessageNoun": "Run",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -674,15 +595,9 @@
         "confirmationMessageNoun": "Upload",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -720,15 +635,9 @@
         "confirmationMessageNoun": "VPCEConfiguration",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Arn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -764,7 +673,6 @@
         "confirmationMessageNoun": "AccountSettings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -805,7 +713,6 @@
         "confirmationMessageNoun": "Device",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -846,7 +753,6 @@
         "confirmationMessageNoun": "DeviceInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -887,7 +793,6 @@
         "confirmationMessageNoun": "DevicePool",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -926,7 +831,6 @@
         "confirmationMessageNoun": "DevicePoolCompatibility",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -967,7 +871,6 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1008,7 +911,6 @@
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1049,7 +951,6 @@
         "confirmationMessageNoun": "NetworkProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1072,7 +973,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextToken"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -1088,7 +991,6 @@
         "confirmationMessageNoun": "OfferingStatus",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1129,7 +1031,6 @@
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1170,7 +1071,6 @@
         "confirmationMessageNoun": "RemoteAccessSession",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1211,7 +1111,6 @@
         "confirmationMessageNoun": "Run",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1252,7 +1151,6 @@
         "confirmationMessageNoun": "Suite",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1293,7 +1191,6 @@
         "confirmationMessageNoun": "Test",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1334,7 +1231,6 @@
         "confirmationMessageNoun": "Upload",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1375,7 +1271,6 @@
         "confirmationMessageNoun": "VPCEConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1416,15 +1311,9 @@
         "confirmationMessageNoun": "ToRemoteAccessSession",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AppArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1462,7 +1351,6 @@
         "confirmationMessageNoun": "Artifacts",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1512,7 +1400,6 @@
         "confirmationMessageNoun": "DeviceInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1562,7 +1449,6 @@
         "confirmationMessageNoun": "DevicePools",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1612,7 +1498,6 @@
         "confirmationMessageNoun": "Devices",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1662,7 +1547,6 @@
         "confirmationMessageNoun": "InstanceProfiles",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1712,7 +1596,6 @@
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1762,7 +1645,6 @@
         "confirmationMessageNoun": "NetworkProfiles",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1810,7 +1692,6 @@
         "confirmationMessageNoun": "OfferingPromotions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1858,7 +1739,6 @@
         "confirmationMessageNoun": "Offerings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1906,7 +1786,6 @@
         "confirmationMessageNoun": "OfferingTransactions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1956,7 +1835,6 @@
         "confirmationMessageNoun": "Projects",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2006,7 +1884,6 @@
         "confirmationMessageNoun": "RemoteAccessSessions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2056,7 +1933,6 @@
         "confirmationMessageNoun": "Runs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2106,7 +1982,6 @@
         "confirmationMessageNoun": "Samples",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2156,7 +2031,6 @@
         "confirmationMessageNoun": "Suites",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2206,7 +2080,6 @@
         "confirmationMessageNoun": "Tests",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2256,7 +2129,6 @@
         "confirmationMessageNoun": "UniqueProblems",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2306,7 +2178,6 @@
         "confirmationMessageNoun": "Uploads",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2354,7 +2225,6 @@
         "confirmationMessageNoun": "VPCEConfigurations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2404,15 +2274,9 @@
         "confirmationMessageNoun": "Offering",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OfferingId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2450,15 +2314,9 @@
         "confirmationMessageNoun": "Offering",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OfferingId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2496,15 +2354,9 @@
         "confirmationMessageNoun": "Run",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2542,15 +2394,9 @@
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2588,15 +2434,9 @@
         "confirmationMessageNoun": "RemoteAccessSession",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2634,15 +2474,9 @@
         "confirmationMessageNoun": "Run",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2680,15 +2514,9 @@
         "confirmationMessageNoun": "DeviceInstance",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2726,15 +2554,9 @@
         "confirmationMessageNoun": "DevicePool",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2772,15 +2594,9 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2818,15 +2634,9 @@
         "confirmationMessageNoun": "NetworkProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2864,15 +2674,9 @@
         "confirmationMessageNoun": "Project",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2910,15 +2714,9 @@
         "confirmationMessageNoun": "Upload",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2956,15 +2754,9 @@
         "confirmationMessageNoun": "VPCEConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     }

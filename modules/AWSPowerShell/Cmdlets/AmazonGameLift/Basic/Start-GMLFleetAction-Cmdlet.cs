@@ -38,12 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// events as triggered by the fleet's scaling policies. If actions on the fleet were
     /// never stopped, this operation will have no effect. You can view a fleet's stopped
     /// actions using <a>DescribeFleetAttributes</a>.
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para>
-    /// Manage scaling policies:
-    /// </para><ul><li><para><a>PutScalingPolicy</a> (auto-scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (auto-scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (auto-scaling)
-    /// </para></li></ul></li><li><para>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// Working with Fleets</a>.
+    /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
     /// Manage fleet actions:
     /// </para><ul><li><para><a>StartFleetActions</a></para></li><li><para><a>StopFleetActions</a></para></li></ul></li></ul>
     /// </summary>
@@ -189,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.StartFleetActions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartFleetActionsAsync(request);
-                return task.Result;
+                return client.StartFleetActionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

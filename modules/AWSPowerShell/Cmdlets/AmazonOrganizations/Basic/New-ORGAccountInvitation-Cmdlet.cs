@@ -216,9 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.InviteAccountToOrganization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.InviteAccountToOrganizationAsync(request);
-                return task.Result;
+                return client.InviteAccountToOrganizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

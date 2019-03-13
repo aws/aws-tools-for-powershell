@@ -369,9 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
                 #if DESKTOP
                 return client.CreateProject(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateProjectAsync(request);
-                return task.Result;
+                return client.CreateProjectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

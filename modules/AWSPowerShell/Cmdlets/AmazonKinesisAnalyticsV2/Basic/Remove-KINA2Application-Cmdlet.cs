@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 #if DESKTOP
                 return client.DeleteApplication(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteApplicationAsync(request);
-                return task.Result;
+                return client.DeleteApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CMPM
                 #if DESKTOP
                 return client.DetectPHI(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DetectPHIAsync(request);
-                return task.Result;
+                return client.DetectPHIAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

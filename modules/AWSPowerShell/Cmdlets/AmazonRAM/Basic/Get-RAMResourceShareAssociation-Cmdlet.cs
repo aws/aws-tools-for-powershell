@@ -307,9 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.GetResourceShareAssociations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetResourceShareAssociationsAsync(request);
-                return task.Result;
+                return client.GetResourceShareAssociationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

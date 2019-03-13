@@ -216,9 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.ChangeTagsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ChangeTagsForResourceAsync(request);
-                return task.Result;
+                return client.ChangeTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

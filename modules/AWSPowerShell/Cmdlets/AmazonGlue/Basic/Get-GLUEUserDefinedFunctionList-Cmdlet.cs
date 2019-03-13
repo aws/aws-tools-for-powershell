@@ -241,9 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.GetUserDefinedFunctions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetUserDefinedFunctionsAsync(request);
-                return task.Result;
+                return client.GetUserDefinedFunctionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

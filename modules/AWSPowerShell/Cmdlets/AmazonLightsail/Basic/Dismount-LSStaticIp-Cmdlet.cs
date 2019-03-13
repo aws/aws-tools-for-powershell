@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.DetachStaticIp(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DetachStaticIpAsync(request);
-                return task.Result;
+                return client.DetachStaticIpAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

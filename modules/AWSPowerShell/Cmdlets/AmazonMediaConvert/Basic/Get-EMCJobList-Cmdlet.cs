@@ -47,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Order
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// When you request lists of resources, you can optionally
+        /// specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by
+        /// resource.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// A job's status can be SUBMITTED, PROGRESSING, COMPLETE,
+        /// CANCELED, or ERROR.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -279,9 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.ListJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListJobsAsync(request);
-                return task.Result;
+                return client.ListJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "DDB",
-    "positionalMemberNames": [
-      "TableName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -76,15 +73,9 @@
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -122,15 +113,9 @@
         "confirmationMessageNoun": "GlobalTable",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GlobalTableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -168,15 +153,9 @@
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "BackupArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -214,15 +193,9 @@
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -260,7 +233,6 @@
         "confirmationMessageNoun": "Backup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -301,7 +273,6 @@
         "confirmationMessageNoun": "ContinuousBackups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -340,7 +311,6 @@
         "confirmationMessageNoun": "Endpoints",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -381,7 +351,6 @@
         "confirmationMessageNoun": "GlobalTable",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -422,7 +391,6 @@
         "confirmationMessageNoun": "GlobalTableSettings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -461,7 +429,6 @@
         "confirmationMessageNoun": "Limits",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -502,7 +469,6 @@
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -543,7 +509,6 @@
         "confirmationMessageNoun": "TimeToLive",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -591,7 +556,6 @@
         "confirmationMessageNoun": "Backups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -644,7 +608,6 @@
         "confirmationMessageNoun": "GlobalTables",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -690,7 +653,6 @@
         "confirmationMessageNoun": "Tables",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -721,7 +683,14 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -735,11 +704,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "TagsOfResource",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
+        "iterationPattern": "Pattern1",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {},
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
         "memoryStreamParameters": []
       }
     },
@@ -777,15 +752,9 @@
         "confirmationMessageNoun": "TableFromBackup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TargetTableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -823,15 +792,9 @@
         "confirmationMessageNoun": "TableToPointInTime",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TargetTableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -869,15 +832,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -913,7 +870,6 @@
         "confirmationMessageNoun": "GetItems",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -952,15 +908,9 @@
         "confirmationMessageNoun": "WriteItems",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -998,15 +948,9 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ResourceArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1044,15 +988,9 @@
         "confirmationMessageNoun": "ContinuousBackups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1090,15 +1028,9 @@
         "confirmationMessageNoun": "GlobalTable",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GlobalTableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1136,15 +1068,9 @@
         "confirmationMessageNoun": "GlobalTableSettings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GlobalTableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1162,9 +1088,7 @@
         {
           "originalName": "ProvisionedThroughput_ReadCapacityUnits",
           "replacementName": "ReadCapacity",
-          "aliases": [
-            "ProvisionedThroughput_ReadCapacityUnits"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -1172,9 +1096,7 @@
         {
           "originalName": "ProvisionedThroughput_WriteCapacityUnits",
           "replacementName": "WriteCapacity",
-          "aliases": [
-            "ProvisionedThroughput_WriteCapacityUnits"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -1203,15 +1125,9 @@
         "confirmationMessageNoun": "Table",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TableName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1249,15 +1165,9 @@
         "confirmationMessageNoun": "TimeToLive",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TableName"
-        },
         "memoryStreamParameters": []
       }
     }

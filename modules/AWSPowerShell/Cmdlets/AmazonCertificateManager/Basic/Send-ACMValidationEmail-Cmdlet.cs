@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// the original mail, you can request that the mail be resent within 72 hours of requesting
     /// the ACM certificate. If more than 72 hours have elapsed since your original request
     /// or since your last attempt to resend validation mail, you must request a new certificate.
-    /// For more information about setting up your contact email addresses, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
+    /// For more information about setting up your contact email addresses, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
     /// Email for your Domain</a>.
     /// </summary>
     [Cmdlet("Send", "ACMValidationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 #if DESKTOP
                 return client.ResendValidationEmail(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResendValidationEmailAsync(request);
-                return task.Result;
+                return client.ResendValidationEmailAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

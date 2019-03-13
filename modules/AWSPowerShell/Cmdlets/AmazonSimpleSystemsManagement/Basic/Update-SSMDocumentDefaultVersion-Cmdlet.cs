@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.UpdateDocumentDefaultVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDocumentDefaultVersionAsync(request);
-                return task.Result;
+                return client.UpdateDocumentDefaultVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

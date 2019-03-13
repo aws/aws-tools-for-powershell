@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
     /// Enables group metrics for the specified Auto Scaling group. For more information,
-    /// see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring
+    /// see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-monitoring.html">Monitoring
     /// Your Auto Scaling Groups and Instances</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </summary>
@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.EnableMetricsCollection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableMetricsCollectionAsync(request);
-                return task.Result;
+                return client.EnableMetricsCollectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

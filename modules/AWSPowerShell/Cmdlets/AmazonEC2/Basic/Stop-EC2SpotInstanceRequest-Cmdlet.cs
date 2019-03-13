@@ -151,9 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CancelSpotInstanceRequests(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CancelSpotInstanceRequestsAsync(request);
-                return task.Result;
+                return client.CancelSpotInstanceRequestsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.AddIpRoutes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddIpRoutesAsync(request);
-                return task.Result;
+                return client.AddIpRoutesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

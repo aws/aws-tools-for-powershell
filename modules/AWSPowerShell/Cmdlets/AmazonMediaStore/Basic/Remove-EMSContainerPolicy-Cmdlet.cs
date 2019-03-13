@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                 #if DESKTOP
                 return client.DeleteContainerPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteContainerPolicyAsync(request);
-                return task.Result;
+                return client.DeleteContainerPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

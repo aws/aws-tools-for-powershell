@@ -672,9 +672,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 #if DESKTOP
                 return client.CreateComputeEnvironment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateComputeEnvironmentAsync(request);
-                return task.Result;
+                return client.CreateComputeEnvironmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

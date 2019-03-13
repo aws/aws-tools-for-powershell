@@ -77,6 +77,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String EntitlementArn { get; set; }
         #endregion
         
+        #region Parameter FlowArn
+        /// <summary>
+        /// <para>
+        /// The flow that is associated with the entitlement
+        /// that you want to update.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlowArn { get; set; }
+        #endregion
+        
         #region Parameter Subscriber
         /// <summary>
         /// <para>
@@ -88,17 +99,6 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         [System.Management.Automation.Parameter]
         [Alias("Subscribers")]
         public System.String[] Subscriber { get; set; }
-        #endregion
-        
-        #region Parameter FlowArn
-        /// <summary>
-        /// <para>
-        /// The flow that is associated with the entitlement
-        /// that you want to update.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FlowArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.UpdateFlowEntitlement(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFlowEntitlementAsync(request);
-                return task.Result;
+                return client.UpdateFlowEntitlementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

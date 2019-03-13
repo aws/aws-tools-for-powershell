@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
     public partial class NewDCGatewayAssociationCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
+        #region Parameter AddAllowedPrefixesToDirectConnectGateway
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon VPC prefixes to advertise to the Direct Connect gateway</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.DirectConnect.Model.RouteFilterPrefix[] AddAllowedPrefixesToDirectConnectGateway { get; set; }
+        #endregion
+        
         #region Parameter DirectConnectGatewayId
         /// <summary>
         /// <para>
@@ -50,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DirectConnectGatewayId { get; set; }
+        #endregion
+        
+        #region Parameter GatewayId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the virtual private gateway.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GatewayId { get; set; }
         #endregion
         
         #region Parameter VirtualGatewayId
@@ -91,7 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AddAllowedPrefixesToDirectConnectGateway != null)
+            {
+                context.AddAllowedPrefixesToDirectConnectGateway = new List<Amazon.DirectConnect.Model.RouteFilterPrefix>(this.AddAllowedPrefixesToDirectConnectGateway);
+            }
             context.DirectConnectGatewayId = this.DirectConnectGatewayId;
+            context.GatewayId = this.GatewayId;
             context.VirtualGatewayId = this.VirtualGatewayId;
             
             // allow further manipulation of loaded context prior to processing
@@ -109,9 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.CreateDirectConnectGatewayAssociationRequest();
             
+            if (cmdletContext.AddAllowedPrefixesToDirectConnectGateway != null)
+            {
+                request.AddAllowedPrefixesToDirectConnectGateway = cmdletContext.AddAllowedPrefixesToDirectConnectGateway;
+            }
             if (cmdletContext.DirectConnectGatewayId != null)
             {
                 request.DirectConnectGatewayId = cmdletContext.DirectConnectGatewayId;
+            }
+            if (cmdletContext.GatewayId != null)
+            {
+                request.GatewayId = cmdletContext.GatewayId;
             }
             if (cmdletContext.VirtualGatewayId != null)
             {
@@ -159,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.CreateDirectConnectGatewayAssociation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDirectConnectGatewayAssociationAsync(request);
-                return task.Result;
+                return client.CreateDirectConnectGatewayAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -181,7 +212,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DirectConnect.Model.RouteFilterPrefix> AddAllowedPrefixesToDirectConnectGateway { get; set; }
             public System.String DirectConnectGatewayId { get; set; }
+            public System.String GatewayId { get; set; }
             public System.String VirtualGatewayId { get; set; }
         }
         

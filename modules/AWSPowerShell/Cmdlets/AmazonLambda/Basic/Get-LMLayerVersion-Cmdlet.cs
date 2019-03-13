@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 #if DESKTOP
                 return client.GetLayerVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetLayerVersionAsync(request);
-                return task.Result;
+                return client.GetLayerVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

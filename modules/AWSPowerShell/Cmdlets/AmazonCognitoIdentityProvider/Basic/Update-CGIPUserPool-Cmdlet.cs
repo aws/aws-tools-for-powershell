@@ -461,8 +461,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolTag
         /// <summary>
         /// <para>
-        /// <para>The cost allocation tags for the user pool. For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-cost-allocation-tagging.html">Adding
-        /// Cost Allocation Tags to Your User Pool</a></para>
+        /// <para>The tag keys and values to assign to the user pool. A tag is a label that you can
+        /// use to categorize and manage user pools in different ways, such as by purpose, owner,
+        /// environment, or other criteria.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -1102,9 +1103,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.UpdateUserPool(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateUserPoolAsync(request);
-                return task.Result;
+                return client.UpdateUserPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

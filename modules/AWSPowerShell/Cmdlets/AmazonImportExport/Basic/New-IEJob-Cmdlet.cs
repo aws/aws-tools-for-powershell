@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
                 #if DESKTOP
                 return client.CreateJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateJobAsync(request);
-                return task.Result;
+                return client.CreateJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

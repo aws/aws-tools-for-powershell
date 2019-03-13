@@ -182,9 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.ResetClusterParameterGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResetClusterParameterGroupAsync(request);
-                return task.Result;
+                return client.ResetClusterParameterGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.UpdateTrust(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTrustAsync(request);
-                return task.Result;
+                return client.UpdateTrustAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

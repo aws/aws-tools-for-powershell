@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 #if DESKTOP
                 return client.DescribeAttachment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAttachmentAsync(request);
-                return task.Result;
+                return client.DescribeAttachmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

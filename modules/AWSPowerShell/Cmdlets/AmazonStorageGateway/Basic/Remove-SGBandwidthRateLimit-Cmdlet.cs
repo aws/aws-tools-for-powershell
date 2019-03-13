@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DeleteBandwidthRateLimit(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteBandwidthRateLimitAsync(request);
-                return task.Result;
+                return client.DeleteBandwidthRateLimitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -173,6 +173,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Encryption_KMSKeyId { get; set; }
         #endregion
         
+        #region Parameter S3_Prefix
+        /// <summary>
+        /// <para>
+        /// The prefix that is prepended to the restore results for this request.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("OutputLocation_S3_Prefix")]
+        public System.String S3_Prefix { get; set; }
+        #endregion
+        
         #region Parameter RequestPayer
         /// <summary>
         /// <para>
@@ -273,17 +284,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionId { get; set; }
-        #endregion
-        
-        #region Parameter S3_Prefix
-        /// <summary>
-        /// <para>
-        /// The prefix that is prepended to the restore results for this request.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("OutputLocation_S3_Prefix")]
-        public System.String S3_Prefix { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -667,9 +667,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.RestoreObject(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreObjectAsync(request);
-                return task.Result;
+                return client.RestoreObjectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -179,9 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 #if DESKTOP
                 return client.ExportCertificate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ExportCertificateAsync(request);
-                return task.Result;
+                return client.ExportCertificateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

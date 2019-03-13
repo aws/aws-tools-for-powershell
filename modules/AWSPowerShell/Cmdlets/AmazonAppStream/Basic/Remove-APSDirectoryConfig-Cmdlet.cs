@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.DeleteDirectoryConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDirectoryConfigAsync(request);
-                return task.Result;
+                return client.DeleteDirectoryConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

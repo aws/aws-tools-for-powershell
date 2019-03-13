@@ -196,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.SD
                 #if DESKTOP
                 return client.UpdateInstanceCustomHealthStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateInstanceCustomHealthStatusAsync(request);
-                return task.Result;
+                return client.UpdateInstanceCustomHealthStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

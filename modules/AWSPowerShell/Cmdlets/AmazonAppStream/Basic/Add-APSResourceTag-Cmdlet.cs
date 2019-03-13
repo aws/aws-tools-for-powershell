@@ -44,9 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </para>
     /// </summary>
     [Cmdlet("Add", "APSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
+    [OutputType("None","System.Collections.Generic.Dictionary<System.String, System.String>")]
     [AWSCmdlet("Calls the AWS AppStream TagResource API operation.", Operation = new[] {"TagResource"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary&lt;System.String, System.String&gt;",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AppStream.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.TagResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagResourceAsync(request);
-                return task.Result;
+                return client.TagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

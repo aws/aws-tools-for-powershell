@@ -184,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.StartBulkDeployment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartBulkDeploymentAsync(request);
-                return task.Result;
+                return client.StartBulkDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

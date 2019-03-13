@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 #if DESKTOP
                 return client.DescribeSecurityConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSecurityConfigurationAsync(request);
-                return task.Result;
+                return client.DescribeSecurityConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

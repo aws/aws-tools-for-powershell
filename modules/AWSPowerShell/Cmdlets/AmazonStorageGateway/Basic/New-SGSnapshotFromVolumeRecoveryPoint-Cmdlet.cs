@@ -60,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter SnapshotDescription
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>Textual description of the snapshot that appears in the Amazon EC2 console, Elastic
+        /// Block Store snapshots panel in the <b>Description</b> field, and in the AWS Storage
+        /// Gateway snapshot <b>Details</b> pane, <b>Description</b> field</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -70,7 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter VolumeARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The Amazon Resource Name (ARN) of the iSCSI volume target. Use the <a>DescribeStorediSCSIVolumes</a>
+        /// operation to return to retrieve the TargetARN for specified VolumeARN.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -174,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateSnapshotFromVolumeRecoveryPoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSnapshotFromVolumeRecoveryPointAsync(request);
-                return task.Result;
+                return client.CreateSnapshotFromVolumeRecoveryPointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

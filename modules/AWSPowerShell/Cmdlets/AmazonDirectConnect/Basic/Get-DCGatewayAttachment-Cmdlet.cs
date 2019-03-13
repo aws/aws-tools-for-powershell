@@ -70,7 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of attachments to return per page.</para>
+        /// <para>The maximum number of results to return with a single call. To retrieve the remaining
+        /// results, make another call with the returned <code>nextToken</code> value.</para><para>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+        /// returned.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -231,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DescribeDirectConnectGatewayAttachments(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDirectConnectGatewayAttachmentsAsync(request);
-                return task.Result;
+                return client.DescribeDirectConnectGatewayAttachmentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

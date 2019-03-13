@@ -42,6 +42,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class GetAPSImagePermissionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The name of the private image for which to describe permissions. The image must be
+        /// one that you own. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter SharedAwsAccountId
         /// <summary>
         /// <para>
@@ -65,17 +76,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>The name of the private image for which to describe permissions. The image must be
-        /// one that you own. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Name { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -233,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.DescribeImagePermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeImagePermissionsAsync(request);
-                return task.Result;
+                return client.DescribeImagePermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

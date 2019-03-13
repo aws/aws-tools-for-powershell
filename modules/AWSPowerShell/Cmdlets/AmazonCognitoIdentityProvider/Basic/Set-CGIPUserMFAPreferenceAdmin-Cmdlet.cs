@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.AdminSetUserMFAPreference(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AdminSetUserMFAPreferenceAsync(request);
-                return task.Result;
+                return client.AdminSetUserMFAPreferenceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

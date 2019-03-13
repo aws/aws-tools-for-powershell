@@ -40,6 +40,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class NewDMSEndpointCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter RedshiftSettings_AcceptAnyDate
+        /// <summary>
+        /// <para>
+        /// <para>Allows any date format, including invalid formats such as 00/00/00 00:00:00, to be
+        /// loaded without generating an error. You can choose TRUE or FALSE (default).</para><para>This parameter applies only to TIMESTAMP and DATE columns. Always use ACCEPTANYDATE
+        /// with the DATEFORMAT parameter. If the date format for the data does not match the
+        /// DATEFORMAT specification, Amazon Redshift inserts a NULL value into that field. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean RedshiftSettings_AcceptAnyDate { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_AfterConnectScript
+        /// <summary>
+        /// <para>
+        /// <para>Code to run after connecting. This should be the code, not a filename.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_AfterConnectScript { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_AuthMechanism
         /// <summary>
         /// <para>
@@ -75,12 +98,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.AuthTypeValue MongoDbSettings_AuthType { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_BucketFolder
+        /// <summary>
+        /// <para>
+        /// <para>The location where the CSV files are stored before being uploaded to the S3 bucket.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_BucketFolder { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_BucketFolder
         /// <summary>
         /// <para>
         /// <para> An optional parameter to set a folder name in the S3 bucket. If provided, tables
-        /// are created in the path &lt;bucketFolder&gt;/&lt;schema_name&gt;/&lt;table_name&gt;/.
-        /// If this parameter is not specified, then the path used is &lt;schema_name&gt;/&lt;table_name&gt;/.
+        /// are created in the path <code>&lt;bucketFolder&gt;/&lt;schema_name&gt;/&lt;table_name&gt;/</code>.
+        /// If this parameter is not specified, then the path used is <code>&lt;schema_name&gt;/&lt;table_name&gt;/</code>.
         /// </para>
         /// </para>
         /// </summary>
@@ -98,6 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String DmsTransferSettings_BucketName { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_BucketName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the S3 bucket you want to use</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_BucketName { get; set; }
+        #endregion
+        
         #region Parameter S3Settings_BucketName
         /// <summary>
         /// <para>
@@ -106,6 +150,22 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String S3Settings_BucketName { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_CdcInsertsOnly
+        /// <summary>
+        /// <para>
+        /// <para>Option to write only <code>INSERT</code> operations to the comma-separated value (CSV)
+        /// output files. By default, the first field in a CSV record contains the letter <code>I</code>
+        /// (insert), <code>U</code> (update) or <code>D</code> (delete) to indicate whether the
+        /// row was inserted, updated, or deleted at the source database. If <code>cdcInsertsOnly</code>
+        /// is set to true, then only <code>INSERT</code>s are recorded in the CSV file, without
+        /// the <code>I</code> annotation on each line. Valid values are <code>TRUE</code> and
+        /// <code>FALSE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean S3Settings_CdcInsertsOnly { get; set; }
         #endregion
         
         #region Parameter CertificateArn
@@ -123,12 +183,23 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> An optional parameter to use GZIP to compress the target files. Set to GZIP to compress
         /// the target files. Set to NONE (the default) or do not use to leave the files uncompressed.
-        /// </para>
+        /// Applies to both CSV and PARQUET data formats. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.DatabaseMigrationService.CompressionTypeValue")]
         public Amazon.DatabaseMigrationService.CompressionTypeValue S3Settings_CompressionType { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ConnectionTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Sets the amount of time to wait (in milliseconds) before timing out, beginning from
+        /// when you initially establish a connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RedshiftSettings_ConnectionTimeout { get; set; }
         #endregion
         
         #region Parameter S3Settings_CsvDelimiter
@@ -146,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para> The delimiter used to separate rows in the source files. The default is a carriage
-        /// return (\n). </para>
+        /// return (<code>\n</code>). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,6 +244,67 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_DatabaseName { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_DatabaseName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Redshift data warehouse (service) you are working with.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_DatabaseName { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_DataFormat
+        /// <summary>
+        /// <para>
+        /// <para>The format of the data which you want to use for output. You can choose one of the
+        /// following: </para><ul><li><para><code>CSV</code> : This is a row-based format with comma-separated values. </para></li><li><para><code>PARQUET</code> : Apache Parquet is a columnar storage format that features
+        /// efficient compression and provides faster query response. </para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.DataFormatValue")]
+        public Amazon.DatabaseMigrationService.DataFormatValue S3Settings_DataFormat { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_DataPageSize
+        /// <summary>
+        /// <para>
+        /// <para>The size of one data page in bytes. Defaults to 1024 * 1024 bytes (1MiB). For <code>PARQUET</code>
+        /// format only. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 S3Settings_DataPageSize { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_DateFormat
+        /// <summary>
+        /// <para>
+        /// <para>The date format you are using. Valid values are <code>auto</code> (case-sensitive),
+        /// your date format string enclosed in quotes, or NULL. If this is left unset (NULL),
+        /// it defaults to a format of 'YYYY-MM-DD'. Using <code>auto</code> recognizes most strings,
+        /// even some that are not supported when you use a date format string. </para><para>If your date and time values use formats different from each other, set this to <code>auto</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_DateFormat { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_DictPageSizeLimit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum size of an encoded dictionary page of a column. If the dictionary page
+        /// exceeds this, this column is stored using an encoding type of <code>PLAIN</code>.
+        /// Defaults to 1024 * 1024 bytes (1MiB), the maximum size of a dictionary page before
+        /// it reverts to <code>PLAIN</code> encoding. For <code>PARQUET</code> format only. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 S3Settings_DictPageSizeLimit { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_DocsToInvestigate
         /// <summary>
         /// <para>
@@ -182,6 +314,75 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MongoDbSettings_DocsToInvestigate { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_EmptyAsNull
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether AWS DMS should migrate empty CHAR and VARCHAR fields as NULL. A
+        /// value of TRUE sets empty CHAR and VARCHAR fields to null. The default is FALSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean RedshiftSettings_EmptyAsNull { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_EnableStatistic
+        /// <summary>
+        /// <para>
+        /// <para>Enables statistics for Parquet pages and rowGroups. Choose <code>TRUE</code> to enable
+        /// statistics, choose <code>FALSE</code> to disable. Statistics include <code>NULL</code>,
+        /// <code>DISTINCT</code>, <code>MAX</code>, and <code>MIN</code> values. Defaults to
+        /// <code>TRUE</code>. For <code>PARQUET</code> format only.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("S3Settings_EnableStatistics")]
+        public System.Boolean S3Settings_EnableStatistic { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_EncodingType
+        /// <summary>
+        /// <para>
+        /// <para>The type of encoding you are using: <code>RLE_DICTIONARY</code> (default), <code>PLAIN</code>,
+        /// or <code>PLAIN_DICTIONARY</code>.</para><ul><li><para><code>RLE_DICTIONARY</code> uses a combination of bit-packing and run-length encoding
+        /// to store repeated values more efficiently.</para></li><li><para><code>PLAIN</code> does not use encoding at all. Values are stored as they are.</para></li><li><para><code>PLAIN_DICTIONARY</code> builds a dictionary of the values encountered in a
+        /// given column. The dictionary is stored in a dictionary page for each column chunk.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.EncodingTypeValue")]
+        public Amazon.DatabaseMigrationService.EncodingTypeValue S3Settings_EncodingType { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_EncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of server side encryption you want to use for your data. This is part of
+        /// the endpoint settings or the extra connections attributes for Amazon S3. You can choose
+        /// either SSE_S3 (default) or SSE_KMS. To use SSE_S3, create an IAM role with a policy
+        /// that allows <code>"arn:aws:s3:::*"</code> to use the following actions: <code>"s3:PutObject",
+        /// "s3:ListBucket"</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.EncryptionModeValue")]
+        public Amazon.DatabaseMigrationService.EncryptionModeValue RedshiftSettings_EncryptionMode { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_EncryptionMode
+        /// <summary>
+        /// <para>
+        /// <para>The type of server side encryption you want to use for your data. This is part of
+        /// the endpoint settings or the extra connections attributes for Amazon S3. You can choose
+        /// either <code>SSE_S3</code> (default) or <code>SSE_KMS</code>. To use <code>SSE_S3</code>,
+        /// you need an IAM role with permission to allow <code>"arn:aws:s3:::dms-*"</code> to
+        /// use the following actions:</para><ul><li><para>s3:CreateBucket</para></li><li><para>s3:ListBucket</para></li><li><para>s3:DeleteBucket</para></li><li><para>s3:GetBucketLocation</para></li><li><para>s3:GetObject</para></li><li><para>s3:PutObject</para></li><li><para>s3:DeleteObject</para></li><li><para>s3:GetObjectVersion</para></li><li><para>s3:GetBucketPolicy</para></li><li><para>s3:PutBucketPolicy</para></li><li><para>s3:DeleteBucketPolicy</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.EncryptionModeValue")]
+        public Amazon.DatabaseMigrationService.EncryptionModeValue S3Settings_EncryptionMode { get; set; }
         #endregion
         
         #region Parameter EndpointIdentifier
@@ -284,6 +485,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_ExtractDocId { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_FileTransferUploadStream
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the number of threads used to upload a single file. This accepts a value
+        /// between 1 and 64. It defaults to 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_FileTransferUploadStreams")]
+        public System.Int32 RedshiftSettings_FileTransferUploadStream { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchSettings_FullLoadErrorPercentage
         /// <summary>
         /// <para>
@@ -322,6 +535,29 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_KmsKeyId { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_LoadTimeout
+        /// <summary>
+        /// <para>
+        /// <para>Sets the amount of time to wait (in milliseconds) before timing out, beginning from
+        /// when you begin loading.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RedshiftSettings_LoadTimeout { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_MaxFileSize
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the maximum size (in KB) of any CSV file used to transfer data to Amazon
+        /// Redshift. This accepts a value between 1 and 1048576. It defaults to 32768 KB (32
+        /// MB).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RedshiftSettings_MaxFileSize { get; set; }
+        #endregion
+        
         #region Parameter KinesisSettings_MessageFormat
         /// <summary>
         /// <para>
@@ -345,6 +581,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.NestingLevelValue MongoDbSettings_NestingLevel { get; set; }
         #endregion
         
+        #region Parameter S3Settings_ParquetVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of Apache Parquet format you want to use: <code>PARQUET_1_0</code> (default)
+        /// or <code>PARQUET_2_0</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.DatabaseMigrationService.ParquetVersionValue")]
+        public Amazon.DatabaseMigrationService.ParquetVersionValue S3Settings_ParquetVersion { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_Password
         /// <summary>
         /// <para>
@@ -364,6 +612,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Password { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_Password
+        /// <summary>
+        /// <para>
+        /// <para>The password for the user named in the username property.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_Password { get; set; }
         #endregion
         
         #region Parameter MongoDbSettings_Port
@@ -386,6 +644,65 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.Int32 Port { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_Port
+        /// <summary>
+        /// <para>
+        /// <para>The port number for Amazon Redshift. The default value is 5439.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RedshiftSettings_Port { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_RemoveQuote
+        /// <summary>
+        /// <para>
+        /// <para>Removes surrounding quotation marks from strings in the incoming data. All characters
+        /// within the quotation marks, including delimiters, are retained. Choose TRUE to remove
+        /// quotation marks. The default is FALSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_RemoveQuotes")]
+        public System.Boolean RedshiftSettings_RemoveQuote { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ReplaceChar
+        /// <summary>
+        /// <para>
+        /// <para>Replaces invalid characters specified in <code>ReplaceInvalidChars</code>, substituting
+        /// the specified value instead. The default is "?".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_ReplaceChars")]
+        public System.String RedshiftSettings_ReplaceChar { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ReplaceInvalidChar
+        /// <summary>
+        /// <para>
+        /// <para>A list of chars you want to replace. Use with <code>ReplaceChars</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_ReplaceInvalidChars")]
+        public System.String RedshiftSettings_ReplaceInvalidChar { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_RowGroupLength
+        /// <summary>
+        /// <para>
+        /// <para>The number of rows in a row group. A smaller row group size provides faster reads.
+        /// But as the number of row groups grows, the slower writes become. Defaults to 10,000
+        /// (ten thousand) rows. For <code>PARQUET</code> format only. </para><para>If you choose a value larger than the maximum, <code>RowGroupLength</code> is set
+        /// to the max row group length in bytes (64 * 1024 * 1024). </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 S3Settings_RowGroupLength { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_ServerName
         /// <summary>
         /// <para>
@@ -396,6 +713,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_ServerName { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Amazon Redshift cluster you are using.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_ServerName { get; set; }
+        #endregion
+        
         #region Parameter ServerName
         /// <summary>
         /// <para>
@@ -404,6 +731,32 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServerName { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ServerSideEncryptionKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>If you are using SSE_KMS for the <code>EncryptionMode</code>, provide the KMS Key
+        /// ID. The key you use needs an attached policy that enables IAM user permissions and
+        /// allows use of the key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_ServerSideEncryptionKmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter S3Settings_ServerSideEncryptionKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>If you are using SSE_KMS for the <code>EncryptionMode</code>, provide the KMS Key
+        /// ID. The key you use needs an attached policy that enables IAM user permissions and
+        /// allows use of the key.</para><para>Here is a CLI example: <code>aws dms create-endpoint --endpoint-identifier &lt;value&gt;
+        /// --endpoint-type target --engine-name s3 --s3-settings ServiceAccessRoleArn=&lt;value&gt;,BucketFolder=&lt;value&gt;,BucketName=&lt;value&gt;,EncryptionMode=SSE_KMS,ServerSideEncryptionKmsKeyId=&lt;value&gt;
+        /// </code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String S3Settings_ServerSideEncryptionKmsKeyId { get; set; }
         #endregion
         
         #region Parameter DmsTransferSettings_ServiceAccessRoleArn
@@ -445,6 +798,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String KinesisSettings_ServiceAccessRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_ServiceAccessRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that has access to the Redshift service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_ServiceAccessRoleArn { get; set; }
         #endregion
         
         #region Parameter S3Settings_ServiceAccessRoleArn
@@ -502,6 +865,46 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_TimeFormat
+        /// <summary>
+        /// <para>
+        /// <para>The time format you want to use. Valid values are <code>auto</code> (case-sensitive),
+        /// 'timeformat_string', 'epochsecs', or 'epochmillisecs'. It defaults to 10. Using <code>auto</code>
+        /// recognizes most strings, even some that are not supported when you use a time format
+        /// string. </para><para>If your date and time values use formats different from each other, set this to <code>auto</code>.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_TimeFormat { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_TrimBlank
+        /// <summary>
+        /// <para>
+        /// <para>Removes the trailing white space characters from a VARCHAR string. This parameter
+        /// applies only to columns with a VARCHAR data type. Choose TRUE to remove unneeded white
+        /// space. The default is FALSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_TrimBlanks")]
+        public System.Boolean RedshiftSettings_TrimBlank { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_TruncateColumn
+        /// <summary>
+        /// <para>
+        /// <para>Truncates data in columns to the appropriate number of characters, so that it fits
+        /// in the column. Applies only to columns with a VARCHAR or CHAR data type, and rows
+        /// with a size of 4 MB or less. Choose TRUE to truncate data. The default is FALSE.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RedshiftSettings_TruncateColumns")]
+        public System.Boolean RedshiftSettings_TruncateColumn { get; set; }
+        #endregion
+        
         #region Parameter MongoDbSettings_Username
         /// <summary>
         /// <para>
@@ -512,6 +915,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public System.String MongoDbSettings_Username { get; set; }
         #endregion
         
+        #region Parameter RedshiftSettings_Username
+        /// <summary>
+        /// <para>
+        /// <para>An Amazon Redshift user name for a registered user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RedshiftSettings_Username { get; set; }
+        #endregion
+        
         #region Parameter Username
         /// <summary>
         /// <para>
@@ -520,6 +933,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Username { get; set; }
+        #endregion
+        
+        #region Parameter RedshiftSettings_WriteBufferSize
+        /// <summary>
+        /// <para>
+        /// <para>The size of the write buffer to use in rows. Valid values range from 1 to 2048. Defaults
+        /// to 1024. Use this setting to tune performance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 RedshiftSettings_WriteBufferSize { get; set; }
         #endregion
         
         #region Parameter Force
@@ -587,12 +1011,63 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Password = this.Password;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
+            if (ParameterWasBound("RedshiftSettings_AcceptAnyDate"))
+                context.RedshiftSettings_AcceptAnyDate = this.RedshiftSettings_AcceptAnyDate;
+            context.RedshiftSettings_AfterConnectScript = this.RedshiftSettings_AfterConnectScript;
+            context.RedshiftSettings_BucketFolder = this.RedshiftSettings_BucketFolder;
+            context.RedshiftSettings_BucketName = this.RedshiftSettings_BucketName;
+            if (ParameterWasBound("RedshiftSettings_ConnectionTimeout"))
+                context.RedshiftSettings_ConnectionTimeout = this.RedshiftSettings_ConnectionTimeout;
+            context.RedshiftSettings_DatabaseName = this.RedshiftSettings_DatabaseName;
+            context.RedshiftSettings_DateFormat = this.RedshiftSettings_DateFormat;
+            if (ParameterWasBound("RedshiftSettings_EmptyAsNull"))
+                context.RedshiftSettings_EmptyAsNull = this.RedshiftSettings_EmptyAsNull;
+            context.RedshiftSettings_EncryptionMode = this.RedshiftSettings_EncryptionMode;
+            if (ParameterWasBound("RedshiftSettings_FileTransferUploadStream"))
+                context.RedshiftSettings_FileTransferUploadStreams = this.RedshiftSettings_FileTransferUploadStream;
+            if (ParameterWasBound("RedshiftSettings_LoadTimeout"))
+                context.RedshiftSettings_LoadTimeout = this.RedshiftSettings_LoadTimeout;
+            if (ParameterWasBound("RedshiftSettings_MaxFileSize"))
+                context.RedshiftSettings_MaxFileSize = this.RedshiftSettings_MaxFileSize;
+            context.RedshiftSettings_Password = this.RedshiftSettings_Password;
+            if (ParameterWasBound("RedshiftSettings_Port"))
+                context.RedshiftSettings_Port = this.RedshiftSettings_Port;
+            if (ParameterWasBound("RedshiftSettings_RemoveQuote"))
+                context.RedshiftSettings_RemoveQuotes = this.RedshiftSettings_RemoveQuote;
+            context.RedshiftSettings_ReplaceChars = this.RedshiftSettings_ReplaceChar;
+            context.RedshiftSettings_ReplaceInvalidChars = this.RedshiftSettings_ReplaceInvalidChar;
+            context.RedshiftSettings_ServerName = this.RedshiftSettings_ServerName;
+            context.RedshiftSettings_ServerSideEncryptionKmsKeyId = this.RedshiftSettings_ServerSideEncryptionKmsKeyId;
+            context.RedshiftSettings_ServiceAccessRoleArn = this.RedshiftSettings_ServiceAccessRoleArn;
+            context.RedshiftSettings_TimeFormat = this.RedshiftSettings_TimeFormat;
+            if (ParameterWasBound("RedshiftSettings_TrimBlank"))
+                context.RedshiftSettings_TrimBlanks = this.RedshiftSettings_TrimBlank;
+            if (ParameterWasBound("RedshiftSettings_TruncateColumn"))
+                context.RedshiftSettings_TruncateColumns = this.RedshiftSettings_TruncateColumn;
+            context.RedshiftSettings_Username = this.RedshiftSettings_Username;
+            if (ParameterWasBound("RedshiftSettings_WriteBufferSize"))
+                context.RedshiftSettings_WriteBufferSize = this.RedshiftSettings_WriteBufferSize;
             context.S3Settings_BucketFolder = this.S3Settings_BucketFolder;
             context.S3Settings_BucketName = this.S3Settings_BucketName;
+            if (ParameterWasBound("S3Settings_CdcInsertsOnly"))
+                context.S3Settings_CdcInsertsOnly = this.S3Settings_CdcInsertsOnly;
             context.S3Settings_CompressionType = this.S3Settings_CompressionType;
             context.S3Settings_CsvDelimiter = this.S3Settings_CsvDelimiter;
             context.S3Settings_CsvRowDelimiter = this.S3Settings_CsvRowDelimiter;
+            context.S3Settings_DataFormat = this.S3Settings_DataFormat;
+            if (ParameterWasBound("S3Settings_DataPageSize"))
+                context.S3Settings_DataPageSize = this.S3Settings_DataPageSize;
+            if (ParameterWasBound("S3Settings_DictPageSizeLimit"))
+                context.S3Settings_DictPageSizeLimit = this.S3Settings_DictPageSizeLimit;
+            if (ParameterWasBound("S3Settings_EnableStatistic"))
+                context.S3Settings_EnableStatistics = this.S3Settings_EnableStatistic;
+            context.S3Settings_EncodingType = this.S3Settings_EncodingType;
+            context.S3Settings_EncryptionMode = this.S3Settings_EncryptionMode;
             context.S3Settings_ExternalTableDefinition = this.S3Settings_ExternalTableDefinition;
+            context.S3Settings_ParquetVersion = this.S3Settings_ParquetVersion;
+            if (ParameterWasBound("S3Settings_RowGroupLength"))
+                context.S3Settings_RowGroupLength = this.S3Settings_RowGroupLength;
+            context.S3Settings_ServerSideEncryptionKmsKeyId = this.S3Settings_ServerSideEncryptionKmsKeyId;
             context.S3Settings_ServiceAccessRoleArn = this.S3Settings_ServiceAccessRoleArn;
             context.ServerName = this.ServerName;
             context.ServiceAccessRoleArn = this.ServiceAccessRoleArn;
@@ -924,6 +1399,265 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.Port = cmdletContext.Port.Value;
             }
             
+             // populate RedshiftSettings
+            bool requestRedshiftSettingsIsNull = true;
+            request.RedshiftSettings = new Amazon.DatabaseMigrationService.Model.RedshiftSettings();
+            System.Boolean? requestRedshiftSettings_redshiftSettings_AcceptAnyDate = null;
+            if (cmdletContext.RedshiftSettings_AcceptAnyDate != null)
+            {
+                requestRedshiftSettings_redshiftSettings_AcceptAnyDate = cmdletContext.RedshiftSettings_AcceptAnyDate.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_AcceptAnyDate != null)
+            {
+                request.RedshiftSettings.AcceptAnyDate = requestRedshiftSettings_redshiftSettings_AcceptAnyDate.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_AfterConnectScript = null;
+            if (cmdletContext.RedshiftSettings_AfterConnectScript != null)
+            {
+                requestRedshiftSettings_redshiftSettings_AfterConnectScript = cmdletContext.RedshiftSettings_AfterConnectScript;
+            }
+            if (requestRedshiftSettings_redshiftSettings_AfterConnectScript != null)
+            {
+                request.RedshiftSettings.AfterConnectScript = requestRedshiftSettings_redshiftSettings_AfterConnectScript;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_BucketFolder = null;
+            if (cmdletContext.RedshiftSettings_BucketFolder != null)
+            {
+                requestRedshiftSettings_redshiftSettings_BucketFolder = cmdletContext.RedshiftSettings_BucketFolder;
+            }
+            if (requestRedshiftSettings_redshiftSettings_BucketFolder != null)
+            {
+                request.RedshiftSettings.BucketFolder = requestRedshiftSettings_redshiftSettings_BucketFolder;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_BucketName = null;
+            if (cmdletContext.RedshiftSettings_BucketName != null)
+            {
+                requestRedshiftSettings_redshiftSettings_BucketName = cmdletContext.RedshiftSettings_BucketName;
+            }
+            if (requestRedshiftSettings_redshiftSettings_BucketName != null)
+            {
+                request.RedshiftSettings.BucketName = requestRedshiftSettings_redshiftSettings_BucketName;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_ConnectionTimeout = null;
+            if (cmdletContext.RedshiftSettings_ConnectionTimeout != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ConnectionTimeout = cmdletContext.RedshiftSettings_ConnectionTimeout.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ConnectionTimeout != null)
+            {
+                request.RedshiftSettings.ConnectionTimeout = requestRedshiftSettings_redshiftSettings_ConnectionTimeout.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_DatabaseName = null;
+            if (cmdletContext.RedshiftSettings_DatabaseName != null)
+            {
+                requestRedshiftSettings_redshiftSettings_DatabaseName = cmdletContext.RedshiftSettings_DatabaseName;
+            }
+            if (requestRedshiftSettings_redshiftSettings_DatabaseName != null)
+            {
+                request.RedshiftSettings.DatabaseName = requestRedshiftSettings_redshiftSettings_DatabaseName;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_DateFormat = null;
+            if (cmdletContext.RedshiftSettings_DateFormat != null)
+            {
+                requestRedshiftSettings_redshiftSettings_DateFormat = cmdletContext.RedshiftSettings_DateFormat;
+            }
+            if (requestRedshiftSettings_redshiftSettings_DateFormat != null)
+            {
+                request.RedshiftSettings.DateFormat = requestRedshiftSettings_redshiftSettings_DateFormat;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_EmptyAsNull = null;
+            if (cmdletContext.RedshiftSettings_EmptyAsNull != null)
+            {
+                requestRedshiftSettings_redshiftSettings_EmptyAsNull = cmdletContext.RedshiftSettings_EmptyAsNull.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_EmptyAsNull != null)
+            {
+                request.RedshiftSettings.EmptyAsNull = requestRedshiftSettings_redshiftSettings_EmptyAsNull.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.EncryptionModeValue requestRedshiftSettings_redshiftSettings_EncryptionMode = null;
+            if (cmdletContext.RedshiftSettings_EncryptionMode != null)
+            {
+                requestRedshiftSettings_redshiftSettings_EncryptionMode = cmdletContext.RedshiftSettings_EncryptionMode;
+            }
+            if (requestRedshiftSettings_redshiftSettings_EncryptionMode != null)
+            {
+                request.RedshiftSettings.EncryptionMode = requestRedshiftSettings_redshiftSettings_EncryptionMode;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_FileTransferUploadStream = null;
+            if (cmdletContext.RedshiftSettings_FileTransferUploadStreams != null)
+            {
+                requestRedshiftSettings_redshiftSettings_FileTransferUploadStream = cmdletContext.RedshiftSettings_FileTransferUploadStreams.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_FileTransferUploadStream != null)
+            {
+                request.RedshiftSettings.FileTransferUploadStreams = requestRedshiftSettings_redshiftSettings_FileTransferUploadStream.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_LoadTimeout = null;
+            if (cmdletContext.RedshiftSettings_LoadTimeout != null)
+            {
+                requestRedshiftSettings_redshiftSettings_LoadTimeout = cmdletContext.RedshiftSettings_LoadTimeout.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_LoadTimeout != null)
+            {
+                request.RedshiftSettings.LoadTimeout = requestRedshiftSettings_redshiftSettings_LoadTimeout.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_MaxFileSize = null;
+            if (cmdletContext.RedshiftSettings_MaxFileSize != null)
+            {
+                requestRedshiftSettings_redshiftSettings_MaxFileSize = cmdletContext.RedshiftSettings_MaxFileSize.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_MaxFileSize != null)
+            {
+                request.RedshiftSettings.MaxFileSize = requestRedshiftSettings_redshiftSettings_MaxFileSize.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_Password = null;
+            if (cmdletContext.RedshiftSettings_Password != null)
+            {
+                requestRedshiftSettings_redshiftSettings_Password = cmdletContext.RedshiftSettings_Password;
+            }
+            if (requestRedshiftSettings_redshiftSettings_Password != null)
+            {
+                request.RedshiftSettings.Password = requestRedshiftSettings_redshiftSettings_Password;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_Port = null;
+            if (cmdletContext.RedshiftSettings_Port != null)
+            {
+                requestRedshiftSettings_redshiftSettings_Port = cmdletContext.RedshiftSettings_Port.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_Port != null)
+            {
+                request.RedshiftSettings.Port = requestRedshiftSettings_redshiftSettings_Port.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_RemoveQuote = null;
+            if (cmdletContext.RedshiftSettings_RemoveQuotes != null)
+            {
+                requestRedshiftSettings_redshiftSettings_RemoveQuote = cmdletContext.RedshiftSettings_RemoveQuotes.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_RemoveQuote != null)
+            {
+                request.RedshiftSettings.RemoveQuotes = requestRedshiftSettings_redshiftSettings_RemoveQuote.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_ReplaceChar = null;
+            if (cmdletContext.RedshiftSettings_ReplaceChars != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ReplaceChar = cmdletContext.RedshiftSettings_ReplaceChars;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ReplaceChar != null)
+            {
+                request.RedshiftSettings.ReplaceChars = requestRedshiftSettings_redshiftSettings_ReplaceChar;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_ReplaceInvalidChar = null;
+            if (cmdletContext.RedshiftSettings_ReplaceInvalidChars != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ReplaceInvalidChar = cmdletContext.RedshiftSettings_ReplaceInvalidChars;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ReplaceInvalidChar != null)
+            {
+                request.RedshiftSettings.ReplaceInvalidChars = requestRedshiftSettings_redshiftSettings_ReplaceInvalidChar;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_ServerName = null;
+            if (cmdletContext.RedshiftSettings_ServerName != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ServerName = cmdletContext.RedshiftSettings_ServerName;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ServerName != null)
+            {
+                request.RedshiftSettings.ServerName = requestRedshiftSettings_redshiftSettings_ServerName;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_ServerSideEncryptionKmsKeyId = null;
+            if (cmdletContext.RedshiftSettings_ServerSideEncryptionKmsKeyId != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ServerSideEncryptionKmsKeyId = cmdletContext.RedshiftSettings_ServerSideEncryptionKmsKeyId;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ServerSideEncryptionKmsKeyId != null)
+            {
+                request.RedshiftSettings.ServerSideEncryptionKmsKeyId = requestRedshiftSettings_redshiftSettings_ServerSideEncryptionKmsKeyId;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_ServiceAccessRoleArn = null;
+            if (cmdletContext.RedshiftSettings_ServiceAccessRoleArn != null)
+            {
+                requestRedshiftSettings_redshiftSettings_ServiceAccessRoleArn = cmdletContext.RedshiftSettings_ServiceAccessRoleArn;
+            }
+            if (requestRedshiftSettings_redshiftSettings_ServiceAccessRoleArn != null)
+            {
+                request.RedshiftSettings.ServiceAccessRoleArn = requestRedshiftSettings_redshiftSettings_ServiceAccessRoleArn;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_TimeFormat = null;
+            if (cmdletContext.RedshiftSettings_TimeFormat != null)
+            {
+                requestRedshiftSettings_redshiftSettings_TimeFormat = cmdletContext.RedshiftSettings_TimeFormat;
+            }
+            if (requestRedshiftSettings_redshiftSettings_TimeFormat != null)
+            {
+                request.RedshiftSettings.TimeFormat = requestRedshiftSettings_redshiftSettings_TimeFormat;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_TrimBlank = null;
+            if (cmdletContext.RedshiftSettings_TrimBlanks != null)
+            {
+                requestRedshiftSettings_redshiftSettings_TrimBlank = cmdletContext.RedshiftSettings_TrimBlanks.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_TrimBlank != null)
+            {
+                request.RedshiftSettings.TrimBlanks = requestRedshiftSettings_redshiftSettings_TrimBlank.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Boolean? requestRedshiftSettings_redshiftSettings_TruncateColumn = null;
+            if (cmdletContext.RedshiftSettings_TruncateColumns != null)
+            {
+                requestRedshiftSettings_redshiftSettings_TruncateColumn = cmdletContext.RedshiftSettings_TruncateColumns.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_TruncateColumn != null)
+            {
+                request.RedshiftSettings.TruncateColumns = requestRedshiftSettings_redshiftSettings_TruncateColumn.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.String requestRedshiftSettings_redshiftSettings_Username = null;
+            if (cmdletContext.RedshiftSettings_Username != null)
+            {
+                requestRedshiftSettings_redshiftSettings_Username = cmdletContext.RedshiftSettings_Username;
+            }
+            if (requestRedshiftSettings_redshiftSettings_Username != null)
+            {
+                request.RedshiftSettings.Username = requestRedshiftSettings_redshiftSettings_Username;
+                requestRedshiftSettingsIsNull = false;
+            }
+            System.Int32? requestRedshiftSettings_redshiftSettings_WriteBufferSize = null;
+            if (cmdletContext.RedshiftSettings_WriteBufferSize != null)
+            {
+                requestRedshiftSettings_redshiftSettings_WriteBufferSize = cmdletContext.RedshiftSettings_WriteBufferSize.Value;
+            }
+            if (requestRedshiftSettings_redshiftSettings_WriteBufferSize != null)
+            {
+                request.RedshiftSettings.WriteBufferSize = requestRedshiftSettings_redshiftSettings_WriteBufferSize.Value;
+                requestRedshiftSettingsIsNull = false;
+            }
+             // determine if request.RedshiftSettings should be set to null
+            if (requestRedshiftSettingsIsNull)
+            {
+                request.RedshiftSettings = null;
+            }
+            
              // populate S3Settings
             bool requestS3SettingsIsNull = true;
             request.S3Settings = new Amazon.DatabaseMigrationService.Model.S3Settings();
@@ -945,6 +1679,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestS3Settings_s3Settings_BucketName != null)
             {
                 request.S3Settings.BucketName = requestS3Settings_s3Settings_BucketName;
+                requestS3SettingsIsNull = false;
+            }
+            System.Boolean? requestS3Settings_s3Settings_CdcInsertsOnly = null;
+            if (cmdletContext.S3Settings_CdcInsertsOnly != null)
+            {
+                requestS3Settings_s3Settings_CdcInsertsOnly = cmdletContext.S3Settings_CdcInsertsOnly.Value;
+            }
+            if (requestS3Settings_s3Settings_CdcInsertsOnly != null)
+            {
+                request.S3Settings.CdcInsertsOnly = requestS3Settings_s3Settings_CdcInsertsOnly.Value;
                 requestS3SettingsIsNull = false;
             }
             Amazon.DatabaseMigrationService.CompressionTypeValue requestS3Settings_s3Settings_CompressionType = null;
@@ -977,6 +1721,66 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 request.S3Settings.CsvRowDelimiter = requestS3Settings_s3Settings_CsvRowDelimiter;
                 requestS3SettingsIsNull = false;
             }
+            Amazon.DatabaseMigrationService.DataFormatValue requestS3Settings_s3Settings_DataFormat = null;
+            if (cmdletContext.S3Settings_DataFormat != null)
+            {
+                requestS3Settings_s3Settings_DataFormat = cmdletContext.S3Settings_DataFormat;
+            }
+            if (requestS3Settings_s3Settings_DataFormat != null)
+            {
+                request.S3Settings.DataFormat = requestS3Settings_s3Settings_DataFormat;
+                requestS3SettingsIsNull = false;
+            }
+            System.Int32? requestS3Settings_s3Settings_DataPageSize = null;
+            if (cmdletContext.S3Settings_DataPageSize != null)
+            {
+                requestS3Settings_s3Settings_DataPageSize = cmdletContext.S3Settings_DataPageSize.Value;
+            }
+            if (requestS3Settings_s3Settings_DataPageSize != null)
+            {
+                request.S3Settings.DataPageSize = requestS3Settings_s3Settings_DataPageSize.Value;
+                requestS3SettingsIsNull = false;
+            }
+            System.Int32? requestS3Settings_s3Settings_DictPageSizeLimit = null;
+            if (cmdletContext.S3Settings_DictPageSizeLimit != null)
+            {
+                requestS3Settings_s3Settings_DictPageSizeLimit = cmdletContext.S3Settings_DictPageSizeLimit.Value;
+            }
+            if (requestS3Settings_s3Settings_DictPageSizeLimit != null)
+            {
+                request.S3Settings.DictPageSizeLimit = requestS3Settings_s3Settings_DictPageSizeLimit.Value;
+                requestS3SettingsIsNull = false;
+            }
+            System.Boolean? requestS3Settings_s3Settings_EnableStatistic = null;
+            if (cmdletContext.S3Settings_EnableStatistics != null)
+            {
+                requestS3Settings_s3Settings_EnableStatistic = cmdletContext.S3Settings_EnableStatistics.Value;
+            }
+            if (requestS3Settings_s3Settings_EnableStatistic != null)
+            {
+                request.S3Settings.EnableStatistics = requestS3Settings_s3Settings_EnableStatistic.Value;
+                requestS3SettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.EncodingTypeValue requestS3Settings_s3Settings_EncodingType = null;
+            if (cmdletContext.S3Settings_EncodingType != null)
+            {
+                requestS3Settings_s3Settings_EncodingType = cmdletContext.S3Settings_EncodingType;
+            }
+            if (requestS3Settings_s3Settings_EncodingType != null)
+            {
+                request.S3Settings.EncodingType = requestS3Settings_s3Settings_EncodingType;
+                requestS3SettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.EncryptionModeValue requestS3Settings_s3Settings_EncryptionMode = null;
+            if (cmdletContext.S3Settings_EncryptionMode != null)
+            {
+                requestS3Settings_s3Settings_EncryptionMode = cmdletContext.S3Settings_EncryptionMode;
+            }
+            if (requestS3Settings_s3Settings_EncryptionMode != null)
+            {
+                request.S3Settings.EncryptionMode = requestS3Settings_s3Settings_EncryptionMode;
+                requestS3SettingsIsNull = false;
+            }
             System.String requestS3Settings_s3Settings_ExternalTableDefinition = null;
             if (cmdletContext.S3Settings_ExternalTableDefinition != null)
             {
@@ -985,6 +1789,36 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (requestS3Settings_s3Settings_ExternalTableDefinition != null)
             {
                 request.S3Settings.ExternalTableDefinition = requestS3Settings_s3Settings_ExternalTableDefinition;
+                requestS3SettingsIsNull = false;
+            }
+            Amazon.DatabaseMigrationService.ParquetVersionValue requestS3Settings_s3Settings_ParquetVersion = null;
+            if (cmdletContext.S3Settings_ParquetVersion != null)
+            {
+                requestS3Settings_s3Settings_ParquetVersion = cmdletContext.S3Settings_ParquetVersion;
+            }
+            if (requestS3Settings_s3Settings_ParquetVersion != null)
+            {
+                request.S3Settings.ParquetVersion = requestS3Settings_s3Settings_ParquetVersion;
+                requestS3SettingsIsNull = false;
+            }
+            System.Int32? requestS3Settings_s3Settings_RowGroupLength = null;
+            if (cmdletContext.S3Settings_RowGroupLength != null)
+            {
+                requestS3Settings_s3Settings_RowGroupLength = cmdletContext.S3Settings_RowGroupLength.Value;
+            }
+            if (requestS3Settings_s3Settings_RowGroupLength != null)
+            {
+                request.S3Settings.RowGroupLength = requestS3Settings_s3Settings_RowGroupLength.Value;
+                requestS3SettingsIsNull = false;
+            }
+            System.String requestS3Settings_s3Settings_ServerSideEncryptionKmsKeyId = null;
+            if (cmdletContext.S3Settings_ServerSideEncryptionKmsKeyId != null)
+            {
+                requestS3Settings_s3Settings_ServerSideEncryptionKmsKeyId = cmdletContext.S3Settings_ServerSideEncryptionKmsKeyId;
+            }
+            if (requestS3Settings_s3Settings_ServerSideEncryptionKmsKeyId != null)
+            {
+                request.S3Settings.ServerSideEncryptionKmsKeyId = requestS3Settings_s3Settings_ServerSideEncryptionKmsKeyId;
                 requestS3SettingsIsNull = false;
             }
             System.String requestS3Settings_s3Settings_ServiceAccessRoleArn = null;
@@ -1064,9 +1898,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.CreateEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEndpointAsync(request);
-                return task.Result;
+                return client.CreateEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -1118,12 +1950,47 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String MongoDbSettings_Username { get; set; }
             public System.String Password { get; set; }
             public System.Int32? Port { get; set; }
+            public System.Boolean? RedshiftSettings_AcceptAnyDate { get; set; }
+            public System.String RedshiftSettings_AfterConnectScript { get; set; }
+            public System.String RedshiftSettings_BucketFolder { get; set; }
+            public System.String RedshiftSettings_BucketName { get; set; }
+            public System.Int32? RedshiftSettings_ConnectionTimeout { get; set; }
+            public System.String RedshiftSettings_DatabaseName { get; set; }
+            public System.String RedshiftSettings_DateFormat { get; set; }
+            public System.Boolean? RedshiftSettings_EmptyAsNull { get; set; }
+            public Amazon.DatabaseMigrationService.EncryptionModeValue RedshiftSettings_EncryptionMode { get; set; }
+            public System.Int32? RedshiftSettings_FileTransferUploadStreams { get; set; }
+            public System.Int32? RedshiftSettings_LoadTimeout { get; set; }
+            public System.Int32? RedshiftSettings_MaxFileSize { get; set; }
+            public System.String RedshiftSettings_Password { get; set; }
+            public System.Int32? RedshiftSettings_Port { get; set; }
+            public System.Boolean? RedshiftSettings_RemoveQuotes { get; set; }
+            public System.String RedshiftSettings_ReplaceChars { get; set; }
+            public System.String RedshiftSettings_ReplaceInvalidChars { get; set; }
+            public System.String RedshiftSettings_ServerName { get; set; }
+            public System.String RedshiftSettings_ServerSideEncryptionKmsKeyId { get; set; }
+            public System.String RedshiftSettings_ServiceAccessRoleArn { get; set; }
+            public System.String RedshiftSettings_TimeFormat { get; set; }
+            public System.Boolean? RedshiftSettings_TrimBlanks { get; set; }
+            public System.Boolean? RedshiftSettings_TruncateColumns { get; set; }
+            public System.String RedshiftSettings_Username { get; set; }
+            public System.Int32? RedshiftSettings_WriteBufferSize { get; set; }
             public System.String S3Settings_BucketFolder { get; set; }
             public System.String S3Settings_BucketName { get; set; }
+            public System.Boolean? S3Settings_CdcInsertsOnly { get; set; }
             public Amazon.DatabaseMigrationService.CompressionTypeValue S3Settings_CompressionType { get; set; }
             public System.String S3Settings_CsvDelimiter { get; set; }
             public System.String S3Settings_CsvRowDelimiter { get; set; }
+            public Amazon.DatabaseMigrationService.DataFormatValue S3Settings_DataFormat { get; set; }
+            public System.Int32? S3Settings_DataPageSize { get; set; }
+            public System.Int32? S3Settings_DictPageSizeLimit { get; set; }
+            public System.Boolean? S3Settings_EnableStatistics { get; set; }
+            public Amazon.DatabaseMigrationService.EncodingTypeValue S3Settings_EncodingType { get; set; }
+            public Amazon.DatabaseMigrationService.EncryptionModeValue S3Settings_EncryptionMode { get; set; }
             public System.String S3Settings_ExternalTableDefinition { get; set; }
+            public Amazon.DatabaseMigrationService.ParquetVersionValue S3Settings_ParquetVersion { get; set; }
+            public System.Int32? S3Settings_RowGroupLength { get; set; }
+            public System.String S3Settings_ServerSideEncryptionKmsKeyId { get; set; }
             public System.String S3Settings_ServiceAccessRoleArn { get; set; }
             public System.String ServerName { get; set; }
             public System.String ServiceAccessRoleArn { get; set; }

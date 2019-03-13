@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
                 #if DESKTOP
                 return client.ExportBundle(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ExportBundleAsync(request);
-                return task.Result;
+                return client.ExportBundleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

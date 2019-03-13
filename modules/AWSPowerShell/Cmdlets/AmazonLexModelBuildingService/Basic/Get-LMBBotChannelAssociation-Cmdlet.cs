@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 #if DESKTOP
                 return client.GetBotChannelAssociation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetBotChannelAssociationAsync(request);
-                return task.Result;
+                return client.GetBotChannelAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

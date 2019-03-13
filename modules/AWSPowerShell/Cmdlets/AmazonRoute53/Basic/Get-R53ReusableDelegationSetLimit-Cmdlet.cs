@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.GetReusableDelegationSetLimit(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetReusableDelegationSetLimitAsync(request);
-                return task.Result;
+                return client.GetReusableDelegationSetLimitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

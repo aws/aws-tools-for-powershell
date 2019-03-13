@@ -256,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 #if DESKTOP
                 return client.ListResolvers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListResolversAsync(request);
-                return task.Result;
+                return client.ListResolversAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

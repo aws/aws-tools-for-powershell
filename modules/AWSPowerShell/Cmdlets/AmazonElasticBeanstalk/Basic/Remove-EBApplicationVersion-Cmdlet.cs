@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.DeleteApplicationVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteApplicationVersionAsync(request);
-                return task.Result;
+                return client.DeleteApplicationVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

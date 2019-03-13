@@ -203,9 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 #if DESKTOP
                 return client.ListTagsForStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForStreamAsync(request);
-                return task.Result;
+                return client.ListTagsForStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

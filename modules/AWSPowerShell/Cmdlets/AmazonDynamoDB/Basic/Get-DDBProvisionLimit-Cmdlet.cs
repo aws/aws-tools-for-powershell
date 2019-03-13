@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.DescribeLimits(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeLimitsAsync(request);
-                return task.Result;
+                return client.DescribeLimitsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

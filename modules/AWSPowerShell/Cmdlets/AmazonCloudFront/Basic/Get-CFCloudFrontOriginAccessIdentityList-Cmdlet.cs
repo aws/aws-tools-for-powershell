@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 #if DESKTOP
                 return client.ListCloudFrontOriginAccessIdentities(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListCloudFrontOriginAccessIdentitiesAsync(request);
-                return task.Result;
+                return client.ListCloudFrontOriginAccessIdentitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.DeclineHandshake(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeclineHandshakeAsync(request);
-                return task.Result;
+                return client.DeclineHandshakeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

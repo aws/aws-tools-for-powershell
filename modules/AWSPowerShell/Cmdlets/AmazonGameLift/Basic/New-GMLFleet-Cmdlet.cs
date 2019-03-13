@@ -62,8 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process is ready
     /// to host a game session.
-    /// </para></li></ul><para><b>Learn more</b></para><para>
-    /// See Amazon GameLift Developer Guide topics in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
+    /// </para></li></ul><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">
     /// Working with Fleets</a>.
     /// </para><para><b>Related operations</b></para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para><a>DeleteFleet</a></para></li><li><para>
     /// Describe fleets:
@@ -163,6 +162,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
         [System.Management.Automation.Parameter]
         [Alias("RuntimeConfiguration_GameSessionActivationTimeoutSeconds")]
         public System.Int32 RuntimeConfiguration_GameSessionActivationTimeoutSecond { get; set; }
+        #endregion
+        
+        #region Parameter InstanceRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for an AWS IAM role that manages access to your AWS services. Any
+        /// application that runs on an instance in this fleet can assume the role, including
+        /// install scripts, server processs, daemons (background processes). Create a role or
+        /// look up a role's ARN using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a>
+        /// in the AWS Management Console. Learn more about using on-box credentials for your
+        /// game servers at <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
+        /// Access external resources from a game server</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InstanceRoleArn { get; set; }
         #endregion
         
         #region Parameter LogPath
@@ -355,6 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             context.EC2InstanceType = this.EC2InstanceType;
             context.FleetType = this.FleetType;
+            context.InstanceRoleArn = this.InstanceRoleArn;
             if (this.LogPath != null)
             {
                 context.LogPaths = new List<System.String>(this.LogPath);
@@ -416,6 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.FleetType != null)
             {
                 request.FleetType = cmdletContext.FleetType;
+            }
+            if (cmdletContext.InstanceRoleArn != null)
+            {
+                request.InstanceRoleArn = cmdletContext.InstanceRoleArn;
             }
             if (cmdletContext.LogPaths != null)
             {
@@ -559,9 +579,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.CreateFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateFleetAsync(request);
-                return task.Result;
+                return client.CreateFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -586,6 +604,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<Amazon.GameLift.Model.IpPermission> EC2InboundPermissions { get; set; }
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
             public Amazon.GameLift.FleetType FleetType { get; set; }
+            public System.String InstanceRoleArn { get; set; }
             public List<System.String> LogPaths { get; set; }
             public List<System.String> MetricGroups { get; set; }
             public System.String Name { get; set; }

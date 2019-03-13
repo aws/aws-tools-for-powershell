@@ -146,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 #if DESKTOP
                 return client.DeleteSubnetGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteSubnetGroupAsync(request);
-                return task.Result;
+                return client.DeleteSubnetGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

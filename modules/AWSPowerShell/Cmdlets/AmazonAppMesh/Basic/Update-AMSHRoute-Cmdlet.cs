@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which the route resides.</para>
+        /// <para>The name of the service mesh that the route resides in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,12 +64,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Match_Prefix
         /// <summary>
         /// <para>
-        /// <para>Specifies the path with which to match requests. This parameter must always start
-        /// with            <code>/</code>, which by itself matches all requests to the virtual
-        /// router service name.         You can also match for path-based routing of requests.
-        /// For example, if your virtual router         service name is <code>my-service.local</code>,
-        /// and you want the route to match requests to            <code>my-service.local/metrics</code>,
-        /// then your prefix should be         <code>/metrics</code>.</para>
+        /// <para>Specifies the path to match requests with. This parameter must always start with 
+        ///           <code>/</code>, which by itself matches all requests to the virtual service
+        /// name. You         can also match for path-based routing of requests. For example,
+        /// if your virtual service         name is <code>my-service.local</code> and you want
+        /// the route to match requests to            <code>my-service.local/metrics</code>, your
+        /// prefix should be         <code>/metrics</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,23 +90,35 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter VirtualRouterName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual router with which the route is associated.</para>
+        /// <para>The name of the virtual router that the route is associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VirtualRouterName { get; set; }
         #endregion
         
-        #region Parameter Action_WeightedTarget
+        #region Parameter Spec_HttpRoute_Action_WeightedTarget
         /// <summary>
         /// <para>
         /// <para>The targets that traffic is routed to when a request matches the route. You can specify
-        ///         one or more targets and their relative weights with which to distribute traffic.</para>
+        ///         one or more targets and their relative weights to distribute traffic with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Spec_HttpRoute_Action_WeightedTargets")]
-        public Amazon.AppMesh.Model.WeightedTarget[] Action_WeightedTarget { get; set; }
+        [Alias("Action_WeightedTarget","Spec_HttpRoute_Action_WeightedTargets")]
+        public Amazon.AppMesh.Model.WeightedTarget[] Spec_HttpRoute_Action_WeightedTarget { get; set; }
+        #endregion
+        
+        #region Parameter Spec_TcpRoute_Action_WeightedTarget
+        /// <summary>
+        /// <para>
+        /// <para>The targets that traffic is routed to when a request matches the route. You can specify
+        ///         one or more targets and their relative weights to distribute traffic with.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Spec_TcpRoute_Action_WeightedTargets")]
+        public Amazon.AppMesh.Model.WeightedTarget[] Spec_TcpRoute_Action_WeightedTarget { get; set; }
         #endregion
         
         #region Parameter Force
@@ -141,11 +153,15 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             context.ClientToken = this.ClientToken;
             context.MeshName = this.MeshName;
             context.RouteName = this.RouteName;
-            if (this.Action_WeightedTarget != null)
+            if (this.Spec_HttpRoute_Action_WeightedTarget != null)
             {
-                context.Spec_HttpRoute_Action_WeightedTargets = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Action_WeightedTarget);
+                context.Spec_HttpRoute_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_HttpRoute_Action_WeightedTarget);
             }
             context.Spec_HttpRoute_Match_Prefix = this.Match_Prefix;
+            if (this.Spec_TcpRoute_Action_WeightedTarget != null)
+            {
+                context.Spec_TcpRoute_Action_WeightedTarget = new List<Amazon.AppMesh.Model.WeightedTarget>(this.Spec_TcpRoute_Action_WeightedTarget);
+            }
             context.VirtualRouterName = this.VirtualRouterName;
             
             // allow further manipulation of loaded context prior to processing
@@ -179,6 +195,46 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
              // populate Spec
             bool requestSpecIsNull = true;
             request.Spec = new Amazon.AppMesh.Model.RouteSpec();
+            Amazon.AppMesh.Model.TcpRoute requestSpec_spec_TcpRoute = null;
+            
+             // populate TcpRoute
+            bool requestSpec_spec_TcpRouteIsNull = true;
+            requestSpec_spec_TcpRoute = new Amazon.AppMesh.Model.TcpRoute();
+            Amazon.AppMesh.Model.TcpRouteAction requestSpec_spec_TcpRoute_spec_TcpRoute_Action = null;
+            
+             // populate Action
+            bool requestSpec_spec_TcpRoute_spec_TcpRoute_ActionIsNull = true;
+            requestSpec_spec_TcpRoute_spec_TcpRoute_Action = new Amazon.AppMesh.Model.TcpRouteAction();
+            List<Amazon.AppMesh.Model.WeightedTarget> requestSpec_spec_TcpRoute_spec_TcpRoute_Action_spec_TcpRoute_Action_WeightedTarget = null;
+            if (cmdletContext.Spec_TcpRoute_Action_WeightedTarget != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Action_spec_TcpRoute_Action_WeightedTarget = cmdletContext.Spec_TcpRoute_Action_WeightedTarget;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Action_spec_TcpRoute_Action_WeightedTarget != null)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Action.WeightedTargets = requestSpec_spec_TcpRoute_spec_TcpRoute_Action_spec_TcpRoute_Action_WeightedTarget;
+                requestSpec_spec_TcpRoute_spec_TcpRoute_ActionIsNull = false;
+            }
+             // determine if requestSpec_spec_TcpRoute_spec_TcpRoute_Action should be set to null
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_ActionIsNull)
+            {
+                requestSpec_spec_TcpRoute_spec_TcpRoute_Action = null;
+            }
+            if (requestSpec_spec_TcpRoute_spec_TcpRoute_Action != null)
+            {
+                requestSpec_spec_TcpRoute.Action = requestSpec_spec_TcpRoute_spec_TcpRoute_Action;
+                requestSpec_spec_TcpRouteIsNull = false;
+            }
+             // determine if requestSpec_spec_TcpRoute should be set to null
+            if (requestSpec_spec_TcpRouteIsNull)
+            {
+                requestSpec_spec_TcpRoute = null;
+            }
+            if (requestSpec_spec_TcpRoute != null)
+            {
+                request.Spec.TcpRoute = requestSpec_spec_TcpRoute;
+                requestSpecIsNull = false;
+            }
             Amazon.AppMesh.Model.HttpRoute requestSpec_spec_HttpRoute = null;
             
              // populate HttpRoute
@@ -189,14 +245,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
              // populate Action
             bool requestSpec_spec_HttpRoute_spec_HttpRoute_ActionIsNull = true;
             requestSpec_spec_HttpRoute_spec_HttpRoute_Action = new Amazon.AppMesh.Model.HttpRouteAction();
-            List<Amazon.AppMesh.Model.WeightedTarget> requestSpec_spec_HttpRoute_spec_HttpRoute_Action_action_WeightedTarget = null;
-            if (cmdletContext.Spec_HttpRoute_Action_WeightedTargets != null)
+            List<Amazon.AppMesh.Model.WeightedTarget> requestSpec_spec_HttpRoute_spec_HttpRoute_Action_spec_HttpRoute_Action_WeightedTarget = null;
+            if (cmdletContext.Spec_HttpRoute_Action_WeightedTarget != null)
             {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Action_action_WeightedTarget = cmdletContext.Spec_HttpRoute_Action_WeightedTargets;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Action_spec_HttpRoute_Action_WeightedTarget = cmdletContext.Spec_HttpRoute_Action_WeightedTarget;
             }
-            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Action_action_WeightedTarget != null)
+            if (requestSpec_spec_HttpRoute_spec_HttpRoute_Action_spec_HttpRoute_Action_WeightedTarget != null)
             {
-                requestSpec_spec_HttpRoute_spec_HttpRoute_Action.WeightedTargets = requestSpec_spec_HttpRoute_spec_HttpRoute_Action_action_WeightedTarget;
+                requestSpec_spec_HttpRoute_spec_HttpRoute_Action.WeightedTargets = requestSpec_spec_HttpRoute_spec_HttpRoute_Action_spec_HttpRoute_Action_WeightedTarget;
                 requestSpec_spec_HttpRoute_spec_HttpRoute_ActionIsNull = false;
             }
              // determine if requestSpec_spec_HttpRoute_spec_HttpRoute_Action should be set to null
@@ -295,9 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.UpdateRoute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateRouteAsync(request);
-                return task.Result;
+                return client.UpdateRouteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -320,8 +374,9 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
             public System.String ClientToken { get; set; }
             public System.String MeshName { get; set; }
             public System.String RouteName { get; set; }
-            public List<Amazon.AppMesh.Model.WeightedTarget> Spec_HttpRoute_Action_WeightedTargets { get; set; }
+            public List<Amazon.AppMesh.Model.WeightedTarget> Spec_HttpRoute_Action_WeightedTarget { get; set; }
             public System.String Spec_HttpRoute_Match_Prefix { get; set; }
+            public List<Amazon.AppMesh.Model.WeightedTarget> Spec_TcpRoute_Action_WeightedTarget { get; set; }
             public System.String VirtualRouterName { get; set; }
         }
         

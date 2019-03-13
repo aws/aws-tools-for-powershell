@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.DisassociateKmsKey(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateKmsKeyAsync(request);
-                return task.Result;
+                return client.DisassociateKmsKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

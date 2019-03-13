@@ -147,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.BatchAssociateUserStack(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchAssociateUserStackAsync(request);
-                return task.Result;
+                return client.BatchAssociateUserStackAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

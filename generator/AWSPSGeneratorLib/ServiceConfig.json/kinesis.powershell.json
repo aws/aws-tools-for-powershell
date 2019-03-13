@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "KIN",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -21,7 +20,14 @@
     "NextExclusiveStartStreamName",
     "HasMoreShards"
   ],
-  "paginationDefaults": {},
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "forceMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
   "pipelineDefaults": {
     "byValueMembers": [],
     "byNameMembers": []
@@ -64,15 +70,9 @@
         "confirmationMessageNoun": "TagsToStream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -112,15 +112,9 @@
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -158,15 +152,9 @@
         "confirmationMessageNoun": "StreamRetentionPeriod",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -204,15 +192,9 @@
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -250,15 +232,9 @@
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ConsumerARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConsumerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -294,7 +270,6 @@
         "confirmationMessageNoun": "Limits",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -338,7 +313,6 @@
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -379,7 +353,6 @@
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -420,7 +393,6 @@
         "confirmationMessageNoun": "StreamSummary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -461,15 +433,9 @@
         "confirmationMessageNoun": "EnhancedMonitoring",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -507,15 +473,9 @@
         "confirmationMessageNoun": "EnhancedMonitoring",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -553,7 +513,6 @@
         "confirmationMessageNoun": "Records",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -594,7 +553,6 @@
         "confirmationMessageNoun": "ShardIterator",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -635,15 +593,9 @@
         "confirmationMessageNoun": "StreamRetentionPeriod",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -680,11 +632,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Shards",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
+        "iterationPattern": "Pattern2",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {},
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
         "memoryStreamParameters": []
       }
     },
@@ -721,11 +679,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "StreamConsumers",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
+        "iterationPattern": "Pattern2",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {},
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
         "memoryStreamParameters": []
       }
     },
@@ -765,7 +729,6 @@
         "confirmationMessageNoun": "Streams",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -808,7 +771,6 @@
         "confirmationMessageNoun": "TagsForStream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -852,15 +814,9 @@
         "confirmationMessageNoun": "Shards",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -898,15 +854,9 @@
         "confirmationMessageNoun": "Records",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -944,15 +894,9 @@
         "confirmationMessageNoun": "StreamConsumer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ConsumerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -993,15 +937,9 @@
         "confirmationMessageNoun": "TagsFromStream",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.TagKeys",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1042,15 +980,9 @@
         "confirmationMessageNoun": "Shard",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1088,15 +1020,9 @@
         "confirmationMessageNoun": "StreamEncryption",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1134,15 +1060,9 @@
         "confirmationMessageNoun": "StreamEncryption",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: StreamName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1160,7 +1080,6 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "ShardCount",
           "ScalingType"
         ],
         "disableMemoryStreamTypeRemap": "false"
@@ -1183,15 +1102,9 @@
         "confirmationMessageNoun": "ShardCount",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "StreamName"
-        },
         "memoryStreamParameters": []
       }
     }

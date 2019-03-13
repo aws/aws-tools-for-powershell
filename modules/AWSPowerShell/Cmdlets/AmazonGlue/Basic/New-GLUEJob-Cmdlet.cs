@@ -40,22 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class NewGLUEJobCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
-        #region Parameter AllocatedCapacity
-        /// <summary>
-        /// <para>
-        /// <para>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</para><para>The number of AWS Glue data processing units (DPUs) to allocate to this Job. From
-        /// 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of
-        /// processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
-        /// For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
-        /// pricing page</a>.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated, use MaxCapacity instead.")]
-        public System.Int32 AllocatedCapacity { get; set; }
-        #endregion
-        
         #region Parameter Command
         /// <summary>
         /// <para>
@@ -217,6 +201,22 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Timeout { get; set; }
+        #endregion
+        
+        #region Parameter AllocatedCapacity
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</para><para>The number of AWS Glue data processing units (DPUs) to allocate to this Job. From
+        /// 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure of
+        /// processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
+        /// For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS Glue
+        /// pricing page</a>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated, use MaxCapacity instead.")]
+        public System.Int32 AllocatedCapacity { get; set; }
         #endregion
         
         #region Parameter Force
@@ -453,9 +453,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.CreateJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateJobAsync(request);
-                return task.Result;
+                return client.CreateJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

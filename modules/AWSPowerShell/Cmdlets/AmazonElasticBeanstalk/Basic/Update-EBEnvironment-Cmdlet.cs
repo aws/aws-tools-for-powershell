@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The name of the group to which the target environment belongs. Specify a group name
         /// only if the environment's name is specified in an environment manifest and not with
-        /// the environment name or environment ID parameters. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
+        /// the environment name or environment ID parameters. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
         /// Manifest (env.yaml)</a> for details.</para>
         /// </para>
         /// </summary>
@@ -403,9 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.UpdateEnvironment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEnvironmentAsync(request);
-                return task.Result;
+                return client.UpdateEnvironmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

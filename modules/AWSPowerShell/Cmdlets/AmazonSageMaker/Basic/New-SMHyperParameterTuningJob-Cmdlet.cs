@@ -84,9 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>To encrypt all communications between ML compute instances in distributed training,
-        /// specify <code>True</code>. Encryption provides greater security for distributed training,
-        /// but training take longer because of the additional communications between ML compute
-        /// instances.</para>
+        /// choose <code>True</code>. Encryption provides greater security for distributed training,
+        /// but training might take longer. How long it takes depends on the amount of communication
+        /// between compute instances, especially if you use a deep learning algorithm in distributed
+        /// training.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -218,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>
         /// <para>An array of hyperparameter tuning jobs that are used as the starting point for the
         /// new hyperparameter tuning job. For more information about warm starting a hyperparameter
-        /// tuning job, see <a href="http://docs.aws.amazon.com/automatic-model-tuning-incremental">Using
+        /// tuning job, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html">Using
         /// a Previous Hyperparameter Tuning Job as a Starting Point</a>.</para><para>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
         /// jobs for warm start tuning jobs.</para>
         /// </para>
@@ -280,8 +281,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter HyperParameterTuningJobConfig_Strategy
         /// <summary>
         /// <para>
-        /// <para>Specifies the search strategy for hyperparameters. Currently, the only valid value
-        /// is <code>Bayesian</code>.</para>
+        /// <para>Specifies how hyperparameter tuning chooses the combinations of hyperparameter values
+        /// to use for the training job it launches. To use the Bayesian search stategy, set this
+        /// to <code>Bayesian</code>. To randomly search, set it to <code>Random</code>. For information
+        /// about search strategies, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-how-it-works.html">How
+        /// Hyperparameter Tuning Works</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -320,8 +324,11 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para> The registry path of the Docker image that contains the training algorithm. For information
-        /// about Docker registry paths for built-in algorithms, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
-        /// Provided by Amazon SageMaker: Common Parameters</a>.</para>
+        /// about Docker registry paths for built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Algorithms
+        /// Provided by Amazon SageMaker: Common Parameters</a>. Amazon SageMaker supports both
+        /// <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
+        /// image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using
+        /// Your Own Algorithms with Amazon SageMaker</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -338,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// the training container. In Pipe input mode, Amazon SageMaker streams data directly
         /// from Amazon S3 to the container. </para><para>If you specify File mode, make sure that you provision the storage volume that is
         /// attached to the training instance with enough capacity to accommodate the training
-        /// data downloaded from Amazon S3, the model artifacts, and intermediate information.</para><para>For more information about input modes, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
+        /// data downloaded from Amazon S3, the model artifacts, and intermediate information.</para><para>For more information about input modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -929,9 +936,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreateHyperParameterTuningJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateHyperParameterTuningJobAsync(request);
-                return task.Result;
+                return client.CreateHyperParameterTuningJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -27,7 +27,7 @@ using Amazon.AppMesh.Model;
 
 namespace Amazon.PowerShell.Cmdlets.AMSH
 {
-    [AWSClientCmdlet("AWS App Mesh", "AMSH", "2018-10-01")]
+    [AWSClientCmdlet("AWS App Mesh", "AMSH", "2019-01-25")]
     public abstract partial class AmazonAppMeshClientCmdlet : ServiceCmdlet
     {
         protected IAmazonAppMesh Client { get; private set; }

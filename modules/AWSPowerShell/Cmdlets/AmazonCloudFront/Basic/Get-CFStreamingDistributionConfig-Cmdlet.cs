@@ -129,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 #if DESKTOP
                 return client.GetStreamingDistributionConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetStreamingDistributionConfigAsync(request);
-                return task.Result;
+                return client.GetStreamingDistributionConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -29,14 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Creates a hosted connection on the specified interconnect or a link aggregation group
-    /// (LAG).
+    /// (LAG) of interconnects.
     /// 
     ///  
     /// <para>
-    /// Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection
-    /// on the specified interconnect or LAG.
+    /// Allocates a VLAN number and a specified amount of capacity (bandwidth) for use by
+    /// a hosted connection on the specified interconnect or LAG of interconnects. AWS polices
+    /// the hosted connection for the specified capacity and the AWS Direct Connect Partner
+    /// must also police the hosted connection for the specified capacity.
     /// </para><note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -51,8 +53,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter Bandwidth
         /// <summary>
         /// <para>
-        /// <para>The bandwidth of the hosted connection, in Mbps. The possible values are 50Mbps, 100Mbps,
-        /// 200Mbps, 300Mbps, 400Mbps, and 500Mbps.</para>
+        /// <para>The bandwidth of the connection. The possible values are 50Mbps, 100Mbps, 200Mbps,
+        /// 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, and 10Gbps. Note that only those AWS
+        /// Direct Connect Partners who have met specific requirements are allowed to create a
+        /// 1Gbps, 2Gbps, 5Gbps or 10Gbps hosted connection. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -212,9 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.AllocateHostedConnection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AllocateHostedConnectionAsync(request);
-                return task.Result;
+                return client.AllocateHostedConnectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

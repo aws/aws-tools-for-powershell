@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <summary>
         /// <para>
         /// <para>Settings for the task, such as target metadata settings. For a complete list of task
-        /// settings, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
+        /// settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html">Task
         /// Settings for AWS Database Migration Service Tasks</a> in the <i>AWS Database Migration
         /// User Guide.</i></para>
         /// </para>
@@ -310,9 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.CreateReplicationTask(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateReplicationTaskAsync(request);
-                return task.Result;
+                return client.CreateReplicationTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

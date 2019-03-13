@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 #if DESKTOP
                 return client.ListQualificationRequests(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListQualificationRequestsAsync(request);
-                return task.Result;
+                return client.ListQualificationRequestsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

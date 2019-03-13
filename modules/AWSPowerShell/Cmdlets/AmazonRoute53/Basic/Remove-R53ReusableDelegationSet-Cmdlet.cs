@@ -162,9 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.DeleteReusableDelegationSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteReusableDelegationSetAsync(request);
-                return task.Result;
+                return client.DeleteReusableDelegationSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

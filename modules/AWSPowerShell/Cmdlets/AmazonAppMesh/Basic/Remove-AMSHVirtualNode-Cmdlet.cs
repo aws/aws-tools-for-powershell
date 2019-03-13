@@ -29,6 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
 {
     /// <summary>
     /// Deletes an existing virtual node.
+    /// 
+    ///          
+    /// <para>
+    /// You must delete any virtual services that list a virtual node as a service provider
+    ///         before you can delete the virtual node itself.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "AMSHVirtualNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppMesh.Model.VirtualNodeData")]
@@ -43,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which to delete the virtual node.</para>
+        /// <para>The name of the service mesh to delete the virtual node in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -157,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.DeleteVirtualNode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVirtualNodeAsync(request);
-                return task.Result;
+                return client.DeleteVirtualNodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

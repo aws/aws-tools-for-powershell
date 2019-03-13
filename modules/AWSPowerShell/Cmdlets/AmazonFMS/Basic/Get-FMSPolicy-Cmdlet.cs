@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 #if DESKTOP
                 return client.GetPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetPolicyAsync(request);
-                return task.Result;
+                return client.GetPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

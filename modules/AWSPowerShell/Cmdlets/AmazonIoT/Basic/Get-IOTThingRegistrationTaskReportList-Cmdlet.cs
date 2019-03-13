@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTThingRegistrationTaskReportListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter ReportType
+        /// <summary>
+        /// <para>
+        /// <para>The type of task report.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.IoT.ReportType")]
+        public Amazon.IoT.ReportType ReportType { get; set; }
+        #endregion
+        
         #region Parameter TaskId
         /// <summary>
         /// <para>
@@ -77,17 +88,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        #endregion
-        
-        #region Parameter ReportType
-        /// <summary>
-        /// <para>
-        /// <para>The type of task report.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.IoT.ReportType")]
-        public Amazon.IoT.ReportType ReportType { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ListThingRegistrationTaskReports(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListThingRegistrationTaskReportsAsync(request);
-                return task.Result;
+                return client.ListThingRegistrationTaskReportsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

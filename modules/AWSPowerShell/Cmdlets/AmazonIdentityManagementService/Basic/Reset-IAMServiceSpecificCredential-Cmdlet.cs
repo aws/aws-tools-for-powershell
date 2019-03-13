@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.ResetServiceSpecificCredential(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ResetServiceSpecificCredentialAsync(request);
-                return task.Result;
+                return client.ResetServiceSpecificCredentialAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

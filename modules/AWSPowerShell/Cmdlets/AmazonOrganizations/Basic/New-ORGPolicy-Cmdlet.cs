@@ -203,9 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.CreatePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePolicyAsync(request);
-                return task.Result;
+                return client.CreatePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

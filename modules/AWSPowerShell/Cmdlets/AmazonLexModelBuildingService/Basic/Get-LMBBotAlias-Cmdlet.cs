@@ -146,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 #if DESKTOP
                 return client.GetBotAlias(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetBotAliasAsync(request);
-                return task.Result;
+                return client.GetBotAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

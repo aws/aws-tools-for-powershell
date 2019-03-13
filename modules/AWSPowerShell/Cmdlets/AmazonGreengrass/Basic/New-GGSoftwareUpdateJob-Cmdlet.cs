@@ -243,9 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.CreateSoftwareUpdateJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSoftwareUpdateJobAsync(request);
-                return task.Result;
+                return client.CreateSoftwareUpdateJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 #if DESKTOP
                 return client.UpdateInputSecurityGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateInputSecurityGroupAsync(request);
-                return task.Result;
+                return client.UpdateInputSecurityGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

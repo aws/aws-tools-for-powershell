@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 #if DESKTOP
                 return client.CancelTaskExecution(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CancelTaskExecutionAsync(request);
-                return task.Result;
+                return client.CancelTaskExecutionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

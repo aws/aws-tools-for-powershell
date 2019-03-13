@@ -284,9 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.DLM
                 #if DESKTOP
                 return client.UpdateLifecyclePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateLifecyclePolicyAsync(request);
-                return task.Result;
+                return client.UpdateLifecyclePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

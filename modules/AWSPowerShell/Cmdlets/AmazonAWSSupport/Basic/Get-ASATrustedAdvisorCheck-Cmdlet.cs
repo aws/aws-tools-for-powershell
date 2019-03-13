@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
                 #if DESKTOP
                 return client.DescribeTrustedAdvisorChecks(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTrustedAdvisorChecksAsync(request);
-                return task.Result;
+                return client.DescribeTrustedAdvisorChecksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

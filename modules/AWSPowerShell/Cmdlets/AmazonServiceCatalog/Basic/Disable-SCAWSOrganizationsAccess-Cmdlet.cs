@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.DisableAWSOrganizationsAccess(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableAWSOrganizationsAccessAsync(request);
-                return task.Result;
+                return client.DisableAWSOrganizationsAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

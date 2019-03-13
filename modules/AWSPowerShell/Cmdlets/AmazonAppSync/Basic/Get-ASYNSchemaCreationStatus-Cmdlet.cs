@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 #if DESKTOP
                 return client.GetSchemaCreationStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetSchemaCreationStatusAsync(request);
-                return task.Result;
+                return client.GetSchemaCreationStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

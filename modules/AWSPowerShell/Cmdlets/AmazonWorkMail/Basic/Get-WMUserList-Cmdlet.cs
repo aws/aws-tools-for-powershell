@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>TBD</para>
+        /// <para>The token to use to retrieve the next page of results. The first call does not contain
+        /// any tokens.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -240,9 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.ListUsers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListUsersAsync(request);
-                return task.Result;
+                return client.ListUsersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

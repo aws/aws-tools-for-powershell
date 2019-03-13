@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 #if DESKTOP
                 return client.DeleteStateMachine(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteStateMachineAsync(request);
-                return task.Result;
+                return client.DeleteStateMachineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

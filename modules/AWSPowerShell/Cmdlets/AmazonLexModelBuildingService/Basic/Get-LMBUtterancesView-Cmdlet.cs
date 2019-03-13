@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 #if DESKTOP
                 return client.GetUtterancesView(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetUtterancesViewAsync(request);
-                return task.Result;
+                return client.GetUtterancesViewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

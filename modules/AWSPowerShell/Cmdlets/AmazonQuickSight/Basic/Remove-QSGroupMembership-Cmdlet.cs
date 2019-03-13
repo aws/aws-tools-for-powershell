@@ -209,9 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 #if DESKTOP
                 return client.DeleteGroupMembership(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteGroupMembershipAsync(request);
-                return task.Result;
+                return client.DeleteGroupMembershipAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

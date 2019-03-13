@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EMT
                 #if DESKTOP
                 return client.GetPlaybackConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetPlaybackConfigurationAsync(request);
-                return task.Result;
+                return client.GetPlaybackConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

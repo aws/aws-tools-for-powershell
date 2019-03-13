@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "SQS",
-    "positionalMemberNames": [
-      "QueueUrl"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -54,8 +51,7 @@
           "originalName": "Actions",
           "replacementName": "Action",
           "aliases": [
-            "ActionNames",
-            "Actions"
+            "ActionNames"
           ],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
@@ -89,15 +85,9 @@
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AWSAccountIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -138,15 +128,9 @@
         "confirmationMessageNoun": "MessageVisibility",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -184,15 +168,9 @@
         "confirmationMessageNoun": "MessageVisibilityBatch",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -219,8 +197,6 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "DefaultVisibilityTimeout",
-          "DelaySeconds",
           "Attributes"
         ],
         "disableMemoryStreamTypeRemap": "false"
@@ -243,15 +219,9 @@
         "confirmationMessageNoun": "Queue",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -269,8 +239,7 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "ReceiptHandle",
-          "Attribute"
+          "ReceiptHandle"
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
@@ -292,15 +261,9 @@
         "confirmationMessageNoun": "Message",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReceiptHandle"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -338,15 +301,9 @@
         "confirmationMessageNoun": "MessageBatch",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Entries"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -363,9 +320,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "Attribute"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -386,15 +341,9 @@
         "confirmationMessageNoun": "Queue",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -434,7 +383,6 @@
         "confirmationMessageNoun": "QueueAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -477,7 +425,6 @@
         "confirmationMessageNoun": "QueueUrl",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -518,7 +465,6 @@
         "confirmationMessageNoun": "DeadLetterSourceQueues",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -538,9 +484,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "Attribute"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -561,7 +505,6 @@
         "confirmationMessageNoun": "Queues",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -602,7 +545,6 @@
         "confirmationMessageNoun": "QueueTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -643,15 +585,9 @@
         "confirmationMessageNoun": "Queue",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -669,9 +605,7 @@
         {
           "originalName": "WaitTimeSeconds",
           "replacementName": "WaitTimeInSeconds",
-          "aliases": [
-            "WaitTimeSeconds"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -679,9 +613,7 @@
         {
           "originalName": "MaxNumberOfMessages",
           "replacementName": "MessageCount",
-          "aliases": [
-            "MaxNumberOfMessages"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -715,15 +647,9 @@
         "confirmationMessageNoun": "Message",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -763,15 +689,9 @@
         "confirmationMessageNoun": "Permission",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Label"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -789,9 +709,7 @@
         {
           "originalName": "DelaySeconds",
           "replacementName": "DelayInSeconds",
-          "aliases": [
-            "DelaySeconds"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -823,15 +741,9 @@
         "confirmationMessageNoun": "Message",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "MessageDeduplicationId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -869,15 +781,9 @@
         "confirmationMessageNoun": "MessageBatch",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -917,15 +823,9 @@
         "confirmationMessageNoun": "QueueAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -963,15 +863,9 @@
         "confirmationMessageNoun": "Queue",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1009,15 +903,9 @@
         "confirmationMessageNoun": "Queue",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: QueueUrl",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "QueueUrl"
-        },
         "memoryStreamParameters": []
       }
     }

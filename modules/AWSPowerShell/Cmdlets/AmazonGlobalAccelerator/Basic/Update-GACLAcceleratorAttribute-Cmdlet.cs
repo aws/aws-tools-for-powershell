@@ -196,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.GACL
                 #if DESKTOP
                 return client.UpdateAcceleratorAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateAcceleratorAttributesAsync(request);
-                return task.Result;
+                return client.UpdateAcceleratorAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

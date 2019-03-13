@@ -177,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.ModifyClusterSubnetGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyClusterSubnetGroupAsync(request);
-                return task.Result;
+                return client.ModifyClusterSubnetGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

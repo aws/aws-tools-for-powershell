@@ -22,33 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Neptune;
-using Amazon.Neptune.Model;
+using Amazon.CognitoIdentity;
+using Amazon.CognitoIdentity.Model;
 
-namespace Amazon.PowerShell.Cmdlets.NPT
+namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// You can call <a>DescribeValidDBInstanceModifications</a> to learn what modifications
-    /// you can make to your DB instance. You can use this information when you call <a>ModifyDBInstance</a>.
+    /// Lists the tags that are assigned to an Amazon Cognito identity pool.
+    /// 
+    ///  
+    /// <para>
+    /// A tag is a label that you can apply to identity pools to categorize and manage them
+    /// in different ways, such as by purpose, owner, environment, or other criteria.
+    /// </para><para>
+    /// You can use this action up to 10 times per second, per account.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "NPTValidDBInstanceModifications")]
-    [OutputType("Amazon.Neptune.Model.ValidDBInstanceModificationsMessage")]
-    [AWSCmdlet("Calls the Amazon Neptune DescribeValidDBInstanceModifications API operation.", Operation = new[] {"DescribeValidDBInstanceModifications"})]
-    [AWSCmdletOutput("Amazon.Neptune.Model.ValidDBInstanceModificationsMessage",
-        "This cmdlet returns a ValidDBInstanceModificationsMessage object.",
-        "The service call response (type Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon Cognito Identity ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.CognitoIdentity.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetNPTValidDBInstanceModificationsCmdlet : AmazonNeptuneClientCmdlet, IExecutor
+    public partial class GetCGIResourceTagCmdlet : AmazonCognitoIdentityClientCmdlet, IExecutor
     {
         
-        #region Parameter DBInstanceIdentifier
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The customer identifier or the ARN of your DB instance. </para>
+        /// <para>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DBInstanceIdentifier { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -64,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -79,11 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Neptune.Model.DescribeValidDBInstanceModificationsRequest();
+            var request = new Amazon.CognitoIdentity.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.DBInstanceIdentifier != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -94,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ValidDBInstanceModificationsMessage;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -119,17 +126,15 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         #region AWS Service Operation Call
         
-        private Amazon.Neptune.Model.DescribeValidDBInstanceModificationsResponse CallAWSServiceOperation(IAmazonNeptune client, Amazon.Neptune.Model.DescribeValidDBInstanceModificationsRequest request)
+        private Amazon.CognitoIdentity.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonCognitoIdentity client, Amazon.CognitoIdentity.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Neptune", "DescribeValidDBInstanceModifications");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.DescribeValidDBInstanceModifications(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeValidDBInstanceModificationsAsync(request);
-                return task.Result;
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -149,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBInstanceIdentifier { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

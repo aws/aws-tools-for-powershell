@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 #if DESKTOP
                 return client.GetTrailStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTrailStatusAsync(request);
-                return task.Result;
+                return client.GetTrailStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

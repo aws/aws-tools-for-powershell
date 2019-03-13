@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// you are deleting. You should also make sure there is no snapshot in progress. You
     /// can use the Amazon Elastic Compute Cloud (Amazon EC2) API to query snapshots on the
     /// volume you are deleting and check the snapshot status. For more information, go to
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
+    /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
     /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.
     /// </para><para>
     /// In the request, you must provide the Amazon Resource Name (ARN) of the storage volume
@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DeleteVolume(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVolumeAsync(request);
-                return task.Result;
+                return client.DeleteVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

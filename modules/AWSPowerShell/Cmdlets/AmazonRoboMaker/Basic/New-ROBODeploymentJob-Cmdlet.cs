@@ -36,7 +36,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     /// reasons. To create a new version, use <code>CreateRobotApplicationVersion</code> or
     /// see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating
     /// a Robot Application Version</a>. 
-    /// </para>
+    /// </para><note><para>
+    /// After 90 days, deployment jobs expire and will be deleted. They will no longer be
+    /// accessible. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "ROBODeploymentJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.CreateDeploymentJobResponse")]
@@ -222,9 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.CreateDeploymentJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentJobAsync(request);
-                return task.Result;
+                return client.CreateDeploymentJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

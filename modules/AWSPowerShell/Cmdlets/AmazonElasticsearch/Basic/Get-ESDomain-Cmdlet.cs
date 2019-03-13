@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 #if DESKTOP
                 return client.DescribeElasticsearchDomain(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeElasticsearchDomainAsync(request);
-                return task.Result;
+                return client.DescribeElasticsearchDomainAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

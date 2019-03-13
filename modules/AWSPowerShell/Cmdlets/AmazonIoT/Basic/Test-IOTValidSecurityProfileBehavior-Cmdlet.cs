@@ -129,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ValidateSecurityProfileBehaviors(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ValidateSecurityProfileBehaviorsAsync(request);
-                return task.Result;
+                return client.ValidateSecurityProfileBehaviorsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

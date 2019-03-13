@@ -28,7 +28,10 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Creates a thing record in the registry.
+    /// Creates a thing record in the registry. If this call is made multiple times using
+    /// the same thing name and configuration, the call will succeed. If this call is made
+    /// with the same thing name but different configuration a <code>ResourceAlreadyExistsException</code>
+    /// is thrown.
     /// 
     ///  <note><para>
     /// This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a>
@@ -192,9 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.CreateThing(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateThingAsync(request);
-                return task.Result;
+                return client.CreateThingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

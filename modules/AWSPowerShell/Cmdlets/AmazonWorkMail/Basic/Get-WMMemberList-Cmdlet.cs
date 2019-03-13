@@ -28,7 +28,8 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Returns an overview of the members of a group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns an overview of the members of a group. Users and groups can be members of
+    /// a group.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WMMemberList")]
     [OutputType("Amazon.WorkMail.Model.Member")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the group to which the members are associated.</para>
+        /// <para>The identifier for the group to which the members (users or groups) are associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -256,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.ListGroupMembers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListGroupMembersAsync(request);
-                return task.Result;
+                return client.ListGroupMembersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                 #if DESKTOP
                 return client.DescribeIdentityUsage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeIdentityUsageAsync(request);
-                return task.Result;
+                return client.DescribeIdentityUsageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

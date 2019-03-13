@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.GD
                 #if DESKTOP
                 return client.DeleteDetector(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDetectorAsync(request);
-                return task.Result;
+                return client.DeleteDetectorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

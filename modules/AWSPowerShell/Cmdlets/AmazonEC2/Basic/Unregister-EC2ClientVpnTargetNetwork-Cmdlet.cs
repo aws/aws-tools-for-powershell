@@ -166,9 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DisassociateClientVpnTargetNetwork(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateClientVpnTargetNetworkAsync(request);
-                return task.Result;
+                return client.DisassociateClientVpnTargetNetworkAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

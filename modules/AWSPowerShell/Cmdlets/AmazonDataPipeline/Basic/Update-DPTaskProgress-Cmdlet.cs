@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 #if DESKTOP
                 return client.ReportTaskProgress(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReportTaskProgressAsync(request);
-                return task.Result;
+                return client.ReportTaskProgressAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

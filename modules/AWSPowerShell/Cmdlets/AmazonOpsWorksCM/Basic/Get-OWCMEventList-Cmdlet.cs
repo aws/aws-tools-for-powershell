@@ -230,9 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 #if DESKTOP
                 return client.DescribeEvents(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEventsAsync(request);
-                return task.Result;
+                return client.DescribeEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

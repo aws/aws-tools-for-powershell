@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// option to <code>false</code>.</para><para>If you set this option to <code>true</code>, when AWS Config adds support for a new
         /// type of resource, it will not record resources of that type unless you manually add
         /// that type to your recording group.</para><para>For a list of valid <code>resourceTypes</code> values, see the <b>resourceType Value</b>
-        /// column in <a href="http://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
+        /// column in <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported
         /// AWS Resource Types</a>.</para>
         /// </para>
         /// </summary>
@@ -303,9 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.PutConfigurationRecorder(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutConfigurationRecorderAsync(request);
-                return task.Result;
+                return client.PutConfigurationRecorderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

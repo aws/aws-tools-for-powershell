@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.UpdateDataSource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDataSourceAsync(request);
-                return task.Result;
+                return client.UpdateDataSourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

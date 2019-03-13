@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 #if DESKTOP
                 return client.StopStackSetOperation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopStackSetOperationAsync(request);
-                return task.Result;
+                return client.StopStackSetOperationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

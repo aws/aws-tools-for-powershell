@@ -117,9 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DescribeVirtualGateways(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeVirtualGatewaysAsync(request);
-                return task.Result;
+                return client.DescribeVirtualGatewaysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

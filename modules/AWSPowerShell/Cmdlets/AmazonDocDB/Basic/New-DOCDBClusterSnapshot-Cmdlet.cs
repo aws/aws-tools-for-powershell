@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 #if DESKTOP
                 return client.CreateDBClusterSnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDBClusterSnapshotAsync(request);
-                return task.Result;
+                return client.CreateDBClusterSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -61,6 +61,17 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String ClientCertificateId { get; set; }
         #endregion
         
+        #region Parameter Header
+        /// <summary>
+        /// <para>
+        /// <para>A key-value map of headers to simulate an incoming invocation request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Headers")]
+        public System.Collections.Hashtable Header { get; set; }
+        #endregion
+        
         #region Parameter HttpMethod
         /// <summary>
         /// <para>
@@ -123,17 +134,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("StageVariables")]
         public System.Collections.Hashtable StageVariable { get; set; }
-        #endregion
-        
-        #region Parameter Header
-        /// <summary>
-        /// <para>
-        /// <para>A key-value map of headers to simulate an incoming invocation request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Headers")]
-        public System.Collections.Hashtable Header { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -285,9 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.TestInvokeMethod(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TestInvokeMethodAsync(request);
-                return task.Result;
+                return client.TestInvokeMethodAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

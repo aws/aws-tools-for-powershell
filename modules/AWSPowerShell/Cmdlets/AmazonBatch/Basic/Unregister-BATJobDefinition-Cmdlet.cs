@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 #if DESKTOP
                 return client.DeregisterJobDefinition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeregisterJobDefinitionAsync(request);
-                return task.Result;
+                return client.DeregisterJobDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

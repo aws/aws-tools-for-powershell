@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                 #if DESKTOP
                 return client.DisassociateWebACL(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateWebACLAsync(request);
-                return task.Result;
+                return client.DisassociateWebACLAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

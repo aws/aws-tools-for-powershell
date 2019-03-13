@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.DeleteDashboards(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDashboardsAsync(request);
-                return task.Result;
+                return client.DeleteDashboardsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

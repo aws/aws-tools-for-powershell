@@ -316,9 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                 #if DESKTOP
                 return client.CountOpenWorkflowExecutions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CountOpenWorkflowExecutionsAsync(request);
-                return task.Result;
+                return client.CountOpenWorkflowExecutionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

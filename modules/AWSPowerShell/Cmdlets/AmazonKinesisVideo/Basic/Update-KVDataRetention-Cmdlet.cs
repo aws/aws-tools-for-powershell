@@ -239,9 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 #if DESKTOP
                 return client.UpdateDataRetention(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDataRetentionAsync(request);
-                return task.Result;
+                return client.UpdateDataRetentionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

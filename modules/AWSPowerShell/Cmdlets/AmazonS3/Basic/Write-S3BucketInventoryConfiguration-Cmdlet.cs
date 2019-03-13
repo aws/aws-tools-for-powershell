@@ -172,17 +172,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String SSEKMS_KeyId { get; set; }
         #endregion
         
-        #region Parameter InventoryEncryption_SSES3
-        /// <summary>
-        /// <para>
-        /// Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3")]
-        public Amazon.S3.Model.SSES3 InventoryEncryption_SSES3 { get; set; }
-        #endregion
-        
         #region Parameter S3BucketDestination_Prefix
         /// <summary>
         /// <para>
@@ -192,6 +181,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
         [System.Management.Automation.Parameter]
         [Alias("InventoryConfiguration_Destination_S3BucketDestination_Prefix")]
         public System.String S3BucketDestination_Prefix { get; set; }
+        #endregion
+        
+        #region Parameter InventoryEncryption_SSES3
+        /// <summary>
+        /// <para>
+        /// Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3")]
+        public Amazon.S3.Model.SSES3 InventoryEncryption_SSES3 { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -558,9 +558,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.PutBucketInventoryConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutBucketInventoryConfigurationAsync(request);
-                return task.Result;
+                return client.PutBucketInventoryConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates or updates an access policy associated with an existing destination. An access
-    /// policy is an <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM
+    /// policy is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies_overview.html">IAM
     /// policy document</a> that is used to authorize claims to register a subscription filter
     /// against a given destination.
     /// </summary>
@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.PutDestinationPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutDestinationPolicyAsync(request);
-                return task.Result;
+                return client.PutDestinationPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

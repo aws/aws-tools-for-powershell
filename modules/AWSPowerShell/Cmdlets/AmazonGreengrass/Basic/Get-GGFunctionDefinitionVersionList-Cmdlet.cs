@@ -212,9 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.ListFunctionDefinitionVersions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListFunctionDefinitionVersionsAsync(request);
-                return task.Result;
+                return client.ListFunctionDefinitionVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

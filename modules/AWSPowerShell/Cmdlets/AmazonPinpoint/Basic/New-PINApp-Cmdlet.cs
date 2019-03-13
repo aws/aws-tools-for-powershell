@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String CreateApplicationRequest_Name { get; set; }
         #endregion
         
+        #region Parameter CreateApplicationRequest_Tag
+        /// <summary>
+        /// <para>
+        /// The Tags for the app.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CreateApplicationRequest_Tags")]
+        public System.Collections.Hashtable CreateApplicationRequest_Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -81,6 +92,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.CreateApplicationRequest_Name = this.CreateApplicationRequest_Name;
+            if (this.CreateApplicationRequest_Tag != null)
+            {
+                context.CreateApplicationRequest_Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CreateApplicationRequest_Tag.Keys)
+                {
+                    context.CreateApplicationRequest_Tags.Add((String)hashKey, (String)(this.CreateApplicationRequest_Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,6 +128,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestCreateApplicationRequest_createApplicationRequest_Name != null)
             {
                 request.CreateApplicationRequest.Name = requestCreateApplicationRequest_createApplicationRequest_Name;
+                requestCreateApplicationRequestIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestCreateApplicationRequest_createApplicationRequest_Tag = null;
+            if (cmdletContext.CreateApplicationRequest_Tags != null)
+            {
+                requestCreateApplicationRequest_createApplicationRequest_Tag = cmdletContext.CreateApplicationRequest_Tags;
+            }
+            if (requestCreateApplicationRequest_createApplicationRequest_Tag != null)
+            {
+                request.CreateApplicationRequest.Tags = requestCreateApplicationRequest_createApplicationRequest_Tag;
                 requestCreateApplicationRequestIsNull = false;
             }
              // determine if request.CreateApplicationRequest should be set to null
@@ -158,9 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.CreateApp(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAppAsync(request);
-                return task.Result;
+                return client.CreateAppAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -181,6 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreateApplicationRequest_Name { get; set; }
+            public Dictionary<System.String, System.String> CreateApplicationRequest_Tags { get; set; }
         }
         
     }

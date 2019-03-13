@@ -151,9 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AcceptVpcPeeringConnection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AcceptVpcPeeringConnectionAsync(request);
-                return task.Result;
+                return client.AcceptVpcPeeringConnectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

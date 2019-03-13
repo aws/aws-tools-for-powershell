@@ -41,16 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
     public partial class RemoveALXBSkillFromUserCmdlet : AmazonAlexaForBusinessClientCmdlet, IExecutor
     {
         
-        #region Parameter OrganizationArn
-        /// <summary>
-        /// <para>
-        /// <para>The ARN of the organization.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String OrganizationArn { get; set; }
-        #endregion
-        
         #region Parameter SkillId
         /// <summary>
         /// <para>
@@ -99,7 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.OrganizationArn = this.OrganizationArn;
             context.SkillId = this.SkillId;
             
             // allow further manipulation of loaded context prior to processing
@@ -117,10 +106,6 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
             // create request
             var request = new Amazon.AlexaForBusiness.Model.DisassociateSkillFromUsersRequest();
             
-            if (cmdletContext.OrganizationArn != null)
-            {
-                request.OrganizationArn = cmdletContext.OrganizationArn;
-            }
             if (cmdletContext.SkillId != null)
             {
                 request.SkillId = cmdletContext.SkillId;
@@ -169,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.DisassociateSkillFromUsers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateSkillFromUsersAsync(request);
-                return task.Result;
+                return client.DisassociateSkillFromUsersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -191,7 +174,6 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OrganizationArn { get; set; }
             public System.String SkillId { get; set; }
         }
         

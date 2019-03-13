@@ -132,9 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.GetDashboard(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDashboardAsync(request);
-                return task.Result;
+                return client.GetDashboardAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

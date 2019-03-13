@@ -177,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.CreateConnectorDefinitionVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateConnectorDefinitionVersionAsync(request);
-                return task.Result;
+                return client.CreateConnectorDefinitionVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

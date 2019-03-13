@@ -304,9 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 #if DESKTOP
                 return client.ImportTerminology(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ImportTerminologyAsync(request);
-                return task.Result;
+                return client.ImportTerminologyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

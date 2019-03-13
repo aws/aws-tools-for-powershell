@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 #if DESKTOP
                 return client.CreateCustomMetadata(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateCustomMetadataAsync(request);
-                return task.Result;
+                return client.CreateCustomMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

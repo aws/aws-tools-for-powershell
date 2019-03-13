@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.GetParametersForImport(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetParametersForImportAsync(request);
-                return task.Result;
+                return client.GetParametersForImportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

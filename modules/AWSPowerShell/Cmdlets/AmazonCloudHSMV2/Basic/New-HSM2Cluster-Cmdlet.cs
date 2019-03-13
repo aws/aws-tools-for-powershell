@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
                 #if DESKTOP
                 return client.CreateCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateClusterAsync(request);
-                return task.Result;
+                return client.CreateClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

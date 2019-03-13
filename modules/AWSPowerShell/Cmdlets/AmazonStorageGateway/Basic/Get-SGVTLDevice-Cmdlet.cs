@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class GetSGVTLDeviceCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter GatewayARN
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String GatewayARN { get; set; }
+        #endregion
+        
         #region Parameter VTLDeviceARNs
         /// <summary>
         /// <para>
@@ -57,16 +67,6 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String[] VTLDeviceARNs { get; set; }
-        #endregion
-        
-        #region Parameter GatewayARN
-        /// <summary>
-        /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GatewayARN { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -239,9 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DescribeVTLDevices(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeVTLDevicesAsync(request);
-                return task.Result;
+                return client.DescribeVTLDevicesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

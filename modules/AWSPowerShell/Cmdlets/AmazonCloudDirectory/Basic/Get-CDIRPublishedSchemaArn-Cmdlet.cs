@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.ListPublishedSchemaArns(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListPublishedSchemaArnsAsync(request);
-                return task.Result;
+                return client.ListPublishedSchemaArnsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

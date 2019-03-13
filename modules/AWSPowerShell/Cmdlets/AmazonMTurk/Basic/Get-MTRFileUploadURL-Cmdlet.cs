@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 #if DESKTOP
                 return client.GetFileUploadURL(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetFileUploadURLAsync(request);
-                return task.Result;
+                return client.GetFileUploadURLAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

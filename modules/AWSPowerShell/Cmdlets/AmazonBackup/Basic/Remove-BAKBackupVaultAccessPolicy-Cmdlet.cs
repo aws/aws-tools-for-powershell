@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 #if DESKTOP
                 return client.DeleteBackupVaultAccessPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteBackupVaultAccessPolicyAsync(request);
-                return task.Result;
+                return client.DeleteBackupVaultAccessPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

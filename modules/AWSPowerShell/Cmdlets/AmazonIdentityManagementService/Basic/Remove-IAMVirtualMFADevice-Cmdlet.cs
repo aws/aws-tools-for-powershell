@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.DeleteVirtualMFADevice(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVirtualMFADeviceAsync(request);
-                return task.Result;
+                return client.DeleteVirtualMFADeviceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

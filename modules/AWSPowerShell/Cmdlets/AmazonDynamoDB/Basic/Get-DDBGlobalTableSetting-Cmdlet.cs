@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.DescribeGlobalTableSettings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeGlobalTableSettingsAsync(request);
-                return task.Result;
+                return client.DescribeGlobalTableSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

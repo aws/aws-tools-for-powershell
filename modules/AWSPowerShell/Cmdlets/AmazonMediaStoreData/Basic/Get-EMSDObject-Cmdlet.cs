@@ -151,9 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
                 #if DESKTOP
                 return client.GetObject(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetObjectAsync(request);
-                return task.Result;
+                return client.GetObjectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

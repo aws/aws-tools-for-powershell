@@ -32,8 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// 
     ///  
     /// <para>
-    /// For more information on backtracking, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
-    /// Backtracking an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide.</i></para>
+    /// For more information on backtracking, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html">
+    /// Backtracking an Aurora DB Cluster</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Reset", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.BacktrackDBClusterResponse")]
@@ -43,27 +45,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     )]
     public partial class ResetRDSDBClusterCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
-        
-        #region Parameter BacktrackTo
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use BacktrackToUtc instead. Setting either BacktrackTo
-        /// or BacktrackToUtc results in both BacktrackTo and BacktrackToUtc being assigned, the
-        /// latest assignment to either one of the two property is reflected in the value of both.
-        /// BacktrackTo is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para><para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
-        /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
-        /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
-        /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcBacktrackTo instead.")]
-        public System.DateTime BacktrackTo { get; set; }
-        #endregion
         
         #region Parameter UtcBacktrackTo
         /// <summary>
@@ -110,6 +91,27 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean UseEarliestTimeOnPointInTimeUnavailable { get; set; }
+        #endregion
+        
+        #region Parameter BacktrackTo
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use BacktrackToUtc instead. Setting either BacktrackTo
+        /// or BacktrackToUtc results in both BacktrackTo and BacktrackToUtc being assigned, the
+        /// latest assignment to either one of the two property is reflected in the value of both.
+        /// BacktrackTo is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para><para>The timestamp of the time to backtrack the DB cluster to, specified in ISO 8601 format.
+        /// For more information about ISO 8601, see the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601
+        /// Wikipedia page.</a></para><note><para>If the specified time is not a consistent time for the DB cluster, Aurora automatically
+        /// chooses the nearest possible consistent time for the DB cluster.</para></note><para>Constraints:</para><ul><li><para>Must contain a valid ISO 8601 timestamp.</para></li><li><para>Can't contain a timestamp set in the future.</para></li></ul><para>Example: <code>2017-07-08T18:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcBacktrackTo instead.")]
+        public System.DateTime BacktrackTo { get; set; }
         #endregion
         
         #region Parameter Force
@@ -236,9 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.BacktrackDBCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BacktrackDBClusterAsync(request);
-                return task.Result;
+                return client.BacktrackDBClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

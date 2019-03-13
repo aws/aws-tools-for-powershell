@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.SetDataRetrievalPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetDataRetrievalPolicyAsync(request);
-                return task.Result;
+                return client.SetDataRetrievalPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

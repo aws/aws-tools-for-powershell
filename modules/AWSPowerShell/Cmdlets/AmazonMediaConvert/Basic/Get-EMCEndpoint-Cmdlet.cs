@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Mode
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// Optional field, defaults to DEFAULT. Specify DEFAULT
+        /// for this operation to return your endpoints if any exist, or to create an endpoint
+        /// for you and return it if one doesn't already exist. Specify GET_ONLY to return your
+        /// endpoints if any exist, or an empty list if none exist.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -244,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.DescribeEndpoints(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEndpointsAsync(request);
-                return task.Result;
+                return client.DescribeEndpointsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// <summary>
     /// Updates engine-specific attributes on a specified server. The server enters the <code>MODIFYING</code>
     /// state when this operation is in progress. Only one update can occur at a time. You
-    /// can use this command to reset a Chef server's private key (<code>CHEF_PIVOTAL_KEY</code>)
+    /// can use this command to reset a Chef server's public key (<code>CHEF_PIVOTAL_KEY</code>)
     /// or a Puppet server's admin password (<code>PUPPET_ADMIN_PASSWORD</code>). 
     /// 
     ///  
@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 #if DESKTOP
                 return client.UpdateServerEngineAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateServerEngineAttributesAsync(request);
-                return task.Result;
+                return client.UpdateServerEngineAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

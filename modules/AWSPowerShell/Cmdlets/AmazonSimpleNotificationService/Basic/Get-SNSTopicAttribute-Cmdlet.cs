@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 #if DESKTOP
                 return client.GetTopicAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTopicAttributesAsync(request);
-                return task.Result;
+                return client.GetTopicAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -310,9 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.ListPrincipals(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListPrincipalsAsync(request);
-                return task.Result;
+                return client.ListPrincipalsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

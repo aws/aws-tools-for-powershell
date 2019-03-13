@@ -86,24 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         public System.String AccountId { get; set; }
         #endregion
         
-        #region Parameter UploadIdMarker
-        /// <summary>
-        /// <para>
-        /// <para>An opaque string used for pagination. This value specifies the upload at which the
-        /// listing of uploads should begin. Get the marker value from a previous List Uploads
-        /// response. You need only include the marker if you are continuing the pagination of
-        /// results started in a previous List Uploads request.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.Marker, for subsequent calls, to this parameter.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
-        public System.String UploadIdMarker { get; set; }
-        #endregion
-        
         #region Parameter VaultName
         /// <summary>
         /// <para>
@@ -127,6 +109,24 @@ namespace Amazon.PowerShell.Cmdlets.GLC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int Limit { get; set; }
+        #endregion
+        
+        #region Parameter UploadIdMarker
+        /// <summary>
+        /// <para>
+        /// <para>An opaque string used for pagination. This value specifies the upload at which the
+        /// listing of uploads should begin. Get the marker value from a previous List Uploads
+        /// response. You need only include the marker if you are continuing the pagination of
+        /// results started in a previous List Uploads request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.Marker, for subsequent calls, to this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String UploadIdMarker { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -303,9 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.ListMultipartUploads(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListMultipartUploadsAsync(request);
-                return task.Result;
+                return client.ListMultipartUploadsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

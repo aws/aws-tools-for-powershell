@@ -272,9 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.DescribeAgents(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAgentsAsync(request);
-                return task.Result;
+                return client.DescribeAgentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

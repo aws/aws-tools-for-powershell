@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
                 #if DESKTOP
                 return client.GetLexicon(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetLexiconAsync(request);
-                return task.Result;
+                return client.GetLexiconAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

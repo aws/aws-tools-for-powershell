@@ -41,20 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
     public partial class GetSCResourcesForTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to return with this call.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
-        #endregion
-        
         #region Parameter ResourceType
         /// <summary>
         /// <para>
@@ -73,6 +59,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String TagOptionId { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to return with this call.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -227,9 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListResourcesForTagOption(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListResourcesForTagOptionAsync(request);
-                return task.Result;
+                return client.ListResourcesForTagOptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

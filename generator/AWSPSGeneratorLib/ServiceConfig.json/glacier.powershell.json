@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "GLC",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -92,15 +91,9 @@
         "confirmationMessageNoun": "MultipartUpload",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UploadId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UploadId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -138,15 +131,9 @@
         "confirmationMessageNoun": "VaultLock",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -184,15 +171,9 @@
         "confirmationMessageNoun": "TagsToVault",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -230,15 +211,9 @@
         "confirmationMessageNoun": "VaultLock",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LockId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LockId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -276,15 +251,9 @@
         "confirmationMessageNoun": "Vault",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -322,15 +291,9 @@
         "confirmationMessageNoun": "Archive",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ArchiveId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ArchiveId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -368,15 +331,9 @@
         "confirmationMessageNoun": "Vault",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -414,15 +371,9 @@
         "confirmationMessageNoun": "VaultAccessPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -460,15 +411,9 @@
         "confirmationMessageNoun": "VaultNotifications",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -506,7 +451,6 @@
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -547,7 +491,6 @@
         "confirmationMessageNoun": "Vault",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -588,7 +531,6 @@
         "confirmationMessageNoun": "DataRetrievalPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -629,7 +571,6 @@
         "confirmationMessageNoun": "VaultAccessPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -670,7 +611,6 @@
         "confirmationMessageNoun": "VaultLock",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -711,7 +651,6 @@
         "confirmationMessageNoun": "VaultNotifications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -732,9 +671,7 @@
         {
           "originalName": "JobParameters_Description",
           "replacementName": "JobDescription",
-          "aliases": [
-            "JobParameters_Description"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -742,9 +679,7 @@
         {
           "originalName": "JobParameters_ArchiveId",
           "replacementName": "ArchiveId",
-          "aliases": [
-            "JobParameters_ArchiveId"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -752,9 +687,7 @@
         {
           "originalName": "JobParameters_Format",
           "replacementName": "OutputFormat",
-          "aliases": [
-            "JobParameters_Format"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -762,9 +695,7 @@
         {
           "originalName": "JobParameters_InventoryRetrievalParameters",
           "replacementName": "InventoryRetrieval",
-          "aliases": [
-            "JobParameters_InventoryRetrievalParameters"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -772,9 +703,7 @@
         {
           "originalName": "JobParameters_OutputLocation",
           "replacementName": "OutputLocation",
-          "aliases": [
-            "JobParameters_OutputLocation"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -782,9 +711,7 @@
         {
           "originalName": "JobParameters_RetrievalByteRange",
           "replacementName": "RetrievalByteRange",
-          "aliases": [
-            "JobParameters_RetrievalByteRange"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -792,9 +719,7 @@
         {
           "originalName": "JobParameters_SelectParameters",
           "replacementName": "Select",
-          "aliases": [
-            "JobParameters_SelectParameters"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -802,9 +727,7 @@
         {
           "originalName": "JobParameters_SNSTopic",
           "replacementName": "SNSTopic",
-          "aliases": [
-            "JobParameters_SNSTopic"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -812,9 +735,7 @@
         {
           "originalName": "JobParameters_Tier",
           "replacementName": "Tier",
-          "aliases": [
-            "JobParameters_Tier"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -822,9 +743,7 @@
         {
           "originalName": "JobParameters_Type",
           "replacementName": "JobType",
-          "aliases": [
-            "JobParameters_Type"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -853,15 +772,9 @@
         "confirmationMessageNoun": "Job",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -899,15 +812,9 @@
         "confirmationMessageNoun": "VaultLock",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -945,7 +852,6 @@
         "confirmationMessageNoun": "Jobs",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1002,7 +908,6 @@
         "confirmationMessageNoun": "MultipartUploads",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1051,7 +956,6 @@
         "confirmationMessageNoun": "ProvisionedCapacity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1092,7 +996,6 @@
         "confirmationMessageNoun": "TagsForVault",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1133,7 +1036,6 @@
         "confirmationMessageNoun": "Vaults",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1182,15 +1084,9 @@
         "confirmationMessageNoun": "ProvisionedCapacity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AccountId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1228,15 +1124,9 @@
         "confirmationMessageNoun": "TagsFromVault",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1274,15 +1164,9 @@
         "confirmationMessageNoun": "DataRetrievalPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AccountId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AccountId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1320,15 +1204,9 @@
         "confirmationMessageNoun": "VaultAccessPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1366,15 +1244,9 @@
         "confirmationMessageNoun": "VaultNotifications",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VaultName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VaultName"
-        },
         "memoryStreamParameters": []
       }
     }

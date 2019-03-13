@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
                 #if DESKTOP
                 return client.DeleteAppLaunchConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteAppLaunchConfigurationAsync(request);
-                return task.Result;
+                return client.DeleteAppLaunchConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

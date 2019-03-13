@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.DeleteJobTemplate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteJobTemplateAsync(request);
-                return task.Result;
+                return client.DeleteJobTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

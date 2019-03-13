@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// 
     ///  
     /// <para>
-    /// For more information about AWS DMS tasks, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
+    /// For more information about AWS DMS tasks, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html">Working
     /// with Migration Tasks </a> in the <i>AWS Database Migration Service User Guide.</i></para>
     /// </summary>
     [Cmdlet("Start", "DMSReplicationTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.StartReplicationTask(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartReplicationTaskAsync(request);
-                return task.Result;
+                return client.StartReplicationTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.AdminConfirmSignUp(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AdminConfirmSignUpAsync(request);
-                return task.Result;
+                return client.AdminConfirmSignUpAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

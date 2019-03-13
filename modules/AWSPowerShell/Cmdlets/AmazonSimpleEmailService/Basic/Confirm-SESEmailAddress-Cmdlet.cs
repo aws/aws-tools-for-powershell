@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.VerifyEmailAddress(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.VerifyEmailAddressAsync(request);
-                return task.Result;
+                return client.VerifyEmailAddressAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

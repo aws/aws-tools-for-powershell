@@ -235,9 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 #if DESKTOP
                 return client.DescribeDBSubnetGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDBSubnetGroupsAsync(request);
-                return task.Result;
+                return client.DescribeDBSubnetGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

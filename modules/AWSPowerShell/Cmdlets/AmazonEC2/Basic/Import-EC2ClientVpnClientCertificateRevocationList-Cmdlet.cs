@@ -50,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CertificateRevocationList
         /// <summary>
         /// <para>
-        /// <para>The client certificate revocation list file. For more information, see <a href="vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate
-        /// a Client Certificate Revocation List</a> in the <i>AWS Client VPN Admin Guide</i>.</para>
+        /// <para>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate
+        /// a Client Certificate Revocation List</a> in the <i>AWS Client VPN Administrator Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -166,9 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ImportClientVpnClientCertificateRevocationList(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ImportClientVpnClientCertificateRevocationListAsync(request);
-                return task.Result;
+                return client.ImportClientVpnClientCertificateRevocationListAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

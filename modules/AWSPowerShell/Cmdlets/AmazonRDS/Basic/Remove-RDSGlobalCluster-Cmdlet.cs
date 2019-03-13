@@ -29,7 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Deletes a global database cluster. The primary and secondary clusters must already
-    /// be detached or destroyed first.
+    /// be detached or destroyed first. 
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.GlobalCluster")]
@@ -143,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DeleteGlobalCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteGlobalClusterAsync(request);
-                return task.Result;
+                return client.DeleteGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
                 #if DESKTOP
                 return client.PutApplicationPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutApplicationPolicyAsync(request);
-                return task.Result;
+                return client.PutApplicationPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

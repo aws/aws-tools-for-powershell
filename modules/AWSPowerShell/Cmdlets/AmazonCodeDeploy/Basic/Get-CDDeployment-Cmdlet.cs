@@ -29,6 +29,13 @@ namespace Amazon.PowerShell.Cmdlets.CD
 {
     /// <summary>
     /// Gets information about a deployment.
+    /// 
+    ///  <note><para>
+    ///  The <code>content</code> property of the <code>appSpecContent</code> object in the
+    /// returned revision is always null. Use <code>GetApplicationRevision</code> and the
+    /// <code>sha256</code> property of the returned <code>appSpecContent</code> object to
+    /// get the content of the deployment’s AppSpec file. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CDDeployment")]
     [OutputType("Amazon.CodeDeploy.Model.DeploymentInfo")]
@@ -126,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.GetDeployment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDeploymentAsync(request);
-                return task.Result;
+                return client.GetDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

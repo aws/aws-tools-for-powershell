@@ -248,9 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 #if DESKTOP
                 return client.ListMembers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListMembersAsync(request);
-                return task.Result;
+                return client.ListMembersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

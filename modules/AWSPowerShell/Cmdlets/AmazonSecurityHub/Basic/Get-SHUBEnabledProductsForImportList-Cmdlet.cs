@@ -228,9 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 #if DESKTOP
                 return client.ListEnabledProductsForImport(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListEnabledProductsForImportAsync(request);
-                return task.Result;
+                return client.ListEnabledProductsForImportAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

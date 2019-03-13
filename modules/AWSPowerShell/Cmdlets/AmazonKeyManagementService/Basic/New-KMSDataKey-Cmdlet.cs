@@ -273,9 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.GenerateDataKey(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GenerateDataKeyAsync(request);
-                return task.Result;
+                return client.GenerateDataKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

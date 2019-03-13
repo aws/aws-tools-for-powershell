@@ -236,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 #if DESKTOP
                 return client.GetLifecyclePolicyPreview(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetLifecyclePolicyPreviewAsync(request);
-                return task.Result;
+                return client.GetLifecyclePolicyPreviewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

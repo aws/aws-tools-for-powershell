@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter SkillGroupArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the skill group for which to list enabled skills.</para>
+        /// <para>The ARN of the skill group for which to list enabled skills. Required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>The maximum number of results to include in the response. If more results exist than
         /// the specified <code>MaxResults</code> value, a token is included in the response so
-        /// that the remaining results can be retrieved.</para>
+        /// that the remaining results can be retrieved. Required.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         /// <para>
         /// <para>An optional token returned from a prior request. Use this token for pagination of
         /// results from this action. If this parameter is specified, the response includes only
-        /// results beyond the token, up to the value specified by <code>MaxResults</code>.</para>
+        /// results beyond the token, up to the value specified by <code>MaxResults</code>. Required.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -277,9 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.ListSkills(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListSkillsAsync(request);
-                return task.Result;
+                return client.ListSkillsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

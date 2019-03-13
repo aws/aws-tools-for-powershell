@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.ListAllowedNodeTypeModifications(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAllowedNodeTypeModificationsAsync(request);
-                return task.Result;
+                return client.ListAllowedNodeTypeModificationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

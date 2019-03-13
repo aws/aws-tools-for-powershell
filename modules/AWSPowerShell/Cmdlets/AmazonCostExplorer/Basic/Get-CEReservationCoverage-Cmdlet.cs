@@ -113,7 +113,8 @@ namespace Amazon.PowerShell.Cmdlets.CE
         #region Parameter Metric
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The measurement that you want your reservation coverage reported in.</para><para>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You
+        /// can use multiple values in a request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -255,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 #if DESKTOP
                 return client.GetReservationCoverage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetReservationCoverageAsync(request);
-                return task.Result;
+                return client.GetReservationCoverageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

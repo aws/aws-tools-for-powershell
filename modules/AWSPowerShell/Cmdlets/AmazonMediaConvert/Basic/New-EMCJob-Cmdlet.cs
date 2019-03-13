@@ -44,7 +44,11 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter BillingTagsSource
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// Optional. Choose a tag type that AWS
+        /// Billing and Cost Management will use to sort your AWS Elemental MediaConvert costs
+        /// on any billing report that you set up. Any transcoding outputs that don't have an
+        /// associated tag will appear in your billing report unsorted. If you don't choose a
+        /// valid value for this field, your job outputs will appear on the billing report unsorted.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,12 +115,28 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Setting
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// JobSettings contains all the transcode settings
+        /// for a job.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Settings")]
         public Amazon.MediaConvert.Model.JobSettings Setting { get; set; }
+        #endregion
+        
+        #region Parameter StatusUpdateInterval
+        /// <summary>
+        /// <para>
+        /// Specify how often MediaConvert sends
+        /// STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between
+        /// status updates. MediaConvert sends an update at this interval from the time the service
+        /// begins processing your job to the time it completes the transcode or encounters an
+        /// error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.StatusUpdateInterval")]
+        public Amazon.MediaConvert.StatusUpdateInterval StatusUpdateInterval { get; set; }
         #endregion
         
         #region Parameter UserMetadata
@@ -166,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.Queue = this.Queue;
             context.Role = this.Role;
             context.Settings = this.Setting;
+            context.StatusUpdateInterval = this.StatusUpdateInterval;
             if (this.UserMetadata != null)
             {
                 context.UserMetadata = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -233,6 +254,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             {
                 request.Settings = cmdletContext.Settings;
             }
+            if (cmdletContext.StatusUpdateInterval != null)
+            {
+                request.StatusUpdateInterval = cmdletContext.StatusUpdateInterval;
+            }
             if (cmdletContext.UserMetadata != null)
             {
                 request.UserMetadata = cmdletContext.UserMetadata;
@@ -279,9 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.CreateJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateJobAsync(request);
-                return task.Result;
+                return client.CreateJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -308,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public System.String Queue { get; set; }
             public System.String Role { get; set; }
             public Amazon.MediaConvert.Model.JobSettings Settings { get; set; }
+            public Amazon.MediaConvert.StatusUpdateInterval StatusUpdateInterval { get; set; }
             public Dictionary<System.String, System.String> UserMetadata { get; set; }
         }
         

@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AssignIpv6Addresses(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssignIpv6AddressesAsync(request);
-                return task.Result;
+                return client.AssignIpv6AddressesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

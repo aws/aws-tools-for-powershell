@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.AcceptCertificateTransfer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AcceptCertificateTransferAsync(request);
-                return task.Result;
+                return client.AcceptCertificateTransferAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

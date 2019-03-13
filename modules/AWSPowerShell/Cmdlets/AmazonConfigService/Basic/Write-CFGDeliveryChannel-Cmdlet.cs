@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots
         /// and configuration history files.</para><para>If you specify a bucket that belongs to another AWS account, that bucket must have
-        /// policies that grant access permissions to AWS Config. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
+        /// policies that grant access permissions to AWS Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html">Permissions
         /// for the Amazon S3 Bucket</a> in the AWS Config Developer Guide.</para>
         /// </para>
         /// </summary>
@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications
         /// about configuration changes.</para><para>If you choose a topic from another account, the topic must have policies that grant
-        /// access permissions to AWS Config. For more information, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
+        /// access permissions to AWS Config. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html">Permissions
         /// for the Amazon SNS Topic</a> in the AWS Config Developer Guide.</para>
         /// </para>
         /// </summary>
@@ -294,9 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.PutDeliveryChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutDeliveryChannelAsync(request);
-                return task.Result;
+                return client.PutDeliveryChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

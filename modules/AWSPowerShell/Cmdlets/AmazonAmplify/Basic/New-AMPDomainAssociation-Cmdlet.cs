@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.AMP
                 #if DESKTOP
                 return client.CreateDomainAssociation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDomainAssociationAsync(request);
-                return task.Result;
+                return client.CreateDomainAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

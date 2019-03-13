@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
                 #if DESKTOP
                 return client.ListCertificateAuthorities(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListCertificateAuthoritiesAsync(request);
-                return task.Result;
+                return client.ListCertificateAuthoritiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

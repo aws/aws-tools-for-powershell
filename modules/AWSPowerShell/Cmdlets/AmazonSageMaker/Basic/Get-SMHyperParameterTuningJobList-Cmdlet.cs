@@ -358,9 +358,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.ListHyperParameterTuningJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListHyperParameterTuningJobsAsync(request);
-                return task.Result;
+                return client.ListHyperParameterTuningJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

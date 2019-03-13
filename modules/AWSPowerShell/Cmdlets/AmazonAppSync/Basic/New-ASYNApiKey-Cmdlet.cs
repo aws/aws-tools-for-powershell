@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.ASYN
                 #if DESKTOP
                 return client.CreateApiKey(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateApiKeyAsync(request);
-                return task.Result;
+                return client.CreateApiKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

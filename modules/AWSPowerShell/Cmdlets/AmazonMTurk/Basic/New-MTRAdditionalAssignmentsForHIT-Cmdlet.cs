@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 #if DESKTOP
                 return client.CreateAdditionalAssignmentsForHIT(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAdditionalAssignmentsForHITAsync(request);
-                return task.Result;
+                return client.CreateAdditionalAssignmentsForHITAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

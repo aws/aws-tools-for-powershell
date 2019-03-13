@@ -101,6 +101,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int32 NumTapesToCreate { get; set; }
         #endregion
         
+        #region Parameter PoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
+        /// pool is archived in the S3 storage class you chose when you created the tape. When
+        /// you use your backup application to eject the tape, the tape is archived directly into
+        /// the storage class (Glacier or Deep Archive).</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PoolId { get; set; }
+        #endregion
+        
         #region Parameter TapeBarcodePrefix
         /// <summary>
         /// <para>
@@ -159,6 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.KMSKey = this.KMSKey;
             if (ParameterWasBound("NumTapesToCreate"))
                 context.NumTapesToCreate = this.NumTapesToCreate;
+            context.PoolId = this.PoolId;
             context.TapeBarcodePrefix = this.TapeBarcodePrefix;
             if (ParameterWasBound("TapeSizeInBytes"))
                 context.TapeSizeInBytes = this.TapeSizeInBytes;
@@ -197,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.NumTapesToCreate != null)
             {
                 request.NumTapesToCreate = cmdletContext.NumTapesToCreate.Value;
+            }
+            if (cmdletContext.PoolId != null)
+            {
+                request.PoolId = cmdletContext.PoolId;
             }
             if (cmdletContext.TapeBarcodePrefix != null)
             {
@@ -248,9 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateTapes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateTapesAsync(request);
-                return task.Result;
+                return client.CreateTapesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,6 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
             public System.Int32? NumTapesToCreate { get; set; }
+            public System.String PoolId { get; set; }
             public System.String TapeBarcodePrefix { get; set; }
             public System.Int64? TapeSizeInBytes { get; set; }
         }

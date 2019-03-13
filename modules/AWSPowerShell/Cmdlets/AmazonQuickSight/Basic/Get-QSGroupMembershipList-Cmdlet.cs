@@ -281,9 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 #if DESKTOP
                 return client.ListGroupMemberships(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListGroupMembershipsAsync(request);
-                return task.Result;
+                return client.ListGroupMembershipsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which to list routes.</para>
+        /// <para>The name of the service mesh to list routes in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter VirtualRouterName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual router in which to list routes.</para>
+        /// <para>The name of the virtual router to list routes in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -64,13 +64,13 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of mesh results returned by <code>ListRoutes</code> in paginated
-        ///         output. When this parameter is used, <code>ListRoutes</code> only returns
-        ///            <code>limit</code> results in a single page along with a <code>nextToken</code>
-        /// response         element. The remaining results of the initial request can be seen
-        /// by sending another            <code>ListRoutes</code> request with the returned <code>nextToken</code>
-        /// value. This         value can be between 1 and 100. If this parameter is not     
-        ///    used, then <code>ListRoutes</code> returns up to 100 results and a            <code>nextToken</code>
+        /// <para>The maximum number of results returned by <code>ListRoutes</code> in paginated output.
+        ///         When you use this parameter, <code>ListRoutes</code> returns only <code>limit</code>
+        ///         results in a single page along with a <code>nextToken</code> response element.
+        /// You can see the         remaining results of the initial request by sending another
+        ///            <code>ListRoutes</code> request with the returned <code>nextToken</code>
+        /// value. This         value can be between 1 and 100. If you don't use this parameter,
+        ///         <code>ListRoutes</code> returns up to 100 results and a            <code>nextToken</code>
         /// value if applicable.</para>
         /// </para>
         /// <para>
@@ -265,9 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.ListRoutes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListRoutesAsync(request);
-                return task.Result;
+                return client.ListRoutesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -332,9 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.ReceiveMessage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReceiveMessageAsync(request);
-                return task.Result;
+                return client.ReceiveMessageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

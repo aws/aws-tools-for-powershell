@@ -66,7 +66,7 @@
         <ServiceOperation MethodName="DeleteApi" Output="Void" Verb="Remove" Noun="Api" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteApiMapping" Output="Void" Verb="Remove" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteApiMapping" Output="Void" Verb="Remove" Noun="ApiMapping" ShouldProcessTarget="ApiMappingId" PipelineParameter="ApiMappingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAuthorizer" Output="Void" Verb="Remove" Noun="Authorizer" ShouldProcessTarget="AuthorizerId" PipelineParameter="ApiId" NoPipelineParameter="false">
@@ -99,7 +99,7 @@
         <ServiceOperation MethodName="GetApi" Output="Response" Verb="Get" Noun="Api" PipelineParameter="ApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetApiMapping" Output="Response" Verb="Get" Noun="ApiMapping" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetApiMapping" Output="Response" Verb="Get" Noun="ApiMapping" PipelineParameter="ApiMappingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetApiMappings" Output="Response" Verb="Get" Noun="ApiMappingList" Exclude="true" ShouldProcessTarget="" PipelineParameter="DomainName" NoPipelineParameter="false">

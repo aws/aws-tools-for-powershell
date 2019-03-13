@@ -236,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.ListEntitlements(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListEntitlementsAsync(request);
-                return task.Result;
+                return client.ListEntitlementsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

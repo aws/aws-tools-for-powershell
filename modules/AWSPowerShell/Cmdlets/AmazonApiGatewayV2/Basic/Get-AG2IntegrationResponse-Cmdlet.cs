@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter IntegrationResponseId
         /// <summary>
         /// <para>
-        /// <para>The integration response ID.</para>
+        /// The integration response ID.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.GetIntegrationResponse(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetIntegrationResponseAsync(request);
-                return task.Result;
+                return client.GetIntegrationResponseAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 #if DESKTOP
                 return client.AddApplicationCloudWatchLoggingOption(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddApplicationCloudWatchLoggingOptionAsync(request);
-                return task.Result;
+                return client.AddApplicationCloudWatchLoggingOptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

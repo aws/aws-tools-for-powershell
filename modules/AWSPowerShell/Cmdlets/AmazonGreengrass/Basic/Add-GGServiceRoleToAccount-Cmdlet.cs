@@ -145,9 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.AssociateServiceRoleToAccount(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateServiceRoleToAccountAsync(request);
-                return task.Result;
+                return client.AssociateServiceRoleToAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

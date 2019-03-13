@@ -215,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.BAK
                 #if DESKTOP
                 return client.ListRecoveryPointsByResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListRecoveryPointsByResourceAsync(request);
-                return task.Result;
+                return client.ListRecoveryPointsByResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

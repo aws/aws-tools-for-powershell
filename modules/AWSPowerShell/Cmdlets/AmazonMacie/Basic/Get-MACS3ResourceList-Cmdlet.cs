@@ -248,9 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.MAC
                 #if DESKTOP
                 return client.ListS3Resources(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListS3ResourcesAsync(request);
-                return task.Result;
+                return client.ListS3ResourcesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

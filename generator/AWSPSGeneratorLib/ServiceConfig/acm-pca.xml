@@ -26,7 +26,13 @@
         <ServiceOperation MethodName="CreateCertificateAuthorityAuditReport" Output="Response" Verb="New" Noun="CertificateAuthorityAuditReport" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePermission" Output="Void" Verb="New" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteCertificateAuthority" Output="Void" Verb="Remove" Noun="CertificateAuthority" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePermission" Output="Void" Verb="Remove" Noun="Permission" ShouldProcessTarget="CertificateAuthorityArn" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeCertificateAuthority" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthority" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
@@ -51,6 +57,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListCertificateAuthorities" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthorityList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPermissions" Output="DefaultSingleMember" Verb="Get" Noun="PermissionList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="CertificateAuthorityTagList" PipelineParameter="CertificateAuthorityArn" NoPipelineParameter="false">

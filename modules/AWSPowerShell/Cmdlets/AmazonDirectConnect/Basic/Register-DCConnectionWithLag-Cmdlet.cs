@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the connection. For example, dxcon-abc123.</para>
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG with which to associate the connection. For example, dxlag-abc123.</para>
+        /// <para>The ID of the LAG with which to associate the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.AssociateConnectionWithLag(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateConnectionWithLagAsync(request);
-                return task.Result;
+                return client.AssociateConnectionWithLagAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

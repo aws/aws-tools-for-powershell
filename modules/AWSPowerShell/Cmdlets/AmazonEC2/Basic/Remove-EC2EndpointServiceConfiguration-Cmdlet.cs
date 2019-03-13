@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DeleteVpcEndpointServiceConfigurations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVpcEndpointServiceConfigurationsAsync(request);
-                return task.Result;
+                return client.DeleteVpcEndpointServiceConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

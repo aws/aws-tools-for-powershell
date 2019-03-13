@@ -267,9 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.FSX
                 #if DESKTOP
                 return client.CreateFileSystemFromBackup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateFileSystemFromBackupAsync(request);
-                return task.Result;
+                return client.CreateFileSystemFromBackupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

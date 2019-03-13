@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 #if DESKTOP
                 return client.BatchUnsuspendUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchUnsuspendUserAsync(request);
-                return task.Result;
+                return client.BatchUnsuspendUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

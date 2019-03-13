@@ -236,7 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// Cognito updates mapped attributes when users sign in to your application through an
         /// identity provider. If your app client lacks write access to a mapped attribute, Amazon
         /// Cognito throws an error when it attempts to update the attribute. For more information,
-        /// see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying
+        /// see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying
         /// Identity Provider Attribute Mappings for Your User Pool</a>.</para>
         /// </para>
         /// </summary>
@@ -483,9 +483,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.CreateUserPoolClient(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateUserPoolClientAsync(request);
-                return task.Result;
+                return client.CreateUserPoolClientAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "ELB",
-    "positionalMemberNames": [
-      "LoadBalancerName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -95,15 +92,9 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.Tag",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerNames"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -143,15 +134,9 @@
         "confirmationMessageNoun": "SecurityGroupsToLoadBalancer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -191,15 +176,9 @@
         "confirmationMessageNoun": "LoadBalancerToSubnets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -237,15 +216,9 @@
         "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -286,15 +259,9 @@
         "confirmationMessageNoun": "AppCookieStickinessPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -335,15 +302,9 @@
         "confirmationMessageNoun": "LBCookieStickinessPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -384,15 +345,9 @@
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -435,15 +390,9 @@
         "confirmationMessageNoun": "LoadBalancerListeners",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.Listeners",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.Listener",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -485,15 +434,9 @@
         "confirmationMessageNoun": "LoadBalancerPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -531,15 +474,9 @@
         "confirmationMessageNoun": "LoadBalancer",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -579,15 +516,9 @@
         "confirmationMessageNoun": "LoadBalancerListeners",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerPorts"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -627,15 +558,9 @@
         "confirmationMessageNoun": "LoadBalancerPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -675,15 +600,9 @@
         "confirmationMessageNoun": "InstancesFromLoadBalancer",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Instances"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -719,7 +638,6 @@
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -769,7 +687,6 @@
         "confirmationMessageNoun": "InstanceHealth",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -810,7 +727,6 @@
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -853,7 +769,6 @@
         "confirmationMessageNoun": "LoadBalancerPolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -894,7 +809,6 @@
         "confirmationMessageNoun": "LoadBalancerPolicyTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -935,7 +849,6 @@
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -983,7 +896,6 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1026,15 +938,9 @@
         "confirmationMessageNoun": "LoadBalancerFromSubnets",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1074,15 +980,9 @@
         "confirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1122,15 +1022,9 @@
         "confirmationMessageNoun": "AvailabilityZonesForLoadBalancer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1147,9 +1041,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "LoadBalancerAttributes"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1170,15 +1062,9 @@
         "confirmationMessageNoun": "LoadBalancerAttributes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1218,15 +1104,9 @@
         "confirmationMessageNoun": "InstancesWithLoadBalancer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1269,15 +1149,9 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.ElasticLoadBalancing.Model.TagKeyOnly",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Tags"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1318,15 +1192,9 @@
         "confirmationMessageNoun": "LoadBalancerListenerSSLCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1367,15 +1235,9 @@
         "confirmationMessageNoun": "LoadBalancerPoliciesForBackendServer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1416,15 +1278,9 @@
         "confirmationMessageNoun": "LoadBalancerPoliciesOfListener",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerName"
-        },
         "memoryStreamParameters": []
       }
     }

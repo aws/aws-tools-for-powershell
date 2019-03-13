@@ -39,8 +39,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// DB cluster restore point with the same configuration as the original source DB cluster,
     /// except that the new DB cluster is created with the default security group.
     /// </para><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para>
+    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -87,6 +89,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 BacktrackWindow { get; set; }
+        #endregion
+        
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para>True to copy all tags from the restored DB cluster to snapshots of the restored DB
+        /// cluster, and otherwise false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         #endregion
         
         #region Parameter DatabaseName
@@ -148,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.
         /// The values in the list depend on the DB engine being used. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs </a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -340,6 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             }
             if (ParameterWasBound("BacktrackWindow"))
                 context.BacktrackWindow = this.BacktrackWindow;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DatabaseName = this.DatabaseName;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
@@ -399,6 +414,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BacktrackWindow != null)
             {
                 request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DatabaseName != null)
             {
@@ -555,9 +574,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.RestoreDBClusterFromSnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreDBClusterFromSnapshotAsync(request);
-                return task.Result;
+                return client.RestoreDBClusterFromSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -579,6 +596,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public List<System.String> AvailabilityZones { get; set; }
             public System.Int64? BacktrackWindow { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DatabaseName { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }

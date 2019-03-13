@@ -220,9 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 #if DESKTOP
                 return client.UpdateContactAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateContactAttributesAsync(request);
-                return task.Result;
+                return client.UpdateContactAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

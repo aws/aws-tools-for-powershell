@@ -212,9 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
                 #if DESKTOP
                 return client.GetReplicationJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetReplicationJobsAsync(request);
-                return task.Result;
+                return client.GetReplicationJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

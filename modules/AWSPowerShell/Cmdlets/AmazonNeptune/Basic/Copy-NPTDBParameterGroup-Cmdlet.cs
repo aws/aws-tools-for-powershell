@@ -194,9 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.CopyDBParameterGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CopyDBParameterGroupAsync(request);
-                return task.Result;
+                return client.CopyDBParameterGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

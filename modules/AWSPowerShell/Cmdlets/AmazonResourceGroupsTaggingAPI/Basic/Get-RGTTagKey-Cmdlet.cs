@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
                 #if DESKTOP
                 return client.GetTagKeys(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTagKeysAsync(request);
-                return task.Result;
+                return client.GetTagKeysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

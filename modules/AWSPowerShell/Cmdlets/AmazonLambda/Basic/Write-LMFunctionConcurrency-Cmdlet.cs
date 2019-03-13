@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 #if DESKTOP
                 return client.PutFunctionConcurrency(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutFunctionConcurrencyAsync(request);
-                return task.Result;
+                return client.PutFunctionConcurrencyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

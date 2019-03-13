@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public Amazon.ServiceCatalog.OrganizationNodeType OrganizationNodeType { get; set; }
         #endregion
         
+        #region Parameter PortfolioId
+        /// <summary>
+        /// <para>
+        /// <para>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PortfolioId { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -76,16 +86,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter PortfolioId
-        /// <summary>
-        /// <para>
-        /// <para>The portfolio identifier. For example, <code>port-2abcdext3y5fk</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String PortfolioId { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -245,9 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListOrganizationPortfolioAccess(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListOrganizationPortfolioAccessAsync(request);
-                return task.Result;
+                return client.ListOrganizationPortfolioAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -41,23 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEDedicatedIpListCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
-        /// If the number of results is larger than the number you specified in this parameter,
-        /// then the response includes a <code>NextToken</code> element, which you can use to
-        /// obtain additional results.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
-        #endregion
-        
         #region Parameter PoolName
         /// <summary>
         /// <para>
@@ -81,6 +64,23 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>.
+        /// If the number of results is larger than the number you specified in this parameter,
+        /// then the response includes a <code>NextToken</code> element, which you can use to
+        /// obtain additional results.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.GetDedicatedIps(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDedicatedIpsAsync(request);
-                return task.Result;
+                return client.GetDedicatedIpsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

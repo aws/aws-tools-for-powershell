@@ -143,9 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 #if DESKTOP
                 return client.DeleteDBInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDBInstanceAsync(request);
-                return task.Result;
+                return client.DeleteDBInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

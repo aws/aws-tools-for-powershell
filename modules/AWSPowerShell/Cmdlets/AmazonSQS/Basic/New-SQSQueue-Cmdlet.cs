@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// are treated as duplicates and only one copy of the message is delivered. </para></li></ul></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 1)]
         [Alias("Attributes")]
         public System.Collections.Hashtable Attribute { get; set; }
         #endregion
@@ -259,9 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.CreateQueue(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateQueueAsync(request);
-                return task.Result;
+                return client.CreateQueueAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

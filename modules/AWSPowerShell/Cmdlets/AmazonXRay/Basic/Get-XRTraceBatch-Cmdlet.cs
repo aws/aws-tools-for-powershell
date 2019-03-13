@@ -146,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 #if DESKTOP
                 return client.BatchGetTraces(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetTracesAsync(request);
-                return task.Result;
+                return client.BatchGetTracesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

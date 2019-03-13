@@ -128,9 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.DescribeEntitiesDetectionJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEntitiesDetectionJobAsync(request);
-                return task.Result;
+                return client.DescribeEntitiesDetectionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

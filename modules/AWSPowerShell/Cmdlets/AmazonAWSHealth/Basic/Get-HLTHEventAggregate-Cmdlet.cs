@@ -563,9 +563,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
                 #if DESKTOP
                 return client.DescribeEventAggregates(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEventAggregatesAsync(request);
-                return task.Result;
+                return client.DescribeEventAggregatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -72,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String NameQuery { get; set; }
         #endregion
         
+        #region Parameter Position
+        /// <summary>
+        /// <para>
+        /// <para>The current pagination position in the paged result set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Position { get; set; }
+        #endregion
+        
         #region Parameter Limit
         /// <summary>
         /// <para>
@@ -81,16 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Limit { get; set; }
-        #endregion
-        
-        #region Parameter Position
-        /// <summary>
-        /// <para>
-        /// <para>The current pagination position in the paged result set.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Position { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.GetApiKeys(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetApiKeysAsync(request);
-                return task.Result;
+                return client.GetApiKeysAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

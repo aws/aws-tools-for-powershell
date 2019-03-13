@@ -133,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                 #if DESKTOP
                 return client.GetCognitoEvents(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetCognitoEventsAsync(request);
-                return task.Result;
+                return client.GetCognitoEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

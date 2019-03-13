@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.DisableKeyRotation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableKeyRotationAsync(request);
-                return task.Result;
+                return client.DisableKeyRotationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

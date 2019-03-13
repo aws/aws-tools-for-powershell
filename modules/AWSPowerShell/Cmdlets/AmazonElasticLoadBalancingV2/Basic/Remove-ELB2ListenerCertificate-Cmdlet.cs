@@ -181,9 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.RemoveListenerCertificates(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveListenerCertificatesAsync(request);
-                return task.Result;
+                return client.RemoveListenerCertificatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

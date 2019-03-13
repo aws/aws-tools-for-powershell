@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Deletes a custom endpoint and removes it from an Amazon Aurora DB cluster.
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSDBClusterEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DeleteDBClusterEndpointResponse")]
@@ -142,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DeleteDBClusterEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDBClusterEndpointAsync(request);
-                return task.Result;
+                return client.DeleteDBClusterEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

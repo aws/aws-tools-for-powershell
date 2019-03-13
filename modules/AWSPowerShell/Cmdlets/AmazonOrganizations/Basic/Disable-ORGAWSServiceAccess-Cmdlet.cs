@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.DisableAWSServiceAccess(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableAWSServiceAccessAsync(request);
-                return task.Result;
+                return client.DisableAWSServiceAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

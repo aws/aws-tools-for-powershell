@@ -238,9 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                 #if DESKTOP
                 return client.ListDatasets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListDatasetsAsync(request);
-                return task.Result;
+                return client.ListDatasetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

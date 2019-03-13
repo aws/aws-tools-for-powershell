@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "AS",
-    "positionalMemberNames": [
-      "AutoScalingGroupName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -103,15 +100,9 @@
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.InstanceIds",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -128,7 +119,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "AutoScalingGroupName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -149,15 +142,9 @@
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerNames"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -195,15 +182,9 @@
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -241,15 +222,9 @@
         "confirmationMessageNoun": "DeleteScheduledAction",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -287,15 +262,9 @@
         "confirmationMessageNoun": "PutScheduledUpdateGroupAction",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -333,15 +302,9 @@
         "confirmationMessageNoun": "LifecycleAction",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -383,15 +346,9 @@
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -433,15 +390,9 @@
         "confirmationMessageNoun": "LaunchConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LaunchConfigurationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LaunchConfigurationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -482,15 +433,9 @@
         "confirmationMessageNoun": "OrUpdateTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Config override: cmdletContext.Tags",
         "passThruTypeName": "Amazon.AutoScaling.Model.Tag",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Tags"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -528,15 +473,9 @@
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -574,15 +513,9 @@
         "confirmationMessageNoun": "LaunchConfiguration",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LaunchConfigurationName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LaunchConfigurationName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -620,15 +553,9 @@
         "confirmationMessageNoun": "LifecycleHook",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LifecycleHookName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -668,15 +595,9 @@
         "confirmationMessageNoun": "NotificationConfiguration",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TopicARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -727,15 +648,9 @@
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -775,15 +690,9 @@
         "confirmationMessageNoun": "ScheduledAction",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ScheduledActionName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -821,15 +730,9 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: Tag",
         "passThruTypeName": "Amazon.AutoScaling.Model.Tag",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Tags"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -865,7 +768,6 @@
         "confirmationMessageNoun": "AccountLimits",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -904,7 +806,6 @@
         "confirmationMessageNoun": "AdjustmentTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -945,7 +846,6 @@
         "confirmationMessageNoun": "AutoScalingGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -993,7 +893,6 @@
         "confirmationMessageNoun": "AutoScalingInstances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1039,7 +938,6 @@
         "confirmationMessageNoun": "AutoScalingNotificationTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1080,7 +978,6 @@
         "confirmationMessageNoun": "LaunchConfigurations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1130,7 +1027,6 @@
         "confirmationMessageNoun": "LifecycleHooks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1169,7 +1065,6 @@
         "confirmationMessageNoun": "LifecycleHookTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1210,7 +1105,6 @@
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1258,7 +1152,6 @@
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1304,7 +1197,6 @@
         "confirmationMessageNoun": "MetricCollectionTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1345,7 +1237,6 @@
         "confirmationMessageNoun": "NotificationConfigurations",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1395,7 +1286,6 @@
         "confirmationMessageNoun": "Policies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1445,7 +1335,6 @@
         "confirmationMessageNoun": "ScalingActivities",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1491,7 +1380,6 @@
         "confirmationMessageNoun": "ScalingProcessTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1565,7 +1453,6 @@
         "confirmationMessageNoun": "ScheduledActions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1613,7 +1500,6 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1659,7 +1545,6 @@
         "confirmationMessageNoun": "TerminationPolicyTypes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1702,15 +1587,9 @@
         "confirmationMessageNoun": "Instances",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1727,7 +1606,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "AutoScalingGroupName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1748,15 +1629,9 @@
         "confirmationMessageNoun": "LoadBalancers",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: LoadBalancerName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "LoadBalancerNames"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1794,15 +1669,9 @@
         "confirmationMessageNoun": "LoadBalancerTargetGroups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1842,15 +1711,9 @@
         "confirmationMessageNoun": "MetricsCollection",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1891,15 +1754,9 @@
         "confirmationMessageNoun": "MetricsCollection",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1940,15 +1797,9 @@
         "confirmationMessageNoun": "Standby",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1989,15 +1840,9 @@
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2037,15 +1882,9 @@
         "confirmationMessageNoun": "Standby",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2083,15 +1922,9 @@
         "confirmationMessageNoun": "LifecycleHook",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2132,15 +1965,9 @@
         "confirmationMessageNoun": "NotificationConfiguration",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2180,15 +2007,9 @@
         "confirmationMessageNoun": "ScalingPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2279,15 +2100,9 @@
         "confirmationMessageNoun": "ScheduledUpdateGroupAction",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2325,15 +2140,9 @@
         "confirmationMessageNoun": "LifecycleActionHeartbeat",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2373,15 +2182,9 @@
         "confirmationMessageNoun": "Processes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2422,15 +2225,9 @@
         "confirmationMessageNoun": "DesiredCapacity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2471,15 +2268,9 @@
         "confirmationMessageNoun": "InstanceHealth",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2517,15 +2308,9 @@
         "confirmationMessageNoun": "InstanceProtection",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2565,15 +2350,9 @@
         "confirmationMessageNoun": "Processes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2613,15 +2392,9 @@
         "confirmationMessageNoun": "InstanceInAutoScalingGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2664,15 +2437,9 @@
         "confirmationMessageNoun": "AutoScalingGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AutoScalingGroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AutoScalingGroupName"
-        },
         "memoryStreamParameters": []
       }
     }

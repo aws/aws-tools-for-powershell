@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 #if DESKTOP
                 return client.DetectModerationLabels(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DetectModerationLabelsAsync(request);
-                return task.Result;
+                return client.DetectModerationLabelsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

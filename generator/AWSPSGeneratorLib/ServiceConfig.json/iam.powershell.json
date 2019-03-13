@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "IAM",
-    "positionalMemberNames": [
-      "UserName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -102,15 +99,9 @@
         "confirmationMessageNoun": "ClientIDToOpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OpenIDConnectProviderArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -150,15 +141,9 @@
         "confirmationMessageNoun": "RoleToInstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceProfileName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -198,15 +183,9 @@
         "confirmationMessageNoun": "UserToGroup",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -246,15 +225,9 @@
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -294,15 +267,9 @@
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -342,15 +309,9 @@
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -390,15 +351,9 @@
         "confirmationMessageNoun": "Password",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: OldPassword",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OldPassword"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -436,15 +391,9 @@
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -482,15 +431,9 @@
         "confirmationMessageNoun": "AccountAlias",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AccountAlias"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -530,15 +473,9 @@
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -578,15 +515,9 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceProfileName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -626,15 +557,9 @@
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -672,15 +597,9 @@
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Url"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -720,15 +639,9 @@
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -768,15 +681,9 @@
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -817,15 +724,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -863,15 +764,9 @@
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Name"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -909,15 +804,9 @@
         "confirmationMessageNoun": "ServiceLinkedRole",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AWSServiceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -955,15 +844,9 @@
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1003,15 +886,9 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1051,15 +928,9 @@
         "confirmationMessageNoun": "VirtualMFADevice",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VirtualMFADeviceName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1099,15 +970,9 @@
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1147,15 +1012,9 @@
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AccessKeyId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1193,15 +1052,9 @@
         "confirmationMessageNoun": "AccountAlias",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: AccountAlias",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "AccountAlias"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1237,15 +1090,9 @@
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "No parameters, setting anonymous target",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1283,15 +1130,9 @@
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1331,15 +1172,9 @@
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1377,15 +1212,9 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InstanceProfileName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1423,15 +1252,9 @@
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1448,9 +1271,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "OpenIDConnectProviderArn"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1471,15 +1292,9 @@
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OpenIDConnectProviderArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1496,9 +1311,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "PolicyArn"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1519,15 +1332,9 @@
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: PolicyArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1544,9 +1351,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "PolicyArn,VersionId"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1567,15 +1372,9 @@
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VersionId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VersionId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1613,15 +1412,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1659,15 +1452,9 @@
         "confirmationMessageNoun": "RolePermissionsBoundary",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1707,15 +1494,9 @@
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1753,15 +1534,9 @@
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: SAMLProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SAMLProviderArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1799,15 +1574,9 @@
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServerCertificateName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1845,15 +1614,9 @@
         "confirmationMessageNoun": "ServiceLinkedRole",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1870,7 +1633,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1891,15 +1656,9 @@
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServiceSpecificCredentialId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1939,15 +1698,9 @@
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "CertificateId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1964,7 +1717,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -1985,15 +1740,9 @@
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SSHPublicKeyId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2031,15 +1780,9 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2077,15 +1820,9 @@
         "confirmationMessageNoun": "UserPermissionsBoundary",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2125,15 +1862,9 @@
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "PolicyName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2171,15 +1902,9 @@
         "confirmationMessageNoun": "VirtualMFADevice",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: SerialNumber",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SerialNumber"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2219,15 +1944,9 @@
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2267,15 +1986,9 @@
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2315,15 +2028,9 @@
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2365,15 +2072,9 @@
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2409,15 +2110,9 @@
         "confirmationMessageNoun": "CredentialReport",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "No parameters, setting anonymous target",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2455,15 +2150,9 @@
         "confirmationMessageNoun": "ServiceLastAccessedDetails",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "Arn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2501,7 +2190,6 @@
         "confirmationMessageNoun": "AccessKeyLastUsed",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2524,7 +2212,10 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "Marker"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -2542,7 +2233,6 @@
         "confirmationMessageNoun": "AccountAuthorizationDetails",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2581,7 +2271,6 @@
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2620,7 +2309,6 @@
         "confirmationMessageNoun": "AccountSummary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2661,7 +2349,6 @@
         "confirmationMessageNoun": "ContextKeysForCustomPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2700,7 +2387,6 @@
         "confirmationMessageNoun": "ContextKeysForPrincipalPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2723,7 +2409,10 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "Marker"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -2741,7 +2430,6 @@
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2784,7 +2472,6 @@
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2825,7 +2512,6 @@
         "confirmationMessageNoun": "InstanceProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2866,7 +2552,6 @@
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2886,9 +2571,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "OpenIDConnectProviderArn"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -2909,7 +2592,6 @@
         "confirmationMessageNoun": "OpenIDConnectProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2929,9 +2611,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [
-          "PolicyArn"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -2952,7 +2632,6 @@
         "confirmationMessageNoun": "Policy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2994,7 +2673,6 @@
         "confirmationMessageNoun": "PolicyVersion",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3035,7 +2713,6 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3078,7 +2755,6 @@
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3113,13 +2789,12 @@
         "anonymousTargetParameter": "false",
         "customMessageNoun": "",
         "suppressShouldProcessConfirmation": "false",
-        "targetParameter": "SAMLProviderArn"
+        "targetParameter": ""
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3160,7 +2835,6 @@
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3183,7 +2857,10 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "Marker"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -3201,7 +2878,6 @@
         "confirmationMessageNoun": "ServiceLastAccessedDetails",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3224,7 +2900,10 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "Marker"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -3240,7 +2919,6 @@
         "confirmationMessageNoun": "ServiceLastAccessedDetailsWithEntities",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3281,7 +2959,6 @@
         "confirmationMessageNoun": "ServiceLinkedRoleDeletionStatus",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3301,7 +2978,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -3322,7 +3001,6 @@
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3363,7 +3041,6 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3406,7 +3083,6 @@
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3447,7 +3123,6 @@
         "confirmationMessageNoun": "AccessKeys",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3499,7 +3174,6 @@
         "confirmationMessageNoun": "AccountAliases",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3553,7 +3227,6 @@
         "confirmationMessageNoun": "AttachedGroupPolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3607,7 +3280,6 @@
         "confirmationMessageNoun": "AttachedRolePolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3640,9 +3312,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-IAMAttachedUserPolicies",
-        "positionalParameters": [
-          "UserName"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -3663,7 +3333,6 @@
         "confirmationMessageNoun": "AttachedUserPolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3701,7 +3370,10 @@
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "Marker"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -3717,7 +3389,6 @@
         "confirmationMessageNoun": "EntitiesForPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -3758,7 +3429,6 @@
         "confirmationMessageNoun": "GroupPolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3812,7 +3482,6 @@
         "confirmationMessageNoun": "Groups",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3866,7 +3535,6 @@
         "confirmationMessageNoun": "GroupsForUser",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3920,7 +3588,6 @@
         "confirmationMessageNoun": "InstanceProfiles",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -3974,7 +3641,6 @@
         "confirmationMessageNoun": "InstanceProfilesForRole",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4028,7 +3694,6 @@
         "confirmationMessageNoun": "MFADevices",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4080,7 +3745,6 @@
         "confirmationMessageNoun": "OpenIDConnectProviders",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -4119,7 +3783,6 @@
         "confirmationMessageNoun": "Policies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4155,7 +3818,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "IsTruncated"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -4171,7 +3836,6 @@
         "confirmationMessageNoun": "PoliciesGrantingServiceAccess",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern1",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4225,7 +3889,6 @@
         "confirmationMessageNoun": "PolicyVersions",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4279,7 +3942,6 @@
         "confirmationMessageNoun": "RolePolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4333,7 +3995,6 @@
         "confirmationMessageNoun": "Roles",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4387,7 +4048,6 @@
         "confirmationMessageNoun": "RoleTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4439,7 +4099,6 @@
         "confirmationMessageNoun": "SAMLProviders",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -4480,7 +4139,6 @@
         "confirmationMessageNoun": "ServerCertificates",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4534,7 +4192,6 @@
         "confirmationMessageNoun": "ServiceSpecificCredentials",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -4575,7 +4232,6 @@
         "confirmationMessageNoun": "SigningCertificates",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4629,7 +4285,6 @@
         "confirmationMessageNoun": "SSHPublicKeys",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4683,7 +4338,6 @@
         "confirmationMessageNoun": "UserPolicies",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4737,7 +4391,6 @@
         "confirmationMessageNoun": "Users",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4791,7 +4444,6 @@
         "confirmationMessageNoun": "UserTags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4845,7 +4497,6 @@
         "confirmationMessageNoun": "VirtualMFADevices",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -4902,15 +4553,9 @@
         "confirmationMessageNoun": "GroupPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -4948,15 +4593,9 @@
         "confirmationMessageNoun": "RolePermissionsBoundary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -4997,15 +4636,9 @@
         "confirmationMessageNoun": "RolePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5043,15 +4676,9 @@
         "confirmationMessageNoun": "UserPermissionsBoundary",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5092,15 +4719,9 @@
         "confirmationMessageNoun": "UserPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5138,15 +4759,9 @@
         "confirmationMessageNoun": "ClientIDFromOpenIDConnectProvider",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ClientID",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ClientID"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5186,15 +4801,9 @@
         "confirmationMessageNoun": "RoleFromInstanceProfile",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: InstanceProfileName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5234,15 +4843,9 @@
         "confirmationMessageNoun": "UserFromGroup",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5259,7 +4862,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -5280,15 +4885,9 @@
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServiceSpecificCredentialId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5330,15 +4929,9 @@
         "confirmationMessageNoun": "MFADevice",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5377,15 +4970,9 @@
         "confirmationMessageNoun": "DefaultPolicyVersion",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5421,7 +5008,6 @@
         "confirmationMessageNoun": "CustomPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -5473,7 +5059,6 @@
         "confirmationMessageNoun": "PrincipalPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern3",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -5527,15 +5112,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5573,15 +5152,9 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5619,15 +5192,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5665,15 +5232,9 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5714,15 +5275,9 @@
         "confirmationMessageNoun": "AccessKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5758,15 +5313,9 @@
         "confirmationMessageNoun": "AccountPasswordPolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
-          "status": "AnonymousTarget",
-          "targetParameterName": ""
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5806,15 +5355,9 @@
         "confirmationMessageNoun": "AssumeRolePolicy",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5855,15 +5398,9 @@
         "confirmationMessageNoun": "Group",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GroupName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GroupName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5903,15 +5440,9 @@
         "confirmationMessageNoun": "LoginProfile",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5949,15 +5480,9 @@
         "confirmationMessageNoun": "OpenIDConnectProviderThumbprint",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: OpenIDConnectProviderArn",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "OpenIDConnectProviderArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -5995,15 +5520,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: RoleName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6041,15 +5560,9 @@
         "confirmationMessageNoun": "RoleDescription",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6087,15 +5600,9 @@
         "confirmationMessageNoun": "SAMLProvider",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SAMLProviderArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6136,15 +5643,9 @@
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ServerCertificateName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServerCertificateName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6161,7 +5662,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -6182,15 +5685,9 @@
         "confirmationMessageNoun": "ServiceSpecificCredential",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: ServiceSpecificCredentialId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServiceSpecificCredentialId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6231,15 +5728,9 @@
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6256,7 +5747,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -6277,15 +5770,9 @@
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: SSHPublicKeyId",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "SSHPublicKeyId"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6326,15 +5813,9 @@
         "confirmationMessageNoun": "User",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: UserName",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6377,15 +5858,9 @@
         "confirmationMessageNoun": "ServerCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ServerCertificateName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6425,15 +5900,9 @@
         "confirmationMessageNoun": "SigningCertificate",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -6450,7 +5919,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "UserName"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -6471,15 +5942,9 @@
         "confirmationMessageNoun": "SSHPublicKey",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "UserName"
-        },
         "memoryStreamParameters": []
       }
     }

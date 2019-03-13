@@ -50,6 +50,9 @@
         <ServiceOperation MethodName="RemoveTagsFromCertificate" Output="Void" Verb="Remove" Noun="CertificateTag" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="RenewCertificate" Output="Void" Verb="Invoke" Noun="CertificateRenewal" ShouldProcessTarget="CertificateArn" PipelineParameter="CertificateArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="RequestCertificate" Output="DefaultSingleMember" Verb="New" Noun="Certificate" ShouldProcessTarget="DomainName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// and non-compliant statuses and detailed compliance-item severity counts, according
     /// to the filter criteria you specify.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMResourceComplianceSummariesList")]
+    [Cmdlet("Get", "SSMResourceComplianceSummaryList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem")]
     [AWSCmdlet("Calls the AWS Systems Manager ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem",
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSSMResourceComplianceSummariesListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMResourceComplianceSummaryListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
@@ -247,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.ListResourceComplianceSummaries(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListResourceComplianceSummariesAsync(request);
-                return task.Result;
+                return client.ListResourceComplianceSummariesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

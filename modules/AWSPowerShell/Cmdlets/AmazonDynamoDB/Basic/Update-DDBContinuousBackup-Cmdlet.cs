@@ -187,9 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.UpdateContinuousBackups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateContinuousBackupsAsync(request);
-                return task.Result;
+                return client.UpdateContinuousBackupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

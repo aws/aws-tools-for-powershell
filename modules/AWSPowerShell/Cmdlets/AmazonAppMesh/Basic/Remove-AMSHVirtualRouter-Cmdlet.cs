@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which to delete the virtual router.</para>
+        /// <para>The name of the service mesh to delete the virtual router in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.DeleteVirtualRouter(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVirtualRouterAsync(request);
-                return task.Result;
+                return client.DeleteVirtualRouterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.DeletePublicAccessBlock(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeletePublicAccessBlockAsync(request);
-                return task.Result;
+                return client.DeletePublicAccessBlockAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

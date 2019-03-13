@@ -45,9 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.KV
     /// </para>
     /// </summary>
     [Cmdlet("Add", "KVStreamTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
+    [OutputType("None","System.Collections.Generic.Dictionary<System.String, System.String>")]
     [AWSCmdlet("Calls the Amazon Kinesis Video Streams TagStream API operation.", Operation = new[] {"TagStream"})]
-    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary&lt;System.String, System.String&gt;",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisVideo.Model.TagStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 #if DESKTOP
                 return client.TagStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagStreamAsync(request);
-                return task.Result;
+                return client.TagStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -32,9 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
+    /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
     /// for Your Application Load Balancers</a> in the <i>Application Load Balancer Guide</i>
-    /// or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+    /// or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
     /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -48,20 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     )]
     public partial class GetELB2AccountLimitCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
     {
-        
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of results to return with this call.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
-        #endregion
         
         #region Parameter Marker
         /// <summary>
@@ -77,6 +63,20 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return with this call.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -205,9 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.DescribeAccountLimits(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAccountLimitsAsync(request);
-                return task.Result;
+                return client.DescribeAccountLimitsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

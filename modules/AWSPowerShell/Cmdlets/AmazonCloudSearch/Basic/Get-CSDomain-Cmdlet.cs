@@ -135,9 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 #if DESKTOP
                 return client.DescribeDomains(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDomainsAsync(request);
-                return task.Result;
+                return client.DescribeDomainsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

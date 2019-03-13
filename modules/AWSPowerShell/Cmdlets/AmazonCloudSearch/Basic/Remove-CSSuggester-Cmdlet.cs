@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 #if DESKTOP
                 return client.DeleteSuggester(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteSuggesterAsync(request);
-                return task.Result;
+                return client.DeleteSuggesterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

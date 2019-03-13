@@ -273,9 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.ListAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAttributesAsync(request);
-                return task.Result;
+                return client.ListAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

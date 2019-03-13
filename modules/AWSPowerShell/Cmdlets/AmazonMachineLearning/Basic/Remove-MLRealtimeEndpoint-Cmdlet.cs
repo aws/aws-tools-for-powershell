@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.DeleteRealtimeEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRealtimeEndpointAsync(request);
-                return task.Result;
+                return client.DeleteRealtimeEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

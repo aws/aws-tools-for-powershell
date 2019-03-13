@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the VpcLink used for the integration when the connectionType is
-        /// VPC_LINK; otherwise undefined.</para>
+        /// <para>The connection ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,10 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ConnectionType
         /// <summary>
         /// <para>
-        /// <para>The type of the network connection to the integration endpoint. The valid value is
-        /// INTERNET for connections through the public routable internet or VPC_LINK for private
-        /// connections between API Gateway and a network load balancer in a VPC. The default
-        /// value is INTERNET.</para>
+        /// <para>The type of the network connection to the integration endpoint. Currently the only
+        /// valid value is INTERNET, for connections through the public routable internet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -141,11 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         /// is referred to as the Lambda custom integration. With any other AWS service action,
         /// this is known as AWS integration.</para><para> AWS_PROXY: for integrating the route or method request with the Lambda function-invoking
         /// action with the client request passed through as-is. This integration is also referred
-        /// to as Lambda proxy integration.</para><para> HTTP: for integrating the route or method request with an HTTP endpoint, including
-        /// a private HTTP endpoint within a VPC. This integration is also referred to as the
-        /// HTTP custom integration.</para><para> HTTP_PROXY: for integrating route or method request with an HTTP endpoint, including
-        /// a private HTTP endpoint within a VPC, with the client request passed through as-is.
-        /// This is also referred to as HTTP proxy integration.</para><para> MOCK: for integrating the route or method request with API Gateway as a "loopback"
+        /// to as Lambda proxy integration.</para><para> HTTP: for integrating the route or method request with an HTTP endpoint. This integration
+        /// is also referred to as the HTTP custom integration.</para><para> HTTP_PROXY: for integrating route or method request with an HTTP endpoint, with the
+        /// client request passed through as-is. This is also referred to as HTTP proxy integration.</para><para> MOCK: for integrating the route or method request with API Gateway as a "loopback"
         /// endpoint without invoking any backend.</para>
         /// </para>
         /// </summary>
@@ -157,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter IntegrationUri
         /// <summary>
         /// <para>
-        /// Amazon.ApiGatewayV2.Model.UpdateIntegrationRequest.IntegrationUri
+        /// <para>For a Lambda proxy integration, this is the URI of the Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -410,9 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.UpdateIntegration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateIntegrationAsync(request);
-                return task.Result;
+                return client.UpdateIntegrationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

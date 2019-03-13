@@ -145,9 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 #if DESKTOP
                 return client.CreateAccount(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAccountAsync(request);
-                return task.Result;
+                return client.CreateAccountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

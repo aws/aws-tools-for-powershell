@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
                 #if DESKTOP
                 return client.DeleteServerCatalog(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteServerCatalogAsync(request);
-                return task.Result;
+                return client.DeleteServerCatalogAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

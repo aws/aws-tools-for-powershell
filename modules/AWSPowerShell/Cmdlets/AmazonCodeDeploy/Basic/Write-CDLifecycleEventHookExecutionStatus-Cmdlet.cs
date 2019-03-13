@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.PutLifecycleEventHookExecutionStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutLifecycleEventHookExecutionStatusAsync(request);
-                return task.Result;
+                return client.PutLifecycleEventHookExecutionStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

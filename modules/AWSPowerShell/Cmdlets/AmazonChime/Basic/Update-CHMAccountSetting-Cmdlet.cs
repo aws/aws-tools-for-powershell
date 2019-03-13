@@ -211,9 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CHM
                 #if DESKTOP
                 return client.UpdateAccountSettings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateAccountSettingsAsync(request);
-                return task.Result;
+                return client.UpdateAccountSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

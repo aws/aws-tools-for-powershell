@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.VerifyDomainDkim(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.VerifyDomainDkimAsync(request);
-                return task.Result;
+                return client.VerifyDomainDkimAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

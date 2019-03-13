@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// File gateways require AWS Security Token Service (AWS STS) to be activated to enable
     /// you to create a file share. Make sure that AWS STS is activated in the AWS Region
     /// you are creating your file gateway in. If AWS STS is not activated in this AWS Region,
-    /// activate it. For information about how to activate AWS STS, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
+    /// activate it. For information about how to activate AWS STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating
     /// and Deactivating AWS STS in an AWS Region</a> in the <i>AWS Identity and Access Management
     /// User Guide.</i></para><para>
     /// File gateways don't support creating hard or symbolic links on a file share.
@@ -316,9 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.UpdateSMBFileShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSMBFileShareAsync(request);
-                return task.Result;
+                return client.UpdateSMBFileShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

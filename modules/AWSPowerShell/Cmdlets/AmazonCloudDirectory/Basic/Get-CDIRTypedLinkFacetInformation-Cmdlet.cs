@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 #if DESKTOP
                 return client.GetTypedLinkFacetInformation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTypedLinkFacetInformationAsync(request);
-                return task.Result;
+                return client.GetTypedLinkFacetInformationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

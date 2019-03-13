@@ -182,9 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
                 #if DESKTOP
                 return client.ReportTaskRunnerHeartbeat(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReportTaskRunnerHeartbeatAsync(request);
-                return task.Result;
+                return client.ReportTaskRunnerHeartbeatAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

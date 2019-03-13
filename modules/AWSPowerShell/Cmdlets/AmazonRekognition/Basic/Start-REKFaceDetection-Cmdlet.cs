@@ -262,9 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
                 #if DESKTOP
                 return client.StartFaceDetection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartFaceDetectionAsync(request);
-                return task.Result;
+                return client.StartFaceDetectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

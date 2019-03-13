@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AdvertiseByoipCidr(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AdvertiseByoipCidrAsync(request);
-                return task.Result;
+                return client.AdvertiseByoipCidrAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

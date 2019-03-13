@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         /// <para>
         /// <para>Checks whether you have the permissions required for the action, but does not make
         /// the request. If you have the permissions, the request returns DryRunOperation; otherwise,
-        /// it returns UnauthorizedException.</para>
+        /// it returns UnauthorizedException. Defaults to <code>false</code> if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageQuantity
         /// <summary>
         /// <para>
-        /// <para>Consumption value for the hour.</para>
+        /// <para>Consumption value for the hour. Defaults to <code>0</code> if not specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -216,9 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
                 #if DESKTOP
                 return client.MeterUsage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.MeterUsageAsync(request);
-                return task.Result;
+                return client.MeterUsageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

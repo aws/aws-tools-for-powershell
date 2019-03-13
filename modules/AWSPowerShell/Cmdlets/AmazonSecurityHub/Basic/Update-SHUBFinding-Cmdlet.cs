@@ -210,9 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 #if DESKTOP
                 return client.UpdateFindings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFindingsAsync(request);
-                return task.Result;
+                return client.UpdateFindingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -146,6 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String ResourceLifecycleConfig_ServiceRole { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the tags applied to the application.</para><para>Elastic Beanstalk applies these tags only to the application. Environments that you
+        /// create in the application don't inherit the tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ElasticBeanstalk.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -190,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 context.ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_Enabled = this.MaxCountRule_Enabled;
             if (ParameterWasBound("MaxCountRule_MaxCount"))
                 context.ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_MaxCount = this.MaxCountRule_MaxCount;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ElasticBeanstalk.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -338,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.ResourceLifecycleConfig = null;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -380,9 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CreateApplication(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateApplicationAsync(request);
-                return task.Result;
+                return client.CreateApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -411,6 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.Boolean? ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_DeleteSourceFromS3 { get; set; }
             public System.Boolean? ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_Enabled { get; set; }
             public System.Int32? ResourceLifecycleConfig_VersionLifecycleConfig_MaxCountRule_MaxCount { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.Tag> Tags { get; set; }
         }
         
     }

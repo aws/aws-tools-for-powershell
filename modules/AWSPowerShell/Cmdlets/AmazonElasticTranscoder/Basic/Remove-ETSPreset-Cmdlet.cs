@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 #if DESKTOP
                 return client.DeletePreset(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeletePresetAsync(request);
-                return task.Result;
+                return client.DeletePresetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

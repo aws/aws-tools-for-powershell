@@ -128,9 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 #if DESKTOP
                 return client.DeleteNotificationChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteNotificationChannelAsync(request);
-                return task.Result;
+                return client.DeleteNotificationChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

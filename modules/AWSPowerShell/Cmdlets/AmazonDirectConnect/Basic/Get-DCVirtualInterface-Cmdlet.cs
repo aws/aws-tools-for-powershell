@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DescribeVirtualInterfaces(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeVirtualInterfacesAsync(request);
-                return task.Result;
+                return client.DescribeVirtualInterfacesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

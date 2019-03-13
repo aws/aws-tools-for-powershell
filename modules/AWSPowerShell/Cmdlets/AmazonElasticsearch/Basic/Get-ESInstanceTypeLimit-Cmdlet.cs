@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 #if DESKTOP
                 return client.DescribeElasticsearchInstanceTypeLimits(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeElasticsearchInstanceTypeLimitsAsync(request);
-                return task.Result;
+                return client.DescribeElasticsearchInstanceTypeLimitsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

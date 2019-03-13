@@ -228,9 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 #if DESKTOP
                 return client.DiscoverInputSchema(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DiscoverInputSchemaAsync(request);
-                return task.Result;
+                return client.DiscoverInputSchemaAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

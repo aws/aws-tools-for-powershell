@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 #if DESKTOP
                 return client.PutResolverRulePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutResolverRulePolicyAsync(request);
-                return task.Result;
+                return client.PutResolverRulePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

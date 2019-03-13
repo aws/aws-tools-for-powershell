@@ -247,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
                 #if DESKTOP
                 return client.GetInsights(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetInsightsAsync(request);
-                return task.Result;
+                return client.GetInsightsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

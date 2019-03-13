@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.RejectVpcEndpointConnections(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RejectVpcEndpointConnectionsAsync(request);
-                return task.Result;
+                return client.RejectVpcEndpointConnectionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

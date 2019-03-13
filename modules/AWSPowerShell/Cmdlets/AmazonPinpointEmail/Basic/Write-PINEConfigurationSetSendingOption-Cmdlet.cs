@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.PutConfigurationSetSendingOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutConfigurationSetSendingOptionsAsync(request);
-                return task.Result;
+                return client.PutConfigurationSetSendingOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

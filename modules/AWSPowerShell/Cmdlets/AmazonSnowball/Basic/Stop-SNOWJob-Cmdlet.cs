@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 #if DESKTOP
                 return client.CancelJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CancelJobAsync(request);
-                return task.Result;
+                return client.CancelJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

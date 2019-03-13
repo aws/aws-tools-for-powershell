@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.EnableAvailabilityZonesForLoadBalancer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableAvailabilityZonesForLoadBalancerAsync(request);
-                return task.Result;
+                return client.EnableAvailabilityZonesForLoadBalancerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

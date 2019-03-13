@@ -143,9 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.EMP
                 #if DESKTOP
                 return client.RotateChannelCredentials(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RotateChannelCredentialsAsync(request);
-                return task.Result;
+                return client.RotateChannelCredentialsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

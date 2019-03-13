@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 #if DESKTOP
                 return client.UpdateAvailabilityOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateAvailabilityOptionsAsync(request);
-                return task.Result;
+                return client.UpdateAvailabilityOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

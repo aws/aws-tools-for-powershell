@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudWatchClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudWatch</ServiceNamespace>
     <PipelineParameter>AlarmNames</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="GetMetricData" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>
@@ -61,7 +61,7 @@
         <ServiceOperation MethodName="GetDashboard" Output="Response" Verb="Get" Noun="Dashboard" PipelineParameter="DashboardName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetMetricData" Output="DefaultSingleMember" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="GetMetricData" Output="Response" Verb="Get" Noun="MetricData" PipelineParameter="" NoPipelineParameter="true">
             <Params>
                 <Param Name="EndTimeUtc" NewName="UtcEndTime" AutoApplyAlias="false" />
                 <Param Name="EndTime" ExclusiveParameters="UtcEndTime" ReplacementObsoleteMessage="This parameter is deprecated and may result in the wrong timestamp being passed to the service, use UtcEndTime instead." />

@@ -152,9 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.SetRulePriorities(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetRulePrioritiesAsync(request);
-                return task.Result;
+                return client.SetRulePrioritiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

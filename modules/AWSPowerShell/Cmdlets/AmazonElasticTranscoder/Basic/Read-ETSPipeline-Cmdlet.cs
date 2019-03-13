@@ -145,9 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 #if DESKTOP
                 return client.ReadPipeline(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ReadPipelineAsync(request);
-                return task.Result;
+                return client.ReadPipelineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

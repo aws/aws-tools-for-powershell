@@ -52,6 +52,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter ServiceActionId
+        /// <summary>
+        /// <para>
+        /// <para>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ServiceActionId { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -64,16 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter ServiceActionId
-        /// <summary>
-        /// <para>
-        /// <para>The self-service action identifier. For example, <code>act-fs7abcd89wxyz</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ServiceActionId { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -228,9 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListProvisioningArtifactsForServiceAction(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListProvisioningArtifactsForServiceActionAsync(request);
-                return task.Result;
+                return client.ListProvisioningArtifactsForServiceActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

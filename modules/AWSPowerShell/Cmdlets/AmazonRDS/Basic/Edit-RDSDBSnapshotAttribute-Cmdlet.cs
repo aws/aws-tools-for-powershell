@@ -220,9 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.ModifyDBSnapshotAttribute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyDBSnapshotAttributeAsync(request);
-                return task.Result;
+                return client.ModifyDBSnapshotAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

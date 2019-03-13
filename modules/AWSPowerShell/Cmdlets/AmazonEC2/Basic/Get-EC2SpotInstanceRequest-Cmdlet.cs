@@ -282,9 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeSpotInstanceRequests(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSpotInstanceRequestsAsync(request);
-                return task.Result;
+                return client.DescribeSpotInstanceRequestsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

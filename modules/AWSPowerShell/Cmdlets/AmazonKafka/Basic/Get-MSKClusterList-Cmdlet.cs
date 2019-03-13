@@ -214,9 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.MSK
                 #if DESKTOP
                 return client.ListClusters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListClustersAsync(request);
-                return task.Result;
+                return client.ListClustersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

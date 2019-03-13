@@ -225,9 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.ListBusinessReportSchedules(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListBusinessReportSchedulesAsync(request);
-                return task.Result;
+                return client.ListBusinessReportSchedulesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

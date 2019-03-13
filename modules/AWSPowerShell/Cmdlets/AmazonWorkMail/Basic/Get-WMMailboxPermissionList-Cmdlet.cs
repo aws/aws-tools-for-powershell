@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Lists the mailbox permissions associated with a mailbox.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the mailbox permissions associated with a user, group, or resource mailbox.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WMMailboxPermissionList")]
     [OutputType("Amazon.WorkMail.Model.Permission")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the entity (user or group) for which to list mailbox permissions.</para>
+        /// <para>The identifier of the user, group, or resource for which to list mailbox permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the organization under which the entity (user or group) exists.</para>
+        /// <para>The identifier of the organization under which the user, group, or resource exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -256,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.ListMailboxPermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListMailboxPermissionsAsync(request);
-                return task.Result;
+                return client.ListMailboxPermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

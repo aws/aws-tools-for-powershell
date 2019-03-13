@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.R53R
                 #if DESKTOP
                 return client.DeleteResolverRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteResolverRuleAsync(request);
-                return task.Result;
+                return client.DeleteResolverRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

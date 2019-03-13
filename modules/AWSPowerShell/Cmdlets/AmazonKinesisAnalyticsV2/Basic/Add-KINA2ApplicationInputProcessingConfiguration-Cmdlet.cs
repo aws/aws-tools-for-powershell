@@ -226,9 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA2
                 #if DESKTOP
                 return client.AddApplicationInputProcessingConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddApplicationInputProcessingConfigurationAsync(request);
-                return task.Result;
+                return client.AddApplicationInputProcessingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

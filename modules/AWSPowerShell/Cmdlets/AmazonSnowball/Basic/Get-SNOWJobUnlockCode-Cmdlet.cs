@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
                 #if DESKTOP
                 return client.GetJobUnlockCode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetJobUnlockCodeAsync(request);
-                return task.Result;
+                return client.GetJobUnlockCodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -122,9 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.GetDeliverabilityDashboardOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDeliverabilityDashboardOptionsAsync(request);
-                return task.Result;
+                return client.GetDeliverabilityDashboardOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

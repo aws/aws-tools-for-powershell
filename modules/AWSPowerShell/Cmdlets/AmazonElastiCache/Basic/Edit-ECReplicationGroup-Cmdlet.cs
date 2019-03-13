@@ -137,18 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.EC
         public System.String EngineVersion { get; set; }
         #endregion
         
-        #region Parameter NodeGroupId
-        /// <summary>
-        /// <para>
-        /// <para>Deprecated. This parameter is not used.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This field is deprecated and is no longer used.")]
-        public System.String NodeGroupId { get; set; }
-        #endregion
-        
         #region Parameter NotificationTopicArn
         /// <summary>
         /// <para>
@@ -262,6 +250,18 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String SnapshotWindow { get; set; }
+        #endregion
+        
+        #region Parameter NodeGroupId
+        /// <summary>
+        /// <para>
+        /// <para>Deprecated. This parameter is not used.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field is deprecated and is no longer used.")]
+        public System.String NodeGroupId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -455,9 +455,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.ModifyReplicationGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyReplicationGroupAsync(request);
-                return task.Result;
+                return client.ModifyReplicationGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -43,6 +43,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
     /// in the <i>AWS CodeDeploy API Reference</i>.
     /// </para><para>
+    /// For services using an external deployment controller, you can update only the desired
+    /// count and health check grace period using this API. If the launch type, load balancer,
+    /// network configuration, platform version, or task definition need to be updated, you
+    /// should create a new task set. For more information, see <a>CreateTaskSet</a>.
+    /// </para><para>
     /// You can add to or subtract from the number of instantiations of a task definition
     /// in a service by specifying the cluster that the service is running in and a new <code>desiredCount</code>
     /// parameter.
@@ -203,13 +208,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// you to define the deployment batch size. For example, if your service has a desired
         /// number of four tasks and a maximum percent value of 200%, the scheduler may start
         /// four new tasks before stopping the four older tasks (provided that the cluster resources
-        /// required to do this are available). The default value for maximum percent is 200%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) deployment type and
-        /// tasks that use the EC2 launch type, the <b>maximum percent</b> value is set to the
-        /// default value and is used to define the upper limit on the number of the tasks in
-        /// the service that remain in the <code>RUNNING</code> state while the container instances
-        /// are in the <code>DRAINING</code> state. If the tasks in the service use the Fargate
-        /// launch type, the maximum percent value is not used, although it is returned when describing
-        /// your service.</para>
+        /// required to do this are available). The default value for maximum percent is 200%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// deployment types and tasks that use the EC2 launch type, the <b>maximum percent</b>
+        /// value is set to the default value and is used to define the upper limit on the number
+        /// of the tasks in the service that remain in the <code>RUNNING</code> state while the
+        /// container instances are in the <code>DRAINING</code> state. If the tasks in the service
+        /// use the Fargate launch type, the maximum percent value is not used, although it is
+        /// returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -231,13 +236,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// that <i>do not</i> use a load balancer are considered healthy if they are in the <code>RUNNING</code>
         /// state; tasks for services that <i>do</i> use a load balancer are considered healthy
         /// if they are in the <code>RUNNING</code> state and they are reported as healthy by
-        /// the load balancer. The default value for minimum healthy percent is 100%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) deployment type and
-        /// tasks that use the EC2 launch type, the <b>minimum healthy percent</b> value is set
-        /// to the default value and is used to define the lower limit on the number of the tasks
-        /// in the service that remain in the <code>RUNNING</code> state while the container instances
-        /// are in the <code>DRAINING</code> state. If the tasks in the service use the Fargate
-        /// launch type, the minimum healthy percent value is not used, although it is returned
-        /// when describing your service.</para>
+        /// the load balancer. The default value for minimum healthy percent is 100%.</para><para>If a service is using the blue/green (<code>CODE_DEPLOY</code>) or <code>EXTERNAL</code>
+        /// deployment types and tasks that use the EC2 launch type, the <b>minimum healthy percent</b>
+        /// value is set to the default value and is used to define the lower limit on the number
+        /// of the tasks in the service that remain in the <code>RUNNING</code> state while the
+        /// container instances are in the <code>DRAINING</code> state. If the tasks in the service
+        /// use the Fargate launch type, the minimum healthy percent value is not used, although
+        /// it is returned when describing your service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -530,9 +535,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.UpdateService(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateServiceAsync(request);
-                return task.Result;
+                return client.UpdateServiceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// <para>
     /// Lists the connections that have been provisioned on the specified interconnect.
     /// </para><note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note><br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "DCConnectionsOnInterconnect")]
@@ -134,9 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DescribeConnectionsOnInterconnect(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeConnectionsOnInterconnectAsync(request);
-                return task.Result;
+                return client.DescribeConnectionsOnInterconnectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

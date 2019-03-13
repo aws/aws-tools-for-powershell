@@ -187,9 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 #if DESKTOP
                 return client.UpdateUserHierarchy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateUserHierarchyAsync(request);
-                return task.Result;
+                return client.UpdateUserHierarchyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

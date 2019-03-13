@@ -52,12 +52,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>key</code> - The tag key.</para></li><li><para><code>resource-id</code> - The ID of the resource.</para></li><li><para><code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code>
         /// | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code>
-        /// | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>launch-template</code>
-        /// | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code>
-        /// | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code>
-        /// | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code>
-        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
-        /// | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
+        /// | <code>image</code> | <code>instance</code> | <code>host-reservation</code> | <code>internet-gateway</code>
+        /// | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code>
+        /// | <code>network-interface</code> | <code>reserved-instances</code> | <code>route-table</code>
+        /// | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code>
+        /// | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-peering-connection</code>
+        /// | <code>vpn-connection</code> | <code>vpn-gateway</code>).</para></li><li><para><code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example,
         /// specify "tag:Owner" for the filter name and "TeamA" for the filter value to find resources
         /// with the tag "Owner=TeamA".</para></li><li><para><code>value</code> - The tag value.</para></li></ul>
         /// </para>
@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeTags(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTagsAsync(request);
-                return task.Result;
+                return client.DescribeTagsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

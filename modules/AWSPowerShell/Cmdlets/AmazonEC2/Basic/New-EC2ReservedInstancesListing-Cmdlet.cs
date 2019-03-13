@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// operation.
     /// 
     ///  <note><para>
-    /// Only Standard Reserved Instances with a capacity reservation can be sold in the Reserved
-    /// Instance Marketplace. Convertible Reserved Instances and Standard Reserved Instances
-    /// with a regional benefit cannot be sold.
+    /// Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace.
+    /// Convertible Reserved Instances cannot be sold.
     /// </para></note><para>
     /// The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved
     /// Instance capacity that they no longer need with buyers who want to purchase additional
@@ -222,9 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CreateReservedInstancesListing(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateReservedInstancesListingAsync(request);
-                return task.Result;
+                return client.CreateReservedInstancesListingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

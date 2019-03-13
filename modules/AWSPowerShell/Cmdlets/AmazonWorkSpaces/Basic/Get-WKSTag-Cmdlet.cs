@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 #if DESKTOP
                 return client.DescribeTags(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTagsAsync(request);
-                return task.Result;
+                return client.DescribeTagsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

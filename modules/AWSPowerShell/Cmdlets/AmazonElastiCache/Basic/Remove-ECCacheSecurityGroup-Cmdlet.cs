@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.DeleteCacheSecurityGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteCacheSecurityGroupAsync(request);
-                return task.Result;
+                return client.DeleteCacheSecurityGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

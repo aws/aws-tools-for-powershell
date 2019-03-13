@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.SetIdentityMailFromDomain(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetIdentityMailFromDomainAsync(request);
-                return task.Result;
+                return client.SetIdentityMailFromDomainAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.UpdateManagedInstanceRole(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateManagedInstanceRoleAsync(request);
-                return task.Result;
+                return client.UpdateManagedInstanceRoleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

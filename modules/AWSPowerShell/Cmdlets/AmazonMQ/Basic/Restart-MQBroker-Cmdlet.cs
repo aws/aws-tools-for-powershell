@@ -154,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
                 #if DESKTOP
                 return client.RebootBroker(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebootBrokerAsync(request);
-                return task.Result;
+                return client.RebootBrokerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

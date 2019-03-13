@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// based on the given schedule. A rule can have both an EventPattern and a ScheduleExpression,
     /// in which case the rule triggers on matching events as well as on a schedule.
     /// </para><para>
+    /// When you initially create a rule, you can optionally assign one or more tags to the
+    /// rule. Tags can help you organize and categorize your resources. You can also use them
+    /// to scope user permissions, by granting a user permission to access or change only
+    /// rules with certain tag values. To use the <code>PutRule</code> operation and assign
+    /// tags, you must have both the <code>events:PutRule</code> and <code>events:TagResource</code>
+    /// permissions.
+    /// </para><para>
+    /// If you are updating an existing rule, any tags you specify in the <code>PutRule</code>
+    /// operation are ignored. To update the tags of an existing rule, use <a>TagResource</a>
+    /// and <a>UntagResource</a>.
+    /// </para><para>
     /// Most services in AWS treat : or / as the same character in Amazon Resource Names (ARNs).
     /// However, CloudWatch Events uses an exact match in event patterns and rules. Be sure
     /// to use the correct ARN characters when creating event patterns so that they match
@@ -63,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para><para>
     /// An infinite loop can quickly cause higher than expected charges. We recommend that
     /// you use budgeting, which alerts you when charges exceed your specified limit. For
-    /// more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing
+    /// more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html">Managing
     /// Your Costs with Budgets</a>.
     /// </para>
     /// </summary>
@@ -90,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>The event pattern. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html">Events
+        /// <para>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html">Events
         /// and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -139,6 +150,17 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         public Amazon.CloudWatchEvents.RuleState State { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The list of key-value pairs to associate with the rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.CloudWatchEvents.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -174,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             context.RoleArn = this.RoleArn;
             context.ScheduleExpression = this.ScheduleExpression;
             context.State = this.State;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.CloudWatchEvents.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -213,6 +239,10 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             if (cmdletContext.State != null)
             {
                 request.State = cmdletContext.State;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -256,9 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.PutRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutRuleAsync(request);
-                return task.Result;
+                return client.PutRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -284,6 +312,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
             public System.String RoleArn { get; set; }
             public System.String ScheduleExpression { get; set; }
             public Amazon.CloudWatchEvents.RuleState State { get; set; }
+            public List<Amazon.CloudWatchEvents.Model.Tag> Tags { get; set; }
         }
         
     }

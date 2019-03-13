@@ -321,9 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.UpdateApnsVoipSandboxChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateApnsVoipSandboxChannelAsync(request);
-                return task.Result;
+                return client.UpdateApnsVoipSandboxChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

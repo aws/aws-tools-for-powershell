@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a new Amazon WorkMail resource. The available types are equipment and room.
+    /// Creates a new Amazon WorkMail resource.
     /// </summary>
     [Cmdlet("New", "WMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the created resource.</para>
+        /// <para>The name of the new resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the created resource.</para>
+        /// <para>The type of the new resource. The available types are <code>equipment</code> and <code>room</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.CreateResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateResourceAsync(request);
-                return task.Result;
+                return client.CreateResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

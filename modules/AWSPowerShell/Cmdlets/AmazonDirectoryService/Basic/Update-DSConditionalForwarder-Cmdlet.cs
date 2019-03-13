@@ -189,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.UpdateConditionalForwarder(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateConditionalForwarderAsync(request);
-                return task.Result;
+                return client.UpdateConditionalForwarderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

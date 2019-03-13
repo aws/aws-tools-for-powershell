@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Setting
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// Settings for preset
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -213,9 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.CreatePreset(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePresetAsync(request);
-                return task.Result;
+                return client.CreatePresetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

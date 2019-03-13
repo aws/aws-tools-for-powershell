@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para><para>
     /// If you are adding an AWS managed Config rule, specify the rule's identifier for the
     /// <code>SourceIdentifier</code> key. To reference AWS managed Config rule identifiers,
-    /// see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">About
+    /// see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">About
     /// AWS Managed Config Rules</a>.
     /// </para><para>
     /// For any new rule that you add, specify the <code>ConfigRuleName</code> in the <code>ConfigRule</code>
@@ -57,12 +57,12 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// <code>ConfigRuleName</code>, <code>ConfigRuleId</code>, or <code>ConfigRuleArn</code>
     /// in the <code>ConfigRule</code> data type that you use in this request.
     /// </para><para>
-    /// The maximum number of rules that AWS Config supports is 50.
+    /// The maximum number of rules that AWS Config supports is 150.
     /// </para><para>
     /// For information about requesting a rule limit increase, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_config">AWS
     /// Config Limits</a> in the <i>AWS General Reference Guide</i>.
     /// </para><para>
-    /// For more information about developing and using AWS Config rules, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
+    /// For more information about developing and using AWS Config rules, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html">Evaluating
     /// AWS Resource Configurations with AWS Config</a> in the <i>AWS Config Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -198,6 +198,18 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public Amazon.ConfigService.MaximumExecutionFrequency ConfigRule_MaximumExecutionFrequency { get; set; }
         #endregion
         
+        #region Parameter Source_Owner
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether AWS or the customer owns and manages the AWS Config rule.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ConfigRule_Source_Owner")]
+        [AWSConstantClassSource("Amazon.ConfigService.Owner")]
+        public Amazon.ConfigService.Owner Source_Owner { get; set; }
+        #endregion
+        
         #region Parameter Source_SourceDetail
         /// <summary>
         /// <para>
@@ -214,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <summary>
         /// <para>
         /// <para>For AWS Config managed rules, a predefined identifier from a list. For example, <code>IAM_PASSWORD_POLICY</code>
-        /// is a managed rule. To reference a managed rule, see <a href="http://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
+        /// is a managed rule. To reference a managed rule, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Using
         /// AWS Managed Config Rules</a>.</para><para>For custom rules, the identifier is the Amazon Resource Name (ARN) of the rule's AWS
         /// Lambda function, such as <code>arn:aws:lambda:us-east-2:123456789012:function:custom_rule_name</code>.</para>
         /// </para>
@@ -247,18 +259,6 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         [System.Management.Automation.Parameter]
         [Alias("ConfigRule_Scope_TagValue")]
         public System.String Scope_TagValue { get; set; }
-        #endregion
-        
-        #region Parameter Source_Owner
-        /// <summary>
-        /// <para>
-        /// <para>Indicates whether AWS or the customer owns and manages the AWS Config rule.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ConfigRule_Source_Owner")]
-        [AWSConstantClassSource("Amazon.ConfigService.Owner")]
-        public Amazon.ConfigService.Owner Source_Owner { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -569,9 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.PutConfigRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutConfigRuleAsync(request);
-                return task.Result;
+                return client.PutConfigRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

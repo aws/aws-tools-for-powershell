@@ -343,9 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
                 #if DESKTOP
                 return client.DefineAnalysisScheme(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DefineAnalysisSchemeAsync(request);
-                return task.Result;
+                return client.DefineAnalysisSchemeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

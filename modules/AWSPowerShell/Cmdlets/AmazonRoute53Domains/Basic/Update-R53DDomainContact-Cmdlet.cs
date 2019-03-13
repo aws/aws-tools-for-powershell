@@ -1089,9 +1089,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 #if DESKTOP
                 return client.UpdateDomainContact(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDomainContactAsync(request);
-                return task.Result;
+                return client.UpdateDomainContactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

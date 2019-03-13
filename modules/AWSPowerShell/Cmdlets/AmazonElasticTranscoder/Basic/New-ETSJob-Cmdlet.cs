@@ -98,36 +98,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         public Amazon.ElasticTranscoder.Model.CaptionSource[] InputCaptions_CaptionSource { get; set; }
         #endregion
         
-        #region Parameter Captions_CaptionSource
-        /// <summary>
-        /// <para>
-        /// <para>Source files for the input sidecar captions used during the transcoding process. To
-        /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        [Alias("Output_Captions_CaptionSources")]
-        public Amazon.ElasticTranscoder.Model.CaptionSource[] Captions_CaptionSource { get; set; }
-        #endregion
-        
-        #region Parameter Output_Composition
-        /// <summary>
-        /// <para>
-        /// <para>You can create an output file that contains an excerpt from the input file. This excerpt,
-        /// called a clip, can come from the beginning, middle, or end of the file. The Composition
-        /// object contains settings for the clips that make up an output file. For the current
-        /// release, you can only specify settings for a single clip per output file. The Composition
-        /// object cannot be null.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        public Amazon.ElasticTranscoder.Model.Clip[] Output_Composition { get; set; }
-        #endregion
-        
         #region Parameter Input_Container
         /// <summary>
         /// <para>
@@ -428,28 +398,6 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         public System.String AlbumArt_MergePolicy { get; set; }
         #endregion
         
-        #region Parameter Captions_MergePolicy
-        /// <summary>
-        /// <para>
-        /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
-        /// captions.</para><ul><li><para><b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions
-        /// into outputs. If captions for a language are embedded in the input file and also appear
-        /// in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded
-        /// captions for that language.</para></li><li><para><b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions
-        /// into outputs. If captions for a language are embedded in the input file and also appear
-        /// in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar
-        /// captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder
-        /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
-        /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        [Alias("Output_Captions_MergePolicy")]
-        public System.String Captions_MergePolicy { get; set; }
-        #endregion
-        
         #region Parameter InputEncryptionMode
         /// <summary>
         /// <para>
@@ -698,6 +646,58 @@ namespace Amazon.PowerShell.Cmdlets.ETS
         [System.Management.Automation.Parameter]
         [Alias("Input_DetectedProperties_Width")]
         public System.Int32 DetectedProperties_Width { get; set; }
+        #endregion
+        
+        #region Parameter Captions_CaptionSource
+        /// <summary>
+        /// <para>
+        /// <para>Source files for the input sidecar captions used during the transcoding process. To
+        /// omit all sidecar captions, leave <code>CaptionSources</code> blank.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        [Alias("Output_Captions_CaptionSources")]
+        public Amazon.ElasticTranscoder.Model.CaptionSource[] Captions_CaptionSource { get; set; }
+        #endregion
+        
+        #region Parameter Output_Composition
+        /// <summary>
+        /// <para>
+        /// <para>You can create an output file that contains an excerpt from the input file. This excerpt,
+        /// called a clip, can come from the beginning, middle, or end of the file. The Composition
+        /// object contains settings for the clips that make up an output file. For the current
+        /// release, you can only specify settings for a single clip per output file. The Composition
+        /// object cannot be null.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        public Amazon.ElasticTranscoder.Model.Clip[] Output_Composition { get; set; }
+        #endregion
+        
+        #region Parameter Captions_MergePolicy
+        /// <summary>
+        /// <para>
+        /// <para>A policy that determines how Elastic Transcoder handles the existence of multiple
+        /// captions.</para><ul><li><para><b>MergeOverride:</b> Elastic Transcoder transcodes both embedded and sidecar captions
+        /// into outputs. If captions for a language are embedded in the input file and also appear
+        /// in a sidecar file, Elastic Transcoder uses the sidecar captions and ignores the embedded
+        /// captions for that language.</para></li><li><para><b>MergeRetain:</b> Elastic Transcoder transcodes both embedded and sidecar captions
+        /// into outputs. If captions for a language are embedded in the input file and also appear
+        /// in a sidecar file, Elastic Transcoder uses the embedded captions and ignores the sidecar
+        /// captions for that language. If <code>CaptionSources</code> is empty, Elastic Transcoder
+        /// omits all sidecar captions from the output files.</para></li><li><para><b>Override:</b> Elastic Transcoder transcodes only the sidecar captions that you
+        /// specify in <code>CaptionSources</code>.</para></li></ul><para><code>MergePolicy</code> cannot be null.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        [Alias("Output_Captions_MergePolicy")]
+        public System.String Captions_MergePolicy { get; set; }
         #endregion
         
         #region Parameter Force
@@ -1434,9 +1434,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
                 #if DESKTOP
                 return client.CreateJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateJobAsync(request);
-                return task.Result;
+                return client.CreateJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

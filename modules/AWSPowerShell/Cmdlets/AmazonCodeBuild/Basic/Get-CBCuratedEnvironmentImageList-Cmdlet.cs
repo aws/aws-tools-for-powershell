@@ -111,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 #if DESKTOP
                 return client.ListCuratedEnvironmentImages(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListCuratedEnvironmentImagesAsync(request);
-                return task.Result;
+                return client.ListCuratedEnvironmentImagesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

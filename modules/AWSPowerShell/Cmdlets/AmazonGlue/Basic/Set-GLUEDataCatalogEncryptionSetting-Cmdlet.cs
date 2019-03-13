@@ -290,9 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.PutDataCatalogEncryptionSettings(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutDataCatalogEncryptionSettingsAsync(request);
-                return task.Result;
+                return client.PutDataCatalogEncryptionSettingsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -136,9 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 #if DESKTOP
                 return client.BatchGetNamedQuery(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetNamedQueryAsync(request);
-                return task.Result;
+                return client.BatchGetNamedQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

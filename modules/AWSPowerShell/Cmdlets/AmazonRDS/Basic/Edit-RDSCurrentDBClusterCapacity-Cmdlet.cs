@@ -41,14 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// scale the DB cluster based on the cooldown period for scaling up and the cooldown
     /// period for scaling down.
     /// </para><para>
-    /// For more information about Aurora Serverless, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
+    /// For more information about Aurora Serverless, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.html">Using
     /// Amazon Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
     /// </para><important><para>
     /// If you call <code>ModifyCurrentDBClusterCapacity</code> with the default <code>TimeoutAction</code>,
     /// connections that prevent Aurora Serverless from finding a scaling point might be dropped.
-    /// For more information about scaling points, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+    /// For more information about scaling points, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
     /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.
-    /// </para></important>
+    /// </para></important><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Edit", "RDSCurrentDBClusterCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ModifyCurrentDBClusterCapacityResponse")]
@@ -213,9 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.ModifyCurrentDBClusterCapacity(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyCurrentDBClusterCapacityAsync(request);
-                return task.Result;
+                return client.ModifyCurrentDBClusterCapacityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

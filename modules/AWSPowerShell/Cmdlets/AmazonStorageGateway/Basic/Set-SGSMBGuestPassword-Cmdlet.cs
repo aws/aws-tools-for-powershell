@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.SetSMBGuestPassword(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetSMBGuestPasswordAsync(request);
-                return task.Result;
+                return client.SetSMBGuestPasswordAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

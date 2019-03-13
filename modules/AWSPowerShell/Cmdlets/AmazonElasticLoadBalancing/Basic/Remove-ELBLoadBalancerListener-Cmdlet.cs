@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.DeleteLoadBalancerListeners(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteLoadBalancerListenersAsync(request);
-                return task.Result;
+                return client.DeleteLoadBalancerListenersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

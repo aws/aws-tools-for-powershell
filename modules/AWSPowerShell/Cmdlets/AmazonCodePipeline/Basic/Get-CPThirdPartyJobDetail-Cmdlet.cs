@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 #if DESKTOP
                 return client.GetThirdPartyJobDetails(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetThirdPartyJobDetailsAsync(request);
-                return task.Result;
+                return client.GetThirdPartyJobDetailsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

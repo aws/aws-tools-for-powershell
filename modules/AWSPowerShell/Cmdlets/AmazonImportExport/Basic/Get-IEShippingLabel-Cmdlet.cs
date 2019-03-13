@@ -295,9 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
                 #if DESKTOP
                 return client.GetShippingLabel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetShippingLabelAsync(request);
-                return task.Result;
+                return client.GetShippingLabelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

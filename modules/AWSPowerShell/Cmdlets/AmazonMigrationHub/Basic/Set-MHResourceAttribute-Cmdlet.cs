@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
                 #if DESKTOP
                 return client.PutResourceAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutResourceAttributesAsync(request);
-                return task.Result;
+                return client.PutResourceAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

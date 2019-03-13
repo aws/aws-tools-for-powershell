@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.GetDeployablePatchSnapshotForInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDeployablePatchSnapshotForInstanceAsync(request);
-                return task.Result;
+                return client.GetDeployablePatchSnapshotForInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

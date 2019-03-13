@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeOrderableReplicationInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeOrderableReplicationInstancesAsync(request);
-                return task.Result;
+                return client.DescribeOrderableReplicationInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

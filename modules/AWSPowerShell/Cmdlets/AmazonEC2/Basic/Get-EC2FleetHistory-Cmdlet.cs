@@ -52,16 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetEventType EventType { get; set; }
         #endregion
         
-        #region Parameter UtcStartTime
-        /// <summary>
-        /// <para>
-        /// <para>The start date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcStartTime { get; set; }
-        #endregion
-        
         #region Parameter FleetId
         /// <summary>
         /// <para>
@@ -70,6 +60,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -279,9 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeFleetHistory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeFleetHistoryAsync(request);
-                return task.Result;
+                return client.DescribeFleetHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

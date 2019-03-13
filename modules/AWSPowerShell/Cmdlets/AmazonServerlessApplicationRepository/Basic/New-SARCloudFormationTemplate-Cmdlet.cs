@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
                 #if DESKTOP
                 return client.CreateCloudFormationTemplate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateCloudFormationTemplateAsync(request);
-                return task.Result;
+                return client.CreateCloudFormationTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -170,9 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.AbortEnvironmentUpdate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AbortEnvironmentUpdateAsync(request);
-                return task.Result;
+                return client.AbortEnvironmentUpdateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

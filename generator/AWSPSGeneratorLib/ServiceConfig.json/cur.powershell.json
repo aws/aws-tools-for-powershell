@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CUR",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -15,7 +14,14 @@
   "nonFlattenedTypeNames": [],
   "nounMaps": {},
   "outputMetadataMembers": [],
-  "paginationDefaults": {},
+  "paginationDefaults": {
+    "excludedOperations": [],
+    "requestMember": "NextToken",
+    "responseMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "forceMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
   "pipelineDefaults": {
     "byValueMembers": [],
     "byNameMembers": []
@@ -58,15 +64,9 @@
         "confirmationMessageNoun": "ReportDefinition",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReportName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -101,11 +101,17 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "ReportDefinitions",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "None",
-        "passThruSource": "",
+        "iterationPattern": "Pattern2",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
-        "autoIterateSettings": {},
+        "autoIterateSettings": {
+          "excludedOperations": [],
+          "requestMember": "NextToken",
+          "responseMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "forceMaxResultSize": "false",
+          "resultsTruncatedMember": ""
+        },
         "memoryStreamParameters": []
       }
     },
@@ -141,15 +147,9 @@
         "confirmationMessageNoun": "ReportDefinition",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ReportName"
-        },
         "memoryStreamParameters": []
       }
     }

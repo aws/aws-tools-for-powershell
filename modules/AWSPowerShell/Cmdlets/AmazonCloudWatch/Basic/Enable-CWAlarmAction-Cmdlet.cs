@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.EnableAlarmActions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableAlarmActionsAsync(request);
-                return task.Result;
+                return client.EnableAlarmActionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

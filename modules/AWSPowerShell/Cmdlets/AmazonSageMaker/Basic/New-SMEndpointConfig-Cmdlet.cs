@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Creates an endpoint configuration that Amazon SageMaker hosting services uses to deploy
     /// models. In the configuration, you identify one or more models, created using the <code>CreateModel</code>
     /// API, to deploy and the resources that you want Amazon SageMaker to provision. Then
-    /// you call the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
+    /// you call the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
     /// API.
     /// 
     ///  <note><para>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of the endpoint configuration. You specify this name in a <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
+        /// <para>The name of the endpoint configuration. You specify this name in a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpoint.html">CreateEndpoint</a>
         /// request. </para>
         /// </para>
         /// </summary>
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+        /// <para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
         /// Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>.
         /// </para>
         /// </para>
@@ -221,9 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreateEndpointConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEndpointConfigAsync(request);
-                return task.Result;
+                return client.CreateEndpointConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

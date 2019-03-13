@@ -127,9 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ClearDefaultAuthorizer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ClearDefaultAuthorizerAsync(request);
-                return task.Result;
+                return client.ClearDefaultAuthorizerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

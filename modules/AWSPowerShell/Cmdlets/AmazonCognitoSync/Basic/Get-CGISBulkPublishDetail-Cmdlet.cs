@@ -132,9 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIS
                 #if DESKTOP
                 return client.GetBulkPublishDetails(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetBulkPublishDetailsAsync(request);
-                return task.Result;
+                return client.GetBulkPublishDetailsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

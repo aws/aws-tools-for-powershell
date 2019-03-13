@@ -138,9 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
                 #if DESKTOP
                 return client.ListProvisionedCapacity(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListProvisionedCapacityAsync(request);
-                return task.Result;
+                return client.ListProvisionedCapacityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

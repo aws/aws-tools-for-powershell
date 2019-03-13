@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled
     /// Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
@@ -66,25 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCapacity { get; set; }
-        #endregion
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
-        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
-        /// one of the two property is reflected in the value of both. EndTime is provided for
-        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform
-        /// the action after this time.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcEndTime instead.")]
-        public System.DateTime EndTime { get; set; }
         #endregion
         
         #region Parameter UtcEndTime
@@ -121,8 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Recurrence
         /// <summary>
         /// <para>
-        /// <para>The recurring schedule for this action, in Unix cron syntax format. For more information
-        /// about this format, see <a href="http://crontab.org">Crontab</a>.</para>
+        /// <para>The recurring schedule for this action, in Unix cron syntax format. This format consists
+        /// of five fields separated by white spaces: [Minute] [Hour] [Day_of_Month] [Month_of_Year]
+        /// [Day_of_Week]. The value must be in quotes (for example, <code>"30 0 1 1,6,12 *"</code>).
+        /// For more information about this format, see <a href="http://crontab.org">Crontab</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -139,6 +122,49 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String ScheduledActionName { get; set; }
         #endregion
         
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only
+        /// and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// Scaling performs the action at this time, and then performs the action based on the
+        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
+        /// error message.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcStartTime { get; set; }
+        #endregion
+        
+        #region Parameter UtcTime
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is deprecated.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcTime { get; set; }
+        #endregion
+        
+        #region Parameter EndTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time for the recurring schedule to end. Amazon EC2 Auto Scaling does not perform
+        /// the action after this time.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
         #region Parameter StartTime
         /// <summary>
         /// <para>
@@ -147,8 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
         /// assignment to either one of the two property is reflected in the value of both. StartTime
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
+        /// results in the wrong timestamp being passed to the service.</para><para>The time for this action to start, in YYYY-MM-DDThh:mm:ssZ format in UTC/GMT only
+        /// and in quotes (for example, <code>"2019-06-01T00:00:00Z"</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
         /// Scaling performs the action at this time, and then performs the action based on the
         /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
         /// error message.</para>
@@ -159,20 +185,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use UtcStartTime instead.")]
         public System.DateTime StartTime { get; set; }
-        #endregion
-        
-        #region Parameter UtcStartTime
-        /// <summary>
-        /// <para>
-        /// <para>The time for this action to start, in "YYYY-MM-DDThh:mm:ssZ" format in UTC/GMT only
-        /// (for example, <code>2014-06-01T00:00:00Z</code>).</para><para>If you specify <code>Recurrence</code> and <code>StartTime</code>, Amazon EC2 Auto
-        /// Scaling performs the action at this time, and then performs the action based on the
-        /// specified recurrence.</para><para>If you try to schedule your action in the past, Amazon EC2 Auto Scaling returns an
-        /// error message.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcStartTime { get; set; }
         #endregion
         
         #region Parameter Time
@@ -191,16 +203,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use UtcTime instead.")]
         public System.DateTime Time { get; set; }
-        #endregion
-        
-        #region Parameter UtcTime
-        /// <summary>
-        /// <para>
-        /// <para>This parameter is deprecated.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcTime { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -394,9 +396,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.PutScheduledUpdateGroupAction(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutScheduledUpdateGroupActionAsync(request);
-                return task.Result;
+                return client.PutScheduledUpdateGroupActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

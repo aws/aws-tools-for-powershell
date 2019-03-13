@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 #if DESKTOP
                 return client.PutEncryptionConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutEncryptionConfigAsync(request);
-                return task.Result;
+                return client.PutEncryptionConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

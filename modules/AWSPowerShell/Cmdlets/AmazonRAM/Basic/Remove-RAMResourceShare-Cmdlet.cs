@@ -41,16 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class RemoveRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceShareArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceShareArn { get; set; }
-        #endregion
-        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -60,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter ResourceShareArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the resource share.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceShareArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.DeleteResourceShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteResourceShareAsync(request);
-                return task.Result;
+                return client.DeleteResourceShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

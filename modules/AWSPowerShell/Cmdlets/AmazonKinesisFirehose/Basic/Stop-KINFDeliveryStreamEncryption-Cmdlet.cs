@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 #if DESKTOP
                 return client.StopDeliveryStreamEncryption(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopDeliveryStreamEncryptionAsync(request);
-                return task.Result;
+                return client.StopDeliveryStreamEncryptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

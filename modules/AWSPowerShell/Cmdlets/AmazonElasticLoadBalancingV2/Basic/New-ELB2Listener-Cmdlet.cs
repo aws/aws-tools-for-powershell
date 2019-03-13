@@ -39,9 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// This operation is idempotent, which means that it completes at most one time. If you
     /// attempt to create multiple listeners with the same settings, each call succeeds.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
+    /// For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
     /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>
-    /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners
+    /// and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners
     /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
     /// </para>
     /// </summary>
@@ -254,9 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.CreateListener(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateListenerAsync(request);
-                return task.Result;
+                return client.CreateListenerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.PutUserPermissionsBoundary(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutUserPermissionsBoundaryAsync(request);
-                return task.Result;
+                return client.PutUserPermissionsBoundaryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

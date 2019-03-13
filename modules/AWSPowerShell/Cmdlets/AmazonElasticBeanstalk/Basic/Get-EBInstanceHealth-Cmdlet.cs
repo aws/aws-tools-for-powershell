@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
 {
     /// <summary>
     /// Retrieves detailed information about the health of instances in your AWS Elastic Beanstalk.
-    /// This operation requires <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
+    /// This operation requires <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced.html">enhanced
     /// health reporting</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EBInstanceHealth")]
@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.DescribeInstancesHealth(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeInstancesHealthAsync(request);
-                return task.Result;
+                return client.DescribeInstancesHealthAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

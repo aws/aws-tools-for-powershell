@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Remove the alias from a set of aliases for a given user.
+    /// Remove one or more specified aliases from a set of aliases for a given user.
     /// </summary>
     [Cmdlet("Remove", "WMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier for the Amazon WorkMail entity to have the aliases removed.</para>
+        /// <para>The identifier for the member (user or group) from which to have the aliases removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -184,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.DeleteAlias(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteAliasAsync(request);
-                return task.Result;
+                return client.DeleteAliasAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

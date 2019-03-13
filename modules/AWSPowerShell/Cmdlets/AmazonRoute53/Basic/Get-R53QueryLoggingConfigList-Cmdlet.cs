@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// For more information about DNS query logs, see <a>CreateQueryLoggingConfig</a>. Additional
     /// information, including the format of DNS query logs, appears in <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging
     /// DNS Queries</a> in the <i>Amazon Route 53 Developer Guide</i>.
-    /// </para>
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53QueryLoggingConfigList")]
     [OutputType("Amazon.Route53.Model.QueryLoggingConfig")]
@@ -70,10 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// in the response to get the next page of results.</para><para>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100
         /// configurations.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxResults")]
-        public System.String MaxResult { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -83,6 +86,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// logging configurations, use <code>NextToken</code> to get the second and subsequent
         /// pages of results.</para><para>For the first <code>ListQueryLoggingConfigs</code> request, omit this value.</para><para>For the second and subsequent requests, get the value of <code>NextToken</code> from
         /// the previous response and specify that value for <code>NextToken</code> in the request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
             
             context.HostedZoneId = this.HostedZoneId;
             context.NextToken = this.NextToken;
-            context.MaxResults = this.MaxResult;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,46 +126,118 @@ namespace Amazon.PowerShell.Cmdlets.R53
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.Route53.Model.ListQueryLoggingConfigsRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.Route53.Model.ListQueryLoggingConfigsRequest();
             if (cmdletContext.HostedZoneId != null)
             {
                 request.HostedZoneId = cmdletContext.HostedZoneId;
             }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
-            if (cmdletContext.MaxResults != null)
-            {
-                request.MaxResults = cmdletContext.MaxResults;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            int? _pageSize = 100;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.QueryLoggingConfigs;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.QueryLoggingConfigs;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.QueryLoggingConfigs.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -177,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.ListQueryLoggingConfigs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListQueryLoggingConfigsAsync(request);
-                return task.Result;
+                return client.ListQueryLoggingConfigsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -201,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             public System.String HostedZoneId { get; set; }
             public System.String NextToken { get; set; }
-            public System.String MaxResults { get; set; }
+            public int? MaxResults { get; set; }
         }
         
     }

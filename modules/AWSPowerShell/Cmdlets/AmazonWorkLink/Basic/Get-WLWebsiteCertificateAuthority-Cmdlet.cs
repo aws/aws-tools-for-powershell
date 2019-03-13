@@ -140,9 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
                 #if DESKTOP
                 return client.DescribeWebsiteCertificateAuthority(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeWebsiteCertificateAuthorityAsync(request);
-                return task.Result;
+                return client.DescribeWebsiteCertificateAuthorityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

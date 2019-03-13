@@ -30,6 +30,9 @@
         <ServiceOperation MethodName="CreateService" Output="DefaultSingleMember" Verb="New" Noun="Service" ShouldProcessTarget="ServiceName" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateTaskSet" Output="DefaultSingleMember" Verb="New" Noun="TaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountSetting" Output="DefaultSingleMember" Verb="Remove" Noun="AccountSetting" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -40,6 +43,11 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteService" Output="DefaultSingleMember" Verb="Remove" Noun="Service" ShouldProcessTarget="Service" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTaskSet" Output="DefaultSingleMember" Verb="Remove" Noun="TaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
@@ -65,6 +73,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTasks" Output="Response" Verb="Get" Noun="TaskDetail" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTaskSets" Output="Response" Verb="Get" Noun="TaskSet" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListAccountSettings" Output="DefaultSingleMember" Verb="Get" Noun="AccountSetting" PipelineParameter="" NoPipelineParameter="true">
@@ -128,6 +139,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateService" Output="DefaultSingleMember" Verb="Update" Noun="Service" ShouldProcessTarget="Service" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServicePrimaryTaskSet" Output="DefaultSingleMember" Verb="Update" Noun="ServicePrimaryTaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTaskSet" Output="DefaultSingleMember" Verb="Update" Noun="TaskSet" ShouldProcessTarget="Cluster" PipelineParameter="Cluster" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

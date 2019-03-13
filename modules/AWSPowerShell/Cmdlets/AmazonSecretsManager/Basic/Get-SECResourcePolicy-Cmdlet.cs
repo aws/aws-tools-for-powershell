@@ -152,9 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SEC
                 #if DESKTOP
                 return client.GetResourcePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetResourcePolicyAsync(request);
-                return task.Result;
+                return client.GetResourcePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.DeleteOrganizationalUnit(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteOrganizationalUnitAsync(request);
-                return task.Result;
+                return client.DeleteOrganizationalUnitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

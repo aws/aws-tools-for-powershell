@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which the route resides.</para>
+        /// <para>The name of the service mesh that the route resides in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter VirtualRouterName
         /// <summary>
         /// <para>
-        /// <para>The name of the virtual router with which the route is associated.</para>
+        /// <para>The name of the virtual router that the route is associated with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -156,9 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.DescribeRoute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeRouteAsync(request);
-                return task.Result;
+                return client.DescribeRouteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

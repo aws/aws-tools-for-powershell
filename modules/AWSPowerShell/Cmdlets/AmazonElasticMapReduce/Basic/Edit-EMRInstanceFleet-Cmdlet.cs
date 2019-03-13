@@ -236,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 #if DESKTOP
                 return client.ModifyInstanceFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyInstanceFleetAsync(request);
-                return task.Result;
+                return client.ModifyInstanceFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

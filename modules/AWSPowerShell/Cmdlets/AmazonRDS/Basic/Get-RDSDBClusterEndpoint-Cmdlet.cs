@@ -28,7 +28,11 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns information about endpoints for an Amazon Aurora DB cluster.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns information about endpoints for an Amazon Aurora DB cluster.
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSDBClusterEndpoint")]
     [OutputType("Amazon.RDS.Model.DBClusterEndpoint")]
@@ -259,9 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeDBClusterEndpoints(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDBClusterEndpointsAsync(request);
-                return task.Result;
+                return client.DescribeDBClusterEndpointsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

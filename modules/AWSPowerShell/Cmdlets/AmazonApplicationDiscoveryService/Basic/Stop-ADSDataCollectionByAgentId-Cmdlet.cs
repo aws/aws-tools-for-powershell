@@ -146,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.StopDataCollectionByAgentIds(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopDataCollectionByAgentIdsAsync(request);
-                return task.Result;
+                return client.StopDataCollectionByAgentIdsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

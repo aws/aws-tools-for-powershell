@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Detaches an Aurora secondary cluster from an Aurora global database cluster. The
     /// cluster becomes a standalone cluster with read-write capability instead of being read-only
-    /// and receiving data from a primary cluster in a different region.
+    /// and receiving data from a primary cluster in a different region. 
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "RDSFromGlobalCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.GlobalCluster")]
@@ -160,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.RemoveFromGlobalCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveFromGlobalClusterAsync(request);
-                return task.Result;
+                return client.RemoveFromGlobalClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

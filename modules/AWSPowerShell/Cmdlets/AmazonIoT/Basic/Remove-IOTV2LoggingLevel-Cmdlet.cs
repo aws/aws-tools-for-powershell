@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.DeleteV2LoggingLevel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteV2LoggingLevelAsync(request);
-                return task.Result;
+                return client.DeleteV2LoggingLevelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

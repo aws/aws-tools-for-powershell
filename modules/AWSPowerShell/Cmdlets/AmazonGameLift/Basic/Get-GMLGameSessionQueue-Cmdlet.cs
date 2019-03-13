@@ -224,9 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.DescribeGameSessionQueues(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeGameSessionQueuesAsync(request);
-                return task.Result;
+                return client.DescribeGameSessionQueuesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

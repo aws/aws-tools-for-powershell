@@ -167,9 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.DeleteAccountSetting(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteAccountSettingAsync(request);
-                return task.Result;
+                return client.DeleteAccountSettingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -206,9 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.RDSD
                 #if DESKTOP
                 return client.ExecuteSql(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ExecuteSqlAsync(request);
-                return task.Result;
+                return client.ExecuteSqlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

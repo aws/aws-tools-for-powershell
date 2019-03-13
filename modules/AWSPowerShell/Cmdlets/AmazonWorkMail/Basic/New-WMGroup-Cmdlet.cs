@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a group that can be used in Amazon WorkMail by calling the RegisterToWorkMail
+    /// Creates a group that can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
     /// operation.
     /// </summary>
     [Cmdlet("New", "WMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.CreateGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateGroupAsync(request);
-                return task.Result;
+                return client.CreateGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

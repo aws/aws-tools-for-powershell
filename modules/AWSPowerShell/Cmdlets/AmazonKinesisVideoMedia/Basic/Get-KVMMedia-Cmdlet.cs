@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.KVM
                 #if DESKTOP
                 return client.GetMedia(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetMediaAsync(request);
-                return task.Result;
+                return client.GetMediaAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

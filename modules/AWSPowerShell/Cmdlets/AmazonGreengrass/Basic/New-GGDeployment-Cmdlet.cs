@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// The type of deployment. When used in ''CreateDeployment'',
+        /// The type of deployment. When used for ''CreateDeployment'',
         /// only ''NewDeployment'' and ''Redeployment'' are valid.
         /// </para>
         /// </summary>
@@ -206,9 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.CreateDeployment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentAsync(request);
-                return task.Result;
+                return client.CreateDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

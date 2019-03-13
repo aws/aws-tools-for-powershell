@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
     ///  
     /// <para>
     /// To remove a tag, specify the tag key. To change the tag value of an existing tag key,
-    /// use <a href="https://docs.aws.amazon.com/robomaker/latest/dg//API_Reference.htmlAPI_TagResource.html"><code>TagResource</code></a>. 
+    /// use <a href="https://docs.aws.amazon.com/robomaker/latest/dg/API_TagResource.html"><code>TagResource</code></a>. 
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "ROBOResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.UntagResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UntagResourceAsync(request);
-                return task.Result;
+                return client.UntagResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

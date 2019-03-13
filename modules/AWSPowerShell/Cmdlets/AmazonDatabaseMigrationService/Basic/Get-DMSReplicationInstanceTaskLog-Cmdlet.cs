@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     public partial class GetDMSReplicationInstanceTaskLogCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter ReplicationInstanceArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String ReplicationInstanceArn { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -72,16 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        #endregion
-        
-        #region Parameter ReplicationInstanceArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the replication instance.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ReplicationInstanceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeReplicationInstanceTaskLogs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReplicationInstanceTaskLogsAsync(request);
-                return task.Result;
+                return client.DescribeReplicationInstanceTaskLogsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

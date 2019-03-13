@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.BatchGetOnPremisesInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetOnPremisesInstancesAsync(request);
-                return task.Result;
+                return client.BatchGetOnPremisesInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

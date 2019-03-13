@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.RebootRelationalDatabase(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebootRelationalDatabaseAsync(request);
-                return task.Result;
+                return client.RebootRelationalDatabaseAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -144,7 +144,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the association document.</para>
+        /// <para>The name of the SSM document that contains the configuration information for the instance.
+        /// You can specify Command, Policy, or Automation documents.</para><para>You can specify AWS-predefined documents, documents you created, or a document that
+        /// is shared with you from another account.</para><para>For SSM documents that are shared with you from other AWS accounts, you must specify
+        /// the complete SSM document ARN, in the following format:</para><para><code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For AWS-predefined documents and SSM documents you created in your account, you only
+        /// need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code>
+        /// or <code>My-Document</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -444,9 +449,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.UpdateAssociation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateAssociationAsync(request);
-                return task.Result;
+                return client.UpdateAssociationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

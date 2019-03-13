@@ -111,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeAutoScalingNotificationTypes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAutoScalingNotificationTypesAsync(request);
-                return task.Result;
+                return client.DescribeAutoScalingNotificationTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

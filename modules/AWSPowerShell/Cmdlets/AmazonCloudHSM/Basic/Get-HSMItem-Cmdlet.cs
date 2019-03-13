@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 #if DESKTOP
                 return client.DescribeHsm(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeHsmAsync(request);
-                return task.Result;
+                return client.DescribeHsmAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

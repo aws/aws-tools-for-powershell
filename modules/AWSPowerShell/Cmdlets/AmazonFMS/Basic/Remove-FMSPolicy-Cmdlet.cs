@@ -43,8 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.FMS
         #region Parameter DeleteAllPolicyResource
         /// <summary>
         /// <para>
-        /// <para>If <code>True</code>, the request will also delete all web ACLs in this policy. Associated
-        /// resources will no longer be protected by web ACLs in this policy.</para>
+        /// <para>If <code>True</code>, the request will also perform a clean-up process that will:</para><ul><li><para>Delete rule groups created by AWS Firewall Manager</para></li><li><para>Remove web ACLs from in-scope resources</para></li><li><para>Delete web ACLs that contain no rules or rule groups</para></li></ul><para>After the cleanup, in-scope resources will no longer be protected by web ACLs in this
+        /// policy. Protection of out-of-scope resources will remain unchanged. Scope is determined
+        /// by tags and accounts associated with the policy. When creating the policy, if you
+        /// specified that only resources in specific accounts or with specific tags be protected
+        /// by the policy, those resources are in-scope. All others are out of scope. If you did
+        /// not specify tags or accounts, all resources are in-scope. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -172,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.FMS
                 #if DESKTOP
                 return client.DeletePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeletePolicyAsync(request);
-                return task.Result;
+                return client.DeletePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

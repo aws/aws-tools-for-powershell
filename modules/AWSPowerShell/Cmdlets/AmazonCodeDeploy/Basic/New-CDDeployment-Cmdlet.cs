@@ -180,6 +180,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.Boolean AutoRollbackConfiguration_Enabled { get; set; }
         #endregion
         
+        #region Parameter S3Location_ETag
+        /// <summary>
+        /// <para>
+        /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
+        /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
+        /// is skipped.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_S3Location_ETag")]
+        public System.String S3Location_ETag { get; set; }
+        #endregion
+        
         #region Parameter AutoRollbackConfiguration_Event
         /// <summary>
         /// <para>
@@ -209,12 +222,21 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter IgnoreApplicationStopFailure
         /// <summary>
         /// <para>
-        /// <para> If set to true, then if the deployment causes the ApplicationStop deployment lifecycle
-        /// event to an instance to fail, the deployment to that instance is considered to have
-        /// failed at that point and continues on to the BeforeInstall deployment lifecycle event.
-        /// </para><para> If set to false or not specified, then if the deployment causes the ApplicationStop
-        /// deployment lifecycle event to fail to an instance, the deployment to that instance
-        /// stops, and the deployment to that instance is considered to have failed. </para>
+        /// <para> If true, then if an ApplicationStop, BeforeBlockTraffic, or AfterBlockTraffic deployment
+        /// lifecycle event to an instance fails, then the deployment continues to the next deployment
+        /// lifecycle event. For example, if ApplicationStop fails, the deployment continues with
+        /// DownloadBundle. If BeforeBlockTraffic fails, the deployment continues with BlockTraffic.
+        /// If AfterBlockTraffic fails, the deployment continues with ApplicationStop. </para><para> If false or not specified, then if a lifecycle event fails during a deployment to
+        /// an instance, that deployment fails. If deployment to that instance is part of an overall
+        /// deployment and the number of healthy hosts is not less than the minimum number of
+        /// healthy hosts, then a deployment to the next instance is attempted. </para><para> During a deployment, the AWS CodeDeploy agent runs the scripts specified for ApplicationStop,
+        /// BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful
+        /// deployment. (All other scripts are run from the AppSpec file in the current deployment.)
+        /// If one of these scripts contains an error and does not run successfully, the deployment
+        /// can fail. </para><para> If the cause of the failure is a script from the last successful deployment that
+        /// will never run successfully, create a new deployment and use <code>ignoreApplicationStopFailures</code>
+        /// to specify that the ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic failures
+        /// should be ignored. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -313,19 +335,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Version")]
         public System.String S3Location_Version { get; set; }
-        #endregion
-        
-        #region Parameter S3Location_ETag
-        /// <summary>
-        /// <para>
-        /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
-        /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
-        /// is skipped.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Revision_S3Location_ETag")]
-        public System.String S3Location_ETag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -758,9 +767,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.CreateDeployment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeploymentAsync(request);
-                return task.Result;
+                return client.CreateDeploymentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

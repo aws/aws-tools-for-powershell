@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 #if DESKTOP
                 return client.DeleteSqlInjectionMatchSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteSqlInjectionMatchSetAsync(request);
-                return task.Result;
+                return client.DeleteSqlInjectionMatchSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

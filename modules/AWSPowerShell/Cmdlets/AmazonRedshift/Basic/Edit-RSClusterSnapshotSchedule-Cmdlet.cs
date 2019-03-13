@@ -186,9 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.ModifyClusterSnapshotSchedule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyClusterSnapshotScheduleAsync(request);
-                return task.Result;
+                return client.ModifyClusterSnapshotScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

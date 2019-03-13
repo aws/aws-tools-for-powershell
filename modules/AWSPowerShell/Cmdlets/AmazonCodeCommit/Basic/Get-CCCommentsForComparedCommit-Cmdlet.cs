@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
                 #if DESKTOP
                 return client.GetCommentsForComparedCommit(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetCommentsForComparedCommitAsync(request);
-                return task.Result;
+                return client.GetCommentsForComparedCommitAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -141,9 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeNetworkInterfaceAttribute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeNetworkInterfaceAttributeAsync(request);
-                return task.Result;
+                return client.DescribeNetworkInterfaceAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

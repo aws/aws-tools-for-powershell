@@ -310,9 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
                 #if DESKTOP
                 return client.PostContent(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PostContentAsync(request);
-                return task.Result;
+                return client.PostContentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

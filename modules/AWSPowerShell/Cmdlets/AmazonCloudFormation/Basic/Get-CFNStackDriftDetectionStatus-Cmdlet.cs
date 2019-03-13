@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 #if DESKTOP
                 return client.DescribeStackDriftDetectionStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeStackDriftDetectionStatusAsync(request);
-                return task.Result;
+                return client.DescribeStackDriftDetectionStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

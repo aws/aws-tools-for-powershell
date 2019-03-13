@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.SkipWaitTimeForInstanceTermination(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SkipWaitTimeForInstanceTerminationAsync(request);
-                return task.Result;
+                return client.SkipWaitTimeForInstanceTerminationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 #if DESKTOP
                 return client.EnableEnhancedMonitoring(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableEnhancedMonitoringAsync(request);
-                return task.Result;
+                return client.EnableEnhancedMonitoringAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class DisconnectRAMResourceShareCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Principal
         /// <summary>
         /// <para>
@@ -71,17 +82,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceShareArn { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Force
@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.DisassociateResourceShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateResourceShareAsync(request);
-                return task.Result;
+                return client.DisassociateResourceShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

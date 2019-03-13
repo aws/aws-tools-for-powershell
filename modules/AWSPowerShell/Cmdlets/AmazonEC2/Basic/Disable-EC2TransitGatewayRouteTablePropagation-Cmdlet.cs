@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DisableTransitGatewayRouteTablePropagation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisableTransitGatewayRouteTablePropagationAsync(request);
-                return task.Result;
+                return client.DisableTransitGatewayRouteTablePropagationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

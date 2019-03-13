@@ -28,7 +28,7 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Deletes a user pool. Once a pool is deleted, users will not be able to authenticate
+    /// Deletes an identity pool. Once a pool is deleted, users will not be able to authenticate
     /// with the pool.
     /// 
     ///  
@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 #if DESKTOP
                 return client.DeleteIdentityPool(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteIdentityPoolAsync(request);
-                return task.Result;
+                return client.DeleteIdentityPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

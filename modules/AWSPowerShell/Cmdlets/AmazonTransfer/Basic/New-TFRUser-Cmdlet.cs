@@ -76,11 +76,11 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter Role
         /// <summary>
         /// <para>
-        /// <para>The IAM role that controls your user’s access to your Amazon S3 bucket. The policies
+        /// <para>The IAM role that controls your user's access to your Amazon S3 bucket. The policies
         /// attached to this role will determine the level of access you want to provide your
         /// users when transferring files into and out of your Amazon S3 bucket or buckets. The
         /// IAM role should also contain a trust relationship that allows the SFTP server to access
-        /// your resources when servicing your SFTP user’s transfer requests.</para>
+        /// your resources when servicing your SFTP user's transfer requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 #if DESKTOP
                 return client.CreateUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateUserAsync(request);
-                return task.Result;
+                return client.CreateUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

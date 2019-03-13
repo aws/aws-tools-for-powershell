@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// After you submit your request, Amazon Cognito requires up to 1 hour to distribute
     /// your new certificate to your custom domain.
     /// </para><para>
-    /// For more information about adding a custom domain to your user pool, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
+    /// For more information about adding a custom domain to your user pool, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using
     /// Your Own Domain for the Hosted UI</a>.
     /// </para>
     /// </summary>
@@ -221,9 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.UpdateUserPoolDomain(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateUserPoolDomainAsync(request);
-                return task.Result;
+                return client.UpdateUserPoolDomainAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

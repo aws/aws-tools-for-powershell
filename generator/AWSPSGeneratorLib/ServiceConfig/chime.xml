@@ -23,10 +23,22 @@
         <Property>UserId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociatePhoneNumbersWithVoiceConnector" Output="DefaultSingleMember" Verb="Add" Noun="PhoneNumbersToVoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociatePhoneNumberWithUser" Output="Void" Verb="Add" Noun="PhoneNumberToUser" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchDeletePhoneNumber" Output="DefaultSingleMember" Verb="Remove" Noun="PhoneNumberBatch" ShouldProcessTarget="PhoneNumberIds" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchSuspendUser" Output="DefaultSingleMember" Verb="Enable" Noun="UserSuspensionBatch" ShouldProcessTarget="AccountId" PipelineParameter="UserIdList" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUnsuspendUser" Output="DefaultSingleMember" Verb="Disable" Noun="UserSuspensionBatch" ShouldProcessTarget="AccountId" PipelineParameter="UserIdList" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchUpdatePhoneNumber" Output="DefaultSingleMember" Verb="Update" Noun="PhoneNumberBatch" ShouldProcessTarget="UpdatePhoneNumberRequestItems" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchUpdateUser" Output="DefaultSingleMember" Verb="Update" Noun="UserBatch" ShouldProcessTarget="AccountId" PipelineParameter="UpdateUserRequestItems" NoPipelineParameter="false">
@@ -35,7 +47,34 @@
         <ServiceOperation MethodName="CreateAccount" Output="DefaultSingleMember" Verb="New" Noun="Account" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreatePhoneNumberOrder" Output="DefaultSingleMember" Verb="New" Noun="PhoneNumberOrder" ShouldProcessTarget="E164PhoneNumbers" PipelineParameter="E164PhoneNumbers" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVoiceConnector" Output="DefaultSingleMember" Verb="New" Noun="VoiceConnector" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccount" Output="Void" Verb="Remove" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePhoneNumber" Output="Void" Verb="Remove" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnector" Output="Void" Verb="Remove" Noun="VoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorOrigination" Output="Void" Verb="Remove" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorTermination" Output="Void" Verb="Remove" Noun="VoiceConnectorTermination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVoiceConnectorTerminationCredentials" Output="Void" Verb="Remove" Noun="VoiceConnectorTerminationCredential" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePhoneNumberFromUser" Output="Void" Verb="Remove" Noun="PhoneNumberFromUser" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociatePhoneNumbersFromVoiceConnector" Output="DefaultSingleMember" Verb="Remove" Noun="PhoneNumbersFromVoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAccount" Output="DefaultSingleMember" Verb="Get" Noun="Account" PipelineParameter="AccountId" NoPipelineParameter="false">
@@ -44,7 +83,31 @@
         <ServiceOperation MethodName="GetAccountSettings" Output="DefaultSingleMember" Verb="Get" Noun="AccountSetting" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGlobalSettings" Output="Response" Verb="Get" Noun="GlobalSetting" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPhoneNumber" Output="DefaultSingleMember" Verb="Get" Noun="PhoneNumber" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPhoneNumberOrder" Output="DefaultSingleMember" Verb="Get" Noun="PhoneNumberOrder" PipelineParameter="PhoneNumberOrderId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetUser" Output="DefaultSingleMember" Verb="Get" Noun="User" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserSettings" Output="DefaultSingleMember" Verb="Get" Noun="UserSetting" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnector" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnector" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorOrigination" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnectorOrigination" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorTermination" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnectorTermination" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetVoiceConnectorTerminationHealth" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnectorTerminationHealth" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="InviteUsers" Output="DefaultSingleMember" Verb="Send" Noun="UserInvitation" ShouldProcessTarget="AccountId" PipelineParameter="UserEmailList" NoPipelineParameter="false">
@@ -53,13 +116,42 @@
         <ServiceOperation MethodName="ListAccounts" Output="DefaultSingleMember" Verb="Get" Noun="AccountList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumberOrders" Output="DefaultSingleMember" Verb="Get" Noun="PhoneNumberOrderList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumbers" Output="DefaultSingleMember" Verb="Get" Noun="PhoneNumberList" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUsers" Output="DefaultSingleMember" Verb="Get" Noun="UserList" PipelineParameter="AccountId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceConnectors" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnectorList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVoiceConnectorTerminationCredentials" Output="DefaultSingleMember" Verb="Get" Noun="VoiceConnectorTerminationCredentialList" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="LogoutUser" Output="Void" Verb="Invoke" Noun="UserLogout" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorOrigination" Output="DefaultSingleMember" Verb="Write" Noun="VoiceConnectorOrigination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorTermination" Output="DefaultSingleMember" Verb="Write" Noun="VoiceConnectorTermination" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutVoiceConnectorTerminationCredentials" Output="Void" Verb="Write" Noun="VoiceConnectorTerminationCredential" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Credentials" NewName="TerminationCredential" AutoApplyAlias="false" />
+            </Params>
+        </ServiceOperation>
         <ServiceOperation MethodName="ResetPersonalPIN" Output="DefaultSingleMember" Verb="Reset" Noun="PersonalPIN" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestorePhoneNumber" Output="DefaultSingleMember" Verb="Restore" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SearchAvailablePhoneNumbers" Output="DefaultSingleMember" Verb="Search" Noun="AvailablePhoneNumber" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccount" Output="DefaultSingleMember" Verb="Update" Noun="Account" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
@@ -68,7 +160,19 @@
         <ServiceOperation MethodName="UpdateAccountSettings" Output="Void" Verb="Update" Noun="AccountSetting" ShouldProcessTarget="AccountId" PipelineParameter="AccountId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalSettings" Output="Void" Verb="Update" Noun="GlobalSetting" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePhoneNumber" Output="DefaultSingleMember" Verb="Update" Noun="PhoneNumber" ShouldProcessTarget="PhoneNumberId" PipelineParameter="PhoneNumberId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateUser" Output="DefaultSingleMember" Verb="Update" Noun="User" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserSettings" Output="Void" Verb="Update" Noun="UserSetting" ShouldProcessTarget="UserId" PipelineParameter="UserId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVoiceConnector" Output="DefaultSingleMember" Verb="Update" Noun="VoiceConnector" ShouldProcessTarget="VoiceConnectorId" PipelineParameter="VoiceConnectorId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -699,9 +699,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
                 #if DESKTOP
                 return client.GetDevicePoolCompatibility(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDevicePoolCompatibilityAsync(request);
-                return task.Result;
+                return client.GetDevicePoolCompatibilityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

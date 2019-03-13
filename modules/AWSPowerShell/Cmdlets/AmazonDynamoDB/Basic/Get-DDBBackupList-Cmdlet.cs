@@ -63,24 +63,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         public Amazon.DynamoDBv2.BackupTypeFilter BackupType { get; set; }
         #endregion
         
-        #region Parameter ExclusiveStartBackupArn
-        /// <summary>
-        /// <para>
-        /// <para><code>LastEvaluatedBackupArn</code> is the ARN of the backup last evaluated when
-        /// the current page of results was returned, inclusive of the current page of results.
-        /// This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code>
-        /// operation in order to fetch the next page of results. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.LastEvaluatedBackupArn, for subsequent calls, to this parameter.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
-        public System.String ExclusiveStartBackupArn { get; set; }
-        #endregion
-        
         #region Parameter TableName
         /// <summary>
         /// <para>
@@ -111,6 +93,24 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime TimeRangeUpperBound { get; set; }
+        #endregion
+        
+        #region Parameter ExclusiveStartBackupArn
+        /// <summary>
+        /// <para>
+        /// <para><code>LastEvaluatedBackupArn</code> is the ARN of the backup last evaluated when
+        /// the current page of results was returned, inclusive of the current page of results.
+        /// This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code>
+        /// operation in order to fetch the next page of results. </para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.LastEvaluatedBackupArn, for subsequent calls, to this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NextToken")]
+        public System.String ExclusiveStartBackupArn { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -275,9 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.ListBackups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListBackupsAsync(request);
-                return task.Result;
+                return client.ListBackupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

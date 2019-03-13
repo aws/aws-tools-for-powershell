@@ -127,19 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String RequestId { get; set; }
         #endregion
         
-        #region Parameter Reserved
-        /// <summary>
-        /// <para>
-        /// Deprecated field that's only usable by whitelisted
-        /// customers.
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("Deprecated field that\'s only usable by whitelisted customers.")]
-        public System.String Reserved { get; set; }
-        #endregion
-        
         #region Parameter InputSpecification_Resolution
         /// <summary>
         /// <para>
@@ -171,6 +158,19 @@ namespace Amazon.PowerShell.Cmdlets.EML
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
+        #region Parameter Reserved
+        /// <summary>
+        /// <para>
+        /// Deprecated field that's only usable by whitelisted
+        /// customers.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("Deprecated field that\'s only usable by whitelisted customers.")]
+        public System.String Reserved { get; set; }
         #endregion
         
         #region Parameter Force
@@ -364,9 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
                 #if DESKTOP
                 return client.CreateChannel(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateChannelAsync(request);
-                return task.Result;
+                return client.CreateChannelAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

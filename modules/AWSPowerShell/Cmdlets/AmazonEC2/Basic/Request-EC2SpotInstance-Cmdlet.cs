@@ -358,6 +358,32 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String LaunchSpecification_UserData { get; set; }
         #endregion
         
+        #region Parameter UtcValidFrom
+        /// <summary>
+        /// <para>
+        /// <para>The start date of the request. If this is a one-time request, the request becomes
+        /// active at this date and time and remains active until all instances launch, the request
+        /// expires, or the request is canceled. If the request is persistent, the request becomes
+        /// active at this date and time and remains active until it expires or is canceled.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcValidFrom { get; set; }
+        #endregion
+        
+        #region Parameter UtcValidUntil
+        /// <summary>
+        /// <para>
+        /// <para>The end date of the request. If this is a one-time request, the request remains active
+        /// until all instances launch, the request is canceled, or this date is reached. If the
+        /// request is persistent, it remains active until it is canceled or this date is reached.
+        /// The default end date is 7 days from the current date.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcValidUntil { get; set; }
+        #endregion
+        
         #region Parameter ValidFrom
         /// <summary>
         /// <para>
@@ -379,19 +405,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.DateTime ValidFrom { get; set; }
         #endregion
         
-        #region Parameter UtcValidFrom
-        /// <summary>
-        /// <para>
-        /// <para>The start date of the request. If this is a one-time request, the request becomes
-        /// active at this date and time and remains active until all instances launch, the request
-        /// expires, or the request is canceled. If the request is persistent, the request becomes
-        /// active at this date and time and remains active until it expires or is canceled.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcValidFrom { get; set; }
-        #endregion
-        
         #region Parameter ValidUntil
         /// <summary>
         /// <para>
@@ -411,19 +424,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use UtcValidUntil instead.")]
         public System.DateTime ValidUntil { get; set; }
-        #endregion
-        
-        #region Parameter UtcValidUntil
-        /// <summary>
-        /// <para>
-        /// <para>The end date of the request. If this is a one-time request, the request remains active
-        /// until all instances launch, the request is canceled, or this date is reached. If the
-        /// request is persistent, it remains active until it is canceled or this date is reached.
-        /// The default end date is 7 days from the current date.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcValidUntil { get; set; }
         #endregion
         
         #region Parameter Force
@@ -857,9 +857,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.RequestSpotInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RequestSpotInstancesAsync(request);
-                return task.Result;
+                return client.RequestSpotInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

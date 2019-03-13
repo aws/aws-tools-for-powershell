@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Lists categories for all event source types, or, if specified, for a specified source
-    /// type. You can see a list of the event categories and source types in <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
     /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i>
     /// </summary>
     [Cmdlet("Get", "DMSEventCategory")]
@@ -147,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeEventCategories(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEventCategoriesAsync(request);
-                return task.Result;
+                return client.DescribeEventCategoriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

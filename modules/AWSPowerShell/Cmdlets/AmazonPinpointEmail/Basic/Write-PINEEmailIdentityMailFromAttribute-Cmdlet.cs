@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.PutEmailIdentityMailFromAttributes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutEmailIdentityMailFromAttributesAsync(request);
-                return task.Result;
+                return client.PutEmailIdentityMailFromAttributesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.ModifySnapshotCopyRetentionPeriod(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifySnapshotCopyRetentionPeriodAsync(request);
-                return task.Result;
+                return client.ModifySnapshotCopyRetentionPeriodAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

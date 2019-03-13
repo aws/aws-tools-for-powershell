@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.GetHealthCheckLastFailureReason(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetHealthCheckLastFailureReasonAsync(request);
-                return task.Result;
+                return client.GetHealthCheckLastFailureReasonAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

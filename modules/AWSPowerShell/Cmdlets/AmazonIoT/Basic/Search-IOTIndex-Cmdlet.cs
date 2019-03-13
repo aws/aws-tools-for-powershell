@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token used to get the next set of results, or <b>null</b> if there are no additional
+        /// <para>The token used to get the next set of results, or null if there are no additional
         /// results.</para>
         /// </para>
         /// </summary>
@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.SearchIndex(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SearchIndexAsync(request);
-                return task.Result;
+                return client.SearchIndexAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -200,9 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
                 #if DESKTOP
                 return client.DecreaseReplicationFactor(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DecreaseReplicationFactorAsync(request);
-                return task.Result;
+                return client.DecreaseReplicationFactorAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

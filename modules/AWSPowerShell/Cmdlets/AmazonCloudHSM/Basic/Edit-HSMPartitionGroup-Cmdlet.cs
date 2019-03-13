@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                 #if DESKTOP
                 return client.ModifyHapg(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyHapgAsync(request);
-                return task.Result;
+                return client.ModifyHapgAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

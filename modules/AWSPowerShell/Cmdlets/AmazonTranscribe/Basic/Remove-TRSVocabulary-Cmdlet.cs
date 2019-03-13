@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 #if DESKTOP
                 return client.DeleteVocabulary(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVocabularyAsync(request);
-                return task.Result;
+                return client.DeleteVocabularyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

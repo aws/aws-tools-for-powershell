@@ -160,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
                 #if DESKTOP
                 return client.StopQueryExecution(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopQueryExecutionAsync(request);
-                return task.Result;
+                return client.StopQueryExecutionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.PutAccountSettingDefault(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutAccountSettingDefaultAsync(request);
-                return task.Result;
+                return client.PutAccountSettingDefaultAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

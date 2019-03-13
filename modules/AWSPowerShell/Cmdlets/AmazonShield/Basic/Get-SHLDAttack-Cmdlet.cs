@@ -126,9 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 #if DESKTOP
                 return client.DescribeAttack(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAttackAsync(request);
-                return task.Result;
+                return client.DescribeAttackAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

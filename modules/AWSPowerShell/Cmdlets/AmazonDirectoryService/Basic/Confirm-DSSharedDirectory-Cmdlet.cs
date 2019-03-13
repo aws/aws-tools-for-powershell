@@ -143,9 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.AcceptSharedDirectory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AcceptSharedDirectoryAsync(request);
-                return task.Result;
+                return client.AcceptSharedDirectoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

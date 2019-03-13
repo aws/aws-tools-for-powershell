@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.StartOnDemandAuditTask(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartOnDemandAuditTaskAsync(request);
-                return task.Result;
+                return client.StartOnDemandAuditTaskAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

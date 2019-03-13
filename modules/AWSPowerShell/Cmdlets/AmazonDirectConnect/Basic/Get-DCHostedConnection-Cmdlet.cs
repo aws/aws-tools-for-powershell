@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// or link aggregation group (LAG).
     /// 
     ///  <note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Get", "DCHostedConnection")]
@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DescribeHostedConnections(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeHostedConnectionsAsync(request);
-                return task.Result;
+                return client.DescribeHostedConnectionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

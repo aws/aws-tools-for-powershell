@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>textract</C2jFilename>
+    <SourceGenerationRoot>AmazonTextract</SourceGenerationRoot>
+    <ServiceNounPrefix>TXT</ServiceNounPrefix>
+    <ServiceName>Amazon Textract</ServiceName>
+    <ServiceClientInterface>IAmazonTextract</ServiceClientInterface>
+    <ServiceClient>AmazonTextractClient</ServiceClient>
+    <ServiceNamespace>Amazon.Textract</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="GetDocumentAnalysis;GetDocumentTextDetection" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByNameProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AnalyzeDocument" Output="DefaultSingleMember" Verb="Invoke" Noun="DocumentAnalysis" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="DocumentMetadata">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetectDocumentText" Output="DefaultSingleMember" Verb="Find" Noun="DocumentText" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="DocumentMetadata">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDocumentAnalysis" Output="Response" Verb="Get" Noun="DocumentAnalysis" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDocumentTextDetection" Output="Response" Verb="Get" Noun="DocumentTextDetection" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDocumentAnalysis" Output="DefaultSingleMember" Verb="Start" Noun="DocumentAnalysis" ShouldProcessTarget="" PipelineParameter="FeatureTypes" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDocumentTextDetection" Output="DefaultSingleMember" Verb="Start" Noun="DocumentTextDetection" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

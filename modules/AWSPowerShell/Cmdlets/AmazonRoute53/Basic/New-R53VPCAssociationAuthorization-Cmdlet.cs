@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.CreateVPCAssociationAuthorization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateVPCAssociationAuthorizationAsync(request);
-                return task.Result;
+                return client.CreateVPCAssociationAuthorizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -244,9 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
                 #if DESKTOP
                 return client.NotifyMigrationTaskState(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.NotifyMigrationTaskStateAsync(request);
-                return task.Result;
+                return client.NotifyMigrationTaskStateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

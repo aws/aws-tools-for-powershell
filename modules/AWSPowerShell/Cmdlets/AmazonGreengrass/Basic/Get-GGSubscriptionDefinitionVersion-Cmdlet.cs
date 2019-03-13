@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.GetSubscriptionDefinitionVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetSubscriptionDefinitionVersionAsync(request);
-                return task.Result;
+                return client.GetSubscriptionDefinitionVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

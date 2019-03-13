@@ -109,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order for results. The default is <code>Ascending</code>.</para>
+        /// <para>The sort order for results. The default is <code>Descending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -359,9 +359,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.ListEndpoints(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListEndpointsAsync(request);
-                return task.Result;
+                return client.ListEndpointsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

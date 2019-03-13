@@ -181,9 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 #if DESKTOP
                 return client.DeleteCustomActionType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteCustomActionTypeAsync(request);
-                return task.Result;
+                return client.DeleteCustomActionTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -57,22 +57,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.EventType EventType { get; set; }
         #endregion
         
-        #region Parameter StartTime
+        #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
-        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. StartTime
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
+        /// <para>The ID of the Spot Fleet request.</para>
         /// </para>
-        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcStartTime instead.")]
-        public System.DateTime StartTime { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String SpotFleetRequestId { get; set; }
         #endregion
         
         #region Parameter UtcStartTime
@@ -108,14 +100,22 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String NextToken { get; set; }
         #endregion
         
-        #region Parameter SpotFleetRequestId
+        #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The ID of the Spot Fleet request.</para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartTimeUtc instead. Setting either StartTime or
+        /// StartTimeUtc results in both StartTime and StartTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</para>
         /// </para>
+        /// <para>This parameter is deprecated.</para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String SpotFleetRequestId { get; set; }
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartTime instead.")]
+        public System.DateTime StartTime { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -230,9 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeSpotFleetRequestHistory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSpotFleetRequestHistoryAsync(request);
-                return task.Result;
+                return client.DescribeSpotFleetRequestHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

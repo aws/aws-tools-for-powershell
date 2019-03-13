@@ -429,9 +429,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
                 #if DESKTOP
                 return client.CreateSamplingRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSamplingRuleAsync(request);
-                return task.Result;
+                return client.CreateSamplingRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

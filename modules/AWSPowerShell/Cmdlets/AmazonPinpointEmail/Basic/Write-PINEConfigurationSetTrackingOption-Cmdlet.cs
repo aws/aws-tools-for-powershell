@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.PutConfigurationSetTrackingOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutConfigurationSetTrackingOptionsAsync(request);
-                return task.Result;
+                return client.PutConfigurationSetTrackingOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

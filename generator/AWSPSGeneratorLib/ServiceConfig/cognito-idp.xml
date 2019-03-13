@@ -246,6 +246,9 @@
         <ServiceOperation MethodName="ListResourceServers" Output="DefaultSingleMember" Verb="Get" Noun="ResourceServerList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListUserImportJobs" Output="DefaultSingleMember" Verb="Get" Noun="UserImportJobList" PipelineParameter="UserPoolId" NoPipelineParameter="false">
             <Params />
             <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="MaxResults" ServicePageSize="60" />
@@ -292,6 +295,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="StopUserImportJob" Output="DefaultSingleMember" Verb="Stop" Noun="UserImportJob" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAuthEventFeedback" Output="Void" Verb="Update" Noun="AuthEventFeedback" ShouldProcessTarget="UserPoolId" PipelineParameter="UserPoolId" NoPipelineParameter="false">

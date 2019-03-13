@@ -41,16 +41,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
     public partial class DenyRAMResourceShareInvitationCmdlet : AmazonRAMClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceShareInvitationArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the invitation.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ResourceShareInvitationArn { get; set; }
-        #endregion
-        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -60,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientToken { get; set; }
+        #endregion
+        
+        #region Parameter ResourceShareInvitationArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the invitation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceShareInvitationArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -161,9 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.RejectResourceShareInvitation(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RejectResourceShareInvitationAsync(request);
-                return task.Result;
+                return client.RejectResourceShareInvitationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

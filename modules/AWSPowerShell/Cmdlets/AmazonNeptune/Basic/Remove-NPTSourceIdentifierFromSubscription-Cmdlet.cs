@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.RemoveSourceIdentifierFromSubscription(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveSourceIdentifierFromSubscriptionAsync(request);
-                return task.Result;
+                return client.RemoveSourceIdentifierFromSubscriptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

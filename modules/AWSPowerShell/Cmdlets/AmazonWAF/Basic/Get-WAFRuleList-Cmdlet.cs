@@ -233,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 #if DESKTOP
                 return client.ListRules(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListRulesAsync(request);
-                return task.Result;
+                return client.ListRulesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
                 #if DESKTOP
                 return client.PurchaseReservedCacheNodesOffering(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PurchaseReservedCacheNodesOfferingAsync(request);
-                return task.Result;
+                return client.PurchaseReservedCacheNodesOfferingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

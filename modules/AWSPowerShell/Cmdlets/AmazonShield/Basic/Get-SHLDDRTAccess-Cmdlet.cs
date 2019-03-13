@@ -111,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 #if DESKTOP
                 return client.DescribeDRTAccess(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDRTAccessAsync(request);
-                return task.Result;
+                return client.DescribeDRTAccessAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
                 #if DESKTOP
                 return client.DeleteProtection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteProtectionAsync(request);
-                return task.Result;
+                return client.DeleteProtectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

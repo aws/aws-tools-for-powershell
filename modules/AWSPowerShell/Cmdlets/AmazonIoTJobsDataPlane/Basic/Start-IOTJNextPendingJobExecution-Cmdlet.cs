@@ -190,9 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.IOTJ
                 #if DESKTOP
                 return client.StartNextPendingJobExecution(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartNextPendingJobExecutionAsync(request);
-                return task.Result;
+                return client.StartNextPendingJobExecutionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ThingIndexingConfiguration_ThingConnectivityIndexingMode
         /// <summary>
         /// <para>
-        /// <para>Thing connectivity indexing mode. Valid values are: </para><ul><li><para>STATUS – Your thing index will contain connectivity status. In order to enable thing
-        /// connectivity indexing, thingIndexMode must not be set to OFF.</para></li><li><para>OFF - Thing connectivity status indexing is disabled.</para></li></ul>
+        /// <para>Thing connectivity indexing mode. Valid values are: </para><ul><li><para>STATUS – Your thing index contains connectivity status. To enable thing connectivity
+        /// indexing, thingIndexMode must not be set to OFF.</para></li><li><para>OFF - Thing connectivity status indexing is disabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter ThingIndexingConfiguration_ThingIndexingMode
         /// <summary>
         /// <para>
-        /// <para>Thing indexing mode. Valid values are:</para><ul><li><para>REGISTRY – Your thing index will contain only registry data.</para></li><li><para>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</para></li><li><para>OFF - Thing indexing is disabled.</para></li></ul>
+        /// <para>Thing indexing mode. Valid values are:</para><ul><li><para>REGISTRY – Your thing index contains registry data only.</para></li><li><para>REGISTRY_AND_SHADOW - Your thing index contains registry and shadow data.</para></li><li><para>OFF - Thing indexing is disabled.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -223,9 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.UpdateIndexingConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateIndexingConfigurationAsync(request);
-                return task.Result;
+                return client.UpdateIndexingConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

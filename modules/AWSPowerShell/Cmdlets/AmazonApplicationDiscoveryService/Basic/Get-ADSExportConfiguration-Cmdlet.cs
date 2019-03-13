@@ -28,12 +28,8 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// <code>DescribeExportConfigurations</code> is deprecated.
-    /// 
-    ///  
-    /// <para>
-    /// Use instead <a href="http://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html"><code>DescribeExportTasks</code></a>.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
+    /// <code>DescribeExportConfigurations</code> is deprecated. Use <a href="https://docs.aws.amazon.com/application-discovery/latest/APIReference/API_DescribeExportTasks.html">DescribeImportTasks</a>,
+    /// instead.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.<br/><br/>This operation is deprecated.
     /// </summary>
     [Cmdlet("Get", "ADSExportConfiguration")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
@@ -251,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
                 #if DESKTOP
                 return client.DescribeExportConfigurations(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeExportConfigurationsAsync(request);
-                return task.Result;
+                return client.DescribeExportConfigurationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

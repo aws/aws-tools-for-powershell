@@ -355,9 +355,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.AllocatePublicVirtualInterface(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AllocatePublicVirtualInterfaceAsync(request);
-                return task.Result;
+                return client.AllocatePublicVirtualInterfaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

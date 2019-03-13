@@ -72,6 +72,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public Amazon.Greengrass.Model.Function[] Function { get; set; }
         #endregion
         
+        #region Parameter RunAs_Gid
+        /// <summary>
+        /// <para>
+        /// The group ID whose permissions are used to run a Lambda
+        /// function.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DefaultConfig_Execution_RunAs_Gid")]
+        public System.Int32 RunAs_Gid { get; set; }
+        #endregion
+        
         #region Parameter Execution_IsolationMode
         /// <summary>
         /// <para>
@@ -82,6 +94,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         [Alias("DefaultConfig_Execution_IsolationMode")]
         [AWSConstantClassSource("Amazon.Greengrass.FunctionIsolationMode")]
         public Amazon.Greengrass.FunctionIsolationMode Execution_IsolationMode { get; set; }
+        #endregion
+        
+        #region Parameter RunAs_Uid
+        /// <summary>
+        /// <para>
+        /// The user ID whose permissions are used to run a Lambda
+        /// function.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DefaultConfig_Execution_RunAs_Uid")]
+        public System.Int32 RunAs_Uid { get; set; }
         #endregion
         
         #region Parameter Force
@@ -115,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             
             context.AmznClientToken = this.AmznClientToken;
             context.DefaultConfig_Execution_IsolationMode = this.Execution_IsolationMode;
+            if (ParameterWasBound("RunAs_Gid"))
+                context.DefaultConfig_Execution_RunAs_Gid = this.RunAs_Gid;
+            if (ParameterWasBound("RunAs_Uid"))
+                context.DefaultConfig_Execution_RunAs_Uid = this.RunAs_Uid;
             context.FunctionDefinitionId = this.FunctionDefinitionId;
             if (this.Function != null)
             {
@@ -157,6 +185,41 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode != null)
             {
                 requestDefaultConfig_defaultConfig_Execution.IsolationMode = requestDefaultConfig_defaultConfig_Execution_execution_IsolationMode;
+                requestDefaultConfig_defaultConfig_ExecutionIsNull = false;
+            }
+            Amazon.Greengrass.Model.FunctionRunAsConfig requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs = null;
+            
+             // populate RunAs
+            bool requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAsIsNull = true;
+            requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs = new Amazon.Greengrass.Model.FunctionRunAsConfig();
+            System.Int32? requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Gid = null;
+            if (cmdletContext.DefaultConfig_Execution_RunAs_Gid != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Gid = cmdletContext.DefaultConfig_Execution_RunAs_Gid.Value;
+            }
+            if (requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Gid != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs.Gid = requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Gid.Value;
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAsIsNull = false;
+            }
+            System.Int32? requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Uid = null;
+            if (cmdletContext.DefaultConfig_Execution_RunAs_Uid != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Uid = cmdletContext.DefaultConfig_Execution_RunAs_Uid.Value;
+            }
+            if (requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Uid != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs.Uid = requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs_runAs_Uid.Value;
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAsIsNull = false;
+            }
+             // determine if requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs should be set to null
+            if (requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAsIsNull)
+            {
+                requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs = null;
+            }
+            if (requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs != null)
+            {
+                requestDefaultConfig_defaultConfig_Execution.RunAs = requestDefaultConfig_defaultConfig_Execution_defaultConfig_Execution_RunAs;
                 requestDefaultConfig_defaultConfig_ExecutionIsNull = false;
             }
              // determine if requestDefaultConfig_defaultConfig_Execution should be set to null
@@ -224,9 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.CreateFunctionDefinitionVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateFunctionDefinitionVersionAsync(request);
-                return task.Result;
+                return client.CreateFunctionDefinitionVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -248,6 +309,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         {
             public System.String AmznClientToken { get; set; }
             public Amazon.Greengrass.FunctionIsolationMode DefaultConfig_Execution_IsolationMode { get; set; }
+            public System.Int32? DefaultConfig_Execution_RunAs_Gid { get; set; }
+            public System.Int32? DefaultConfig_Execution_RunAs_Uid { get; set; }
             public System.String FunctionDefinitionId { get; set; }
             public List<Amazon.Greengrass.Model.Function> Functions { get; set; }
         }

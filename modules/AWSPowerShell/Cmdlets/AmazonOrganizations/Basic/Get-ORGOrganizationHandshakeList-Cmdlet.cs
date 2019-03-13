@@ -277,9 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.ListHandshakesForOrganization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListHandshakesForOrganizationAsync(request);
-                return task.Result;
+                return client.ListHandshakesForOrganizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

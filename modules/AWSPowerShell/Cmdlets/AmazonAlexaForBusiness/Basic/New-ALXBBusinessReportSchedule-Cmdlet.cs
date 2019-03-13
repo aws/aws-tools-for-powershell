@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
         #region Parameter S3BucketName
         /// <summary>
         /// <para>
-        /// <para>The S3 bucket name of the output reports.</para>
+        /// <para>The S3 bucket name of the output reports. If this isn't specified, the report can
+        /// be retrieved from a download link by calling ListBusinessReportSchedule. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -266,9 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.CreateBusinessReportSchedule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateBusinessReportScheduleAsync(request);
-                return task.Result;
+                return client.CreateBusinessReportScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

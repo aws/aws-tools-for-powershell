@@ -62,40 +62,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// data is still available, but is aggregated and retrievable only with a resolution
     /// of 5 minutes. After 63 days, the data is further aggregated and is available with
     /// a resolution of 1 hour.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWMetricData")]
-    [OutputType("Amazon.CloudWatch.Model.MetricDataResult")]
+    [OutputType("Amazon.CloudWatch.Model.GetMetricDataResponse")]
     [AWSCmdlet("Calls the Amazon CloudWatch GetMetricData API operation.", Operation = new[] {"GetMetricData"})]
-    [AWSCmdletOutput("Amazon.CloudWatch.Model.MetricDataResult",
-        "This cmdlet returns a collection of MetricDataResult objects.",
-        "The service call response (type Amazon.CloudWatch.Model.GetMetricDataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.CloudWatch.Model.GetMetricDataResponse",
+        "This cmdlet returns a Amazon.CloudWatch.Model.GetMetricDataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetCWMetricDataCmdlet : AmazonCloudWatchClientCmdlet, IExecutor
     {
-        
-        #region Parameter EndTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
-        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
-        /// one of the two property is reflected in the value of both. EndTime is provided for
-        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The time stamp indicating the latest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcEndTime instead.")]
-        public System.DateTime EndTime { get; set; }
-        #endregion
         
         #region Parameter UtcEndTime
         /// <summary>
@@ -104,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -151,6 +127,53 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.ScanBy ScanBy { get; set; }
         #endregion
         
+        #region Parameter UtcStartTime
+        /// <summary>
+        /// <para>
+        /// <para>The time stamp indicating the earliest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
+        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime UtcStartTime { get; set; }
+        #endregion
+        
+        #region Parameter EndTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndTimeUtc instead. Setting either EndTime or EndTimeUtc
+        /// results in both EndTime and EndTimeUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndTime is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The time stamp indicating the latest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
+        /// that align with the value of the metric's <code>Period</code> and sync up with the
+        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
+        /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
+        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndTime instead.")]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>Include this value, if it was returned by the previous call, to get the next set of
+        /// data points.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter StartTime
         /// <summary>
         /// <para>
@@ -163,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -171,35 +194,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use UtcStartTime instead.")]
         public System.DateTime StartTime { get; set; }
-        #endregion
-        
-        #region Parameter UtcStartTime
-        /// <summary>
-        /// <para>
-        /// <para>The time stamp indicating the earliest data to be returned.</para><para>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values
-        /// that align with the value of the metric's <code>Period</code> and sync up with the
-        /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
-        /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime UtcStartTime { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>Include this value, if it was returned by the previous call, to get the next set of
-        /// data points.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -248,8 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.CloudWatch.Model.GetMetricDataRequest();
             
             if (cmdletContext.UtcEndTime != null)
@@ -263,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.MetricDataQueries != null)
             {
                 request.MetricDataQueries = cmdletContext.MetricDataQueries;
+            }
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
             }
             if (cmdletContext.ScanBy != null)
             {
@@ -293,65 +290,28 @@ namespace Amazon.PowerShell.Cmdlets.CW
             }
             #pragma warning restore CS0618, CS0612 //A class member was marked with the Obsolete attribute
             
-            // Initialize loop variant and commence piping
-            System.String _nextMarker = null;
-            bool _userControllingPaging = false;
-            if (ParameterWasBound("NextToken"))
-            {
-                _nextMarker = cmdletContext.NextToken;
-                _userControllingPaging = true;
-            }
+            CmdletOutput output;
             
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.MetricDataResults;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        if (_userControllingPaging)
-                        {
-                            int _receivedThisCall = response.MetricDataResults.Count;
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                    
-                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -371,9 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.GetMetricData(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetMetricDataAsync(request);
-                return task.Result;
+                return client.GetMetricDataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

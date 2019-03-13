@@ -16,7 +16,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "STS",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -53,9 +52,7 @@
         {
           "originalName": "DurationSeconds",
           "replacementName": "DurationInSeconds",
-          "aliases": [
-            "DurationSeconds"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -89,15 +86,9 @@
         "confirmationMessageNoun": "Role",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "RoleArn"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -135,15 +126,9 @@
         "confirmationMessageNoun": "AuthorizationMessage",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "EncodedMessage"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -179,7 +164,6 @@
         "confirmationMessageNoun": "CallerIdentity",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -200,9 +184,7 @@
         {
           "originalName": "DurationSeconds",
           "replacementName": "DurationInSeconds",
-          "aliases": [
-            "DurationSeconds"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -234,7 +216,6 @@
         "confirmationMessageNoun": "FederationToken",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -255,9 +236,7 @@
         {
           "originalName": "DurationSeconds",
           "replacementName": "DurationInSeconds",
-          "aliases": [
-            "DurationSeconds"
-          ],
+          "aliases": [],
           "autoApplOriginalNameAlias": "true",
           "disableAutoRename": "false",
           "exclude": "false"
@@ -289,7 +268,6 @@
         "confirmationMessageNoun": "SessionToken",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},

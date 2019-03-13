@@ -144,9 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DeleteDirectConnectGateway(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDirectConnectGatewayAsync(request);
-                return task.Result;
+                return client.DeleteDirectConnectGatewayAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

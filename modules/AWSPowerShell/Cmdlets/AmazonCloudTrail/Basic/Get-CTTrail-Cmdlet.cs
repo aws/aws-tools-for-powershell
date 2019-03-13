@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         /// and region replication trails will not be returned. The default is true.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         [Alias("IncludeShadowTrails")]
         public System.Boolean IncludeShadowTrail { get; set; }
         #endregion
@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 #if DESKTOP
                 return client.DescribeTrails(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTrailsAsync(request);
-                return task.Result;
+                return client.DescribeTrailsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

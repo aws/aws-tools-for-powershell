@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// This operation detaches only Classic Load Balancers. If you have Application Load
-    /// Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
+    /// Balancers or Network Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.
     /// </para><para>
     /// When you detach a load balancer, it enters the <code>Removing</code> state while deregistering
     /// the instances in the group. When all instances are deregistered, then you can no longer
@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DetachLoadBalancers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DetachLoadBalancersAsync(request);
-                return task.Result;
+                return client.DetachLoadBalancersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

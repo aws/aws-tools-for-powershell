@@ -28,7 +28,7 @@ using Amazon.CostAndUsageReport.Model;
 namespace Amazon.PowerShell.Cmdlets.CUR
 {
     /// <summary>
-    /// Create a new report definition
+    /// Creates a new report using the description that you provide.
     /// </summary>
     [Cmdlet("Write", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_AdditionalArtifact
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of manifests that you want Amazon Web Services to create for this report.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         #region Parameter ReportDefinition_AdditionalSchemaElement
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>A list of strings that indicate additional content that Amazon Web Services includes
+        /// in the report, such as individual resource IDs. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         public Amazon.CostAndUsageReport.ReportFormat ReportDefinition_Format { get; set; }
         #endregion
         
+        #region Parameter ReportDefinition_RefreshClosedReport
+        /// <summary>
+        /// <para>
+        /// <para>Whether you want Amazon Web Services to update your reports after they have been finalized
+        /// if Amazon Web Services detects charges related to previous months. These charges can
+        /// include refunds, credits, or support fees.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ReportDefinition_RefreshClosedReports")]
+        public System.Boolean ReportDefinition_RefreshClosedReport { get; set; }
+        #endregion
+        
         #region Parameter ReportDefinition_ReportName
         /// <summary>
         /// <para>
@@ -92,6 +106,18 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReportDefinition_ReportName { get; set; }
+        #endregion
+        
+        #region Parameter ReportDefinition_ReportVersioning
+        /// <summary>
+        /// <para>
+        /// <para>Whether you want Amazon Web Services to overwrite the previous version of each report
+        /// or to deliver the report in addition to the previous versions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CostAndUsageReport.ReportVersioning")]
+        public Amazon.CostAndUsageReport.ReportVersioning ReportDefinition_ReportVersioning { get; set; }
         #endregion
         
         #region Parameter ReportDefinition_S3Bucket
@@ -175,7 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             }
             context.ReportDefinition_Compression = this.ReportDefinition_Compression;
             context.ReportDefinition_Format = this.ReportDefinition_Format;
+            if (ParameterWasBound("ReportDefinition_RefreshClosedReport"))
+                context.ReportDefinition_RefreshClosedReports = this.ReportDefinition_RefreshClosedReport;
             context.ReportDefinition_ReportName = this.ReportDefinition_ReportName;
+            context.ReportDefinition_ReportVersioning = this.ReportDefinition_ReportVersioning;
             context.ReportDefinition_S3Bucket = this.ReportDefinition_S3Bucket;
             context.ReportDefinition_S3Prefix = this.ReportDefinition_S3Prefix;
             context.ReportDefinition_S3Region = this.ReportDefinition_S3Region;
@@ -240,6 +269,16 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 request.ReportDefinition.Format = requestReportDefinition_reportDefinition_Format;
                 requestReportDefinitionIsNull = false;
             }
+            System.Boolean? requestReportDefinition_reportDefinition_RefreshClosedReport = null;
+            if (cmdletContext.ReportDefinition_RefreshClosedReports != null)
+            {
+                requestReportDefinition_reportDefinition_RefreshClosedReport = cmdletContext.ReportDefinition_RefreshClosedReports.Value;
+            }
+            if (requestReportDefinition_reportDefinition_RefreshClosedReport != null)
+            {
+                request.ReportDefinition.RefreshClosedReports = requestReportDefinition_reportDefinition_RefreshClosedReport.Value;
+                requestReportDefinitionIsNull = false;
+            }
             System.String requestReportDefinition_reportDefinition_ReportName = null;
             if (cmdletContext.ReportDefinition_ReportName != null)
             {
@@ -248,6 +287,16 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             if (requestReportDefinition_reportDefinition_ReportName != null)
             {
                 request.ReportDefinition.ReportName = requestReportDefinition_reportDefinition_ReportName;
+                requestReportDefinitionIsNull = false;
+            }
+            Amazon.CostAndUsageReport.ReportVersioning requestReportDefinition_reportDefinition_ReportVersioning = null;
+            if (cmdletContext.ReportDefinition_ReportVersioning != null)
+            {
+                requestReportDefinition_reportDefinition_ReportVersioning = cmdletContext.ReportDefinition_ReportVersioning;
+            }
+            if (requestReportDefinition_reportDefinition_ReportVersioning != null)
+            {
+                request.ReportDefinition.ReportVersioning = requestReportDefinition_reportDefinition_ReportVersioning;
                 requestReportDefinitionIsNull = false;
             }
             System.String requestReportDefinition_reportDefinition_S3Bucket = null;
@@ -337,9 +386,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 #if DESKTOP
                 return client.PutReportDefinition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutReportDefinitionAsync(request);
-                return task.Result;
+                return client.PutReportDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -363,7 +410,9 @@ namespace Amazon.PowerShell.Cmdlets.CUR
             public List<System.String> ReportDefinition_AdditionalSchemaElements { get; set; }
             public Amazon.CostAndUsageReport.CompressionFormat ReportDefinition_Compression { get; set; }
             public Amazon.CostAndUsageReport.ReportFormat ReportDefinition_Format { get; set; }
+            public System.Boolean? ReportDefinition_RefreshClosedReports { get; set; }
             public System.String ReportDefinition_ReportName { get; set; }
+            public Amazon.CostAndUsageReport.ReportVersioning ReportDefinition_ReportVersioning { get; set; }
             public System.String ReportDefinition_S3Bucket { get; set; }
             public System.String ReportDefinition_S3Prefix { get; set; }
             public Amazon.CostAndUsageReport.AWSRegion ReportDefinition_S3Region { get; set; }

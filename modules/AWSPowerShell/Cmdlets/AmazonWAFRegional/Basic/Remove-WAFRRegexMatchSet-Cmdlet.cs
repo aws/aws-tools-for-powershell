@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                 #if DESKTOP
                 return client.DeleteRegexMatchSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRegexMatchSetAsync(request);
-                return task.Result;
+                return client.DeleteRegexMatchSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

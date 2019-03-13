@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </para></li><li><para>
     /// The rule's AWS Lambda function has returned <code>NOT_APPLICABLE</code> for all evaluation
     /// results. This can occur if the resources were deleted or removed from the rule's scope.
-    /// </para></li></ul>
+    /// </para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByConfigRule")]
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter ComplianceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code>, <code>NON_COMPLIANT</code>, and <code>INSUFFICIENT_DATA</code>.</para>
+        /// <para>Filters the results by compliance.</para><para>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -90,6 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The <code>nextToken</code> string returned on a previous page that you use to get
         /// the next page of results in a paginated response.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.ConfigService.Model.DescribeComplianceByConfigRuleRequest();
             
             if (cmdletContext.ComplianceTypes != null)
@@ -142,35 +147,66 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 request.ConfigRuleNames = cmdletContext.ConfigRuleNames;
             }
-            if (cmdletContext.NextToken != null)
+            
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (ParameterWasBound("NextToken"))
             {
-                request.NextToken = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
             }
             
-            CmdletOutput output;
-            
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ComplianceByConfigRules;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.ComplianceByConfigRules;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.ComplianceByConfigRules.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -190,9 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.DescribeComplianceByConfigRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeComplianceByConfigRuleAsync(request);
-                return task.Result;
+                return client.DescribeComplianceByConfigRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

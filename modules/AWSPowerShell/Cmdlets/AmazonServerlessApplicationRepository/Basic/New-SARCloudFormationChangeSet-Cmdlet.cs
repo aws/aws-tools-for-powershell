@@ -56,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// Some applications might include resources that can affect permissions in your AWS
         /// account, for example, by creating new AWS Identity and Access Management (IAM) users.
         /// For those applications, you must explicitly acknowledge their capabilities by specifying
-        /// this parameter.</para><para>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, and CAPABILITY_RESOURCE_POLICY.</para><para>The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM:
+        /// this parameter.</para><para>The only valid values are CAPABILITY_IAM, CAPABILITY_NAMED_IAM, CAPABILITY_RESOURCE_POLICY,
+        /// and CAPABILITY_AUTO_EXPAND.</para><para>The following resources require you to specify CAPABILITY_IAM or CAPABILITY_NAMED_IAM:
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html">AWS::IAM::Group</a>,
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html">AWS::IAM::InstanceProfile</a>,
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html">AWS::IAM::Policy</a>,
@@ -68,10 +69,10 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html">AWS::ApplicationAutoScaling::ScalingPolicy</a>,
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html">AWS::S3::BucketPolicy</a>,
         /// <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html">AWS::SQS::QueuePolicy</a>,
-        /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html">AWS::SNS:TopicPolicy</a>.</para><para>If your application template contains any of the above resources, we recommend that
+        /// and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html">AWS::SNS:TopicPolicy</a>.</para><para>Applications that contain one or more nested applications require you to specify CAPABILITY_AUTO_EXPAND.</para><para>If your application template contains any of the above resources, we recommend that
         /// you review all permissions associated with the application before deploying. If you
         /// don't specify this parameter for an application that requires capabilities, the call
-        /// will fail.</para><para>Valid values: CAPABILITY_IAM | CAPABILITY_NAMED_IAM | CAPABILITY_RESOURCE_POLICY </para>
+        /// will fail.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,8 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the content of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i>
-        /// Data Type.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i> Data Type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,8 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -156,8 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,8 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the content of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i>
-        /// Data Type.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/RollbackConfiguration">RollbackConfiguration</a></i> Data Type.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -192,8 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -204,8 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         /// <summary>
         /// <para>
         /// <para>This property corresponds to the parameter of the same name for the <i>AWS CloudFormation
-        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i>
-        /// API.</para>
+        /// <a href="https://docs.aws.amazon.com/goto/WebAPI/cloudformation-2010-05-15/CreateChangeSet">CreateChangeSet</a></i> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -420,9 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
                 #if DESKTOP
                 return client.CreateCloudFormationChangeSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateCloudFormationChangeSetAsync(request);
-                return task.Result;
+                return client.CreateCloudFormationChangeSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

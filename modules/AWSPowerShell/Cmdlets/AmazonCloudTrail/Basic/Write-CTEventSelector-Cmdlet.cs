@@ -198,9 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
                 #if DESKTOP
                 return client.PutEventSelectors(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutEventSelectorsAsync(request);
-                return task.Result;
+                return client.PutEventSelectorsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

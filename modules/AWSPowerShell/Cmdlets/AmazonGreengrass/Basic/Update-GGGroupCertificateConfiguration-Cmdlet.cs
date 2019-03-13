@@ -158,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.UpdateGroupCertificateConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateGroupCertificateConfigurationAsync(request);
-                return task.Result;
+                return client.UpdateGroupCertificateConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -269,9 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.QS
                 #if DESKTOP
                 return client.RegisterUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterUserAsync(request);
-                return task.Result;
+                return client.RegisterUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CheckDNSAvailability(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CheckDNSAvailabilityAsync(request);
-                return task.Result;
+                return client.CheckDNSAvailabilityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

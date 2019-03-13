@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 #if DESKTOP
                 return client.DescribeFileSystems(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeFileSystemsAsync(request);
-                return task.Result;
+                return client.DescribeFileSystemsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

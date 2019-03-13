@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 #if DESKTOP
                 return client.DeleteFileSystem(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteFileSystemAsync(request);
-                return task.Result;
+                return client.DeleteFileSystemAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

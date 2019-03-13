@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 #if DESKTOP
                 return client.EnableDomainAutoRenew(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EnableDomainAutoRenewAsync(request);
-                return task.Result;
+                return client.EnableDomainAutoRenewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

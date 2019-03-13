@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 #if DESKTOP
                 return client.StartMaintenance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartMaintenanceAsync(request);
-                return task.Result;
+                return client.StartMaintenanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

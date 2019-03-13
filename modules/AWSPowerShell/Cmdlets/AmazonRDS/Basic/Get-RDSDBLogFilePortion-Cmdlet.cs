@@ -184,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DownloadDBLogFilePortion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DownloadDBLogFilePortionAsync(request);
-                return task.Result;
+                return client.DownloadDBLogFilePortionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

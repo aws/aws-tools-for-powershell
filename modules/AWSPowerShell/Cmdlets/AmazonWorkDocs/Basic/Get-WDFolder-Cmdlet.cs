@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 #if DESKTOP
                 return client.GetFolder(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetFolderAsync(request);
-                return task.Result;
+                return client.GetFolderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

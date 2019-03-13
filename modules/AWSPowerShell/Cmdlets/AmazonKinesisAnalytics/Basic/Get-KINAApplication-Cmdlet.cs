@@ -136,9 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 #if DESKTOP
                 return client.DescribeApplication(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeApplicationAsync(request);
-                return task.Result;
+                return client.DescribeApplicationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

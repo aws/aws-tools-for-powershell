@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DeleteNetworkAclEntry(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteNetworkAclEntryAsync(request);
-                return task.Result;
+                return client.DeleteNetworkAclEntryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

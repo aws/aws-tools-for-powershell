@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Creates a user who can be used in Amazon WorkMail by calling the RegisterToWorkMail
+    /// Creates a user who can be used in Amazon WorkMail by calling the <a>RegisterToWorkMail</a>
     /// operation.
     /// </summary>
     [Cmdlet("New", "WMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name for the user to be created.</para>
+        /// <para>The display name for the new user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name for the user to be created.</para>
+        /// <para>The name for the new user. Simple AD or AD Connector user names have a maximum length
+        /// of 20. All others have a maximum length of 64.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -74,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password for the user to be created.</para>
+        /// <para>The password for the new user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -188,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.CreateUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateUserAsync(request);
-                return task.Result;
+                return client.CreateUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

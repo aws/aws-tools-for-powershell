@@ -130,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 #if DESKTOP
                 return client.DeleteElasticsearchServiceRole(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteElasticsearchServiceRoleAsync(request);
-                return task.Result;
+                return client.DeleteElasticsearchServiceRoleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

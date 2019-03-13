@@ -232,9 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
                 #if DESKTOP
                 return client.Subscribe(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SubscribeAsync(request);
-                return task.Result;
+                return client.SubscribeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

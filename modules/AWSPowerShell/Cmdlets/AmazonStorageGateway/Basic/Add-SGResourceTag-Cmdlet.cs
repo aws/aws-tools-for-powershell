@@ -35,10 +35,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  <ul><li><para>
     /// Storage gateways of all types
-    /// </para></li></ul><ul><li><para>
-    /// Storage Volumes
-    /// </para></li></ul><ul><li><para>
-    /// Virtual Tapes
+    /// </para></li><li><para>
+    /// Storage volumes
+    /// </para></li><li><para>
+    /// Virtual tapes
+    /// </para></li><li><para>
+    /// NFS and SMB file shares
     /// </para></li></ul><para>
     /// You can create a maximum of 10 tags for each resource. Virtual tapes and storage volumes
     /// that are recovered to a new gateway maintain their tags.
@@ -69,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The key-value pair that represents the tag you want to add to the resource. The value
         /// can be an empty string.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
-        /// in UTF-8 format, and the following special characters: + - = . _ : / @.</para></note>
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -177,9 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.AddTagsToResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddTagsToResourceAsync(request);
-                return task.Result;
+                return client.AddTagsToResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

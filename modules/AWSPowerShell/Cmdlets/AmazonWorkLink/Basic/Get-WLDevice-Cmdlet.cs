@@ -140,9 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
                 #if DESKTOP
                 return client.DescribeDevice(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDeviceAsync(request);
-                return task.Result;
+                return client.DescribeDeviceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

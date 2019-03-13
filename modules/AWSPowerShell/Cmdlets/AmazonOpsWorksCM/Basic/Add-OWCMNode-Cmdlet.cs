@@ -197,9 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 #if DESKTOP
                 return client.AssociateNode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateNodeAsync(request);
-                return task.Result;
+                return client.AssociateNodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

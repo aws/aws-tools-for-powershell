@@ -241,9 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
                 #if DESKTOP
                 return client.CreateEnvironmentEC2(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEnvironmentEC2Async(request);
-                return task.Result;
+                return client.CreateEnvironmentEC2Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

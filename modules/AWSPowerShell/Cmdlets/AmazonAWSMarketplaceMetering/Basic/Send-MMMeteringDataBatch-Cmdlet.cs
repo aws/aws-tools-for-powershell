@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
                 #if DESKTOP
                 return client.BatchMeterUsage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchMeterUsageAsync(request);
-                return task.Result;
+                return client.BatchMeterUsageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

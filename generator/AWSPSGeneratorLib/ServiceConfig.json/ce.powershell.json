@@ -3,7 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "CE",
-    "positionalMemberNames": [],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -19,7 +18,21 @@
   ],
   "nounMaps": {},
   "outputMetadataMembers": [],
-  "paginationDefaults": {},
+  "paginationDefaults": {
+    "excludedOperations": [
+      "GetCostAndUsage",
+      "GetDimensionValues",
+      "GetReservationCoverage",
+      "GetReservationPurchaseRecommendation",
+      "GetReservationUtilization",
+      "GetTags"
+    ],
+    "requestMember": "NextPageToken",
+    "responseMember": "NextPageToken",
+    "resultLimitMember": "",
+    "forceMaxResultSize": "false",
+    "resultsTruncatedMember": ""
+  },
   "pipelineDefaults": {
     "byValueMembers": [],
     "byNameMembers": []
@@ -44,7 +57,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -62,7 +77,6 @@
         "confirmationMessageNoun": "CostAndUsage",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -103,7 +117,6 @@
         "confirmationMessageNoun": "CostForecast",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -126,7 +139,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -144,7 +159,6 @@
         "confirmationMessageNoun": "DimensionValues",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -167,7 +181,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
@@ -183,7 +199,6 @@
         "confirmationMessageNoun": "ReservationCoverage",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -206,7 +221,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -224,7 +241,6 @@
         "confirmationMessageNoun": "ReservationPurchaseRecommendation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -247,7 +263,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -265,7 +283,6 @@
         "confirmationMessageNoun": "ReservationUtilization",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -288,7 +305,9 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
+      "outputMetadataMembers": [
+        "NextPageToken"
+      ],
       "pagination": {},
       "pipeline": {
         "byValueMembers": [
@@ -306,7 +325,6 @@
         "confirmationMessageNoun": "Tags",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},

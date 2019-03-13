@@ -234,9 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                 #if DESKTOP
                 return client.ListOrganizationalUnitsForParent(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListOrganizationalUnitsForParentAsync(request);
-                return task.Result;
+                return client.ListOrganizationalUnitsForParentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

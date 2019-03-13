@@ -77,20 +77,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public Amazon.ServiceCatalog.AccessLevelFilterKey AccessLevelFilter_Key { get; set; }
         #endregion
         
-        #region Parameter PageSize
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to return with this call.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
-        #endregion
-        
         #region Parameter SortBy
         /// <summary>
         /// <para>
@@ -121,6 +107,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AccessLevelFilter_Value { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to return with this call.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -336,9 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.SearchProvisionedProducts(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SearchProvisionedProductsAsync(request);
-                return task.Result;
+                return client.SearchProvisionedProductsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

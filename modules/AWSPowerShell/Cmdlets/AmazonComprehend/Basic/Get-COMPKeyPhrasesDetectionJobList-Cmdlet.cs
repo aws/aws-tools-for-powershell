@@ -241,9 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.ListKeyPhrasesDetectionJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListKeyPhrasesDetectionJobsAsync(request);
-                return task.Result;
+                return client.ListKeyPhrasesDetectionJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

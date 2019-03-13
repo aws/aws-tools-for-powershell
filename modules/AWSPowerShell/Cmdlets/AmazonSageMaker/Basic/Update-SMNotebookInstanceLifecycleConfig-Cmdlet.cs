@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.UpdateNotebookInstanceLifecycleConfig(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateNotebookInstanceLifecycleConfigAsync(request);
-                return task.Result;
+                return client.UpdateNotebookInstanceLifecycleConfigAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

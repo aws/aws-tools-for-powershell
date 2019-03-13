@@ -441,18 +441,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Int32 PromotionTier { get; set; }
         #endregion
         
-        #region Parameter PubliclyAccessible
-        /// <summary>
-        /// <para>
-        /// <para>This parameter is not supported.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is not supported")]
-        public System.Boolean PubliclyAccessible { get; set; }
-        #endregion
-        
         #region Parameter StorageType
         /// <summary>
         /// <para>
@@ -506,6 +494,18 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter PubliclyAccessible
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is not supported.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is not supported")]
+        public System.Boolean PubliclyAccessible { get; set; }
         #endregion
         
         #region Parameter Force
@@ -831,9 +831,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.ModifyDBInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyDBInstanceAsync(request);
-                return task.Result;
+                return client.ModifyDBInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

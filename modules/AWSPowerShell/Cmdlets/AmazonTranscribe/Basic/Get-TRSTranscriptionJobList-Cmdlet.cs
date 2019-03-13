@@ -53,6 +53,20 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         public System.String JobNameContain { get; set; }
         #endregion
         
+        #region Parameter Status
+        /// <summary>
+        /// <para>
+        /// <para>When specified, returns only transcription jobs with the specified status. Jobs are
+        /// ordered by creation date, with the newest jobs returned first. If you don’t specify
+        /// a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.TranscribeService.TranscriptionJobStatus")]
+        public Amazon.TranscribeService.TranscriptionJobStatus Status { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -81,20 +95,6 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        #endregion
-        
-        #region Parameter Status
-        /// <summary>
-        /// <para>
-        /// <para>When specified, returns only transcription jobs with the specified status. Jobs are
-        /// ordered by creation date, with the newest jobs returned first. If you don’t specify
-        /// a status, Amazon Transcribe returns all transcription jobs ordered by creation date.
-        /// </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.TranscribeService.TranscriptionJobStatus")]
-        public Amazon.TranscribeService.TranscriptionJobStatus Status { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -264,9 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 #if DESKTOP
                 return client.ListTranscriptionJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTranscriptionJobsAsync(request);
-                return task.Result;
+                return client.ListTranscriptionJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

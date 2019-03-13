@@ -223,9 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 #if DESKTOP
                 return client.DescribeRootFolders(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeRootFoldersAsync(request);
-                return task.Result;
+                return client.DescribeRootFoldersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

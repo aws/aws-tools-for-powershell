@@ -73,6 +73,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.ContainerDefinition[] ContainerDefinition { get; set; }
         #endregion
         
+        #region Parameter ProxyConfiguration_ContainerName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the container that will serve as the App Mesh proxy.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ProxyConfiguration_ContainerName { get; set; }
+        #endregion
+        
         #region Parameter Cpu
         /// <summary>
         /// <para>
@@ -237,6 +247,31 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.TaskDefinitionPlacementConstraint[] PlacementConstraint { get; set; }
         #endregion
         
+        #region Parameter ProxyConfiguration_Property
+        /// <summary>
+        /// <para>
+        /// <para>The set of network configuration parameters to provide the Container Network Interface
+        /// (CNI) plugin, specified as key-value pairs.</para><ul><li><para><code>IgnoredUID</code> - (Required) The user ID (UID) of the proxy container as
+        /// defined by the <code>user</code> parameter in a container definition. This is used
+        /// to ensure the proxy ignores its own traffic. If <code>IgnoredGID</code> is specified,
+        /// this field can be empty.</para></li><li><para><code>IgnoredGID</code> - (Required) The group ID (GID) of the proxy container as
+        /// defined by the <code>user</code> parameter in a container definition. This is used
+        /// to ensure the proxy ignores its own traffic. If <code>IgnoredGID</code> is specified,
+        /// this field can be empty.</para></li><li><para><code>AppPorts</code> - (Required) The list of ports that the application uses. Network
+        /// traffic to these ports is forwarded to the <code>ProxyIngressPort</code> and <code>ProxyEgressPort</code>.</para></li><li><para><code>ProxyIngressPort</code> - (Required) Specifies the port that incoming traffic
+        /// to the <code>AppPorts</code> is directed to.</para></li><li><para><code>ProxyEgressPort</code> - (Required) Specifies the port that outgoing traffic
+        /// from the <code>AppPorts</code> is directed to.</para></li><li><para><code>EgressIgnoredPorts</code> - (Required) The egress traffic going to the specified
+        /// ports is ignored and not redirected to the <code>ProxyEgressPort</code>. It can be
+        /// an empty list.</para></li><li><para><code>EgressIgnoredIPs</code> - (Required) The egress traffic going to the specified
+        /// IP addresses is ignored and not redirected to the <code>ProxyEgressPort</code>. It
+        /// can be an empty list.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProxyConfiguration_Properties")]
+        public Amazon.ECS.Model.KeyValuePair[] ProxyConfiguration_Property { get; set; }
+        #endregion
+        
         #region Parameter RequiresCompatibility
         /// <summary>
         /// <para>
@@ -273,6 +308,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String TaskRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter ProxyConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>The proxy type. The only supported value is <code>APPMESH</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.ProxyConfigurationType")]
+        public Amazon.ECS.ProxyConfigurationType ProxyConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter Volume
@@ -330,6 +376,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.PlacementConstraints = new List<Amazon.ECS.Model.TaskDefinitionPlacementConstraint>(this.PlacementConstraint);
             }
+            context.ProxyConfiguration_ContainerName = this.ProxyConfiguration_ContainerName;
+            if (this.ProxyConfiguration_Property != null)
+            {
+                context.ProxyConfiguration_Properties = new List<Amazon.ECS.Model.KeyValuePair>(this.ProxyConfiguration_Property);
+            }
+            context.ProxyConfiguration_Type = this.ProxyConfiguration_Type;
             if (this.RequiresCompatibility != null)
             {
                 context.RequiresCompatibilities = new List<System.String>(this.RequiresCompatibility);
@@ -395,6 +447,45 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.PlacementConstraints = cmdletContext.PlacementConstraints;
             }
+            
+             // populate ProxyConfiguration
+            bool requestProxyConfigurationIsNull = true;
+            request.ProxyConfiguration = new Amazon.ECS.Model.ProxyConfiguration();
+            System.String requestProxyConfiguration_proxyConfiguration_ContainerName = null;
+            if (cmdletContext.ProxyConfiguration_ContainerName != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_ContainerName = cmdletContext.ProxyConfiguration_ContainerName;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_ContainerName != null)
+            {
+                request.ProxyConfiguration.ContainerName = requestProxyConfiguration_proxyConfiguration_ContainerName;
+                requestProxyConfigurationIsNull = false;
+            }
+            List<Amazon.ECS.Model.KeyValuePair> requestProxyConfiguration_proxyConfiguration_Property = null;
+            if (cmdletContext.ProxyConfiguration_Properties != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_Property = cmdletContext.ProxyConfiguration_Properties;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_Property != null)
+            {
+                request.ProxyConfiguration.Properties = requestProxyConfiguration_proxyConfiguration_Property;
+                requestProxyConfigurationIsNull = false;
+            }
+            Amazon.ECS.ProxyConfigurationType requestProxyConfiguration_proxyConfiguration_Type = null;
+            if (cmdletContext.ProxyConfiguration_Type != null)
+            {
+                requestProxyConfiguration_proxyConfiguration_Type = cmdletContext.ProxyConfiguration_Type;
+            }
+            if (requestProxyConfiguration_proxyConfiguration_Type != null)
+            {
+                request.ProxyConfiguration.Type = requestProxyConfiguration_proxyConfiguration_Type;
+                requestProxyConfigurationIsNull = false;
+            }
+             // determine if request.ProxyConfiguration should be set to null
+            if (requestProxyConfigurationIsNull)
+            {
+                request.ProxyConfiguration = null;
+            }
             if (cmdletContext.RequiresCompatibilities != null)
             {
                 request.RequiresCompatibilities = cmdletContext.RequiresCompatibilities;
@@ -453,9 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 #if DESKTOP
                 return client.RegisterTaskDefinition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterTaskDefinitionAsync(request);
-                return task.Result;
+                return client.RegisterTaskDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -484,6 +573,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public Amazon.ECS.NetworkMode NetworkMode { get; set; }
             public Amazon.ECS.PidMode PidMode { get; set; }
             public List<Amazon.ECS.Model.TaskDefinitionPlacementConstraint> PlacementConstraints { get; set; }
+            public System.String ProxyConfiguration_ContainerName { get; set; }
+            public List<Amazon.ECS.Model.KeyValuePair> ProxyConfiguration_Properties { get; set; }
+            public Amazon.ECS.ProxyConfigurationType ProxyConfiguration_Type { get; set; }
             public List<System.String> RequiresCompatibilities { get; set; }
             public List<Amazon.ECS.Model.Tag> Tags { get; set; }
             public System.String TaskRoleArn { get; set; }

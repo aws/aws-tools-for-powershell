@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 #if DESKTOP
                 return client.DeleteApplicationReferenceDataSource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteApplicationReferenceDataSourceAsync(request);
-                return task.Result;
+                return client.DeleteApplicationReferenceDataSourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

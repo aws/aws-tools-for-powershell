@@ -474,9 +474,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 #if DESKTOP
                 return client.SubmitJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SubmitJobAsync(request);
-                return task.Result;
+                return client.SubmitJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

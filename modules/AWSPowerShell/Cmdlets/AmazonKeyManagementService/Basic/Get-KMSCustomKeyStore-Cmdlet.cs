@@ -266,9 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.DescribeCustomKeyStores(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeCustomKeyStoresAsync(request);
-                return task.Result;
+                return client.DescribeCustomKeyStoresAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -197,9 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 #if DESKTOP
                 return client.PutLifecycleConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutLifecycleConfigurationAsync(request);
-                return task.Result;
+                return client.PutLifecycleConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

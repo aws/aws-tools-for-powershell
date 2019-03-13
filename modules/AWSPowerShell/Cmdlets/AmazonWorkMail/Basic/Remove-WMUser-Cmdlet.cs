@@ -28,9 +28,15 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes a user from Amazon WorkMail and all subsequent systems. The action can't be
-    /// undone. The mailbox is kept as-is for a minimum of 30 days, without any means to restore
-    /// it.
+    /// Deletes a user from Amazon WorkMail and all subsequent systems. Before you can delete
+    /// a user, the user state must be <code>DISABLED</code>. Use the <a>DescribeUser</a>
+    /// action to confirm the user state.
+    /// 
+    ///  
+    /// <para>
+    /// Deleting a user is permanent and cannot be undone. WorkMail archives user mailboxes
+    /// for 30 days before they are permanently removed.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "WMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -45,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The organization that contains the user.</para>
+        /// <para>The organization that contains the user to be deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -170,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.DeleteUser(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteUserAsync(request);
-                return task.Result;
+                return client.DeleteUserAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -82,6 +82,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String KMSKey { get; set; }
         #endregion
         
+        #region Parameter PoolId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
+        /// pool is archived in the S3 storage class that is associated with the pool. When you
+        /// use your backup application to eject the tape, the tape is archived directly into
+        /// the storage class (Glacier or Deep Archive) that corresponds to the pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PoolId { get; set; }
+        #endregion
+        
         #region Parameter TapeBarcode
         /// <summary>
         /// <para>
@@ -136,6 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (ParameterWasBound("KMSEncrypted"))
                 context.KMSEncrypted = this.KMSEncrypted;
             context.KMSKey = this.KMSKey;
+            context.PoolId = this.PoolId;
             context.TapeBarcode = this.TapeBarcode;
             if (ParameterWasBound("TapeSizeInByte"))
                 context.TapeSizeInBytes = this.TapeSizeInByte;
@@ -166,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.KMSKey != null)
             {
                 request.KMSKey = cmdletContext.KMSKey;
+            }
+            if (cmdletContext.PoolId != null)
+            {
+                request.PoolId = cmdletContext.PoolId;
             }
             if (cmdletContext.TapeBarcode != null)
             {
@@ -217,9 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateTapeWithBarcode(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateTapeWithBarcodeAsync(request);
-                return task.Result;
+                return client.CreateTapeWithBarcodeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -242,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String GatewayARN { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
+            public System.String PoolId { get; set; }
             public System.String TapeBarcode { get; set; }
             public System.Int64? TapeSizeInBytes { get; set; }
         }

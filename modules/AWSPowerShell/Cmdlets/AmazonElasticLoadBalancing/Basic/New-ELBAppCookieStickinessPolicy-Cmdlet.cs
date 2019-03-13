@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.CreateAppCookieStickinessPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAppCookieStickinessPolicyAsync(request);
-                return task.Result;
+                return client.CreateAppCookieStickinessPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

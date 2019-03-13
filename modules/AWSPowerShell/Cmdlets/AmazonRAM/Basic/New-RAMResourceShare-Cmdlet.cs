@@ -53,6 +53,17 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         public System.Boolean AllowExternalPrincipal { get; set; }
         #endregion
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+        /// the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -95,17 +106,6 @@ namespace Amazon.PowerShell.Cmdlets.RAM
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.RAM.Model.Tag[] Tag { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-        /// the request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter Force
@@ -237,9 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.RAM
                 #if DESKTOP
                 return client.CreateResourceShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateResourceShareAsync(request);
-                return task.Result;
+                return client.CreateResourceShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

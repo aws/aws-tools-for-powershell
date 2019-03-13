@@ -34,10 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// If you exceed your maximum limit of launch configurations, the call fails. For information
     /// about viewing this limit, see <a>DescribeAccountLimits</a>. For information about
-    /// updating this limit, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto
-    /// Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
+    /// EC2 Auto Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
     /// Configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>Used for groups that launch instances into a virtual private cloud (VPC). Specifies
         /// whether to assign a public IP address to each instance. For more information, see
-        /// <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
         /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
         /// your group.</para><para>Default: If the instance is launched into a default subnet, the default is to assign
         /// a public IP address. If the instance is launched into a nondefault subnet, the default
@@ -71,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more mappings that specify how block devices are exposed to the instance. For
-        /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
-        /// Device Mapping</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block
+        /// Device Mapping</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,8 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. This parameter
         /// is supported only if you are launching EC2-Classic instances. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
+        /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,9 +98,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The IDs of one or more security groups for the specified ClassicLink-enabled VPC.
-        /// This parameter is required if you specify a ClassicLink-enabled VPC, and is not supported
-        /// otherwise. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
-        /// in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html">ClassicLink</a>
+        /// in the <i>Amazon EC2 User Guide for Linux Instances</i> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-ClassicLink">Linking
+        /// EC2-Classic Instances to a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Conditional: This parameter is required if you specify a ClassicLink-enabled VPC,
+        /// and is not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,8 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// is not optimized for EBS I/O. The optimization provides dedicated throughput to Amazon
         /// EBS and an optimized configuration stack to provide optimal I/O performance. This
         /// optimization is not available with all instance types. Additional usage charges apply.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
-        /// EBS-Optimized Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon
+        /// EBS-Optimized Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,9 +142,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// the IAM role for the instance.</para><para>EC2 instances launched with an IAM role automatically have AWS security credentials
         /// available. You can use IAM roles with Amazon EC2 Auto Scaling to automatically enable
         /// applications running on your EC2 instances to securely access other AWS resources.
-        /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">Launch
-        /// Auto Scaling Instances with an IAM Role</a> in the <i>Amazon EC2 Auto Scaling User
-        /// Guide</i>.</para>
+        /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/us-iam-role.html">Use
+        /// an IAM Role for Applications That Run on Amazon EC2 Instances</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -152,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter ImageId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>ImageId</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
-        /// an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// <para>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>ImageId</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
+        /// an AMI</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -166,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ID of the instance to use to create the launch configuration. The new launch configuration
         /// derives attributes from the instance, except for the block device mapping.</para><para>If you do not specify <code>InstanceId</code>, you must specify both <code>ImageId</code>
         /// and <code>InstanceType</code>.</para><para>To create a launch configuration with a block device mapping or override any other
-        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Create
+        /// instance attributes, specify them as part of the same request.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Create
         /// a Launch Configuration Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para>
         /// </para>
@@ -178,8 +180,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type of the EC2 instance.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para><para>For information about available instance types, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
-        /// Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide.</i></para>
+        /// <para>The instance type of the EC2 instance.</para><para>If you do not specify <code>InstanceId</code>, you must specify <code>InstanceType</code>.</para><para>For information about available instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes">Available
+        /// Instance Types</a> in the <i>Amazon EC2 User Guide for Linux Instances.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -199,8 +201,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter KeyName
         /// <summary>
         /// <para>
-        /// <para>The name of the key pair. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
-        /// EC2 Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// <para>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon
+        /// EC2 Key Pairs</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
@@ -225,7 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// runs on single-tenant hardware and can only be launched into a VPC.</para><para>To launch Dedicated Instances into a shared tenancy VPC (a VPC with the instance placement
         /// tenancy attribute set to <code>default</code>), you must set the value of this parameter
         /// to <code>dedicated</code>.</para><para>If you specify this parameter, be sure to specify at least one subnet when you create
-        /// your group.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
+        /// your group.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
         /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Valid values: <code>default</code> | <code>dedicated</code></para>
         /// </para>
         /// </summary>
@@ -247,9 +249,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more security groups with which to associate the instances.</para><para>If your instances are launched in EC2-Classic, you can either specify security group
-        /// names or the security group IDs. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
-        /// EC2 Security Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>If your instances are launched into a VPC, specify security group IDs. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
+        /// names or the security group IDs. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon
+        /// EC2 Security Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para><para>If your instances are launched into a VPC, specify security group IDs. For more information,
+        /// see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security
         /// Groups for Your VPC</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -263,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The maximum hourly price to be paid for any Spot Instance launched to fulfill the
         /// request. Spot Instances are launched when the price you specify exceeds the current
-        /// Spot market price. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching
+        /// Spot market price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-launch-spot-instances.html">Launching
         /// Spot Instances in Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>.</para>
         /// </para>
@@ -276,8 +278,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The user data to make available to the launched EC2 instances. For more information,
-        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
-        /// Metadata and User Data</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance
+        /// Metadata and User Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -499,9 +501,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.CreateLaunchConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateLaunchConfigurationAsync(request);
-                return task.Result;
+                return client.CreateLaunchConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

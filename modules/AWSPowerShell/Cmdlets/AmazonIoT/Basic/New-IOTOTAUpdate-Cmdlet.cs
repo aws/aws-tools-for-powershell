@@ -101,6 +101,17 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String RoleArn { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Metadata which can be used to manage updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.IoT.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Target
         /// <summary>
         /// <para>
@@ -174,6 +185,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             }
             context.OtaUpdateId = this.OtaUpdateId;
             context.RoleArn = this.RoleArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.IoT.Model.Tag>(this.Tag);
+            }
             if (this.Target != null)
             {
                 context.Targets = new List<System.String>(this.Target);
@@ -234,6 +249,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.Targets != null)
             {
                 request.Targets = cmdletContext.Targets;
@@ -284,9 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.CreateOTAUpdate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateOTAUpdateAsync(request);
-                return task.Result;
+                return client.CreateOTAUpdateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -312,6 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public List<Amazon.IoT.Model.OTAUpdateFile> Files { get; set; }
             public System.String OtaUpdateId { get; set; }
             public System.String RoleArn { get; set; }
+            public List<Amazon.IoT.Model.Tag> Tags { get; set; }
             public List<System.String> Targets { get; set; }
             public Amazon.IoT.TargetSelection TargetSelection { get; set; }
         }

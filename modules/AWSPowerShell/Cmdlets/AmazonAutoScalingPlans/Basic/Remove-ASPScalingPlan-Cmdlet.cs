@@ -178,9 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.ASP
                 #if DESKTOP
                 return client.DeleteScalingPlan(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteScalingPlanAsync(request);
-                return task.Result;
+                return client.DeleteScalingPlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

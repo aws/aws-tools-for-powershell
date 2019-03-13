@@ -134,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServerCertificateArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the server certificate. For more information, see the <a href="acm/latest/userguide/acm-overview.html">AWS
-        /// Certificate Manager User Guide</a> .</para>
+        /// <para>The ARN of the server certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS
+        /// Certificate Manager User Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -343,9 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CreateClientVpnEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateClientVpnEndpointAsync(request);
-                return task.Result;
+                return client.CreateClientVpnEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

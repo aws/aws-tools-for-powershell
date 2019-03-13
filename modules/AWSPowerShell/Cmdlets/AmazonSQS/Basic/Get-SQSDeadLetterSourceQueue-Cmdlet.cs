@@ -134,9 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
                 #if DESKTOP
                 return client.ListDeadLetterSourceQueues(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListDeadLetterSourceQueuesAsync(request);
-                return task.Result;
+                return client.ListDeadLetterSourceQueuesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

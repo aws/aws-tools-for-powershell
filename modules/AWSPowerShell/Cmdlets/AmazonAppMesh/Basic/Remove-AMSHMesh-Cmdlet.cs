@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
     /// 
     ///          
     /// <para>
-    /// You must delete all resources (routes, virtual routers, virtual nodes) in the service
-    ///         mesh before you can delete the mesh itself.
+    /// You must delete all resources (virtual services, routes, virtual routers, and virtual
+    /// nodes)         in the service mesh before you can delete the mesh itself.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "AMSHMesh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.DeleteMesh(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteMeshAsync(request);
-                return task.Result;
+                return client.DeleteMeshAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

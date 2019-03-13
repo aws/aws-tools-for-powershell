@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para><para>
     /// If you grant permissions using an organization, then accounts in that organization
     /// must specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code>
-    /// to add your account's event bus as a target. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
+    /// to add your account's event bus as a target. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEvents-CrossAccountEventDelivery.html">Sending
     /// and Receiving Events Between AWS Accounts</a> in the <i>Amazon CloudWatch Events User
     /// Guide</i>.
     /// </para><para>
@@ -286,9 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.PutPermission(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutPermissionAsync(request);
-                return task.Result;
+                return client.PutPermissionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

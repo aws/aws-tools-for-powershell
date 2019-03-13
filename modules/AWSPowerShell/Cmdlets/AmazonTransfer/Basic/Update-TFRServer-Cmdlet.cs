@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.TFR
     public partial class UpdateTFRServerCmdlet : AmazonTransferClientCmdlet, IExecutor
     {
         
+        #region Parameter EndpointType
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Transfer.EndpointType")]
+        public Amazon.Transfer.EndpointType EndpointType { get; set; }
+        #endregion
+        
         #region Parameter IdentityProviderDetails_InvocationRole
         /// <summary>
         /// <para>
@@ -90,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         public System.String IdentityProviderDetails_Url { get; set; }
         #endregion
         
+        #region Parameter EndpointDetails_VpcEndpointId
+        /// <summary>
+        /// <para>
+        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EndpointDetails_VpcEndpointId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -119,6 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.EndpointDetails_VpcEndpointId = this.EndpointDetails_VpcEndpointId;
+            context.EndpointType = this.EndpointType;
             context.IdentityProviderDetails_InvocationRole = this.IdentityProviderDetails_InvocationRole;
             context.IdentityProviderDetails_Url = this.IdentityProviderDetails_Url;
             context.LoggingRole = this.LoggingRole;
@@ -139,6 +162,29 @@ namespace Amazon.PowerShell.Cmdlets.TFR
             // create request
             var request = new Amazon.Transfer.Model.UpdateServerRequest();
             
+            
+             // populate EndpointDetails
+            bool requestEndpointDetailsIsNull = true;
+            request.EndpointDetails = new Amazon.Transfer.Model.EndpointDetails();
+            System.String requestEndpointDetails_endpointDetails_VpcEndpointId = null;
+            if (cmdletContext.EndpointDetails_VpcEndpointId != null)
+            {
+                requestEndpointDetails_endpointDetails_VpcEndpointId = cmdletContext.EndpointDetails_VpcEndpointId;
+            }
+            if (requestEndpointDetails_endpointDetails_VpcEndpointId != null)
+            {
+                request.EndpointDetails.VpcEndpointId = requestEndpointDetails_endpointDetails_VpcEndpointId;
+                requestEndpointDetailsIsNull = false;
+            }
+             // determine if request.EndpointDetails should be set to null
+            if (requestEndpointDetailsIsNull)
+            {
+                request.EndpointDetails = null;
+            }
+            if (cmdletContext.EndpointType != null)
+            {
+                request.EndpointType = cmdletContext.EndpointType;
+            }
             
              // populate IdentityProviderDetails
             bool requestIdentityProviderDetailsIsNull = true;
@@ -218,9 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 #if DESKTOP
                 return client.UpdateServer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateServerAsync(request);
-                return task.Result;
+                return client.UpdateServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -240,6 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EndpointDetails_VpcEndpointId { get; set; }
+            public Amazon.Transfer.EndpointType EndpointType { get; set; }
             public System.String IdentityProviderDetails_InvocationRole { get; set; }
             public System.String IdentityProviderDetails_Url { get; set; }
             public System.String LoggingRole { get; set; }

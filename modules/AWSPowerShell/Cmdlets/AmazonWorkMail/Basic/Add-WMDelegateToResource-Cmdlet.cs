@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Adds a member to the resource's set of delegates.
+    /// Adds a member (user or group) to the resource's set of delegates.
     /// </summary>
     [Cmdlet("Add", "WMDelegateToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource for which members are associated.</para>
+        /// <para>The resource for which members (users or groups) are associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.AssociateDelegateToResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateDelegateToResourceAsync(request);
-                return task.Result;
+                return client.AssociateDelegateToResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

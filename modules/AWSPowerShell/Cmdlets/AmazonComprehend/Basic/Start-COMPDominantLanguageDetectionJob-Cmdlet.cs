@@ -205,9 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.StartDominantLanguageDetectionJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartDominantLanguageDetectionJobAsync(request);
-                return task.Result;
+                return client.StartDominantLanguageDetectionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

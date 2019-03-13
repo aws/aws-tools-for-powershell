@@ -29,12 +29,18 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" Output="DefaultSingleMember" Verb="New" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" AutoApplyAlias="true" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" AutoApplyAlias="true" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualNode" Output="DefaultSingleMember" Verb="New" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualRouter" Output="DefaultSingleMember" Verb="New" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVirtualService" Output="DefaultSingleMember" Verb="New" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteMesh" Output="DefaultSingleMember" Verb="Remove" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
@@ -49,6 +55,9 @@
         <ServiceOperation MethodName="DeleteVirtualRouter" Output="DefaultSingleMember" Verb="Remove" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVirtualService" Output="DefaultSingleMember" Verb="Remove" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeMesh" Output="DefaultSingleMember" Verb="Get" Noun="Mesh" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -61,10 +70,16 @@
         <ServiceOperation MethodName="DescribeVirtualRouter" Output="DefaultSingleMember" Verb="Get" Noun="VirtualRouter" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVirtualService" Output="DefaultSingleMember" Verb="Get" Noun="VirtualService" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListMeshes" Output="DefaultSingleMember" Verb="Get" Noun="MeshList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListRoutes" Output="DefaultSingleMember" Verb="Get" Noun="RouteList" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVirtualNodes" Output="DefaultSingleMember" Verb="Get" Noun="VirtualNodeList" PipelineParameter="MeshName" NoPipelineParameter="false">
@@ -73,13 +88,31 @@
         <ServiceOperation MethodName="ListVirtualRouters" Output="DefaultSingleMember" Verb="Get" Noun="VirtualRouterList" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoute" Output="DefaultSingleMember" Verb="Update" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListVirtualServices" Output="DefaultSingleMember" Verb="Get" Noun="VirtualServiceList" PipelineParameter="MeshName" NoPipelineParameter="false">
             <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMesh" Output="DefaultSingleMember" Verb="Update" Noun="Mesh" ShouldProcessTarget="MeshName" PipelineParameter="MeshName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRoute" Output="DefaultSingleMember" Verb="Update" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
+            <Params>
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" AutoApplyAlias="true" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" AutoApplyAlias="true" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualNode" Output="DefaultSingleMember" Verb="Update" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualRouter" Output="DefaultSingleMember" Verb="Update" Noun="VirtualRouter" ShouldProcessTarget="VirtualRouterName" PipelineParameter="VirtualRouterName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateVirtualService" Output="DefaultSingleMember" Verb="Update" Noun="VirtualService" ShouldProcessTarget="VirtualServiceName" PipelineParameter="VirtualServiceName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

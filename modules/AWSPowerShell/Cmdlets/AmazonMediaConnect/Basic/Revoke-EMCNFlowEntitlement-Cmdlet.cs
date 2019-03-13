@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.RevokeFlowEntitlement(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RevokeFlowEntitlementAsync(request);
-                return task.Result;
+                return client.RevokeFlowEntitlementAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

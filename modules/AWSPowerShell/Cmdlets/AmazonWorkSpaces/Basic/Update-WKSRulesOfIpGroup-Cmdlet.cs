@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 #if DESKTOP
                 return client.UpdateRulesOfIpGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateRulesOfIpGroupAsync(request);
-                return task.Result;
+                return client.UpdateRulesOfIpGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

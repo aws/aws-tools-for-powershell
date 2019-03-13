@@ -132,6 +132,9 @@
         <ServiceOperation MethodName="GetDevice" Output="DefaultSingleMember" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetInvitationConfiguration" Output="Response" Verb="Get" Noun="InvitationConfiguration" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetProfile" Output="DefaultSingleMember" Verb="Get" Noun="Profile" PipelineParameter="ProfileArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -169,6 +172,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutConferencePreference" Output="Void" Verb="Write" Noun="ConferencePreference" ShouldProcessTarget="ConferencePreference_DefaultConferenceProviderArn" PipelineParameter="ConferencePreference_DefaultConferenceProviderArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInvitationConfiguration" Output="Void" Verb="Write" Noun="InvitationConfiguration" ShouldProcessTarget="OrganizationName" PipelineParameter="OrganizationName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="PutRoomSkillParameter" Output="Void" Verb="Set" Noun="RoomSkillParameter" ShouldProcessTarget="SkillId" PipelineParameter="RoomSkillParameter" NoPipelineParameter="false">

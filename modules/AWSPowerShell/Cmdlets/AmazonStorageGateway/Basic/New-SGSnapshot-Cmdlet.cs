@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import
     /// the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud
     /// (EC2). You can take snapshots of your gateway volume on a scheduled or ad-hoc basis.
-    /// This API enables you to take ad-hoc snapshot. For more information, see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
+    /// This API enables you to take ad-hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
     /// a Snapshot Schedule</a>.
     /// </para><para>
     /// In the CreateSnapshot request you identify the volume by providing its Amazon Resource
@@ -48,11 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// and cached volume gateway type.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
-    /// see DescribeSnapshots or DeleteSnapshot in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html">EC2
+    /// see DescribeSnapshots or DeleteSnapshot in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html">EC2
     /// API reference</a>.
     /// </para></note><important><para>
     /// Volume and snapshot IDs are changing to a longer length ID format. For more information,
-    /// see the important note on the <a href="http://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html">Welcome</a>
+    /// see the important note on the <a href="https://docs.aws.amazon.com/storagegateway/latest/APIReference/Welcome.html">Welcome</a>
     /// page.
     /// </para></important>
     /// </summary>
@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateSnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSnapshotAsync(request);
-                return task.Result;
+                return client.CreateSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

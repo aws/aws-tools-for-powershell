@@ -266,9 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 #if DESKTOP
                 return client.RespondToAuthChallenge(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RespondToAuthChallengeAsync(request);
-                return task.Result;
+                return client.RespondToAuthChallengeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

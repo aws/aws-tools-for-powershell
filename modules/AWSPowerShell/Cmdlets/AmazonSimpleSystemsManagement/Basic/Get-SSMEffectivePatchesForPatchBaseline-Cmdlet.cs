@@ -242,9 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.DescribeEffectivePatchesForPatchBaseline(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEffectivePatchesForPatchBaselineAsync(request);
-                return task.Result;
+                return client.DescribeEffectivePatchesForPatchBaselineAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

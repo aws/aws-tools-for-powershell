@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.SetIdentityFeedbackForwardingEnabled(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetIdentityFeedbackForwardingEnabledAsync(request);
-                return task.Result;
+                return client.SetIdentityFeedbackForwardingEnabledAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

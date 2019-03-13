@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
                 #if DESKTOP
                 return client.DescribeLoadBalancerPolicyTypes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeLoadBalancerPolicyTypesAsync(request);
-                return task.Result;
+                return client.DescribeLoadBalancerPolicyTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

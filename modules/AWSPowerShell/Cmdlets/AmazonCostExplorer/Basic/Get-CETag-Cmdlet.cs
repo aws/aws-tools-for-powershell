@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 #if DESKTOP
                 return client.GetTags(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetTagsAsync(request);
-                return task.Result;
+                return client.GetTagsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

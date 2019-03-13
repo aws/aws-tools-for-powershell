@@ -3,9 +3,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "DDB",
-    "positionalMemberNames": [
-      "TableName"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -65,7 +62,6 @@
         "confirmationMessageNoun": "Stream",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -86,8 +82,7 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "Limit",
-          "ExclusiveStartStreamName"
+          "Limit"
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
@@ -109,7 +104,6 @@
         "confirmationMessageNoun": "Streams",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},

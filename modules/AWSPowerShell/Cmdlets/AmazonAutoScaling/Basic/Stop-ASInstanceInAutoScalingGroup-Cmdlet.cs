@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.TerminateInstanceInAutoScalingGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TerminateInstanceInAutoScalingGroupAsync(request);
-                return task.Result;
+                return client.TerminateInstanceInAutoScalingGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
         #region Parameter ProtocolType
         /// <summary>
         /// <para>
-        /// <para>The API protocol: HTTP or WEBSOCKET.</para>
+        /// <para>The API protocol: Currently only WEBSOCKET is supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -234,9 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.AG2
                 #if DESKTOP
                 return client.CreateApi(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateApiAsync(request);
-                return task.Result;
+                return client.CreateApiAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
                 #if DESKTOP
                 return client.DisconnectCustomKeyStore(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisconnectCustomKeyStoreAsync(request);
-                return task.Result;
+                return client.DisconnectCustomKeyStoreAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account,
         /// or the URL of Git repositories in <a href="http://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS
-        /// CodeCommit</a> or in any other Git repository.. These repositories are cloned at the
+        /// CodeCommit</a> or in any other Git repository. These repositories are cloned at the
         /// same level as the default repository of your notebook instance. For more information,
         /// see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating
         /// Git Repositories with Amazon SageMaker Notebook Instances</a>.</para>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
-        /// information about lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
         /// 2.1: (Optional) Customize a Notebook Instance</a>.</para>
         /// </para>
         /// </summary>
@@ -170,13 +170,26 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker can assume to
-        /// access the notebook instance. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+        /// access the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
         /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
         /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RootAccess
+        /// <summary>
+        /// <para>
+        /// <para>Whether root access is enabled or disabled for users of the notebook instance. The
+        /// default value is <code>Enabled</code>.</para><note><para>If you set this to <code>Disabled</code>, users don't have root access on the notebook
+        /// instance, but lifecycle configuration scripts still run with root permissions.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.RootAccess")]
+        public Amazon.SageMaker.RootAccess RootAccess { get; set; }
         #endregion
         
         #region Parameter VolumeSizeInGB
@@ -249,6 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             context.RoleArn = this.RoleArn;
+            context.RootAccess = this.RootAccess;
             if (ParameterWasBound("VolumeSizeInGB"))
                 context.VolumeSizeInGB = this.VolumeSizeInGB;
             
@@ -311,6 +325,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.RootAccess != null)
+            {
+                request.RootAccess = cmdletContext.RootAccess;
+            }
             if (cmdletContext.VolumeSizeInGB != null)
             {
                 request.VolumeSizeInGB = cmdletContext.VolumeSizeInGB.Value;
@@ -359,9 +377,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.UpdateNotebookInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateNotebookInstanceAsync(request);
-                return task.Result;
+                return client.UpdateNotebookInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -392,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
+            public Amazon.SageMaker.RootAccess RootAccess { get; set; }
             public System.Int32? VolumeSizeInGB { get; set; }
         }
         

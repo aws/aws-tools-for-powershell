@@ -303,6 +303,9 @@
         <ServiceOperation MethodName="GetRegistrationCode" Output="DefaultSingleMember" Verb="Get" Noun="RegistrationCode" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetStatistics" Output="DefaultSingleMember" Verb="Get" Noun="Statistic" PipelineParameter="QueryString" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetTopicRule" Output="Response" Verb="Get" Noun="TopicRule" PipelineParameter="RuleName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

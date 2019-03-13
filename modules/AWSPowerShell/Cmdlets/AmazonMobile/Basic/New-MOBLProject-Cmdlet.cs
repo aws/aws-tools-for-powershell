@@ -63,14 +63,14 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Region
+        #region Parameter ProjectRegion
         /// <summary>
         /// <para>
         /// <para> Default region where project resources should be created. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Region { get; set; }
+        public System.String ProjectRegion { get; set; }
         #endregion
         
         #region Parameter SnapshotId
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
             
             context.Contents = this.Content;
             context.Name = this.Name;
-            context.Region = this.Region;
+            context.ProjectRegion = this.ProjectRegion;
             context.SnapshotId = this.SnapshotId;
             
             // allow further manipulation of loaded context prior to processing
@@ -146,9 +146,9 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
                 {
                     request.Name = cmdletContext.Name;
                 }
-                if (cmdletContext.Region != null)
+                if (cmdletContext.ProjectRegion != null)
                 {
-                    request.Region = cmdletContext.Region;
+                    request.Region = cmdletContext.ProjectRegion;
                 }
                 if (cmdletContext.SnapshotId != null)
                 {
@@ -204,9 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
                 #if DESKTOP
                 return client.CreateProject(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateProjectAsync(request);
-                return task.Result;
+                return client.CreateProjectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -228,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.MOBL
         {
             public byte[] Contents { get; set; }
             public System.String Name { get; set; }
-            public System.String Region { get; set; }
+            public System.String ProjectRegion { get; set; }
             public System.String SnapshotId { get; set; }
         }
         

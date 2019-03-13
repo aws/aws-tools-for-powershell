@@ -28,8 +28,9 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Creates one of the following entry records associated with the domain: A record, CNAME
-    /// record, TXT record, or MX record.
+    /// Creates one of the following entry records associated with the domain: Address (A),
+    /// canonical name (CNAME), mail exchanger (MX), name server (NS), start of authority
+    /// (SOA), service locator (SRV), or text (TXT).
     /// 
     ///  
     /// <para>
@@ -92,21 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String DomainEntry_Name { get; set; }
         #endregion
         
-        #region Parameter DomainEntry_Option
-        /// <summary>
-        /// <para>
-        /// <para>(Deprecated) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
-        /// response. It is now deprecated.</para></note>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("In releases prior to November 29, 2017, this parameter was not included in the AP" +
-            "I response. It is now deprecated.")]
-        [Alias("DomainEntry_Options")]
-        public System.Collections.Hashtable DomainEntry_Option { get; set; }
-        #endregion
-        
         #region Parameter DomainEntry_Target
         /// <summary>
         /// <para>
@@ -122,11 +108,27 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Type
         /// <summary>
         /// <para>
-        /// <para>The type of domain entry (e.g., <code>SOA</code> or <code>NS</code>).</para>
+        /// <para>The type of domain entry, such as address (A), canonical name (CNAME), mail exchanger
+        /// (MX), name server (NS), start of authority (SOA), service locator (SRV), or text (TXT).</para><para>The following domain entry types can be used:</para><ul><li><para><code>A</code></para></li><li><para><code>CNAME</code></para></li><li><para><code>MX</code></para></li><li><para><code>NS</code></para></li><li><para><code>SOA</code></para></li><li><para><code>SRV</code></para></li><li><para><code>TXT</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DomainEntry_Type { get; set; }
+        #endregion
+        
+        #region Parameter DomainEntry_Option
+        /// <summary>
+        /// <para>
+        /// <para>(Deprecated) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
+        /// response. It is now deprecated.</para></note>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("In releases prior to November 29, 2017, this parameter was not included in the AP" +
+            "I response. It is now deprecated.")]
+        [Alias("DomainEntry_Options")]
+        public System.Collections.Hashtable DomainEntry_Option { get; set; }
         #endregion
         
         #region Parameter Force
@@ -308,9 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.CreateDomainEntry(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDomainEntryAsync(request);
-                return task.Result;
+                return client.CreateDomainEntryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

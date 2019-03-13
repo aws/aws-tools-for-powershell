@@ -299,9 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeOrderableDBInstanceOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeOrderableDBInstanceOptionsAsync(request);
-                return task.Result;
+                return client.DescribeOrderableDBInstanceOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

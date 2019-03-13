@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public System.String EntitlementArn { get; set; }
         #endregion
         
+        #region Parameter FlowArn
+        /// <summary>
+        /// <para>
+        /// The flow that is associated with the source that
+        /// you want to update.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlowArn { get; set; }
+        #endregion
+        
         #region Parameter IngestPort
         /// <summary>
         /// <para>
@@ -150,17 +161,6 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String WhitelistCidr { get; set; }
-        #endregion
-        
-        #region Parameter FlowArn
-        /// <summary>
-        /// <para>
-        /// The flow that is associated with the source that
-        /// you want to update.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FlowArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -310,9 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.UpdateFlowSource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFlowSourceAsync(request);
-                return task.Result;
+                return client.UpdateFlowSourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -277,6 +277,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SegmentId { get; set; }
         #endregion
         
+        #region Parameter WriteSegmentRequest_Tag
+        /// <summary>
+        /// <para>
+        /// The Tags for the segments.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Tags")]
+        public System.Collections.Hashtable WriteSegmentRequest_Tag { get; set; }
+        #endregion
+        
         #region Parameter Dimensions_UserAttribute
         /// <summary>
         /// <para>
@@ -483,6 +494,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteSegmentRequest_SegmentGroups_Groups = new List<Amazon.Pinpoint.Model.SegmentGroup>(this.SegmentGroups_Group);
             }
             context.WriteSegmentRequest_SegmentGroups_Include = this.SegmentGroups_Include;
+            if (this.WriteSegmentRequest_Tag != null)
+            {
+                context.WriteSegmentRequest_Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.WriteSegmentRequest_Tag.Keys)
+                {
+                    context.WriteSegmentRequest_Tags.Add((String)hashKey, (String)(this.WriteSegmentRequest_Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -519,6 +538,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteSegmentRequest_writeSegmentRequest_Name != null)
             {
                 request.WriteSegmentRequest.Name = requestWriteSegmentRequest_writeSegmentRequest_Name;
+                requestWriteSegmentRequestIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestWriteSegmentRequest_writeSegmentRequest_Tag = null;
+            if (cmdletContext.WriteSegmentRequest_Tags != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Tag = cmdletContext.WriteSegmentRequest_Tags;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Tag != null)
+            {
+                request.WriteSegmentRequest.Tags = requestWriteSegmentRequest_writeSegmentRequest_Tag;
                 requestWriteSegmentRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.SegmentGroupList requestWriteSegmentRequest_writeSegmentRequest_SegmentGroups = null;
@@ -1033,9 +1062,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 #if DESKTOP
                 return client.UpdateSegment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSegmentAsync(request);
-                return task.Result;
+                return client.UpdateSegmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -1082,6 +1109,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteSegmentRequest_Name { get; set; }
             public List<Amazon.Pinpoint.Model.SegmentGroup> WriteSegmentRequest_SegmentGroups_Groups { get; set; }
             public Amazon.Pinpoint.Include WriteSegmentRequest_SegmentGroups_Include { get; set; }
+            public Dictionary<System.String, System.String> WriteSegmentRequest_Tags { get; set; }
         }
         
     }

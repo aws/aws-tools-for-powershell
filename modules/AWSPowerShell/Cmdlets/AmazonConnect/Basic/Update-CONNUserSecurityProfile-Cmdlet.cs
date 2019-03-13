@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 #if DESKTOP
                 return client.UpdateUserSecurityProfiles(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateUserSecurityProfilesAsync(request);
-                return task.Result;
+                return client.UpdateUserSecurityProfilesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

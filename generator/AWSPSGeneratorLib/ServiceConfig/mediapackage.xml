@@ -44,10 +44,19 @@
         <ServiceOperation MethodName="ListOriginEndpoints" Output="DefaultSingleMember" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" Verb="Invoke" Noun="ChannelCredentialRotation" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="RotateIngestEndpointCredentials" Output="Response" Verb="Invoke" Noun="IngestEndpointCredentialRotation" ShouldProcessTarget="IngestEndpointId" PipelineParameter="IngestEndpointId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateChannel" Output="Response" Verb="Update" Noun="Channel" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">

@@ -166,9 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.SetIpAddressType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetIpAddressTypeAsync(request);
-                return task.Result;
+                return client.SetIpAddressTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

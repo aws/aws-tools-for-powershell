@@ -159,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.ModifyClusterDbRevision(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyClusterDbRevisionAsync(request);
-                return task.Result;
+                return client.ModifyClusterDbRevisionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

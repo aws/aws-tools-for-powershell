@@ -80,8 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>(Gateway endpoint) A policy document to attach to the endpoint. The policy must be
-        /// in valid JSON format.</para>
+        /// <para>A policy to attach to the endpoint that controls access to the service. The policy
+        /// must be in valid JSON format. If this parameter is not specified, we attach a default
+        /// policy that allows full access to the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -322,9 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifyVpcEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyVpcEndpointAsync(request);
-                return task.Result;
+                return client.ModifyVpcEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -49,6 +49,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String BucketName { get; set; }
         #endregion
         
+        #region Parameter Delimiter
+        /// <summary>
+        /// <para>
+        /// A delimiter is a character you use to group keys.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Delimiter { get; set; }
+        #endregion
+        
         #region Parameter Encoding
         /// <summary>
         /// <para>
@@ -75,26 +85,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String KeyMarker { get; set; }
         #endregion
         
-        #region Parameter VersionIdMarker
-        /// <summary>
-        /// <para>
-        /// Specifies the object version you want to start listing from.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String VersionIdMarker { get; set; }
-        #endregion
-        
-        #region Parameter Delimiter
-        /// <summary>
-        /// <para>
-        /// A delimiter is a character you use to group keys.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Delimiter { get; set; }
-        #endregion
-        
         #region Parameter MaxKey
         /// <summary>
         /// <para>
@@ -114,6 +104,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
         public System.String Prefix { get; set; }
+        #endregion
+        
+        #region Parameter VersionIdMarker
+        /// <summary>
+        /// <para>
+        /// Specifies the object version you want to start listing from.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VersionIdMarker { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -244,9 +244,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.ListVersions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListVersionsAsync(request);
-                return task.Result;
+                return client.ListVersionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

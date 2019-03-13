@@ -197,9 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
                 #if DESKTOP
                 return client.ListProgressUpdateStreams(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListProgressUpdateStreamsAsync(request);
-                return task.Result;
+                return client.ListProgressUpdateStreamsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -72,6 +72,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Quota_Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of requests that can be made in a given time period.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 Quota_Limit { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -111,16 +121,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Double Throttle_RateLimit { get; set; }
-        #endregion
-        
-        #region Parameter Quota_Limit
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of requests that can be made in a given time period.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 Quota_Limit { get; set; }
         #endregion
         
         #region Parameter Force
@@ -305,9 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.CreateUsagePlan(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateUsagePlanAsync(request);
-                return task.Result;
+                return client.CreateUsagePlanAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
                 #if DESKTOP
                 return client.SendTaskHeartbeat(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SendTaskHeartbeatAsync(request);
-                return task.Result;
+                return client.SendTaskHeartbeatAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

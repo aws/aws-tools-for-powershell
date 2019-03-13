@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
                 #if DESKTOP
                 return client.ListResourcesForWebACL(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListResourcesForWebACLAsync(request);
-                return task.Result;
+                return client.ListResourcesForWebACLAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

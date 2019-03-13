@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AcceptReservedInstancesExchangeQuote(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AcceptReservedInstancesExchangeQuoteAsync(request);
-                return task.Result;
+                return client.AcceptReservedInstancesExchangeQuoteAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

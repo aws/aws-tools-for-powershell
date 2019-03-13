@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// (for the individual IP address <code>192.0.2.44</code>). 
     /// </para></li></ul><para>
     /// AWS WAF supports IPv4 address ranges: /8 and any range between /16 through /32. AWS
-    /// WAF supports IPv6 address ranges: /16, /24, /32, /48, /56, /64, and /128. For more
-    /// information about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
+    /// WAF supports IPv6 address ranges: /24, /32, /48, /56, /64, and /128. For more information
+    /// about CIDR notation, see the Wikipedia entry <a href="https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Classless
     /// Inter-Domain Routing</a>.
     /// </para><para>
     /// IPv6 addresses can be represented using any of the following formats:
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// You can insert a maximum of 1000 addresses in a single request.
     /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
-    /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+    /// see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
     /// </para>
     /// </summary>
@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
                 #if DESKTOP
                 return client.UpdateIPSet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateIPSetAsync(request);
-                return task.Result;
+                return client.UpdateIPSetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

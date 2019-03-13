@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// To attach an Application Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
+    /// To attach an Application Load Balancer or a Network Load Balancer instead, see <a>AttachLoadBalancerTargetGroups</a>.
     /// </para><para>
     /// To describe the load balancers for an Auto Scaling group, use <a>DescribeLoadBalancers</a>.
     /// To detach the load balancer from the Auto Scaling group, use <a>DetachLoadBalancers</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attach
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching
     /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </para>
@@ -184,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.AttachLoadBalancers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachLoadBalancersAsync(request);
-                return task.Result;
+                return client.AttachLoadBalancersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

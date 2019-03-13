@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
     /// Lists events for a given source identifier and source type. You can also specify
-    /// a start and end time. For more information on AWS DMS events, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// a start and end time. For more information on AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
     /// with Events and Notifications</a> in the <i>AWS Database Migration User Guide.</i><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "DMSEvent")]
@@ -351,9 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeEvents(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEventsAsync(request);
-                return task.Result;
+                return client.DescribeEventsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

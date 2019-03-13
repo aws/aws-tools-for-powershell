@@ -211,9 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.ListRuleNamesByTarget(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListRuleNamesByTargetAsync(request);
-                return task.Result;
+                return client.ListRuleNamesByTargetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

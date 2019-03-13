@@ -28,9 +28,9 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Updates data for the resource. It must be preceded by a describe call in order to
-    /// have the latest information. The dataset in the request should be the one expected
-    /// when performing another describe call.
+    /// Updates data for the resource. To have the latest information, it must be preceded
+    /// by a <a>DescribeResource</a> call. The dataset in the request should be the one expected
+    /// when performing another <code>DescribeResource</code> call.
     /// </summary>
     [Cmdlet("Update", "WMResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.UpdateResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateResourceAsync(request);
-                return task.Result;
+                return client.UpdateResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

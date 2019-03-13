@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.GetHostReservationPurchasePreview(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetHostReservationPurchasePreviewAsync(request);
-                return task.Result;
+                return client.GetHostReservationPurchasePreviewAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

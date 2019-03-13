@@ -280,9 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
                 #if DESKTOP
                 return client.DescribeEnvironmentMemberships(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEnvironmentMembershipsAsync(request);
-                return task.Result;
+                return client.DescribeEnvironmentMembershipsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -163,9 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
                 #if DESKTOP
                 return client.StopTrainingEntityRecognizer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopTrainingEntityRecognizerAsync(request);
-                return task.Result;
+                return client.StopTrainingEntityRecognizerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

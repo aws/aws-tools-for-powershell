@@ -50,6 +50,21 @@ namespace Amazon.PowerShell.Cmdlets.PINE
     public partial class GetPINEConfigurationSetListCmdlet : AmazonPinpointEmailClientCmdlet, IExecutor
     {
         
+        #region Parameter NextToken
+        /// <summary>
+        /// <para>
+        /// <para>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate
+        /// the position in the list of configuration sets.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NextToken { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -65,21 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate
-        /// the position in the list of configuration sets.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -208,9 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 #if DESKTOP
                 return client.ListConfigurationSets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListConfigurationSetsAsync(request);
-                return task.Result;
+                return client.ListConfigurationSetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

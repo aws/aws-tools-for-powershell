@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>The scaling type. Uniform scaling creates shards of equal size.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         [AWSConstantClassSource("Amazon.Kinesis.ScalingType")]
         public Amazon.Kinesis.ScalingType ScalingType { get; set; }
         #endregion
@@ -208,9 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
                 #if DESKTOP
                 return client.UpdateShardCount(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateShardCountAsync(request);
-                return task.Result;
+                return client.UpdateShardCountAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

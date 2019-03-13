@@ -28,7 +28,8 @@ using Amazon.MediaStore.Model;
 namespace Amazon.PowerShell.Cmdlets.EMS
 {
     /// <summary>
-    /// Removes an object lifecycle policy from a container.
+    /// Removes an object lifecycle policy from a container. It takes up to 20 minutes for
+    /// the change to take effect.
     /// </summary>
     [Cmdlet("Remove", "EMSLifecyclePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -153,9 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.EMS
                 #if DESKTOP
                 return client.DeleteLifecyclePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteLifecyclePolicyAsync(request);
-                return task.Result;
+                return client.DeleteLifecyclePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

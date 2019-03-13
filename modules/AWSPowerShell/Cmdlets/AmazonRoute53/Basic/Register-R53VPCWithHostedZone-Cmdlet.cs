@@ -222,9 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.AssociateVPCWithHostedZone(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateVPCWithHostedZoneAsync(request);
-                return task.Result;
+                return client.AssociateVPCWithHostedZoneAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

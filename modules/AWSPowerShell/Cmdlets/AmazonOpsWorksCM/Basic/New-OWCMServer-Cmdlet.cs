@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para> The IDs of subnets in which to launch the server EC2 instance. </para><para> Amazon EC2-Classic customers: This field is required. All servers must run within
         /// a VPC. The VPC must have "Auto Assign Public IP" enabled. </para><para> EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your
         /// EC2 instances are created in a default subnet that is selected by Amazon EC2. If you
-        /// specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled. </para><para>For more information about supported Amazon EC2 platforms, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled. </para><para>For more information about supported Amazon EC2 platforms, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>.</para>
         /// </para>
         /// </summary>
@@ -467,9 +467,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
                 #if DESKTOP
                 return client.CreateServer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateServerAsync(request);
-                return task.Result;
+                return client.CreateServerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

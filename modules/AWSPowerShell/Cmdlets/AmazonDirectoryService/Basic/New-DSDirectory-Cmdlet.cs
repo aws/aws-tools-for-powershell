@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         /// this password.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         public System.String Password { get; set; }
         #endregion
         
@@ -289,9 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
                 #if DESKTOP
                 return client.CreateDirectory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDirectoryAsync(request);
-                return task.Result;
+                return client.CreateDirectoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

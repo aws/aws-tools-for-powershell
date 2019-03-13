@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// interrupted and re-established as a standalone connection (the connection is not deleted;
     /// to delete the connection, use the <a>DeleteConnection</a> request). If the LAG has
     /// associated virtual interfaces or hosted connections, they remain associated with the
-    /// LAG. A disassociated connection owned by an AWS Direct Connect partner is automatically
+    /// LAG. A disassociated connection owned by an AWS Direct Connect Partner is automatically
     /// converted to an interconnect.
     /// 
     ///  
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter ConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the connection. For example, dxcon-abc123.</para>
+        /// <para>The ID of the connection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         #region Parameter LagId
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG. For example, dxlag-abc123.</para>
+        /// <para>The ID of the LAG.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DisassociateConnectionFromLag(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateConnectionFromLagAsync(request);
-                return task.Result;
+                return client.DisassociateConnectionFromLagAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

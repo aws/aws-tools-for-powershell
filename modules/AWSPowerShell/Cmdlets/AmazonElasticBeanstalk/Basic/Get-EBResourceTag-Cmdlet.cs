@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  
     /// <para>
     /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
-    /// For details about environment tagging, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
+    /// For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
     /// Resources in Your Elastic Beanstalk Environment</a>.
     /// </para>
     /// </summary>
@@ -133,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.ListTagsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForResourceAsync(request);
-                return task.Result;
+                return client.ListTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

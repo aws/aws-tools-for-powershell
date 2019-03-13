@@ -50,19 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String[] AttributesToDelete { get; set; }
         #endregion
         
-        #region Parameter DeleteStorageConnector
-        /// <summary>
-        /// <para>
-        /// <para>Deletes the storage connectors currently enabled for the stack.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        [Alias("DeleteStorageConnectors")]
-        public System.Boolean DeleteStorageConnector { get; set; }
-        #endregion
-        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -158,6 +145,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         [System.Management.Automation.Parameter]
         [Alias("UserSettings")]
         public Amazon.AppStream.Model.UserSetting[] UserSetting { get; set; }
+        #endregion
+        
+        #region Parameter DeleteStorageConnector
+        /// <summary>
+        /// <para>
+        /// <para>Deletes the storage connectors currently enabled for the stack.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        [Alias("DeleteStorageConnectors")]
+        public System.Boolean DeleteStorageConnector { get; set; }
         #endregion
         
         #region Parameter Force
@@ -338,9 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 #if DESKTOP
                 return client.UpdateStack(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateStackAsync(request);
-                return task.Result;
+                return client.UpdateStackAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

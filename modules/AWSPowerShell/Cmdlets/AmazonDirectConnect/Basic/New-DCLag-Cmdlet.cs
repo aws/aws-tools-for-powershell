@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// automatically disassociated and re-associated with the LAG. The connection ID does
     /// not change.
     /// </para><para>
-    /// If the AWS account used to create a LAG is a registered AWS Direct Connect partner,
+    /// If the AWS account used to create a LAG is a registered AWS Direct Connect Partner,
     /// the LAG is automatically enabled to host sub-connections. For a LAG owned by a partner,
     /// any associated virtual interfaces cannot be directly configured.
     /// </para>
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         /// <summary>
         /// <para>
         /// <para>The bandwidth of the individual physical connections bundled by the LAG. The possible
-        /// values are 1Gbps and 10Gbps.</para>
+        /// values are 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps,
+        /// and 10Gbps. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -229,9 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.CreateLag(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateLagAsync(request);
-                return task.Result;
+                return client.CreateLagAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

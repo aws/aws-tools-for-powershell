@@ -65,6 +65,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public Amazon.Greengrass.Model.Function[] InitialVersion_Function { get; set; }
         #endregion
         
+        #region Parameter RunAs_Gid
+        /// <summary>
+        /// <para>
+        /// The group ID whose permissions are used to run a Lambda
+        /// function.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InitialVersion_DefaultConfig_Execution_RunAs_Gid")]
+        public System.Int32 RunAs_Gid { get; set; }
+        #endregion
+        
         #region Parameter Execution_IsolationMode
         /// <summary>
         /// <para>
@@ -85,6 +97,18 @@ namespace Amazon.PowerShell.Cmdlets.GG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter RunAs_Uid
+        /// <summary>
+        /// <para>
+        /// The user ID whose permissions are used to run a Lambda
+        /// function.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InitialVersion_DefaultConfig_Execution_RunAs_Uid")]
+        public System.Int32 RunAs_Uid { get; set; }
         #endregion
         
         #region Parameter Force
@@ -118,6 +142,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             
             context.AmznClientToken = this.AmznClientToken;
             context.InitialVersion_DefaultConfig_Execution_IsolationMode = this.Execution_IsolationMode;
+            if (ParameterWasBound("RunAs_Gid"))
+                context.InitialVersion_DefaultConfig_Execution_RunAs_Gid = this.RunAs_Gid;
+            if (ParameterWasBound("RunAs_Uid"))
+                context.InitialVersion_DefaultConfig_Execution_RunAs_Uid = this.RunAs_Uid;
             if (this.InitialVersion_Function != null)
             {
                 context.InitialVersion_Functions = new List<Amazon.Greengrass.Model.Function>(this.InitialVersion_Function);
@@ -175,6 +203,41 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode != null)
             {
                 requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution.IsolationMode = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_execution_IsolationMode;
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_ExecutionIsNull = false;
+            }
+            Amazon.Greengrass.Model.FunctionRunAsConfig requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs = null;
+            
+             // populate RunAs
+            bool requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAsIsNull = true;
+            requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs = new Amazon.Greengrass.Model.FunctionRunAsConfig();
+            System.Int32? requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Gid = null;
+            if (cmdletContext.InitialVersion_DefaultConfig_Execution_RunAs_Gid != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Gid = cmdletContext.InitialVersion_DefaultConfig_Execution_RunAs_Gid.Value;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Gid != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs.Gid = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Gid.Value;
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAsIsNull = false;
+            }
+            System.Int32? requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Uid = null;
+            if (cmdletContext.InitialVersion_DefaultConfig_Execution_RunAs_Uid != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Uid = cmdletContext.InitialVersion_DefaultConfig_Execution_RunAs_Uid.Value;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Uid != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs.Uid = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs_runAs_Uid.Value;
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAsIsNull = false;
+            }
+             // determine if requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs should be set to null
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAsIsNull)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs = null;
+            }
+            if (requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs != null)
+            {
+                requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution.RunAs = requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution_initialVersion_DefaultConfig_Execution_RunAs;
                 requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_ExecutionIsNull = false;
             }
              // determine if requestInitialVersion_initialVersion_DefaultConfig_initialVersion_DefaultConfig_Execution should be set to null
@@ -248,9 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 #if DESKTOP
                 return client.CreateFunctionDefinition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateFunctionDefinitionAsync(request);
-                return task.Result;
+                return client.CreateFunctionDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -272,6 +333,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         {
             public System.String AmznClientToken { get; set; }
             public Amazon.Greengrass.FunctionIsolationMode InitialVersion_DefaultConfig_Execution_IsolationMode { get; set; }
+            public System.Int32? InitialVersion_DefaultConfig_Execution_RunAs_Gid { get; set; }
+            public System.Int32? InitialVersion_DefaultConfig_Execution_RunAs_Uid { get; set; }
             public List<Amazon.Greengrass.Model.Function> InitialVersion_Functions { get; set; }
             public System.String Name { get; set; }
         }

@@ -73,6 +73,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String Body { get; set; }
         #endregion
         
+        #region Parameter Header
+        /// <summary>
+        /// <para>
+        /// <para>[Required] A key-value map of headers to simulate an incoming invocation request.
+        /// This is where the incoming authorization token, or identity source, should be specified.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Headers")]
+        public System.Collections.Hashtable Header { get; set; }
+        #endregion
+        
         #region Parameter MultiValueHeader
         /// <summary>
         /// <para>
@@ -116,18 +128,6 @@ namespace Amazon.PowerShell.Cmdlets.AG
         [System.Management.Automation.Parameter]
         [Alias("StageVariables")]
         public System.Collections.Hashtable StageVariable { get; set; }
-        #endregion
-        
-        #region Parameter Header
-        /// <summary>
-        /// <para>
-        /// <para>[Required] A key-value map of headers to simulate an incoming invocation request.
-        /// This is where the incoming authorization token, or identity source, should be specified.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Headers")]
-        public System.Collections.Hashtable Header { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -281,9 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.TestInvokeAuthorizer(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TestInvokeAuthorizerAsync(request);
-                return task.Result;
+                return client.TestInvokeAuthorizerAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -157,9 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.NotifyWhenUploaded(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.NotifyWhenUploadedAsync(request);
-                return task.Result;
+                return client.NotifyWhenUploadedAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

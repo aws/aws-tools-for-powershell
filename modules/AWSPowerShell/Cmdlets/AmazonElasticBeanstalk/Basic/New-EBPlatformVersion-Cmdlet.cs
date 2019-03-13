@@ -100,6 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String PlatformDefinitionBundle_S3Key { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the tags applied to the new platform version.</para><para>Elastic Beanstalk applies these tags only to the platform version. Environments that
+        /// you create using the platform version don't inherit the tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ElasticBeanstalk.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -138,6 +150,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             context.PlatformDefinitionBundle_S3Key = this.PlatformDefinitionBundle_S3Key;
             context.PlatformName = this.PlatformName;
             context.PlatformVersion = this.PlatformVersion;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ElasticBeanstalk.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -199,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             {
                 request.PlatformVersion = cmdletContext.PlatformVersion;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -241,9 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CreatePlatformVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePlatformVersionAsync(request);
-                return task.Result;
+                return client.CreatePlatformVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -269,6 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
             public System.String PlatformDefinitionBundle_S3Key { get; set; }
             public System.String PlatformName { get; set; }
             public System.String PlatformVersion { get; set; }
+            public List<Amazon.ElasticBeanstalk.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -41,8 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code>
     /// action has completed and the DB cluster is available.
     /// </para></note><para>
-    /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
-    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para>
+    /// For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
+    /// What Is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide.</i></para><note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Restore", "RDSDBClusterToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -63,6 +65,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 BacktrackWindow { get; set; }
+        #endregion
+        
+        #region Parameter CopyTagsToSnapshot
+        /// <summary>
+        /// <para>
+        /// <para>True to copy all tags from the restored DB cluster to snapshots of the restored DB
+        /// cluster, and otherwise false. The default is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CopyTagsToSnapshot { get; set; }
         #endregion
         
         #region Parameter DBClusterIdentifier
@@ -112,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The list of logs that the restored DB cluster is to export to CloudWatch Logs. The
-        /// values in the list depend on the DB engine being used. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
+        /// values in the list depend on the DB engine being used. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_LogAccess.html#USER_LogAccess.Procedural.UploadtoCloudWatch">Publishing
         /// Database Logs to Amazon CloudWatch Logs</a> in the <i>Amazon Aurora User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -169,24 +182,6 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Port { get; set; }
-        #endregion
-        
-        #region Parameter RestoreToTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
-        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value
-        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
-        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Can't be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcRestoreToTime instead.")]
-        public System.DateTime RestoreToTime { get; set; }
         #endregion
         
         #region Parameter UtcRestoreToTime
@@ -256,6 +251,24 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String[] VpcSecurityGroupId { get; set; }
         #endregion
         
+        #region Parameter RestoreToTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
+        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value
+        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
+        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Can't be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Can't be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcRestoreToTime instead.")]
+        public System.DateTime RestoreToTime { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -287,6 +300,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             if (ParameterWasBound("BacktrackWindow"))
                 context.BacktrackWindow = this.BacktrackWindow;
+            if (ParameterWasBound("CopyTagsToSnapshot"))
+                context.CopyTagsToSnapshot = this.CopyTagsToSnapshot;
             context.DBClusterIdentifier = this.DBClusterIdentifier;
             context.DBClusterParameterGroupName = this.DBClusterParameterGroupName;
             context.DBSubnetGroupName = this.DBSubnetGroupName;
@@ -339,6 +354,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.BacktrackWindow != null)
             {
                 request.BacktrackWindow = cmdletContext.BacktrackWindow.Value;
+            }
+            if (cmdletContext.CopyTagsToSnapshot != null)
+            {
+                request.CopyTagsToSnapshot = cmdletContext.CopyTagsToSnapshot.Value;
             }
             if (cmdletContext.DBClusterIdentifier != null)
             {
@@ -452,9 +471,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.RestoreDBClusterToPointInTime(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreDBClusterToPointInTimeAsync(request);
-                return task.Result;
+                return client.RestoreDBClusterToPointInTimeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -475,6 +492,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? BacktrackWindow { get; set; }
+            public System.Boolean? CopyTagsToSnapshot { get; set; }
             public System.String DBClusterIdentifier { get; set; }
             public System.String DBClusterParameterGroupName { get; set; }
             public System.String DBSubnetGroupName { get; set; }

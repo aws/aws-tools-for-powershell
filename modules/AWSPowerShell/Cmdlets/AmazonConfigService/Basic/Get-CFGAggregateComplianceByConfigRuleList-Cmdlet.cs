@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     ///  <note><para>
     /// The results can return an empty result page, but if you have a nextToken, the results
     /// are displayed on the next page.
-    /// </para></note>
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CFGAggregateComplianceByConfigRuleList")]
     [OutputType("Amazon.ConfigService.Model.AggregateComplianceByConfigRule")]
@@ -106,9 +106,13 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>The maximum number of evaluation results returned on each page. The default is maximum.
         /// If you specify 0, AWS Config uses the default.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Int32 Limit { get; set; }
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -116,6 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         /// <para>
         /// <para>The nextToken string returned on a previous page that you use to get the next page
         /// of results in a paginated response.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.NextToken, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -156,9 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
-            var request = new Amazon.ConfigService.Model.DescribeAggregateComplianceByConfigRulesRequest();
             
+            // create request and set iteration invariants
+            var request = new Amazon.ConfigService.Model.DescribeAggregateComplianceByConfigRulesRequest();
             if (cmdletContext.ConfigurationAggregatorName != null)
             {
                 request.ConfigurationAggregatorName = cmdletContext.ConfigurationAggregatorName;
@@ -212,39 +220,81 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             {
                 request.Filters = null;
             }
-            if (cmdletContext.Limit != null)
-            {
-                request.Limit = cmdletContext.Limit.Value;
-            }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
-            CmdletOutput output;
+            // Initialize loop variants and commence piping
+            System.String _nextMarker = null;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+            }
+            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            {
+                _emitLimit = cmdletContext.Limit;
+            }
+            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("Limit");
+            bool _continueIteration = true;
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AggregateComplianceByConfigRules;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.AggregateComplianceByConfigRules;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        int _receivedThisCall = response.AggregateComplianceByConfigRules.Count;
+                        if (_userControllingPaging)
+                        {
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
@@ -264,9 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
                 #if DESKTOP
                 return client.DescribeAggregateComplianceByConfigRules(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAggregateComplianceByConfigRulesAsync(request);
-                return task.Result;
+                return client.DescribeAggregateComplianceByConfigRulesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -291,7 +339,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
             public System.String Filters_AwsRegion { get; set; }
             public Amazon.ConfigService.ComplianceType Filters_ComplianceType { get; set; }
             public System.String Filters_ConfigRuleName { get; set; }
-            public System.Int32? Limit { get; set; }
+            public int? Limit { get; set; }
             public System.String NextToken { get; set; }
         }
         

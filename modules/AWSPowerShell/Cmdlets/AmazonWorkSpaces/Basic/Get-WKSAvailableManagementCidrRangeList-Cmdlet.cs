@@ -221,9 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
                 #if DESKTOP
                 return client.ListAvailableManagementCidrRanges(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAvailableManagementCidrRangesAsync(request);
-                return task.Result;
+                return client.ListAvailableManagementCidrRangesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

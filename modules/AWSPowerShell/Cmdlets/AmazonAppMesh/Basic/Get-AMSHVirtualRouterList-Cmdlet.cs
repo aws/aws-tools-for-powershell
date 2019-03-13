@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter MeshName
         /// <summary>
         /// <para>
-        /// <para>The name of the service mesh in which to list virtual routers.</para>
+        /// <para>The name of the service mesh to list virtual routers in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,14 +54,14 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of mesh results returned by <code>ListVirtualRouters</code> in
-        ///         paginated output. When this parameter is used, <code>ListVirtualRouters</code>
-        /// only returns         <code>limit</code> results in a single page along with a <code>nextToken</code>
-        ///         response element. The remaining results of the initial request can be seen
-        /// by sending         another <code>ListVirtualRouters</code> request with the returned
-        /// <code>nextToken</code>         value. This value can be between 1 and 100. If this
-        ///         parameter is not used, then <code>ListVirtualRouters</code> returns up to
-        ///         100 results and a <code>nextToken</code> value if applicable.</para>
+        /// <para>The maximum number of results returned by <code>ListVirtualRouters</code> in paginated
+        ///         output. When you use this parameter, <code>ListVirtualRouters</code> returns
+        /// only            <code>limit</code> results in a single page along with a <code>nextToken</code>
+        /// response         element. You can see the remaining results of the initial request
+        /// by sending another            <code>ListVirtualRouters</code> request with the returned
+        /// <code>nextToken</code> value.         This value can be between 1 and 100. If you
+        /// don't use this parameter,          <code>ListVirtualRouters</code> returns up to 100
+        /// results and         a <code>nextToken</code> value if applicable.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -250,9 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.AMSH
                 #if DESKTOP
                 return client.ListVirtualRouters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListVirtualRoutersAsync(request);
-                return task.Result;
+                return client.ListVirtualRoutersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

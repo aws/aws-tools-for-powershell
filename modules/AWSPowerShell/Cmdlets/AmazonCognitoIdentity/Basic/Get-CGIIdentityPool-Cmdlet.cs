@@ -131,9 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 #if DESKTOP
                 return client.DescribeIdentityPool(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeIdentityPoolAsync(request);
-                return task.Result;
+                return client.DescribeIdentityPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

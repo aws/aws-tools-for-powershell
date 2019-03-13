@@ -192,9 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifyVpcEndpointServicePermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyVpcEndpointServicePermissionsAsync(request);
-                return task.Result;
+                return client.ModifyVpcEndpointServicePermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

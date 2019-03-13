@@ -44,6 +44,9 @@
         <ServiceOperation MethodName="DeleteUser" Output="Void" Verb="Remove" Noun="User" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false" MetadataProperties="RequestId;Status">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserByPrincipalId" Output="Void" Verb="Remove" Noun="UserByPrincipalId" ShouldProcessTarget="PrincipalId" PipelineParameter="PrincipalId" NoPipelineParameter="false" MetadataProperties="RequestId;Status">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeGroup" Output="DefaultSingleMember" Verb="Get" Noun="Group" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="RequestId;Status">
             <Params />
         </ServiceOperation>

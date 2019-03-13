@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
                 #if DESKTOP
                 return client.GetStatus(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetStatusAsync(request);
-                return task.Result;
+                return client.GetStatusAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

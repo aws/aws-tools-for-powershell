@@ -57,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is 50 and
-        /// the maximum value is 50.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
+        /// and the maximum value is <code>50</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeAutoScalingInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAutoScalingInstancesAsync(request);
-                return task.Result;
+                return client.DescribeAutoScalingInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -182,9 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AssociateVpcCidrBlock(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateVpcCidrBlockAsync(request);
-                return task.Result;
+                return client.AssociateVpcCidrBlockAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
     /// Returns information about the state of a pipeline, including the stages and actions.
+    /// 
+    ///  <note><para>
+    /// Values returned in the revisionId and revisionUrl fields indicate the source revision
+    /// information, such as the commit ID, for the current state.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Get", "CPPipelineState")]
     [OutputType("Amazon.CodePipeline.Model.GetPipelineStateResponse")]
@@ -125,9 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 #if DESKTOP
                 return client.GetPipelineState(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetPipelineStateAsync(request);
-                return task.Result;
+                return client.GetPipelineStateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

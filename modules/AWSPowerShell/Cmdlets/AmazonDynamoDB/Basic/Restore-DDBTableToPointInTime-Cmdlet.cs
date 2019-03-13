@@ -230,9 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.RestoreTableToPointInTime(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreTableToPointInTimeAsync(request);
-                return task.Result;
+                return client.RestoreTableToPointInTimeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

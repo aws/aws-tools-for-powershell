@@ -343,7 +343,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>Information about triggers to change when the deployment group is updated. For examples,
-        /// see <a href="http://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify
+        /// see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/how-to-notify-edit.html">Modify
         /// Triggers in an AWS CodeDeploy Deployment Group</a> in the AWS CodeDeploy User Guide.</para>
         /// </para>
         /// </summary>
@@ -846,9 +846,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.UpdateDeploymentGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDeploymentGroupAsync(request);
-                return task.Result;
+                return client.UpdateDeploymentGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

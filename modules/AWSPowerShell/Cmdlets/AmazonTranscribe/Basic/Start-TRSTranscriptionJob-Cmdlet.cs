@@ -121,7 +121,8 @@ namespace Amazon.PowerShell.Cmdlets.TRS
         /// the operation returns this location in the <code>TranscriptFileUri</code> field. The
         /// S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket.
         /// For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/access-control-managing-permissions.html#auth-role-iam-user">Permissions
-        /// Required for IAM User Roles</a>.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
+        /// Required for IAM User Roles</a>.</para><para>Amazon Transcribe uses the default Amazon S3 key for server-side encryption of transcripts
+        /// that are placed in your S3 bucket. You can't specify your own encryption key.</para><para>If you don't set the <code>OutputBucketName</code>, Amazon Transcribe generates a
         /// pre-signed URL, a shareable URL that provides secure access to your transcription,
         /// and returns it in the <code>TranscriptFileUri</code> field. Use this URL to download
         /// the transcription.</para>
@@ -356,9 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.TRS
                 #if DESKTOP
                 return client.StartTranscriptionJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartTranscriptionJobAsync(request);
-                return task.Result;
+                return client.StartTranscriptionJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

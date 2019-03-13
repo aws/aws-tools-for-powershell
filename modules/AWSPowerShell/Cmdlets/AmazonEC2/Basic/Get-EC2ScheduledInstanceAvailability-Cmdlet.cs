@@ -52,24 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2ScheduledInstanceAvailabilityCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
-        #region Parameter FirstSlotStartTimeRange_EarliestTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EarliestTimeUtc instead. Setting either EarliestTime
-        /// or EarliestTimeUtc results in both EarliestTime and EarliestTimeUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value
-        /// of both. EarliestTime is provided for backwards compatibility only and assigning a
-        /// non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The earliest date and time, in UTC, for the Scheduled Instance to start.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use FirstSlotStartTimeRange_UtcEarliestTime instead.")]
-        public System.DateTime FirstSlotStartTimeRange_EarliestTime { get; set; }
-        #endregion
-        
         #region Parameter FirstSlotStartTimeRange_UtcEarliestTime
         /// <summary>
         /// <para>
@@ -111,25 +93,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Recurrence_Interval { get; set; }
-        #endregion
-        
-        #region Parameter FirstSlotStartTimeRange_LatestTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use LatestTimeUtc instead. Setting either LatestTime or
-        /// LatestTimeUtc results in both LatestTime and LatestTimeUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. LatestTime
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The latest date and time, in UTC, for the Scheduled Instance to start. This value
-        /// must be later than or equal to the earliest date and at most three months in the future.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use FirstSlotStartTimeRange_UtcLatestTime instead.")]
-        public System.DateTime FirstSlotStartTimeRange_LatestTime { get; set; }
         #endregion
         
         #region Parameter FirstSlotStartTimeRange_UtcLatestTime
@@ -203,6 +166,43 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Recurrence_OccurrenceUnit { get; set; }
+        #endregion
+        
+        #region Parameter FirstSlotStartTimeRange_EarliestTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EarliestTimeUtc instead. Setting either EarliestTime
+        /// or EarliestTimeUtc results in both EarliestTime and EarliestTimeUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value
+        /// of both. EarliestTime is provided for backwards compatibility only and assigning a
+        /// non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The earliest date and time, in UTC, for the Scheduled Instance to start.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use FirstSlotStartTimeRange_UtcEarliestTime instead.")]
+        public System.DateTime FirstSlotStartTimeRange_EarliestTime { get; set; }
+        #endregion
+        
+        #region Parameter FirstSlotStartTimeRange_LatestTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use LatestTimeUtc instead. Setting either LatestTime or
+        /// LatestTimeUtc results in both LatestTime and LatestTimeUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. LatestTime
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The latest date and time, in UTC, for the Scheduled Instance to start. This value
+        /// must be later than or equal to the earliest date and at most three months in the future.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use FirstSlotStartTimeRange_UtcLatestTime instead.")]
+        public System.DateTime FirstSlotStartTimeRange_LatestTime { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -523,9 +523,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeScheduledInstanceAvailability(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeScheduledInstanceAvailabilityAsync(request);
-                return task.Result;
+                return client.DescribeScheduledInstanceAvailabilityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

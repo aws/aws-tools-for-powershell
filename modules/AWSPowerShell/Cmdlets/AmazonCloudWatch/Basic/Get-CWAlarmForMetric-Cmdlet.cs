@@ -226,9 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.DescribeAlarmsForMetric(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAlarmsForMetricAsync(request);
-                return task.Result;
+                return client.DescribeAlarmsForMetricAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

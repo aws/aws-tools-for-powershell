@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifyInstanceCreditSpecification(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyInstanceCreditSpecificationAsync(request);
-                return task.Result;
+                return client.ModifyInstanceCreditSpecificationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

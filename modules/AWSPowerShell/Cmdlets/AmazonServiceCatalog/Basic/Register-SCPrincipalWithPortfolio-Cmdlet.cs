@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.AssociatePrincipalWithPortfolio(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociatePrincipalWithPortfolioAsync(request);
-                return task.Result;
+                return client.AssociatePrincipalWithPortfolioAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

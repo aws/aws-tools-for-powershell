@@ -83,26 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Key { get; set; }
         #endregion
         
-        #region Parameter ModifiedSinceDate
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use ModifiedSinceDateUtc instead. Setting either ModifiedSinceDate or
-        /// ModifiedSinceDateUtc results in both ModifiedSinceDate and ModifiedSinceDateUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value of both.
-        /// ModifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para>
-        /// Returns the object only if it has been modified since the specified time, 
-        /// otherwise returns a PreconditionFailed.
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcModifiedSinceDate instead.")]
-        public System.DateTime ModifiedSinceDate { get; set; }
-        #endregion
-        
         #region Parameter UtcModifiedSinceDate
         /// <summary>
         /// <para>
@@ -174,26 +154,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
         
-        #region Parameter UnmodifiedSinceDate
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use UnmodifiedSinceDateUtc instead. Setting either UnmodifiedSinceDate or
-        /// UnmodifiedSinceDateUtc results in both UnmodifiedSinceDate and UnmodifiedSinceDateUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value of both.
-        /// UnmodifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para>
-        /// Returns the object only if it has not been modified since the specified time, 
-        /// otherwise returns a PreconditionFailed.
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcUnmodifiedSinceDate instead.")]
-        public System.DateTime UnmodifiedSinceDate { get; set; }
-        #endregion
-        
         #region Parameter UtcUnmodifiedSinceDate
         /// <summary>
         /// <para>
@@ -213,6 +173,46 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String VersionId { get; set; }
+        #endregion
+        
+        #region Parameter ModifiedSinceDate
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ModifiedSinceDateUtc instead. Setting either ModifiedSinceDate or
+        /// ModifiedSinceDateUtc results in both ModifiedSinceDate and ModifiedSinceDateUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value of both.
+        /// ModifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para>
+        /// Returns the object only if it has been modified since the specified time, 
+        /// otherwise returns a PreconditionFailed.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcModifiedSinceDate instead.")]
+        public System.DateTime ModifiedSinceDate { get; set; }
+        #endregion
+        
+        #region Parameter UnmodifiedSinceDate
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use UnmodifiedSinceDateUtc instead. Setting either UnmodifiedSinceDate or
+        /// UnmodifiedSinceDateUtc results in both UnmodifiedSinceDate and UnmodifiedSinceDateUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value of both.
+        /// UnmodifiedSinceDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para>
+        /// Returns the object only if it has not been modified since the specified time, 
+        /// otherwise returns a PreconditionFailed.
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcUnmodifiedSinceDate instead.")]
+        public System.DateTime UnmodifiedSinceDate { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -398,9 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.GetObjectMetadata(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetObjectMetadataAsync(request);
-                return task.Result;
+                return client.GetObjectMetadataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

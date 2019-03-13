@@ -138,9 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 #if DESKTOP
                 return client.DescribeTimeBasedAutoScaling(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTimeBasedAutoScalingAsync(request);
-                return task.Result;
+                return client.DescribeTimeBasedAutoScalingAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -172,9 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DetachLoadBalancerTargetGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DetachLoadBalancerTargetGroupsAsync(request);
-                return task.Result;
+                return client.DetachLoadBalancerTargetGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -196,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.GetServiceLastAccessedDetails(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetServiceLastAccessedDetailsAsync(request);
-                return task.Result;
+                return client.GetServiceLastAccessedDetailsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

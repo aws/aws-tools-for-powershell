@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// dataset that you can use for model training, train a model, host models by creating
     /// Amazon SageMaker endpoints, and validate hosted models. 
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
+    /// For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
     /// It Works</a>. 
     /// </para>
     /// </summary>
@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <para>Sets whether Amazon SageMaker provides internet access to the notebook instance. If
         /// you set this to <code>Disabled</code> this notebook instance will be able to access
         /// resources only in your VPC, and will not be able to connect to Amazon SageMaker training
-        /// and endpoint services unless your configure a NAT Gateway in your VPC.</para><para>For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
+        /// and endpoint services unless your configure a NAT Gateway in your VPC.</para><para>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook
         /// Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter
         /// to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</para>
         /// </para>
@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// <summary>
         /// <para>
         /// <para>The name of a lifecycle configuration to associate with the notebook instance. For
-        /// information about lifestyle configurations, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+        /// information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
         /// 2.1: (Optional) Customize a Notebook Instance</a>.</para>
         /// </para>
         /// </summary>
@@ -196,13 +196,27 @@ namespace Amazon.PowerShell.Cmdlets.SM
         /// assumes this role to perform tasks on your behalf. You must grant this role necessary
         /// permissions so Amazon SageMaker can perform these tasks. The policy must allow the
         /// Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume
-        /// this role. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+        /// this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
         /// SageMaker Roles</a>. </para><note><para>To be able to pass this role to Amazon SageMaker, the caller of this API must have
         /// the <code>iam:PassRole</code> permission.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RootAccess
+        /// <summary>
+        /// <para>
+        /// <para>Whether root access is enabled or disabled for users of the notebook instance. The
+        /// default value is <code>Enabled</code>.</para><note><para>Lifecycle configurations need root access to be able to set up a notebook instance.
+        /// Because of this, lifecycle configurations associated with a notebook instance always
+        /// run with root access even if you disable root access for users.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.RootAccess")]
+        public Amazon.SageMaker.RootAccess RootAccess { get; set; }
         #endregion
         
         #region Parameter SecurityGroupId
@@ -295,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.LifecycleConfigName = this.LifecycleConfigName;
             context.NotebookInstanceName = this.NotebookInstanceName;
             context.RoleArn = this.RoleArn;
+            context.RootAccess = this.RootAccess;
             if (this.SecurityGroupId != null)
             {
                 context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
@@ -358,6 +373,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
             {
                 request.RoleArn = cmdletContext.RoleArn;
             }
+            if (cmdletContext.RootAccess != null)
+            {
+                request.RootAccess = cmdletContext.RootAccess;
+            }
             if (cmdletContext.SecurityGroupIds != null)
             {
                 request.SecurityGroupIds = cmdletContext.SecurityGroupIds;
@@ -416,9 +435,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreateNotebookInstance(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateNotebookInstanceAsync(request);
-                return task.Result;
+                return client.CreateNotebookInstanceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -447,6 +464,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String LifecycleConfigName { get; set; }
             public System.String NotebookInstanceName { get; set; }
             public System.String RoleArn { get; set; }
+            public Amazon.SageMaker.RootAccess RootAccess { get; set; }
             public List<System.String> SecurityGroupIds { get; set; }
             public System.String SubnetId { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }

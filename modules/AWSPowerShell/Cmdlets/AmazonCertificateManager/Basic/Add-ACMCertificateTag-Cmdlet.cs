@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// can apply the same tag to multiple resources if you want to specify a relationship
     /// among those resources. For example, you can add the same tag to an ACM certificate
     /// and an Elastic Load Balancing load balancer to indicate that they are both used by
-    /// the same website. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging
+    /// the same website. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging
     /// ACM certificates</a>. 
     /// </para><para>
     /// To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To view
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <summary>
         /// <para>
         /// <para>String that contains the ARN of the ACM certificate to which the tag is to be applied.
-        /// This must be of the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// This must be of the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>
         /// </summary>
@@ -193,9 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 #if DESKTOP
                 return client.AddTagsToCertificate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddTagsToCertificateAsync(request);
-                return task.Result;
+                return client.AddTagsToCertificateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

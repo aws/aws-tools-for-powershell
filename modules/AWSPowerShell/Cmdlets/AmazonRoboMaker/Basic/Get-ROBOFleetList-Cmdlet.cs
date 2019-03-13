@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters to limit results.</para>
+        /// <para>Optional filters to limit results.</para><para>The filter name <code>name</code> is supported. When filtering, you must use the complete
+        /// value of the filtered item. You can use up to three filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -255,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.ListFleets(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListFleetsAsync(request);
-                return task.Result;
+                return client.ListFleetsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

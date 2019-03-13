@@ -165,9 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.GrantFlowEntitlements(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GrantFlowEntitlementsAsync(request);
-                return task.Result;
+                return client.GrantFlowEntitlementsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

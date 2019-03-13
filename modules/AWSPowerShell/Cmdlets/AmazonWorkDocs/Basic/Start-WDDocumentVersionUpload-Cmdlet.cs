@@ -261,9 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 #if DESKTOP
                 return client.InitiateDocumentVersionUpload(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.InitiateDocumentVersionUploadAsync(request);
-                return task.Result;
+                return client.InitiateDocumentVersionUploadAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

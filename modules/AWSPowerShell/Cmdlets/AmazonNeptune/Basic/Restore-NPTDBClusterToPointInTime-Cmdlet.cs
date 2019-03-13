@@ -122,23 +122,6 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         public System.Int32 Port { get; set; }
         #endregion
         
-        #region Parameter RestoreToTime
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
-        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
-        /// the latest assignment to either one of the two property is reflected in the value
-        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
-        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Cannot be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute(@"Setting this property results in non-UTC DateTimes not being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned, the latest assignment to either one of the two property is reflected in the value of both. RestoreToTime is provided for backwards compatibility only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed to the service.")]
-        public System.DateTime RestoreToTime { get; set; }
-        #endregion
-        
         #region Parameter RestoreToTimeUtc
         /// <summary>
         /// <para>
@@ -204,6 +187,23 @@ namespace Amazon.PowerShell.Cmdlets.NPT
         [System.Management.Automation.Parameter]
         [Alias("VpcSecurityGroupIds")]
         public System.String[] VpcSecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter RestoreToTime
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime
+        /// or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned,
+        /// the latest assignment to either one of the two property is reflected in the value
+        /// of both. RestoreToTime is provided for backwards compatibility only and assigning
+        /// a non-Utc DateTime to it results in the wrong timestamp being passed to the service.</para><para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Cannot be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute(@"Setting this property results in non-UTC DateTimes not being marshalled correctly. Use RestoreToTimeUtc instead. Setting either RestoreToTime or RestoreToTimeUtc results in both RestoreToTime and RestoreToTimeUtc being assigned, the latest assignment to either one of the two property is reflected in the value of both. RestoreToTime is provided for backwards compatibility only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed to the service.")]
+        public System.DateTime RestoreToTime { get; set; }
         #endregion
         
         #region Parameter Force
@@ -373,9 +373,7 @@ namespace Amazon.PowerShell.Cmdlets.NPT
                 #if DESKTOP
                 return client.RestoreDBClusterToPointInTime(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RestoreDBClusterToPointInTimeAsync(request);
-                return task.Result;
+                return client.RestoreDBClusterToPointInTimeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

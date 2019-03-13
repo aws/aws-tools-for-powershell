@@ -47,6 +47,16 @@ namespace Amazon.PowerShell.Cmdlets.RS
     public partial class GetRSDefaultClusterParameterCmdlet : AmazonRedshiftClientCmdlet, IExecutor
     {
         
+        #region Parameter ParameterGroupFamily
+        /// <summary>
+        /// <para>
+        /// <para>The name of the cluster parameter group family.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ParameterGroupFamily { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -82,16 +92,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
         public int MaxRecord { get; set; }
-        #endregion
-        
-        #region Parameter ParameterGroupFamily
-        /// <summary>
-        /// <para>
-        /// <para>The name of the cluster parameter group family.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ParameterGroupFamily { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -256,9 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.DescribeDefaultClusterParameters(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDefaultClusterParametersAsync(request);
-                return task.Result;
+                return client.DescribeDefaultClusterParametersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -239,9 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 #if DESKTOP
                 return client.DescribeBudgetPerformanceHistory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeBudgetPerformanceHistoryAsync(request);
-                return task.Result;
+                return client.DescribeBudgetPerformanceHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

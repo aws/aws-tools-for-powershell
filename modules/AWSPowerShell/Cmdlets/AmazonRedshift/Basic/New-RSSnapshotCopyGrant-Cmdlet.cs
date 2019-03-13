@@ -187,9 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 #if DESKTOP
                 return client.CreateSnapshotCopyGrant(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSnapshotCopyGrantAsync(request);
-                return task.Result;
+                return client.CreateSnapshotCopyGrantAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -236,9 +236,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 #if DESKTOP
                 return client.ListTrafficPolicyInstancesByPolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTrafficPolicyInstancesByPolicyAsync(request);
-                return task.Result;
+                return client.ListTrafficPolicyInstancesByPolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

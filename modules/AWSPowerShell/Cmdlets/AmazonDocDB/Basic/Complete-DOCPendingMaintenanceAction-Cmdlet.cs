@@ -176,9 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 #if DESKTOP
                 return client.ApplyPendingMaintenanceAction(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ApplyPendingMaintenanceActionAsync(request);
-                return task.Result;
+                return client.ApplyPendingMaintenanceActionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

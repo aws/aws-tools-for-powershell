@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CONN
                 #if DESKTOP
                 return client.StartOutboundVoiceContact(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartOutboundVoiceContactAsync(request);
-                return task.Result;
+                return client.StartOutboundVoiceContactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

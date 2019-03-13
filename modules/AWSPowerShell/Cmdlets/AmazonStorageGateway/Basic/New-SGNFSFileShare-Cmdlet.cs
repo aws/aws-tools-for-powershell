@@ -236,11 +236,26 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Squash
         /// <summary>
         /// <para>
-        /// <para>Maps a user to anonymous user. Valid options are the following: </para><ul><li><para><code>RootSquash</code> - Only root is mapped to anonymous user.</para></li><li><para><code>NoSquash</code> - No one is mapped to anonymous user</para></li><li><para><code>AllSquash</code> - Everyone is mapped to anonymous user.</para></li></ul>
+        /// <para>A value that maps a user to anonymous user. Valid options are the following: </para><ul><li><para><code>RootSquash</code> - Only root is mapped to anonymous user.</para></li><li><para><code>NoSquash</code> - No one is mapped to anonymous user</para></li><li><para><code>AllSquash</code> - Everyone is mapped to anonymous user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Squash { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 tags that can be assigned to the NFS file share. Each tag is a
+        /// key-value pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Force
@@ -298,6 +313,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.RequesterPays = this.RequesterPay;
             context.Role = this.Role;
             context.Squash = this.Squash;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -415,6 +434,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 request.Squash = cmdletContext.Squash;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -457,9 +480,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateNFSFileShare(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateNFSFileShareAsync(request);
-                return task.Result;
+                return client.CreateNFSFileShareAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -496,6 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.Boolean? RequesterPays { get; set; }
             public System.String Role { get; set; }
             public System.String Squash { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
         }
         
     }

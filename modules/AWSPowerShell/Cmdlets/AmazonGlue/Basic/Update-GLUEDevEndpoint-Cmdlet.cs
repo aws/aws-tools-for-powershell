@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     public partial class UpdateGLUEDevEndpointCmdlet : AmazonGlueClientCmdlet, IExecutor
     {
         
+        #region Parameter AddArgument
+        /// <summary>
+        /// <para>
+        /// <para>The map of arguments to add the map of arguments used to configure the DevEndpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AddArguments")]
+        public System.Collections.Hashtable AddArgument { get; set; }
+        #endregion
+        
         #region Parameter AddPublicKey
         /// <summary>
         /// <para>
@@ -60,6 +71,18 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         [System.Management.Automation.Parameter]
         [Alias("CustomLibraries")]
         public Amazon.Glue.Model.DevEndpointCustomLibraries CustomLibrary { get; set; }
+        #endregion
+        
+        #region Parameter DeleteArgument
+        /// <summary>
+        /// <para>
+        /// <para>The list of argument keys to be deleted from the map of arguments used to configure
+        /// the DevEndpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteArguments")]
+        public System.String[] DeleteArgument { get; set; }
         #endregion
         
         #region Parameter DeletePublicKey
@@ -143,11 +166,23 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AddArgument != null)
+            {
+                context.AddArguments = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AddArgument.Keys)
+                {
+                    context.AddArguments.Add((String)hashKey, (String)(this.AddArgument[hashKey]));
+                }
+            }
             if (this.AddPublicKey != null)
             {
                 context.AddPublicKeys = new List<System.String>(this.AddPublicKey);
             }
             context.CustomLibraries = this.CustomLibrary;
+            if (this.DeleteArgument != null)
+            {
+                context.DeleteArguments = new List<System.String>(this.DeleteArgument);
+            }
             if (this.DeletePublicKey != null)
             {
                 context.DeletePublicKeys = new List<System.String>(this.DeletePublicKey);
@@ -172,6 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             // create request
             var request = new Amazon.Glue.Model.UpdateDevEndpointRequest();
             
+            if (cmdletContext.AddArguments != null)
+            {
+                request.AddArguments = cmdletContext.AddArguments;
+            }
             if (cmdletContext.AddPublicKeys != null)
             {
                 request.AddPublicKeys = cmdletContext.AddPublicKeys;
@@ -179,6 +218,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.CustomLibraries != null)
             {
                 request.CustomLibraries = cmdletContext.CustomLibraries;
+            }
+            if (cmdletContext.DeleteArguments != null)
+            {
+                request.DeleteArguments = cmdletContext.DeleteArguments;
             }
             if (cmdletContext.DeletePublicKeys != null)
             {
@@ -240,9 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.UpdateDevEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDevEndpointAsync(request);
-                return task.Result;
+                return client.UpdateDevEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -262,8 +303,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, System.String> AddArguments { get; set; }
             public List<System.String> AddPublicKeys { get; set; }
             public Amazon.Glue.Model.DevEndpointCustomLibraries CustomLibraries { get; set; }
+            public List<System.String> DeleteArguments { get; set; }
             public List<System.String> DeletePublicKeys { get; set; }
             public System.String EndpointName { get; set; }
             public System.String PublicKey { get; set; }

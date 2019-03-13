@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.DeleteRoomSkillParameter(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteRoomSkillParameterAsync(request);
-                return task.Result;
+                return client.DeleteRoomSkillParameterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

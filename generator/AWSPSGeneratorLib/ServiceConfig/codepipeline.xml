@@ -65,6 +65,9 @@
         <ServiceOperation MethodName="GetThirdPartyJobDetails" Output="DefaultSingleMember" Verb="Get" Noun="ThirdPartyJobDetail" PipelineParameter="JobId" NoPipelineParameter="false" LegacyAlias="Get-CPThirdPartyJobDetails">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListActionExecutions" Output="DefaultSingleMember" Verb="Get" Noun="ActionExecutionList" PipelineParameter="PipelineName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListActionTypes" Output="DefaultSingleMember" Verb="Get" Noun="ActionType" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>

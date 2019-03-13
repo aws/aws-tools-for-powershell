@@ -28,8 +28,7 @@ using Amazon.MediaConvert.Model;
 namespace Amazon.PowerShell.Cmdlets.EMC
 {
     /// <summary>
-    /// Permanently remove a job from a queue. Once you have canceled a job, you can't start
-    /// it again. You can't delete a running job.
+    /// Permanently cancel a job. Once you have canceled a job, you can't start it again.
     /// </summary>
     [Cmdlet("Stop", "EMCJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -154,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.CancelJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CancelJobAsync(request);
-                return task.Result;
+                return client.CancelJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -76,26 +76,6 @@ namespace Amazon.PowerShell.Cmdlets.EB
         public System.String[] EnvironmentName { get; set; }
         #endregion
         
-        #region Parameter IncludedDeletedBackTo
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use IncludedDeletedBackToUtc instead. Setting either IncludedDeletedBackTo
-        /// or IncludedDeletedBackToUtc results in both IncludedDeletedBackTo and IncludedDeletedBackToUtc
-        /// being assigned, the latest assignment to either one of the two property is reflected
-        /// in the value of both. IncludedDeletedBackTo is provided for backwards compatibility
-        /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
-        /// to the service.</para><para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
-        /// deleted after this date are displayed. </para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcIncludedDeletedBackTo instead.")]
-        public System.DateTime IncludedDeletedBackTo { get; set; }
-        #endregion
-        
         #region Parameter UtcIncludedDeletedBackTo
         /// <summary>
         /// <para>
@@ -127,6 +107,26 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
         public System.String VersionLabel { get; set; }
+        #endregion
+        
+        #region Parameter IncludedDeletedBackTo
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use IncludedDeletedBackToUtc instead. Setting either IncludedDeletedBackTo
+        /// or IncludedDeletedBackToUtc results in both IncludedDeletedBackTo and IncludedDeletedBackToUtc
+        /// being assigned, the latest assignment to either one of the two property is reflected
+        /// in the value of both. IncludedDeletedBackTo is provided for backwards compatibility
+        /// only and assigning a non-Utc DateTime to it results in the wrong timestamp being passed
+        /// to the service.</para><para> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments
+        /// deleted after this date are displayed. </para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcIncludedDeletedBackTo instead.")]
+        public System.DateTime IncludedDeletedBackTo { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -369,9 +369,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.DescribeEnvironments(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEnvironmentsAsync(request);
-                return task.Result;
+                return client.DescribeEnvironmentsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

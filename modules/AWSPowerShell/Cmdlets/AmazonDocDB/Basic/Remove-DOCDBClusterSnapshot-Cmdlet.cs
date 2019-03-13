@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.DOC
                 #if DESKTOP
                 return client.DeleteDBClusterSnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteDBClusterSnapshotAsync(request);
-                return task.Result;
+                return client.DeleteDBClusterSnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

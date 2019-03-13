@@ -34,11 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// <para>
     /// If you exceed your maximum limit of Auto Scaling groups, the call fails. For information
     /// about viewing this limit, see <a>DescribeAccountLimits</a>. For information about
-    /// updating this limit, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Auto
-    /// Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
-    /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto
-    /// Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
+    /// updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon
+    /// EC2 Auto Scaling Limits</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ASAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more Availability Zones for the group. This parameter is optional if you specify
-        /// one or more subnets.</para>
+        /// one or more subnets for <code>VPCZoneIdentifier</code>.</para><para>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
+        /// to launch instances into EC2-Classic.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes before another
-        /// scaling activity can start. The default is 300.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// scaling activity can start. The default value is <code>300</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
         /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -104,8 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking
         /// the health status of an EC2 instance that has come into service. During this time,
-        /// any health check failures for the instance are ignored. The default is 0.</para><para>This parameter is required if you are adding an <code>ELB</code> health check.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-        /// Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// any health check failures for the instance are ignored. The default value is <code>0</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+        /// Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para><para>Conditional: This parameter is required if you are adding an <code>ELB</code> health
+        /// check.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,9 +115,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The service to use for the health checks. The valid values are <code>EC2</code> and
-        /// <code>ELB</code>.</para><para>By default, health checks use Amazon EC2 instance status checks to determine the health
-        /// of an instance. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
-        /// Checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// <code>ELB</code>. The default value is <code>EC2</code>. If you configure an Auto
+        /// Scaling group to use ELB health checks, it considers the instance unhealthy if it
+        /// fails either the EC2 status checks or the load balancer health checks.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/healthcheck.html">Health
+        /// Checks for Auto Scaling Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The ID of the instance used to create a launch configuration for the group. This parameter,
         /// a launch configuration, a launch template, or a mixed instances policy must be specified.</para><para>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch
         /// configuration and associates it with the group. This launch configuration derives
-        /// its attributes from the specified instance, except for the block device mapping.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create
+        /// its attributes from the specified instance, except for the block device mapping.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create
         /// an Auto Scaling Group Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling
         /// User Guide</i>.</para>
         /// </para>
@@ -144,7 +144,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The name of the launch configuration. This parameter, a launch template, a mixed instances
-        /// policy, or an EC2 instance must be specified.</para>
+        /// policy, or an EC2 instance must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg.html">Creating
+        /// an Auto Scaling Group Using a Launch Configuration</a> in the <i>Amazon EC2 Auto Scaling
+        /// User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -186,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LoadBalancerName
         /// <summary>
         /// <para>
-        /// <para>One or more Classic Load Balancers. To specify an Application Load Balancer, use <code>TargetGroupARNs</code>
-        /// instead.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Using
+        /// <para>One or more Classic Load Balancers. To specify an Application Load Balancer or a Network
+        /// Load Balancer, use <code>TargetGroupARNs</code> instead.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Using
         /// a Load Balancer With an Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
         /// Guide</i>.</para>
         /// </para>
@@ -221,7 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>The mixed instances policy to use to launch instances. This parameter, a launch template,
-        /// a launch configuration, or an EC2 instance must be specified.</para>
+        /// a launch configuration, or an EC2 instance must be specified.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-purchase-options.html">Auto
+        /// Scaling Groups with Multiple Instance Types and Purchase Options</a> in the <i>Amazon
+        /// EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -231,8 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter NewInstancesProtectedFromScaleIn
         /// <summary>
         /// <para>
-        /// <para>Indicates whether newly launched instances are protected from termination by Auto
-        /// Scaling when scaling in.</para>
+        /// <para>Indicates whether newly launched instances are protected from termination by Amazon
+        /// EC2 Auto Scaling when scaling in.</para><para>For more information about preventing instances from terminating on scale in, see
+        /// <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html#instance-protection">Instance
+        /// Protection</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -242,9 +248,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PlacementGroup
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group into which to launch your instances, if any. For more
-        /// information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
-        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
+        /// <para>The name of the placement group into which to launch your instances, if any. A placement
+        /// group is a logical grouping of instances within a single Availability Zone. You cannot
+        /// specify multiple Availability Zones and a placement group. For more information, see
+        /// <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -257,7 +265,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group
         /// uses to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling
         /// uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if
-        /// it does not exist.</para>
+        /// it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-Linked
+        /// Roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -267,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>One or more tags.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging
+        /// <para>One or more tags.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-tagging.html">Tagging
         /// Auto Scaling Groups and Instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -290,9 +299,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>One or more termination policies used to select the instance to terminate. These policies
-        /// are executed in the order that they are listed.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
-        /// Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling
-        /// User Guide</i>.</para>
+        /// are executed in the order that they are listed.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
+        /// Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Amazon EC2 Auto
+        /// Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -317,9 +326,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter VPCZoneIdentifier
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of subnet identifiers for your virtual private cloud (VPC).</para><para>If you specify subnets and Availability Zones with this call, ensure that the subnets'
-        /// Availability Zones match the Availability Zones specified.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching
-        /// Auto Scaling Instances in a VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
+        /// <para>A comma-separated list of subnet IDs for your virtual private cloud (VPC).</para><para>If you specify <code>VPCZoneIdentifier</code> with <code>AvailabilityZones</code>,
+        /// the subnets that you specify for this parameter must reside in those Availability
+        /// Zones.</para><para>Conditional: If your account supports EC2-Classic and VPC, this parameter is required
+        /// to launch instances into a VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -590,9 +600,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.CreateAutoScalingGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAutoScalingGroupAsync(request);
-                return task.Result;
+                return client.CreateAutoScalingGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

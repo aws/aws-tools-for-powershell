@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <para>
     /// By default, data is not encrypted in Amazon S3. We strongly recommend that you enable
     /// encryption in Amazon S3 to ensure secure data storage. We also recommend that you
-    /// secure access to the Amazon S3 bucket by creating a restrictive bucket policy. To
-    /// view an example of a restrictive Amazon S3 bucket policy for Resource Data Sync, see
-    /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync-create.html">Create
-    /// a Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
+    /// secure access to the Amazon S3 bucket by creating a restrictive bucket policy. For
+    /// more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring
+    /// Resource Data Sync for Inventory</a> in the <i>AWS Systems Manager User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -282,9 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.CreateResourceDataSync(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateResourceDataSyncAsync(request);
-                return task.Result;
+                return client.CreateResourceDataSyncAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

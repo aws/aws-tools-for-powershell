@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     public partial class GetPLSServiceCmdlet : AmazonPricingClientCmdlet, IExecutor
     {
         
+        #region Parameter FormatVersion
+        /// <summary>
+        /// <para>
+        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FormatVersion { get; set; }
+        #endregion
+        
         #region Parameter ServiceCode
         /// <summary>
         /// <para>
@@ -56,16 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ServiceCode { get; set; }
-        #endregion
-        
-        #region Parameter FormatVersion
-        /// <summary>
-        /// <para>
-        /// <para>The format version that you want the response to be in.</para><para>Valid values are: <code>aws_v1</code></para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String FormatVersion { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -233,9 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
                 #if DESKTOP
                 return client.DescribeServices(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeServicesAsync(request);
-                return task.Result;
+                return client.DescribeServicesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

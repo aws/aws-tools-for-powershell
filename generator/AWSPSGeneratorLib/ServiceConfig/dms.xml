@@ -36,6 +36,9 @@
         <ServiceOperation MethodName="AddTagsToResource" Output="Void" Verb="Set" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" Output="DefaultSingleMember" Verb="Complete" Noun="PendingMaintenanceAction" ShouldProcessTarget="ReplicationInstanceArn" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateEndpoint" Output="DefaultSingleMember" Verb="New" Noun="Endpoint" ShouldProcessTarget="EndpointIdentifier" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -94,6 +97,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeOrderableReplicationInstances" Output="DefaultSingleMember" Verb="Get" Noun="OrderableReplicationInstance" PipelineParameter="" NoPipelineParameter="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" Output="DefaultSingleMember" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRefreshSchemasStatus" Output="DefaultSingleMember" Verb="Get" Noun="RefreshSchemasStatus" PipelineParameter="EndpointArn" NoPipelineParameter="false">

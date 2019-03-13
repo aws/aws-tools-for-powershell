@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <summary>
     /// Displays a list of categories for all event source types, or, if specified, for a
     /// specified source type. You can see a list of the event categories and source types
-    /// in the <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
+    /// in the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html">
     /// Events</a> topic in the <i>Amazon RDS User Guide.</i>
     /// </summary>
     [Cmdlet("Get", "RDSEventCategory")]
@@ -148,9 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeEventCategories(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeEventCategoriesAsync(request);
-                return task.Result;
+                return client.DescribeEventCategoriesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

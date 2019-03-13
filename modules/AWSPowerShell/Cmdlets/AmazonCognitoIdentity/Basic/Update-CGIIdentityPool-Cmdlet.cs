@@ -28,7 +28,7 @@ using Amazon.CognitoIdentity.Model;
 namespace Amazon.PowerShell.Cmdlets.CGI
 {
     /// <summary>
-    /// Updates a user pool.
+    /// Updates an identity pool.
     /// 
     ///  
     /// <para>
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         #region Parameter CognitoIdentityProvider
         /// <summary>
         /// <para>
-        /// <para>A list representing an Amazon Cognito Identity User Pool and its client ID.</para>
+        /// <para>A list representing an Amazon Cognito user pool and its client ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,6 +94,19 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IdentityPoolName { get; set; }
+        #endregion
+        
+        #region Parameter IdentityPoolTag
+        /// <summary>
+        /// <para>
+        /// <para>The tags that are assigned to the identity pool. A tag is a label that you can apply
+        /// to identity pools to categorize and manage them in different ways, such as by purpose,
+        /// owner, environment, or other criteria.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IdentityPoolTags")]
+        public System.Collections.Hashtable IdentityPoolTag { get; set; }
         #endregion
         
         #region Parameter OpenIdConnectProviderARNs
@@ -165,6 +178,14 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             context.DeveloperProviderName = this.DeveloperProviderName;
             context.IdentityPoolId = this.IdentityPoolId;
             context.IdentityPoolName = this.IdentityPoolName;
+            if (this.IdentityPoolTag != null)
+            {
+                context.IdentityPoolTags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.IdentityPoolTag.Keys)
+                {
+                    context.IdentityPoolTags.Add((String)hashKey, (String)(this.IdentityPoolTag[hashKey]));
+                }
+            }
             if (this.OpenIdConnectProviderARNs != null)
             {
                 context.OpenIdConnectProviderARNs = new List<System.String>(this.OpenIdConnectProviderARNs);
@@ -216,6 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             if (cmdletContext.IdentityPoolName != null)
             {
                 request.IdentityPoolName = cmdletContext.IdentityPoolName;
+            }
+            if (cmdletContext.IdentityPoolTags != null)
+            {
+                request.IdentityPoolTags = cmdletContext.IdentityPoolTags;
             }
             if (cmdletContext.OpenIdConnectProviderARNs != null)
             {
@@ -271,9 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
                 #if DESKTOP
                 return client.UpdateIdentityPool(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateIdentityPoolAsync(request);
-                return task.Result;
+                return client.UpdateIdentityPoolAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -298,6 +321,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
             public System.String DeveloperProviderName { get; set; }
             public System.String IdentityPoolId { get; set; }
             public System.String IdentityPoolName { get; set; }
+            public Dictionary<System.String, System.String> IdentityPoolTags { get; set; }
             public List<System.String> OpenIdConnectProviderARNs { get; set; }
             public List<System.String> SamlProviderARNs { get; set; }
             public Dictionary<System.String, System.String> SupportedLoginProviders { get; set; }

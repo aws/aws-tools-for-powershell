@@ -153,6 +153,7 @@
     <Path>sts.xml</Path>
     <Path>support.xml</Path>
     <Path>swf.xml</Path>
+    <Path>textract.xml</Path>
     <Path>transcribe.xml</Path>
     <Path>transfer.xml</Path>
     <Path>translate.xml</Path>

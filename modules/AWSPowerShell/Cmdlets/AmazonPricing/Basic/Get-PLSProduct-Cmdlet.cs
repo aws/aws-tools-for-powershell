@@ -53,16 +53,6 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         public Amazon.Pricing.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter ServiceCode
-        /// <summary>
-        /// <para>
-        /// <para>The code for the service whose products you want to retrieve. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ServiceCode { get; set; }
-        #endregion
-        
         #region Parameter FormatVersion
         /// <summary>
         /// <para>
@@ -71,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.PLS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String FormatVersion { get; set; }
+        #endregion
+        
+        #region Parameter ServiceCode
+        /// <summary>
+        /// <para>
+        /// <para>The code for the service whose products you want to retrieve. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ServiceCode { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -246,9 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
                 #if DESKTOP
                 return client.GetProducts(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetProductsAsync(request);
-                return task.Result;
+                return client.GetProductsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

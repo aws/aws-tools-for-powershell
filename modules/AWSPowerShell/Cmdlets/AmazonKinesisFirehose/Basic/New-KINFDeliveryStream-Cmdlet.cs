@@ -325,18 +325,6 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public Amazon.KinesisFirehose.Model.S3DestinationConfiguration ElasticsearchDestinationConfiguration_S3Configuration { get; set; }
         #endregion
         
-        #region Parameter S3DestinationConfiguration
-        /// <summary>
-        /// <para>
-        /// <para>[Deprecated] The destination in Amazon S3. You can specify only one destination.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationConfiguration instead.")]
-        public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
-        #endregion
-        
         #region Parameter BufferingHints_SizeInMBs
         /// <summary>
         /// <para>
@@ -386,6 +374,18 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ElasticsearchDestinationConfiguration_TypeName { get; set; }
+        #endregion
+        
+        #region Parameter S3DestinationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>[Deprecated] The destination in Amazon S3. You can specify only one destination.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated. Use ExtendedS3DestinationConfiguration instead.")]
+        public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
         #endregion
         
         #region Parameter Force
@@ -790,9 +790,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
                 #if DESKTOP
                 return client.CreateDeliveryStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDeliveryStreamAsync(request);
-                return task.Result;
+                return client.CreateDeliveryStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

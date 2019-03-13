@@ -195,9 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.LICM
                 #if DESKTOP
                 return client.UpdateLicenseSpecificationsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateLicenseSpecificationsForResourceAsync(request);
-                return task.Result;
+                return client.UpdateLicenseSpecificationsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

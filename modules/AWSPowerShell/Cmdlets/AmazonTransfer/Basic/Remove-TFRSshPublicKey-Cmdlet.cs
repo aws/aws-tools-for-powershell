@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
         #region Parameter SshPublicKeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier used to reference your user’s specific SSH key.</para>
+        /// <para>A unique identifier used to reference your user's specific SSH key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -189,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.TFR
                 #if DESKTOP
                 return client.DeleteSshPublicKey(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteSshPublicKeyAsync(request);
-                return task.Result;
+                return client.DeleteSshPublicKeyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

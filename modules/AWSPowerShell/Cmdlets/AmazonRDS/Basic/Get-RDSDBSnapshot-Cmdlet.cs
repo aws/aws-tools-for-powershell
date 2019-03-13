@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The type of snapshots to be returned. You can specify one of the following values:</para><ul><li><para><code>automated</code> - Return all DB snapshots that have been automatically taken
         /// by Amazon RDS for my AWS account.</para></li><li><para><code>manual</code> - Return all DB snapshots that have been taken by my AWS account.</para></li><li><para><code>shared</code> - Return all manual DB snapshots that have been shared to my
-        /// AWS account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
+        /// AWS account.</para></li><li><para><code>public</code> - Return all DB snapshots that have been marked as public.</para></li><li><para><code>awsbackup</code> - Return the DB snapshots managed by the AWS Backup service.</para><para>For information about AWS Backup, see the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"><i>AWS Backup Developer Guide.</i></a></para><para>The <code>awsbackup</code> type does not apply to Aurora.</para></li></ul><para>If you don't specify a <code>SnapshotType</code> value, then both automated and manual
         /// snapshots are returned. Shared and public DB snapshots are not included in the returned
         /// results by default. You can include shared snapshots with these results by setting
         /// the <code>IncludeShared</code> parameter to <code>true</code>. You can include public
@@ -332,9 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.DescribeDBSnapshots(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDBSnapshotsAsync(request);
-                return task.Result;
+                return client.DescribeDBSnapshotsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

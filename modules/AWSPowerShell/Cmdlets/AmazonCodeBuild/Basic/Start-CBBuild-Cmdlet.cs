@@ -120,6 +120,18 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.Boolean ArtifactsOverride_EncryptionDisabled { get; set; }
         #endregion
         
+        #region Parameter S3Logs_EncryptionDisabled
+        /// <summary>
+        /// <para>
+        /// <para> Set to true if you do not want your S3 build log output encrypted. By default S3
+        /// build logs are encrypted. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogsConfigOverride_S3Logs_EncryptionDisabled")]
+        public System.Boolean S3Logs_EncryptionDisabled { get; set; }
+        #endregion
+        
         #region Parameter EnvironmentTypeOverride
         /// <summary>
         /// <para>
@@ -140,6 +152,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.CodeBuild.Model.EnvironmentVariable[] EnvironmentVariablesOverride { get; set; }
+        #endregion
+        
+        #region Parameter GitSubmodulesConfigOverride_FetchSubmodule
+        /// <summary>
+        /// <para>
+        /// <para> Set to true to fetch Git submodules for your AWS CodeBuild build project. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("GitSubmodulesConfigOverride_FetchSubmodules")]
+        public System.Boolean GitSubmodulesConfigOverride_FetchSubmodule { get; set; }
         #endregion
         
         #region Parameter GitCloneDepthOverride
@@ -262,16 +285,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// local cache modes at the same time. </para><ul><li><para><code>LOCAL_SOURCE_CACHE</code> mode caches Git metadata for primary and secondary
         /// sources. After the cache is created, subsequent builds pull only the change between
         /// commits. This mode is a good choice for projects with a clean working directory and
-        /// a source that is a large Git repository. If your project does not use a Git repository
-        /// (GitHub, GitHub Enterprise, or Bitbucket) and you choose this option, then it is ignored.
-        /// </para></li><li><para><code>LOCAL_DOCKER_LAYER_CACHE</code> mode caches existing Docker layers. This mode
+        /// a source that is a large Git repository. If you choose this option and your project
+        /// does not use a Git repository (GitHub, GitHub Enterprise, or Bitbucket), the option
+        /// is ignored. </para></li><li><para><code>LOCAL_DOCKER_LAYER_CACHE</code> mode caches existing Docker layers. This mode
         /// is a good choice for projects that build or pull large Docker images. It can prevent
-        /// the performance hit that would be caused by pulling large Docker images down from
-        /// the network. </para><note><ul><li><para> You can only use a Docker layer cache in the Linux enviornment. </para></li><li><para> The <code>privileged</code> flag must be set so that your project has the necessary
-        /// Docker privileges. </para></li><li><para> You should consider the security implications before using a Docker layer cache.
+        /// the performance issues caused by pulling large Docker images down from the network.
+        /// </para><note><ul><li><para> You can use a Docker layer cache in the Linux enviornment only. </para></li><li><para> The <code>privileged</code> flag must be set so that your project has the required
+        /// Docker permissions. </para></li><li><para> You should consider the security implications before you use a Docker layer cache.
         /// </para></li></ul></note></li></ul><ul><li><para><code>LOCAL_CUSTOM_CACHE</code> mode caches directories you specify in the buildspec
-        /// file. This mode is a good choice if your build scenario does not match one that works
-        /// well with one of the other three local cache modes. If you use a custom cache: </para><ul><li><para> Only directories can be specified for caching. You cannot specify individual files.
+        /// file. This mode is a good choice if your build scenario is not suited to one of the
+        /// other three local cache modes. If you use a custom cache: </para><ul><li><para> Only directories can be specified for caching. You cannot specify individual files.
         /// </para></li><li><para> Symlinks are used to reference cached directories. </para></li><li><para> Cached directories are linked to your build before it downloads its project sources.
         /// Cached items are overriden if a source item has the same name. Directories are specified
         /// using cache paths in the buildspec file. </para></li></ul></li></ul>
@@ -646,6 +669,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             if (ParameterWasBound("GitCloneDepthOverride"))
                 context.GitCloneDepthOverride = this.GitCloneDepthOverride;
+            if (ParameterWasBound("GitSubmodulesConfigOverride_FetchSubmodule"))
+                context.GitSubmodulesConfigOverride_FetchSubmodules = this.GitSubmodulesConfigOverride_FetchSubmodule;
             context.IdempotencyToken = this.IdempotencyToken;
             context.ImageOverride = this.ImageOverride;
             context.ImagePullCredentialsTypeOverride = this.ImagePullCredentialsTypeOverride;
@@ -654,6 +679,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.LogsConfigOverride_CloudWatchLogs_GroupName = this.CloudWatchLogs_GroupName;
             context.LogsConfigOverride_CloudWatchLogs_Status = this.CloudWatchLogs_Status;
             context.LogsConfigOverride_CloudWatchLogs_StreamName = this.CloudWatchLogs_StreamName;
+            if (ParameterWasBound("S3Logs_EncryptionDisabled"))
+                context.LogsConfigOverride_S3Logs_EncryptionDisabled = this.S3Logs_EncryptionDisabled;
             context.LogsConfigOverride_S3Logs_Location = this.S3Logs_Location;
             context.LogsConfigOverride_S3Logs_Status = this.S3Logs_Status;
             if (ParameterWasBound("PrivilegedModeOverride"))
@@ -863,6 +890,25 @@ namespace Amazon.PowerShell.Cmdlets.CB
             {
                 request.GitCloneDepthOverride = cmdletContext.GitCloneDepthOverride.Value;
             }
+            
+             // populate GitSubmodulesConfigOverride
+            bool requestGitSubmodulesConfigOverrideIsNull = true;
+            request.GitSubmodulesConfigOverride = new Amazon.CodeBuild.Model.GitSubmodulesConfig();
+            System.Boolean? requestGitSubmodulesConfigOverride_gitSubmodulesConfigOverride_FetchSubmodule = null;
+            if (cmdletContext.GitSubmodulesConfigOverride_FetchSubmodules != null)
+            {
+                requestGitSubmodulesConfigOverride_gitSubmodulesConfigOverride_FetchSubmodule = cmdletContext.GitSubmodulesConfigOverride_FetchSubmodules.Value;
+            }
+            if (requestGitSubmodulesConfigOverride_gitSubmodulesConfigOverride_FetchSubmodule != null)
+            {
+                request.GitSubmodulesConfigOverride.FetchSubmodules = requestGitSubmodulesConfigOverride_gitSubmodulesConfigOverride_FetchSubmodule.Value;
+                requestGitSubmodulesConfigOverrideIsNull = false;
+            }
+             // determine if request.GitSubmodulesConfigOverride should be set to null
+            if (requestGitSubmodulesConfigOverrideIsNull)
+            {
+                request.GitSubmodulesConfigOverride = null;
+            }
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
@@ -883,41 +929,6 @@ namespace Amazon.PowerShell.Cmdlets.CB
              // populate LogsConfigOverride
             bool requestLogsConfigOverrideIsNull = true;
             request.LogsConfigOverride = new Amazon.CodeBuild.Model.LogsConfig();
-            Amazon.CodeBuild.Model.S3LogsConfig requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
-            
-             // populate S3Logs
-            bool requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = true;
-            requestLogsConfigOverride_logsConfigOverride_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
-            System.String requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = null;
-            if (cmdletContext.LogsConfigOverride_S3Logs_Location != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = cmdletContext.LogsConfigOverride_S3Logs_Location;
-            }
-            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs.Location = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location;
-                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
-            }
-            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = null;
-            if (cmdletContext.LogsConfigOverride_S3Logs_Status != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = cmdletContext.LogsConfigOverride_S3Logs_Status;
-            }
-            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status != null)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs.Status = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status;
-                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
-            }
-             // determine if requestLogsConfigOverride_logsConfigOverride_S3Logs should be set to null
-            if (requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull)
-            {
-                requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
-            }
-            if (requestLogsConfigOverride_logsConfigOverride_S3Logs != null)
-            {
-                request.LogsConfigOverride.S3Logs = requestLogsConfigOverride_logsConfigOverride_S3Logs;
-                requestLogsConfigOverrideIsNull = false;
-            }
             Amazon.CodeBuild.Model.CloudWatchLogsConfig requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs = null;
             
              // populate CloudWatchLogs
@@ -961,6 +972,51 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs != null)
             {
                 request.LogsConfigOverride.CloudWatchLogs = requestLogsConfigOverride_logsConfigOverride_CloudWatchLogs;
+                requestLogsConfigOverrideIsNull = false;
+            }
+            Amazon.CodeBuild.Model.S3LogsConfig requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
+            
+             // populate S3Logs
+            bool requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = true;
+            requestLogsConfigOverride_logsConfigOverride_S3Logs = new Amazon.CodeBuild.Model.S3LogsConfig();
+            System.Boolean? requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled = null;
+            if (cmdletContext.LogsConfigOverride_S3Logs_EncryptionDisabled != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled = cmdletContext.LogsConfigOverride_S3Logs_EncryptionDisabled.Value;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.EncryptionDisabled = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_EncryptionDisabled.Value;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
+            System.String requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = null;
+            if (cmdletContext.LogsConfigOverride_S3Logs_Location != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location = cmdletContext.LogsConfigOverride_S3Logs_Location;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.Location = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Location;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
+            Amazon.CodeBuild.LogsConfigStatusType requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = null;
+            if (cmdletContext.LogsConfigOverride_S3Logs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status = cmdletContext.LogsConfigOverride_S3Logs_Status;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status != null)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs.Status = requestLogsConfigOverride_logsConfigOverride_S3Logs_s3Logs_Status;
+                requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull = false;
+            }
+             // determine if requestLogsConfigOverride_logsConfigOverride_S3Logs should be set to null
+            if (requestLogsConfigOverride_logsConfigOverride_S3LogsIsNull)
+            {
+                requestLogsConfigOverride_logsConfigOverride_S3Logs = null;
+            }
+            if (requestLogsConfigOverride_logsConfigOverride_S3Logs != null)
+            {
+                request.LogsConfigOverride.S3Logs = requestLogsConfigOverride_logsConfigOverride_S3Logs;
                 requestLogsConfigOverrideIsNull = false;
             }
              // determine if request.LogsConfigOverride should be set to null
@@ -1116,9 +1172,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 #if DESKTOP
                 return client.StartBuild(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartBuildAsync(request);
-                return task.Result;
+                return client.StartBuildAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -1156,6 +1210,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.EnvironmentType EnvironmentTypeOverride { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> EnvironmentVariablesOverride { get; set; }
             public System.Int32? GitCloneDepthOverride { get; set; }
+            public System.Boolean? GitSubmodulesConfigOverride_FetchSubmodules { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.String ImageOverride { get; set; }
             public Amazon.CodeBuild.ImagePullCredentialsType ImagePullCredentialsTypeOverride { get; set; }
@@ -1163,6 +1218,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public System.String LogsConfigOverride_CloudWatchLogs_GroupName { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_CloudWatchLogs_Status { get; set; }
             public System.String LogsConfigOverride_CloudWatchLogs_StreamName { get; set; }
+            public System.Boolean? LogsConfigOverride_S3Logs_EncryptionDisabled { get; set; }
             public System.String LogsConfigOverride_S3Logs_Location { get; set; }
             public Amazon.CodeBuild.LogsConfigStatusType LogsConfigOverride_S3Logs_Status { get; set; }
             public System.Boolean? PrivilegedModeOverride { get; set; }

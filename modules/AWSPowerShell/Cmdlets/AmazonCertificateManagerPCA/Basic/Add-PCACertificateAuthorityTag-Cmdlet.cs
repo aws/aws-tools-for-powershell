@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.PCA
                 #if DESKTOP
                 return client.TagCertificateAuthority(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagCertificateAuthorityAsync(request);
-                return task.Result;
+                return client.TagCertificateAuthorityAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Promotes a Read Replica DB cluster to a standalone DB cluster.
+    /// 
+    ///  <note><para>
+    /// This action only applies to Aurora DB clusters.
+    /// </para></note>
     /// </summary>
     [Cmdlet("Convert", "RDSReadReplicaDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
@@ -143,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 #if DESKTOP
                 return client.PromoteReadReplicaDBCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PromoteReadReplicaDBClusterAsync(request);
-                return task.Result;
+                return client.PromoteReadReplicaDBClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

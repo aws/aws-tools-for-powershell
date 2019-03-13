@@ -53,6 +53,19 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
         #endregion
         
+        #region Parameter WithoutSetting
+        /// <summary>
+        /// <para>
+        /// <para>Set this flag to avoid returning setting information. Use this to reduce overhead
+        /// when settings are too large. Choose TRUE to use this flag, otherwise choose FALSE
+        /// (default).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WithoutSettings")]
+        public System.Boolean WithoutSetting { get; set; }
+        #endregion
+        
         #region Parameter Marker
         /// <summary>
         /// <para>
@@ -106,6 +119,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
+            if (ParameterWasBound("WithoutSetting"))
+                context.WithoutSettings = this.WithoutSetting;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.WithoutSettings != null)
+            {
+                request.WithoutSettings = cmdletContext.WithoutSettings.Value;
             }
             
             // Initialize loop variants and commence piping
@@ -250,9 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.DescribeReplicationTasks(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeReplicationTasksAsync(request);
-                return task.Result;
+                return client.DescribeReplicationTasksAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -275,6 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public List<Amazon.DatabaseMigrationService.Model.Filter> Filters { get; set; }
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
+            public System.Boolean? WithoutSettings { get; set; }
         }
         
     }

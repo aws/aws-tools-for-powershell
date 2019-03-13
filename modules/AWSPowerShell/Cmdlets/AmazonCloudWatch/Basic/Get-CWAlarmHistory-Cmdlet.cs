@@ -58,24 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public System.String AlarmName { get; set; }
         #endregion
         
-        #region Parameter EndDate
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use EndDateUtc instead. Setting either EndDate or EndDateUtc
-        /// results in both EndDate and EndDateUtc being assigned, the latest assignment to either
-        /// one of the two property is reflected in the value of both. EndDate is provided for
-        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
-        /// wrong timestamp being passed to the service.</para><para>The ending date to retrieve alarm history.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcEndDate instead.")]
-        public System.DateTime EndDate { get; set; }
-        #endregion
-        
         #region Parameter UtcEndDate
         /// <summary>
         /// <para>
@@ -97,24 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.CW
         public Amazon.CloudWatch.HistoryItemType HistoryItemType { get; set; }
         #endregion
         
-        #region Parameter StartDate
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use StartDateUtc instead. Setting either StartDate or
-        /// StartDateUtc results in both StartDate and StartDateUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. StartDate
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The starting date to retrieve alarm history.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use UtcStartDate instead.")]
-        public System.DateTime StartDate { get; set; }
-        #endregion
-        
         #region Parameter UtcStartDate
         /// <summary>
         /// <para>
@@ -123,6 +87,24 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime UtcStartDate { get; set; }
+        #endregion
+        
+        #region Parameter EndDate
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use EndDateUtc instead. Setting either EndDate or EndDateUtc
+        /// results in both EndDate and EndDateUtc being assigned, the latest assignment to either
+        /// one of the two property is reflected in the value of both. EndDate is provided for
+        /// backwards compatibility only and assigning a non-Utc DateTime to it results in the
+        /// wrong timestamp being passed to the service.</para><para>The ending date to retrieve alarm history.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 3)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcEndDate instead.")]
+        public System.DateTime EndDate { get; set; }
         #endregion
         
         #region Parameter MaxRecord
@@ -151,6 +133,24 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
+        #endregion
+        
+        #region Parameter StartDate
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use StartDateUtc instead. Setting either StartDate or
+        /// StartDateUtc results in both StartDate and StartDateUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. StartDate
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The starting date to retrieve alarm history.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 2)]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use UtcStartDate instead.")]
+        public System.DateTime StartDate { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -329,9 +329,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.DescribeAlarmHistory(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAlarmHistoryAsync(request);
-                return task.Result;
+                return client.DescribeAlarmHistoryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

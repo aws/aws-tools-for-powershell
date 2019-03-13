@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.DisassociateServiceActionFromProvisioningArtifact(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateServiceActionFromProvisioningArtifactAsync(request);
-                return task.Result;
+                return client.DisassociateServiceActionFromProvisioningArtifactAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

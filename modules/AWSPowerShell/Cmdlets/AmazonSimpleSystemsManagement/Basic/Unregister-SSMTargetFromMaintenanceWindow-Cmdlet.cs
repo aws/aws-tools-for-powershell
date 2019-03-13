@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 #if DESKTOP
                 return client.DeregisterTargetFromMaintenanceWindow(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeregisterTargetFromMaintenanceWindowAsync(request);
-                return task.Result;
+                return client.DeregisterTargetFromMaintenanceWindowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

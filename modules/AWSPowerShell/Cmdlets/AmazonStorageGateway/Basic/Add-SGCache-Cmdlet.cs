@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Configures one or more gateway local disks as cache for a gateway. This operation
-    /// is only supported in the cached volume, tape and file gateway type (see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">Storage
+    /// is only supported in the cached volume, tape and file gateway type (see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/StorageGatewayConcepts.html">Storage
     /// Gateway Concepts</a>).
     /// 
     ///  
@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter DiskId
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An array of strings that identify disks that are to be configured as working storage.
+        /// Each string have a minimum length of 1 and maximum length of 300. You can get the
+        /// disk IDs from the <a>ListLocalDisks</a> API.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -169,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.AddCache(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddCacheAsync(request);
-                return task.Result;
+                return client.AddCacheAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

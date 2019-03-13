@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     ///  
     /// <para>
     /// This operation describes only Classic Load Balancers. If you have Application Load
-    /// Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.
+    /// Balancers or Network Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancer")]
@@ -60,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is 100 and
-        /// the maximum value is 100.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <code>100</code>
+        /// and the maximum value is <code>100</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -218,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeLoadBalancers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeLoadBalancersAsync(request);
-                return task.Result;
+                return client.DescribeLoadBalancersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

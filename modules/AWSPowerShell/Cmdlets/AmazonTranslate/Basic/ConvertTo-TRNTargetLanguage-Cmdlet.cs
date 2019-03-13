@@ -247,9 +247,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 #if DESKTOP
                 return client.TranslateText(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TranslateTextAsync(request);
-                return task.Result;
+                return client.TranslateTextAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.C9
                 #if DESKTOP
                 return client.DeleteEnvironmentMembership(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteEnvironmentMembershipAsync(request);
-                return task.Result;
+                return client.DeleteEnvironmentMembershipAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -59,6 +59,17 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         public System.String DomainName { get; set; }
         #endregion
         
+        #region Parameter Nameserver
+        /// <summary>
+        /// <para>
+        /// <para>A list of new name servers for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Nameservers")]
+        public Amazon.Route53Domains.Model.Nameserver[] Nameserver { get; set; }
+        #endregion
+        
         #region Parameter FIAuthKey
         /// <summary>
         /// <para>
@@ -69,17 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         [System.Management.Automation.Parameter]
         [System.ObsoleteAttribute("This property is deprecated")]
         public System.String FIAuthKey { get; set; }
-        #endregion
-        
-        #region Parameter Nameserver
-        /// <summary>
-        /// <para>
-        /// <para>A list of new name servers for the domain.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Nameservers")]
-        public Amazon.Route53Domains.Model.Nameserver[] Nameserver { get; set; }
         #endregion
         
         #region Parameter Force
@@ -191,9 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
                 #if DESKTOP
                 return client.UpdateDomainNameservers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateDomainNameserversAsync(request);
-                return task.Result;
+                return client.UpdateDomainNameserversAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

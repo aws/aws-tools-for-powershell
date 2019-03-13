@@ -61,6 +61,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String Filters_Key { get; set; }
         #endregion
         
+        #region Parameter Filters_Value
+        /// <summary>
+        /// <para>
+        /// <para>The TagOption value.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Filters_Value { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -73,16 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter Filters_Value
-        /// <summary>
-        /// <para>
-        /// <para>The TagOption value.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Filters_Value { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -270,9 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListTagOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagOptionsAsync(request);
-                return task.Result;
+                return client.ListTagOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

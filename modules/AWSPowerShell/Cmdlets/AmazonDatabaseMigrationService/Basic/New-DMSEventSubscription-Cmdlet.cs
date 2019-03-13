@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// nor <code>SourceIdentifier</code>, you will be notified of events generated from all
     /// AWS DMS sources belonging to your customer account.
     /// </para><para>
-    /// For more information about AWS DMS events, see <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+    /// For more information about AWS DMS events, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
     /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i></para>
     /// </summary>
     [Cmdlet("New", "DMSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> A list of event categories for a source type that you want to subscribe to. You can
         /// see a list of the categories for a given source type by calling the <code>DescribeEventCategories</code>
-        /// action or in the topic <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
+        /// action or in the topic <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working
         /// with Events and Notifications</a> in the <i>AWS Database Migration Service User Guide.</i></para>
         /// </para>
         /// </summary>
@@ -273,9 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 #if DESKTOP
                 return client.CreateEventSubscription(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEventSubscriptionAsync(request);
-                return task.Result;
+                return client.CreateEventSubscriptionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

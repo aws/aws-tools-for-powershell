@@ -80,10 +80,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>A value that indicates the region where you want to store your data. The gateway region
         /// specified must be the same region as the region in your <code>Host</code> header in
         /// the request. For more information about available regions and endpoints for AWS Storage
-        /// Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
-        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1",
-        /// "eu-west-1", "eu-central-1", "eu-west-2", "eu-west-3", "ap-northeast-1", "ap-northeast-2",
-        /// "ap-southeast-1", "ap-southeast-2", "ap-south-1", "sa-east-1"</para>
+        /// Gateway, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
+        /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: See <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">AWS
+        /// Storage Gateway Regions and Endpoints</a> in the AWS General Reference. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -125,6 +124,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MediumChangerType { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 10 tags that can be assigned to the gateway. Each tag is a key-value
+        /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter TapeDriveType
@@ -173,6 +187,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.GatewayTimezone = this.GatewayTimezone;
             context.GatewayType = this.GatewayType;
             context.MediumChangerType = this.MediumChangerType;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             context.TapeDriveType = this.TapeDriveType;
             
             // allow further manipulation of loaded context prior to processing
@@ -213,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.MediumChangerType != null)
             {
                 request.MediumChangerType = cmdletContext.MediumChangerType;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TapeDriveType != null)
             {
@@ -260,9 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.ActivateGateway(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ActivateGatewayAsync(request);
-                return task.Result;
+                return client.ActivateGatewayAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -288,6 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String GatewayTimezone { get; set; }
             public System.String GatewayType { get; set; }
             public System.String MediumChangerType { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
             public System.String TapeDriveType { get; set; }
         }
         

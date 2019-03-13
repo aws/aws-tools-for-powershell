@@ -89,20 +89,6 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String BundleId { get; set; }
         #endregion
         
-        #region Parameter CustomImageName
-        /// <summary>
-        /// <para>
-        /// <para>(Deprecated) The name for your custom image.</para><note><para>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
-        /// deprecated.</para></note>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("In releases prior to June 12, 2017, this parameter was ignored by the API. It is " +
-            "now deprecated.")]
-        public System.String CustomImageName { get; set; }
-        #endregion
-        
         #region Parameter InstanceName
         /// <summary>
         /// <para>
@@ -148,6 +134,20 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String UserData { get; set; }
+        #endregion
+        
+        #region Parameter CustomImageName
+        /// <summary>
+        /// <para>
+        /// <para>(Deprecated) The name for your custom image.</para><note><para>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
+        /// deprecated.</para></note>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("In releases prior to June 12, 2017, this parameter was ignored by the API. It is " +
+            "now deprecated.")]
+        public System.String CustomImageName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -287,9 +287,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
                 #if DESKTOP
                 return client.CreateInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateInstancesAsync(request);
-                return task.Result;
+                return client.CreateInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -45,6 +45,9 @@
         <ServiceOperation MethodName="ListRules" Output="DefaultSingleMember" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTargetsByRule" Output="DefaultSingleMember" Verb="Get" Noun="TargetsByRule" PipelineParameter="Rule" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -68,7 +71,13 @@
                 <Param Name="Force" NewName="Enforce" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="TestEventPattern" Output="DefaultSingleMember" Verb="Test" Noun="EventPattern" PipelineParameter="Event" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

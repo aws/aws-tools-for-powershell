@@ -169,9 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 #if DESKTOP
                 return client.DeleteFieldLevelEncryptionProfile(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteFieldLevelEncryptionProfileAsync(request);
-                return task.Result;
+                return client.DeleteFieldLevelEncryptionProfileAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

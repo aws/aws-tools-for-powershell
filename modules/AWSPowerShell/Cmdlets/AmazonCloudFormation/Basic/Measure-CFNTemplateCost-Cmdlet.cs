@@ -184,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 #if DESKTOP
                 return client.EstimateTemplateCost(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.EstimateTemplateCostAsync(request);
-                return task.Result;
+                return client.EstimateTemplateCostAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

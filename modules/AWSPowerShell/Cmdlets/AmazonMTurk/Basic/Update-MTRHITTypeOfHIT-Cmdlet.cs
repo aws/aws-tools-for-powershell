@@ -171,9 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
                 #if DESKTOP
                 return client.UpdateHITTypeOfHIT(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateHITTypeOfHITAsync(request);
-                return task.Result;
+                return client.UpdateHITTypeOfHITAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

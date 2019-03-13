@@ -179,9 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                 #if DESKTOP
                 return client.RemoveClientIDFromOpenIDConnectProvider(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RemoveClientIDFromOpenIDConnectProviderAsync(request);
-                return task.Result;
+                return client.RemoveClientIDFromOpenIDConnectProviderAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

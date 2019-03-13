@@ -71,6 +71,12 @@
         <ServiceOperation MethodName="PutLifecyclePolicy" Output="Void" Verb="Write" Noun="LifecyclePolicy" ShouldProcessTarget="ContainerName" PipelineParameter="LifecyclePolicy" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="StartAccessLogging" Output="Void" Verb="Start" Noun="AccessLogging" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAccessLogging" Output="Void" Verb="Stop" Noun="AccessLogging" ShouldProcessTarget="ContainerName" PipelineParameter="ContainerName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />

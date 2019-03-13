@@ -28,14 +28,16 @@ using Amazon.AutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AS
 {
     /// <summary>
-    /// Attaches one or more target groups to the specified Auto Scaling group.
+    /// Attaches one or more target groups to the specified Auto Scaling group. 
     /// 
     ///  
     /// <para>
     /// To describe the target groups for an Auto Scaling group, use <a>DescribeLoadBalancerTargetGroups</a>.
     /// To detach the target group from the Auto Scaling group, use <a>DetachLoadBalancerTargetGroups</a>.
     /// </para><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attach
+    /// With Application Load Balancers and Network Load Balancers, instances are registered
+    /// as targets with a target group. With Classic Load Balancers, instances are registered
+    /// with the load balancer. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-load-balancer-asg.html">Attaching
     /// a Load Balancer to Your Auto Scaling Group</a> in the <i>Amazon EC2 Auto Scaling User
     /// Guide</i>.
     /// </para>
@@ -182,9 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.AttachLoadBalancerTargetGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachLoadBalancerTargetGroupsAsync(request);
-                return task.Result;
+                return client.AttachLoadBalancerTargetGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// Rules are evaluated in priority order, from the lowest value to the highest value.
     /// When the conditions for a rule are met, its actions are performed. If the conditions
     /// for no rules are met, the actions for the default rule are performed. For more information,
-    /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
+    /// see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
     /// Rules</a> in the <i>Application Load Balancers Guide</i>.
     /// </para><para>
     /// To view your current rules, use <a>DescribeRules</a>. To update a rule, use <a>ModifyRule</a>.
@@ -222,9 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
                 #if DESKTOP
                 return client.CreateRule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateRuleAsync(request);
-                return task.Result;
+                return client.CreateRuleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

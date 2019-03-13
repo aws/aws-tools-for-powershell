@@ -181,9 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.AGM
                 #if DESKTOP
                 return client.PostToConnection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PostToConnectionAsync(request);
-                return task.Result;
+                return client.PostToConnectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

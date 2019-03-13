@@ -97,12 +97,28 @@ namespace Amazon.PowerShell.Cmdlets.EMC
         #region Parameter Setting
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// JobTemplateSettings contains all the transcode
+        /// settings saved in the template that will be applied to jobs created from it.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Settings")]
         public Amazon.MediaConvert.Model.JobTemplateSettings Setting { get; set; }
+        #endregion
+        
+        #region Parameter StatusUpdateInterval
+        /// <summary>
+        /// <para>
+        /// Specify how often MediaConvert sends
+        /// STATUS_UPDATE events to Amazon CloudWatch Events. Set the interval, in seconds, between
+        /// status updates. MediaConvert sends an update at this interval from the time the service
+        /// begins processing your job to the time it completes the transcode or encounters an
+        /// error.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaConvert.StatusUpdateInterval")]
+        public Amazon.MediaConvert.StatusUpdateInterval StatusUpdateInterval { get; set; }
         #endregion
         
         #region Parameter Force
@@ -140,6 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             context.Name = this.Name;
             context.Queue = this.Queue;
             context.Settings = this.Setting;
+            context.StatusUpdateInterval = this.StatusUpdateInterval;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -195,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             {
                 request.Settings = cmdletContext.Settings;
             }
+            if (cmdletContext.StatusUpdateInterval != null)
+            {
+                request.StatusUpdateInterval = cmdletContext.StatusUpdateInterval;
+            }
             
             CmdletOutput output;
             
@@ -237,9 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
                 #if DESKTOP
                 return client.UpdateJobTemplate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateJobTemplateAsync(request);
-                return task.Result;
+                return client.UpdateJobTemplateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -265,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.EMC
             public System.String Name { get; set; }
             public System.String Queue { get; set; }
             public Amazon.MediaConvert.Model.JobTemplateSettings Settings { get; set; }
+            public Amazon.MediaConvert.StatusUpdateInterval StatusUpdateInterval { get; set; }
         }
         
     }

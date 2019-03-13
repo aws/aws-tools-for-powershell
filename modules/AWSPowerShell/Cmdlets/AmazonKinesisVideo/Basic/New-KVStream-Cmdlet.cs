@@ -251,9 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.KV
                 #if DESKTOP
                 return client.CreateStream(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateStreamAsync(request);
-                return task.Result;
+                return client.CreateStreamAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

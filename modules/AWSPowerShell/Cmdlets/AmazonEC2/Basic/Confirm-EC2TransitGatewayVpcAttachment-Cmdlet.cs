@@ -149,9 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AcceptTransitGatewayVpcAttachment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AcceptTransitGatewayVpcAttachmentAsync(request);
-                return task.Result;
+                return client.AcceptTransitGatewayVpcAttachmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

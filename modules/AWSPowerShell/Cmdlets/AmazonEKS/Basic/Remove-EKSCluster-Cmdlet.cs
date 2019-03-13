@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// If you have active services in your cluster that are associated with a load balancer,
     /// you must delete those services before deleting the cluster so that the load balancers
     /// are deleted properly. Otherwise, you can have orphaned resources in your VPC that
-    /// prevent you from being able to delete the VPC. For more information, see <a href="http://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting
+    /// prevent you from being able to delete the VPC. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/delete-cluster.html">Deleting
     /// a Cluster</a> in the <i>Amazon EKS User Guide</i>.
     /// </para></note>
     /// </summary>
@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 #if DESKTOP
                 return client.DeleteCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteClusterAsync(request);
-                return task.Result;
+                return client.DeleteClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

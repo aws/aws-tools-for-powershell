@@ -250,9 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 #if DESKTOP
                 return client.ListUpdates(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListUpdatesAsync(request);
-                return task.Result;
+                return client.ListUpdatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

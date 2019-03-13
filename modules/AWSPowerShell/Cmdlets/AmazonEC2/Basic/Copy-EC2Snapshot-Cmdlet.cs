@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Copies a point-in-time snapshot of an EBS volume and stores it in Amazon S3. You can
-    /// copy the snapshot within the same region or from one region to another. You can use
+    /// copy the snapshot within the same Region or from one Region to another. You can use
     /// the snapshot to create EBS volumes or Amazon Machine Images (AMIs). The snapshot is
     /// copied to the regional endpoint that you send the HTTP request to.
     /// 
@@ -74,11 +74,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination region to use in the <code>PresignedUrl</code> parameter of a snapshot
-        /// copy operation. This parameter is only valid for specifying the destination region
+        /// <para>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
+        /// copy operation. This parameter is only valid for specifying the destination Region
         /// in a <code>PresignedUrl</code> parameter, where it is required.</para><para>The snapshot copy is sent to the regional endpoint that you sent the HTTP request
         /// to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this
-        /// is specified using the <code>--region</code> parameter or the default region in your
+        /// is specified using the <code>--region</code> parameter or the default Region in your
         /// AWS configuration file.</para>
         /// </para>
         /// </summary>
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SourceRegion
         /// <summary>
         /// <para>
-        /// <para>The ID of the region that contains the snapshot to be copied.</para>
+        /// <para>The ID of the Region that contains the snapshot to be copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -261,9 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CopySnapshot(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CopySnapshotAsync(request);
-                return task.Result;
+                return client.CopySnapshotAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

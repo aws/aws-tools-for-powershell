@@ -34,11 +34,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// 
     ///  
     /// <para>
-    /// Training algorithms provided by Amazon SageMaker save the intermediate results of
-    /// a model training job. This intermediate data is a valid model artifact. You can use
-    /// the model artifacts that are saved when Amazon SageMaker stops a training job to create
-    /// a model. 
-    /// </para><para>
     /// When it receives a <code>StopTrainingJob</code> request, Amazon SageMaker changes
     /// the status of the job to <code>Stopping</code>. After Amazon SageMaker stops the job,
     /// it sets the status to <code>Stopped</code>.
@@ -167,9 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.StopTrainingJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopTrainingJobAsync(request);
-                return task.Result;
+                return client.StopTrainingJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

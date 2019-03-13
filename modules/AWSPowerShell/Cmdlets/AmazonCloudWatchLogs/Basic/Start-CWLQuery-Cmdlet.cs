@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
     /// Logs Insights Query Syntax</a>.
     /// </para>
     /// </summary>
@@ -50,8 +50,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range to query. Specified as epoch time, the number of seconds
-        /// since January 1, 1970, 00:00:00 UTC.</para>
+        /// <para>The end of the time range to query. The range is inclusive, so the specified end time
+        /// is included in the query. Specified as epoch time, the number of seconds since January
+        /// 1, 1970, 00:00:00 UTC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter QueryString
         /// <summary>
         /// <para>
-        /// <para>The query string to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
+        /// <para>The query string to use. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch
         /// Logs Insights Query Syntax</a>.</para>
         /// </para>
         /// </summary>
@@ -82,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The beginning of the time range to query. Specified as epoch time, the number of seconds
+        /// <para>The beginning of the time range to query. The range is inclusive, so the specified
+        /// start time is included in the query. Specified as epoch time, the number of seconds
         /// since January 1, 1970, 00:00:00 UTC.</para>
         /// </para>
         /// </summary>
@@ -216,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.StartQuery(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StartQueryAsync(request);
-                return task.Result;
+                return client.StartQueryAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

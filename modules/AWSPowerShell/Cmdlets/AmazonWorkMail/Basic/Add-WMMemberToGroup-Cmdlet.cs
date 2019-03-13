@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Adds a member to the group's set.
+    /// Adds a member (user or group) to the group's set.
     /// </summary>
     [Cmdlet("Add", "WMMemberToGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The group for which the member is associated.</para>
+        /// <para>The group to which the member (user or group) is associated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter MemberId
         /// <summary>
         /// <para>
-        /// <para>The member to associate to the group.</para>
+        /// <para>The member (user or group) to associate to the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.AssociateMemberToGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateMemberToGroupAsync(request);
-                return task.Result;
+                return client.AssociateMemberToGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

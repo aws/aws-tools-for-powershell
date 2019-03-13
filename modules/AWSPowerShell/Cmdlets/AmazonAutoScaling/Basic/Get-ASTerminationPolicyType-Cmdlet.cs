@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// 
     ///  
     /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling
     /// Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto
     /// Scaling User Guide</i>.
     /// </para>
@@ -118,9 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeTerminationPolicyTypes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeTerminationPolicyTypesAsync(request);
-                return task.Result;
+                return client.DescribeTerminationPolicyTypesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

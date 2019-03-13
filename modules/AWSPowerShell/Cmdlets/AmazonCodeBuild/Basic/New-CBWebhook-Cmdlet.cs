@@ -199,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 #if DESKTOP
                 return client.CreateWebhook(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateWebhookAsync(request);
-                return task.Result;
+                return client.CreateWebhookAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

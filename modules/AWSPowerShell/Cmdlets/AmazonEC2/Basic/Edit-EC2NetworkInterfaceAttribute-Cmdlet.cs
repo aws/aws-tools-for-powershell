@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the specified network interface attribute. You can specify only one attribute
-    /// at a time.
+    /// at a time. You can use this action to attach and detach security groups from an existing
+    /// EC2 instance.
     /// </summary>
     [Cmdlet("Edit", "EC2NetworkInterfaceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -263,9 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifyNetworkInterfaceAttribute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyNetworkInterfaceAttributeAsync(request);
-                return task.Result;
+                return client.ModifyNetworkInterfaceAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The unique identifier for the gateway local disk that is configured as a stored volume.
-        /// Use <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a>
+        /// Use <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html">ListLocalDisks</a>
         /// to list disk IDs for a gateway.</para>
         /// </para>
         /// </summary>
@@ -105,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// network interfaces available on a gateway.</para><para> Valid Values: A valid IP address.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 4, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 3, ValueFromPipelineByPropertyName = true)]
         public System.String NetworkInterfaceId { get; set; }
         #endregion
         
@@ -125,24 +125,25 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>The snapshot ID (e.g. "snap-1122aabb") of the snapshot to restore as the new stored
         /// volume. Specify this field if you want to create the iSCSI storage volume from a snapshot
-        /// otherwise do not include this field. To list snapshots for your account use <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
+        /// otherwise do not include this field. To list snapshots for your account use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html">DescribeSnapshots</a>
         /// in the <i>Amazon Elastic Compute Cloud API Reference</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2, ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String SnapshotId { get; set; }
         #endregion
         
         #region Parameter TargetName
         /// <summary>
         /// <para>
-        /// <para>The name of the iSCSI target used by initiators to connect to the target and as a
-        /// suffix for the target ARN. For example, specifying <code>TargetName</code> as <i>myvolume</i>
-        /// results in the target ARN of arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume.
-        /// The target name must be unique across all volumes of a gateway.</para>
+        /// <para>The name of the iSCSI target used by an initiator to connect to a volume and used
+        /// as a suffix for the target ARN. For example, specifying <code>TargetName</code> as
+        /// <i>myvolume</i> results in the target ARN of <code>arn:aws:storagegateway:us-east-2:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume</code>.
+        /// The target name must be unique across all volumes on a gateway.</para><para>If you don't specify a value, Storage Gateway uses the value that was previously used
+        /// for this volume as the new target name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 2)]
         public System.String TargetName { get; set; }
         #endregion
         
@@ -275,9 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.CreateStorediSCSIVolume(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateStorediSCSIVolumeAsync(request);
-                return task.Result;
+                return client.CreateStorediSCSIVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

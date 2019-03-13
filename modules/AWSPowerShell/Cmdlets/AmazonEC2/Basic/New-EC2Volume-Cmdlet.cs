@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 5)]
+        [System.Management.Automation.Parameter(Position = 4)]
         public System.Boolean Encrypted { get; set; }
         #endregion
         
@@ -92,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The number of I/O operations per second (IOPS) to provision for the volume, with a
-        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most regions.
-        /// Maximum IOPS of 64,000 is guaranteed only on <a href="AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
+        /// maximum ratio of 50 IOPS/GiB. Range is 100 to 64,000 IOPS for volumes in most Regions.
+        /// Maximum IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based
         /// instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For
         /// more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon
         /// EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</para><para>This parameter is valid only for Provisioned IOPS SSD (io1) volumes.</para>
@@ -168,10 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for Cold HDD, or <code>standard</code> for Magnetic volumes.</para><para>Defaults: If no volume type is specified, the default is <code>standard</code> in
         /// us-east-1, eu-west-1, eu-central-1, us-west-2, us-west-1, sa-east-1, ap-northeast-1,
         /// ap-northeast-2, ap-southeast-1, ap-southeast-2, ap-south-1, us-gov-west-1, and cn-north-1.
-        /// In all other regions, EBS defaults to <code>gp2</code>.</para>
+        /// In all other Regions, EBS defaults to <code>gp2</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 4)]
+        [System.Management.Automation.Parameter(Position = 3)]
         [AWSConstantClassSource("Amazon.EC2.VolumeType")]
         public Amazon.EC2.VolumeType VolumeType { get; set; }
         #endregion
@@ -309,9 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.CreateVolume(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateVolumeAsync(request);
-                return task.Result;
+                return client.CreateVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

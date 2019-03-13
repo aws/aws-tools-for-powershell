@@ -193,9 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 #if DESKTOP
                 return client.GetObjectLegalHold(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetObjectLegalHoldAsync(request);
-                return task.Result;
+                return client.GetObjectLegalHoldAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

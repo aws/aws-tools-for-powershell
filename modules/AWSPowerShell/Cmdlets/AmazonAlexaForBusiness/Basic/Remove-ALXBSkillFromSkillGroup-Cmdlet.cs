@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.ALXB
                 #if DESKTOP
                 return client.DisassociateSkillFromSkillGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DisassociateSkillFromSkillGroupAsync(request);
-                return task.Result;
+                return client.DisassociateSkillFromSkillGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

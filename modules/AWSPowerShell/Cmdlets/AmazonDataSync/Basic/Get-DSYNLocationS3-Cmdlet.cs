@@ -125,9 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.DSYN
                 #if DESKTOP
                 return client.DescribeLocationS3(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeLocationS3Async(request);
-                return task.Result;
+                return client.DescribeLocationS3Async(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

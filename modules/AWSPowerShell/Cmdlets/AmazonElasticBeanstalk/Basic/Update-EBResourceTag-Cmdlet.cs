@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  
     /// <para>
     /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
-    /// For details about environment tagging, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
+    /// For details about environment tagging, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
     /// Resources in Your Elastic Beanstalk Environment</a>.
     /// </para><para>
     /// If you create a custom IAM user policy to control permission to this operation, specify
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// Controls permission to call <code>UpdateTagsForResource</code> and pass a list of
     /// tag keys to remove in the <code>TagsToRemove</code> parameter.
     /// </para></dd></dl><para>
-    /// For details about creating a custom user policy, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating
+    /// For details about creating a custom user policy, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating
     /// a Custom User Policy</a>.
     /// </para>
     /// </summary>
@@ -209,9 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.UpdateTagsForResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTagsForResourceAsync(request);
-                return task.Result;
+                return client.UpdateTagsForResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

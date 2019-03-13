@@ -169,24 +169,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String RoleName { get; set; }
         #endregion
         
-        #region Parameter ClientData_UploadEnd
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use UploadEndUtc instead. Setting either UploadEnd or
-        /// UploadEndUtc results in both UploadEnd and UploadEndUtc being assigned, the latest
-        /// assignment to either one of the two property is reflected in the value of both. UploadEnd
-        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
-        /// results in the wrong timestamp being passed to the service.</para><para>The time that the disk upload ends.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use ClientData_UtcUploadEnd instead.")]
-        public System.DateTime ClientData_UploadEnd { get; set; }
-        #endregion
-        
         #region Parameter ClientData_UtcUploadEnd
         /// <summary>
         /// <para>
@@ -207,6 +189,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Double ClientData_UploadSize { get; set; }
         #endregion
         
+        #region Parameter ClientData_UtcUploadStart
+        /// <summary>
+        /// <para>
+        /// <para>The time that the disk upload starts.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime ClientData_UtcUploadStart { get; set; }
+        #endregion
+        
+        #region Parameter ClientData_UploadEnd
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use UploadEndUtc instead. Setting either UploadEnd or
+        /// UploadEndUtc results in both UploadEnd and UploadEndUtc being assigned, the latest
+        /// assignment to either one of the two property is reflected in the value of both. UploadEnd
+        /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
+        /// results in the wrong timestamp being passed to the service.</para><para>The time that the disk upload ends.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use ClientData_UtcUploadEnd instead.")]
+        public System.DateTime ClientData_UploadEnd { get; set; }
+        #endregion
+        
         #region Parameter ClientData_UploadStart
         /// <summary>
         /// <para>
@@ -223,16 +233,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use ClientData_UtcUploadStart instead.")]
         public System.DateTime ClientData_UploadStart { get; set; }
-        #endregion
-        
-        #region Parameter ClientData_UtcUploadStart
-        /// <summary>
-        /// <para>
-        /// <para>The time that the disk upload starts.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime ClientData_UtcUploadStart { get; set; }
         #endregion
         
         #region Parameter Force
@@ -472,9 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ImportImage(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ImportImageAsync(request);
-                return task.Result;
+                return client.ImportImageAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

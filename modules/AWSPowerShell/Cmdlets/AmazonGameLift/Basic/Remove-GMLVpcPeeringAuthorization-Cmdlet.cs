@@ -177,9 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.DeleteVpcPeeringAuthorization(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteVpcPeeringAuthorizationAsync(request);
-                return task.Result;
+                return client.DeleteVpcPeeringAuthorizationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

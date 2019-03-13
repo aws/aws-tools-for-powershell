@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.WL
                 #if DESKTOP
                 return client.UpdateIdentityProviderConfiguration(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateIdentityProviderConfigurationAsync(request);
-                return task.Result;
+                return client.UpdateIdentityProviderConfigurationAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

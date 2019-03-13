@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The name of the group to which the target environment belongs. Specify a group name
         /// only if the environment's name is specified in an environment manifest and not with
-        /// the environment name parameter. See <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
+        /// the environment name parameter. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment
         /// Manifest (env.yaml)</a> for details.</para>
         /// </para>
         /// </summary>
@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>This is an alternative to specifying a template name. If specified, AWS Elastic Beanstalk
         /// sets the configuration values to the default values associated with the specified
-        /// solution stack.</para><para>For a list of current solution stacks, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic
+        /// solution stack.</para><para>For a list of current solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html">Elastic
         /// Beanstalk Supported Platforms</a>.</para>
         /// </para>
         /// </summary>
@@ -159,7 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>This specifies the tags applied to resources in the environment.</para>
+        /// <para>Specifies the tags applied to resources in the environment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -412,9 +412,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.CreateEnvironment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEnvironmentAsync(request);
-                return task.Result;
+                return client.CreateEnvironmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

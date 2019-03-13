@@ -75,6 +75,17 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         public Amazon.MediaConnect.Model.UpdateEncryption Encryption { get; set; }
         #endregion
         
+        #region Parameter FlowArn
+        /// <summary>
+        /// <para>
+        /// The flow that is associated with the output that
+        /// you want to update.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String FlowArn { get; set; }
+        #endregion
+        
         #region Parameter MaxLatency
         /// <summary>
         /// <para>
@@ -138,17 +149,6 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StreamId { get; set; }
-        #endregion
-        
-        #region Parameter FlowArn
-        /// <summary>
-        /// <para>
-        /// The flow that is associated with the output that
-        /// you want to update.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FlowArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -293,9 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
                 #if DESKTOP
                 return client.UpdateFlowOutput(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFlowOutputAsync(request);
-                return task.Result;
+                return client.UpdateFlowOutputAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

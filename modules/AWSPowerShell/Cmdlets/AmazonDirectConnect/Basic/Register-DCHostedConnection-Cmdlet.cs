@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// being migrated.
     /// 
     ///  <note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Register", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -164,9 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.AssociateHostedConnection(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateHostedConnectionAsync(request);
-                return task.Result;
+                return client.AssociateHostedConnectionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

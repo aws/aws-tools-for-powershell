@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter BreachThreshold
         /// <summary>
         /// <para>
-        /// <para>The breach threshold for the alarm.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
-        /// supported otherwise.</para>
+        /// <para>The breach threshold for the alarm.</para><para>Conditional: This parameter is required if the policy type is <code>StepScaling</code>
+        /// and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <summary>
         /// <para>
         /// <para>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete
-        /// before executing the policy.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
+        /// before executing the policy.</para><para>This parameter is not supported if the policy type is <code>StepScaling</code>.</para><para>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling
         /// Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// a policy of type <code>StepScaling</code> and determine which step adjustment to use.
         /// For example, if the breach threshold is 50 and you want to use a step adjustment with
         /// a lower bound of 0 and an upper bound of 10, you can set the metric value to 59.</para><para>If you specify a metric value that doesn't correspond to a step adjustment for the
-        /// policy, the call returns an error.</para><para>This parameter is required if the policy type is <code>StepScaling</code> and not
-        /// supported otherwise.</para>
+        /// policy, the call returns an error.</para><para>Conditional: This parameter is required if the policy type is <code>StepScaling</code>
+        /// and not supported otherwise.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -224,9 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.ExecutePolicy(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ExecutePolicyAsync(request);
-                return task.Result;
+                return client.ExecutePolicyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

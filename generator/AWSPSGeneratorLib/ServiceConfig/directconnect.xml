@@ -29,6 +29,9 @@
         <Property>VirtualInterfaceId</Property>
     </PipelineByNameProperties>
     <ServiceOperations>
+        <ServiceOperation MethodName="AcceptDirectConnectGatewayAssociationProposal" Output="DefaultSingleMember" Verb="Confirm" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Output="Response" Verb="Enable" Noun="ConnectionOnInterconnect" ShouldProcessTarget="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -71,6 +74,9 @@
         <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" Output="DefaultSingleMember" Verb="New" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateDirectConnectGatewayAssociationProposal" Output="DefaultSingleMember" Verb="New" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="GatewayId" PipelineParameter="GatewayId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateInterconnect" Output="Response" Verb="New" Noun="Interconnect" ShouldProcessTarget="InterconnectName" PositionalParameters="Bandwidth;Location" PipelineParameter="InterconnectName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -95,6 +101,9 @@
         <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" Output="DefaultSingleMember" Verb="Remove" Noun="GatewayAssociation" ShouldProcessTarget="VirtualGatewayId" PipelineParameter="VirtualGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociationProposal" Output="DefaultSingleMember" Verb="Remove" Noun="DirectConnectGatewayAssociationProposal" ShouldProcessTarget="ProposalId" PipelineParameter="ProposalId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DeleteInterconnect" Output="DefaultSingleMember" Verb="Remove" Noun="Interconnect" ShouldProcessTarget="InterconnectId" PipelineParameter="InterconnectId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -111,6 +120,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" Output="DefaultSingleMember" Verb="Get" Noun="ConnectionsOnInterconnect" PipelineParameter="InterconnectId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociationProposals" Output="DefaultSingleMember" Verb="Get" Noun="DirectConnectGatewayAssociationProposal" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" Output="DefaultSingleMember" Verb="Get" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" NoPipelineParameter="false">
@@ -156,6 +168,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDirectConnectGatewayAssociation" Output="DefaultSingleMember" Verb="Update" Noun="DirectConnectGatewayAssociation" ShouldProcessTarget="AssociationId" PipelineParameter="AssociationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateLag" Output="Response" Verb="Update" Noun="Lag" ShouldProcessTarget="LagId" PipelineParameter="LagId" NoPipelineParameter="false">

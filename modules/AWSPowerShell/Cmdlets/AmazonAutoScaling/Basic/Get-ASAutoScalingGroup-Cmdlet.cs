@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The names of the Auto Scaling groups. You can specify up to <code>MaxRecords</code>
-        /// names. If you omit this parameter, all Auto Scaling groups are described.</para>
+        /// <para>The names of the Auto Scaling groups. Each name can be a maximum of 1600 characters.
+        /// By default, you can only specify up to 50 names. You can optionally increase this
+        /// limit using the <code>MaxRecords</code> parameter. </para><para>If you omit this parameter, all Auto Scaling groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -56,8 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MaxRecord
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return with this call. The default value is 50 and
-        /// the maximum value is 100.</para>
+        /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
+        /// and the maximum value is <code>100</code>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -217,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.DescribeAutoScalingGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeAutoScalingGroupsAsync(request);
-                return task.Result;
+                return client.DescribeAutoScalingGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

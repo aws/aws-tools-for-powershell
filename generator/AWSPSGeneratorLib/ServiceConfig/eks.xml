@@ -38,6 +38,9 @@
         <ServiceOperation MethodName="ListUpdates" Output="DefaultSingleMember" Verb="Get" Noun="UpdateList" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateClusterConfig" Output="DefaultSingleMember" Verb="Update" Noun="ClusterConfig" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="UpdateClusterVersion" Output="DefaultSingleMember" Verb="Update" Noun="ClusterVersion" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

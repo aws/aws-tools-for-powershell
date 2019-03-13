@@ -397,7 +397,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// provided, logs are not created.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 1)]
         public System.String LogUri { get; set; }
         #endregion
         
@@ -1125,9 +1125,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 #if DESKTOP
                 return client.RunJobFlow(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RunJobFlowAsync(request);
-                return task.Result;
+                return client.RunJobFlowAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

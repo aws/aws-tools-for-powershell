@@ -28,7 +28,7 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Deletes permissions granted to a user or group.
+    /// Deletes permissions granted to a member (user or group).
     /// </summary>
     [Cmdlet("Remove", "WMMailboxPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the entity (user or group) for which to delete mailbox permissions.</para>
+        /// <para>The identifier of the member (user or group)that owns the mailbox.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter GranteeId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the entity (user or group) for which to delete granted permissions.</para>
+        /// <para>The identifier of the member (user or group) for which to delete granted permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the organization under which the entity (user or group) exists.</para>
+        /// <para>The identifier of the organization under which the member (user or group) exists.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,9 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.DeleteMailboxPermissions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteMailboxPermissionsAsync(request);
-                return task.Result;
+                return client.DeleteMailboxPermissionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

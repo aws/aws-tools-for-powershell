@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     public partial class GetDDBGlobalTableListCmdlet : AmazonDynamoDBClientCmdlet, IExecutor
     {
         
+        #region Parameter RegionName
+        /// <summary>
+        /// <para>
+        /// <para>Lists the global tables in a specific region.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegionName { get; set; }
+        #endregion
+        
         #region Parameter ExclusiveStartGlobalTableName
         /// <summary>
         /// <para>
@@ -54,16 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String ExclusiveStartGlobalTableName { get; set; }
-        #endregion
-        
-        #region Parameter RegionName
-        /// <summary>
-        /// <para>
-        /// <para>Lists the global tables in a specific region.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RegionName { get; set; }
         #endregion
         
         #region Parameter Limit
@@ -211,9 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
                 #if DESKTOP
                 return client.ListGlobalTables(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListGlobalTablesAsync(request);
-                return task.Result;
+                return client.ListGlobalTablesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

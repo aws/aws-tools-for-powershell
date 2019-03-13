@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use
     /// <a>UntagLogGroup</a>.
     /// </para><para>
-    /// For more information about tags, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag
+    /// For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag
     /// Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.
     /// </para>
     /// </summary>
@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
                 #if DESKTOP
                 return client.TagLogGroup(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TagLogGroupAsync(request);
-                return task.Result;
+                return client.TagLogGroupAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

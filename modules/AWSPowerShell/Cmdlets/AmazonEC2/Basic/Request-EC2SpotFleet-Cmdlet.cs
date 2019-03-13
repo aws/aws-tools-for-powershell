@@ -296,6 +296,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.FleetType SpotFleetRequestConfig_Type { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_UtcValidFrom
+        /// <summary>
+        /// <para>
+        /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// The default is to start fulfilling the request immediately.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime SpotFleetRequestConfig_UtcValidFrom { get; set; }
+        #endregion
+        
+        #region Parameter SpotFleetRequestConfig_UtcValidUntil
+        /// <summary>
+        /// <para>
+        /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+        /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
+        /// If no value is specified, the Spot Fleet request remains until you cancel it.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime SpotFleetRequestConfig_UtcValidUntil { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ValidFrom
         /// <summary>
         /// <para>
@@ -315,17 +338,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.DateTime SpotFleetRequestConfig_ValidFrom { get; set; }
         #endregion
         
-        #region Parameter SpotFleetRequestConfig_UtcValidFrom
-        /// <summary>
-        /// <para>
-        /// <para>The start date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// The default is to start fulfilling the request immediately.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime SpotFleetRequestConfig_UtcValidFrom { get; set; }
-        #endregion
-        
         #region Parameter SpotFleetRequestConfig_ValidUntil
         /// <summary>
         /// <para>
@@ -336,7 +348,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is provided for backwards compatibility only and assigning a non-Utc DateTime to it
         /// results in the wrong timestamp being passed to the service.</para><para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
         /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.</para>
+        /// If no value is specified, the Spot Fleet request remains until you cancel it.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -344,18 +356,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
             "o the service, use SpotFleetRequestConfig_UtcValidUntil instead.")]
         public System.DateTime SpotFleetRequestConfig_ValidUntil { get; set; }
-        #endregion
-        
-        #region Parameter SpotFleetRequestConfig_UtcValidUntil
-        /// <summary>
-        /// <para>
-        /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
-        /// The default end date is 7 days from the current date.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.DateTime SpotFleetRequestConfig_UtcValidUntil { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -802,9 +802,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.RequestSpotFleet(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RequestSpotFleetAsync(request);
-                return task.Result;
+                return client.RequestSpotFleetAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

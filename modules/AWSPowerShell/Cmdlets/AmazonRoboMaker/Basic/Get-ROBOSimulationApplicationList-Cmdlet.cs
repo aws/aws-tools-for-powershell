@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional list of filters to limit results. The only valid filter name is <code>name</code>.</para>
+        /// <para>Optional list of filters to limit results.</para><para>The filter name <code>name</code> is supported. When filtering, you must use the complete
+        /// value of the filtered item. You can use up to three filters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,8 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         /// in paginated output. When this parameter is used, <code>ListSimulationApplications</code>
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element. The remaining results of the initial request can be seen by sending
-        /// another <code>ListFleets</code> request with the returned <code>nextToken</code> value.
-        /// This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationApplications</code>
+        /// another <code>ListSimulationApplications</code> request with the returned <code>nextToken</code>
+        /// value. This value can be between 1 and 100. If this parameter is not used, then <code>ListSimulationApplications</code>
         /// returns up to 100 results and a <code>nextToken</code> value if applicable. </para>
         /// </para>
         /// <para>
@@ -270,9 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.ListSimulationApplications(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListSimulationApplicationsAsync(request);
-                return task.Result;
+                return client.ListSimulationApplicationsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

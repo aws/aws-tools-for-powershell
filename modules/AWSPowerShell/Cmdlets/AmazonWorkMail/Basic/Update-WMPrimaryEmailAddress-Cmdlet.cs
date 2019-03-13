@@ -28,9 +28,9 @@ using Amazon.WorkMail.Model;
 namespace Amazon.PowerShell.Cmdlets.WM
 {
     /// <summary>
-    /// Updates the primary email for an entity. The current email is moved into the list
-    /// of aliases (or swapped between an existing alias and the current primary email) and
-    /// the email provided in the input is promoted as the primary.
+    /// Updates the primary email for a user, group, or resource. The current email is moved
+    /// into the list of aliases (or swapped between an existing alias and the current primary
+    /// email), and the email provided in the input is promoted as the primary.
     /// </summary>
     [Cmdlet("Update", "WMPrimaryEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter EntityId
         /// <summary>
         /// <para>
-        /// <para>The entity to update (user, group, or resource).</para>
+        /// <para>The user, group, or resource to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The organization that contains the entity to update.</para>
+        /// <para>The organization that contains the user, group, or resource to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -185,9 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.UpdatePrimaryEmailAddress(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdatePrimaryEmailAddressAsync(request);
-                return task.Result;
+                return client.UpdatePrimaryEmailAddressAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

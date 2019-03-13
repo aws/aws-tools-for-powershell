@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
                 #if DESKTOP
                 return client.ModifyMountTargetSecurityGroups(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyMountTargetSecurityGroupsAsync(request);
-                return task.Result;
+                return client.ModifyMountTargetSecurityGroupsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

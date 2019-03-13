@@ -239,9 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.SMR
                 #if DESKTOP
                 return client.InvokeEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.InvokeEndpointAsync(request);
-                return task.Result;
+                return client.InvokeEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

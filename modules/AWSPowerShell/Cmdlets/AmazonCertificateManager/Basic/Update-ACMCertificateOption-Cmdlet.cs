@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// <summary>
     /// Updates a certificate. Currently, you can use this function to specify whether to
     /// opt in to or out of recording your certificate in a certificate transparency log.
-    /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+    /// For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
     /// Opting Out of Certificate Transparency Logging</a>.
     /// </summary>
     [Cmdlet("Update", "ACMCertificateOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -188,9 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
                 #if DESKTOP
                 return client.UpdateCertificateOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateCertificateOptionsAsync(request);
-                return task.Result;
+                return client.UpdateCertificateOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

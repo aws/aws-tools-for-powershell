@@ -178,6 +178,9 @@
         <ServiceOperation MethodName="GetVoiceChannel" Output="DefaultSingleMember" Verb="Get" Noun="VoiceChannel" PipelineParameter="ApplicationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="PhoneNumberValidate" Output="DefaultSingleMember" Verb="Confirm" Noun="PhoneNumber" ShouldProcessTarget="NumberValidateRequest" PipelineParameter="NumberValidateRequest" NoPipelineParameter="false">
             <Params>
                 <Param Name="NumberValidateRequest" NewName="PhoneNumber" />
@@ -196,6 +199,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SendUsersMessages" Output="DefaultSingleMember" Verb="Send" Noun="UserMessageBatch" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAdmChannel" Output="DefaultSingleMember" Verb="Update" Noun="AdmChannel" ShouldProcessTarget="ApplicationId" PipelineParameter="ApplicationId" NoPipelineParameter="false">

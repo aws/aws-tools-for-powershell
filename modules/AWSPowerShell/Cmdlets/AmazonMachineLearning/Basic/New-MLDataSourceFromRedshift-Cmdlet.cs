@@ -508,9 +508,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
                 #if DESKTOP
                 return client.CreateDataSourceFromRedshift(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDataSourceFromRedshiftAsync(request);
-                return task.Result;
+                return client.CreateDataSourceFromRedshiftAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

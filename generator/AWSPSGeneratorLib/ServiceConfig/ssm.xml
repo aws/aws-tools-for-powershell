@@ -283,6 +283,9 @@
         <ServiceOperation MethodName="GetPatchBaselineForPatchGroup" Output="Response" Verb="Get" Noun="PatchBaselineForPatchGroup" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceSetting" Output="DefaultSingleMember" Verb="Get" Noun="ServiceSetting" PipelineParameter="SettingId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="LabelParameterVersion" Output="DefaultSingleMember" Verb="Set" Noun="ParameterVersionLabel" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -352,6 +355,9 @@
         <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceId" PipelineParameter="ResourceId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ResetServiceSetting" Output="DefaultSingleMember" Verb="Reset" Noun="ServiceSetting" ShouldProcessTarget="SettingId" PipelineParameter="SettingId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResumeSession" Output="Response" Verb="Resume" Noun="Session" ShouldProcessTarget="SessionId" PipelineParameter="SessionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -401,6 +407,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdatePatchBaseline" Output="Response" Verb="Update" Noun="PatchBaseline" ShouldProcessTarget="BaselineId" PipelineParameter="BaselineId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceSetting" Output="Void" Verb="Update" Noun="ServiceSetting" ShouldProcessTarget="SettingId" PipelineParameter="SettingId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

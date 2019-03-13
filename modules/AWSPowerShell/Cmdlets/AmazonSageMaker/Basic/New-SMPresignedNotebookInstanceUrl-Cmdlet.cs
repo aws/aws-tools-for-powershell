@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// AWS Identity and Access Management user, group, or role used to access the notebook
     /// instance. Use the <code>NotIpAddress</code> condition operator and the <code>aws:SourceIP</code>
     /// condition context key to specify the list of IP addresses that you want to have access
-    /// to the notebook instance. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/howitworks-access-ws.html#nbi-ip-filter">Limit
+    /// to the notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-ip-filter.html">Limit
     /// Access to a Notebook Instance by IP Address</a>.
     /// </para>
     /// </summary>
@@ -174,9 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreatePresignedNotebookInstanceUrl(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePresignedNotebookInstanceUrlAsync(request);
-                return task.Result;
+                return client.CreatePresignedNotebookInstanceUrlAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

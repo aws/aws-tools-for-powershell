@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// or capacity of one variant associated with an existing endpoint. When it receives
     /// the request, Amazon SageMaker sets the endpoint status to <code>Updating</code>. After
     /// updating the endpoint, it sets the status to <code>InService</code>. To check the
-    /// status of an endpoint, use the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
+    /// status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API.
     /// </summary>
     [Cmdlet("Update", "SMEndpointWeightAndCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -166,9 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.UpdateEndpointWeightsAndCapacities(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateEndpointWeightsAndCapacitiesAsync(request);
-                return task.Result;
+                return client.UpdateEndpointWeightsAndCapacitiesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

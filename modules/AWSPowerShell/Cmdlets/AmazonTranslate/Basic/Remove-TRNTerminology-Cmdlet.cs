@@ -153,9 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.TRN
                 #if DESKTOP
                 return client.DeleteTerminology(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTerminologyAsync(request);
-                return task.Result;
+                return client.DeleteTerminologyAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
     /// <summary>
     /// Returns a list of resource metadata for a given list of crawler names. After calling
     /// the <code>ListCrawlers</code> operation, you can call this operation to access the
-    /// data to which you have been granted permissions to based on tags.
+    /// data to which you have been granted permissions. This operation supports all IAM permissions,
+    /// including permission conditions that uses tags.
     /// </summary>
     [Cmdlet("Get", "GLUECrawlerBatch")]
     [OutputType("Amazon.Glue.Model.BatchGetCrawlersResponse")]
@@ -132,9 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 #if DESKTOP
                 return client.BatchGetCrawlers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.BatchGetCrawlersAsync(request);
-                return task.Result;
+                return client.BatchGetCrawlersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

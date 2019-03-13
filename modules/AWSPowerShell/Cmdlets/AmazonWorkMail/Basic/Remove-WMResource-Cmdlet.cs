@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
         #region Parameter OrganizationId
         /// <summary>
         /// <para>
-        /// <para>The identifier associated with the organization for which the resource is deleted.</para>
+        /// <para>The identifier associated with the organization from which the resource is deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.WM
                 #if DESKTOP
                 return client.DeleteResource(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteResourceAsync(request);
-                return task.Result;
+                return client.DeleteResourceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

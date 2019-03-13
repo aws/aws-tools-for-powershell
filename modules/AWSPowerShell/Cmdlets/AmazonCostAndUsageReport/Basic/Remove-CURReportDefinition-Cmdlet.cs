@@ -28,7 +28,7 @@ using Amazon.CostAndUsageReport.Model;
 namespace Amazon.PowerShell.Cmdlets.CUR
 {
     /// <summary>
-    /// Delete a specified report definition
+    /// Deletes the specified report.
     /// </summary>
     [Cmdlet("Remove", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
@@ -142,9 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
                 #if DESKTOP
                 return client.DeleteReportDefinition(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteReportDefinitionAsync(request);
-                return task.Result;
+                return client.DeleteReportDefinitionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

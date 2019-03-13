@@ -91,35 +91,6 @@ namespace Amazon.PowerShell.Cmdlets.CF
         public System.String DistributionConfig_CallerReference { get; set; }
         #endregion
         
-        #region Parameter ViewerCertificate_Certificate
-        /// <summary>
-        /// <para>
-        /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
-            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
-        [Alias("DistributionConfig_ViewerCertificate_Certificate")]
-        public System.String ViewerCertificate_Certificate { get; set; }
-        #endregion
-        
-        #region Parameter ViewerCertificate_CertificateSource
-        /// <summary>
-        /// <para>
-        /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
-            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
-        [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
-        [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
-        public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
-        #endregion
-        
         #region Parameter ViewerCertificate_CloudFrontDefaultCertificate
         /// <summary>
         /// <para>
@@ -876,6 +847,35 @@ namespace Amazon.PowerShell.Cmdlets.CF
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DistributionConfig_WebACLId { get; set; }
+        #endregion
+        
+        #region Parameter ViewerCertificate_Certificate
+        /// <summary>
+        /// <para>
+        /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
+        [Alias("DistributionConfig_ViewerCertificate_Certificate")]
+        public System.String ViewerCertificate_Certificate { get; set; }
+        #endregion
+        
+        #region Parameter ViewerCertificate_CertificateSource
+        /// <summary>
+        /// <para>
+        /// <para>This field has been deprecated. Use one of the following fields instead:</para><ul><li><para><a>ViewerCertificate$ACMCertificateArn</a></para></li><li><para><a>ViewerCertificate$IAMCertificateId</a></para></li><li><para><a>ViewerCertificate$CloudFrontDefaultCertificate</a></para></li></ul>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This field has been deprecated. Use one of the following fields instead: ACMCerti" +
+            "ficateArn, IAMCertificateId or CloudFrontDefaultCertificate.")]
+        [Alias("DistributionConfig_ViewerCertificate_CertificateSource")]
+        [AWSConstantClassSource("Amazon.CloudFront.CertificateSource")]
+        public Amazon.CloudFront.CertificateSource ViewerCertificate_CertificateSource { get; set; }
         #endregion
         
         #region Parameter Force
@@ -1958,9 +1958,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
                 #if DESKTOP
                 return client.CreateDistribution(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateDistributionAsync(request);
-                return task.Result;
+                return client.CreateDistributionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -41,18 +41,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTAuthorizerListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter PageSize
+        #region Parameter AscendingOrder
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to return at one time.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <para>Return the list of authorizers in ascending alphabetical order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
+        public System.Boolean AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Status
@@ -64,16 +60,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.IoT.AuthorizerStatus")]
         public Amazon.IoT.AuthorizerStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter AscendingOrder
-        /// <summary>
-        /// <para>
-        /// <para>Return the list of authorizers in ascending alphabetical order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -89,6 +75,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return at one time.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -258,9 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ListAuthorizers(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAuthorizersAsync(request);
-                return task.Result;
+                return client.ListAuthorizersAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 2)]
         public System.String Device { get; set; }
         #endregion
         
@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AttachVolume(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachVolumeAsync(request);
-                return task.Result;
+                return client.AttachVolumeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

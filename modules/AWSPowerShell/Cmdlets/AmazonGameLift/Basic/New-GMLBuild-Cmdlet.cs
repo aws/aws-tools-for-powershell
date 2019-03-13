@@ -35,21 +35,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// Game server binaries must be combined into a <code>.zip</code> file for use with Amazon
-    /// GameLift. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
-    /// Your Game</a> for more information. 
+    /// GameLift. 
     /// </para><important><para>
     /// To create new builds quickly and easily, use the AWS CLI command <b><a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a></b>. This helper command uploads your build and creates a new build record in one
-    /// step, and automatically handles the necessary permissions. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html">
-    /// Upload Build Files to Amazon GameLift</a> for more help.
+    /// step, and automatically handles the necessary permissions. 
     /// </para></important><para>
     /// The <code>CreateBuild</code> operation should be used only when you need to manually
     /// upload your build files, as in the following scenarios:
     /// </para><ul><li><para>
     /// Store a build file in an Amazon S3 bucket under your own AWS account. To use this
-    /// option, you must first give Amazon GameLift access to that Amazon S3 bucket. See <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
-    /// Create a Build with Files in Amazon S3</a> for detailed help. To create a new build
-    /// record using files in your Amazon S3 bucket, call <code>CreateBuild</code> and specify
-    /// a build name, operating system, and the storage location of your game build.
+    /// option, you must first give Amazon GameLift access to that Amazon S3 bucket. To create
+    /// a new build record using files in your Amazon S3 bucket, call <code>CreateBuild</code>
+    /// and specify a build name, operating system, and the storage location of your game
+    /// build.
     /// </para></li><li><para>
     /// Upload a build file directly to Amazon GameLift's Amazon S3 account. To use this option,
     /// you first call <code>CreateBuild</code> with a build name and operating system. This
@@ -62,7 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// places it in <code>INITIALIZED</code> status. You can use <a>DescribeBuild</a> to
     /// check the status of your build. A build must be in <code>READY</code> status before
     /// it can be used to create fleets.
-    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    /// </para><para><b>Learn more</b></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
+    /// Your Game</a></para><para><a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-cli-uploading.html#gamelift-build-cli-uploading-create-build">
+    /// Create a Build with Files in Amazon S3</a></para><para><b>Related operations</b></para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.CreateBuildResponse")]
@@ -285,9 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 #if DESKTOP
                 return client.CreateBuild(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateBuildAsync(request);
-                return task.Result;
+                return client.CreateBuildAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -41,6 +41,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class GetEC2SpotFleetInstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter SpotFleetRequestId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Spot Fleet request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String SpotFleetRequestId { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -69,16 +79,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
-        #endregion
-        
-        #region Parameter SpotFleetRequestId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the Spot Fleet request.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String SpotFleetRequestId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -213,9 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.DescribeSpotFleetInstances(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeSpotFleetInstancesAsync(request);
-                return task.Result;
+                return client.DescribeSpotFleetInstancesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// <para>
     /// The API server endpoint and certificate authority data returned by this operation
     /// are required for <code>kubelet</code> and <code>kubectl</code> to communicate with
-    /// your Kubernetes API server. For more information, see <a href="http://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
+    /// your Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create
     /// a kubeconfig for Amazon EKS</a>.
     /// </para><note><para>
     /// The API server endpoint and certificate authority data are not available until the
@@ -137,9 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 #if DESKTOP
                 return client.DescribeCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeClusterAsync(request);
-                return task.Result;
+                return client.DescribeClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

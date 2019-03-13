@@ -46,18 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTPolicyPrincipalListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter PageSize
+        #region Parameter AscendingOrder
         /// <summary>
         /// <para>
-        /// <para>The result page size.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <para>Specifies the order for results. If true, the results are returned in ascending creation
+        /// order.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int PageSize { get; set; }
+        public System.Boolean AscendingOrder { get; set; }
         #endregion
         
         #region Parameter PolicyName
@@ -68,17 +65,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String PolicyName { get; set; }
-        #endregion
-        
-        #region Parameter AscendingOrder
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the order for results. If true, the results are returned in ascending creation
-        /// order.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean AscendingOrder { get; set; }
         #endregion
         
         #region Parameter Marker
@@ -94,6 +80,20 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter PageSize
+        /// <summary>
+        /// <para>
+        /// <para>The result page size.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int PageSize { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -263,9 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.ListPolicyPrincipals(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListPolicyPrincipalsAsync(request);
-                return task.Result;
+                return client.ListPolicyPrincipalsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

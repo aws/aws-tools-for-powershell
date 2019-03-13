@@ -29,6 +29,11 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Creates a simulation job.
+    /// 
+    ///  <note><para>
+    /// After 90 days, simulation jobs expire and will be deleted. They will no longer be
+    /// accessible. 
+    /// </para></note>
     /// </summary>
     [Cmdlet("New", "ROBOSimulationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RoboMaker.Model.CreateSimulationJobResponse")]
@@ -287,9 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.CreateSimulationJob(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateSimulationJobAsync(request);
-                return task.Result;
+                return client.CreateSimulationJobAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

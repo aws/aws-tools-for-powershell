@@ -208,9 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.ListCustomVerificationEmailTemplates(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListCustomVerificationEmailTemplatesAsync(request);
-                return task.Result;
+                return client.ListCustomVerificationEmailTemplatesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

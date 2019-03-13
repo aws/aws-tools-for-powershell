@@ -71,12 +71,25 @@ namespace Amazon.PowerShell.Cmdlets.CP
         public System.Int32 MaxBatchSize { get; set; }
         #endregion
         
+        #region Parameter ActionTypeId_Owner
+        /// <summary>
+        /// <para>
+        /// <para>The creator of the action being called.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
+        public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }
+        #endregion
+        
         #region Parameter ActionTypeId_Provider
         /// <summary>
         /// <para>
         /// <para>The provider of the service being called by the action. Valid providers are determined
         /// by the action category. For example, an action in the Deploy category type might have
-        /// a provider of AWS CodeDeploy, which would be specified as CodeDeploy.</para>
+        /// a provider of AWS CodeDeploy, which would be specified as CodeDeploy. To reference
+        /// a list of action providers by action type, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#actions-valid-providers">Valid
+        /// Action Types and Providers in CodePipeline</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,17 +117,6 @@ namespace Amazon.PowerShell.Cmdlets.CP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ActionTypeId_Version { get; set; }
-        #endregion
-        
-        #region Parameter ActionTypeId_Owner
-        /// <summary>
-        /// <para>
-        /// <para>The creator of the action being called.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
-        public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -259,9 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
                 #if DESKTOP
                 return client.PollForJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PollForJobsAsync(request);
-                return task.Result;
+                return client.PollForJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -49,8 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// </para><para>
     /// After you create an Amazon EKS cluster, you must configure your Kubernetes tooling
     /// to communicate with the API server and launch worker nodes into your cluster. For
-    /// more information, see <a href="http://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
-    /// Cluster Authentication</a> and <a href="http://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
+    /// more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
+    /// Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
     /// Amazon EKS Worker Nodes</a>in the <i>Amazon EKS User Guide</i>.
     /// </para>
     /// </summary>
@@ -88,10 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         #region Parameter ResourcesVpcConfig
         /// <summary>
         /// <para>
-        /// <para>The VPC subnets and security groups used by the cluster control plane. Amazon EKS
-        /// VPC resources have specific requirements to work properly with Kubernetes. For more
-        /// information, see <a href="http://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster
-        /// VPC Considerations</a> and <a href="http://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster
+        /// <para>The VPC configuration used by the cluster control plane. Amazon EKS VPC resources
+        /// have specific requirements to work properly with Kubernetes. For more information,
+        /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">Cluster
+        /// VPC Considerations</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Cluster
         /// Security Group Considerations</a> in the <i>Amazon EKS User Guide</i>. You must specify
         /// at least two subnets. You may specify up to five security groups, but we recommend
         /// that you use a dedicated security group for your cluster control plane.</para>
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the IAM role that provides permissions for Amazon
         /// EKS to make calls to other AWS API operations on your behalf. For more information,
-        /// see <a href="http://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon
+        /// see <a href="https://docs.aws.amazon.com/eks/latest/userguide/service_IAM_role.html">Amazon
         /// EKS Service IAM Role</a> in the <i><i>Amazon EKS User Guide</i></i>.</para>
         /// </para>
         /// </summary>
@@ -237,9 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
                 #if DESKTOP
                 return client.CreateCluster(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateClusterAsync(request);
-                return task.Result;
+                return client.CreateClusterAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

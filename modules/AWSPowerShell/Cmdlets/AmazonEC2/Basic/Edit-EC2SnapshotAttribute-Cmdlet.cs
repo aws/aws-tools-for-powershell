@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CreateVolumePermission_Add
         /// <summary>
         /// <para>
-        /// <para>Adds a specific AWS account ID or group to a volume's list of create volume permissions.</para>
+        /// <para>Adds the specified AWS account ID or group to the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter CreateVolumePermission_Remove
         /// <summary>
         /// <para>
-        /// <para>Removes a specific AWS account ID or group from a volume's list of create volume permissions.</para>
+        /// <para>Removes the specified AWS account ID or group from the list.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -292,9 +292,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifySnapshotAttribute(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifySnapshotAttributeAsync(request);
-                return task.Result;
+                return client.ModifySnapshotAttributeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

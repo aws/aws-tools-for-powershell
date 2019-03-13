@@ -113,6 +113,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String String_Content { get; set; }
         #endregion
         
+        #region Parameter S3Location_ETag
+        /// <summary>
+        /// <para>
+        /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
+        /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
+        /// is skipped.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_S3Location_ETag")]
+        public System.String S3Location_ETag { get; set; }
+        #endregion
+        
         #region Parameter S3Location_Key
         /// <summary>
         /// <para>
@@ -180,19 +193,6 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("Revision_S3Location_Version")]
         public System.String S3Location_Version { get; set; }
-        #endregion
-        
-        #region Parameter S3Location_ETag
-        /// <summary>
-        /// <para>
-        /// <para>The ETag of the Amazon S3 object that represents the bundled artifacts for the application
-        /// revision.</para><para>If the ETag is not specified as an input parameter, ETag validation of the object
-        /// is skipped.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Revision_S3Location_ETag")]
-        public System.String S3Location_ETag { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -472,9 +472,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 #if DESKTOP
                 return client.GetApplicationRevision(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetApplicationRevisionAsync(request);
-                return task.Result;
+                return client.GetApplicationRevisionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
                 #if DESKTOP
                 return client.FlushStageAuthorizersCache(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.FlushStageAuthorizersCacheAsync(request);
-                return task.Result;
+                return client.FlushStageAuthorizersCacheAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

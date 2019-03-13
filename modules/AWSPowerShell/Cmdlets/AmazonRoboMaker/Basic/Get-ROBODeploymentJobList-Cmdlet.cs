@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
 {
     /// <summary>
     /// Returns a list of deployment jobs for a fleet. You can optionally provide filters
-    /// to retrieve specific deployment jobs.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// to retrieve specific deployment jobs. 
+    /// 
+    ///  <note><para></para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ROBODeploymentJobList")]
     [OutputType("Amazon.RoboMaker.Model.DeploymentJob")]
@@ -45,7 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters to limit results.</para>
+        /// <para>Optional filters to limit results.</para><para>The filter names <code>status</code> and <code>fleetName</code> are supported. When
+        /// filtering, you must use the complete value of the filtered item. You can use up to
+        /// three filters, but they must be for the same named item. For example, if you are looking
+        /// for items with the status <code>InProgress</code> or the status <code>Pending</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -255,9 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.ROBO
                 #if DESKTOP
                 return client.ListDeploymentJobs(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListDeploymentJobsAsync(request);
-                return task.Result;
+                return client.ListDeploymentJobsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

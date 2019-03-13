@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// Deletes the specified interconnect.
     /// 
     ///  <note><para>
-    /// Intended for use by AWS Direct Connect partners only.
+    /// Intended for use by AWS Direct Connect Partners only.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "DCInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -146,9 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.DeleteInterconnect(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteInterconnectAsync(request);
-                return task.Result;
+                return client.DeleteInterconnectAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// <summary>
     /// Creates an endpoint using the endpoint configuration specified in the request. Amazon
     /// SageMaker uses the endpoint to provision resources and deploy models. You create the
-    /// endpoint configuration with the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
+    /// endpoint configuration with the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>
     /// API. 
     /// 
     ///  <note><para>
@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// When Amazon SageMaker receives the request, it sets the endpoint status to <code>Creating</code>.
     /// After it creates the endpoint, it sets the status to <code>InService</code>. Amazon
     /// SageMaker can then process incoming requests for inferences. To check the status of
-    /// an endpoint, use the <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
+    /// an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_DescribeEndpoint.html">DescribeEndpoint</a>
     /// API.
     /// </para><para>
-    /// For an example, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html">Exercise
+    /// For an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/ex1.html">Exercise
     /// 1: Using the K-Means Algorithm Provided by Amazon SageMaker</a>. 
     /// </para><para>
     /// If any of the models hosted at this endpoint get model data from an Amazon S3 location,
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter EndpointConfigName
         /// <summary>
         /// <para>
-        /// <para>The name of an endpoint configuration. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.
+        /// <para>The name of an endpoint configuration. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateEndpointConfig.html">CreateEndpointConfig</a>.
         /// </para>
         /// </para>
         /// </summary>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>An array of key-value pairs. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
+        /// <para>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
         /// Cost Allocation Tags</a>in the <i>AWS Billing and Cost Management User Guide</i>.
         /// </para>
         /// </para>
@@ -209,9 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SM
                 #if DESKTOP
                 return client.CreateEndpoint(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateEndpointAsync(request);
-                return task.Result;
+                return client.CreateEndpointAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

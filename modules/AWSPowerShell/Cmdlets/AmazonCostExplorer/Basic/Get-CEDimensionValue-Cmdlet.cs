@@ -212,9 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 #if DESKTOP
                 return client.GetDimensionValues(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetDimensionValuesAsync(request);
-                return task.Result;
+                return client.GetDimensionValuesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

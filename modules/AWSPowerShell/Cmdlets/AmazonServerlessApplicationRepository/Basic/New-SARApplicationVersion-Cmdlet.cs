@@ -59,10 +59,22 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         public System.String SemanticVersion { get; set; }
         #endregion
         
+        #region Parameter SourceCodeArchiveUrl
+        /// <summary>
+        /// <para>
+        /// <para>A link to the S3 object that contains the ZIP archive of the source code for this
+        /// version of your application.</para><para>Maximum size 50 MB</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SourceCodeArchiveUrl { get; set; }
+        #endregion
+        
         #region Parameter SourceCodeUrl
         /// <summary>
         /// <para>
-        /// <para>A link to a public repository for the source code of your application.</para>
+        /// <para>A link to a public repository for the source code of your application, for example
+        /// the URL of a specific GitHub commit.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -120,6 +132,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             
             context.ApplicationId = this.ApplicationId;
             context.SemanticVersion = this.SemanticVersion;
+            context.SourceCodeArchiveUrl = this.SourceCodeArchiveUrl;
             context.SourceCodeUrl = this.SourceCodeUrl;
             context.TemplateBody = this.TemplateBody;
             context.TemplateUrl = this.TemplateUrl;
@@ -146,6 +159,10 @@ namespace Amazon.PowerShell.Cmdlets.SAR
             if (cmdletContext.SemanticVersion != null)
             {
                 request.SemanticVersion = cmdletContext.SemanticVersion;
+            }
+            if (cmdletContext.SourceCodeArchiveUrl != null)
+            {
+                request.SourceCodeArchiveUrl = cmdletContext.SourceCodeArchiveUrl;
             }
             if (cmdletContext.SourceCodeUrl != null)
             {
@@ -201,9 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
                 #if DESKTOP
                 return client.CreateApplicationVersion(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateApplicationVersionAsync(request);
-                return task.Result;
+                return client.CreateApplicationVersionAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
@@ -225,6 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SAR
         {
             public System.String ApplicationId { get; set; }
             public System.String SemanticVersion { get; set; }
+            public System.String SourceCodeArchiveUrl { get; set; }
             public System.String SourceCodeUrl { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateUrl { get; set; }

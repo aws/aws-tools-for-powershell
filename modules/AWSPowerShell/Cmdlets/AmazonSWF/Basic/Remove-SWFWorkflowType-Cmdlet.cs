@@ -231,9 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SWF
                 #if DESKTOP
                 return client.DeprecateWorkflowType(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeprecateWorkflowTypeAsync(request);
-                return task.Result;
+                return client.DeprecateWorkflowTypeAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -362,9 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.UpdateApplicationResourceLifecycle(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateApplicationResourceLifecycleAsync(request);
-                return task.Result;
+                return client.UpdateApplicationResourceLifecycleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

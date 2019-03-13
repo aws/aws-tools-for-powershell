@@ -179,9 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.UpdateConfigurationSetTrackingOptions(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateConfigurationSetTrackingOptionsAsync(request);
-                return task.Result;
+                return client.UpdateConfigurationSetTrackingOptionsAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The index of the device for the network interface attachment.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 2)]
         public System.Int32 DeviceIndex { get; set; }
         #endregion
         
@@ -173,9 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.AttachNetworkInterface(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AttachNetworkInterfaceAsync(request);
-                return task.Result;
+                return client.AttachNetworkInterfaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

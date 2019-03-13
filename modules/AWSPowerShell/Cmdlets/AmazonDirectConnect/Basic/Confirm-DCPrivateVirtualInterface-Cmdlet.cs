@@ -179,9 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 #if DESKTOP
                 return client.ConfirmPrivateVirtualInterface(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ConfirmPrivateVirtualInterfaceAsync(request);
-                return task.Result;
+                return client.ConfirmPrivateVirtualInterfaceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

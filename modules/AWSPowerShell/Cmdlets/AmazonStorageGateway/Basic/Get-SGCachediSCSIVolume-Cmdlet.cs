@@ -51,7 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter VolumeARNs
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An array of strings where each string represents the Amazon Resource Name (ARN) of
+        /// a cached volume. All of the specified cached volumes must from the same gateway. Use
+        /// <a>ListVolumes</a> to get volume ARNs for a gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -137,9 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DescribeCachediSCSIVolumes(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeCachediSCSIVolumesAsync(request);
-                return task.Result;
+                return client.DescribeCachediSCSIVolumesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <para>
     /// You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This
     /// API action enables you to delete a snapshot schedule for a volume. For more information,
-    /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html">Working
+    /// see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/WorkingWithSnapshots.html">Working
     /// with Snapshots</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify
     /// the volume by providing its Amazon Resource Name (ARN). This operation is only supported
     /// in stored and cached volume gateway types.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter VolumeARN
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The volume which snapshot schedule to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -155,9 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 #if DESKTOP
                 return client.DeleteSnapshotSchedule(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteSnapshotScheduleAsync(request);
-                return task.Result;
+                return client.DeleteSnapshotScheduleAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

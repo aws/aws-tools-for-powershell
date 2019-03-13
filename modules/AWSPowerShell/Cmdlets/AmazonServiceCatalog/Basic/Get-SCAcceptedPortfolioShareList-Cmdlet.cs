@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter PortfolioShareType
+        /// <summary>
+        /// <para>
+        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios shared by the master account of
+        /// your organization</para></li><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ServiceCatalog.PortfolioShareType")]
+        public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
+        #endregion
+        
         #region Parameter PageSize
         /// <summary>
         /// <para>
@@ -63,18 +75,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int PageSize { get; set; }
-        #endregion
-        
-        #region Parameter PortfolioShareType
-        /// <summary>
-        /// <para>
-        /// <para>The type of shared portfolios to list. The default is to list imported portfolios.</para><ul><li><para><code>AWS_ORGANIZATIONS</code> - List portfolios shared by the master account of
-        /// your organization</para></li><li><para><code>AWS_SERVICECATALOG</code> - List default portfolios</para></li><li><para><code>IMPORTED</code> - List imported portfolios</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.ServiceCatalog.PortfolioShareType")]
-        public Amazon.ServiceCatalog.PortfolioShareType PortfolioShareType { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -229,9 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
                 #if DESKTOP
                 return client.ListAcceptedPortfolioShares(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAcceptedPortfolioSharesAsync(request);
-                return task.Result;
+                return client.ListAcceptedPortfolioSharesAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

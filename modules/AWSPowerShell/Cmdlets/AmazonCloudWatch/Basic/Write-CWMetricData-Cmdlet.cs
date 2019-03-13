@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.
     /// </para><para>
     /// You can use up to 10 dimensions per metric to further clarify what data the metric
-    /// collects. Each dimension consists of a Name and Value pair. For more information about
-    /// specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
+    /// collects. For more information about specifying dimensions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
     /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para><para>
     /// Data points with time stamps from 24 hours ago or longer can take at least 48 hours
@@ -213,9 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
                 #if DESKTOP
                 return client.PutMetricData(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutMetricDataAsync(request);
-                return task.Result;
+                return client.PutMetricDataAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

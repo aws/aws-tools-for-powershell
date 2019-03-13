@@ -16,9 +16,6 @@
   "inputObjectMappingRules": [],
   "legacySettings": {
     "nounPrefix": "SG",
-    "positionalMemberNames": [
-      "GatewayARN"
-    ],
     "parameterEmitters": []
   },
   "netSdk": {
@@ -107,15 +104,9 @@
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -155,15 +146,9 @@
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DiskIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -201,15 +186,9 @@
         "confirmationMessageNoun": "TagsToResource",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -249,15 +228,9 @@
         "confirmationMessageNoun": "UploadBuffer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DiskIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -297,15 +270,9 @@
         "confirmationMessageNoun": "WorkingStorage",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DiskIds"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -322,7 +289,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "GatewayARN"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -343,15 +312,9 @@
         "confirmationMessageNoun": "Volume",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -389,15 +352,9 @@
         "confirmationMessageNoun": "Archival",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -435,15 +392,9 @@
         "confirmationMessageNoun": "Retrieval",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -470,7 +421,6 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "VolumeSizeInBytes",
           "SnapshotId",
           "TargetName",
           "NetworkInterfaceId",
@@ -496,15 +446,9 @@
         "confirmationMessageNoun": "CachediSCSIVolume",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -542,15 +486,9 @@
         "confirmationMessageNoun": "NFSFileShare",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -588,15 +526,9 @@
         "confirmationMessageNoun": "SMBFileShare",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -636,15 +568,9 @@
         "confirmationMessageNoun": "Snapshot",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -684,15 +610,9 @@
         "confirmationMessageNoun": "SnapshotFromVolumeRecoveryPoint",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -710,11 +630,9 @@
       "legacySettings": {
         "alias": "",
         "positionalParameters": [
-          "VolumeSizeInBytes",
           "SnapshotId",
           "TargetName",
-          "NetworkInterfaceId",
-          "ClientToken"
+          "NetworkInterfaceId"
         ],
         "disableMemoryStreamTypeRemap": "false"
       },
@@ -736,15 +654,9 @@
         "confirmationMessageNoun": "StorediSCSIVolume",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -791,15 +703,9 @@
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -839,15 +745,9 @@
         "confirmationMessageNoun": "TapeWithBarcode",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -887,15 +787,9 @@
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "BandwidthType"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -935,15 +829,9 @@
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InitiatorName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -981,15 +869,9 @@
         "confirmationMessageNoun": "FileShare",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileShareARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1027,15 +909,9 @@
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1073,15 +949,9 @@
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1119,15 +989,9 @@
         "confirmationMessageNoun": "Tape",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TapeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1165,15 +1029,9 @@
         "confirmationMessageNoun": "TapeArchive",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "TapeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1211,15 +1069,9 @@
         "confirmationMessageNoun": "Volume",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -1257,7 +1109,6 @@
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1298,7 +1149,6 @@
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1339,7 +1189,6 @@
         "confirmationMessageNoun": "CachediSCSIVolumes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1380,7 +1229,6 @@
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1421,7 +1269,6 @@
         "confirmationMessageNoun": "GatewayInformation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1462,7 +1309,6 @@
         "confirmationMessageNoun": "MaintenanceStartTime",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1503,7 +1349,6 @@
         "confirmationMessageNoun": "NFSFileShares",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1544,7 +1389,6 @@
         "confirmationMessageNoun": "SMBFileShares",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1585,7 +1429,6 @@
         "confirmationMessageNoun": "SMBSettings",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1626,7 +1469,6 @@
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1667,7 +1509,6 @@
         "confirmationMessageNoun": "StorediSCSIVolumes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1708,7 +1549,6 @@
         "confirmationMessageNoun": "TapeArchives",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1758,7 +1598,6 @@
         "confirmationMessageNoun": "TapeRecoveryPoints",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1806,7 +1645,6 @@
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1854,7 +1692,6 @@
         "confirmationMessageNoun": "UploadBuffer",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1897,7 +1734,6 @@
         "confirmationMessageNoun": "VTLDevices",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -1945,7 +1781,6 @@
         "confirmationMessageNoun": "WorkingStorage",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -1986,15 +1821,9 @@
         "confirmationMessageNoun": "Volume",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2032,15 +1861,9 @@
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2057,7 +1880,9 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "",
-        "positionalParameters": [],
+        "positionalParameters": [
+          "GatewayARN"
+        ],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -2078,15 +1903,9 @@
         "confirmationMessageNoun": "Domain",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "DomainName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2106,8 +1925,17 @@
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
-      "outputMetadataMembers": [],
-      "pagination": {},
+      "outputMetadataMembers": [
+        "Marker"
+      ],
+      "pagination": {
+        "excludedOperations": [],
+        "requestMember": "Marker",
+        "responseMember": "NextMarker",
+        "resultLimitMember": "Limit",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [
           "GatewayARN"
@@ -2124,13 +1952,12 @@
         "confirmationMessageNoun": "FileShares",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
           "excludedOperations": [],
           "requestMember": "Marker",
-          "responseMember": "Marker",
+          "responseMember": "NextMarker",
           "resultLimitMember": "Limit",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
@@ -2170,7 +1997,6 @@
         "confirmationMessageNoun": "Gateways",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2218,7 +2044,6 @@
         "confirmationMessageNoun": "LocalDisks",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2261,7 +2086,6 @@
         "confirmationMessageNoun": "ResourceTag",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2307,7 +2131,6 @@
         "confirmationMessageNoun": "Tapes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2334,9 +2157,7 @@
       "parameterCustomizations": [],
       "legacySettings": {
         "alias": "Get-SGVolumeInitiators",
-        "positionalParameters": [
-          "VolumeARN"
-        ],
+        "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
@@ -2357,7 +2178,6 @@
         "confirmationMessageNoun": "VolumeInitiators",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2398,7 +2218,6 @@
         "confirmationMessageNoun": "VolumeRecoveryPoints",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2441,7 +2260,6 @@
         "confirmationMessageNoun": "Volumes",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "Pattern2",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
@@ -2489,15 +2307,9 @@
         "confirmationMessageNoun": "WhenUploaded",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileShareARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2535,15 +2347,9 @@
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileShareARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2581,15 +2387,9 @@
         "confirmationMessageNoun": "TagsFromResource",
         "confirmImpactSetting": "High",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "ResourceARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2629,15 +2429,9 @@
         "confirmationMessageNoun": "Cache",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: GatewayARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2675,7 +2469,6 @@
         "confirmationMessageNoun": "TapeArchive",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2716,7 +2509,6 @@
         "confirmationMessageNoun": "TapeRecoveryPoint",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
@@ -2757,15 +2549,9 @@
         "confirmationMessageNoun": "LocalConsolePassword",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2803,15 +2589,9 @@
         "confirmationMessageNoun": "SMBGuestPassword",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2849,15 +2629,9 @@
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2895,15 +2669,9 @@
         "confirmationMessageNoun": "Gateway",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2944,15 +2712,9 @@
         "confirmationMessageNoun": "BandwidthRateLimit",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -2994,15 +2756,9 @@
         "confirmationMessageNoun": "ChapCredentials",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "InitiatorName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3043,15 +2799,9 @@
         "confirmationMessageNoun": "GatewayInformation",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayName"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3089,15 +2839,9 @@
         "confirmationMessageNoun": "GatewaySoftwareNow",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3139,15 +2883,9 @@
         "confirmationMessageNoun": "MaintenanceStartTime",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "GatewayARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3185,15 +2923,9 @@
         "confirmationMessageNoun": "NFSFileShare",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileShareARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3231,15 +2963,9 @@
         "confirmationMessageNoun": "SMBFileShare",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "FileShareARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3290,15 +3016,9 @@
         "confirmationMessageNoun": "SnapshotSchedule",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VolumeARN"
-        },
         "memoryStreamParameters": []
       }
     },
@@ -3338,15 +3058,9 @@
         "confirmationMessageNoun": "VTLDeviceType",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
-        "passThruSource": "Auto-assigned from pipeline parameter: VTLDeviceARN",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",
         "autoIterateSettings": {},
-        "supportsShouldProcessInspectionResult": {
-          "analysisMessage": "",
-          "status": "TargetFromConfig",
-          "targetParameterName": "VTLDeviceARN"
-        },
         "memoryStreamParameters": []
       }
     }

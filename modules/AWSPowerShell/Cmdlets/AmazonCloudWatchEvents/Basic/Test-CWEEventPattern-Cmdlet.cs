@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter EventPattern
         /// <summary>
         /// <para>
-        /// <para>The event pattern. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html">Events
+        /// <para>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html">Events
         /// and Event Patterns</a> in the <i>Amazon CloudWatch Events User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
                 #if DESKTOP
                 return client.TestEventPattern(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TestEventPatternAsync(request);
-                return task.Result;
+                return client.TestEventPatternAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

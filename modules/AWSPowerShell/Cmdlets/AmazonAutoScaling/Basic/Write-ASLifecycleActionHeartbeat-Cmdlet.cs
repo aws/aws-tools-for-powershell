@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// in a pending state.</b></para></li><li><para>
     /// If you finish before the timeout period ends, complete the lifecycle action.
     /// </para></li></ol><para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto
+    /// For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Auto
     /// Scaling Lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
@@ -223,9 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 #if DESKTOP
                 return client.RecordLifecycleActionHeartbeat(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RecordLifecycleActionHeartbeatAsync(request);
-                return task.Result;
+                return client.RecordLifecycleActionHeartbeatAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

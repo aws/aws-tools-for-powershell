@@ -78,16 +78,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.ExcessCapacityTerminationPolicy ExcessCapacityTerminationPolicy { get; set; }
         #endregion
         
-        #region Parameter TargetCapacity
-        /// <summary>
-        /// <para>
-        /// <para>The size of the fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 TargetCapacity { get; set; }
-        #endregion
-        
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
@@ -96,6 +86,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String SpotFleetRequestId { get; set; }
+        #endregion
+        
+        #region Parameter TargetCapacity
+        /// <summary>
+        /// <para>
+        /// <para>The size of the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 TargetCapacity { get; set; }
         #endregion
         
         #region Parameter Force
@@ -201,9 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.ModifySpotFleetRequest(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifySpotFleetRequestAsync(request);
-                return task.Result;
+                return client.ModifySpotFleetRequestAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

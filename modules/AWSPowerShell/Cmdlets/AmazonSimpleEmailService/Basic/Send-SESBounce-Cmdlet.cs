@@ -52,25 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.SES
     public partial class SendSESBounceCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter MessageDsn_ArrivalDate
-        /// <summary>
-        /// <para>
-        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
-        /// being marshalled correctly. Use ArrivalDateUtc instead. Setting either ArrivalDate
-        /// or ArrivalDateUtc results in both ArrivalDate and ArrivalDateUtc being assigned, the
-        /// latest assignment to either one of the two property is reflected in the value of both.
-        /// ArrivalDate is provided for backwards compatibility only and assigning a non-Utc DateTime
-        /// to it results in the wrong timestamp being passed to the service.</para><para>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC
-        /// 822</a> date-time format.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
-            "o the service, use MessageDsn_UtcArrivalDate instead.")]
-        public System.DateTime MessageDsn_ArrivalDate { get; set; }
-        #endregion
-        
         #region Parameter MessageDsn_UtcArrivalDate
         /// <summary>
         /// <para>
@@ -161,6 +142,25 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MessageDsn_ReportingMta { get; set; }
+        #endregion
+        
+        #region Parameter MessageDsn_ArrivalDate
+        /// <summary>
+        /// <para>
+        /// <para>This property is deprecated. Setting this property results in non-UTC DateTimes not
+        /// being marshalled correctly. Use ArrivalDateUtc instead. Setting either ArrivalDate
+        /// or ArrivalDateUtc results in both ArrivalDate and ArrivalDateUtc being assigned, the
+        /// latest assignment to either one of the two property is reflected in the value of both.
+        /// ArrivalDate is provided for backwards compatibility only and assigning a non-Utc DateTime
+        /// to it results in the wrong timestamp being passed to the service.</para><para>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC
+        /// 822</a> date-time format.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This parameter is deprecated and may result in the wrong timestamp being passed t" +
+            "o the service, use MessageDsn_UtcArrivalDate instead.")]
+        public System.DateTime MessageDsn_ArrivalDate { get; set; }
         #endregion
         
         #region Parameter Force
@@ -344,9 +344,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 #if DESKTOP
                 return client.SendBounce(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SendBounceAsync(request);
-                return task.Result;
+                return client.SendBounceAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

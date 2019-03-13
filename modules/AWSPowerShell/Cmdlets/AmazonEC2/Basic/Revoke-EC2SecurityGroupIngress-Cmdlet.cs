@@ -207,9 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 #if DESKTOP
                 return client.RevokeSecurityGroupIngress(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RevokeSecurityGroupIngressAsync(request);
-                return task.Result;
+                return client.RevokeSecurityGroupIngressAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

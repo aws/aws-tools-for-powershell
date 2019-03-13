@@ -61,18 +61,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String CertificatePem { get; set; }
         #endregion
         
-        #region Parameter SetAsActive
-        /// <summary>
-        /// <para>
-        /// <para>A boolean value that specifies if the CA certificate is set to active.</para>
-        /// </para>
-        /// <para>This parameter is deprecated.</para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [System.ObsoleteAttribute("This property is deprecated")]
-        public System.Boolean SetAsActive { get; set; }
-        #endregion
-        
         #region Parameter Status
         /// <summary>
         /// <para>
@@ -82,6 +70,18 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.IoT.CertificateStatus")]
         public Amazon.IoT.CertificateStatus Status { get; set; }
+        #endregion
+        
+        #region Parameter SetAsActive
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that specifies if the certificate is set to active.</para>
+        /// </para>
+        /// <para>This parameter is deprecated.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [System.ObsoleteAttribute("This property is deprecated")]
+        public System.Boolean SetAsActive { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
                 #if DESKTOP
                 return client.RegisterCertificate(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RegisterCertificateAsync(request);
-                return task.Result;
+                return client.RegisterCertificateAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

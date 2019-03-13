@@ -197,9 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CE
                 #if DESKTOP
                 return client.GetCostForecast(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetCostForecastAsync(request);
-                return task.Result;
+                return client.GetCostForecastAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif

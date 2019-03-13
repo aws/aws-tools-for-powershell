@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>Indicates whether the associated AWS resources should shut down when the environment
         /// is terminated:</para><ul><li><para><code>true</code>: The specified environment as well as the associated AWS resources,
         /// such as Auto Scaling group and LoadBalancer, are terminated.</para></li><li><para><code>false</code>: AWS Elastic Beanstalk resource management is removed from the
-        /// environment, but the AWS resources continue to operate.</para></li></ul><para> For more information, see the <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
+        /// environment, but the AWS resources continue to operate.</para></li></ul><para> For more information, see the <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/ug/">
         /// AWS Elastic Beanstalk User Guide. </a></para><para> Default: <code>true</code></para><para> Valid Values: <code>true</code> | <code>false</code></para>
         /// </para>
         /// </summary>
@@ -198,9 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 #if DESKTOP
                 return client.TerminateEnvironment(request);
                 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TerminateEnvironmentAsync(request);
-                return task.Result;
+                return client.TerminateEnvironmentAsync(request).GetAwaiter().GetResult();
                 #else
                         #error "Unknown build edition"
                 #endif
