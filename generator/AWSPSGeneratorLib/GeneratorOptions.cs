@@ -46,12 +46,6 @@ namespace AWSPowerShellGenerator
         public bool BreakOnNewOperations { get; set; } = false;
 
         /// <summary>
-        /// Optional log file used to contain results of the generator's
-        /// analysis of sdk operations and the settings it chose as a result.
-        /// </summary>
-        public string AnalysisLog { get; set; } = string.Empty;
-
-        /// <summary>
         /// The folder containing the SDK nupkg files.
         /// </summary>
         public string SdkNugetFolder { get; set; }
@@ -193,7 +187,6 @@ namespace AWSPowerShellGenerator
             Verbose = rhs.Verbose;
             CreateNewCmdlets = rhs.CreateNewCmdlets;
             BreakOnNewOperations = rhs.BreakOnNewOperations;
-            AnalysisLog = rhs.AnalysisLog;
             Services = rhs.Services;
             Tasks = rhs.Tasks;
             SdkNugetFolder = rhs.SdkNugetFolder;

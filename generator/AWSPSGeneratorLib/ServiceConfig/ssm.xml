@@ -315,7 +315,7 @@
         <ServiceOperation MethodName="ListInventoryEntries" Output="Response" Verb="Get" Noun="InventoryEntryList" PipelineParameter="InstanceId" NoPipelineParameter="false" MetadataProperties="NextToken">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListResourceComplianceSummaries" Output="DefaultSingleMember" Verb="Get" Noun="ResourceComplianceSummariesList" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="ListResourceComplianceSummaries" Output="DefaultSingleMember" Verb="Get" Noun="ResourceComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
             <AutoIterate ServicePageSize="100" />
         </ServiceOperation>

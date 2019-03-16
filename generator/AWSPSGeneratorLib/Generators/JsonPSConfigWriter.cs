@@ -363,7 +363,6 @@ namespace AWSPowerShellGenerator.Generators
                 WriteSimpleProperty("confirmationMessageNoun", analyzer.ConfirmationMessageNoun);
                 WriteSimpleProperty("confirmImpactSetting", analyzer.ConfirmImpactSetting.ToString());
                 WriteSimpleProperty("iterationPattern", analyzer.IterationPattern.ToString());
-                WriteSimpleProperty("passThruSource", analyzer.PassThruSource);
                 if (analyzer.RequiresPassThruGeneration)
                     WriteSimpleProperty("passThruTypeName", analyzer.PassThruTypeName);
                 else
@@ -371,24 +370,7 @@ namespace AWSPowerShellGenerator.Generators
                 WriteSimpleProperty("requiresPassThruGeneration", analyzer.RequiresPassThruGeneration.ToString().ToLower());
                 WritePaginationSettings("autoIterateSettings", analyzer.AutoIterateSettings);
 
-                WriteSupportsShouldProcessInspectionResult(analyzer.SupportsShouldProcessInspectionResult);
                 WriteStringListProperty("memoryStreamParameters", analyzer.MemoryStreamParameters);
-            _jsonWriter.WriteEndObject();
-        }
-
-        private void WriteSupportsShouldProcessInspectionResult(SupportsShouldProcessInspection supportsShouldProcessInspectionResult)
-        {
-            if (supportsShouldProcessInspectionResult == null)
-                return;
-
-            _jsonWriter.WritePropertyName("supportsShouldProcessInspectionResult");
-            _jsonWriter.WriteStartObject();
-                WriteSimpleProperty("analysisMessage", supportsShouldProcessInspectionResult.AnalysisMessage);
-                WriteSimpleProperty("status", supportsShouldProcessInspectionResult.Status.ToString());
-                WriteSimpleProperty("targetParameterName",
-                    supportsShouldProcessInspectionResult.TargetParameter == null
-                        ? ""
-                        : supportsShouldProcessInspectionResult.TargetParameter.Name);
             _jsonWriter.WriteEndObject();
         }
 

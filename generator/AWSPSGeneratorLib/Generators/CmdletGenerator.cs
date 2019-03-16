@@ -39,9 +39,10 @@ namespace AWSPowerShellGenerator.Generators
 
         public void Generate()
         {
+            Logger = new BasicLogger(Options.Verbose);
+
             try
             {
-                InitializeLoggers();
                 GenerateHelper();
             }
             catch (Exception e)
@@ -55,31 +56,6 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     Logger.Output(sw);
                     throw new Exception(sw.ToString());
-                }
-            }
-        }
-
-        protected virtual void InitializeLoggers()
-        {
-            Logger = new BasicLogger(Options.Verbose); 
-
-            if (!string.IsNullOrEmpty(Options.AnalysisLog))
-            {
-                try
-                {
-                    if (File.Exists(Options.AnalysisLog))
-                        File.Delete(Options.AnalysisLog);
-                    else
-                    {
-                        var path = Path.GetDirectoryName(Options.AnalysisLog);
-                        if (!string.IsNullOrEmpty(path) && !Directory.Exists(path))
-                            Directory.CreateDirectory(path);
-                    }
-                }
-                catch (IOException e)
-                {
-                    Logger.LogError(e, "Failed to create generation analysis log {0}", Options.AnalysisLog);
-                    Options.AnalysisLog = string.Empty;
                 }
             }
         }
@@ -198,21 +174,27 @@ namespace AWSPowerShellGenerator.Generators
         private readonly Dictionary<string, Dictionary<string, string>> _legacyAliases
             = new Dictionary<string, Dictionary<string, string>>(StringComparer.OrdinalIgnoreCase);
 
-        public void AddLegacyAlias(string serviceName, string cmdletName, string aliasName)
+        public void AddLegacyAlias(string cmdletName, string aliasName)
         {
             Dictionary<string, string> aliases;
-            if (_legacyAliases.ContainsKey(serviceName))
-                aliases = _legacyAliases[serviceName];
+            if (_legacyAliases.ContainsKey(CurrentModel.ServiceName))
+            {
+                aliases = _legacyAliases[CurrentModel.ServiceName];
+            }
             else
             {
                 aliases = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
-                _legacyAliases.Add(serviceName, aliases);
+                _legacyAliases.Add(CurrentModel.ServiceName, aliases);
             }
 
             if (aliases.ContainsKey(aliasName))
-                throw new ArgumentException(string.Format("Legacy alias '{0}' has been added already, mapped to '{1}' for service {2}", aliasName, cmdletName, serviceName));
-
-            aliases.Add(aliasName, cmdletName);
+            {
+                AnalysisError.DuplicatedLegacyAlias(CurrentModel, aliasName, cmdletName, aliases[aliasName]);
+            }
+            else
+            {
+                aliases.Add(aliasName, cmdletName);
+            }
         }
 
         /// <summary>
@@ -351,6 +333,8 @@ namespace AWSPowerShellGenerator.Generators
             LoadCoreSDKRuntimeMaterials();
             LoadSpecialServiceAssemblies();
 
+            CheckForServicePrefixDuplication();
+
             foreach (var configModel in ModelCollection.ConfigModels)
             {
                 Logger.Log();
@@ -361,28 +345,48 @@ namespace AWSPowerShellGenerator.Generators
                     // static helpers
                     CurrentModel = configModel;
 
-                    Logger.Log("=======================================================");
-                    Logger.Log("Processing service: {0}", CurrentModel.ServiceName);
-
-                    LoadCurrentService(CurrentModel);
-
-                    if (!Options.SkipCmdletGeneration)
+                    try
                     {
-                        GenerateClientAndCmdlets(CurrentModel);
-                        GenerateArgumentCompleters(CurrentModel);
-                        ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
+                        Logger.Log("=======================================================");
+                        Logger.Log("Processing service: {0}", CurrentModel.ServiceName);
 
-                        if (CurrentModel.ModelUpdated)
+                        LoadCurrentService(CurrentModel);
+
+                        if (!Options.SkipCmdletGeneration)
                         {
-                            // for browsing convenience re-order the operations in case this was an existing service we 
-                            // added new operations to
-                            CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
-                            CurrentModel.Serialize(configurationsFolder);
-                        }
+                            GenerateClientAndCmdlets();
+                            // if the service contains any hand-maintained cmdlets, scan them to update the
+                            // argument completers for any use of ConstantClass-derived types 
+                            ScanAdvancedCmdlets();
+                            GenerateArgumentCompleters();
+                            ProcessLegacyAliasesForCustomCmdlets();
 
-                        // always serialize the json format, so we have reliable test data to work
-                        // on in the new ps generator
-                        new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
+                            CheckForCmdletNameDuplication();
+
+                            if (CurrentModel.ModelUpdated)
+                            {
+                                // for browsing convenience re-order the operations in case this was an existing service we 
+                                // added new operations to
+                                CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
+                                CurrentModel.Serialize(configurationsFolder);
+                            }
+
+                            // always serialize the json format, so we have reliable test data to work
+                            // on in the new ps generator
+                            new JsonPSConfigWriter(configModel, Options.RootPath, Logger).Serialize();
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        AnalysisError.ExceptionWhileGeneratingForService(CurrentModel, e);
+                    }
+
+                    foreach (var error in CurrentModel.AnalysisErrors.Concat(
+                                          CurrentModel.ServiceOperationsList
+                                              .OrderBy(so => so.MethodName)
+                                              .SelectMany(operation => operation.AnalysisErrors)))
+                    {
+                        Logger.LogError(error.ToString());
                     }
                 }
                 else
@@ -412,12 +416,59 @@ namespace AWSPowerShellGenerator.Generators
                 {
                     sw.WriteLine(Aliases);
                 }
+
+                WriteConfigurationChanges();
             }
         }
 
-#endregion
+        #endregion
 
-#region Private client methods
+        #region Private client methods
+
+        private void WriteConfigurationChanges()
+        {
+            XmlReportWriter.SerializeReport(Options.RootPath, ModelCollection.ConfigModels);
+        }
+
+        private void CheckForServicePrefixDuplication()
+        {
+            //We count the distinct service namespaces because DDB has two clients but a single namespace.
+            var duplicatedPrefixes = ModelCollection.ConfigModels
+                .GroupBy(service => service.ServiceNounPrefix, StringComparer.InvariantCultureIgnoreCase)
+                .Where(group => group.Select(service => service.ServiceNamespace).Distinct().Count() > 1);
+
+            foreach (var group in duplicatedPrefixes)
+            {
+                foreach (var service in group)
+                {
+                    AnalysisError.DuplicatedServicePrefix(service, group);
+                }
+            }
+        }
+
+        private void CheckForCmdletNameDuplication()
+        {
+            var duplicatedCmdletNames = CurrentModel.ServiceOperationsList
+                .Where(operation => !operation.Exclude)
+                .GroupBy(operation => $"{operation.SelectedVerb}-{operation.SelectedNoun}", StringComparer.InvariantCultureIgnoreCase)
+                .Where(group => group.Count() > 1);
+
+            foreach (var group in duplicatedCmdletNames)
+            {
+                foreach (var operation in group)
+                {
+                    AnalysisError.DuplicatedCmdletName(CurrentModel, operation, group);
+                }
+            }
+
+            var advancedCmdletConflicts = CurrentModel.ServiceOperationsList
+                .Where(operation => CurrentModel.AdvancedCmdletNames.Contains($"{operation.SelectedVerb}-{operation.SelectedNoun}"));
+
+            foreach (var operation in advancedCmdletConflicts)
+            {
+                AnalysisError.AdvancedCmdletNameConflict(CurrentModel, operation);
+            }
+        }
 
         private void LoadCurrentService(ConfigModel configModel)
         {
@@ -430,9 +481,9 @@ namespace AWSPowerShellGenerator.Generators
             (CurrentServiceAssembly, CurrentServiceNDoc) = SourceArtifacts.Load(svcAssemblyBasename);
         }
 
-        private void GenerateClientAndCmdlets(ConfigModel configModel)
+        private void GenerateClientAndCmdlets()
         {
-            if (configModel.SkipCmdletGeneration)
+            if (CurrentModel.SkipCmdletGeneration)
             {
                 Logger.Log("...skipping cmdlet generation, ExcludeCmdletGeneration set true for service");
                 return;
@@ -440,7 +491,7 @@ namespace AWSPowerShellGenerator.Generators
 
             Logger.Log("...generating cmdlets against interface '{0}'", CurrentModel.ServiceClientInterface);
 
-            var clientInterfaceTypeName = string.Format("{0}.{1}", configModel.ServiceNamespace, configModel.ServiceClientInterface);
+            var clientInterfaceTypeName = string.Format("{0}.{1}", CurrentModel.ServiceNamespace, CurrentModel.ServiceClientInterface);
             var clientInterfaceType = CurrentServiceAssembly.GetType(clientInterfaceTypeName);
             if (clientInterfaceType == null)
             {
@@ -449,29 +500,36 @@ namespace AWSPowerShellGenerator.Generators
             }
 
             TempOutputDir = Path.Combine(Path.GetTempPath(), "PSCmdletGen");
-            SetupOutputDir(configModel.SourceGenerationFolder);
+            SetupOutputDir(CurrentModel.SourceGenerationFolder);
 
-            var clientCmdletFilePath = string.Format(@"{0}\ClientCmdlet.cs", configModel.SourceGenerationFolder);
+            var clientCmdletFilePath = string.Format(@"{0}\ClientCmdlet.cs", CurrentModel.SourceGenerationFolder);
             if (!File.Exists(Path.Combine(TempOutputDir, clientCmdletFilePath)))
             {
                 Logger.Log("Adding new client {0} to csproj file", clientCmdletFilePath);
                 AddToCreatedFiles(Path.Combine(@"Cmdlets\", clientCmdletFilePath));
             }
 
-            using (var sw = new StringWriter())
+            try
             {
-                // if the service has operations requiring anonymous access, we'll generate two clients
-                // one for regular authenticated calls and one using anonymous credentials
-                using (var writer = new IndentedTextWriter(sw))
+                using (var sw = new StringWriter())
                 {
-                    CmdletServiceClientWriter.Write(writer, 
-                                                    CurrentModel, 
-                                                    CurrentModel.ServiceName, 
-                                                    GetServiceVersion(configModel.ServiceNamespace, configModel.ServiceClient));
-                }
+                    // if the service has operations requiring anonymous access, we'll generate two clients
+                    // one for regular authenticated calls and one using anonymous credentials
+                    using (var writer = new IndentedTextWriter(sw))
+                    {
+                        CmdletServiceClientWriter.Write(writer,
+                                                        CurrentModel,
+                                                        CurrentModel.ServiceName,
+                                                        GetServiceVersion(CurrentModel.ServiceNamespace, CurrentModel.ServiceClient));
+                    }
 
-                var fileContents = sw.ToString();
-                File.WriteAllText(Path.Combine(TempOutputDir, clientCmdletFilePath), fileContents);
+                    var fileContents = sw.ToString();
+                    File.WriteAllText(Path.Combine(TempOutputDir, clientCmdletFilePath), fileContents);
+                }
+            }
+            catch (Exception e)
+            {
+                AnalysisError.ExceptionWhileWritingServiceClientCode(CurrentModel, e);
             }
 
             // process the methods in order to make debugging more convenient
@@ -480,49 +538,42 @@ namespace AWSPowerShellGenerator.Generators
             {
                 if (ShouldEmitMethod(method))
                 {
-                    CreateCmdlet(method, configModel);
+                    CreateCmdlet(method, CurrentModel);
+                    CurrentOperation.Processed = true;
                 }
                 else
                 {
-                    ServiceOperation so;
-                    if (configModel.ServiceOperations.TryGetValue(method.Name, out so))
+                    if (CurrentModel.ServiceOperations.TryGetValue(method.Name, out var so))
+                    {
                         so.Processed = true;
+                    }
                 }
             }
 
-            foreach (var so in configModel.ServiceOperationsList)
+            foreach (var operation in CurrentModel.ServiceOperationsList.Where(operation => !operation.Processed))
             {
-                if (!so.Processed)
-                {
-                    Logger.LogError("{0}: no SDK client method found for ServiceOperation {1}", configModel.ServiceName, so.MethodName);
-                }
+                AnalysisError.MissingSDKMethodForCmdletConfiguration(CurrentModel, operation);
             }
 
             // fuse the manually-declared custom aliases with the automatic set to go into awsaliases.ps1 
             // note that this file is deprecated and likely to get yanked as no-one uses it
-            foreach (var cmdletKey in configModel.CustomAliases.Keys)
+            foreach (var cmdletKey in CurrentModel.CustomAliases.Keys)
             {
-                AliasStore.Instance.AddAliases(cmdletKey, configModel.CustomAliases[cmdletKey]);
+                AliasStore.Instance.AddAliases(cmdletKey, CurrentModel.CustomAliases[cmdletKey]);
             }
 
-            var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
-            CopyGeneratedCmdlets(Path.Combine(TempOutputDir, configModel.SourceGenerationFolder), outputRoot);
+            var outputRoot = Path.Combine(CmdletsOutputPath, CurrentModel.SourceGenerationFolder);
+            CopyGeneratedCmdlets(Path.Combine(TempOutputDir, CurrentModel.SourceGenerationFolder), outputRoot);
         }
 
-        public void GenerateArgumentCompleters(ConfigModel configModel)
+        public void GenerateArgumentCompleters()
         {
             Logger.Log("...generating argument completers");
 
-            var outputRoot = Path.Combine(CmdletsOutputPath, configModel.SourceGenerationFolder);
-
-            // if the service contains any hand-maintained cmdlets, scan them to update the
-            // argument completers for any use of ConstantClass-derived types 
-            ScanAdvancedCmdlets(outputRoot);
-
             // emit argument completion scripts for constantclass-derived fake enums
-            var completionFunctions = GenerateArgumentCompleterScriptFunctions(configModel);
+            var completionFunctions = GenerateArgumentCompleterScriptFunctions(CurrentModel);
             if (!string.IsNullOrEmpty(completionFunctions))
-                AddArgumentCompletionScript(configModel.ServiceName, completionFunctions);
+                AddArgumentCompletionScript(CurrentModel.ServiceName, completionFunctions);
         }
 
         /// <summary>
@@ -530,11 +581,11 @@ namespace AWSPowerShellGenerator.Generators
         /// collection that eventually ends up in AWSPowerShellLegacyAliases.psm1
         /// </summary>
         /// <param name="configModel"></param>
-        public void ProcessLegacyAliasesForCustomCmdlets(ConfigModel configModel)
+        public void ProcessLegacyAliasesForCustomCmdlets()
         {
             Logger.Log("...checking for legacy aliases for custom cmdlets");
 
-            var legacyAliases = configModel.LegacyAliases;
+            var legacyAliases = CurrentModel.LegacyAliases;
             if (legacyAliases != null)
             {
                 foreach (var cmdletName in legacyAliases.Keys)
@@ -544,7 +595,7 @@ namespace AWSPowerShellGenerator.Generators
                     // a cmdlet enough times there is a use case for multiple entries :-)
                     foreach (var alias in aliases)
                     {
-                        AddLegacyAlias(configModel.ServiceName, cmdletName, alias);
+                        AddLegacyAlias(cmdletName, alias);
                     }
                 }
             }
@@ -701,8 +752,10 @@ namespace AWSPowerShellGenerator.Generators
         /// types so that we can add them to the argument completers.
         /// </summary>
         /// <param name="outputRoot">The root output folder for the service being generated.</param>
-        private void ScanAdvancedCmdlets(string outputRoot)
+        private void ScanAdvancedCmdlets()
         {
+            var outputRoot = Path.Combine(CmdletsOutputPath, CurrentModel.SourceGenerationFolder);
+
             var advancedCmdletsFolder = Path.Combine(outputRoot, "Advanced");
             if (!Directory.Exists(advancedCmdletsFolder))
                 return;
@@ -853,63 +906,47 @@ namespace AWSPowerShellGenerator.Generators
             // operation config
             var serviceOperation = configModel.ServiceOperations[methodName];
             CurrentOperation = serviceOperation;
-            CurrentOperation.Processed = true;
 
-            // capture the analyzer so we can serialize the config as json later
-            serviceOperation.Analyzer = new OperationAnalyzer(Options.AnalysisLog)
-            {
-                AllModels = ModelCollection,
-                CurrentModel = CurrentModel,
-                CurrentOperation = CurrentOperation,
-                Logger = Logger,
-                AssemblyDocumentation = CurrentServiceNDoc
-            };
-
-            serviceOperation.Analyzer.Analyze(this, method);
-
-            // set file name and location
-            var filePath = string.Format(@"{0}\Basic\{1}-{2}-Cmdlet.cs",
-                                         configModel.SourceGenerationFolder,
-                                         serviceOperation.SelectedVerb,
-                                         serviceOperation.SelectedNoun);
-            AddToCreatedFiles(Path.Combine(@"Cmdlets\", filePath));
-
-            using (var sw = new StringWriter())
-            {
-                using (var writer = new IndentedTextWriter(sw))
-                {
-                    WriteCmdlet(writer, serviceOperation.Analyzer);
-                }
-
-                var fileContents = sw.ToString();
-                File.WriteAllText(Path.Combine(TempOutputDir, filePath), fileContents);
-            }
-
-            AliasStore.Instance.AddAlias(string.Format("{0}-{1}", serviceOperation.SelectedVerb, serviceOperation.SelectedNoun),
-                                         string.Format("{0}-{1}", configModel.ServiceNounPrefix, methodName));
-
-            Logger.Log(">>>> Created cmdlet {0}-{1} for operation {2}",
-                       serviceOperation.SelectedVerb,
-                       serviceOperation.SelectedNoun,
-                       methodName);
-            Logger.Log();
-        }
-
-        /// <summary>
-        /// Generates the source code for a cmdlet following inspection of the service operation.
-        /// </summary>
-        /// <param name="writer"></param>
-        /// <param name="analyzer"></param>
-        private void WriteCmdlet(IndentedTextWriter writer, OperationAnalyzer analyzer)
-        {
             try
             {
-                var cmdletWriter = new CmdletSourceWriter(analyzer, analyzer.CurrentModel.ServiceName, Options);
-                cmdletWriter.Write(writer);
+                // capture the analyzer so we can serialize the config as json later
+                serviceOperation.Analyzer = new OperationAnalyzer(ModelCollection, CurrentModel, CurrentOperation, CurrentServiceNDoc);
+                serviceOperation.Analyzer.Analyze(this, method);
             }
             catch (Exception e)
             {
-                Logger.LogError($"{analyzer.CurrentModel.ServiceName}: Operation {analyzer.MethodName} error while generating cmdlet code", e);
+                AnalysisError.ExceptionWhileAnalyzingSDKLibrary(CurrentModel, CurrentOperation, e);
+            }
+
+            if (serviceOperation.AnalysisErrors.Count == 0)
+            {
+                // set file name and location
+                var filePath = string.Format(@"{0}\Basic\{1}-{2}-Cmdlet.cs",
+                                             configModel.SourceGenerationFolder,
+                                             serviceOperation.SelectedVerb,
+                                             serviceOperation.SelectedNoun);
+                AddToCreatedFiles(Path.Combine(@"Cmdlets\", filePath));
+
+                try
+                {
+                    using (var sw = new StringWriter())
+                    {
+                        using (var writer = new IndentedTextWriter(sw))
+                        {
+                            new CmdletSourceWriter(serviceOperation.Analyzer, Options).Write(writer);
+                        }
+
+                        var fileContents = sw.ToString();
+                        File.WriteAllText(Path.Combine(TempOutputDir, filePath), fileContents);
+                    }
+                }
+                catch (Exception e)
+                {
+                    AnalysisError.ExceptionWhileWritingCmdletCode(CurrentModel, CurrentOperation, e);
+                }
+
+                AliasStore.Instance.AddAlias(string.Format("{0}-{1}", serviceOperation.SelectedVerb, serviceOperation.SelectedNoun),
+                                             string.Format("{0}-{1}", configModel.ServiceNounPrefix, methodName));
             }
         }
 

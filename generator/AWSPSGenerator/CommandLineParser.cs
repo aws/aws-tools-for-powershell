@@ -197,14 +197,6 @@ namespace AWSPowerShellGenerator
             },
             new ArgDeclaration
             {
-                OptionName = "analysislog",
-                ShortName = "al",
-                HasValue = true,
-                Parse = (arguments, argValue) => arguments.ParsedOptions.AnalysisLog = argValue,
-                HelpText = "Folder and filename of the optional log file to hold analysis results from the generator."
-            },
-            new ArgDeclaration
-            {
                 OptionName = "createnewcmdlets",
                 ShortName = "cnc",
                 HasValue = true,

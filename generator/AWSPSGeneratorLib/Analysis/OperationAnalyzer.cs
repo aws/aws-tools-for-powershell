@@ -33,12 +33,24 @@ namespace AWSPowerShellGenerator.Analysis
     /// </remarks>
     internal class OperationAnalyzer
     {
+        private static readonly HashSet<string> reservedParameterNames = new HashSet<string>(new string[] {
+                //From AWSRegionArguments and AWSCommonArguments
+                "Region", "RegionToCall", "ProfileLocation", "AWSProfilesLocation", "ProfilesLocation", "AccessKey", "AK", "SecretKey", "SK", "SecretAccessKey", "SessionToken",
+                "ST", "ProfileName", "StoredCredentials", "AWSProfileName", "ProfileLocation", "Credential", "NetworkCredential",
+                //From AnonymousServiceCmdlet
+                "EndpointUrl",
+                //Common Powershell parameters
+                "PassThru", "Force",
+                //https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_commonparameters
+                "Debug", "db", "ErrorAction", "ea", "ErrorVariable", "ev", "InformationAction", "infa", "InformationVariable", "iv", "OutVariable", "ov", "OutBuffer", "ob",
+                "PipelineVariable", "pv", "Verbose", "vb", "WarningAction", "wa", "WarningVariable", "wv", "WhatIf", "wi", "Confirm", "cf" },
+            StringComparer.OrdinalIgnoreCase);
+
         #region Construction-time properties
 
         public ConfigModelCollection AllModels { get; set; }
         public ConfigModel CurrentModel { get; set; }
         public ServiceOperation CurrentOperation { get; set; }
-        public BasicLogger Logger { get; set; }
         public XmlDocument AssemblyDocumentation { get; set; }
 
         #endregion
@@ -80,6 +92,50 @@ namespace AWSPowerShellGenerator.Analysis
 
                 return MemoryStreamParameters != null && MemoryStreamParameters.Any();
             }
+        }
+
+        public HashSet<string> GetAllParameterAliases(SimplePropertyInfo property)
+        {
+            var aliases = new HashSet<string>();
+
+            // global aliasing; mainly for usability
+            if (CurrentModel.CustomParameters.ContainsKey(property.AnalyzedName))
+            {
+                var globalAliases = CurrentModel.CustomParameters[property.AnalyzedName].Aliases;
+                foreach (var a in globalAliases)
+                {
+                    aliases.Add(a);
+                }
+            }
+
+            // operation-specific aliasing; mainly used to maintain compat between sdk versions
+            // and backwards compat due to auto-name shortening/singularization
+            if (property.Customization != null)
+            {
+                // these aliases come from config entries on a ServiceOperation in the 
+                // config or are applied automatically during name inspection
+                var propAliases = property.Customization.Aliases;
+                foreach (var a in propAliases)
+                {
+                    aliases.Add(a);
+                }
+
+                if (property.Customization.AutoApplyAlias && property.CmdletParameterName != property.AnalyzedName)
+                {
+                    aliases.Add(property.AnalyzedName);
+                }
+            }
+
+            // apply a cross-service alias if it's an iteration parameter?
+            var autoIteration = AutoIterateSettings;
+            if (autoIteration != null)
+            {
+                var iterAlias = autoIteration.GetIterationParameterAlias(property.AnalyzedName);
+                if (!string.IsNullOrEmpty(iterAlias))
+                    aliases.Add(iterAlias);
+            }
+
+            return aliases;
         }
 
         /// <summary>
@@ -192,18 +248,6 @@ namespace AWSPowerShellGenerator.Analysis
         public AnalyzedResult AnalyzedResult { get; private set; }
 
         /// <summary>
-        /// The results of the analysis to determine if the cmdlet should be
-        /// annotated with the 'SupportsShouldProcess' attribute.
-        /// </summary>
-        public SupportsShouldProcessInspection SupportsShouldProcessInspectionResult { get; private set; }
-
-        /// <summary>
-        /// Currently an advisory message in the analysis log telling us that the
-        /// pipeline-by-value parameter could be exposed as an array type.
-        /// </summary>
-        public string PromotePipelineParameterToCollection { get; set; }
-
-        /// <summary>
         /// True if the cmdlet has no output but has a parameter that can be piped in; this
         /// can be echoed to the pipeline if the user supplies the -PassThru switch.
         /// </summary>
@@ -214,12 +258,6 @@ namespace AWSPowerShellGenerator.Analysis
                 return CurrentOperation.PassThru != null || AnalyzedResult.PassThruParameter != null;
             }                
         }
-
-        /// <summary>
-        /// Simple analysis log message indicating whether the pass thru value was set automatically
-        /// or via a configuration file override.
-        /// </summary>
-        public string PassThruSource { get; set; }
 
         /// <summary>
         /// Helper to return the type of the data that will be sent if the user adds the -PassThru
@@ -275,7 +313,7 @@ namespace AWSPowerShellGenerator.Analysis
                     }
                     else
                     {
-                        Logger.LogError("{0} - PassThruTypeName helper unable to determine parameter to reference from expression {1}", CurrentOperation.MethodName, expression);
+                        AnalysisError.InvalidPassThruConfiguration(CurrentModel, CurrentOperation);
                     }
                 }
                 else
@@ -285,27 +323,43 @@ namespace AWSPowerShellGenerator.Analysis
 
                 if (passThruParameter == null)
                 {
-                    Logger.LogError("{0} - PassThru indicated for operation but cannot find parameter or PassThruOverride expression to determine type.", CurrentOperation.MethodName);
+                    AnalysisError.InvalidPassThruConfiguration(CurrentModel, CurrentOperation);
                 }
 
                 switch (passThruParameter.CollectionType)
                 {
                     case SimplePropertyInfo.PropertyCollectionType.NoCollection:
-                        return passThruParameter.PropertyType.FullName;
+                        return FormatTypeName(passThruParameter.PropertyType);
 
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericList:
-                        return passThruParameter.PropertyType.GetGenericArguments()[0].FullName;
+                        return FormatTypeName(passThruParameter.PropertyType.GetGenericArguments()[0]);
 
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary:
-                        return passThruParameter.PropertyType.FullName;
+                        return FormatTypeName(passThruParameter.PropertyType);
 
                     default:
-                        Logger.LogError("{0} - PassThru indicated for operation but collection types of ListOfGenericList and ListOfGenericDictionary are not supported", CurrentOperation.MethodName);
+                        AnalysisError.InvalidPassThruType(CurrentModel, CurrentOperation, passThruParameter.CollectionType);
                         break;
                 }
 
                 return string.Empty;
             }
+        }
+
+        public static string FormatTypeName(Type type)
+        {
+            if (type.IsArray)
+            {
+                return $"{FormatTypeName(type.GetElementType())}[]";
+            }
+            else if (type.IsGenericType)
+            {
+                string typeName = type.FullName.Remove(type.FullName.IndexOf('`'));
+                string genericArguments = string.Join(", ", type.GetGenericArguments().Select(genericArgument => FormatTypeName(genericArgument)));
+                return $"{typeName}<{genericArguments}>";
+            }
+
+            return type.FullName;
         }
 
         /// <summary>
@@ -376,11 +430,17 @@ namespace AWSPowerShellGenerator.Analysis
         /// If the value for a key is empty, we do not alter the fragment otherwise
         /// we replace the fragment with a new value.
         /// </summary>
-        private readonly Dictionary<string, string> _manualFragmentRenames = new Dictionary<string, string>()
+        private readonly Dictionary<string, string> _manualFragmentRenames = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
             { "Data", null },           // pluralization turns it to 'Datum'
-            { "Cookies", "Cookie" },    // pluralization service yields 'Cooky' 
+            { "Efs", null },
+            { "Information", null },
             { "Iops", null },           // pluralization yields Iop
+            { "Media", null },
+            { "Nfs", null },
+            { "Status", null },
+
+            { "Cookies", "Cookie" },    // pluralization service yields 'Cooky' 
         };
 
         /// <summary>
@@ -416,12 +476,6 @@ namespace AWSPowerShellGenerator.Analysis
         };
 
         /// <summary>
-        /// Path and name of the log file to which anlysis results for this method will be 
-        /// appended.
-        /// </summary>
-        private string AnalysisLogfile { get; set; }
-
-        /// <summary>
         /// The set of PowerShell approved verbs we can select from.
         /// </summary>
         private static readonly HashSet<string> ApprovedVerbs = GetApprovedVerbs();
@@ -433,14 +487,16 @@ namespace AWSPowerShellGenerator.Analysis
 
         public MethodInfo Method { get; private set; }
 
-        public OperationAnalyzer(string analysisLog)
+        public OperationAnalyzer(ConfigModelCollection allModels, ConfigModel currentModel, ServiceOperation currentOperation, XmlDocument assemblyDocumentation)
         {
             // Doesn't appear to be a costly operation, so init per instance for now. Invariant
             // culture is not supported (yields exception).
             Pluralization = PluralizationService.CreateService(new CultureInfo("en-US"));
 
-            AnalysisLogfile = analysisLog;
-            SupportsShouldProcessInspectionResult = null;
+            AllModels = allModels;
+            CurrentModel = currentModel;
+            CurrentOperation = currentOperation;
+            AssemblyDocumentation = assemblyDocumentation;
         }
 
         /// <summary>
@@ -475,33 +531,23 @@ namespace AWSPowerShellGenerator.Analysis
                 }
                 else
                 {
-                    Logger.LogError("OutputWrapper configured for '{0}' but member property not found in SDK response type.", CurrentOperation.OutputWrapper);
+                    AnalysisError.MissingOutputWrapperProperty(CurrentModel, CurrentOperation, CurrentOperation.OutputWrapper);
                     return;
                 }
             }
 
-            // determine cmdlet verb/noun based on inspection or config directions
-            if (!DetermineVerbAndNoun(generator))
-            {
-                Logger.LogError("Cannot determine verb-noun values for method " + CurrentOperation.MethodName);
-                return;
-            }
-
+            DetermineVerbAndNoun(generator);
             DetermineParameters(generator);
             DeterminePipelineParameter(generator);
             DetermineSupportsShouldProcessRequirement(generator);
             DetermineResult(generator);
             DeterminePassThruRequirement(generator);
-            TestForCollectablePipelineParameter(generator);
 
             if (!string.IsNullOrEmpty(CurrentOperation.LegacyAlias))
             {
-                generator.AddLegacyAlias(CurrentModel.ServiceName,
-                                         string.Format("{0}-{1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun),
+                generator.AddLegacyAlias(string.Format("{0}-{1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun),
                                          CurrentOperation.LegacyAlias);
             }
-
-            LogAnalysisResults();
         }
 
         /// <summary>
@@ -858,11 +904,7 @@ namespace AWSPowerShellGenerator.Analysis
             string noun = null;
 
             string verb;
-            if (AllModels.OperationNameMappings.TryGetValue(methodName, out verb))
-            {
-                Logger.Log("Replaced SDK operation name [{0}] with Global PS cmdlet name [{1}]", methodName, verb);
-            }
-            else
+            if (!AllModels.OperationNameMappings.TryGetValue(methodName, out verb))
             {
                 verb = methodName;
             }
@@ -875,11 +917,6 @@ namespace AWSPowerShellGenerator.Analysis
                     verb = verb.Substring(0, i);
                     break;
                 }
-            }
-
-            if (CurrentOperation.IsAutoConfiguring && string.IsNullOrEmpty(noun))
-            {
-                Logger.LogError("{0}: method name {1} cannot be split into verb-noun automatically", CurrentModel.ServiceName, methodName);
             }
 
             // save the noun part of the split method name so we can potentially use it for the 'operation'
@@ -900,6 +937,11 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!string.IsNullOrEmpty(CurrentOperation.RequestedNoun))
             {
+                if (!CheckNounIsSingular(CurrentOperation.RequestedNoun))
+                {
+                    AnalysisError.ConfiguredNounIsPlural(CurrentModel, CurrentOperation);
+                }
+
                 noun = CurrentOperation.RequestedNoun;
             }
             else if (CurrentOperation.IsAutoConfiguring)
@@ -909,7 +951,7 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (verb.Length <= 2 || string.IsNullOrEmpty(noun))
             {
-                return false;
+                AnalysisError.CannotDetermineVerbAndNoun(CurrentModel, CurrentOperation);
             }
 
             var nounWithPrefix = noun;
@@ -934,7 +976,7 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!ApprovedVerbs.Contains(verb))
             {
-                Logger.LogError("{0}: Unapproved verb [{1}] for operation [{2}]", CurrentModel.ServiceName, verb, CurrentOperation.MethodName);
+                AnalysisError.UnapprovedVerb(CurrentModel, CurrentOperation, verb);
             }
 
             CurrentOperation.SelectedVerb = verb;
@@ -944,8 +986,7 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 if (!CurrentOperation.IsAutoConfiguring)
                 {
-                    Logger.LogError("{0}: Operation {1} noun and verb configuration must be updated. Existing value is {2}-{3}, suggested value is {4}-{5}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                        CurrentOperation.RequestedVerb, CurrentOperation.RequestedNoun, verb, noun);
+                    AnalysisError.MustUpdateVerbAndNoun(CurrentModel, CurrentOperation, verb, noun);
                 }
 
                 CurrentOperation.RequestedVerb = verb;
@@ -956,51 +997,26 @@ namespace AWSPowerShellGenerator.Analysis
 
         // Called when auto-assigning a noun an operation. Returns the singularized noun
         // (singularizing the last portion only) or null if no change is needed.
-        private string CheckForPluralNoun(string noun)
+        private string SingularizeNoun(string noun)
         {
             var nounArray = Regex.Split(noun, @"(?<!^)(?=[A-Z])");
             var nounTermination = nounArray[nounArray.Length - 1];
             // service yields some nounds as plural but they are not for cmdlet name purposes
-            var pluralFalsePositives = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
-            {
-                "data",
-                "information",
-                "status",
-                "media"
-            };
 
-            if (Pluralization.IsPlural(nounTermination) && !pluralFalsePositives.Contains(nounTermination))
+            var singularizedNounTermination = SingularizeTerm(nounTermination);
+
+            if (nounTermination != singularizedNounTermination)
             {
                 var suggestedNoun = new StringBuilder();
                 for (var i = 0; i < nounArray.Length - 1; i++)
                 {
                     suggestedNoun.Append(nounArray[i]);
                 }
-                suggestedNoun.Append(Pluralization.Singularize(nounTermination));
-
-                if (CurrentOperation.IsAutoConfiguring)
-                {
-                    // be explicit in the config so it can be reviewed, even if we're not 
-                    // auto-configuring the operation as a whole. Don't error here
-                    // as we're assuming someone will review.
-                    Logger.Log("{0}: Plural noun for auto-generated ServiceOperation {1} set to {2}", 
-                               CurrentModel.ServiceName, 
-                               CurrentOperation.MethodName, 
-                               suggestedNoun);
-                }
-                else
-                {
-                    // found plural noun that hasn't been manually configured, so error it
-                    Logger.LogError("{0}: Plural noun [{1}] in operation [{2}]. Suggest noun rename to [{3}].",
-                        CurrentModel.ServiceName,
-                        noun.Substring(CurrentModel.ServiceNounPrefix.Length),
-                        CurrentOperation.MethodName,
-                        suggestedNoun);
-                }
+                suggestedNoun.Append(singularizedNounTermination);
                 return suggestedNoun.ToString();
             }
 
-            return null;
+            return noun;
         }
 
         /// <summary>
@@ -1015,30 +1031,61 @@ namespace AWSPowerShellGenerator.Analysis
             var allProperties = GetFlatProperties(RequestType).ToList();
 
             // remove excluded properties, if any, from the flattened set
-            var nonExcludedProperties
-                = allProperties.Where(prop => !IsExcludedParameter(prop.AnalyzedName, CurrentModel, CurrentOperation)).ToList();
-            if (allProperties.Count > nonExcludedProperties.Count)
-            {
-                Console.WriteLine("Properties being removed, service = {0}, op = {1}",
-                                    CurrentModel.ServiceNounPrefix,
-                                    CurrentOperation.MethodName);
-                allProperties = nonExcludedProperties;
-            }
-
-            // the remainder will now be the cmdlet parameters, on which we will detect autoiteration
-            // and do some name shortening/singularization
-            AnalyzedParameters = new List<SimplePropertyInfo>(allProperties);
+            AnalyzedParameters = allProperties
+                .Where(prop => !IsExcludedParameter(prop.AnalyzedName, CurrentModel, CurrentOperation))
+                .ToList();
 
             FixPaginationParameters();
 
             FinalizeParameterNames();
-            
+
+            ValidateParameterNamesDuplications();
+
             // also gather the internal root (non-flattened) properties -- these are what the
             // cmdlet will bind the parameters to in the executor
             var rootProperties = GetRootSimpleProperties(RequestType)
                                     .Where(simpleProperty => !IsExcludedParameter(simpleProperty.AnalyzedName, CurrentModel, CurrentOperation))
                                     .ToList();
             RequestProperties = new List<SimplePropertyInfo>(rootProperties);
+        }
+
+        private void ValidateParameterNamesDuplications()
+        {
+            var allParametersNames = AnalyzedParameters.Select(parameter => parameter.CmdletParameterName);
+            var groupedParameterNames = allParametersNames.GroupBy(parameter => parameter, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (groupedParameterNames.Any(parameter => parameter.Count() > 1))
+            {
+                AnalysisError.DuplicatedParameterNames(CurrentModel, CurrentOperation,
+                    groupedParameterNames.Where(parameter => parameter.Count() > 1).Select(parameter => parameter.Key));
+                allParametersNames = groupedParameterNames.Select(parameter => parameter.Key).ToArray();
+            }
+
+            var allAliases = AnalyzedParameters.SelectMany(parameter => GetAllParameterAliases(parameter)).ToArray();
+            var groupedAliases = allAliases.GroupBy(alias => alias, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (groupedAliases.Any(alias => alias.Count() > 1))
+            {
+                AnalysisError.DuplicatedAliasNames(CurrentModel, CurrentOperation,
+                    groupedAliases.Where(parameter => parameter.Count() > 1).Select(parameter => parameter.Key));
+                allAliases = groupedAliases.Select(alias => alias.Key).ToArray();
+            }
+
+            var invalidParameters = allParametersNames.Intersect(reservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (invalidParameters.Any())
+            {
+                AnalysisError.ReservedParameterNames(CurrentModel, CurrentOperation, invalidParameters);
+            }
+
+            var invalidAliases = allAliases.Intersect(reservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (invalidAliases.Any())
+            {
+                AnalysisError.ReservedAliasNames(CurrentModel, CurrentOperation, invalidAliases);
+            }
+
+            var aliasParameterConflicts = allParametersNames.Intersect(allAliases, StringComparer.OrdinalIgnoreCase).ToArray();
+            if (aliasParameterConflicts.Any())
+            {
+                AnalysisError.AliasParameterConflicts(CurrentModel, CurrentOperation, aliasParameterConflicts);
+            }
         }
 
         /// <summary>
@@ -1080,25 +1127,26 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 if (!NonIterationParameters.Any(param => param.AnalyzedName == CurrentOperation.PipelineParameter))
                 {
-                    Logger.LogError("{0}: Operation {1} invalid pipeline configuration {2}. Possible parameters are {3}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                        CurrentOperation.PipelineParameter, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
+                    AnalysisError.InvalidPipelineConfiguration(CurrentModel, CurrentOperation,
+                        CurrentOperation.PipelineParameter, NonIterationParameters);
                 }
             }
             else
             {
+                var candidateParameters = SelectPreferredCandidateParameters(NonIterationParameters);
+
                 string pipelineParam = null;
                 if (!string.IsNullOrEmpty(CurrentModel.PipelineParameter) && NonIterationParameters.Any(param => param.AnalyzedName == CurrentModel.PipelineParameter))
                 {
                     pipelineParam = CurrentModel.PipelineParameter;
                 }
-                else if (NonIterationParameters.Count() == 1)
+                else if (candidateParameters.Count == 1)
                 {
-                    pipelineParam = NonIterationParameters.First().AnalyzedName;
+                    pipelineParam = candidateParameters.First().AnalyzedName;
                 }
                 else
                 {
-                    Logger.LogError("{0}: Operation {1} has more than one parameter but no pipeline parameter configuration was found. Possible parameters are {2}.",
-                        CurrentModel.ServiceName, CurrentOperation.MethodName, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
+                    AnalysisError.MissingPipelineConfiguration(CurrentModel, CurrentOperation, candidateParameters);
                     return;
                 }
 
@@ -1108,9 +1156,17 @@ namespace AWSPowerShellGenerator.Analysis
                 }
                 else
                 {
-                    Logger.LogError("{0}: Operation {1} pipeline configuration must be updated. Suggested value is {2}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                        pipelineParam);
+                    AnalysisError.OutdatedPipelineConfiguration(CurrentModel, CurrentOperation, pipelineParam);
                 }
+            }
+        }
+
+        public bool RequiresShouldProcessPromt
+        {
+            get
+            {
+                return !_supportsShouldProcessVerbSuppressions.Contains(CurrentOperation.SelectedVerb) &&
+                       !CurrentOperation.IgnoreSupportsShouldProcess;
             }
         }
 
@@ -1125,51 +1181,27 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DetermineSupportsShouldProcessRequirement(CmdletGenerator generator)
         {
-            if (_supportsShouldProcessVerbSuppressions.Contains(CurrentOperation.SelectedVerb) ||
-                CurrentOperation.IgnoreSupportsShouldProcess)
+            if (!RequiresShouldProcessPromt ||
+                CurrentOperation.AnonymousShouldProcessTarget)
             {
+                if (!string.IsNullOrEmpty(CurrentOperation.ShouldProcessTarget))
+                {
+                    AnalysisError.ShouldProcessTargetMustBeEmpty(CurrentModel, CurrentOperation);
+                }
+
                 return;
             }
 
-            if (CurrentOperation.AnonymousShouldProcessTarget)
-            {
-                // this means no parameter is suitable so we should proceed as if the cmdlet had
-                // no parameters and prompt based on just the operation
-                SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                {
-                    Status = SupportsShouldProcessInspection.InspectionStatus.AnonymousTarget,
-                    AnalysisMessage = "AnonymousShouldProcessTarget specified in config"
-                };
-            }
-            else if (!string.IsNullOrEmpty(CurrentOperation.ShouldProcessTarget))
+            if (!string.IsNullOrEmpty(CurrentOperation.ShouldProcessTarget))
             {
                 // the config specifies the parameter to use as the target then obey
                 var target = NonIterationParameters.SingleOrDefault(parameter => parameter.AnalyzedName == CurrentOperation.ShouldProcessTarget);
-                if (target != null)
+                if (target == null)
                 {
-                    SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                    {
-                        Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromConfig,
-                        TargetParameter = target
-                    };
-                }
-                else
-                {
-                    Logger.LogError("{0}: Operation {1} invalid should process configuration {2}. Possible parameters are {3}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                        CurrentOperation.ShouldProcessTarget, string.Join(",", NonIterationParameters.Select(param => param.AnalyzedName)));
+                    AnalysisError.InvalidShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, NonIterationParameters);
                 }
             }
-            else if (NonIterationParameters.Count() == 0)
-            {
-                // the cmdlet has no parameters, we have an 'anonymous' target and will only
-                // prompt the user to show the operation to be performed
-                SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                {
-                    Status = SupportsShouldProcessInspection.InspectionStatus.AnonymousTarget,
-                    AnalysisMessage = "No parameters, setting anonymous target",
-                };
-            }
-            else
+            else if (NonIterationParameters.Any())
             {
                 //we are supposed to have a target parameter but it is not configured
                 DetermineSupportsShouldProcessParameter();
@@ -1181,48 +1213,30 @@ namespace AWSPowerShellGenerator.Analysis
             // otherwise attempt auto-discovery based on parameter name suffixes - note
             // that we use the finalized names of the parameters here, since PowerShell
             // will introspect on them.
-            var potentialTargets = new List<SimplePropertyInfo>();
-            foreach (var suffix in _supportsShouldProcessParameterSuffixes)
-            {
-                potentialTargets.AddRange(from parameter in NonIterationParameters
-                                          where parameter.CmdletParameterName.EndsWith(suffix)
-                                          select parameter);
-            }
+            var potentialTargets = SelectPreferredCandidateParameters(
+                _supportsShouldProcessParameterSuffixes.SelectMany(suffix =>
+                    NonIterationParameters.Where(parameter => parameter.CmdletParameterName.EndsWith(suffix)))); ;
 
-            if (NonIterationParameters.Count() == 1)
+             SimplePropertyInfo targetParameter = null;
+
+            if (NonIterationParameters.Count() == 1) //Single parameter, auto-selected as target
             {
-                SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                {
-                    Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
-                    TargetParameter = NonIterationParameters.First(),
-                    AnalysisMessage = "Single parameter, auto-selected as target"
-                };
+                targetParameter = NonIterationParameters.First();
             }
             else
             {
                 switch (potentialTargets.Count)
                 {
-                    case 0:
+                    case 0: //auto-assigned from pipeline parameter
+                        targetParameter = AcceptsValueFromPipelineParameter;
+                        if (targetParameter == null)
                         {
-                            var target = AcceptsValueFromPipelineParameter;
-                            if (target != null)
-                            {
-                                SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                                {
-                                    Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
-                                    TargetParameter = target,
-                                    AnalysisMessage = "auto-assigned from pipeline parameter (verify!)"
-                                };
-                            }
+                            var suggestedParameters = SelectPreferredCandidateParameters(NonIterationParameters);
+                            AnalysisError.MultipleTargetsForShouldProcessParameter(CurrentModel, CurrentOperation, suggestedParameters);
                         }
                         break;
-                    case 1:
-                        SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                        {
-                            Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
-                            TargetParameter = potentialTargets[0],
-                            AnalysisMessage = "single parameter with recognized suffix"
-                        };
+                    case 1: //single parameter with recognized suffix
+                        targetParameter = potentialTargets[0];
                         break;
                     default: //potentialTargets.Count > 1
                         // When multiple targets exist, if one of them is the value-from-pipeline 
@@ -1232,59 +1246,49 @@ namespace AWSPowerShellGenerator.Analysis
                         var pipelineParameter = AcceptsValueFromPipelineParameter;
                         if (pipelineParameter != null)
                         {
-                            foreach (var potentialTarget in potentialTargets)
-                            {
-                                if (potentialTarget.AnalyzedName == pipelineParameter.AnalyzedName)
-                                {
-                                    SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                                    {
-                                        Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
-                                        TargetParameter = potentialTarget,
-                                        AnalysisMessage = "matched target parameter with value-from-pipeline configuration (verify!)"
-                                    };
-                                    break;
-                                }
-                            }
+                            targetParameter = potentialTargets.Where(potentialTarget => potentialTarget.AnalyzedName == pipelineParameter.AnalyzedName).SingleOrDefault();
+                        }
+                        else
+                        {
+                            AnalysisError.MultipleTargetsForShouldProcessParameter(CurrentModel, CurrentOperation, potentialTargets);
                         }
                         break;
                 }
             }
 
-            if (SupportsShouldProcessInspectionResult == null)
+            if (targetParameter != null && !CurrentOperation.IsAutoConfiguring)
             {
-                var sb = new StringBuilder();
-                sb.AppendFormat("cannot determine target parameter, ");
-                if (potentialTargets.Count == 0)
-                {
-                    sb.AppendFormat("multiple possible targets exist (no parameter ends with a recognized suffix) - {0}", string.Join(",", NonIterationParameters.Select(pt => pt.AnalyzedName)));
-                }
-                else
-                {
-                    sb.AppendFormat("multiple possible targets exist (no pipeline-by-value match) - {0}", string.Join(",", potentialTargets.Select(pt => pt.AnalyzedName)));
-                }
-
-                SupportsShouldProcessInspectionResult = new SupportsShouldProcessInspection
-                {
-                    Status = SupportsShouldProcessInspection.InspectionStatus.ErrorMultipleTargetOptions,
-                    AnalysisMessage = sb.ToString()
-                };
-
-                Logger.LogError("{0}: Method {1} inspection for 'SupportsShouldProcess' attribution - {2}",
-                                CurrentModel.ServiceName,
-                                CurrentOperation.MethodName,
-                                SupportsShouldProcessInspectionResult.AnalysisMessage);
-            }
-            else
-            {
-                if (!CurrentOperation.IsAutoConfiguring)
-                {
-                    Logger.LogError("{0}: Operation {1} should process configuration must be updated. Suggested value is {2}.", CurrentModel.ServiceName, CurrentOperation.MethodName,
-                        SupportsShouldProcessInspectionResult.TargetParameter.AnalyzedName);
-                }
+                AnalysisError.OutdatedShouldProcessTargetConfiguration(CurrentModel, CurrentOperation, targetParameter?.AnalyzedName);
             }
 
             //Setting the value to string.Empty instead of null makes the attribute appear in the configuration file so that it is easy to fill the value in.
-            CurrentOperation.ShouldProcessTarget = SupportsShouldProcessInspectionResult.TargetParameter?.AnalyzedName ?? string.Empty;
+            CurrentOperation.ShouldProcessTarget = targetParameter?.AnalyzedName ?? string.Empty;
+        }
+
+        //If there are multiple candidates, try further restricting the list by only using required root parameters
+
+        private List<SimplePropertyInfo> SelectPreferredCandidateParameters(IEnumerable<SimplePropertyInfo> parameters)
+        {
+            var result = parameters.ToList();
+            if (result.Count > 1)
+            {
+                var requiredParameters = result.Where(parameter => parameter.IsRecursivelyRequired).ToList();
+                if (requiredParameters.Any())
+                {
+                    result = requiredParameters;
+                }
+            }
+
+            if (result.Count > 1)
+            {
+                var rootParameters = result.Where(parameter => parameter.Parent == null).ToList();
+                if (rootParameters.Any())
+                {
+                    result = rootParameters;
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -1293,7 +1297,169 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DetermineResult(CmdletGenerator generator)
         {
-            AnalyzedResult = new AnalyzedResult(generator, this);
+            // for most services, these are the same types. For some services (like SWF) the
+            // SDK generates a wrapper class inside the response that contains the actual
+            // return data. On exit from this analysis, ReturnType may update further if
+            // the cmdlet returns a collection to represent the collection types, not the
+            // type hosting the collection.
+            var returnType = ReturnType;
+
+            var autoIterateSettings = AutoIterateSettings;
+
+            // if the response type has a base class with matching prefix but ending
+            // in 'Result', use that to get the real properties considered output. S3 does
+            // not have this structure.
+            var inspectedType = returnType;
+            if (ResponseType.BaseType != null)
+            {
+                if (ResponseType.BaseType.Name.EndsWith("Result", StringComparison.Ordinal))
+                {
+                    inspectedType = ResponseType.BaseType;
+                }
+            }
+            var allOutputProperties = inspectedType
+                .GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.GetCustomAttributes(false).Count(a => a is ObsoleteAttribute) == 0)
+                .ToList();
+
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                Func<PropertyInfo, bool> isCandidateMetadataProperty = p =>
+                    (AllModels.MetadataPropertyNames.Contains(p.Name) ||
+                     CurrentModel.MetadataPropertyNames.Contains(p.Name) ||
+                     CurrentOperation.MetadataPropertiesList.Contains(p.Name)) &&
+                    autoIterateSettings?.Next != p.Name &&        //We don't include autoiteration output properties as metadata properties because 
+                    autoIterateSettings?.TruncatedFlag != p.Name; //they will be included automatically and we don't want to clutter the configuration
+
+                //We write Metadata output properties also for cmdlets with a "Response" output so that it is
+                //easier to convert them to DefaultSingleMember during review
+                var suggestedMetadataProperties = allOutputProperties
+                    .Where(isCandidateMetadataProperty)
+                    .Select(property => property.Name)
+                    .ToArray();
+
+                if (suggestedMetadataProperties.Length > 0)
+                {
+                    CurrentOperation.MetadataPropertiesList = suggestedMetadataProperties;
+                }
+            }
+            else
+            {
+                var nonExistingMetadataProperties = CurrentOperation.MetadataPropertiesList
+                    .Where(propertyName => !allOutputProperties.Select(property => property.Name).Contains(propertyName))
+                    .ToArray();
+
+                if (nonExistingMetadataProperties.Length > 0)
+                {
+                    AnalysisError.NonExistingMetadataProperties(CurrentModel, CurrentOperation, nonExistingMetadataProperties);
+                }
+            }
+
+            Func<PropertyInfo, bool> isMetadataProperty = p =>
+                CurrentOperation.MetadataPropertiesList.Contains(p.Name) ||
+                (autoIterateSettings?.Next == p.Name ||
+                autoIterateSettings?.TruncatedFlag == p.Name);
+            Func<PropertyInfo, bool> notMetadataProperty = p => !isMetadataProperty(p);
+
+
+            var nonMetadataProperties = allOutputProperties.Where(notMetadataProperty).ToList();
+            var metadataProperties = allOutputProperties.Where(isMetadataProperty).ToList();
+
+            ServiceOperation.OutputMode identifiedOutputMode;
+            switch (nonMetadataProperties.Count)
+            {
+                case 0:
+                    identifiedOutputMode = ServiceOperation.OutputMode.Void;
+                    break;
+                case 1:
+                    identifiedOutputMode = ServiceOperation.OutputMode.DefaultSingleMember;
+                    break;
+                default:
+                    identifiedOutputMode = ServiceOperation.OutputMode.Response;
+                    break;
+            }
+
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                CurrentOperation.Output = identifiedOutputMode;
+            }
+            else if (CurrentOperation.SkipOutputComputationCheck)
+            {
+                if (CurrentOperation.Output == ServiceOperation.OutputMode.Response ||
+                    identifiedOutputMode == ServiceOperation.OutputMode.DefaultSingleMember)
+                {
+                    identifiedOutputMode = ServiceOperation.OutputMode.Response;
+                }
+                else
+                {
+                    AnalysisError.SkipOutputComputationCheckError(CurrentModel, CurrentOperation, identifiedOutputMode);
+                }
+            }
+            else if (CurrentOperation.Output != identifiedOutputMode)
+            {
+                AnalysisError.OutputTypeError(CurrentModel, CurrentOperation, identifiedOutputMode);
+            }
+
+            SimplePropertyInfo singleResultProperty = null;
+            switch (identifiedOutputMode)
+            {
+                case ServiceOperation.OutputMode.Void:
+                    {
+                        returnType = null;
+                    }
+                    break;
+                case ServiceOperation.OutputMode.Response:
+                    {
+                        returnType = inspectedType;
+
+                        if (autoIterateSettings != null)
+                        {
+                            AnalysisError.PaginatedCmdletShouldReturnSingleProperty(CurrentModel, CurrentOperation);
+                        }
+                    }
+                    break;
+                case ServiceOperation.OutputMode.DefaultSingleMember:
+                    {
+                        singleResultProperty = DetermineSingleResultProperty(nonMetadataProperties.First());
+                        returnType = singleResultProperty.GenericCollectionTypes?[0] ?? singleResultProperty.PropertyType;
+                    }
+                    break;
+            }
+
+            AnalyzedResult = new AnalyzedResult(returnType, singleResultProperty, metadataProperties);
+        }
+
+        private SimplePropertyInfo DetermineSingleResultProperty(PropertyInfo property)
+        {
+            var singleResultProperty = CreateSimplePropertyFor(property, null, false);
+            // if the output is a collection, extract the inner type so we report that as the cmdlet
+            // output in help, not the List wrapper (grab the full name so we can be explicit in help)
+            if (property.PropertyType.IsGenericType)
+            {
+                singleResultProperty.GenericCollectionTypes = property.PropertyType.GetGenericArguments();
+                if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
+                {
+                    var innerCollectionType = property.PropertyType.GetGenericArguments();
+                    if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
+                    {
+                        singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                    }
+                    else if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                    {
+                        singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
+                    }
+                    else
+                    {
+                        singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
+                    }
+                }
+                else if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                {
+                    singleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary;
+                }
+            }
+
+            return singleResultProperty;
         }
 
         /// <summary>
@@ -1305,61 +1471,24 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="generator"></param>
         private void DeterminePassThruRequirement(CmdletGenerator generator)
         {
-            if (CurrentOperation.Output != ServiceOperation.OutputMode.Void)
+            var pipelineParameter = AcceptsValueFromPipelineParameter;
+
+            if (CurrentOperation.Output != ServiceOperation.OutputMode.Void && CurrentOperation.PassThru != null)
             {
-                return;
+                AnalysisError.PassThruConfiguredForNonVoidCmdlet(CurrentModel, CurrentOperation);
+            }
+            else if (CurrentOperation.Output == ServiceOperation.OutputMode.Void && CurrentOperation.PassThru == null && pipelineParameter != null)
+            {
+                AnalyzedResult.PassThruParameter = pipelineParameter;
             }
 
             if (CurrentOperation.PassThru != null)
             {
-                PassThruSource = string.Format("Config override: {0}", CurrentOperation.PassThru.Expression);
-                return;
+                if (string.IsNullOrEmpty(CurrentOperation.PassThru.Expression) || string.IsNullOrEmpty(CurrentOperation.PassThru.Documentation))
+                {
+                    AnalysisError.NonConfiguredPassThru(CurrentModel, CurrentOperation);
+                }
             }
-
-            var pipelineParameter = AcceptsValueFromPipelineParameter;
-
-            if (pipelineParameter != null)
-            {
-                AnalyzedResult.PassThruParameter = pipelineParameter;
-                PassThruSource = string.Format("Auto-assigned from pipeline parameter: {0}", pipelineParameter.CmdletParameterName);
-            }
-        }
-
-        /// <summary>
-        /// Tests the pipeline-by-value parameter, if set, to see if it could be exposed
-        /// as an array. This PowerShell convention gives the user the freedom to either
-        /// pipe in a collection (pipeline enumerates one by one, cmdlet receives one element
-        /// at a time) or to pass a collection to the parameter (cmdlet receives the
-        /// whole collection at once and enumerates itself over the elements).
-        /// </summary>
-        /// <param name="generator"></param>
-        private void TestForCollectablePipelineParameter(CmdletGenerator generator)
-        {
-            var pipelineParameter = AcceptsValueFromPipelineParameter;
-            if (pipelineParameter == null)
-            {
-                return;
-            }
-
-            if (!IsCollectionType(pipelineParameter.PropertyType))
-            {
-                PromotePipelineParameterToCollection = string.Format("Parameter '{0}' is of type '{1}', consider promoting to collection type.",
-                                                                      pipelineParameter.CmdletParameterName,
-                                                                      pipelineParameter.PropertyTypeName);
-            }
-        }
-
-        /// <summary>
-        /// Returns true if the type is a recognized collection type. Used
-        /// primarily to detect non-collection pipeline-by-value parameter types
-        /// that we can auto-promote to a collection.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        private static bool IsCollectionType(Type type)
-        {
-            return type.IsArray ||                      // get false-positive out of the way early, as string is IEnumerable
-                   (type.GetInterfaces().Any(x => x == typeof(System.Collections.IEnumerable)) && type.FullName != "System.String");
         }
 
         private string AssignVerb(string verb)
@@ -1368,20 +1497,17 @@ namespace AWSPowerShellGenerator.Analysis
             if (AllModels.VerbMappings.ContainsKey(verb))
             {
                 newVerb = AllModels.VerbMappings[verb];
-                Logger.Log("Replaced SDK verb [{0}] with Global PS verb [{1}]", verb, newVerb);
             }
 
             if (newVerb == null && CurrentModel.VerbMappings.ContainsKey(verb))
             {
                 newVerb = CurrentModel.VerbMappings[verb];
-                Logger.Log("Replaced SDK verb [{0}] with PS verb [{1}]", verb, newVerb);
             }
 
             if (string.IsNullOrEmpty(newVerb))
             {
                 if (verb.Equals("list", StringComparison.OrdinalIgnoreCase))
                 {
-                    Logger.Log("Remapping List SDK verb to Get");
                     newVerb = "Get";
                     CurrentOperation.IsRemappedListOperation = true;
                 }                
@@ -1390,32 +1516,33 @@ namespace AWSPowerShellGenerator.Analysis
             return newVerb ?? verb;
         }
 
+        private bool CheckNounIsSingular(string noun)
+        {
+            const string listSuffix = "List";
+
+            if (noun.EndsWith(listSuffix) && noun.Length > listSuffix.Length)
+            {
+                noun = noun.Substring(0, noun.Length - listSuffix.Length);
+            }
+
+            return SingularizeNoun(noun) == noun;
+        }
+
         private string AssignNoun(string noun)
         {
-            string newNoun = null;
-            if (AllModels.NounMappings.ContainsKey(noun))
+            string newNoun;
+            if (!CurrentModel.NounMappings.TryGetValue(noun, out newNoun) &&
+                !AllModels.NounMappings.TryGetValue(noun, out newNoun))
             {
-                newNoun = AllModels.NounMappings[noun];
-                Logger.Log("Replaced SDK noun [{0}] with Global PS noun [{1}]", noun, newNoun);
+                newNoun = SingularizeNoun(noun);
             }
 
-            if (newNoun == null && CurrentModel.NounMappings.ContainsKey(noun))
+            if (CurrentOperation.IsRemappedListOperation)
             {
-                newNoun = CurrentModel.NounMappings[noun];
-                Logger.Log("Replaced SDK noun [{0}] with PS noun [{1}]", noun, newNoun);
+                newNoun = newNoun + "List";
             }
 
-            if (string.IsNullOrEmpty(newNoun))
-            {
-                newNoun = CheckForPluralNoun(noun);
-                if (CurrentOperation.IsRemappedListOperation)
-                {
-                    Logger.Log("Auto-generating for SDK List operation; setting noun to have List suffix");
-                    newNoun = (newNoun ?? noun) + "List";
-                }
-            }
-
-            return newNoun ?? noun;
+            return newNoun;
         }
 
         /// <summary>
@@ -1430,15 +1557,7 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 if (!string.IsNullOrEmpty(CurrentOperation.PipelineParameter))
                 {
-                    foreach (var parameter in AnalyzedParameters.Where(parameter => parameter.AnalyzedName.Equals(CurrentOperation.PipelineParameter)))
-                    {
-                        return parameter;
-                    }
-                }
-
-                if (!string.IsNullOrEmpty(CurrentModel.PipelineParameter))
-                {
-                    return AnalyzedParameters.FirstOrDefault(parameter => parameter.AnalyzedName.Equals(CurrentModel.PipelineParameter));
+                    return AnalyzedParameters.FirstOrDefault(parameter => parameter.AnalyzedName == CurrentOperation.PipelineParameter);
                 }
 
                 return null;
@@ -1454,13 +1573,11 @@ namespace AWSPowerShellGenerator.Analysis
             }
             if (requestParameters.Length != 1)
             {
-                Logger.Log("Method {0} has {1} parameters, skipping", method.Name, requestParameters.Length);
                 return null;
             }
             var requestType = requestParameters[0].ParameterType;
             if (requestType.IsInterface)
             {
-                Logger.Log("Request type {0} is an interface, skipping", requestType.FullName);
                 return null;
             }
             return requestType;
@@ -1505,9 +1622,6 @@ namespace AWSPowerShellGenerator.Analysis
         /// </summary>
         private void FinalizeParameterNames()
         {
-            // used to report collisions when we rename parameters
-            var processedParameters = new Dictionary<string, SimplePropertyInfo>();
-
             // possible scenarios:
             //   param Name="foo" Alias="baz"                      => add alias, also auto-rename
             //   param Name="foo" Exclude="true"                   => do not emit parameter
@@ -1534,9 +1648,7 @@ namespace AWSPowerShellGenerator.Analysis
 
                     if (!string.IsNullOrEmpty(parameterCustomization.NewName))
                     {
-                        RecordParameterRename(property,
-                                              parameterCustomization.NewName,
-                                              processedParameters);
+                        RecordParameterRename(property, parameterCustomization.NewName);
                         attemptAutoRename = false;
                     }
                     else
@@ -1569,9 +1681,7 @@ namespace AWSPowerShellGenerator.Analysis
 
                     if (alternateName.Length != property.AnalyzedName.Length)
                     {
-                        RecordParameterRename(property,
-                                              alternateName,
-                                              processedParameters);
+                        RecordParameterRename(property, alternateName);
                     }
                 }
             }
@@ -1659,29 +1769,8 @@ namespace AWSPowerShellGenerator.Analysis
         /// <param name="property"></param>
         /// <param name="newName"></param>
         /// <param name="processedParameters"></param>
-        private void RecordParameterRename(SimplePropertyInfo property,
-                                           string newName,
-                                           IDictionary<string, SimplePropertyInfo> processedParameters)
+        private void RecordParameterRename(SimplePropertyInfo property, string newName)
         {
-            if (processedParameters.ContainsKey(newName))
-            {
-                var msg = new StringBuilder();
-                msg.AppendFormat("{0} operation '{1}' has a duplicate parameter name {2}: ", 
-                                 CurrentModel.ServiceName,
-                                 CurrentOperation.MethodName, 
-                                 property.AnalyzedName);
-                msg.AppendFormat(property.Customization != null && property.Customization.Origin == Param.CustomizationOrigin.FromConfig
-                                    ? "config file requested '{0}' but that name used by '{1}'."
-                                    : "auto-rename yielded '{0}' but that name used by '{1}'.",
-                                    newName,
-                                    processedParameters[newName].AnalyzedName);
-
-                Logger.LogError(msg.ToString());
-                return;
-            }
-
-            processedParameters.Add(newName, property);
-
             var customization = property.Customization;
             if (customization == null)
             {
@@ -1783,83 +1872,6 @@ namespace AWSPowerShellGenerator.Analysis
 
             var props = inspectedType.GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public | BindingFlags.Instance);
             return fieldNames.Intersect(props.Select(p => p.Name)).Count() == fieldNames.Count();
-        }
-
-        private void LogAnalysisResults()
-        {
-            if (string.IsNullOrEmpty(AnalysisLogfile))
-            {
-                return;
-            }
-
-            using (var writer = new StreamWriter(AnalysisLogfile, true))
-            {
-                writer.WriteLine("{0} Method {1}", CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
-                writer.WriteLine("    Verb={0}, Noun={1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun);
-
-                if (this.AnalyzedResult.PassThruParameter != null)
-                {
-                    writer.WriteLine("    PassThru support added, source = {0}", this.PassThruSource);
-                }
-
-                if (this.SupportsShouldProcessInspectionResult != null)
-                {
-                    writer.WriteLine("    'SupportsShouldProcess' attribution required:");
-                    string status;
-                    switch (this.SupportsShouldProcessInspectionResult.Status)
-                    {
-                        case SupportsShouldProcessInspection.InspectionStatus.AnonymousTarget:
-                            status = "no target needed";
-                            break;
-                        case SupportsShouldProcessInspection.InspectionStatus.TargetFromConfig:
-                            status = "target set from config";
-                            break;
-                        case SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis:
-                            status = "target set from inspection";
-                            break;
-                        default:
-                            status = "FAIL";
-                            break;
-                    }
-                    writer.WriteLine("        Inspection status: {0}", status);
-                    if (this.SupportsShouldProcessInspectionResult.Status == SupportsShouldProcessInspection.InspectionStatus.TargetFromConfig
-                            || this.SupportsShouldProcessInspectionResult.Status == SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis)
-                    {
-                        writer.WriteLine("        Target parameter: {0}", this.SupportsShouldProcessInspectionResult.TargetParameter.CmdletParameterName);
-                    }
-                    if (!string.IsNullOrEmpty(this.SupportsShouldProcessInspectionResult.AnalysisMessage))
-                    {
-                        writer.WriteLine("        Inspection message: {0}", this.SupportsShouldProcessInspectionResult.AnalysisMessage);
-                    }
-                }
-
-                var paramRenamesHeaderOutput = false;
-
-                foreach (var p in AnalyzedParameters)
-                {
-                    if (p.Customization == null)
-                    {
-                        continue;
-                    }
-
-                    if (!paramRenamesHeaderOutput)
-                    {
-                        paramRenamesHeaderOutput = true;
-                        writer.WriteLine("    Renamed parameters:");
-                    }
-
-                    writer.WriteLine(p.Customization.Origin == Param.CustomizationOrigin.FromConfig
-                            ? "        Reason: config   {0} (was {1})"
-                            : "        Reason: auto     {0} (was {1})", p.CmdletParameterName, p.AnalyzedName);
-                }
-
-                if (!string.IsNullOrEmpty(PromotePipelineParameterToCollection))
-                {
-                    writer.WriteLine("    {0}", PromotePipelineParameterToCollection);
-                }
-
-                writer.WriteLine();
-            }
         }
     }
 }

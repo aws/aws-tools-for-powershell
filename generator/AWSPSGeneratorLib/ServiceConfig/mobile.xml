@@ -24,7 +24,9 @@
     </PipelineByNameProperties>
     <ServiceOperations>
         <ServiceOperation MethodName="CreateProject" Output="DefaultSingleMember" Verb="New" Noun="Project" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="Region" NewName="ProjectRegion" AutoApplyAlias="false" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProject" Output="Response" Verb="Remove" Noun="Project" ShouldProcessTarget="ProjectId" PipelineParameter="ProjectId" NoPipelineParameter="false">
             <Params />

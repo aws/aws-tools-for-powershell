@@ -31,6 +31,7 @@ namespace AWSPowerShellGenerator.Generators
         public Type PropertyType { get; private set; }
         public String DeprecationMessage { get; private set; }
         public bool IsDeprecated { get { return DeprecationMessage != null; }  }
+        public bool IsRequired { get; private set; }
 
         /// <summary>
         /// <para>
@@ -159,6 +160,20 @@ namespace AWSPowerShellGenerator.Generators
                 return false;
             }
         }
+
+        /// <summary>
+        /// Wether the property is required. If the parent property is a class member, the parent
+        /// mult also be a required property.
+        /// </summary>
+        public bool IsRecursivelyRequired
+        {
+            get
+            {
+                return IsRequired && (Parent?.IsRecursivelyRequired ?? true);
+            }
+        }
+
+
 
         /// <summary>
         /// If the parameter type is a switch/bool type, we only shorten and prefer to leave any
@@ -355,6 +370,9 @@ namespace AWSPowerShellGenerator.Generators
             PropertyTypeName = propertyTypeName;
             DeclaringType = propertyInfo.DeclaringType;
             DeprecationMessage = propertyInfo.GetCustomAttributes(typeof(ObsoleteAttribute), false).Cast<ObsoleteAttribute>().FirstOrDefault()?.Message;
+            
+            var awsPropertyAttribute = propertyInfo.GetCustomAttributes().Where(attribute => attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPropertyAttribute").SingleOrDefault();
+            IsRequired = (bool)(awsPropertyAttribute?.GetType().GetProperty("Required").GetValue(awsPropertyAttribute) ?? false);
 
             CollectionType = collectionType;
             GenericCollectionTypes = genericCollectionTypes;

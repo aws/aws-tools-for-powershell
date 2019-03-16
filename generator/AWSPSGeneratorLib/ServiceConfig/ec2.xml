@@ -275,7 +275,7 @@
         <ServiceOperation MethodName="CreateLaunchTemplate" Output="DefaultSingleMember" Verb="New" Noun="LaunchTemplate" ShouldProcessTarget="LaunchTemplateName" PipelineParameter="LaunchTemplateData" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLaunchTemplateVersion" Output="DefaultSingleMember" Verb="New" Noun="LaunchTemplateVersion" ShouldProcessTarget="LaunchTemplateName" AnonymousShouldProcessTarget="true" PipelineParameter="LaunchTemplateData" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateLaunchTemplateVersion" Output="DefaultSingleMember" Verb="New" Noun="LaunchTemplateVersion" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" PipelineParameter="LaunchTemplateData" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateNatGateway" Output="Response" Verb="New" Noun="NatGateway" ShouldProcessTarget="SubnetId" PipelineParameter="SubnetId" NoPipelineParameter="false">

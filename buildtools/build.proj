@@ -14,9 +14,6 @@
 
         <!-- fetch sdk binaries by default; if set false, we'll build with what we have in Include folder -->
         <EnableGetReferences>false</EnableGetReferences>
-        
-        <!-- cleans all NuGet caches by default; if set false, cleaning the cache is skipped (this is useful when locally building with other projects open in Visual Studio or other projects building) -->
-        <CleanNugetCache>true</CleanNugetCache>
 
         <!-- deletes the Include\sdk\NuGet and Include\sdk\ExtractedNuGet folders; set to false if the content of these folders is pre-filled in with the packages to be used by the build -->
         <CleanSdkReferences Condition="'$(CleanSdkReferences)'==''">true</CleanSdkReferences>
@@ -87,7 +84,7 @@
 
     <Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
         <Message Text="Generating cmdlets for all services"/>
-        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations)" />
+        <Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKNuGetFolder) -rp $(RootPath) -t cmdlets -cnc $(CreateNewCmdlets) -scg $(SkipCmdletGeneration) -bno $(BreakOnNewOperations)" />
     </Target>
 
     <Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />

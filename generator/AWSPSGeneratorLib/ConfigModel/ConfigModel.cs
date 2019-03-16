@@ -7,7 +7,6 @@ using System.Diagnostics;
 using System.Text;
 using System.Xml;
 using AWSPowerShellGenerator.Analysis;
-using Microsoft.PowerShell.Commands;
 using System.ComponentModel;
 
 namespace AWSPowerShellGenerator.ServiceConfig
@@ -751,22 +750,21 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlArray("TypesNotToFlatten")]
         [XmlArrayItem("Type")]
-        public List<string> TypesNotToFlatten { get; set; }
+        public List<string> TypesNotToFlatten { get; set; } = new List<string>();
 
         #endregion
 
         #region Generated Output Properties
 
-        private readonly List<string> _createdFiles = new List<string>();
-        
+       
         [XmlIgnore]
-        public List<string> CreatedFiles
-        {
-            get { return _createdFiles; }
-        }
+        public List<string> CreatedFiles { get; } = new List<string>();
 
         [XmlIgnore]
-        public ArgumentCompleterDetails ArgumentCompleters { get; private set; }
+        public ArgumentCompleterDetails ArgumentCompleters { get; } = new ArgumentCompleterDetails();
+
+        [XmlIgnore]
+        public HashSet<string> AdvancedCmdletNames { get; } = new HashSet<string>(StringComparer.CurrentCultureIgnoreCase);
 
         [XmlIgnore]
         public string ModelFilename { get; set; }
@@ -774,12 +772,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlIgnore]
         public bool ModelUpdated { get; set; }
 
+        [XmlIgnore]
+        public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
+
         #endregion
 
         public ConfigModel()
         {
-            ArgumentCompleters = new ArgumentCompleterDetails();
-            TypesNotToFlatten = new List<string>();
         }
 
         public void Serialize(string folderPath)
@@ -1159,6 +1158,10 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlIgnore]
         public bool IsRemappedListOperation;
+
+        [XmlIgnore]
+        public readonly List<AnalysisError> AnalysisErrors = new List<AnalysisError>();
+
         #endregion
     }
 

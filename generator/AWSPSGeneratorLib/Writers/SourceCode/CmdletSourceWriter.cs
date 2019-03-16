@@ -45,14 +45,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="analyzer"></param>
         /// <param name="serviceDisplayName"></param>
         /// <param name="options"></param>
-        public CmdletSourceWriter(OperationAnalyzer analyzer, 
-                                  string serviceDisplayName,
+        public CmdletSourceWriter(OperationAnalyzer analyzer,
                                   GeneratorOptions options)
         {
             MethodAnalysis = analyzer;
-            ServiceDisplayName = serviceDisplayName;
+            ServiceDisplayName = analyzer.CurrentModel.ServiceName;
             AssemblyDocumentation = analyzer.AssemblyDocumentation;
-            Logger = analyzer.Logger;
             Options = options;
         }
 
@@ -80,7 +78,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
             var commentedTypeDocumentation = DocumentationUtils.CommentDocumentation(methodDocumentation);
 
-            var requiresSupportsShouldProcess = MethodAnalysis.SupportsShouldProcessInspectionResult != null;
+            var requiresShouldProcessPromt = MethodAnalysis.RequiresShouldProcessPromt;
 
             WriteSourceLicenseHeader(writer);
             WriteNamespaces(writer, ServiceConfig.ServiceNamespace, ServiceConfig.AdditionalNamespaces);
@@ -94,7 +92,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("[Cmdlet(\"{0}\", \"{1}\"{2})]",
                                  Operation.SelectedVerb,
                                  Operation.SelectedNoun,
-                                 requiresSupportsShouldProcess
+                                 requiresShouldProcessPromt
                                     ? string.Format(", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.{0}", MethodAnalysis.ConfirmImpactSetting)
                                     : "");
 
@@ -104,7 +102,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 var returnTypeNames = new List<string>();
                 if (analyzedResult.ReturnType != null)
                 {
-                    returnTypeNames.Add(analyzedResult.ReturnType.FullName);
+                    returnTypeNames.Add(OperationAnalyzer.FormatTypeName(analyzedResult.ReturnType));
                 }
                 else
                 {
@@ -174,7 +172,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     if (Operation.AnonymousAuthentication == ServiceOperation.AnonymousAuthenticationMode.Optional)
                         WriteAnonymousCredentialsProperty(writer);
 
-                    if (requiresSupportsShouldProcess)
+                    if (requiresShouldProcessPromt)
                         WriteForceSwitchParam(writer);
 
                     writer.WriteLine();
@@ -188,7 +186,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.WriteLine("base.ProcessRecord();");
                         writer.WriteLine();
 
-                        if (requiresSupportsShouldProcess)
+                        if (requiresShouldProcessPromt)
                             WriteShouldProcessConfirmationCalls(writer, MethodAnalysis);
 
                         // create context object
@@ -395,7 +393,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 {
                     case ServiceOperation.OutputMode.Void:
                         {
-                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ResponseType, MethodAnalysis.CurrentModel));
+                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(MethodAnalysis.ResponseType, MethodAnalysis.CurrentModel));
                             writer.WriteLine($"\"The service response (type {type}) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
                         }
                         break;
@@ -416,7 +414,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                 writer.WriteLine($"\"This cmdlet returns a {analyzedResult.ReturnType.Name} object.\",");
                             }
 
-                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(analyzedResult.ResponseType, MethodAnalysis.CurrentModel));
+                            var type = SecurityElement.Escape(OperationAnalyzer.GetValidTypeName(MethodAnalysis.ResponseType, MethodAnalysis.CurrentModel));
                             writer.Write($"\"The service call response (type {type}) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.\"");
 
                             if (analyzedResult.MetadataProperties.Count > 0)
@@ -448,41 +446,23 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         /// <param name="analyzer"></param>
         private static void WriteShouldProcessConfirmationCalls(IndentedTextWriter writer, OperationAnalyzer analyzer)
         {
-            string targetParameterReference = null;
-            if (analyzer.SupportsShouldProcessInspectionResult.TargetParameter != null)
-                targetParameterReference = analyzer.SupportsShouldProcessInspectionResult.TargetParameter.CmdletParameterName;
+            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.ShouldProcessTarget))
+            {
+                var targetParameter = analyzer.AnalyzedParameters.Where(parameter => parameter.AnalyzedName == analyzer.CurrentOperation.ShouldProcessTarget).Single();
 
-            if (!string.IsNullOrEmpty(targetParameterReference))
                 writer.WriteLine("var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg(\"{0}\", MyInvocation.BoundParameters);",
-                                  targetParameterReference);
+                                  targetParameter.CmdletParameterName);
+            }
             else
+            {
                 writer.WriteLine("var resourceIdentifiersText = string.Empty;");
+            }
             writer.WriteLine("if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, \"{0}\"))",
                              analyzer.FormattedOperationForConfirmationMsg);
             writer.OpenRegion();
             writer.WriteLine("return;");
             writer.CloseRegion();
             writer.WriteLine();
-
-            // strobe -- choosing not to also issue ShouldContinue as it results in a second confirmation
-            // prompt, which I just don't like and is also a breaking change
-            /*
-            string confirmMsg;
-            if (inspectionResult.TargetParameter == null)
-                confirmMsg = "\"Are you sure you want to perform the operation?\"";
-            else
-                confirmMsg = string.Format("string.Format(\"Are you sure you want to perform the operation on {0} '{{0}}'?\", {1})",
-                                            analyzer.ConfirmationMessageNoun.ToLower(),
-                                            inspectionResult.TargetParameter.CmdletParameterName);
-
-            writer.WriteLine("// It is possible that the ProcessRecord method is called ");
-            writer.WriteLine("// multiple times when objects are received as inputs from ");
-            writer.WriteLine("// the pipeline. So to retain YesToAll and NoToAll input that ");
-            writer.WriteLine("// the user may enter across multiple calls to this function, ");
-            writer.WriteLine("// they are stored as private members of the cmdlet.");
-            writer.WriteLine("if (!ShouldContinue({0}, this.MyInvocation.MyCommand.Name, ref yesToAll, ref noToAll)) return;", confirmMsg);
-            writer.WriteLine();
-            */
         }
 
         /// <summary>
@@ -571,13 +551,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         public void WritePassThruSwitchParam(IndentedTextWriter writer, OperationAnalyzer methodAnalysis)
         {
             string documentation;
-            if (Operation.PassThru != null && !string.IsNullOrEmpty(Operation.PassThru.Documentation))
+            if (!string.IsNullOrEmpty(Operation.PassThru?.Documentation))
+            {
                 documentation = string.Format("{0}.", Operation.PassThru.Documentation);
+            }
             else
             {
-                if (methodAnalysis.AnalyzedResult.PassThruParameter == null)
-                    Logger.LogError("Operation {0} marked for passthru with no custom override - no parameter name set to pass thru!", Operation.MethodName);
-
                 documentation = string.Format("Returns the value passed to the {0} parameter.", methodAnalysis.AnalyzedResult.PassThruParameter.CmdletParameterName);
             }
 
@@ -728,45 +707,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                OperationAnalyzer analyzer,
                                                SimplePropertyInfo property)
         {
-            var aliases = new HashSet<string>(StringComparer.Ordinal);
-
-            // global aliasing; mainly for usability
-            if (analyzer.CurrentModel.CustomParameters.ContainsKey(property.AnalyzedName))
-            {
-                var globalAliases = analyzer.CurrentModel.CustomParameters[property.AnalyzedName].Aliases;
-                foreach (var a in globalAliases)
-                {
-                    aliases.Add(a);
-                }
-            }
-
-            // operation-specific aliasing; mainly used to maintain compat between sdk versions
-            // and backwards compat due to auto-name shortening/singularization
-            if (property.Customization != null)
-            {
-                // these aliases come from config entries on a ServiceOperation in the 
-                // config or are applied automatically during name inspection
-                var propAliases = property.Customization.Aliases;
-                foreach (var a in propAliases)
-                {
-                    aliases.Add(a);
-                }
-
-                if (property.Customization.AutoApplyAlias && property.CmdletParameterName != property.AnalyzedName)
-                {
-                    aliases.Add(property.AnalyzedName);
-                }
-            }
-
-            // apply a cross-service alias if it's an iteration parameter?
-            var autoIteration = analyzer.AutoIterateSettings;
-            if (autoIteration != null)
-            {
-                var iterAlias = autoIteration.GetIterationParameterAlias(property.AnalyzedName);
-                if (!string.IsNullOrEmpty(iterAlias))
-                    aliases.Add(iterAlias);
-            }
-
+            var aliases = analyzer.GetAllParameterAliases(property);
+            
             if (aliases.Count > 0)
             {
                 // sort the aliases into ascending order so that it's easier to spot
@@ -805,8 +747,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             // like Get-CWAlarm | Remove-CWAlarm. Both cmdlets have sdk request properties of 
             // AlarmNames which become AlarmName on output. The objects emitted by Get-CWAlarm
             // have a member called AlarmName -- thus we allow simple pipelining.
-            if (analyzer.CurrentModel.PipelineByNameProperties.Contains(property.AnalyzedName)
-                    || analyzer.CurrentModel.PipelineByNameProperties.Contains(property.CmdletParameterName))
+            if (analyzer.CurrentModel.PipelineByNameProperties.Contains(property.AnalyzedName) ||
+                analyzer.CurrentModel.PipelineByNameProperties.Contains(property.CmdletParameterName))
             {
                 if (paramAttrib.Length > 0)
                     paramAttrib.Append(", ");

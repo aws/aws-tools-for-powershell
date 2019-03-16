@@ -26,8 +26,8 @@
     <CustomAliases>
         <AliasSet Cmdlet="Measure-CFNTemplateCost">Estimate-CFNTemplateCost</AliasSet>
         <AliasSet Cmdlet="Test-CFNTemplate">Validate-CFNTemplate</AliasSet>
-        <AliasSet Cmdlet="Get-CFNStackSummaries">List-CFNStacks</AliasSet>
-        <AliasSet Cmdlet="Get-CFNStackResourceSummaries">List-CFNStackResources</AliasSet>
+        <AliasSet Cmdlet="Get-CFNStackSummary">List-CFNStacks</AliasSet>
+        <AliasSet Cmdlet="Get-CFNStackResourceSummary">List-CFNStackResources</AliasSet>
     </CustomAliases>
     <LegacyAliases />
     <ParamEmitters />

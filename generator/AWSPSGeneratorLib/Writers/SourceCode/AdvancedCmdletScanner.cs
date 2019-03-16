@@ -73,6 +73,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     if (string.IsNullOrEmpty(CmdletName) && line.IndexOf("[Cmdlet(") >= 0)
                     {
                         CmdletName = ExtractCmdletName(line);
+                        ServiceModel.AdvancedCmdletNames.Add(CmdletName);
                         continue;
                     } 
 
