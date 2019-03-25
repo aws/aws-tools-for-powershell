@@ -265,9 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
 #if DESKTOP
                 return client.AssumeRoleWithWebIdentity(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssumeRoleWithWebIdentityAsync(request);
-                return task.Result;
+                return client.AssumeRoleWithWebIdentityAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

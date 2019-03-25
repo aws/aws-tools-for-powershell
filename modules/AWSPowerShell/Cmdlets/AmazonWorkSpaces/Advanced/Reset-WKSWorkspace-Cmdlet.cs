@@ -196,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
 #if DESKTOP
                 return client.RebuildWorkspaces(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebuildWorkspacesAsync(request);
-                return task.Result;
+                return client.RebuildWorkspacesAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

@@ -280,9 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 #if DESKTOP
                 return client.UpdateFunctionCode(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFunctionCodeAsync(request);
-                return task.Result;
+                return client.UpdateFunctionCodeAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

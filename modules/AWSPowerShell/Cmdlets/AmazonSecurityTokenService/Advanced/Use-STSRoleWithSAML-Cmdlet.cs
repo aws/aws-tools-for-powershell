@@ -323,9 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
 #if DESKTOP
                 return client.AssumeRoleWithSAML(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssumeRoleWithSAMLAsync(request);
-                return task.Result;
+                return client.AssumeRoleWithSAMLAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

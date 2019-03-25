@@ -304,9 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
 #if DESKTOP
                 return client.CreateTable(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateTableAsync(request);
-                return task.Result;
+                return client.CreateTableAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 #if DESKTOP
                 return client.ImportKeyMaterial(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ImportKeyMaterialAsync(request);
-                return task.Result;
+                return client.ImportKeyMaterialAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

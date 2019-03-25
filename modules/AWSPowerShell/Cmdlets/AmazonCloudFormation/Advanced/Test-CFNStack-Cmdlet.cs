@@ -140,9 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 #if DESKTOP
                 var response = client.DescribeStacks(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeStacksAsync(request);
-            var response = task.Result;
+                var response = client.DescribeStacksAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

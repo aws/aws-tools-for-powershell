@@ -275,9 +275,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                     writer.WriteLine("#elif CORECLR");
 
-                    writer.WriteLine("// todo: handle AggregateException and extract true service exception for rethrow");
-                    writer.WriteLine("var task = client.{0}Async(request);", MethodAnalysis.CurrentOperation.MethodName);
-                    writer.WriteLine("return task.Result;");
+                    writer.WriteLine("return client.{0}Async(request).GetAwaiter().GetResult();", MethodAnalysis.CurrentOperation.MethodName);
             
                     writer.WriteLine("#else");
             

@@ -293,8 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #if DESKTOP
             return ImageUtilities.DescriptorFromKey(key, Client);
 # elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            return ImageUtilities.DescriptorFromKeyAsync(key, Client).Result;
+            return ImageUtilities.DescriptorFromKeyAsync(key, Client).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -331,9 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #if DESKTOP
                 return client.DescribeImages(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeImagesAsync(request);
-                return task.Result;
+                return client.DescribeImagesAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

@@ -218,15 +218,13 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elemental MediaStore Data Plane", "PutObject");
             try
             {
-                #if DESKTOP
+#if DESKTOP
                 return client.PutObject(request);
-                #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutObjectAsync(request);
-                return task.Result;
-                #else
-                        #error "Unknown build edition"
-                #endif
+#elif CORECLR
+                return client.PutObjectAsync(request).GetAwaiter().GetResult();
+#else
+#error "Unknown build edition"
+#endif
             }
             catch (AmazonServiceException exc)
             {

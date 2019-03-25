@@ -311,9 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.PutACL(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutACLAsync(request);
-                return task.Result;
+                return client.PutACLAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

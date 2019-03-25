@@ -189,9 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
 #if DESKTOP
                 return client.TestRole(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TestRoleAsync(request);
-                return task.Result;
+                return client.TestRoleAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

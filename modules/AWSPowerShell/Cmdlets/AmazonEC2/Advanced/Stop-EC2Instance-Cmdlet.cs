@@ -202,9 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #if DESKTOP
                 return client.StopInstances(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.StopInstancesAsync(request);
-                return task.Result;
+                return client.StopInstancesAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -230,9 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 #if DESKTOP
                 return client.TerminateInstances(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.TerminateInstancesAsync(request);
-                return task.Result;
+                return client.TerminateInstancesAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

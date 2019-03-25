@@ -938,9 +938,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.CopyObject(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CopyObjectAsync(request);
-                return task.Result;
+                return client.CopyObjectAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -960,9 +958,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.ListObjects(request);
 #elif CORECLR
-// todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListObjectsAsync(request);
-                return task.Result;
+                return client.ListObjectsAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -982,9 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.InitiateMultipartUpload(request);
 #elif CORECLR
-// todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.InitiateMultipartUploadAsync(request);
-                return task.Result;
+                return client.InitiateMultipartUploadAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -1004,9 +998,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
             return client.CompleteMultipartUpload(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CompleteMultipartUploadAsync(request);
-            return task.Result;
+            return client.CompleteMultipartUploadAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -1019,9 +1011,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
             return client.AbortMultipartUpload(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AbortMultipartUploadAsync(request);
-            return task.Result;
+            return client.AbortMultipartUploadAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -1353,9 +1343,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.CopyPart(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CopyPartAsync(request);
-                return task.Result;
+                return client.CopyPartAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

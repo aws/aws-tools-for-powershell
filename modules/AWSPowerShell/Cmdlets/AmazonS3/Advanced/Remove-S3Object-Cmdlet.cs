@@ -387,9 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.DeleteObject(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteObjectAsync(request);
-                return task.Result;
+                return client.DeleteObjectAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif
@@ -415,9 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.DeleteObjects(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteObjectsAsync(request);
-                return task.Result;
+                return client.DeleteObjectsAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

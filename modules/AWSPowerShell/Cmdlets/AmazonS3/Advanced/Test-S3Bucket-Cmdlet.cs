@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 var exists = AmazonS3Util.DoesS3BucketExist(client, cmdletContext.BucketName);
 #elif CORECLR
-                var exists = AmazonS3Util.DoesS3BucketExistAsync(client, cmdletContext.BucketName).Result;
+                var exists = AmazonS3Util.DoesS3BucketExistAsync(client, cmdletContext.BucketName).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

@@ -286,8 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
 #if DESKTOP
                     var result = transferManager.Upload(vaultName, description, filePath, uploadOptions);
 #else
-                    var task = transferManager.UploadAsync(vaultName, description, filePath, uploadOptions);
-                    var result = task.Result;
+                    var result = transferManager.UploadAsync(vaultName, description, filePath, uploadOptions).GetAwaiter().GetResult();
 #endif
 
                     output.PipelineOutput = new FileUploadResult(filePath, result);
@@ -324,8 +323,7 @@ namespace Amazon.PowerShell.Cmdlets.GLC
 #if DESKTOP
                     var result = transferManager.Upload(vaultName, "", filePath, uploadOptions);
 #else
-                    var task = transferManager.UploadAsync(vaultName, "", filePath, uploadOptions);
-                    var result = task.Result;
+                    var result = transferManager.UploadAsync(vaultName, "", filePath, uploadOptions).GetAwaiter().GetResult();
 #endif
 
                     output.PipelineOutput = new FileUploadResult(filePath, result);

@@ -257,9 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
 #if DESKTOP
                 return client.UploadLayerPart(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UploadLayerPartAsync(request);
-                return task.Result;
+                return client.UploadLayerPartAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

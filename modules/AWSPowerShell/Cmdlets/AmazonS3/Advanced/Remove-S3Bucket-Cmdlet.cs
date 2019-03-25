@@ -175,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 #if DESKTOP
                 return client.DeleteBucket(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteBucketAsync(request);
-                return task.Result;
+                return client.DeleteBucketAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

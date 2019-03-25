@@ -180,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
 #if DESKTOP
                 return client.Suggest(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SuggestAsync(request);
-                return task.Result;
+                return client.SuggestAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

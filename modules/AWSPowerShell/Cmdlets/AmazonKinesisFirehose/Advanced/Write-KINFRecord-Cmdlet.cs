@@ -276,9 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
 #if DESKTOP
                 return client.PutRecord(request);
 #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutRecordAsync(request);
-                return task.Result;
+                return client.PutRecordAsync(request).GetAwaiter().GetResult();
 #else
 #error "Unknown build edition"
 #endif

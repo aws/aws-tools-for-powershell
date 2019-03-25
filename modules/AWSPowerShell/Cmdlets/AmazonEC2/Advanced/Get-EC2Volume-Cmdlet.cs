@@ -341,13 +341,11 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 #if DESKTOP
                 return client.DescribeVolumes(request);
-                #elif CORECLR
-                // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeVolumesAsync(request);
-                return task.Result;
-                #else
-                        #error "Unknown build edition"
-                #endif
+#elif CORECLR
+                return client.DescribeVolumesAsync(request).GetAwaiter().GetResult();
+#else
+#error "Unknown build edition"
+#endif
             }
             catch (AmazonServiceException exc)
             {
