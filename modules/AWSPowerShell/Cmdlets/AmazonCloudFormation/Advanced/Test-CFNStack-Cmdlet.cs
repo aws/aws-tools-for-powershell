@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
                 return IsStackInState(response.Stacks[0].StackStatus, desiredStates);
             }
-            catch (AmazonServiceException exc)
+            catch (Exception exc)
             {
                 var webException = exc.InnerException as System.Net.WebException;
                 if (webException != null)
@@ -155,10 +155,6 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
                 }
 
-                throw;
-            }
-            catch (Exception)
-            {
                 if (throwOnError)
                     throw;
             }
