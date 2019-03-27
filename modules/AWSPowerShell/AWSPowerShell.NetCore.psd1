@@ -268,7 +268,7 @@ PrivateData = @{
         LicenseUri = 'https://docs.aws.amazon.com/powershell/latest/reference/License.html'
         ProjectUri = 'https://aws.amazon.com/powershell/'
         IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
-        ReleaseNotes = 'Release notes are available in the attached CHANGELOG.txt file.'
+        ReleaseNotes = 'https://github.com/aws/aws-tools-for-powershell/blob/master/CHANGELOG.md'
     }
 
 }

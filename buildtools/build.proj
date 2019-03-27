@@ -160,7 +160,7 @@
         <Copy SourceFiles="@(SDKAssemblies)" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(RootPath)\CHANGELOG.txt" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.md" DestinationFiles="$(DesktopDeploymentArtifacts)\CHANGELOG.txt"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellLegacyAliases.psm1" DestinationFolder="$(DesktopDeploymentArtifacts)"/>
@@ -186,7 +186,7 @@
         
         <!-- <Copy SourceFiles="$(RootPath)\ThirdParty\log4net.dll" DestinationFolder="$(NetCoreDeploymentArtifacts)"/> -->
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSAliases.ps1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
-        <Copy SourceFiles="$(RootPath)\CHANGELOG.txt" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
+        <Copy SourceFiles="$(RootPath)\CHANGELOG.md" DestinationFiles="$(NetCoreDeploymentArtifacts)\CHANGELOG.txt"/>
 
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShellCompleters.psm1" DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
 
@@ -233,7 +233,7 @@
 
     <Target Name="update-version" DependsOnTargets="build-tools" Condition="$(UpdateVersions)">
         <!-- grab the AWSPowerShell product version from the changelog file -->
-        <GetAWSPowerShellProductVersionTask ChangelogFile="..\CHANGELOG.txt" OutputFile="$(RootPath)\AWSPowerShell.Info.xml" />
+        <GetAWSPowerShellProductVersionTask ChangelogFile="..\CHANGELOG.md" OutputFile="$(RootPath)\AWSPowerShell.Info.xml" />
         <XmlPeek XmlInputPath="$(RootPath)\AWSPowerShell.Info.xml" Query="/output/version/text()">
             <Output TaskParameter="Result" PropertyName="AWSPowerShellVersionNumber" />
         </XmlPeek>
