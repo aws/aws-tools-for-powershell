@@ -1,4 +1,4 @@
-﻿### 3.3.485.0 (2018-03-28)
+﻿### 3.3.485.0 (2019-03-28)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * AWSPowerShell.NetCore now targets PowerShell Standard (https://github.com/PowerShell/PowerShellStandard). As a preview feature, you can test using the AWSPowerShell.NetCore module under older version of PowerShell starting with PowerShell 3.0 when at least .NET Framework 4.7.2 is installed.
   * AWSPowerShell.NetCore now targets AWS .NET SDK for NetStandard 2.0.
@@ -215,7 +215,7 @@
     * Modified cmdlet New-TFRServer: added parameters EndpointDetails_VpcEndpointId and EndpointType.
     * Modified cmdlet Update-TFRServer: added parameters EndpointDetails_VpcEndpointId and EndpointType.
 
-### 3.3.462.0 (2018-02-25)
+### 3.3.462.0 (2019-02-25)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.462.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Updated AWSPowerShell.NetCore manifest to reference missing assemblies.
   * Enabled pagination support for multiple cmdlets.
@@ -321,7 +321,7 @@
     * Modified cmdlet New-SSMPatchBaseline: added parameter Tag.
     * Modified cmdlet Write-SSMParameter: added parameter Tag.
 
-### 3.3.450.0 (2018-02-06)
+### 3.3.450.0 (2019-02-06)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.450.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * Fixed all autopaginating cmdlets so that specifying -NextToken $null correctly enables manual control of pagination.
   * Amazon API Gateway Management API. Added cmdlets to support the service. Amazon API Gateway Management API allows you to directly manage runtime aspects of your APIs. Cmdlets for the service have the noun prefix AGM and can be listed using the command 'Get-AWSCmdletName -Service AGM'.
