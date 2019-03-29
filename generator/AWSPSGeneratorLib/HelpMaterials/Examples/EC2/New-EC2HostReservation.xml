@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>New-EC2HostReservation -OfferingId hro-0c1f23456789d0ab HostIdSet h-01e23f4cd567890f1
+
+
+ClientToken       :
+CurrencyCode      :
+Purchase          : {hr-0123f4b5d67bedc89}
+TotalHourlyPrice  : 1.307
+TotalUpfrontPrice : 0.000</code>
+    <description>This example purchases the reservation offering hro-0c1f23456789d0ab with configurations that match those of your Dedicated Host h-01e23f4cd567890f1</description>
+  </example>
+</examples>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-EC2IdentityIdFormat -PrincipalArn arn:aws:iam::123456789511:role/JDBC -Resource image
+
+Deadline             Resource UseLongIds
+--------             -------- ----------
+8/2/2018 11:30:00 PM image    True</code>
+    <description>This example returns the ID format for the resouce 'image' for the role given</description>
+  </example>
+</examples>
