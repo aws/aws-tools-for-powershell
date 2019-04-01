@@ -230,6 +230,27 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, null, $"Error during code generation: {exception.ToString()}");
         }
 
+        public static void InvalidServicePageSize(ConfigModel service, ServiceOperation operation, int servicePageSize, string emitLimitParameterName, long? minValue, long? maxValue)
+        {
+            if (!minValue.HasValue)
+            {
+                new AnalysisError(service, operation, $"'ServicePageSize={servicePageSize}' is invalid: parameter {emitLimitParameterName} value cannot be greater than {maxValue}.");
+            }
+            else if (!maxValue.HasValue)
+            {
+                new AnalysisError(service, operation, $"'ServicePageSize={servicePageSize}' is invalid: parameter {emitLimitParameterName} value cannot be smaller than {minValue}.");
+            }
+            else
+            {
+                new AnalysisError(service, operation, $"'ServicePageSize={servicePageSize}' is invalid: parameter {emitLimitParameterName} value must be between {minValue} and {maxValue}.");
+            }
+        }
+
+        public static void ServicePageSizeIsRequired(ConfigModel service, ServiceOperation operation, string emitLimitParameterName)
+        {
+            new AnalysisError(service, operation, $"Parameter {emitLimitParameterName} is marked as required but the model doesn't provide a maximum accepted value. Add a 'ServicePageSize' tag to the 'AutoIterate' configuration of this operation.");
+        }
+
         private static string FormatList(IEnumerable<string> list)
         {
             return string.Join(", ", list);

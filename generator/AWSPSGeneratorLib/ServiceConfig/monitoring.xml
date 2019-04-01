@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudWatchClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudWatch</ServiceNamespace>
     <PipelineParameter>AlarmNames</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="GetMetricData" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords"   Exclusions="GetMetricData" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>
@@ -82,7 +82,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" Output="DefaultSingleMember" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit=""   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMetrics" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />

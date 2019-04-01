@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCodeDeployClient</ServiceClient>
     <ServiceNamespace>Amazon.CodeDeploy</ServiceNamespace>
     <PipelineParameter>ApplicationName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="ListDeploymentGroups" />
+    <AutoIterate Start="NextToken" Next="NextToken"   Exclusions="ListDeploymentGroups" />
     <VerbMappings>
         <Map From="Deregister" To="Unregister" />
     </VerbMappings>

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonServiceCatalogClient</ServiceClient>
     <ServiceNamespace>Amazon.ServiceCatalog</ServiceNamespace>
     <PipelineParameter>Id</PipelineParameter>
-    <AutoIterate Start="PageToken" Next="NextPageToken" EmitLimit="PageSize" ServicePageSize="-1" Exclusions="DescribeProvisionedProductPlan;DescribeRecord;SearchProducts" />
+    <AutoIterate Start="PageToken" Next="NextPageToken" EmitLimit="PageSize"   Exclusions="DescribeProvisionedProductPlan;DescribeRecord;SearchProducts" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Associate" To="Register" />
@@ -212,7 +212,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourcesForTagOption" Output="DefaultSingleMember" Verb="Get" Noun="ResourcesForTagOption" PipelineParameter="TagOptionId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" ServicePageSize="-1" />
+            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListServiceActions" Output="DefaultSingleMember" Verb="Get" Noun="ServiceActionList" PipelineParameter="AcceptLanguage" NoPipelineParameter="false">
             <Params />
@@ -222,7 +222,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagOptions" Output="DefaultSingleMember" Verb="Get" Noun="TagOptionList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize" ServicePageSize="-1" />
+            <AutoIterate Start="PageToken" Next="PageToken" EmitLimit="PageSize"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ProvisionProduct" Output="DefaultSingleMember" Verb="New" Noun="ProvisionedProduct" ShouldProcessTarget="ProvisionedProductName" PipelineParameter="ProvisionedProductName" NoPipelineParameter="false">
             <Params />

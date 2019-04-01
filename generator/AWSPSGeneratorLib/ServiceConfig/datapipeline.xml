@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDataPipelineClient</ServiceClient>
     <ServiceNamespace>Amazon.DataPipeline</ServiceNamespace>
     <PipelineParameter>PipelineId</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" TruncatedFlag="HasMoreResults" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="Marker" TruncatedFlag="HasMoreResults"   />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Report" To="Update" />

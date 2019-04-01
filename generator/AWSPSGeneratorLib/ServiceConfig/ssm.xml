@@ -303,11 +303,9 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListComplianceItems" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceItemList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListComplianceSummaries" Output="DefaultSingleMember" Verb="Get" Noun="ComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDocuments" Output="DefaultSingleMember" Verb="Get" Noun="DocumentList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
@@ -320,7 +318,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourceComplianceSummaries" Output="DefaultSingleMember" Verb="Get" Noun="ResourceComplianceSummaryList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListResourceDataSync" Output="DefaultSingleMember" Verb="Get" Noun="ResourceDataSync" PipelineParameter="" NoPipelineParameter="false">
             <Params />

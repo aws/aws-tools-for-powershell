@@ -9,7 +9,7 @@
     <ServiceClient>AmazonPinpointEmailClient</ServiceClient>
     <ServiceNamespace>Amazon.PinpointEmail</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="PageSize" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="PageSize"   />
     <VerbMappings />
     <NounMappings />
     <Params />

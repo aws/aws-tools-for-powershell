@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAppMeshClient</ServiceClient>
     <ServiceNamespace>Amazon.AppMesh</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="100" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="50" />
     <VerbMappings />
     <NounMappings />
     <Params />

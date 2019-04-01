@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.IdentityManagement</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>UserName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="-1" Exclusions="GetGroup;GetAccountAuthorizationDetails;ListEntitiesForPolicy;GetServiceLastAccessedDetails;GetServiceLastAccessedDetailsWithEntities" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated"   Exclusions="GetGroup;GetAccountAuthorizationDetails;ListEntitiesForPolicy;GetServiceLastAccessedDetails;GetServiceLastAccessedDetailsWithEntities" />
     <VerbMappings>
         <Map From="Change" To="Edit" />
         <Map From="List" To="Get" />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDeviceFarmClient</ServiceClient>
     <ServiceNamespace>Amazon.DeviceFarm</ServiceNamespace>
     <PipelineParameter>Arn</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="GetOfferingStatus" />
+    <AutoIterate Start="NextToken" Next="NextToken"   Exclusions="GetOfferingStatus" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Schedule" To="Invoke" />

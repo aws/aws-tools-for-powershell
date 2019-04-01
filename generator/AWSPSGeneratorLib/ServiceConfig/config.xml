@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.ConfigService</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>DeliveryChannelName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" Exclusions="GetAggregateConfigRuleComplianceSummary;GetAggregateDiscoveredResourceCounts" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   Exclusions="GetAggregateConfigRuleComplianceSummary;GetAggregateDiscoveredResourceCounts" />
     <VerbMappings />
     <NounMappings />
     <Params />

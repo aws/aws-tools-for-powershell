@@ -9,7 +9,7 @@
     <ServiceClient>AmazonLambdaClient</ServiceClient>
     <ServiceNamespace>Amazon.Lambda</ServiceNamespace>
     <PipelineParameter>FunctionName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems"   />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Upload" To="Publish" />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAppStreamClient</ServiceClient>
     <ServiceNamespace>Amazon.AppStream</ServiceNamespace>
     <PipelineParameter>StackName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken"   />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -76,7 +76,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDirectoryConfigs" Output="DefaultSingleMember" Verb="Get" Noun="DirectoryConfigList" PipelineParameter="DirectoryNames" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleets" Output="DefaultSingleMember" Verb="Get" Noun="FleetList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />
@@ -86,7 +86,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImagePermissions" Output="DefaultSingleMember" Verb="Get" Noun="ImagePermission" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="Name">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeImages" Output="DefaultSingleMember" Verb="Get" Noun="ImageList" PipelineParameter="Names" NoPipelineParameter="false">
             <Params />

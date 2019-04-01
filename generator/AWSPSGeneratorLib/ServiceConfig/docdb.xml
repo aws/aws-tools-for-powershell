@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDocDBClient</ServiceClient>
     <ServiceNamespace>Amazon.DocDB</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords"   Exclusions="" />
     <VerbMappings />
     <NounMappings />
     <Params />

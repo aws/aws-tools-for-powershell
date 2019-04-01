@@ -1104,6 +1104,19 @@ namespace AWSPowerShellGenerator.Analysis
                     {
                         parameter.UseParameterValueOnlyIfBound = true;
                         parameter.PropertyTypeName = "int";
+
+                        if (autoIterateSettings.ServicePageSize != -1)
+                        {
+                            if ((parameter.MaxValue.HasValue && parameter.MaxValue < autoIterateSettings.ServicePageSize) ||
+                                (parameter.MinValue.HasValue && parameter.MinValue > autoIterateSettings.ServicePageSize))
+                            {
+                                AnalysisError.InvalidServicePageSize(CurrentModel, CurrentOperation, autoIterateSettings.ServicePageSize, autoIterateSettings.EmitLimit, parameter.MinValue, parameter.MaxValue);
+                            }
+                        }
+                        else if (parameter.IsRequired && !parameter.MaxValue.HasValue)
+                        {
+                            AnalysisError.ServicePageSizeIsRequired(CurrentModel, CurrentOperation, autoIterateSettings.EmitLimit);
+                        }
                     }
                 }
             }

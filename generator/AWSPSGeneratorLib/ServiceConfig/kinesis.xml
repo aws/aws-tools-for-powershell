@@ -9,7 +9,7 @@
     <ServiceClient>AmazonKinesisClient</ServiceClient>
     <ServiceNamespace>Amazon.Kinesis</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="" />
     <VerbMappings />
     <NounMappings>
         <Map From="Records" To="Record" />

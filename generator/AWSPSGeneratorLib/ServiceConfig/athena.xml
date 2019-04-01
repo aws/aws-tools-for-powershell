@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAthenaClient</ServiceClient>
     <ServiceNamespace>Amazon.Athena</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings />
     <Params />

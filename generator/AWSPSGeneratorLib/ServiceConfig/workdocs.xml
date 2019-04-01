@@ -9,7 +9,7 @@
     <ServiceClient>AmazonWorkDocsClient</ServiceClient>
     <ServiceNamespace>Amazon.WorkDocs</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit" ServicePageSize="-1" Exclusions="DescribeFolderContents;GetResources" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit"   Exclusions="DescribeFolderContents;GetResources" />
     <VerbMappings />
     <NounMappings />
     <Params />

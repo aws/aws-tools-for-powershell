@@ -9,7 +9,7 @@
     <ServiceClient>AmazonWorkLinkClient</ServiceClient>
     <ServiceNamespace>Amazon.WorkLink</ServiceNamespace>
     <PipelineParameter>FleetArn</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings />
     <Params />

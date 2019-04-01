@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAutoScalingClient</ServiceClient>
     <ServiceNamespace>Amazon.AutoScaling</ServiceNamespace>
     <PipelineParameter>AutoScalingGroupName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords"   />
     <VerbMappings>
         <Map From="Execute" To="Start" />
         <Map From="Terminate" To="Stop" />

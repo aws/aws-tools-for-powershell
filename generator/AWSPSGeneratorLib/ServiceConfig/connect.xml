@@ -9,7 +9,7 @@
     <ServiceClient>AmazonConnectClient</ServiceClient>
     <ServiceNamespace>Amazon.Connect</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="1000" Exclusions="GetCurrentMetricData" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" Exclusions="GetCurrentMetricData" />
     <VerbMappings />
     <NounMappings />
     <Params />

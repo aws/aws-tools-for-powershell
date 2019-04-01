@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.SimpleEmail</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems"   />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Verify" To="Confirm" />
@@ -144,7 +144,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListCustomVerificationEmailTemplates" Output="DefaultSingleMember" Verb="Get" Noun="CustomVerificationEmailTemplateList" PipelineParameter="MaxResults" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListIdentities" Output="DefaultSingleMember" Verb="Get" Noun="Identity" PipelineParameter="IdentityType" NoPipelineParameter="false">
             <Params />

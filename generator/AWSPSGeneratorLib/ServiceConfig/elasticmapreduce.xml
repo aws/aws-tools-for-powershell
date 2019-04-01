@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElasticMapReduceClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticMapReduce</ServiceNamespace>
     <PipelineParameter>JobFlowId</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="Marker"   />
     <VerbMappings>
         <Map From="Run" To="Start" />
         <Map From="Terminate" To="Stop" />

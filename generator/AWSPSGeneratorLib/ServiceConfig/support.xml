@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>CaseId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings />
     <Params />

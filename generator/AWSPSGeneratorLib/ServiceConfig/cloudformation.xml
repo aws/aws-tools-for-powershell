@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudFormationClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudFormation</ServiceNamespace>
     <PipelineParameter>StackName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="DescribeChangeSet" />
+    <AutoIterate Start="NextToken" Next="NextToken"   Exclusions="DescribeChangeSet" />
     <VerbMappings>
         <Map From="Estimate" To="Measure" />
         <Map From="Validate" To="Test" />
@@ -140,7 +140,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListStackInstances" Output="DefaultSingleMember" Verb="Get" Noun="StackInstanceList" PipelineParameter="StackSetName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStackResources" Output="DefaultSingleMember" Verb="Get" Noun="StackResourceSummary" PipelineParameter="StackName" NoPipelineParameter="false" LegacyAlias="Get-CFNStackResourceSummaries">
             <Params />
@@ -150,15 +150,15 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListStackSetOperationResults" Output="DefaultSingleMember" Verb="Get" Noun="StackSetOperationResultList" PipelineParameter="OperationId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStackSetOperations" Output="DefaultSingleMember" Verb="Get" Noun="StackSetOperationList" PipelineParameter="StackSetName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListStackSets" Output="DefaultSingleMember" Verb="Get" Noun="StackSetList" PipelineParameter="Status" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
         </ServiceOperation>
         <ServiceOperation MethodName="SetStackPolicy" Output="Void" Verb="Set" Noun="StackPolicy" ShouldProcessTarget="StackName" PipelineParameter="StackName" NoPipelineParameter="false">
             <Params />

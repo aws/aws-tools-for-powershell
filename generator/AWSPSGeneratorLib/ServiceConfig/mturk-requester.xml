@@ -9,7 +9,7 @@
     <ServiceClient>AmazonMTurkClient</ServiceClient>
     <ServiceNamespace>Amazon.MTurk</ServiceNamespace>
     <PipelineParameter>WorkerId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="ListReviewPolicyResultsForHIT" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="ListReviewPolicyResultsForHIT" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

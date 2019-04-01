@@ -419,7 +419,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="TagListForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTargetsForPolicy" Output="DefaultSingleMember" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />

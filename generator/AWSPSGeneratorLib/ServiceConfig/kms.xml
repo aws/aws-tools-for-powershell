@@ -9,7 +9,7 @@
     <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.KeyManagementService</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" TruncatedFlag="Truncated" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" TruncatedFlag="Truncated"   />
     <VerbMappings>
         <Map From="Generate" To="New" />
         <Map From="List" To="Get" />

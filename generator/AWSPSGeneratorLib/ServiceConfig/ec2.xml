@@ -9,7 +9,7 @@
     <ServiceClient>AmazonEC2Client</ServiceClient>
     <ServiceNamespace>Amazon.EC2</ServiceNamespace>
     <PipelineParameter>InstanceId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices;" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices;" />
     <VerbMappings>
         <Map From="Associate" To="Register" />
         <Map From="Disassociate" To="Unregister" />

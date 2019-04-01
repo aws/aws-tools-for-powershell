@@ -9,7 +9,7 @@
     <ServiceClient>AmazonFSxClient</ServiceClient>
     <ServiceNamespace>Amazon.FSx</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings />
     <Params />

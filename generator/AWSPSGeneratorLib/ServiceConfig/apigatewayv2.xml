@@ -9,7 +9,7 @@
     <ServiceClient>AmazonApiGatewayV2Client</ServiceClient>
     <ServiceNamespace>Amazon.ApiGatewayV2</ServiceNamespace>
     <PipelineParameter>ApiId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="" />
     <VerbMappings />
     <NounMappings />
     <Params />

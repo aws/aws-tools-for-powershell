@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.Route53Domains</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>DomainName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="NextPageMarker" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="NextPageMarker"   />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

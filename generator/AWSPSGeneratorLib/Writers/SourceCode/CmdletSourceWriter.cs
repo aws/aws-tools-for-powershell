@@ -1365,7 +1365,8 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var analyzedResult = operationAnalysis.AnalyzedResult;
             var requestType = operationAnalysis.RequestType;
             var autoIteration = operationAnalysis.AutoIterateSettings;
-            var pageSizeSet = (autoIteration.ServicePageSize != -1);
+            long? maxPageSize = autoIteration.ServicePageSize != -1 ? autoIteration.ServicePageSize : (long?)null;
+            long minPageSize = 1;
 
             var responseMemberReferencePath = ComputeResponseMemberPath(operationAnalysis);
 
@@ -1387,21 +1388,20 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     // emit non-iterator properties
                     foreach (var simpleProperty in rootSimpleProperties)
                     {
-                        if (simpleProperty.Name.Equals(autoIteration.Start, StringComparison.Ordinal))
+                        if (simpleProperty.Name == autoIteration.Start)
                         {
                             iteratorType = simpleProperty.PropertyTypeName;
-                            continue;
                         }
-
-                        if (simpleProperty.Name.Equals(autoIteration.EmitLimit, StringComparison.Ordinal))
+                        else if (simpleProperty.Name == autoIteration.EmitLimit)
                         {
-                            //iteratorLimitType = simpleProperty.PropertyTypeName;
-                            //iteratorLimitType = iteratorLimitType.Trim('?');
                             iteratorLimitType = simpleProperty.PropertyType.Name;
-                            continue;
+                            maxPageSize = maxPageSize ?? simpleProperty.MaxValue;
+                            minPageSize = simpleProperty.MinValue ?? 1;
                         }
-
-                        WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
+                        else
+                        {
+                            WriteContextObjectPopulation(writer, operationAnalysis, simpleProperty, "request." + simpleProperty.Name);
+                        }
                     }
 
                     writer.WriteLine();
@@ -1409,11 +1409,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("{0} _nextMarker = null;", iteratorType);
                     writer.WriteLine("int? _emitLimit = null;");
                     writer.WriteLine("int _retrievedSoFar = 0;");
-                    if (pageSizeSet)
-                        writer.WriteLine("int? _pageSize = {0};", autoIteration.ServicePageSize.ToString());
 
-                    //writer.WriteLine("{0}{1} _emitLimit = null;", iteratorLimitType, iteratorLimitType.EndsWith("?") ? string.Empty : "?");
-                    //writer.WriteLine("{0} _retrievedSoFar = 0;", iteratorLimitType);
                     writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.Start);
                     writer.OpenRegion();
                     {
@@ -1423,12 +1419,12 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     writer.WriteLine("if (AutoIterationHelpers.HasValue(cmdletContext.{0}))", autoIteration.EmitLimit);
                     writer.OpenRegion();
                     {
-                        if (pageSizeSet)
+                        if (maxPageSize.HasValue)
                         {
-                            writer.WriteLine("// The service has a maximum page size of {0}. If the user has", autoIteration.ServicePageSize);
+                            writer.WriteLine("// The service has a maximum page size of {0}. If the user has", maxPageSize.Value);
                             writer.WriteLine("// asked for more items than page max, and there is no page size");
                             writer.WriteLine("// configured, we rely on the service ignoring the set maximum");
-                            writer.WriteLine("// and giving us {0} items back. If a page size is set, that will", autoIteration.ServicePageSize);
+                            writer.WriteLine("// and giving us {0} items back. If a page size is set, that will", maxPageSize.Value);
                             writer.WriteLine("// be used to configure the pagination.");
                             writer.WriteLine("// We'll make further calls to satisfy the user's request.");
                         }
@@ -1439,11 +1435,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     var starPaginationProperty = rootSimpleProperties.Single(simpleProperty => simpleProperty.Name == autoIteration.Start);
                     var limitPaginationProperty = rootSimpleProperties.Single(simpleProperty => simpleProperty.Name == autoIteration.EmitLimit);
 
-                    writer.WriteLine("bool _userControllingPaging = ParameterWasBound(\"{0}\") || ParameterWasBound(\"{1}\");",
-                                     starPaginationProperty.CmdletParameterName,
-                                     limitPaginationProperty.CmdletParameterName);
+                    writer.WriteLine("bool _userControllingPaging = ParameterWasBound(\"{0}\");",
+                                     starPaginationProperty.CmdletParameterName);
 
-                    writer.WriteLine("bool _continueIteration = true;"); // allows us to bomb out if we retrieve nothing
                     writer.WriteLine();
 
                     writer.WriteLine("try");
@@ -1453,45 +1447,39 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                         writer.OpenRegion();
                         {
                             writer.WriteLine("request.{0} = _nextMarker;", autoIteration.Start);
-                            writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit))");
-                            writer.OpenRegion();
-                            {
-                                writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(_emitLimit.Value);",
-                                                    autoIteration.EmitLimit,
-                                                    iteratorLimitType);
-                            }
-                            writer.CloseRegion();
-                            writer.WriteLine();
 
-                            if (pageSizeSet)
+                            if (maxPageSize.HasValue)
                             {
-                                writer.WriteLine("if (AutoIterationHelpers.HasValue(_pageSize))");
+                                writer.WriteLine("int correctPageSize = {0};", maxPageSize.Value);
+                                writer.WriteLine("if (_emitLimit.HasValue)");
                                 writer.OpenRegion();
                                 {
-                                    writer.WriteLine("int correctPageSize;");
-                                    writer.WriteLine("if (AutoIterationHelpers.IsSet(request.{0}))", autoIteration.EmitLimit);
-                                    writer.OpenRegion();
-                                    {
-                                        writer.WriteLine("correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.{0});", autoIteration.EmitLimit);
-                                    }
-                                    writer.CloseRegion();
-                                    writer.WriteLine("else");
-                                    writer.OpenRegion();
-                                    {
-                                        writer.WriteLine("correctPageSize = _pageSize.Value;", autoIteration.EmitLimit);
-                                    }
-                                    writer.CloseRegion();
+                                    writer.WriteLine("correctPageSize = AutoIterationHelpers.Min({0}, _emitLimit.Value);", maxPageSize.Value);
+                                }
+                                writer.CloseRegion();
 
-                                    writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(correctPageSize);", autoIteration.EmitLimit, iteratorLimitType);
+                                writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(correctPageSize);", autoIteration.EmitLimit, iteratorLimitType);
+                                writer.WriteLine();
+                            }
+                            else
+                            {
+                                writer.WriteLine("if (_emitLimit.HasValue)");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("request.{0} = AutoIterationHelpers.ConvertEmitLimitTo{1}(_emitLimit.Value);", autoIteration.EmitLimit, iteratorLimitType);
                                 }
                                 writer.CloseRegion();
                                 writer.WriteLine();
                             }
 
                             if (Operation.RequiresAnonymousAuthentication)
+                            {
                                 writer.WriteLine("var client = Client ?? CreateClient(context.Region);");
+                            }
                             else
+                            {
                                 writer.WriteLine("var client = Client ?? CreateClient(context.Credentials, context.Region);");
+                            }
 
                             writer.WriteLine("CmdletOutput output;");
 
@@ -1499,7 +1487,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("try");
                             writer.OpenRegion();
                             {
-                                //writer.WriteLine("ServiceCalls.PushServiceRequest(request, this.MyInvocation);");
                                 writer.WriteLine();
 
                                 writer.WriteLine("var response = CallAWSServiceOperation(client, request);");
@@ -1522,14 +1509,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
                                 writer.WriteLine();
                                 writer.WriteLine("_nextMarker = {0}.{1};", responseMemberReferencePath, autoIteration.Next);
-
-                                writer.WriteLine();
                                 writer.WriteLine("_retrievedSoFar += _receivedThisCall;");
-
-                                writer.WriteLine("if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))");
+                                writer.WriteLine("if (_emitLimit.HasValue)");
                                 writer.OpenRegion();
                                 {
-                                    writer.WriteLine("_continueIteration = false;");
+                                    writer.WriteLine("_emitLimit -= _receivedThisCall;");
                                 }
                                 writer.CloseRegion();
                             }
@@ -1537,29 +1521,25 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("catch (Exception e)");
                             writer.OpenRegion();
                             {
-                                writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                                writer.WriteLine("if (_retrievedSoFar == 0 || !_emitLimit.HasValue)");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("output = new CmdletOutput { ErrorResponse = e };");
+                                }
+                                writer.CloseRegion();
+                                writer.WriteLine("else");
+                                writer.OpenRegion();
+                                {
+                                    writer.WriteLine("break;");
+                                }
+                                writer.CloseRegion();
                             }
                             writer.CloseRegion();
 
                             writer.WriteLine();
                             writer.WriteLine("ProcessOutput(output);");
-
-                            if (pageSizeSet)
-                            {
-                                writer.WriteLine("// The service has a maximum page size of {0} and the user has set a retrieval limit.", autoIteration.ServicePageSize);
-                                writer.WriteLine("// Deduce what's left to fetch and if less than one page update _emitLimit to fetch just");
-                                writer.WriteLine("// what's left to match the user's request.");
-                                writer.WriteLine();
-                                writer.WriteLine("var _remainingItems = _emitLimit - _retrievedSoFar;");
-                                writer.WriteLine("if (_remainingItems < _pageSize)");
-                                writer.OpenRegion();
-                                {
-                                    writer.WriteLine("_emitLimit = _remainingItems;");
-                                }
-                                writer.CloseRegion();
-                            }
                         }
-                        writer.CloseRegion("} while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));");
+                        writer.CloseRegion($"}} while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= {minPageSize}));");
                     }
 
                     writer.WriteLine();
@@ -1569,13 +1549,6 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                 writer.WriteLine("finally");
                 writer.OpenRegion();
                 {
-                    writer.WriteLine("if (_userControllingPaging)");
-                    writer.OpenRegion();
-                    {
-                        writer.WriteLine("WriteProgressCompleteRecord(\"Retrieving\", \"Retrieved records\");");
-                    }
-                    writer.CloseRegion();
-
                     WriteMemoryStreamVariableCleanup(writer, operationAnalysis, false);
                 }
                 writer.CloseRegion();

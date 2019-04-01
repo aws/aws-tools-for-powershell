@@ -9,7 +9,7 @@
     <ServiceClient>AmazonStorageGatewayClient</ServiceClient>
     <ServiceNamespace>Amazon.StorageGateway</ServiceNamespace>
     <PipelineParameter>GatewayARN</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit" ServicePageSize="-1" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="Limit"   />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Activate" To="Enable" />
@@ -181,7 +181,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListFileShares" Output="DefaultSingleMember" Verb="Get" Noun="FileShareList" PipelineParameter="GatewayARN" NoPipelineParameter="false" MetadataProperties="Marker">
             <Params />
-            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" ServicePageSize="-1" />
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGateways" Output="DefaultSingleMember" Verb="Get" Noun="Gateway" PipelineParameter="" NoPipelineParameter="false">
             <Params />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
     <ServiceNamespace>Amazon.APIGateway</ServiceNamespace>
     <PipelineParameter>RestApiId</PipelineParameter>
-    <AutoIterate Start="Position" Next="Position" EmitLimit="Limit" ServicePageSize="-1" Exclusions="GetApiKeys;GetUsage" />
+    <AutoIterate Start="Position" Next="Position" EmitLimit="Limit"   Exclusions="GetApiKeys;GetUsage" />
     <VerbMappings />
     <NounMappings />
     <Params />

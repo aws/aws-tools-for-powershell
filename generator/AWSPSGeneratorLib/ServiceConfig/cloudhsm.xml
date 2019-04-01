@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudHSMClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudHSM</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken"   />
     <VerbMappings>
         <Map From="Delete" To="Remove" />
         <Map From="Describe" To="Get" />

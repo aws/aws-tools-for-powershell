@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudWatchLogsClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudWatchLogs</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" Exclusions="FilterLogEvents" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   Exclusions="FilterLogEvents" />
     <VerbMappings />
     <NounMappings />
     <Params />

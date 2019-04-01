@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.CognitoIdentityProvider</ServiceNamespace>
     <DefaultRegion />
     <PipelineParameter>UserPoolId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="60" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" />
     <VerbMappings />
     <NounMappings />
     <Params />

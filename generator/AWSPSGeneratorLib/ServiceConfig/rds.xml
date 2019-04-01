@@ -9,7 +9,7 @@
     <ServiceClient>AmazonRDSClient</ServiceClient>
     <ServiceNamespace>Amazon.RDS</ServiceNamespace>
     <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="-1" Exclusions="DownloadDBLogFilePortion" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords"   Exclusions="DownloadDBLogFilePortion" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Reboot" To="Restart" />

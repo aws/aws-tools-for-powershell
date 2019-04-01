@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDynamoDBClient</ServiceClient>
     <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
     <PipelineParameter>TableName</PipelineParameter>
-    <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" ServicePageSize="-1" />
+    <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit"   />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -81,18 +81,18 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListBackups" Output="DefaultSingleMember" Verb="Get" Noun="BackupList" PipelineParameter="TableName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit" ServicePageSize="-1" />
+            <AutoIterate Start="ExclusiveStartBackupArn" Next="LastEvaluatedBackupArn" EmitLimit="Limit"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListGlobalTables" Output="DefaultSingleMember" Verb="Get" Noun="GlobalTableList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit" ServicePageSize="-1" />
+            <AutoIterate Start="ExclusiveStartGlobalTableName" Next="LastEvaluatedGlobalTableName" EmitLimit="Limit"   />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTables" Output="DefaultSingleMember" Verb="Get" Noun="TableList" PipelineParameter="" NoPipelineParameter="false" LegacyAlias="Get-DDBTables">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsOfResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken"   />
         </ServiceOperation>
         <ServiceOperation MethodName="PutItem" Output="Response" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />

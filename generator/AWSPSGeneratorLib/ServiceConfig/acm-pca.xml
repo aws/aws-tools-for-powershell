@@ -9,7 +9,7 @@
     <ServiceClient>AmazonACMPCAClient</ServiceClient>
     <ServiceNamespace>Amazon.ACMPCA</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings />
     <Params />

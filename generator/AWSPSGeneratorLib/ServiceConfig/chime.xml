@@ -9,7 +9,7 @@
     <ServiceClient>AmazonChimeClient</ServiceClient>
     <ServiceNamespace>Amazon.Chime</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="99" />
     <VerbMappings />
     <NounMappings />
     <Params />

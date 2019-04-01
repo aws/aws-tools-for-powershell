@@ -9,7 +9,7 @@
     <ServiceClient>AmazonGreengrassClient</ServiceClient>
     <ServiceNamespace>Amazon.Greengrass</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="GetDeviceDefinitionVersion;GetFunctionDefinitionVersion;GetSubscriptionDefinitionVersion;GetConnectorDefinitionVersion" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="GetDeviceDefinitionVersion;GetFunctionDefinitionVersion;GetSubscriptionDefinitionVersion;GetConnectorDefinitionVersion" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

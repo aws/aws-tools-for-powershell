@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudWatchEventsClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudWatchEvents</ServiceNamespace>
     <PipelineParameter>Rule</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   />
     <VerbMappings />
     <NounMappings />
     <Params />

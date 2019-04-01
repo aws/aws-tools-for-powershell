@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDirectConnectClient</ServiceClient>
     <ServiceNamespace>Amazon.DirectConnect</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings>
         <Map From="Connections" To="Connection" />

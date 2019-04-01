@@ -9,7 +9,7 @@
     <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
     <ServiceNamespace>Amazon.WorkSpaces</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
     <VerbMappings />
     <NounMappings>
         <Map From="Tags" To="Tag" />
@@ -76,7 +76,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspaces" Output="DefaultSingleMember" Verb="Get" Noun="Workspace" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-WKSWorkspaces">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" Output="DefaultSingleMember" Verb="Get" Noun="WorkspacesConnectionStatus" PipelineParameter="" NoPipelineParameter="true">
             <Params />

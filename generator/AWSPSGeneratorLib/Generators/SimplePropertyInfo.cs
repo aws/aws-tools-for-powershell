@@ -33,6 +33,10 @@ namespace AWSPowerShellGenerator.Generators
         public bool IsDeprecated { get { return DeprecationMessage != null; }  }
         public bool IsRequired { get; private set; }
 
+        public long? MinValue { get; private set; }
+
+        public long? MaxValue { get; private set; }
+
         /// <summary>
         /// <para>
         /// Returns true if we should check at runtime that the associated parameter has been bound 
@@ -371,8 +375,13 @@ namespace AWSPowerShellGenerator.Generators
             DeclaringType = propertyInfo.DeclaringType;
             DeprecationMessage = propertyInfo.GetCustomAttributes(typeof(ObsoleteAttribute), false).Cast<ObsoleteAttribute>().FirstOrDefault()?.Message;
             
-            var awsPropertyAttribute = propertyInfo.GetCustomAttributes().Where(attribute => attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPropertyAttribute").SingleOrDefault();
-            IsRequired = (bool)(awsPropertyAttribute?.GetType().GetProperty("Required").GetValue(awsPropertyAttribute) ?? false);
+            dynamic awsPropertyAttribute = propertyInfo.GetCustomAttributes().Where(attribute => attribute.GetType().FullName == "Amazon.Runtime.Internal.AWSPropertyAttribute").SingleOrDefault();
+            if (awsPropertyAttribute != null)
+            {
+                IsRequired = awsPropertyAttribute?.Required;
+                MinValue = awsPropertyAttribute.IsMinSet ? awsPropertyAttribute.Min : null;
+                MaxValue = awsPropertyAttribute.IsMaxSet ? awsPropertyAttribute.Max : null;
+            }
 
             CollectionType = collectionType;
             GenericCollectionTypes = genericCollectionTypes;

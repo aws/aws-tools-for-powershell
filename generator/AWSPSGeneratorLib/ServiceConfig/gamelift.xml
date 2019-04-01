@@ -9,7 +9,7 @@
     <ServiceClient>AmazonGameLiftClient</ServiceClient>
     <ServiceNamespace>Amazon.GameLift</ServiceNamespace>
     <PipelineParameter>BuildId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>
