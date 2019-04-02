@@ -124,6 +124,16 @@ namespace AWSPowerShellGenerator.Analysis
             new AnalysisError(service, operation, $"The following aliases are reserved: {FormatList(reservedNames)}.");
         }
 
+        public static void ReservedParameterPrefixes(ConfigModel service, ServiceOperation operation, IEnumerable<string> reservedPrefixes)
+        {
+            new AnalysisError(service, operation, $"Parameter names cannot have the following prefixes: {FormatList(reservedPrefixes)}. A different name can be provided by configuring '<Param Name=\"InvalidName\" NewName=\"AlternateName\" AutoApplyAlias=\"false\" />'.");
+        }
+
+        public static void ReservedAliasPrefixes(ConfigModel service, ServiceOperation operation, IEnumerable<string> reservedPrefixes)
+        {
+            new AnalysisError(service, operation, $"Parameter aliases cannot have the following prefixes: {FormatList(reservedPrefixes)}.");
+        }
+
         public static void AliasParameterConflicts(ConfigModel service, ServiceOperation operation, IEnumerable<string> conflictingNames)
         {
             new AnalysisError(service, operation, $"There are conflicts between alias and parameter names: {FormatList(conflictingNames)}.");

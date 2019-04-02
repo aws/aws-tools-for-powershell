@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudDirectoryClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudDirectory</ServiceNamespace>
     <PipelineParameter>DirectoryArn</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken"   Exclusions="ListObjectParents" />
+    <AutoIterate Start="NextToken" Next="NextToken" Exclusions="ListObjectParents" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

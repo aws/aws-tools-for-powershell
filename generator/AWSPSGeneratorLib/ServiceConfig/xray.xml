@@ -9,7 +9,7 @@
     <ServiceClient>AmazonXRayClient</ServiceClient>
     <ServiceNamespace>Amazon.XRay</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken"   Exclusions="BatchGetTraces;GetServiceGraph;GetTraceSummaries" />
+    <AutoIterate Start="NextToken" Next="NextToken" Exclusions="BatchGetTraces;GetServiceGraph;GetTraceSummaries" />
     <VerbMappings />
     <NounMappings />
     <Params />

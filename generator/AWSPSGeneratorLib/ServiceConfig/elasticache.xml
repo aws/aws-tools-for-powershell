@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElastiCacheClient</ServiceClient>
     <ServiceNamespace>Amazon.ElastiCache</ServiceNamespace>
     <PipelineParameter>CacheClusterId</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords"   Exclusions="DescribeCacheParameters" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" Exclusions="DescribeCacheParameters" />
     <VerbMappings>
         <Map From="Authorize" To="Approve" />
         <Map From="Purchase" To="Request" />

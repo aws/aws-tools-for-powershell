@@ -9,7 +9,7 @@
     <ServiceClient>AmazonTextractClient</ServiceClient>
     <ServiceNamespace>Amazon.Textract</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="GetDocumentAnalysis;GetDocumentTextDetection" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="GetDocumentAnalysis;GetDocumentTextDetection" />
     <VerbMappings />
     <NounMappings />
     <Params />

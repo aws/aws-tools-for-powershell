@@ -9,7 +9,7 @@
     <ServiceClient>AmazonBatchClient</ServiceClient>
     <ServiceNamespace>Amazon.Batch</ServiceNamespace>
     <PipelineParameter>JobId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

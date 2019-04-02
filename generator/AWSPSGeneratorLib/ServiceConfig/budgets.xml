@@ -9,7 +9,7 @@
     <ServiceClient>AmazonBudgetsClient</ServiceClient>
     <ServiceNamespace>Amazon.Budgets</ServiceNamespace>
     <PipelineParameter>BudgetName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="DescribeBudgetPerformanceHistory" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="DescribeBudgetPerformanceHistory" />
     <VerbMappings />
     <NounMappings />
     <Params />

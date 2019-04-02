@@ -33,10 +33,17 @@ namespace AWSPowerShellGenerator.Analysis
     /// </remarks>
     internal class OperationAnalyzer
     {
-        private static readonly HashSet<string> reservedParameterNames = new HashSet<string>(new string[] {
+        //Parameter and alias names cannot start with any of the following prefixes
+        private static readonly HashSet<string> ReservedDynamicParameterNames = new HashSet<string>(new string[] {
                 //From AWSRegionArguments and AWSCommonArguments
-                "Region", "RegionToCall", "ProfileLocation", "AWSProfilesLocation", "ProfilesLocation", "AccessKey", "AK", "SecretKey", "SK", "SecretAccessKey", "SessionToken",
-                "ST", "ProfileName", "StoredCredentials", "AWSProfileName", "ProfileLocation", "Credential", "NetworkCredential",
+                "Region", "RegionToCall", "ProfileLocation", "AWSProfilesLocation", "ProfilesLocation", "AccessKey", "SecretKey", "SecretAccessKey", "SessionToken",
+                "ProfileName", "StoredCredentials", "AWSProfileName", "ProfileLocation", "Credential", "NetworkCredential"},
+            StringComparer.OrdinalIgnoreCase);
+
+        //Parameter and alias names cannot collide with the following
+        private static readonly HashSet<string> ReservedParameterNames = new HashSet<string>(new string[] {
+                //From AWSRegionArguments and AWSCommonArguments
+                "AK", "SK", "ST", //AK, SK and ST should be one part the ReservedDynamicParameterNames for which we do a stricter verification, but they are very common prefixes, so we are putting them here instead.
                 //From AnonymousServiceCmdlet
                 "EndpointUrl",
                 //Common Powershell parameters
@@ -1069,16 +1076,30 @@ namespace AWSPowerShellGenerator.Analysis
                 allAliases = groupedAliases.Select(alias => alias.Key).ToArray();
             }
 
-            var invalidParameters = allParametersNames.Intersect(reservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
+            var invalidParameters = allParametersNames.Intersect(ReservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
             if (invalidParameters.Any())
             {
                 AnalysisError.ReservedParameterNames(CurrentModel, CurrentOperation, invalidParameters);
             }
 
-            var invalidAliases = allAliases.Intersect(reservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
+            var invalidAliases = allAliases.Intersect(ReservedParameterNames, StringComparer.OrdinalIgnoreCase).ToArray();
             if (invalidAliases.Any())
             {
                 AnalysisError.ReservedAliasNames(CurrentModel, CurrentOperation, invalidAliases);
+            }
+
+            var reservedParameterPrefixes = ReservedDynamicParameterNames.Except(CurrentOperation.IgnoreReservedParamPrefixesList);
+
+            var invalidParameterPrefixes = reservedParameterPrefixes.Where(prefix => allParametersNames.Any(name => name.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))).ToArray();
+            if (invalidParameterPrefixes.Any())
+            {
+                AnalysisError.ReservedParameterPrefixes(CurrentModel, CurrentOperation, invalidParameterPrefixes);
+            }
+
+            var invalidAliasPrefixes = reservedParameterPrefixes.Where(prefix => allAliases.Any(name => name.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))).ToArray();
+            if (invalidAliasPrefixes.Any())
+            {
+                AnalysisError.ReservedAliasPrefixes(CurrentModel, CurrentOperation, invalidAliasPrefixes);
             }
 
             var aliasParameterConflicts = allParametersNames.Intersect(allAliases, StringComparer.OrdinalIgnoreCase).ToArray();

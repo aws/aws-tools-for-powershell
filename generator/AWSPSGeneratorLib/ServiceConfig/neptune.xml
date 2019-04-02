@@ -134,7 +134,7 @@
         <ServiceOperation MethodName="DescribePendingMaintenanceActions" Output="DefaultSingleMember" Verb="Get" Noun="PendingMaintenanceAction" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="DefaultSingleMember" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false" LegacyAliases="Get-NPTValidDBInstanceModifications">
+        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="DefaultSingleMember" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="FailoverDBCluster" Output="DefaultSingleMember" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false">

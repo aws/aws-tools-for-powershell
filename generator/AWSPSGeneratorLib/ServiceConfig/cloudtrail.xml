@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudTrailClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
     <PipelineParameter>Name</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken"   />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

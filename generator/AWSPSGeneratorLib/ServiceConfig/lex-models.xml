@@ -9,7 +9,7 @@
     <ServiceClient>AmazonLexModelBuildingServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.LexModelBuildingService</ServiceNamespace>
     <PipelineParameter>Name</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

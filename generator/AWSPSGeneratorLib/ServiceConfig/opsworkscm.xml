@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.OpsWorksCM</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>ServerName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

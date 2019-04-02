@@ -9,7 +9,7 @@
     <ServiceClient>AmazonResourceGroupsTaggingAPIClient</ServiceClient>
     <ServiceNamespace>Amazon.ResourceGroupsTaggingAPI</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="PaginationToken" Next="PaginationToken"   />
+    <AutoIterate Start="PaginationToken" Next="PaginationToken" />
     <VerbMappings />
     <NounMappings />
     <Params />

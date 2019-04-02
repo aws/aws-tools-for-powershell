@@ -9,7 +9,7 @@
     <ServiceClient>AmazonInspectorClient</ServiceClient>
     <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="GetExclusionsPreview" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="GetExclusionsPreview" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

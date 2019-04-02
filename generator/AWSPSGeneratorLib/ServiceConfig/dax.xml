@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDAXClient</ServiceClient>
     <ServiceNamespace>Amazon.DAX</ServiceNamespace>
     <PipelineParameter>ClusterName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -68,7 +68,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit=""   />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootNode" Output="DefaultSingleMember" Verb="Restart" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />

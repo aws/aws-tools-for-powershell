@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
     <ServiceNamespace>Amazon.CostAndUsageReport</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="" />
     <VerbMappings />
     <NounMappings />
     <Params />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCodePipelineClient</ServiceClient>
     <ServiceNamespace>Amazon.CodePipeline</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken"   />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -73,7 +73,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListPipelineExecutions" Output="DefaultSingleMember" Verb="Get" Noun="PipelineExecutionSummary" PipelineParameter="PipelineName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPipelines" Output="DefaultSingleMember" Verb="Get" Noun="PipelineList" PipelineParameter="" NoPipelineParameter="false">
             <Params />

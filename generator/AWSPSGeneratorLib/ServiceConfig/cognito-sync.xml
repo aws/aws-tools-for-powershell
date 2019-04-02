@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCognitoSyncClient</ServiceClient>
     <ServiceNamespace>Amazon.CognitoSync</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="ListRecords" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="ListRecords" />
     <VerbMappings />
     <NounMappings />
     <Params />

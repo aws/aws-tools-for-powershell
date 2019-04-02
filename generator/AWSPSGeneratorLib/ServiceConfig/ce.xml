@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCostExplorerClient</ServiceClient>
     <ServiceNamespace>Amazon.CostExplorer</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextPageToken" Next="NextPageToken"   Exclusions="GetCostAndUsage;GetDimensionValues;GetReservationCoverage;GetReservationPurchaseRecommendation;GetReservationUtilization;GetTags" />
+    <AutoIterate Start="NextPageToken" Next="NextPageToken" Exclusions="GetCostAndUsage;GetDimensionValues;GetReservationCoverage;GetReservationPurchaseRecommendation;GetReservationUtilization;GetTags" />
     <VerbMappings />
     <NounMappings />
     <Params />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonMobileClient</ServiceClient>
     <ServiceNamespace>Amazon.Mobile</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

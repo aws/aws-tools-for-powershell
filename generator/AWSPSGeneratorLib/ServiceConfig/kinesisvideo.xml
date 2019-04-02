@@ -37,7 +37,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForStream" Output="DefaultSingleMember" Verb="Get" Noun="TagsForStreamList" PipelineParameter="StreamName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken"   />
+            <AutoIterate Start="NextToken" Next="NextToken" />
         </ServiceOperation>
         <ServiceOperation MethodName="TagStream" Output="Void" Verb="Add" Noun="StreamTag" ShouldProcessTarget="StreamName" PipelineParameter="Tags" NoPipelineParameter="false">
             <Params />

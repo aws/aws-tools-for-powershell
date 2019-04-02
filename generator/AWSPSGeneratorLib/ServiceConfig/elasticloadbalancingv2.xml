@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
     <ServiceNamespace>Amazon.ElasticLoadBalancingV2</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize"   />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" />
     <VerbMappings>
         <Map From="Modify" To="Edit" />
         <Map From="Deregister" To="Unregister" />

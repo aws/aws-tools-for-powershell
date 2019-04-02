@@ -9,7 +9,7 @@
     <ServiceClient>AmazonSnowballClient</ServiceClient>
     <ServiceNamespace>Amazon.Snowball</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

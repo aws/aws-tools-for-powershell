@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCodeCommitClient</ServiceClient>
     <ServiceNamespace>Amazon.CodeCommit</ServiceNamespace>
     <PipelineParameter>RepositoryName</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken"   />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings />
     <NounMappings />
     <Params />

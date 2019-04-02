@@ -9,7 +9,7 @@
     <ServiceClient>AmazonLightsailClient</ServiceClient>
     <ServiceNamespace>Amazon.Lightsail</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="PageToken" Next="NextPageToken"   />
+    <AutoIterate Start="PageToken" Next="NextPageToken" />
     <VerbMappings />
     <NounMappings />
     <Params />

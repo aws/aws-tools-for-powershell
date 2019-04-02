@@ -9,7 +9,7 @@
     <ServiceClient>AmazonECSClient</ServiceClient>
     <ServiceNamespace>Amazon.ECS</ServiceNamespace>
     <PipelineParameter>Cluster</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings>
         <Map From="Deregister" To="Unregister" />
         <Map From="List" To="Get" />

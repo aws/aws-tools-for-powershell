@@ -9,7 +9,7 @@
     <ServiceClient>AmazonRekognitionClient</ServiceClient>
     <ServiceNamespace>Amazon.Rekognition</ServiceNamespace>
     <PipelineParameter>CollectionId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="ListFaces;ListCollections;GetCelebrityRecognition;GetContentModeration;GetFaceDetection;GetFaceSearch;GetLabelDetection;GetPersonTracking" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="ListFaces;ListCollections;GetCelebrityRecognition;GetContentModeration;GetFaceDetection;GetFaceSearch;GetLabelDetection;GetPersonTracking" />
     <VerbMappings />
     <NounMappings />
     <Params />

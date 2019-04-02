@@ -9,7 +9,7 @@
     <ServiceClient>AmazonKafkaClient</ServiceClient>
     <ServiceNamespace>Amazon.Kafka</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

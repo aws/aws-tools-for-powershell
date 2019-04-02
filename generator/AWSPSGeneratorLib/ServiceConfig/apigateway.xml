@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAPIGatewayClient</ServiceClient>
     <ServiceNamespace>Amazon.APIGateway</ServiceNamespace>
     <PipelineParameter>RestApiId</PipelineParameter>
-    <AutoIterate Start="Position" Next="Position" EmitLimit="Limit"   Exclusions="GetApiKeys;GetUsage" />
+    <AutoIterate Start="Position" Next="Position" EmitLimit="Limit" Exclusions="GetApiKeys;GetUsage" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -50,7 +50,7 @@
         <ServiceOperation MethodName="CreateDocumentationVersion" Output="Response" Verb="New" Noun="DocumentationVersion" ShouldProcessTarget="RestApiId" PipelineParameter="RestApiId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainName" Output="Response" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateDomainName" Output="Response" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Region">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateModel" Output="Response" Verb="New" Noun="Model" ShouldProcessTarget="Name" PipelineParameter="RestApiId" NoPipelineParameter="false">

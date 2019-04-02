@@ -105,7 +105,7 @@
         <ServiceOperation MethodName="CreatePolicyVersion" Output="Response" Verb="New" Noun="PolicyVersion" ShouldProcessTarget="PolicyName" PipelineParameter="PolicyName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateRoleAlias" Output="Response" Verb="New" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateRoleAlias" Output="Response" Verb="New" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Credential">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateScheduledAudit" Output="DefaultSingleMember" Verb="New" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="" NoPipelineParameter="true">
@@ -419,7 +419,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="TagListForResource" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken"   />
+            <AutoIterate Start="NextToken" Next="NextToken" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTargetsForPolicy" Output="DefaultSingleMember" Verb="Get" Noun="TargetsForPolicyList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
@@ -569,7 +569,7 @@
         <ServiceOperation MethodName="UpdateJob" Output="Void" Verb="Update" Noun="Job" ShouldProcessTarget="JobId" PipelineParameter="JobId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateRoleAlias" Output="Response" Verb="Update" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateRoleAlias" Output="Response" Verb="Update" Noun="RoleAlias" ShouldProcessTarget="RoleArn" PipelineParameter="RoleArn" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Credential">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateScheduledAudit" Output="DefaultSingleMember" Verb="Update" Noun="ScheduledAudit" ShouldProcessTarget="ScheduledAuditName" PipelineParameter="ScheduledAuditName" NoPipelineParameter="false">

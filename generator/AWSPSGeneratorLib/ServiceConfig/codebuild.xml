@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCodeBuildClient</ServiceClient>
     <ServiceNamespace>Amazon.CodeBuild</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken"   />
+    <AutoIterate Start="NextToken" Next="NextToken" />
     <VerbMappings />
     <NounMappings />
     <Params />

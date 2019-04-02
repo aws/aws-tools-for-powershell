@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElasticTranscoderClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticTranscoder</ServiceNamespace>
     <PipelineParameter>Id</PipelineParameter>
-    <AutoIterate Start="PageToken" Next="NextPageToken"   />
+    <AutoIterate Start="PageToken" Next="NextPageToken" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

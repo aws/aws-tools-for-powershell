@@ -9,7 +9,7 @@
     <ServiceClient>AmazonFMSClient</ServiceClient>
     <ServiceNamespace>Amazon.FMS</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="GetProtectionStatus" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="GetProtectionStatus" />
     <VerbMappings />
     <NounMappings />
     <Params />

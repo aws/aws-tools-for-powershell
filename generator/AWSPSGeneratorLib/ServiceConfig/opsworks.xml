@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.OpsWorks</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>StackId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings>
         <Map From="Reboot" To="Restart" />
         <Map From="Clone" To="Copy" />

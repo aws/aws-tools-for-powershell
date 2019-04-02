@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElasticFileSystemClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticFileSystem</ServiceNamespace>
     <PipelineParameter>FileSystemId</PipelineParameter>
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems"   />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
     <VerbMappings />
     <NounMappings>
         <Map From="Tags" To="Tag" />

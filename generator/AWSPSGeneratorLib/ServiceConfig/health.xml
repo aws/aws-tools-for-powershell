@@ -9,7 +9,7 @@
     <ServiceClient>AmazonAWSHealthClient</ServiceClient>
     <ServiceNamespace>Amazon.AWSHealth</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

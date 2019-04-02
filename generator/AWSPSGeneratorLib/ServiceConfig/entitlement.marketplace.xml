@@ -9,7 +9,7 @@
     <ServiceClient>AmazonMarketplaceEntitlementServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.MarketplaceEntitlementService</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

@@ -9,7 +9,7 @@
     <ServiceClient>AmazonMediaLiveClient</ServiceClient>
     <ServiceNamespace>Amazon.MediaLive</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

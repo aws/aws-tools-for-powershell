@@ -9,7 +9,7 @@
     <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
     <ServiceNamespace>Amazon.MediaStoreData</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     <VerbMappings />
     <NounMappings />
     <Params />

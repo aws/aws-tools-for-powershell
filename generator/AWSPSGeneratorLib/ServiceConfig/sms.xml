@@ -9,7 +9,7 @@
     <ServiceClient>AmazonServerMigrationServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.ServerMigrationService</ServiceNamespace>
     <PipelineParameter>ReplicationJobId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="GetReplicationRuns;GetServers" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="GetReplicationRuns;GetServers" />
     <VerbMappings />
     <NounMappings />
     <Params />

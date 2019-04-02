@@ -9,7 +9,7 @@
     <ServiceClient>AmazonApiGatewayV2Client</ServiceClient>
     <ServiceNamespace>Amazon.ApiGatewayV2</ServiceNamespace>
     <PipelineParameter>ApiId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -45,7 +45,7 @@
         <ServiceOperation MethodName="CreateDomainName" Output="Response" Verb="New" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateIntegration" Output="Response" Verb="New" Noun="Integration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="CreateIntegration" Output="Response" Verb="New" Noun="Integration" ShouldProcessTarget="ApiId" PipelineParameter="ApiId" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Credential">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="CreateIntegrationResponse" Output="Response" Verb="New" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false">
@@ -180,7 +180,7 @@
         <ServiceOperation MethodName="UpdateDomainName" Output="Response" Verb="Update" Noun="DomainName" ShouldProcessTarget="DomainName" PipelineParameter="DomainName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateIntegration" Output="Response" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateIntegration" Output="Response" Verb="Update" Noun="Integration" ShouldProcessTarget="IntegrationId" PipelineParameter="ApiId" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Credential">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateIntegrationResponse" Output="Response" Verb="Update" Noun="IntegrationResponse" ShouldProcessTarget="IntegrationResponseId" PipelineParameter="ApiId" NoPipelineParameter="false">

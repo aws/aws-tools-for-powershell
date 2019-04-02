@@ -9,7 +9,7 @@
     <ServiceClient>AmazonSimpleWorkflowClient</ServiceClient>
     <ServiceNamespace>Amazon.SimpleWorkflow</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextPageToken" Next="NextPageToken" EmitLimit="MaximumPageSize"   />
+    <AutoIterate Start="NextPageToken" Next="NextPageToken" EmitLimit="MaximumPageSize" />
     <VerbMappings />
     <NounMappings />
     <Params />

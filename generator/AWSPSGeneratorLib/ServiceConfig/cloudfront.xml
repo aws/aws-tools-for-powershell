@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCloudFrontClient</ServiceClient>
     <ServiceNamespace>Amazon.CloudFront</ServiceNamespace>
     <PipelineParameter>Id</PipelineParameter>
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems"   />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxItems" />
     <VerbMappings>
         <Map From="List" To="Get" />
     </VerbMappings>

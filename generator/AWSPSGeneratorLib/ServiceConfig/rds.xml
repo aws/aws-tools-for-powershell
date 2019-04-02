@@ -9,7 +9,7 @@
     <ServiceClient>AmazonRDSClient</ServiceClient>
     <ServiceNamespace>Amazon.RDS</ServiceNamespace>
     <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords"   Exclusions="DownloadDBLogFilePortion" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" Exclusions="DownloadDBLogFilePortion" />
     <VerbMappings>
         <Map From="List" To="Get" />
         <Map From="Reboot" To="Restart" />
@@ -288,7 +288,7 @@
         <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" Output="DefaultSingleMember" Verb="Get" Noun="ReservedDBInstancesOfferingList" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" LegacyAlias="Get-RDSReservedDBInstancesOfferings">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeSourceRegions" Output="DefaultSingleMember" Verb="Get" Noun="SourceRegion" PipelineParameter="" NoPipelineParameter="true">
+        <ServiceOperation MethodName="DescribeSourceRegions" Output="DefaultSingleMember" Verb="Get" Noun="SourceRegion" PipelineParameter="" NoPipelineParameter="true" IgnoreReservedParamPrefixes="Region">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="DefaultSingleMember" Verb="Get" Noun="ValidDBInstanceModification" PipelineParameter="DBInstanceIdentifier" NoPipelineParameter="false">

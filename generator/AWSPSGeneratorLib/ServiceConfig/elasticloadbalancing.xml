@@ -9,7 +9,7 @@
     <ServiceClient>AmazonElasticLoadBalancingClient</ServiceClient>
     <ServiceNamespace>Amazon.ElasticLoadBalancing</ServiceNamespace>
     <PipelineParameter>LoadBalancerName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize"   />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" />
     <VerbMappings>
         <Map From="Apply" To="Join" />
         <Map From="Configure" To="Set" />

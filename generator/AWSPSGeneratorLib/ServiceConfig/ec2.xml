@@ -9,7 +9,7 @@
     <ServiceClient>AmazonEC2Client</ServiceClient>
     <ServiceNamespace>Amazon.EC2</ServiceNamespace>
     <PipelineParameter>InstanceId</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices;" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices;" />
     <VerbMappings>
         <Map From="Associate" To="Register" />
         <Map From="Disassociate" To="Unregister" />
@@ -668,7 +668,7 @@
         <ServiceOperation MethodName="DescribePublicIpv4Pools" Output="DefaultSingleMember" Verb="Get" Noun="PublicIpv4Pool" PipelineParameter="PoolIds" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeRegions" Output="DefaultSingleMember" Verb="Get" Noun="Region" PositionalParameters="Filters" PipelineParameter="RegionNames" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DescribeRegions" Output="DefaultSingleMember" Verb="Get" Noun="Region" PositionalParameters="Filters" PipelineParameter="RegionNames" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Region">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeReservedInstances" Output="DefaultSingleMember" Verb="Get" Noun="ReservedInstance" PositionalParameters="Filters;OfferingType" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false">

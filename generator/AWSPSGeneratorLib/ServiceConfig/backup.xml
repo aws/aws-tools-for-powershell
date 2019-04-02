@@ -9,7 +9,7 @@
     <ServiceClient>AmazonBackupClient</ServiceClient>
     <ServiceNamespace>Amazon.Backup</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults"   Exclusions="" />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" Exclusions="" />
     <VerbMappings />
     <NounMappings />
     <Params />

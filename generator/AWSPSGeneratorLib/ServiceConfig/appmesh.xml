@@ -30,8 +30,8 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateRoute" Output="DefaultSingleMember" Verb="New" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
             <Params>
-                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" AutoApplyAlias="true" Alias="Action_WeightedTarget" />
-                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" AutoApplyAlias="true" />
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateVirtualNode" Output="DefaultSingleMember" Verb="New" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">
@@ -102,8 +102,8 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateRoute" Output="DefaultSingleMember" Verb="Update" Noun="Route" ShouldProcessTarget="RouteName" PipelineParameter="RouteName" NoPipelineParameter="false">
             <Params>
-                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" AutoApplyAlias="true" Alias="Action_WeightedTarget" />
-                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" AutoApplyAlias="true" />
+                <Param Name="Spec_HttpRoute_Action_WeightedTargets" NewName="Spec_HttpRoute_Action_WeightedTarget" Alias="Action_WeightedTarget" />
+                <Param Name="Spec_TcpRoute_Action_WeightedTargets" NewName="Spec_TcpRoute_Action_WeightedTarget" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateVirtualNode" Output="DefaultSingleMember" Verb="Update" Noun="VirtualNode" ShouldProcessTarget="VirtualNodeName" PipelineParameter="VirtualNodeName" NoPipelineParameter="false">

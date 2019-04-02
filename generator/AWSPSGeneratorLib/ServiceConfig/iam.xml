@@ -10,7 +10,7 @@
     <ServiceNamespace>Amazon.IdentityManagement</ServiceNamespace>
     <DefaultRegion>us-east-1</DefaultRegion>
     <PipelineParameter>UserName</PipelineParameter>
-    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated"   Exclusions="GetGroup;GetAccountAuthorizationDetails;ListEntitiesForPolicy;GetServiceLastAccessedDetails;GetServiceLastAccessedDetailsWithEntities" />
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" Exclusions="GetGroup;GetAccountAuthorizationDetails;ListEntitiesForPolicy;GetServiceLastAccessedDetails;GetServiceLastAccessedDetailsWithEntities" />
     <VerbMappings>
         <Map From="Change" To="Edit" />
         <Map From="List" To="Get" />
@@ -114,7 +114,7 @@
         <ServiceOperation MethodName="DeactivateMFADevice" Output="Void" Verb="Disable" Noun="MFADevice" ShouldProcessTarget="UserName" PositionalParameters="SerialNumber" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteAccessKey" Output="Void" Verb="Remove" Noun="AccessKey" ShouldProcessTarget="AccessKeyId" PositionalParameters="AccessKeyId" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="DeleteAccessKey" Output="Void" Verb="Remove" Noun="AccessKey" ShouldProcessTarget="AccessKeyId" PositionalParameters="AccessKeyId" PipelineParameter="UserName" NoPipelineParameter="false" IgnoreReservedParamPrefixes="AccessKey">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteAccountAlias" Output="Void" Verb="Remove" Noun="AccountAlias" ShouldProcessTarget="AccountAlias" PipelineParameter="AccountAlias" NoPipelineParameter="false">
@@ -201,7 +201,7 @@
         <ServiceOperation MethodName="GenerateServiceLastAccessedDetails" Output="DefaultSingleMember" Verb="Request" Noun="ServiceLastAccessedDetail" ShouldProcessTarget="Arn" PipelineParameter="Arn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetAccessKeyLastUsed" Output="Response" Verb="Get" Noun="AccessKeyLastUsed" PipelineParameter="AccessKeyId" NoPipelineParameter="false">
+        <ServiceOperation MethodName="GetAccessKeyLastUsed" Output="Response" Verb="Get" Noun="AccessKeyLastUsed" PipelineParameter="AccessKeyId" NoPipelineParameter="false" IgnoreReservedParamPrefixes="AccessKey">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAccountAuthorizationDetails" Output="Response" Verb="Get" Noun="AccountAuthorizationDetail" PipelineParameter="Filter" NoPipelineParameter="false" MetadataProperties="IsTruncated;Marker" LegacyAlias="Get-IAMAccountAuthorizationDetails">
@@ -408,7 +408,7 @@
         <ServiceOperation MethodName="UntagUser" Output="Void" Verb="Remove" Noun="UserTag" ShouldProcessTarget="UserName" PipelineParameter="UserName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateAccessKey" Output="Void" Verb="Update" Noun="AccessKey" ShouldProcessTarget="UserName" PositionalParameters="AccessKeyId;Status" PipelineParameter="UserName" NoPipelineParameter="false">
+        <ServiceOperation MethodName="UpdateAccessKey" Output="Void" Verb="Update" Noun="AccessKey" ShouldProcessTarget="UserName" PositionalParameters="AccessKeyId;Status" PipelineParameter="UserName" NoPipelineParameter="false" IgnoreReservedParamPrefixes="AccessKey">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateAccountPasswordPolicy" Output="Void" Verb="Update" Noun="AccountPasswordPolicy" AnonymousShouldProcessTarget="true" PipelineParameter="" NoPipelineParameter="true">

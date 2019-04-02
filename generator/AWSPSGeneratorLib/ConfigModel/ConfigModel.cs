@@ -1107,6 +1107,28 @@ namespace AWSPowerShellGenerator.ServiceConfig
         [XmlAttribute]
         public string LegacyAlias;
 
+        /// <summary>
+        /// Some parameter names or aliases have a prefix which is one of the parameters defined
+        /// by AWSRegionArguments and AWSCommonArguments. We now validate that this doesn't happen
+        /// but for backward compatibility we need to ignore some of these collisions.
+        /// </summary>
+        [XmlAttribute]
+        public string IgnoreReservedParamPrefixes;
+
+        [XmlIgnore]
+        public string[] IgnoreReservedParamPrefixesList
+        {
+            get
+            {
+                return IgnoreReservedParamPrefixes?.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries) ?? new string[0];
+            }
+
+            set
+            {
+                IgnoreReservedParamPrefixes = value == null ? null : string.Join(";", value);
+            }
+        }
+
         #region Data constructed during generation
 
         /// <summary>
@@ -1392,6 +1414,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// The service's max records per call value; not all services have one
         /// </summary>
         [XmlAttribute]
+        [DefaultValue(-1)]
         public int ServicePageSize = -1;
 
         /// <summary>

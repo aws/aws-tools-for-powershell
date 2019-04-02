@@ -9,7 +9,7 @@
     <ServiceClient>AmazonCertificateManagerClient</ServiceClient>
     <ServiceNamespace>Amazon.CertificateManager</ServiceNamespace>
     <PipelineParameter>CertificateArn</PipelineParameter>
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" />
     <VerbMappings />
     <NounMappings />
     <Params />

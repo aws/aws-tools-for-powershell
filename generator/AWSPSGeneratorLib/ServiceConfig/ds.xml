@@ -9,7 +9,7 @@
     <ServiceClient>AmazonDirectoryServiceClient</ServiceClient>
     <ServiceNamespace>Amazon.DirectoryService</ServiceNamespace>
     <PipelineParameter />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit"   />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" />
     <VerbMappings />
     <NounMappings />
     <Params />
