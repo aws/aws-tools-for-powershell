@@ -17,57 +17,35 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management.Automation;
+using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Route53;
+using Amazon.Route53.Model;
 
 namespace Amazon.PowerShell.Cmdlets.R53
 {
     /// <summary>
-    /// Gets information about all of the versions for a specified traffic policy. <code>ListTrafficPolicyVersions</code>
-    /// lists only versions that have not been deleted.
+    /// Gets information about all of the versions for a specified traffic policy.
     /// 
     ///  
     /// <para>
-    /// Amazon Route 53 returns a maximum of 100 items in each response. If you have a lot
-    /// of traffic policies, you can use the <code>maxitems</code> parameter to list them
-    /// in groups of up to 100.
-    /// </para><para>
-    /// The response includes three values that help you navigate from one group of <code>maxitems</code>maxitems
-    /// traffic policies to the next:
-    /// </para><ul><li><b>IsTruncated</b></li><para>
-    /// If the value of <code>IsTruncated</code> in the response is <code>true</code>, there
-    /// are more traffic policy versions associated with the specified traffic policy.
-    /// </para><para>
-    /// If <code>IsTruncated</code> is <code>false</code>, this response includes the last
-    /// traffic policy version that is associated with the specified traffic policy.
-    /// </para><li><b>TrafficPolicyVersionMarker</b></li><para>
-    /// The ID of the next traffic policy version that is associated with the current AWS
-    /// account. If you want to list more traffic policies, make another call to <code>ListTrafficPolicyVersions</code>,
-    /// and specify the value of the <code>TrafficPolicyVersionMarker</code> element in the
-    /// <code>TrafficPolicyVersionMarker</code> request parameter.
-    /// </para><para>
-    /// If <code>IsTruncated</code> is <code>false</code>, Amazon Route 53 omits the <code>TrafficPolicyVersionMarker</code>
-    /// element from the response.
-    /// </para><li><b>MaxItems</b></li><para>
-    /// The value that you specified for the <code>MaxItems</code> parameter in the request
-    /// that produced the current response.
-    /// </para></ul>
-    /// <para>
-    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Get-R53TrafficPolicyVersions</i>.
-    /// </para>
+    /// Traffic policy versions are listed in numerical order by <code>VersionNumber</code>.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyVersionList")]
     [OutputType("Amazon.Route53.Model.TrafficPolicy")]
-    [AWSCmdlet("Calls the Amazon Route 53 ListTrafficPolicyVersions API operation.", Operation = new[] { "ListTrafficPolicyVersions" }, LegacyAlias = "Get-R53TrafficPolicyVersions")]
+    [AWSCmdlet("Calls the Amazon Route 53 ListTrafficPolicyVersions API operation.", Operation = new[] {"ListTrafficPolicyVersions"}, LegacyAlias="Get-R53TrafficPolicyVersions")]
     [AWSCmdletOutput("Amazon.Route53.Model.TrafficPolicy",
         "This cmdlet returns a collection of TrafficPolicy objects.",
         "The service call response (type Amazon.Route53.Model.ListTrafficPolicyVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: IsTruncated (type System.Boolean), TrafficPolicyVersionMarker (type System.String), MaxItems (type System.String)"
     )]
-    public class GetR53TrafficPolicyVersionListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
+    public partial class GetR53TrafficPolicyVersionListCmdlet : AmazonRoute53ClientCmdlet, IExecutor
     {
+        
         #region Parameter Id
         /// <summary>
         /// <para>
@@ -78,41 +56,46 @@ namespace Amazon.PowerShell.Cmdlets.R53
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Id { get; set; }
         #endregion
-
+        
         #region Parameter MaxItem
         /// <summary>
         /// <para>
         /// <para>The maximum number of traffic policy versions that you want Amazon Route 53 to include
         /// in the response body for this request. If the specified traffic policy has more than
-        /// <code>MaxItems</code> versions, the value of the <code>IsTruncated</code> element
-        /// in the response is <code>true</code>, and the value of the <code>TrafficPolicyVersionMarker</code>
-        /// element is the ID of the first version in the next group of <code>MaxItems</code>
-        /// traffic policy versions.</para>
+        /// <code>MaxItems</code> versions, the value of <code>IsTruncated</code> in the response
+        /// is <code>true</code>, and the value of the <code>TrafficPolicyVersionMarker</code>
+        /// element is the ID of the first version that Route 53 will return if you submit another
+        /// request.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
         public int MaxItem { get; set; }
         #endregion
-
+        
         #region Parameter TrafficPolicyVersionMarker
         /// <summary>
         /// <para>
-        /// <para>For your first request to <code>ListTrafficPolicyVersions</code>, do not include the
+        /// <para>For your first request to <code>ListTrafficPolicyVersions</code>, don't include the
         /// <code>TrafficPolicyVersionMarker</code> parameter.</para><para>If you have more traffic policy versions than the value of <code>MaxItems</code>,
         /// <code>ListTrafficPolicyVersions</code> returns only the first group of <code>MaxItems</code>
-        /// versions. To get the next group of <code>MaxItems</code> traffic policy versions,
-        /// submit another request to <code>ListTrafficPolicyVersions</code>. For the value of
-        /// <code>TrafficPolicyVersionMarker</code>, specify the value of the <code>TrafficPolicyVersionMarker</code>
-        /// element that was returned in the previous response.</para><para>Traffic policy versions are listed in sequential order.</para>
+        /// versions. To get more traffic policy versions, submit another <code>ListTrafficPolicyVersions</code>
+        /// request. For the value of <code>TrafficPolicyVersionMarker</code>, specify the value
+        /// of <code>TrafficPolicyVersionMarker</code> in the previous response.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <br/>In order to manually control output pagination, assign $null, for the first call, and the value of $AWSHistory.LastServiceResponse.TrafficPolicyVersionMarker, for subsequent calls, to this parameter.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String TrafficPolicyVersionMarker { get; set; }
         #endregion
-
-
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -123,10 +106,16 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 Credentials = this.CurrentCredentials
             };
             
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
             context.Id = this.Id;
             context.TrafficPolicyVersionMarker = this.TrafficPolicyVersionMarker;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -149,7 +138,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.TrafficPolicyVersionMarker))
             {
                 _nextMarker = cmdletContext.TrafficPolicyVersionMarker;
@@ -164,33 +152,20 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.TrafficPolicyVersionMarker) || AutoIterationHelpers.HasValue(cmdletContext.MaxItems);
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("TrafficPolicyVersionMarker");
             
             try
             {
                 do
                 {
                     request.TrafficPolicyVersionMarker = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 100;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
                     }
+                    request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxItems))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
-                    }
-
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -217,37 +192,30 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         }
                         
                         _nextMarker = response.TrafficPolicyVersionMarker;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;
@@ -257,24 +225,23 @@ namespace Amazon.PowerShell.Cmdlets.R53
         {
             return new CmdletContext();
         }
-
+        
         #endregion
-
+        
         #region AWS Service Operation Call
-
+        
         private Amazon.Route53.Model.ListTrafficPolicyVersionsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPolicyVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route 53", "ListTrafficPolicyVersions");
-
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53", "ListTrafficPolicyVersions");
             try
             {
-#if DESKTOP
+                #if DESKTOP
                 return client.ListTrafficPolicyVersions(request);
-#elif CORECLR
+                #elif CORECLR
                 return client.ListTrafficPolicyVersionsAsync(request).GetAwaiter().GetResult();
-#else
-#error "Unknown build edition"
-#endif
+                #else
+                        #error "Unknown build edition"
+                #endif
             }
             catch (AmazonServiceException exc)
             {
@@ -283,14 +250,13 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 {
                     throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
                 }
-
                 throw;
             }
         }
-
+        
         #endregion
-
-        internal class CmdletContext : ExecutorContext
+        
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Id { get; set; }
             public System.String TrafficPolicyVersionMarker { get; set; }

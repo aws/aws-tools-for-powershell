@@ -21,10 +21,7 @@
     <Params />
     <AdditionalNamespaces />
     <CustomAliases />
-    <LegacyAliases>
-        <AliasSet Cmdlet="Get-R53TrafficPolicyList">Get-R53TrafficPolicies</AliasSet>
-        <AliasSet Cmdlet="Get-R53TrafficPolicyVersionList">Get-R53TrafficPolicyVersions</AliasSet>
-    </LegacyAliases>
+    <LegacyAliases />
     <ParamEmitters />
     <MetadataProperties>
         <Property>Marker</Property>
@@ -184,7 +181,8 @@
         <ServiceOperation MethodName="ListTagsForResources" Output="DefaultSingleMember" Verb="Get" Noun="TagsForResourceList" PipelineParameter="ResourceIds" NoPipelineParameter="false" LegacyAlias="Get-R53TagsForResources">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicies" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrafficPolicies" Output="DefaultSingleMember" Verb="Get" Noun="TrafficPolicyList" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems" LegacyAlias="Get-R53TrafficPolicies">
+            <AutoIterate Start="TrafficPolicyIdMarker" Next="TrafficPolicyIdMarker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="100" />
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTrafficPolicyInstances" Output="Response" Verb="Get" Noun="TrafficPolicyInstanceList" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="IsTruncated;MaxItems" LegacyAlias="Get-R53TrafficPolicyInstances">
@@ -198,7 +196,8 @@
         <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" Output="Response" Verb="Get" Noun="TrafficPolicyInstancesByPolicy" PipelineParameter="TrafficPolicyId" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTrafficPolicyVersions" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
+        <ServiceOperation MethodName="ListTrafficPolicyVersions" Output="DefaultSingleMember" Verb="Get" Noun="TrafficPolicyVersionList" ShouldProcessTarget="" PipelineParameter="Id" NoPipelineParameter="false" MetadataProperties="IsTruncated;MaxItems" LegacyAlias="Get-R53TrafficPolicyVersions">
+            <AutoIterate Start="TrafficPolicyVersionMarker" Next="TrafficPolicyVersionMarker" EmitLimit="MaxItems" TruncatedFlag="IsTruncated" ServicePageSize="100" />
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Output="Response" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" NoPipelineParameter="false" MetadataProperties="NextToken">
@@ -209,8 +208,10 @@
         <ServiceOperation MethodName="TestDNSAnswer" Output="Response" Verb="Test" Noun="DNSAnswer" PipelineParameter="HostedZoneId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateHealthCheck" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
-            <Params />
+        <ServiceOperation MethodName="UpdateHealthCheck" Output="DefaultSingleMember" Verb="Update" Noun="HealthCheck" ShouldProcessTarget="HealthCheckId" PipelineParameter="HealthCheckId" NoPipelineParameter="false" IgnoreReservedParamPrefixes="Region">
+            <Params>
+                <Param Name="Regions" NewName="HealthCheckRegion" AutoApplyAlias="true" />
+            </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateHostedZoneComment" Output="DefaultSingleMember" Verb="Update" Noun="HostedZoneComment" ShouldProcessTarget="Id" PipelineParameter="Id" NoPipelineParameter="false">
             <Params />
