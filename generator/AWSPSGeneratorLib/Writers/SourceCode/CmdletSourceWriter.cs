@@ -478,18 +478,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
             var paramDoc = property.MemberDocumentation;
             if (MethodAnalysis.IterationPattern != AutoIteration.AutoIteratePattern.None
                 && MethodAnalysis.AutoIterateSettings != null 
-                && MethodAnalysis.AutoIterateSettings.IsIterationParameter(property.AnalyzedName))
+                && MethodAnalysis.AutoIterateSettings.Start == property.Name)
             {
-
-
-                paramDoc += "\r\n<para>"
-                         + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.";
-                if (property.Name.Equals(MethodAnalysis.AutoIterateSettings.Start, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    paramDoc += "\r\n<br/>In order to manually control output pagination, assign $null, for the first call, and the value of "
-                              + "$AWSHistory.LastServiceResponse." + MethodAnalysis.AutoIterateSettings.Next + ", for subsequent calls, to this parameter.";
-                }
-                paramDoc += "\r\n</para>";
+                paramDoc += "\r\n<para>" +
+                            "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call." +
+                            "\r\n<br/>In order to manually control output pagination, assign $null, for the first call, and the value of " +
+                            "$AWSHistory.LastServiceResponse." + MethodAnalysis.AutoIterateSettings.Next + ", for subsequent calls, to this parameter." +
+                            "\r\n</para>";
             }
 
             var paramCustomization = FindParameterCustomization(property.AnalyzedName);
@@ -1638,9 +1633,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     return;
 
                 var autoIteration = operationAnalyzer.AutoIterateSettings;
-                bool isEmitLimiter = false;
-                if (autoIteration != null && !autoIteration.ExclusionSet.Contains(operationAnalyzer.CurrentOperation.MethodName))
-                    isEmitLimiter = autoIteration.IsEmitLimit(property.Name);
+                bool isEmitLimiter = property.Name == autoIteration?.EmitLimit;
 
                 if (!nestedProperty && property.IsDeprecated)
                 {

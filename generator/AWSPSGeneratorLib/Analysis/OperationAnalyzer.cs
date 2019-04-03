@@ -1121,7 +1121,7 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 foreach (var parameter in AnalyzedParameters)
                 {
-                    if (autoIterateSettings.IsEmitLimit(parameter.AnalyzedName))
+                    if (parameter.AnalyzedName == autoIterateSettings.EmitLimit)
                     {
                         parameter.UseParameterValueOnlyIfBound = true;
                         parameter.PropertyTypeName = "int";

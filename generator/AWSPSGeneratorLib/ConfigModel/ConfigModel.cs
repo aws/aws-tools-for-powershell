@@ -1475,27 +1475,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// <returns></returns>
         public bool IsIterationParameter(string propertyName)
         {
-            if (String.Compare(propertyName, Start, StringComparison.InvariantCultureIgnoreCase) == 0)
-                return true;
-            if (String.Compare(propertyName, Next, StringComparison.InvariantCultureIgnoreCase) == 0)
-                return true;
-            if (String.Compare(propertyName, EmitLimit, StringComparison.InvariantCultureIgnoreCase) == 0)
-                return true;
-
-            return false;
-        }
-
-        /// <summary>
-        /// Indicates if the specified parameter maps to the declared 'next'
-        /// token field. Used to enable us to emit extra documentation for
-        /// the parameter that it is not needed unless the user is controlling
-        /// pagination.
-        /// </summary>
-        /// <param name="paramName"></param>
-        /// <returns></returns>
-        public bool IsNextToken(string paramName)
-        {
-            return paramName.Equals(this.Next, StringComparison.Ordinal);
+            return propertyName == Start || propertyName == EmitLimit;
         }
 
         /// <summary>
@@ -1506,29 +1486,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// <returns></returns>
         public string GetIterationParameterAlias(string propertyName)
         {
-            if (IsIterationParameter(propertyName))
-            {
-                if (String.Equals(propertyName, Start, StringComparison.OrdinalIgnoreCase)
-                        && !String.Equals(propertyName, NextAlias, StringComparison.OrdinalIgnoreCase))
-                    return NextAlias;
+            if (propertyName == Start && propertyName != NextAlias)
+                return NextAlias;
 
-                if (String.Equals(propertyName, EmitLimit, StringComparison.OrdinalIgnoreCase)
-                        && !String.Equals(propertyName, EmitLimitAlias, StringComparison.OrdinalIgnoreCase))
-                    return EmitLimitAlias;
-            }
+            if (propertyName == EmitLimit && propertyName != EmitLimitAlias)
+                return EmitLimitAlias;
 
             return null;
-        }
-
-        public bool IsEmitLimit(string propertyName)
-        {
-            if (IsIterationParameter(propertyName))
-            {
-                if (String.Equals(propertyName, EmitLimit, StringComparison.OrdinalIgnoreCase))
-                    return true;
-            }
-
-            return false;
         }
     }
 

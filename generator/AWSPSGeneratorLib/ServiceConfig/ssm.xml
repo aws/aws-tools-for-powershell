@@ -140,7 +140,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeAvailablePatches" Output="DefaultSingleMember" Verb="Get" Noun="AvailablePatch" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeDocument" Output="DefaultSingleMember" Verb="Get" Noun="DocumentDescription" PipelineParameter="" NoPipelineParameter="true">
             <Params />
@@ -154,7 +153,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" Output="DefaultSingleMember" Verb="Get" Noun="EffectivePatchesForPatchBaseline" PipelineParameter="BaselineId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" Output="DefaultSingleMember" Verb="Get" Noun="InstanceAssociationsStatus" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
@@ -164,34 +162,27 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstancePatches" Output="DefaultSingleMember" Verb="Get" Noun="InstancePatch" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstancePatchStates" Output="DefaultSingleMember" Verb="Get" Noun="InstancePatchState" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" Output="DefaultSingleMember" Verb="Get" Noun="InstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeInventoryDeletions" Output="DefaultSingleMember" Verb="Get" Noun="InventoryDeletionList" PipelineParameter="DeletionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindows" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowList" PipelineParameter="Filters" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowSchedule" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowSchedule" PipelineParameter="" NoPipelineParameter="true">
             <Params />
@@ -201,22 +192,18 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowTarget" PipelineParameter="" NoPipelineParameter="true" LegacyAlias="Get-SSMMaintenanceWindowTargets">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Output="DefaultSingleMember" Verb="Get" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeParameters" Output="DefaultSingleMember" Verb="Get" Noun="ParameterList" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePatchBaselines" Output="DefaultSingleMember" Verb="Get" Noun="PatchBaseline" PipelineParameter="" NoPipelineParameter="true">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePatchGroups" Output="DefaultSingleMember" Verb="Get" Noun="PatchGroup" PipelineParameter="Filters" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" Verb="Get" Noun="PatchGroupState" PipelineParameter="PatchGroup" NoPipelineParameter="false">
             <Params />
