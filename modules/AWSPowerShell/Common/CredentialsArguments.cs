@@ -69,10 +69,8 @@ namespace Amazon.PowerShell.Common
         string MfaSerial { get; }
         string RoleArn { get; }
         string SourceProfile { get; }
-//#if DESKTOP
 //        string EndpointName { get; }
 //        string UserIdentity { get; }
-//#endif
     }
 
     /// <summary>
@@ -257,13 +255,10 @@ namespace Amazon.PowerShell.Common
 
         private static void SetProxyAndCallbackIfNecessary(AWSCredentials innerCredentials, IAWSCredentialsArguments self, PSHost psHost)
         {
-#if DESKTOP
             SetupIfFederatedCredentials(innerCredentials, psHost, self);
-#endif
             SetupIfAssumeRoleCredentials(innerCredentials, self);
         }
 
-#if DESKTOP
         private static WebProxy GetWebProxy(IAWSCredentialsArguments self)
         {
             var proxySettings = ProxySettings.GetFromSettingsVariable(self.SessionState);
@@ -291,8 +286,7 @@ namespace Amazon.PowerShell.Common
                 //set up proxy
                 samlCredentials.Options.ProxySettings = GetWebProxy(self);
             }
-    }
-#endif
+        }
 
         private static void SetupIfAssumeRoleCredentials(AWSCredentials credentials, IAWSCredentialsArguments self)
         {
@@ -301,10 +295,8 @@ namespace Amazon.PowerShell.Common
             {
                 // set up callback
                 assumeRoleCredentials.Options.MfaTokenCodeCallback = ReadMFACode;
-#if DESKTOP
                 // set up proxy
                 assumeRoleCredentials.Options.ProxySettings = GetWebProxy(self);
-#endif
             }
         }
 
@@ -344,7 +336,6 @@ namespace Amazon.PowerShell.Common
             return mfaCode;
         }
 
-#if DESKTOP
         private static NetworkCredential UserCredentialCallbackHandler(CredentialRequestCallbackArgs args)
         {
             var callbackContext = args.CustomState as SAMLCredentialCallbackState;
@@ -378,10 +369,8 @@ namespace Amazon.PowerShell.Common
 
             return psCredential != null ? psCredential.GetNetworkCredential() : null;
         }
-#endif
     }
 
-#if DESKTOP
     /// <summary>
     /// Captures the PSHost and executing cmdlet state for use in our credential callback
     /// handler.
@@ -410,7 +399,6 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         public PSCredential ShellNetworkCredentialParameter { get; set; }
     }
-#endif
 
 #endregion
 
@@ -840,8 +828,8 @@ namespace Amazon.PowerShell.Common
             typeof(InstanceProfileAWSCredentials),
 #if DESKTOP
             typeof(StoredProfileFederatedCredentials),
-            typeof(FederatedAWSCredentials),
 #endif
+            typeof(FederatedAWSCredentials),
         };
 
         private static HashSet<Type> ThrowExtractTypes = new HashSet<Type>
@@ -854,8 +842,8 @@ namespace Amazon.PowerShell.Common
             typeof(StoredProfileAWSCredentials),
 #if DESKTOP
             typeof(EnvironmentAWSCredentials),
-            typeof(EnvironmentVariablesAWSCredentials)
 #endif
+            typeof(EnvironmentVariablesAWSCredentials)
         };
 #pragma warning restore CS0618 //A class was marked with the Obsolete attribute
 
@@ -887,5 +875,5 @@ namespace Amazon.PowerShell.Common
         public string StoreTypeName { get; set; }
         public string ProfileLocation { get; set; }
     }
-    #endregion
+#endregion
 }

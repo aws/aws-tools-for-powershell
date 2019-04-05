@@ -25,9 +25,7 @@ using System.Collections.ObjectModel;
 
 using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement;
-#if DESKTOP
 using Amazon.SecurityToken.SAML;
-#endif
 
 namespace Amazon.PowerShell.Common
 {
@@ -225,24 +223,24 @@ namespace Amazon.PowerShell.Common
         /// <param name="credentialsArguments"></param>
         private static void SetUpIfFederatedCredentials(AWSPSCredentials currentCredentials, IAWSCredentialsArguments credentialsArguments)
         {
-#if DESKTOP
-            SAMLCredentialCallbackState callbackState = null;
-#pragma warning disable CS0618 //A class was marked with the Obsolete attribute
-            var legacyFederatedCredentials = currentCredentials.Credentials as StoredProfileFederatedCredentials;
-#pragma warning restore CS0618 //A class was marked with the Obsolete attribute
-            var federatedCredentials = currentCredentials.Credentials as FederatedAWSCredentials;
+            var callbackState = (currentCredentials.Credentials as FederatedAWSCredentials)?.Options.CustomCallbackState as SAMLCredentialCallbackState;
 
-            if (legacyFederatedCredentials != null)
-                callbackState = legacyFederatedCredentials.CustomCallbackState as SAMLCredentialCallbackState;
-            else if (federatedCredentials != null)
-                callbackState = federatedCredentials.Options.CustomCallbackState as SAMLCredentialCallbackState;
+#if DESKTOP
+            if (callbackState == null)
+            {
+#pragma warning disable CS0618 //A class was marked with the Obsolete attribute
+                callbackState = (currentCredentials.Credentials as StoredProfileFederatedCredentials)?.CustomCallbackState as SAMLCredentialCallbackState;
+#pragma warning restore CS0618 //A class was marked with the Obsolete attribute
+            }
+#endif
 
             if (callbackState != null) // is our callback that's attached
+            {
                 callbackState.ShellNetworkCredentialParameter = credentialsArguments != null ? credentialsArguments.NetworkCredential : null;
-#endif
+            }
         }
 
-        #region IDynamicParameters Members
+#region IDynamicParameters Members
 
         public object GetDynamicParameters()
         {
@@ -270,7 +268,7 @@ namespace Amazon.PowerShell.Common
     [Cmdlet("Clear", "AWSCredential")]
     public class ClearCredentialCmdlet : PSCmdlet
     {
-        #region Parameter ProfileName
+#region Parameter ProfileName
         /// <summary>
         /// The name associated with a set of credentials in the local store that are to be deleted. If not specified,
         /// the default credentials in the shell are cleared.
@@ -278,9 +276,9 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter ProfileLocation
+#region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
@@ -308,7 +306,7 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
-        #endregion
+#endregion
 
         protected override void ProcessRecord()
         {
@@ -347,16 +345,16 @@ namespace Amazon.PowerShell.Common
                LegacyAlias = "Get-AWSCredentials")]
     public class GetCredentialCmdlet : PSCmdlet
     {
-        #region Parameter ProfileName
+#region Parameter ProfileName
         /// <summary>
         /// The name associated with the credentials in local storage
         /// </summary>
         [Parameter(Position = 1, ParameterSetName="SingleProfile")]
         [Alias("StoredCredentials")]
         public string ProfileName { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter ProfileLocation
+#region Parameter ProfileLocation
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
@@ -382,24 +380,24 @@ namespace Amazon.PowerShell.Common
         [Parameter(ParameterSetName = "ListDetail")]
         [Alias("AWSProfilesLocation", "ProfilesLocation")]
         public string ProfileLocation { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter ListProfile
+#region Parameter ListProfile
         /// <summary>
         /// Lists the names of all CredentialProfiles saved in local storage
         /// </summary>
         [Parameter(ParameterSetName = "ListName")]
         [Alias("ListStoredCredentials", "ListProfiles")]
         public SwitchParameter ListProfile { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter ListProfileDetail
+#region Parameter ListProfileDetail
         /// <summary>
         /// List the name, type, and location of all CredentialProfiles saved in local storage
         /// </summary>
         [Parameter(ParameterSetName = "ListDetail")]
         public SwitchParameter ListProfileDetail { get; set; }
-        #endregion
+#endregion
 
         protected override void ProcessRecord()
         {
@@ -432,7 +430,6 @@ namespace Amazon.PowerShell.Common
         }
     }
 
-#if DESKTOP
     /// <summary>
     /// Creates or updates an endpoint settings definition for use with SAML role profiles. The name of
     /// the endpoint settings is used with the Set-AWSSamlRoleProfile and Set-AWSCredentials cmdlets to associate one or more
@@ -444,7 +441,7 @@ namespace Amazon.PowerShell.Common
     [AWSCmdlet("Creates or updates an endpoint settings definition for use with SAML role profiles.")]
     public class SetSamlEndpointProfileCmdlet : BaseCmdlet
     {
-        #region Parameter Endpoint
+#region Parameter Endpoint
         /// <summary>
         /// The endpoint to be used when authenticating users prior to requesting temporary role-
         /// based AWS credentials. The full endpoint of the identity provider must be specified and
@@ -452,9 +449,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(Mandatory = true, ValueFromPipeline = true)]
         public Uri Endpoint { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter StoreAs
+#region Parameter StoreAs
         /// <summary>
         /// The user-defined name to assign to the endpoint settings. This name will be used when creating or
         /// accessing role profiles with the Set-AWSSamlRoleProfile cmdlet to set up and use role-based
@@ -463,9 +460,9 @@ namespace Amazon.PowerShell.Common
         [Parameter(Mandatory = true)]
         [Alias("EndpointName")]
         public string StoreAs { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter AuthenticationType
+#region Parameter AuthenticationType
         /// <summary>
         /// The authentication type (or protocol type) used when communicating with the endpoint.
         /// If not configured for an endpoint 'Kerberos' is assumed.
@@ -473,7 +470,7 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         [ValidateSet("NTLM", "Digest", "Basic", "Kerberos", "Negotiate")]
         public string AuthenticationType { get; set; }
-        #endregion
+#endregion
 
         protected override void ProcessRecord()
         {
@@ -495,9 +492,7 @@ namespace Amazon.PowerShell.Common
             WriteObject(StoreAs);
         }
     }
-#endif
 
-#if DESKTOP
     /// <summary>
     /// <para>
     /// Creates or updates role profiles for use with a SAML federated identity provider to obtain temporary
@@ -527,7 +522,7 @@ namespace Amazon.PowerShell.Common
         private const string StoreAllRolesParameterSet = "StoreAllRoles";
         private const string StoreOneRoleParameterSet = "StoreOneRole";
 
-        #region Parameter EndpointName
+#region Parameter EndpointName
         /// <summary>
         /// The name assigned to the endpoint definition that was previously registered using Set-AWSSamlEndpoint.
         /// The endpoint definition contains the URL of the endpoint to be used to authenticate users prior to
@@ -535,9 +530,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(Mandatory = true, ValueFromPipeline = true)]
         public string EndpointName { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter PrincipalARN
+#region Parameter PrincipalARN
         /// <summary>
         /// <para>
         /// The Amazon Resource Name (ARN) of the principal holding the role to be assumed when credentials are
@@ -554,9 +549,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(ParameterSetName = StoreOneRoleParameterSet)]
         public string PrincipalARN { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter RoleARN
+#region Parameter RoleARN
         /// <summary>
         /// <para>
         /// The Amazon Resource Name (ARN) of the role to be assumed when credentials are requested following
@@ -572,9 +567,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(ParameterSetName = StoreOneRoleParameterSet)]
         public string RoleARN { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter NetworkCredential
+#region Parameter NetworkCredential
         /// <summary>
         /// <para>
         /// Optional. Supply a value only if an identity different to the user's default Windows identity
@@ -591,9 +586,9 @@ namespace Amazon.PowerShell.Common
         [Parameter]
         [Alias("Credential", "UserCredential")]
         public PSCredential NetworkCredential { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter StoreAs
+#region Parameter StoreAs
         /// <summary>
         /// The name to associate with the role data. This name will be used with the -ProfileName parameter
         /// to Set-AWSCredentials cmdlet and AWS service cmdlets to load the profile and obtain temporary
@@ -601,9 +596,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = StoreOneRoleParameterSet)]
         public string StoreAs { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter StoreAllRoles
+#region Parameter StoreAllRoles
         /// <summary>
         /// If set all roles available to the user are evaluated following authentication and one
         /// role profile per role will be created. The name of each role will be used for each
@@ -611,9 +606,9 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter(Mandatory = true, ParameterSetName = StoreAllRolesParameterSet)]
         public SwitchParameter StoreAllRoles { get; set; }
-        #endregion
+#endregion
 
-        #region Parameter STSEndpointRegion
+#region Parameter STSEndpointRegion
         /// <summary>
         /// <para>
         /// Specifies the region to be used when making calls to STS to obtain temporary credentials
@@ -627,7 +622,7 @@ namespace Amazon.PowerShell.Common
         /// </summary>
         [Parameter]
         public string STSEndpointRegion { get; set; }
-        #endregion
+#endregion
 
         protected override void ProcessRecord()
         {
@@ -794,6 +789,4 @@ namespace Amazon.PowerShell.Common
             return StoreAs;
         }
     }
-#endif
-
 }
