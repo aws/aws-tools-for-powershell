@@ -79,6 +79,19 @@ namespace Amazon.PowerShell.Common
 
     /// <summary>
     /// <para>
+    /// This enumerable represents PowerShell variables scopes as described in https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes.
+    /// </para>
+    /// </summary>
+    public enum VariableScope
+    {
+        Global = -1,
+        Local = -2,
+        Script = -3,
+        Private = -4
+    }
+
+    /// <summary>
+    /// <para>
     /// Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials.
     /// </para>
     /// <para>
@@ -110,6 +123,22 @@ namespace Amazon.PowerShell.Common
             public string StoreAs { get; set; }
             #endregion
 
+            #region Parameter Scope
+            /// <summary>
+            /// <para>
+            /// When saving AWS credentials to the shell variable $StoredAWSCredentials, this parameter allows to specify the scope of the variable.
+            /// For details about variables scopes see https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_scopes.
+            /// This parameter cannot be used when StoreAs is specified.
+            /// </para>
+            /// </summary>
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.BasicOrSessionSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AssumeRoleSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.AWSCredentialsObjectSet)]
+            //[Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.FederatedSet)]
+            [Parameter(ValueFromPipelineByPropertyName = true, Mandatory = false, ParameterSetName = AWSCredentialsArgumentsFull.StoredProfileSet)]
+            public VariableScope Scope { get; set; }
+            #endregion
+
             public SetCredentialsParameters(SessionState sessionState) : base(sessionState)
             {
             }
@@ -128,10 +157,18 @@ namespace Amazon.PowerShell.Common
                 if (string.IsNullOrEmpty(Parameters.StoreAs))
                 {
                     SetUpIfFederatedCredentials(currentCredentials, Parameters);
-                    this.SessionState.PSVariable.Set(SessionKeys.AWSCredentialsVariableName, currentCredentials);
+                    string scope = MyInvocation.BoundParameters.ContainsKey("Scope") ? Parameters.Scope.ToString() + ":" : "";
+                    this.SessionState.PSVariable.Set(scope + SessionKeys.AWSCredentialsVariableName, currentCredentials);
                 }
                 else
                 {
+                    if (MyInvocation.BoundParameters.ContainsKey("Scope"))
+                    {
+                        this.ThrowTerminatingError(new ErrorRecord(
+                            new ArgumentException("Parameters Scope and StoreAs cannot be used together."),
+                            "ArgumentException", ErrorCategory.InvalidArgument, this));
+                    }
+
                     if (string.Equals(AWSCredentialsArgumentsFull.AWSCredentialsObjectSet, ParameterSetName, StringComparison.Ordinal))
                     {
                         // We're storing from the -Credential parameter to a credentials file.
