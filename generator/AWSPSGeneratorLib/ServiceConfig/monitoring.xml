@@ -82,7 +82,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListDashboards" Output="DefaultSingleMember" Verb="Get" Noun="DashboardList" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" />
+            <AutoIterate Start="NextToken" Next="NextToken" />
         </ServiceOperation>
         <ServiceOperation MethodName="ListMetrics" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />

@@ -68,7 +68,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListTags" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" />
+            <AutoIterate Start="NextToken" Next="NextToken" />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootNode" Output="DefaultSingleMember" Verb="Restart" Noun="Node" ShouldProcessTarget="NodeId" PipelineParameter="NodeId" NoPipelineParameter="false">
             <Params />

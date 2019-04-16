@@ -149,7 +149,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Output="DefaultSingleMember" Verb="Get" Noun="EffectiveInstanceAssociationList" PipelineParameter="InstanceId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="5" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="5" />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" Output="DefaultSingleMember" Verb="Get" Noun="EffectivePatchesForPatchBaseline" PipelineParameter="BaselineId" NoPipelineParameter="false">
             <Params />
@@ -234,7 +234,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetInventorySchema" Output="DefaultSingleMember" Verb="Get" Noun="InventorySchema" PipelineParameter="TypeName" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="200" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="200" />
         </ServiceOperation>
         <ServiceOperation MethodName="GetMaintenanceWindow" Output="Response" Verb="Get" Noun="MaintenanceWindow" PipelineParameter="WindowId" NoPipelineParameter="false">
             <Params />
@@ -262,7 +262,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetParametersByPath" Output="DefaultSingleMember" Verb="Get" Noun="ParametersByPath" PipelineParameter="Path" NoPipelineParameter="false">
             <Params />
-            <AutoIterate ServicePageSize="10" />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="10" />
         </ServiceOperation>
         <ServiceOperation MethodName="GetPatchBaseline" Output="Response" Verb="Get" Noun="PatchBaselineDetail" PipelineParameter="BaselineId" NoPipelineParameter="false">
             <Params />

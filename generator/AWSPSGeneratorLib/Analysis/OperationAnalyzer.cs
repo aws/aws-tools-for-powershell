@@ -154,13 +154,18 @@ namespace AWSPowerShellGenerator.Analysis
         {
             get
             {
+                if (CurrentModel.AutoIterate != null &&
+                    CurrentModel.AutoIterate.ExclusionSet.Contains(CurrentOperation.MethodName))
+                {
+                    return null;
+                }
+
                 var autoIteration = AutoIteration.Combine(CurrentModel.AutoIterate, CurrentOperation.AutoIterate);
 
                 //If autoiteration has configured field names for at least Start (input parameter idicating the pagination token) and Next
                 //(output value idicating the next pagination token) and the Start parameter is actually present in the input type
                 //and the Next value is present in the returned type
                 if (autoIteration != null &&
-                    !autoIteration.ExclusionSet.Contains(CurrentOperation.MethodName) &&
                     !string.IsNullOrEmpty(autoIteration.Start) &&
                     !string.IsNullOrEmpty(autoIteration.Next) &&
                     AnalyzedParameters.Select(s => s.Name).Contains(autoIteration.Start) &&

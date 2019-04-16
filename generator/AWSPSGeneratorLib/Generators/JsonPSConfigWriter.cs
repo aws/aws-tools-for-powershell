@@ -325,7 +325,6 @@ namespace AWSPowerShellGenerator.Generators
 
             if (autoIterate != null)
             {
-                WriteStringListProperty("excludedOperations", autoIterate.ExclusionSet);
                 WriteSimpleProperty("requestMember", autoIterate.Start);
                 WriteSimpleProperty("responseMember", autoIterate.Next);
                 WriteSimpleProperty("resultLimitMember", autoIterate.EmitLimit);

@@ -398,7 +398,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         public string PipelineParameter = string.Empty;
 
-        public AutoIteration AutoIterate = null;
+        public ServiceDefaultAutoIteration AutoIterate = null;
 
         /// <summary>
         /// Returns the defined source generation folder or service client name
@@ -1418,29 +1418,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
         public int ServicePageSize = -1;
 
         /// <summary>
-        /// The list of methods which, for whatever reason, we do not support
-        /// autoiteration on. Goal = none :-).  ;-delimited list of operation names.
-        /// </summary>
-        [XmlAttribute]
-        public string Exclusions;
-
-        private HashSet<string> _exclusionSet;
-        [XmlIgnore]
-        public HashSet<string> ExclusionSet
-        {
-            get
-            {
-                if (_exclusionSet == null)
-                {
-                    _exclusionSet = !string.IsNullOrEmpty(Exclusions) 
-                        ? new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries)) 
-                        : new HashSet<string>();
-                }
-                return _exclusionSet;
-            }
-        }
-
-        /// <summary>
         /// Returns the autoiteration settings, if any, for an operation by combining the service level
         /// settings and any operation-level overrides. For operation level overrides, not all settings
         /// need to be specified. For operations that have less fields than the service level, specify
@@ -1452,17 +1429,18 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// <returns>The combined iteration settings with child settings overriding parent settings where set</returns>
         public static AutoIteration Combine(AutoIteration parentSettings, AutoIteration childSettings)
         {
-            if (parentSettings == null && childSettings == null)
+            var chosenSettings = childSettings ?? parentSettings;
+
+            if (chosenSettings == null)
                 return null;
 
             return new AutoIteration
             {
-                Start = childSettings?.Start ?? parentSettings?.Start,
-                Next = childSettings?.Next ?? parentSettings?.Next,
-                ServicePageSize = childSettings?.ServicePageSize ?? parentSettings?.ServicePageSize ?? -1,
-                Exclusions = childSettings?.Exclusions ?? parentSettings?.Exclusions,
-                EmitLimit = childSettings?.EmitLimit ?? parentSettings?.EmitLimit,
-                TruncatedFlag = childSettings?.TruncatedFlag ?? parentSettings?.TruncatedFlag
+                Start = chosenSettings.Start,
+                Next = chosenSettings.Next,
+                ServicePageSize = chosenSettings.ServicePageSize,
+                EmitLimit = chosenSettings.EmitLimit,
+                TruncatedFlag = chosenSettings.TruncatedFlag
             };
         }
 
@@ -1493,6 +1471,32 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 return EmitLimitAlias;
 
             return null;
+        }
+    }
+
+    public class ServiceDefaultAutoIteration : AutoIteration
+    {
+        /// <summary>
+        /// The list of methods which, for whatever reason, we do not support
+        /// autoiteration on. Goal = none :-).  ;-delimited list of operation names.
+        /// </summary>
+        [XmlAttribute]
+        public string Exclusions;
+
+        private HashSet<string> _exclusionSet;
+        [XmlIgnore]
+        public HashSet<string> ExclusionSet
+        {
+            get
+            {
+                if (_exclusionSet == null)
+                {
+                    _exclusionSet = !string.IsNullOrEmpty(Exclusions)
+                        ? new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries))
+                        : new HashSet<string>();
+                }
+                return _exclusionSet;
+            }
         }
     }
 

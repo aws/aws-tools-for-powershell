@@ -132,7 +132,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetRateBasedRuleManagedKeys" Output="DefaultSingleMember" Verb="Get" Noun="RateBasedRuleManagedKey" PipelineParameter="RuleId" NoPipelineParameter="false">
             <Params />
-            <AutoIterate Start="NextMarker" Next="NextMarker" EmitLimit="" ServicePageSize="100" />
+            <AutoIterate Start="NextMarker" Next="NextMarker" ServicePageSize="100" />
         </ServiceOperation>
         <ServiceOperation MethodName="GetRegexMatchSet" Output="DefaultSingleMember" Verb="Get" Noun="RegexMatchSet" PipelineParameter="RegexMatchSetId" NoPipelineParameter="false">
             <Params />

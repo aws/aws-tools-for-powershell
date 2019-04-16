@@ -54,7 +54,10 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeRepositories" Output="DefaultSingleMember" Verb="Get" Noun="Repository" PipelineParameter="RepositoryNames" NoPipelineParameter="false">
-            <Params />
+            <Params>
+                <Param Name="MaxResults" Alias="MaxItems" />
+            </Params>
+            <AutoIterate Start="NextToken" Next="NextToken" />
         </ServiceOperation>
         <ServiceOperation MethodName="GetAuthorizationToken" Output="DefaultSingleMember" Verb="Get" Noun="AuthorizationToken" PipelineParameter="RegistryIds" NoPipelineParameter="false">
             <Params />

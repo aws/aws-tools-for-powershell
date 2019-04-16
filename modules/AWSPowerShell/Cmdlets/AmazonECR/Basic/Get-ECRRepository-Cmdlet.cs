@@ -76,13 +76,10 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// returns up to 100 results and a <code>nextToken</code> value, if applicable. This
         /// option cannot be used when you specify repositories with <code>repositoryNames</code>.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -142,6 +139,11 @@ namespace Amazon.PowerShell.Cmdlets.ECR
             
             // create request and set iteration invariants
             var request = new Amazon.ECR.Model.DescribeRepositoriesRequest();
+            
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
             if (cmdletContext.RegistryId != null)
             {
                 request.RegistryId = cmdletContext.RegistryId;
@@ -151,51 +153,20 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                 request.RepositoryNames = cmdletContext.RepositoryNames;
             }
             
-            // Initialize loop variants and commence piping
+            // Initialize loop variant and commence piping
             System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            int? _pageSize = 100;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            bool _userControllingPaging = false;
+            if (ParameterWasBound("NextToken"))
             {
                 _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
-            {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResults;
-            }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -204,6 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                     {
                         
                         var response = CallAWSServiceOperation(client, request);
+                        
                         Dictionary<string, object> notes = null;
                         object pipelineOutput = response.Repositories;
                         notes = new Dictionary<string, object>();
@@ -214,19 +186,13 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Repositories.Count;
                         if (_userControllingPaging)
                         {
+                            int _receivedThisCall = response.Repositories.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
                         _nextMarker = response.NextToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
                     }
                     catch (Exception e)
                     {
@@ -234,17 +200,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
                     
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker));
             }
             finally
             {
@@ -294,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String RegistryId { get; set; }
             public List<System.String> RepositoryNames { get; set; }
