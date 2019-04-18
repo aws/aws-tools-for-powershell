@@ -21,7 +21,7 @@
                   <xsd:attribute name="Start" type="xsd:string" use="required" />
                   <xsd:attribute name="Next" type="xsd:string" use="required" />
                   <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
-                  <xsd:attribute name="ServicePageSize" type="xsd:int" use="required" />
+                  <xsd:attribute name="ServicePageSize" type="xsd:int" use="optional" />
                   <xsd:attribute name="Exclusions" type="xsd:string" use="optional" />
                   <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
                 </xsd:complexType>
@@ -160,9 +160,8 @@
                               <xsd:attribute name="Start" type="xsd:string" use="optional" />
                               <xsd:attribute name="Next" type="xsd:string" use="optional" />
                               <xsd:attribute name="EmitLimit" type="xsd:string" use="optional" />
-                              <xsd:attribute name="ServicePageSize" type="xsd:short" use="required" />
+                              <xsd:attribute name="ServicePageSize" type="xsd:short" use="optional" />
                               <xsd:attribute name="TruncatedFlag" type="xsd:string" use="optional" />
-                              <xsd:attribute name="Exclusions" type="xsd:string" use="optional" />
                             </xsd:complexType>
                           </xsd:element>
                         </xsd:sequence>

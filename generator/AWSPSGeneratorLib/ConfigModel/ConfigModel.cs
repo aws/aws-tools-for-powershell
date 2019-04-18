@@ -84,7 +84,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlArray("TypesNotToFlatten")]
         [XmlArrayItem("Type")]
-        public List<string> TypesNotToFlatten { get; set; }
+        public List<string> TypesNotToFlatten { get; set; } = new List<string>();
 
         /// <summary>
         /// List of cmdlet output properties that are considered metadata, this is used to fill in the
@@ -108,13 +108,13 @@ namespace AWSPowerShellGenerator.ServiceConfig
         /// </summary>
         [XmlArray]
         [XmlArrayItem("Path")]
-        public List<string> Configs { get; set; }
+        public List<string> Configs { get; set; } = new List<string>();
 
         /// <summary>
-        /// Collection of deserialized service configuration models
+        /// Collection of deserialized service configuration models indexed by C2jFilename
         /// </summary>
         [XmlIgnore]
-        public List<ConfigModel> ConfigModels { get; set; }
+        public Dictionary<string, ConfigModel> ConfigModels { get; set; } = new Dictionary<string, ConfigModel>();
 
         /// <summary>
         /// Global definition of types our cmdlets can accept as 'InputObject' 
@@ -183,7 +183,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                 try
                 {
                     var configModel = DeserializeModel(configFile);
-                    manifestConfig.ConfigModels.Add(configModel);
+                    manifestConfig.ConfigModels.Add(configModel.C2jFilename, configModel);
                 }
                 catch (Exception e)
                 {
@@ -233,13 +233,6 @@ namespace AWSPowerShellGenerator.ServiceConfig
             {
                 throw new InvalidDataException("Unable to retrieve content for file " + fileName, e);
             }
-        }
-
-        private ConfigModelCollection()
-        {
-            TypesNotToFlatten = new List<string>();
-            Configs = new List<string>();
-            ConfigModels = new List<ConfigModel>();
         }
     }
 
@@ -649,10 +642,22 @@ namespace AWSPowerShellGenerator.ServiceConfig
             }
         }
 
+        private List<ServiceOperation> _serviceOperationsList;
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [XmlArray("ServiceOperations")]
         [XmlArrayItem("ServiceOperation")]
-        public List<ServiceOperation> ServiceOperationsList { get; set; }
+        public List<ServiceOperation> ServiceOperationsList
+        {
+            get
+            {
+                return _serviceOperationsList;
+            }
+            set
+            {
+                _serviceOperationsList = value;
+                _serviceOperations = null;
+            }
+        }
 
         Dictionary<string, ServiceOperation> _serviceOperations;
         [XmlIgnore]

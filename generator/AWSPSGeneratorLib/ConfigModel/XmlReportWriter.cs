@@ -14,7 +14,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
 {
     class XmlReportWriter
     {
-        public static void SerializeReport(string folderPath, List<ConfigModel> models)
+        public static void SerializeReport(string folderPath, IEnumerable<ConfigModel> models)
         {
             if (!Directory.Exists(folderPath))
             {
@@ -37,7 +37,7 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         configModel.ServiceOperationsList.Where(op => op.IsAutoConfiguring || op.AnalysisErrors.Any()).Any())
                     .ToArray();
 
-                XDocument doc = new XDocument();
+                var doc = new XDocument();
 
                 using (var writer = doc.CreateWriter())
                 {
@@ -77,6 +77,10 @@ namespace AWSPowerShellGenerator.ServiceConfig
                         {
                             var firstOperationChildElement = operation.element.Elements().FirstOrDefault();
 
+                            if (operation.operation.IsAutoConfiguring)
+                            {
+                                operation.element.AddFirst(new XComment($"INFO - This is a new cmdlet."));
+                            }
                             foreach (var error in operation.operation.AnalysisErrors)
                             {
                                 operation.element.AddFirst(new XComment($"ERROR - {error.Message}"));

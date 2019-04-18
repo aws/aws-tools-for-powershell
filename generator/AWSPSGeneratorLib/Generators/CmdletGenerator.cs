@@ -329,13 +329,15 @@ namespace AWSPowerShellGenerator.Generators
 
             ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
 
+            XmlOverridesMerger.ApplyOverrides(Options.RootPath, ModelCollection, configurationsFolder);
+
             SourceArtifacts = new GenerationSources { SdkNugetFolder = this.SdkNugetFolder };
             LoadCoreSDKRuntimeMaterials();
             LoadSpecialServiceAssemblies();
 
             CheckForServicePrefixDuplication();
 
-            foreach (var configModel in ModelCollection.ConfigModels)
+            foreach (var configModel in ModelCollection.ConfigModels.Values)
             {
                 Logger.Log();
                 Logger.Log(new string('>', 20));
@@ -362,14 +364,6 @@ namespace AWSPowerShellGenerator.Generators
                             ProcessLegacyAliasesForCustomCmdlets();
 
                             CheckForCmdletNameDuplication();
-
-                            if (CurrentModel.ModelUpdated)
-                            {
-                                // for browsing convenience re-order the operations in case this was an existing service we 
-                                // added new operations to
-                                CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
-                                CurrentModel.Serialize(configurationsFolder);
-                            }
 
                             // always serialize the json format, so we have reliable test data to work
                             // on in the new ps generator
@@ -427,13 +421,13 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteConfigurationChanges()
         {
-            XmlReportWriter.SerializeReport(Options.RootPath, ModelCollection.ConfigModels);
+            XmlReportWriter.SerializeReport(Options.RootPath, ModelCollection.ConfigModels.Values);
         }
 
         private void CheckForServicePrefixDuplication()
         {
             //We count the distinct service namespaces because DDB has two clients but a single namespace.
-            var duplicatedPrefixes = ModelCollection.ConfigModels
+            var duplicatedPrefixes = ModelCollection.ConfigModels.Values
                 .GroupBy(service => service.ServiceNounPrefix, StringComparer.InvariantCultureIgnoreCase)
                 .Where(group => group.Select(service => service.ServiceNamespace).Distinct().Count() > 1);
 
