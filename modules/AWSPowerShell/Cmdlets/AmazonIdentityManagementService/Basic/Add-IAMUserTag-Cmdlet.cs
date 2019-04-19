@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// You can use tags to restrict access to only an IAM requesting user or to a role that
     /// has a specified tag attached. You can also restrict access to only those resources
     /// that have a certain tag attached. For examples of policies that show how to use tags
-    /// to control access, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
+    /// to control access, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Control
     /// Access Using IAM Tags</a> in the <i>IAM User Guide</i>.
     /// </para></li><li><para><b>Cost allocation</b> - Use tags to help track which individuals and teams are using
     /// which AWS resources.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// store an array, you can store comma-separated values in the string. However, you must
     /// interpret the value in your code.
     /// </para></li></ul></note><para>
-    /// For more information about tagging, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
+    /// For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging
     /// IAM Identities</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

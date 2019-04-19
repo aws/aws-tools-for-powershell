@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceProperties_RunningMode
         /// <summary>
         /// <para>
-        /// <para>The running mode. For more information, see <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage
+        /// <para>The running mode. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage
         /// the WorkSpace Running Mode</a>.</para>
         /// </para>
         /// </summary>

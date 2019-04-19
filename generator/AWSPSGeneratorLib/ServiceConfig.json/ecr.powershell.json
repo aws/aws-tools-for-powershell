@@ -15,9 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "GetLifecyclePolicyPreview"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -405,9 +402,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -428,14 +422,31 @@
         "outputMemberWrapper": "",
         "passThru": {}
       },
-      "parameterCustomizations": [],
+      "parameterCustomizations": [
+        {
+          "originalName": "MaxResults",
+          "replacementName": "MaxResult",
+          "aliases": [
+            "MaxItems"
+          ],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
       "legacySettings": {
         "alias": "",
         "positionalParameters": [],
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {},
+      "pagination": {
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "",
+        "forceMaxResultSize": "false",
+        "resultsTruncatedMember": ""
+      },
       "pipeline": {
         "byValueMembers": [
           "RepositoryNames"
@@ -451,18 +462,14 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "Repositories",
         "confirmImpactSetting": "Medium",
-        "iterationPattern": "Pattern2",
+        "iterationPattern": "Pattern1",
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
-          "resultLimitMember": "MaxResults",
-          "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "resultLimitMember": "",
+          "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -747,9 +754,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetLifecyclePolicyPreview"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

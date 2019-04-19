@@ -28,7 +28,7 @@ using Amazon.Organizations.Model;
 namespace Amazon.PowerShell.Cmdlets.ORG
 {
     /// <summary>
-    /// Lists all the roots, organizaitonal units (OUs), and accounts to which the specified
+    /// Lists all the roots, organizational units (OUs), and accounts to which the specified
     /// policy is attached.
     /// 
     ///  <note><para>
@@ -74,9 +74,6 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// the next part of the results. Note that Organizations might return fewer results than
         /// the maximum even when there are more results available. You should check <code>NextToken</code>
         /// after every operation to ensure that you receive all of the results.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,20 +146,27 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 20. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 20 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 20;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(20, _emitLimit.Value);
                     }
+                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -188,28 +192,30 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     ///  
     /// <para>
     /// In addition to creating an HSM configuration, you must also create an HSM client certificate.
-    /// For more information, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
+    /// For more information, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html">Hardware
     /// Security Modules</a> in the Amazon Redshift Cluster Management Guide.
     /// </para>
     /// </summary>

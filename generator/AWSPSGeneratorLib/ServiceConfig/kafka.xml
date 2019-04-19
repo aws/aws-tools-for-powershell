@@ -40,6 +40,15 @@
         <ServiceOperation MethodName="ListNodes" Output="DefaultSingleMember" Verb="Get" Noun="NodeList" PipelineParameter="ClusterArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />

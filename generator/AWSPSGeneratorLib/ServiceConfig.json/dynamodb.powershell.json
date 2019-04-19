@@ -20,7 +20,6 @@
     "LastEvaluatedTableName"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "ExclusiveStartTableName",
     "responseMember": "LastEvaluatedTableName",
     "resultLimitMember": "Limit",
@@ -533,7 +532,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "ExclusiveStartBackupArn",
         "responseMember": "LastEvaluatedBackupArn",
         "resultLimitMember": "Limit",
@@ -559,7 +557,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "ExclusiveStartBackupArn",
           "responseMember": "LastEvaluatedBackupArn",
           "resultLimitMember": "Limit",
@@ -587,7 +584,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "ExclusiveStartGlobalTableName",
         "responseMember": "LastEvaluatedGlobalTableName",
         "resultLimitMember": "Limit",
@@ -611,7 +607,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "ExclusiveStartGlobalTableName",
           "responseMember": "LastEvaluatedGlobalTableName",
           "resultLimitMember": "Limit",
@@ -656,7 +651,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "ExclusiveStartTableName",
           "responseMember": "LastEvaluatedTableName",
           "resultLimitMember": "Limit",
@@ -684,7 +678,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "",
@@ -708,7 +701,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",

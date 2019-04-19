@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Creates a password for the specified user, giving the user the ability to access
     /// AWS services through the AWS Management Console. For more information about managing
-    /// passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+    /// passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
     /// Passwords</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("New", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

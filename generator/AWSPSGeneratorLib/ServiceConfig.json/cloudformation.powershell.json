@@ -47,9 +47,6 @@
   },
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "DescribeChangeSet"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "",
@@ -499,9 +496,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -632,9 +626,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -763,9 +754,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -852,9 +840,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1223,9 +1208,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1270,9 +1252,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1319,9 +1298,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1349,7 +1325,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxResults",
@@ -1375,9 +1350,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1424,9 +1396,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1473,9 +1442,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1503,7 +1469,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxResults",
@@ -1529,9 +1494,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1559,7 +1521,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxResults",
@@ -1585,9 +1546,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1615,7 +1573,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxResults",
@@ -1641,9 +1598,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeChangeSet"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

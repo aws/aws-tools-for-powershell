@@ -48,6 +48,12 @@
         <ServiceOperation MethodName="DescribeBroker" Output="Response" Verb="Get" Noun="Broker" PipelineParameter="BrokerId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBrokerEngineTypes" Output="DefaultSingleMember" Verb="Get" Noun="BrokerEngineType" PipelineParameter="EngineType" NoPipelineParameter="false" MetadataProperties="MaxResults">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBrokerInstanceOptions" Output="DefaultSingleMember" Verb="Get" Noun="BrokerInstanceOption" PipelineParameter="HostInstanceType" NoPipelineParameter="false" MetadataProperties="MaxResults">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeConfiguration" Output="Response" Verb="Get" Noun="Configuration" PipelineParameter="ConfigurationId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

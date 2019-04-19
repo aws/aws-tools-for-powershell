@@ -104,6 +104,28 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Boolean Overwrite { get; set; }
         #endregion
         
+        #region Parameter Policy
+        /// <summary>
+        /// <para>
+        /// <para>One or more policies to apply to a parameter. This action takes a JSON array. Parameter
+        /// Store supports the following policy types:</para><para>Expiration: This policy deletes the parameter after it expires. When you create the
+        /// policy, you specify the expiration date. You can update the expiration date and time
+        /// by updating the policy. Updating the <i>parameter</i> does not affect the expiration
+        /// date and time. When the expiration time is reached, Parameter Store deletes the parameter.</para><para>ExpirationNotification: This policy triggers an event in Amazon CloudWatch Events
+        /// that notifies you about the expiration. By using this policy, you can receive notification
+        /// before or after the expiration time is reached, in units of days or hours.</para><para>NoChangeNotification: This policy triggers a CloudWatch event if a parameter has not
+        /// been modified for a specified period of time. This policy type is useful when, for
+        /// example, a secret needs to be changed within a period of time, but it has not been
+        /// changed.</para><para>All existing policies are preserved until you send new policies or an empty policy.
+        /// For more information about parameter policies, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-su-policies.html">Working
+        /// with Parameter Policies</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Policies")]
+        public System.String Policy { get; set; }
+        #endregion
+        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -118,6 +140,31 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Tier
+        /// <summary>
+        /// <para>
+        /// <para>Parameter Store offers a standard tier and an advanced tier for parameters. Standard
+        /// parameters have a value limit of 4 KB and can't be configured to use parameter policies.
+        /// You can create a maximum of 10,000 standard parameters per account and per Region.
+        /// Standard parameters are offered at no additional cost.</para><para>Advanced parameters have a value limit of 8 KB and can be configured to use parameter
+        /// policies. You can create a maximum of 100,000 advanced parameters per account and
+        /// per Region. Advanced parameters incur a charge.</para><para>If you don't specify a parameter tier when you create a new parameter, the parameter
+        /// defaults to using the standard tier. You can change a standard parameter to an advanced
+        /// parameter at any time. But you can't revert an advanced parameter to a standard parameter.
+        /// Reverting an advanced parameter to a standard parameter would result in data loss
+        /// because the system would truncate the size of the parameter from 8 KB to 4 KB. Reverting
+        /// would also remove any policies attached to the parameter. Lastly, advanced parameters
+        /// use a different form of encryption than standard parameters.</para><para>If you no longer need an advanced parameter, or if you no longer want to incur charges
+        /// for an advanced parameter, you must delete it and recreate it as a new standard parameter.
+        /// For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">About
+        /// Advanced Parameters</a> in the <i>AWS Systems Manager User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ParameterTier")]
+        public Amazon.SimpleSystemsManagement.ParameterTier Tier { get; set; }
         #endregion
         
         #region Parameter Type
@@ -137,7 +184,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>The parameter value that you want to add to the system.</para>
+        /// <para>The parameter value that you want to add to the system. Standard parameters have a
+        /// value limit of 4 KB. Advanced parameters have a value limit of 8 KB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -179,10 +227,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Name = this.Name;
             if (ParameterWasBound("Overwrite"))
                 context.Overwrite = this.Overwrite;
+            context.Policies = this.Policy;
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
             }
+            context.Tier = this.Tier;
             context.Type = this.Type;
             context.Value = this.Value;
             
@@ -221,9 +271,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.Overwrite = cmdletContext.Overwrite.Value;
             }
+            if (cmdletContext.Policies != null)
+            {
+                request.Policies = cmdletContext.Policies;
+            }
             if (cmdletContext.Tags != null)
             {
                 request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.Tier != null)
+            {
+                request.Tier = cmdletContext.Tier;
             }
             if (cmdletContext.Type != null)
             {
@@ -300,7 +358,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }
             public System.Boolean? Overwrite { get; set; }
+            public System.String Policies { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Tag> Tags { get; set; }
+            public Amazon.SimpleSystemsManagement.ParameterTier Tier { get; set; }
             public Amazon.SimpleSystemsManagement.ParameterType Type { get; set; }
             public System.String Value { get; set; }
         }

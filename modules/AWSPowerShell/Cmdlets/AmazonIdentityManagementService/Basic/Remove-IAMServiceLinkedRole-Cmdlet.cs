@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// removing resources from a service, see the <a href="http://docs.aws.amazon.com/">AWS
     /// documentation</a> for your service.
     /// </para><para>
-    /// For more information about service-linked roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles
+    /// For more information about service-linked roles, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Roles
     /// Terms and Concepts: AWS Service-Linked Role</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

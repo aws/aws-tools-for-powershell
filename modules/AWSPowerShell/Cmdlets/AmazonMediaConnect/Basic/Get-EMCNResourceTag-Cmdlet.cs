@@ -28,7 +28,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Lists all tags associated with the resource.
+    /// List all tags on an AWS Elemental MediaConnect resource
     /// </summary>
     [Cmdlet("Get", "EMCNResourceTag")]
     [OutputType("System.String")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the resource
-        /// that you want to view tags for.
+        /// The Amazon Resource Name (ARN) that identifies
+        /// the AWS Elemental MediaConnect resource for which to list the tags.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

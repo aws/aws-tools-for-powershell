@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modifies the properties of the specified Amazon WorkSpaces client.
+    /// Modifies the properties of the specified Amazon WorkSpaces clients.
     /// </summary>
     [Cmdlet("Edit", "WKSClientProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.WorkSpaces.ReconnectEnum")]

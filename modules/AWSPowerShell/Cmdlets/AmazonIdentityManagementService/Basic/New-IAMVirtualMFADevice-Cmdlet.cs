@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <summary>
     /// Creates a new virtual MFA device for the AWS account. After creating the virtual MFA,
     /// use <a>EnableMFADevice</a> to attach the MFA device to an IAM user. For more information
-    /// about creating and working with virtual MFA devices, go to <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
+    /// about creating and working with virtual MFA devices, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_VirtualMFA.html">Using
     /// a Virtual MFA Device</a> in the <i>IAM User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// For information about limits on the number of MFA devices you can create, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
+    /// For information about limits on the number of MFA devices you can create, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html">Limitations
     /// on Entities</a> in the <i>IAM User Guide</i>.
     /// </para><important><para>
     /// The seed information contained in the QR code and the Base32 string should be treated
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter Path
         /// <summary>
         /// <para>
-        /// <para> The path for the virtual MFA device. For more information about paths, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+        /// <para> The path for the virtual MFA device. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
         /// Identifiers</a> in the <i>IAM User Guide</i>.</para><para>This parameter is optional. If it is not included, it defaults to a slash (/).</para><para>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex
         /// pattern</a>) a string of characters consisting of either a forward slash (/) by itself
         /// or a string that must begin and end with forward slashes. In addition, it can contain

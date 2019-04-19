@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
     /// Displays a list of event categories for all event source types, or for a specified
-    /// source type. For a list of the event categories and source types, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon
+    /// source type. For a list of the event categories and source types, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html">Amazon
     /// Redshift Event Notifications</a>.
     /// </summary>
     [Cmdlet("Get", "RSEventCategory")]

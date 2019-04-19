@@ -134,6 +134,32 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String EntityList_S3Uri { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be associated with the entity recognizer being created. A tag is a key-value
+        /// pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
+        /// a tag with "Sales" as the key might be added to a resource to indicate its use by
+        /// the sales department. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// data on the storage volume attached to the ML compute instance(s) that process the
+        /// analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VolumeKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -174,6 +200,11 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             }
             context.LanguageCode = this.LanguageCode;
             context.RecognizerName = this.RecognizerName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
+            }
+            context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -300,6 +331,14 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             {
                 request.RecognizerName = cmdletContext.RecognizerName;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.VolumeKmsKeyId != null)
+            {
+                request.VolumeKmsKeyId = cmdletContext.VolumeKmsKeyId;
+            }
             
             CmdletOutput output;
             
@@ -370,6 +409,8 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public List<Amazon.Comprehend.Model.EntityTypesListItem> InputDataConfig_EntityTypes { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
             public System.String RecognizerName { get; set; }
+            public List<Amazon.Comprehend.Model.Tag> Tags { get; set; }
+            public System.String VolumeKmsKeyId { get; set; }
         }
         
     }

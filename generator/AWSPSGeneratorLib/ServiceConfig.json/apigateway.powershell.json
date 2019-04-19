@@ -17,10 +17,6 @@
     "Position"
   ],
   "paginationDefaults": {
-    "excludedOperations": [
-      "GetApiKeys",
-      "GetUsage"
-    ],
     "requestMember": "Position",
     "responseMember": "Position",
     "resultLimitMember": "Limit",
@@ -1796,10 +1792,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -1884,10 +1876,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -1972,10 +1960,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2062,10 +2046,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2152,10 +2132,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2242,10 +2218,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2330,10 +2302,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2460,10 +2428,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2710,10 +2674,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2840,10 +2800,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -2930,10 +2886,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -3018,10 +2970,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -3146,10 +3094,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -3436,10 +3380,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -3486,10 +3426,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",
@@ -3574,10 +3510,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetApiKeys",
-            "GetUsage"
-          ],
           "requestMember": "Position",
           "responseMember": "Position",
           "resultLimitMember": "Limit",

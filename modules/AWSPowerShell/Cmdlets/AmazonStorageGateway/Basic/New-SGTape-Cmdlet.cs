@@ -105,13 +105,28 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>The ID of the pool that you want to add your tape to for archiving. The tape in this
-        /// pool is archived in the S3 storage class you chose when you created the tape. When
-        /// you use your backup application to eject the tape, the tape is archived directly into
-        /// the storage class (Glacier or Deep Archive).</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
+        /// pool is archived in the S3 storage class that is associated with the pool. When you
+        /// use your backup application to eject the tape, the tape is archived directly into
+        /// the storage class (Glacier or Deep Archive) that corresponds to the pool.</para><para>Valid values: "GLACIER", "DEEP_ARCHIVE"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PoolId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 tags that can be assigned to a virtual tape. Each tag is a key-value
+        /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter TapeBarcodePrefix
@@ -173,6 +188,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (ParameterWasBound("NumTapesToCreate"))
                 context.NumTapesToCreate = this.NumTapesToCreate;
             context.PoolId = this.PoolId;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             context.TapeBarcodePrefix = this.TapeBarcodePrefix;
             if (ParameterWasBound("TapeSizeInBytes"))
                 context.TapeSizeInBytes = this.TapeSizeInBytes;
@@ -215,6 +234,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.PoolId != null)
             {
                 request.PoolId = cmdletContext.PoolId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TapeBarcodePrefix != null)
             {
@@ -292,6 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String KMSKey { get; set; }
             public System.Int32? NumTapesToCreate { get; set; }
             public System.String PoolId { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
             public System.String TapeBarcodePrefix { get; set; }
             public System.Int64? TapeSizeInBytes { get; set; }
         }

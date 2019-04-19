@@ -96,7 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>An optional set of tags you can use to search for the schedule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

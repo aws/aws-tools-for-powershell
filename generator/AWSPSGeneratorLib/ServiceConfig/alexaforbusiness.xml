@@ -52,6 +52,9 @@
         <ServiceOperation MethodName="CreateContact" Output="DefaultSingleMember" Verb="New" Noun="Contact" ShouldProcessTarget="DisplayName" PipelineParameter="" NoPipelineParameter="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGatewayGroup" Output="DefaultSingleMember" Verb="New" Noun="GatewayGroup" ShouldProcessTarget="Name" PipelineParameter="Name" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateProfile" Output="DefaultSingleMember" Verb="New" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="ProfileName" NoPipelineParameter="false">
             <Params>
                 <Param Name="ProfileName" NewName="Name" AutoApplyAlias="false" />
@@ -79,6 +82,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDevice" Output="Void" Verb="Remove" Noun="Device" ShouldProcessTarget="DeviceArn" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGatewayGroup" Output="Void" Verb="Remove" Noun="GatewayGroup" ShouldProcessTarget="GatewayGroupArn" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteProfile" Output="Void" Verb="Remove" Noun="Profile" ShouldProcessTarget="ProfileArn" PipelineParameter="ProfileArn" NoPipelineParameter="false">
@@ -132,6 +138,12 @@
         <ServiceOperation MethodName="GetDevice" Output="DefaultSingleMember" Verb="Get" Noun="Device" PipelineParameter="DeviceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="GetGateway" Output="DefaultSingleMember" Verb="Get" Noun="Gateway" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGatewayGroup" Output="DefaultSingleMember" Verb="Get" Noun="GatewayGroup" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="GetInvitationConfiguration" Output="Response" Verb="Get" Noun="InvitationConfiguration" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -154,6 +166,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDeviceEvents" Output="DefaultSingleMember" Verb="Get" Noun="DeviceEventList" PipelineParameter="DeviceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGatewayGroups" Output="DefaultSingleMember" Verb="Get" Noun="GatewayGroupList" PipelineParameter="" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGateways" Output="DefaultSingleMember" Verb="Get" Noun="GatewayList" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListSkills" Output="DefaultSingleMember" Verb="Get" Noun="SkillList" PipelineParameter="SkillGroupArn" NoPipelineParameter="false">
@@ -244,6 +262,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevice" Output="Void" Verb="Update" Noun="Device" ShouldProcessTarget="DeviceName" PipelineParameter="DeviceName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGateway" Output="Void" Verb="Update" Noun="Gateway" ShouldProcessTarget="GatewayArn" PipelineParameter="GatewayArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGatewayGroup" Output="Void" Verb="Update" Noun="GatewayGroup" ShouldProcessTarget="GatewayGroupArn" PipelineParameter="GatewayGroupArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateProfile" Output="Void" Verb="Update" Noun="Profile" ShouldProcessTarget="ProfileName" PipelineParameter="ProfileName" NoPipelineParameter="false">

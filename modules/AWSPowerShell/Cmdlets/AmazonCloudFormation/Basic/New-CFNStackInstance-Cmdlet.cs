@@ -92,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// a parameter list but do not include any parameters.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
         /// at all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance are
         /// not updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
-        /// set; to add or delete a parameter itself, use <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+        /// set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
         /// to update the stack set template.</para>
         /// </para>
         /// </summary>

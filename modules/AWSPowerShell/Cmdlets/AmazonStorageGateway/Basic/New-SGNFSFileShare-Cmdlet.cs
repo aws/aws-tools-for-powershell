@@ -213,8 +213,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter RequesterPay
         /// <summary>
         /// <para>
-        /// <para>A value that sets the access control list permission for objects in the Amazon S3
-        /// bucket that a file gateway puts objects into. The default value is <code>private</code>.</para>
+        /// <para>A value that sets who pays the cost of the request and the cost associated with data
+        /// download from the S3 bucket. If this value is set to true, the requester pays the
+        /// costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays
+        /// the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+        /// share, so make sure that the configuration on the file share is the same as the S3
+        /// bucket configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -246,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of up to 10 tags that can be assigned to the NFS file share. Each tag is a
+        /// <para>A list of up to 50 tags that can be assigned to the NFS file share. Each tag is a
         /// key-value pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
         /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
         /// length of a tag's key is 128 characters, and the maximum length for a tag's value

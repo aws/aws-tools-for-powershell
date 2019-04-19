@@ -133,6 +133,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String SnapshotId { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 tags that can be assigned to a stored volume. Each tag is a key-value
+        /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetName
         /// <summary>
         /// <para>
@@ -185,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (ParameterWasBound("PreserveExistingData"))
                 context.PreserveExistingData = this.PreserveExistingData;
             context.SnapshotId = this.SnapshotId;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             context.TargetName = this.TargetName;
             
             // allow further manipulation of loaded context prior to processing
@@ -229,6 +248,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.SnapshotId != null)
             {
                 request.SnapshotId = cmdletContext.SnapshotId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TargetName != null)
             {
@@ -303,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NetworkInterfaceId { get; set; }
             public System.Boolean? PreserveExistingData { get; set; }
             public System.String SnapshotId { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
             public System.String TargetName { get; set; }
         }
         

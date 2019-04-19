@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  <important><para>
     ///  You should understand the implications of changing a group's path or name. For more
-    /// information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
+    /// information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_WorkingWithGroupsAndUsers.html">Renaming
     /// Users and Groups</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
     /// The person making the request (the principal), must have permission to change the
@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// <code>Managers</code> to <code>MGRs</code>, the principal must have a policy that
     /// allows them to update both groups. If the principal has permission to update the <code>Managers</code>
     /// group, but not the <code>MGRs</code> group, then the update fails. For more information
-    /// about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+    /// about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
     /// Management</a>. 
     /// </para></note>
     /// </summary>

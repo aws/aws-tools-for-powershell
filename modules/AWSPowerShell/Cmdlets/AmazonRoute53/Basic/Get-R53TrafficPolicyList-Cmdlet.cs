@@ -52,9 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// and the value of <code>TrafficPolicyIdMarker</code> is the ID of the first traffic
         /// policy that Route 53 will return if you submit another request.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

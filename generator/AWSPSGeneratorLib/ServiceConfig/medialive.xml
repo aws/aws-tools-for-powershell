@@ -104,6 +104,9 @@
         <ServiceOperation MethodName="UpdateInputSecurityGroup" Output="DefaultSingleMember" Verb="Update" Noun="InputSecurityGroup" ShouldProcessTarget="InputSecurityGroupId" PipelineParameter="InputSecurityGroupId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReservation" Output="DefaultSingleMember" Verb="Update" Noun="Reservation" ShouldProcessTarget="ReservationId" PipelineParameter="ReservationId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// and any values specified as template parameters. This information includes actual
     /// and expected property values for resources in which AWS CloudFormation detects drift.
     /// Only resource properties explicitly defined in the stack template are checked for
-    /// drift. For more information about stack and resource drift, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
+    /// drift. For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
     /// Unregulated Configuration Changes to Stacks and Resources</a>.
     /// 
     ///  
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// support drift detection.
     /// </para><para>
     /// Resources that do not currently support drift detection cannot be checked. For a list
-    /// of resources that support drift detection, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
+    /// of resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
     /// that Support Drift Detection</a>.
     /// </para>
     /// </summary>

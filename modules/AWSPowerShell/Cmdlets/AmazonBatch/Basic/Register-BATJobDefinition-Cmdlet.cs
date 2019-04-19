@@ -142,7 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter NodeProperties_MainNode
         /// <summary>
         /// <para>
-        /// <para>Specifies the node index for the main node of a multi-node parallel job.</para>
+        /// <para>Specifies the node index for the main node of a multi-node parallel job. This node
+        /// index value must be fewer than the number of nodes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -244,6 +245,18 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         public System.Boolean ContainerProperties_ReadonlyRootFilesystem { get; set; }
         #endregion
         
+        #region Parameter ContainerProperties_ResourceRequirement
+        /// <summary>
+        /// <para>
+        /// <para>The type and amount of a resource to assign to a container. Currently, the only supported
+        /// resource is <code>GPU</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ContainerProperties_ResourceRequirements")]
+        public Amazon.Batch.Model.ResourceRequirement[] ContainerProperties_ResourceRequirement { get; set; }
+        #endregion
+        
         #region Parameter Timeout
         /// <summary>
         /// <para>
@@ -251,7 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// which AWS Batch terminates your jobs if they have not finished. If a job is terminated
         /// due to a timeout, it is not retried. The minimum value for the timeout is 60 seconds.
         /// Any timeout configuration that is specified during a <a>SubmitJob</a> operation overrides
-        /// the timeout configuration defined here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
+        /// the timeout configuration defined here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
         /// Timeouts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -376,6 +389,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
                 context.ContainerProperties_Privileged = this.ContainerProperties_Privileged;
             if (ParameterWasBound("ContainerProperties_ReadonlyRootFilesystem"))
                 context.ContainerProperties_ReadonlyRootFilesystem = this.ContainerProperties_ReadonlyRootFilesystem;
+            if (this.ContainerProperties_ResourceRequirement != null)
+            {
+                context.ContainerProperties_ResourceRequirements = new List<Amazon.Batch.Model.ResourceRequirement>(this.ContainerProperties_ResourceRequirement);
+            }
             if (this.ContainerProperties_Ulimit != null)
             {
                 context.ContainerProperties_Ulimits = new List<Amazon.Batch.Model.Ulimit>(this.ContainerProperties_Ulimit);
@@ -516,6 +533,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             if (requestContainerProperties_containerProperties_ReadonlyRootFilesystem != null)
             {
                 request.ContainerProperties.ReadonlyRootFilesystem = requestContainerProperties_containerProperties_ReadonlyRootFilesystem.Value;
+                requestContainerPropertiesIsNull = false;
+            }
+            List<Amazon.Batch.Model.ResourceRequirement> requestContainerProperties_containerProperties_ResourceRequirement = null;
+            if (cmdletContext.ContainerProperties_ResourceRequirements != null)
+            {
+                requestContainerProperties_containerProperties_ResourceRequirement = cmdletContext.ContainerProperties_ResourceRequirements;
+            }
+            if (requestContainerProperties_containerProperties_ResourceRequirement != null)
+            {
+                request.ContainerProperties.ResourceRequirements = requestContainerProperties_containerProperties_ResourceRequirement;
                 requestContainerPropertiesIsNull = false;
             }
             List<Amazon.Batch.Model.Ulimit> requestContainerProperties_containerProperties_Ulimit = null;
@@ -708,6 +735,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             public List<Amazon.Batch.Model.MountPoint> ContainerProperties_MountPoints { get; set; }
             public System.Boolean? ContainerProperties_Privileged { get; set; }
             public System.Boolean? ContainerProperties_ReadonlyRootFilesystem { get; set; }
+            public List<Amazon.Batch.Model.ResourceRequirement> ContainerProperties_ResourceRequirements { get; set; }
             public List<Amazon.Batch.Model.Ulimit> ContainerProperties_Ulimits { get; set; }
             public System.String ContainerProperties_User { get; set; }
             public System.Int32? ContainerProperties_Vcpus { get; set; }

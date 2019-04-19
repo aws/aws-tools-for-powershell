@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// outage to the cluster, during which the cluster status is set to <code>rebooting</code>.
     /// A cluster event is created when the reboot is completed. Any pending cluster modifications
     /// (see <a>ModifyCluster</a>) are applied at this reboot. For more information about
-    /// managing clusters, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+    /// managing clusters, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
     /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </summary>
     [Cmdlet("Restart", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

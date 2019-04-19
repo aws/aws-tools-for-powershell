@@ -15,9 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "ListDeploymentGroups"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "",
@@ -1235,9 +1232,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1282,9 +1276,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1329,9 +1320,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1418,9 +1406,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1467,9 +1452,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1514,9 +1496,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1561,9 +1540,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1608,9 +1584,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListDeploymentGroups"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",

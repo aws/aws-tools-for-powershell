@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// document that is attached to a user, use <a>GetPolicy</a> to determine the policy's
     /// default version, then use <a>GetPolicyVersion</a> to retrieve the policy document.
     /// </para><para>
-    /// For more information about policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// For more information about policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

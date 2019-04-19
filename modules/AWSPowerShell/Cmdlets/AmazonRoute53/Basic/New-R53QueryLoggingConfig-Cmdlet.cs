@@ -100,18 +100,18 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// record set expires. Depending on how many DNS queries are submitted for a resource
     /// record set, and depending on the TTL for that resource record set, query logs might
     /// contain information about only one query out of every several thousand queries that
-    /// are submitted to DNS. For more information about how DNS works, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing
+    /// are submitted to DNS. For more information about how DNS works, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-dns-service.html">Routing
     /// Internet Traffic to Your Website or Web Application</a> in the <i>Amazon Route 53
     /// Developer Guide</i>.
     /// </para></dd><dt>Log File Format</dt><dd><para>
-    /// For a list of the values in each query log and the format of each value, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging
+    /// For a list of the values in each query log and the format of each value, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging
     /// DNS Queries</a> in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para></dd><dt>Pricing</dt><dd><para>
     /// For information about charges for query logs, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon
     /// CloudWatch Pricing</a>.
     /// </para></dd><dt>How to Stop Logging</dt><dd><para>
     /// If you want Route 53 to stop sending query logs to CloudWatch Logs, delete the query
-    /// logging configuration. For more information, see <a>DeleteQueryLoggingConfig</a>.
+    /// logging configuration. For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_DeleteQueryLoggingConfig.html">DeleteQueryLoggingConfig</a>.
     /// </para></dd></dl>
     /// </summary>
     [Cmdlet("New", "R53QueryLoggingConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -127,8 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) for the log group that you want to Amazon Route 53
-        /// to send query logs to. This is the format of the ARN:</para><para>arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i></para><para>To get the ARN for a log group, you can use the CloudWatch console, the <a href="http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html">DescribeLogGroups</a>
-        /// API action, the <a href="http://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html">describe-log-groups</a>
+        /// to send query logs to. This is the format of the ARN:</para><para>arn:aws:logs:<i>region</i>:<i>account-id</i>:log-group:<i>log_group_name</i></para><para>To get the ARN for a log group, you can use the CloudWatch console, the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogGroups.html">DescribeLogGroups</a>
+        /// API action, the <a href="https://docs.aws.amazon.com/cli/latest/reference/logs/describe-log-groups.html">describe-log-groups</a>
         /// command, or the applicable command in one of the AWS SDKs.</para>
         /// </para>
         /// </summary>

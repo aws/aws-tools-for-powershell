@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// To create a cluster in Virtual Private Cloud (VPC), you must provide a cluster subnet
     /// group name. The cluster subnet group identifies the subnets of your VPC that Amazon
     /// Redshift uses when creating the cluster. For more information about managing clusters,
-    /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
+    /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon
     /// Redshift Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the parameter group to be associated with this cluster.</para><para>Default: The default Amazon Redshift cluster parameter group. For information about
-        /// the default parameter group, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+        /// the default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
         /// with Amazon Redshift Parameter Groups</a></para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
@@ -171,9 +171,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The name of the first database to be created when the cluster is created.</para><para>To create additional databases after the cluster is created, connect to the cluster
         /// with a SQL client and use SQL commands to create a database. For more information,
-        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
+        /// go to <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
         /// a Database</a> in the Amazon Redshift Database Developer Guide. </para><para>Default: <code>dev</code></para><para>Constraints:</para><ul><li><para>Must contain 1 to 64 alphanumeric characters.</para></li><li><para>Must contain only lowercase letters.</para></li><li><para>Cannot be a word that is reserved by the service. A list of reserved words can be
-        /// found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
         /// </summary>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The Elastic IP (EIP) address for the cluster.</para><para>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible through
         /// an Internet gateway. For more information about provisioning clusters in EC2-VPC,
-        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+        /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
         /// Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</para>
         /// </para>
         /// </summary>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
         /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
-        /// For more information, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+        /// For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
         /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
         /// </para>
         /// </summary>
@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The user name associated with the master user account for the cluster that is being
-        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+        /// created.</para><para>Constraints:</para><ul><li><para>Must be 1 - 128 alphanumeric characters. The user name can't be <code>PUBLIC</code>.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
         /// Words</a> in the Amazon Redshift Database Developer Guide. </para></li></ul>
         /// </para>
         /// </summary>
@@ -315,7 +315,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The node type to be provisioned for the cluster. For information about node types,
-        /// go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
+        /// go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para><para>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> | <code>ds2.xlarge</code>
         /// | <code>ds2.8xlarge</code> | <code>dc1.large</code> | <code>dc1.8xlarge</code> | <code>dc2.large</code>
@@ -330,7 +330,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The number of compute nodes in the cluster. This parameter is required when the <b>ClusterType</b>
-        /// parameter is specified as <code>multi-node</code>. </para><para>For information about determining how many nodes you need, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
+        /// parameter is specified as <code>multi-node</code>. </para><para>For information about determining how many nodes you need, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes">
         /// Working with Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para><para>If you don't specify this parameter, you get a single-node cluster. When requesting
         /// a multi-node cluster, you must specify the number of nodes that you want in the cluster.</para><para>Default: <code>1</code></para><para>Constraints: Value must be at least 1 and no more than 100.</para>
@@ -357,7 +357,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
         /// occurring on a random day of the week. For more information about the time blocks
-        /// for each region, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+        /// for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide.</para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

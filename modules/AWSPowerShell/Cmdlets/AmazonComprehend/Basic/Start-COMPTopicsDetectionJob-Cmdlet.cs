@@ -107,6 +107,18 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public Amazon.Comprehend.Model.OutputDataConfig OutputDataConfig { get; set; }
         #endregion
         
+        #region Parameter VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// data on the storage volume attached to the ML compute instance(s) that process the
+        /// analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VolumeKmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -143,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (ParameterWasBound("NumberOfTopic"))
                 context.NumberOfTopics = this.NumberOfTopic;
             context.OutputDataConfig = this.OutputDataConfig;
+            context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -182,6 +195,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.OutputDataConfig != null)
             {
                 request.OutputDataConfig = cmdletContext.OutputDataConfig;
+            }
+            if (cmdletContext.VolumeKmsKeyId != null)
+            {
+                request.VolumeKmsKeyId = cmdletContext.VolumeKmsKeyId;
             }
             
             CmdletOutput output;
@@ -251,6 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String JobName { get; set; }
             public System.Int32? NumberOfTopics { get; set; }
             public Amazon.Comprehend.Model.OutputDataConfig OutputDataConfig { get; set; }
+            public System.String VolumeKmsKeyId { get; set; }
         }
         
     }

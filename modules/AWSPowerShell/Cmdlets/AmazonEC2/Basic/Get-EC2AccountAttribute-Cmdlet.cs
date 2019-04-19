@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AttributeName
         /// <summary>
         /// <para>
-        /// <para>One or more account attribute names.</para>
+        /// <para>The account attribute names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

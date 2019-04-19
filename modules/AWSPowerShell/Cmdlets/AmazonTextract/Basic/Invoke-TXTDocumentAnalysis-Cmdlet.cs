@@ -28,27 +28,35 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// Analyzes an input document for relationships in the detected text and tables. 
+    /// Analyzes an input document for relationships between detected items. 
     /// 
     ///  
     /// <para>
-    /// Two types of information are returned: 
+    /// The types of information returned are as follows: 
     /// </para><ul><li><para>
     /// Words and lines that are related to nearby lines and words. The related information
-    /// is returned in two <a>Block</a> objects: a KEY Block object and a VALUE Block object.
-    /// For example, <i>Name: Ana Silva Carolina</i> contains a key and value. <i>Name:</i>
-    /// is the key. <i>Ana Silva Carolina</i> is the value.
+    /// is returned in two <a>Block</a> objects each of type <code>KEY_VALUE_SET</code>: a
+    /// KEY Block object and a VALUE Block object. For example, <i>Name: Ana Silva Carolina</i>
+    /// contains a key and value. <i>Name:</i> is the key. <i>Ana Silva Carolina</i> is the
+    /// value.
     /// </para></li><li><para>
-    /// Table and table cell data. A TABLE Block contains information about a detected table.
-    /// A CELL block is returned for each cell in a table.
+    /// Table and table cell data. A TABLE Block object contains information about a detected
+    /// table. A CELL Block object is returned for each cell in a table.
+    /// </para></li><li><para>
+    /// Selectable elements such as checkboxes and radio buttons. A SELECTION_ELEMENT Block
+    /// object contains information about a selectable element.
+    /// </para></li><li><para>
+    /// Lines and words of text. A LINE Block object contains one or more WORD Block objects.
     /// </para></li></ul><para>
     /// You can choose which type of analysis to perform by specifying the <code>FeatureTypes</code>
     /// list. 
     /// </para><para>
-    /// The output is returned in a list of <code>BLOCK</code> objects (Blocks). For more
-    /// information, see <a>how-it-works-analyzing</a>.
+    /// The output is returned in a list of <code>BLOCK</code> objects.
     /// </para><para><code>AnalyzeDocument</code> is a synchronous operation. To analyze documents asynchronously,
     /// use <a>StartDocumentAnalysis</a>.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document
+    /// Text Analysis</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "TXTDocumentAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -76,8 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter Document_Byte
         /// <summary>
         /// <para>
-        /// <para>A blob of documents bytes. The maximum size of a document that's provided in a blob
-        /// of bytes is 5 MB.</para>
+        /// <para>A blob of base-64 encoded documents bytes. The maximum size of a document that's provided
+        /// in a blob of bytes is 5 MB. The document bytes must be in PNG or JPG format.</para><para>If you are using an AWS SDK to call Amazon Textract, you might not need to base64-encode
+        /// image bytes passed using the <code>Bytes</code> field. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <para>The security configuration details in JSON format. For JSON parameters and examples,
-        /// see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
+        /// see <a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-security-configurations.html">Use
         /// Security Configurations to Set Up Cluster Security</a> in the <i>Amazon EMR Management
         /// Guide</i>.</para>
         /// </para>

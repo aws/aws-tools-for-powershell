@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// <para>
     /// In a managed compute environment, AWS Batch manages the capacity and instance types
     /// of the compute resources within the environment. This is based on the compute resource
-    /// specification that you define or the <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+    /// specification that you define or the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
     /// template</a> that you specify when you create the compute environment. You can choose
     /// to use Amazon EC2 On-Demand Instances or Spot Instances in your managed compute environment.
     /// You can optionally set a maximum price so that Spot Instances only launch when the
@@ -46,12 +46,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// In an unmanaged compute environment, you can manage your own compute resources. This
     /// provides more compute resource configuration options, such as using a custom AMI,
     /// but you must ensure that your AMI meets the Amazon ECS container instance AMI specification.
-    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container_instance_AMIs.html">Container
     /// Instance AMIs</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// After you have created your unmanaged compute environment, you can use the <a>DescribeComputeEnvironments</a>
     /// operation to find the Amazon ECS cluster that is associated with it. Then, manually
     /// launch your container instances into that Amazon ECS cluster. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
+    /// see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_container_instance.html">Launching
     /// an Amazon ECS Container Instance</a> in the <i>Amazon Elastic Container Service Developer
     /// Guide</i>.
     /// </para><note><para>
@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to submit multi-node parallel jobs to your compute environment, you should consider
         /// creating a cluster placement group and associate it with your compute resources. This
         /// keeps your multi-node parallel job on a logical grouping of instances within a single
-        /// Availability Zone with high network flow potential. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Availability Zone with high network flow potential. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
         /// Groups</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</para>
         /// </para>
         /// </summary>
@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the compute environment. For more information, see <a href="http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+        /// <para>The type of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
         /// Environments</a> in the <i>AWS Batch User Guide</i>.</para>
         /// </para>
         /// </summary>

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     ///  
     /// <para>
     /// To change the password for a different user, see <a>UpdateLoginProfile</a>. For more
-    /// information about modifying passwords, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
+    /// information about modifying passwords, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html">Managing
     /// Passwords</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

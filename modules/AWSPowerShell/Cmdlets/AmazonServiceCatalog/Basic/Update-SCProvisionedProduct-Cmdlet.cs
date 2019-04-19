@@ -224,6 +224,19 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String[] ProvisioningPreferences_StackSetRegion { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>One or more tags. Requires the product to have <code>RESOURCE_UPDATE</code> constraint
+        /// with <code>TagUpdatesOnProvisionedProduct</code> set to <code>ALLOWED</code> to allow
+        /// tag updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.ServiceCatalog.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UpdateToken
         /// <summary>
         /// <para>
@@ -289,6 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (this.ProvisioningPreferences_StackSetRegion != null)
             {
                 context.ProvisioningPreferences_StackSetRegions = new List<System.String>(this.ProvisioningPreferences_StackSetRegion);
+            }
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
             }
             context.UpdateToken = this.UpdateToken;
             
@@ -414,6 +431,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProvisioningPreferences = null;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.UpdateToken != null)
             {
                 request.UpdateToken = cmdletContext.UpdateToken;
@@ -494,6 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.Int32? ProvisioningPreferences_StackSetMaxConcurrencyPercentage { get; set; }
             public Amazon.ServiceCatalog.StackSetOperationType ProvisioningPreferences_StackSetOperationType { get; set; }
             public List<System.String> ProvisioningPreferences_StackSetRegions { get; set; }
+            public List<Amazon.ServiceCatalog.Model.Tag> Tags { get; set; }
             public System.String UpdateToken { get; set; }
         }
         

@@ -69,9 +69,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// the response to this request. If you specify a value greater than 100, Route 53 returns
         /// only the first 100 reusable delegation sets.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
@@ -115,7 +112,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
@@ -130,32 +126,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("Marker");
             
             try
             {
                 do
                 {
                     request.Marker = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 100;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
                     }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxItems))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxItems);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
-                    }
+                    request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -184,37 +167,30 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         }
                         
                         _nextMarker = response.NextMarker;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

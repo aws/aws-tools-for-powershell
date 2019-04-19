@@ -29,10 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB instance that acts as a Read Replica for an existing source DB instance.
-    /// You can create a Read Replica for a DB instance running MySQL, MariaDB, or PostgreSQL.
-    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
-    /// with PostgreSQL, MySQL, and MariaDB Read Replicas</a> in the <i>Amazon RDS User Guide</i>.
-    /// 
+    /// You can create a Read Replica for a DB instance running MySQL, MariaDB, Oracle, or
+    /// PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
+    /// with Read Replicas</a> in the <i>Amazon RDS User Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -170,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>True to enable Performance Insights for the read replica, and otherwise false. </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
+        /// <para>True to enable Performance Insights for the Read Replica, and otherwise false. </para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html">Using
         /// Amazon Performance Insights</a> in the <i>Amazon RDS User Guide</i>. </para>
         /// </para>
         /// </summary>
@@ -250,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The option group the DB instance is associated with. If omitted, the default option
-        /// group for the engine specified is used.</para>
+        /// <para>The option group the DB instance is associated with. If omitted, the option group
+        /// associated with the source instance is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -354,8 +353,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The identifier of the DB instance that will act as the source for the Read Replica.
-        /// Each DB instance can have up to five Read Replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL Read Replica only if the source is running
-        /// MySQL 5.6 or later.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
+        /// Each DB instance can have up to five Read Replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, Oracle, or PostgreSQL DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL Read Replica only if the source is running
+        /// MySQL 5.6 or later.</para></li><li><para>For the limitations of Oracle Read Replicas, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html">Read
+        /// Replica Limitations with Oracle</a> in the <i>Amazon RDS User Guide</i>.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
         /// PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same AWS Region as the Read Replica, specify a
         /// valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different AWS Region than the Read Replica, specify

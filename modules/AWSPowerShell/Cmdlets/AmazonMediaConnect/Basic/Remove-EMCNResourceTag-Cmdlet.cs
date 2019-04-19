@@ -28,7 +28,7 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Deletes the specified tags from a resource.
+    /// Deletes specified tags from a resource.
     /// </summary>
     [Cmdlet("Remove", "EMCNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the resource
-        /// that you want to remove tags from.
+        /// The Amazon Resource Name (ARN) that identifies
+        /// the AWS Elemental MediaConnect resource from which to delete tags.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

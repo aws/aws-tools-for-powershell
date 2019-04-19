@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</para></li><li><para><code>action.description</code> - A description of the action.</para></li><li><para><code>action.event-id</code> - The event ID associated with the action.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.event-id</code> - The event ID.</para></li><li><para><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code>
+        /// <para>The filters.</para><ul><li><para><code>action.code</code> - The action code for the event (for example, <code>enable-volume-io</code>).</para></li><li><para><code>action.description</code> - A description of the action.</para></li><li><para><code>action.event-id</code> - The event ID associated with the action.</para></li><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.event-id</code> - The event ID.</para></li><li><para><code>event.event-type</code> - The event type (for <code>io-enabled</code>: <code>passed</code>
         /// | <code>failed</code>; for <code>io-performance</code>: <code>io-performance:degraded</code>
         /// | <code>io-performance:severely-degraded</code> | <code>io-performance:stalled</code>).</para></li><li><para><code>event.not-after</code> - The latest end time for the event.</para></li><li><para><code>event.not-before</code> - The earliest start time for the event.</para></li><li><para><code>volume-status.details-name</code> - The cause for <code>volume-status.status</code>
         /// (<code>io-enabled</code> | <code>io-performance</code>).</para></li><li><para><code>volume-status.details-status</code> - The status of <code>volume-status.details-name</code>
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VolumeId
         /// <summary>
         /// <para>
-        /// <para>One or more volume IDs.</para><para>Default: Describes all your volumes.</para>
+        /// <para>The IDs of the volumes.</para><para>Default: Describes all your volumes.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -114,9 +114,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// If this parameter is not used, then <code>DescribeVolumeStatus</code> returns all
         /// results. You cannot specify this parameter and the volume IDs parameter in the same
         /// request.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -202,15 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    if (_emitLimit.HasValue)
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
@@ -239,28 +235,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_Comment
         /// <summary>
         /// <para>
-        /// <para>Information about the command(s) to execute.</para>
+        /// <para>Information about the command(s) to run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -421,7 +421,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started executing, it doesn't
+        /// <para>If this time is reached and the command has not already started running, it doesn't
         /// run.</para>
         /// </para>
         /// </summary>

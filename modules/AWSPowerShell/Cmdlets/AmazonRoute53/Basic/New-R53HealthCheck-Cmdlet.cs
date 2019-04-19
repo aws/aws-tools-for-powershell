@@ -32,8 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// For information about adding health checks to resource record sets, see <a>ResourceRecordSet$HealthCheckId</a>
-    /// in <a>ChangeResourceRecordSets</a>. 
+    /// For information about adding health checks to resource record sets, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResourceRecordSet.html#Route53-Type-ResourceRecordSet-HealthCheckId">HealthCheckId</a>
+    /// in <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeResourceRecordSets.html">ChangeResourceRecordSets</a>.
+    /// 
     /// </para><para><b>ELB Load Balancers</b></para><para>
     /// If you're registering EC2 instances with an Elastic Load Balancing (ELB) load balancer,
     /// do not create Amazon Route 53 health checks for the EC2 instances. When you register
@@ -110,7 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// corresponding CloudWatch metrics.</para></li></ul><para>After you disable a health check, Route 53 considers the status of the health check
         /// to always be healthy. If you configured DNS failover, Route 53 continues to route
         /// traffic to the corresponding resources. If you want to stop routing traffic to a resource,
-        /// change the value of <a>UpdateHealthCheckRequest$Inverted</a>.</para><para>Charges for a health check still apply when the health check is disabled. For more
+        /// change the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-Inverted">Inverted</a>.
+        /// </para><para>Charges for a health check still apply when the health check is disabled. For more
         /// information, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53
         /// Pricing</a>.</para>
         /// </para>
@@ -203,10 +205,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <summary>
         /// <para>
         /// <para>The number of child health checks that are associated with a <code>CALCULATED</code>
-        /// health that Amazon Route 53 must consider healthy for the <code>CALCULATED</code>
+        /// health check that Amazon Route 53 must consider healthy for the <code>CALCULATED</code>
         /// health check to be considered healthy. To specify the child health checks that you
-        /// want to associate with a <code>CALCULATED</code> health check, use the <a>HealthCheckConfig$ChildHealthChecks</a>
-        /// and <a>HealthCheckConfig$ChildHealthChecks</a> elements.</para><para>Note the following:</para><ul><li><para>If you specify a number greater than the number of child health checks, Route 53 always
+        /// want to associate with a <code>CALCULATED</code> health check, use the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-ChildHealthChecks">ChildHealthChecks</a>
+        /// element.</para><para>Note the following:</para><ul><li><para>If you specify a number greater than the number of child health checks, Route 53 always
         /// considers this health check to be unhealthy.</para></li><li><para>If you specify <code>0</code>, Route 53 always considers this health check to be healthy.</para></li></ul>
         /// </para>
         /// </summary>
@@ -253,7 +255,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// (:), for example, <code>2001:0db8:85a3:0000:0000:abcd:0001:2345</code>. You can also
         /// shorten IPv6 addresses as described in RFC 5952, for example, <code>2001:db8:85a3::abcd:1:2345</code>.</para></li></ul><para>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address,
         /// associate it with your EC2 instance, and specify the Elastic IP address for <code>IPAddress</code>.
-        /// This ensures that the IP address of your instance will never change.</para><para>For more information, see <a>HealthCheckConfig$FullyQualifiedDomainName</a>.</para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
+        /// This ensures that the IP address of your instance will never change.</para><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
+        /// </para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
         /// is in local, private, non-routable, or multicast ranges. For more information about
         /// IP addresses for which you can't create health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
         /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul><para>When the value of <code>Type</code> is <code>CALCULATED</code> or <code>CLOUDWATCH_METRIC</code>,
@@ -397,7 +400,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <code>Healthy</code>, <code>Unhealthy</code>, or <code>LastKnownStatus</code>. </para></li><li><para><b>CALCULATED</b>: For health checks that monitor the status of other health checks,
         /// Route 53 adds up the number of health checks that Route 53 health checkers consider
         /// to be healthy and compares that number with the value of <code>HealthThreshold</code>.
-        /// </para></li></ul><para>For more information, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
+        /// </para></li></ul><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.html">How
         /// Route 53 Determines Whether an Endpoint Is Healthy</a> in the <i>Amazon Route 53 Developer
         /// Guide</i>.</para>
         /// </para>

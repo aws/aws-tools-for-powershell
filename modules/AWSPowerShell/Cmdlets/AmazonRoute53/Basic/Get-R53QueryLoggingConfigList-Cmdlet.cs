@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// 
     ///  
     /// <para>
-    /// For more information about DNS query logs, see <a>CreateQueryLoggingConfig</a>. Additional
-    /// information, including the format of DNS query logs, appears in <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging
+    /// For more information about DNS query logs, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_CreateQueryLoggingConfig.html">CreateQueryLoggingConfig</a>.
+    /// Additional information, including the format of DNS query logs, appears in <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html">Logging
     /// DNS Queries</a> in the <i>Amazon Route 53 Developer Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
@@ -66,12 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>(Optional) The maximum number of query logging configurations that you want Amazon
         /// Route 53 to return in response to the current request. If the current AWS account
-        /// has more than <code>MaxResults</code> configurations, use the value of <a>ListQueryLoggingConfigsResponse$NextToken</a>
+        /// has more than <code>MaxResults</code> configurations, use the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ListQueryLoggingConfigs.html#API_ListQueryLoggingConfigs_RequestSyntax">NextToken</a>
         /// in the response to get the next page of results.</para><para>If you don't specify a value for <code>MaxResults</code>, Route 53 returns up to 100
         /// configurations.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,7 +135,6 @@ namespace Amazon.PowerShell.Cmdlets.R53
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
@@ -153,32 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.R53
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 100;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToString(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
                     }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
-                    }
+                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToString(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -204,37 +187,30 @@ namespace Amazon.PowerShell.Cmdlets.R53
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

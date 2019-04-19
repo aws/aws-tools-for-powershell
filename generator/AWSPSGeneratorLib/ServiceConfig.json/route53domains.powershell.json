@@ -18,7 +18,6 @@
     "NextPageMarker"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "Marker",
     "responseMember": "NextPageMarker",
     "resultLimitMember": "",
@@ -517,7 +516,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextPageMarker",
           "resultLimitMember": "",
@@ -564,7 +562,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextPageMarker",
           "resultLimitMember": "",
@@ -1010,7 +1007,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "Marker",
         "responseMember": "NextPageMarker",
         "resultLimitMember": "MaxItems",
@@ -1035,7 +1031,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextPageMarker",
           "resultLimitMember": "MaxItems",

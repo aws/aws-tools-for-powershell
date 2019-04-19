@@ -15,12 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "GetDeviceDefinitionVersion",
-      "GetFunctionDefinitionVersion",
-      "GetSubscriptionDefinitionVersion",
-      "GetConnectorDefinitionVersion"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -2247,12 +2241,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2297,12 +2285,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2347,12 +2329,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2399,12 +2375,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2449,12 +2419,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2501,12 +2465,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2553,12 +2511,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2603,12 +2555,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2655,12 +2601,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2705,12 +2645,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2757,12 +2691,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2847,12 +2775,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2899,12 +2821,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2949,12 +2865,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3001,12 +2911,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3051,12 +2955,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3103,12 +3001,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3153,12 +3045,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3205,18 +3091,52 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "GetDeviceDefinitionVersion",
-            "GetFunctionDefinitionVersion",
-            "GetSubscriptionDefinitionVersion",
-            "GetConnectorDefinitionVersion"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "false",
           "resultsTruncatedMember": ""
         },
+        "memoryStreamParameters": []
+      }
+    },
+    "ListTagsForResource": {
+      "verb": "Get",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "Tags",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceTag",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
         "memoryStreamParameters": []
       }
     },
@@ -3342,6 +3262,86 @@
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "BulkDeployment",
         "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "TagResource": {
+      "verb": "Add",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ResourceArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceTag",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruTypeName": "System.String",
+        "requiresPassThruGeneration": "true",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "UntagResource": {
+      "verb": "Remove",
+      "noun": "ResourceTag",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "Void",
+        "outputMemberSelector": "",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "ResourceArn"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "ResourceArn"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "ResourceTag",
+        "confirmImpactSetting": "High",
         "iterationPattern": "None",
         "passThruTypeName": "System.String",
         "requiresPassThruGeneration": "true",

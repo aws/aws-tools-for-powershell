@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// to <code>true</code>, you must first unlock the job flow by a subsequent call to <code>SetTerminationProtection</code>
     /// in which you set the value to <code>false</code>. 
     /// </para><para>
-    ///  For more information, see<a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
+    ///  For more information, see<a href="https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingEMR_TerminationProtection.html">Managing
     /// Cluster Termination</a> in the <i>Amazon EMR Management Guide</i>. 
     /// </para>
     /// </summary>

@@ -20,7 +20,6 @@
     "HasMoreResults"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "Marker",
     "responseMember": "Marker",
     "resultLimitMember": "",
@@ -290,7 +289,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "",
@@ -462,7 +460,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "",
@@ -595,7 +592,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "",

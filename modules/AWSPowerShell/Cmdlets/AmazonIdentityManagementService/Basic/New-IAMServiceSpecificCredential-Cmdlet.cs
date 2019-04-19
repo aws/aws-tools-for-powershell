@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </para><para>
     /// You can reset the password to a new service-generated value by calling <a>ResetServiceSpecificCredential</a>.
     /// </para><para>
-    /// For more information about service-specific credentials, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using
+    /// For more information about service-specific credentials, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_ssh-keys.html">Using
     /// IAM with AWS CodeCommit: Git Credentials, SSH Keys, and AWS Access Keys</a> in the
     /// <i>IAM User Guide</i>.
     /// </para>

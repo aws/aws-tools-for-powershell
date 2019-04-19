@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Executes commands on one or more managed instances.
+    /// Runs commands on one or more managed instances.
     /// </summary>
     [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
@@ -97,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter DocumentName
         /// <summary>
         /// <para>
-        /// <para>Required. The name of the Systems Manager document to execute. This can be a public
-        /// document or a custom document.</para>
+        /// <para>Required. The name of the Systems Manager document to run. This can be a public document
+        /// or a custom document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,8 +109,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The SSM document version to use in the request. You can specify $DEFAULT, $LATEST,
-        /// or a specific version number. If you execute commands by using the AWS CLI, then you
-        /// must escape the first two options by using a backslash. If you specify a version number,
+        /// or a specific version number. If you run commands by using the AWS CLI, then you must
+        /// escape the first two options by using a backslash. If you specify a version number,
         /// then you don't need to use the backslash. For example:</para><para>--document-version "\$DEFAULT"</para><para>--document-version "\$LATEST"</para><para>--document-version "3"</para>
         /// </para>
         /// </summary>
@@ -121,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The instance IDs where the command should execute. You can specify a maximum of 50
-        /// IDs. If you prefer not to list individual instance IDs, you can instead send commands
-        /// to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
+        /// <para>The instance IDs where the command should run. You can specify a maximum of 50 IDs.
+        /// If you prefer not to list individual instance IDs, you can instead send commands to
+        /// a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
         /// information about how to use targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
         /// Commands to a Fleet</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
@@ -136,10 +136,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxConcurrency
         /// <summary>
         /// <para>
-        /// <para>(Optional) The maximum number of instances that are allowed to execute the command
-        /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
-        /// The default value is 50. For more information about how to use MaxConcurrency, see
-        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
+        /// <para>(Optional) The maximum number of instances that are allowed to run the command at
+        /// the same time. You can specify a number such as 10 or a percentage such as 10%. The
+        /// default value is 50. For more information about how to use MaxConcurrency, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-velocity">Using
         /// Concurrency Controls</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -234,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The required and optional parameters specified in the document being executed.</para>
+        /// <para>The required and optional parameters specified in the document being run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -269,8 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started executing, it will
-        /// not run.</para>
+        /// <para>If this time is reached and the command has not already started running, it will not
+        /// run.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

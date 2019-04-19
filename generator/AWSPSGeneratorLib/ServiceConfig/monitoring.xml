@@ -87,6 +87,9 @@
         <ServiceOperation MethodName="ListMetrics" Output="DefaultSingleMember" Verb="" Noun="" Exclude="true" ShouldProcessTarget="" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="PutDashboard" Output="DefaultSingleMember" Verb="Write" Noun="Dashboard" ShouldProcessTarget="DashboardName" PipelineParameter="DashboardBody" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -97,6 +100,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SetAlarmState" Output="Void" Verb="Set" Noun="AlarmState" ShouldProcessTarget="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceARN" PipelineParameter="ResourceARN" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

@@ -15,11 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "BatchGetTraces",
-      "GetServiceGraph",
-      "GetTraceSummaries"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "",
@@ -347,11 +342,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "BatchGetTraces",
-            "GetServiceGraph",
-            "GetTraceSummaries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -398,11 +388,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "BatchGetTraces",
-            "GetServiceGraph",
-            "GetTraceSummaries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -449,11 +434,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "BatchGetTraces",
-            "GetServiceGraph",
-            "GetTraceSummaries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -580,11 +560,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "BatchGetTraces",
-            "GetServiceGraph",
-            "GetTraceSummaries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",

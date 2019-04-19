@@ -58,9 +58,6 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The maximum number of items to return with this call. The default value is <code>50</code>
         /// and the maximum value is <code>100</code>.</para>
         /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
-        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]
@@ -135,15 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxRecord");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    if (_emitLimit.HasValue)
                     {
                         request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
@@ -172,28 +168,30 @@ namespace Amazon.PowerShell.Cmdlets.AS
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

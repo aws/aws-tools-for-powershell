@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The type of resource with which you want to view tags. Valid resource types are: </para><ul><li><para>Cluster</para></li><li><para>CIDR/IP</para></li><li><para>EC2 security group</para></li><li><para>Snapshot</para></li><li><para>Cluster security group</para></li><li><para>Subnet group</para></li><li><para>HSM connection</para></li><li><para>HSM certificate</para></li><li><para>Parameter group</para></li><li><para>Snapshot copy grant</para></li></ul><para>For more information about Amazon Redshift resource types and constructing ARNs, go
-        /// to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying
+        /// to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-overview.html#redshift-iam-access-control-specify-actions">Specifying
         /// Policy Elements: Actions, Effects, Resources, and Principals</a> in the Amazon Redshift
         /// Cluster Management Guide. </para>
         /// </para>
@@ -145,9 +145,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned <code>marker</code> value. </para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -218,7 +215,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
@@ -233,32 +229,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxRecord");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("Marker");
             
             try
             {
                 do
                 {
                     request.Marker = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 100;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
                     }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxRecords))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxRecords);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
+                    request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -284,37 +267,30 @@ namespace Amazon.PowerShell.Cmdlets.RS
                         }
                         
                         _nextMarker = response.Marker;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

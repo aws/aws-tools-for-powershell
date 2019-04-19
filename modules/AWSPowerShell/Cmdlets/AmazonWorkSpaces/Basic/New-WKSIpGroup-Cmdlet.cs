@@ -74,6 +74,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public System.String GroupName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.WorkSpaces.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter UserRule
         /// <summary>
         /// <para>
@@ -116,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             
             context.GroupDesc = this.GroupDesc;
             context.GroupName = this.GroupName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.WorkSpaces.Model.Tag>(this.Tag);
+            }
             if (this.UserRule != null)
             {
                 context.UserRules = new List<Amazon.WorkSpaces.Model.IpRuleItem>(this.UserRule);
@@ -143,6 +158,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.GroupName != null)
             {
                 request.GroupName = cmdletContext.GroupName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.UserRules != null)
             {
@@ -212,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             public System.String GroupDesc { get; set; }
             public System.String GroupName { get; set; }
+            public List<Amazon.WorkSpaces.Model.Tag> Tags { get; set; }
             public List<Amazon.WorkSpaces.Model.IpRuleItem> UserRules { get; set; }
         }
         

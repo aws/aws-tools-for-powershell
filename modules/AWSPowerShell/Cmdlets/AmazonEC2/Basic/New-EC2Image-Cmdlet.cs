@@ -55,9 +55,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDeviceMapping
         /// <summary>
         /// <para>
-        /// <para>Information about one or more block device mappings. This parameter cannot be used
-        /// to modify the encryption status of existing volumes or snapshots. To create an AMI
-        /// with encrypted snapshots, use the <a>CopyImage</a> action.</para>
+        /// <para>Tthe block device mappings. This parameter cannot be used to modify the encryption
+        /// status of existing volumes or snapshots. To create an AMI with encrypted snapshots,
+        /// use the <a>CopyImage</a> action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

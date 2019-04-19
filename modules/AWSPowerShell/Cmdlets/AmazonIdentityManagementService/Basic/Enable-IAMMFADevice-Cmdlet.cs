@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// generate the codes and then wait too long to submit the request, the MFA device successfully
         /// associates with the user but the MFA device becomes out of sync. This happens because
         /// time-based one-time passwords (TOTP) expire after a short period of time. If this
-        /// happens, you can <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
+        /// happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
         /// the device</a>.</para></important>
         /// </para>
         /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// generate the codes and then wait too long to submit the request, the MFA device successfully
         /// associates with the user but the MFA device becomes out of sync. This happens because
         /// time-based one-time passwords (TOTP) expire after a short period of time. If this
-        /// happens, you can <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
+        /// happens, you can <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa_sync.html">resync
         /// the device</a>.</para></important>
         /// </para>
         /// </summary>

@@ -35,11 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// The Amazon EKS control plane consists of control plane instances that run the Kubernetes
     /// software, like <code>etcd</code> and the API server. The control plane runs in an
     /// account managed by AWS, and the Kubernetes API is exposed via the Amazon EKS API server
-    /// endpoint.
-    /// </para><para>
-    /// Amazon EKS worker nodes run in your AWS account and connect to your cluster's control
-    /// plane via the Kubernetes API server endpoint and a certificate file that is created
-    /// for your cluster.
+    /// endpoint. Each Amazon EKS cluster control plane is single-tenant and unique, and runs
+    /// on its own set of Amazon EC2 instances.
     /// </para><para>
     /// The cluster control plane is provisioned across multiple Availability Zones and fronted
     /// by an Elastic Load Balancing Network Load Balancer. Amazon EKS also provisions elastic
@@ -47,11 +44,32 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// instances to the worker nodes (for example, to support <code>kubectl exec</code>,
     /// <code>logs</code>, and <code>proxy</code> data flows).
     /// </para><para>
-    /// After you create an Amazon EKS cluster, you must configure your Kubernetes tooling
-    /// to communicate with the API server and launch worker nodes into your cluster. For
-    /// more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
+    /// Amazon EKS worker nodes run in your AWS account and connect to your cluster's control
+    /// plane via the Kubernetes API server endpoint and a certificate file that is created
+    /// for your cluster.
+    /// </para><para>
+    /// You can use the <code>endpointPublicAccess</code> and <code>endpointPrivateAccess</code>
+    /// parameters to enable or disable public and private access to your cluster's Kubernetes
+    /// API server endpoint. By default, public access is enabled and private access is disabled.
+    /// For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+    /// EKS Cluster Endpoint Access Control</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// 
+    /// </para><para>
+    /// You can use the <code>logging</code> parameter to enable or disable exporting the
+    /// Kubernetes control plane logs for your cluster to CloudWatch Logs. By default, cluster
+    /// control plane logs are not exported to CloudWatch Logs. For more information, see
+    /// <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
+    /// EKS Cluster Control Plane Logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// </para><note><para>
+    /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+    /// control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon
+    /// CloudWatch Pricing</a>.
+    /// </para></note><para>
+    /// Cluster creation typically takes between 10 and 15 minutes. After you create an Amazon
+    /// EKS cluster, you must configure your Kubernetes tooling to communicate with the API
+    /// server and launch worker nodes into your cluster. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/managing-auth.html">Managing
     /// Cluster Authentication</a> and <a href="https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html">Launching
-    /// Amazon EKS Worker Nodes</a>in the <i>Amazon EKS User Guide</i>.
+    /// Amazon EKS Worker Nodes</a> in the <i>Amazon EKS User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EKSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -73,6 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter Logging_ClusterLogging
+        /// <summary>
+        /// <para>
+        /// <para>The cluster control plane logging configuration for your cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
         #region Parameter Name
@@ -155,6 +183,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             PreExecutionContextLoad(context);
             
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.Logging_ClusterLogging != null)
+            {
+                context.Logging_ClusterLogging = new List<Amazon.EKS.Model.LogSetup>(this.Logging_ClusterLogging);
+            }
             context.Name = this.Name;
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             context.RoleArn = this.RoleArn;
@@ -178,6 +210,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate Logging
+            bool requestLoggingIsNull = true;
+            request.Logging = new Amazon.EKS.Model.Logging();
+            List<Amazon.EKS.Model.LogSetup> requestLogging_logging_ClusterLogging = null;
+            if (cmdletContext.Logging_ClusterLogging != null)
+            {
+                requestLogging_logging_ClusterLogging = cmdletContext.Logging_ClusterLogging;
+            }
+            if (requestLogging_logging_ClusterLogging != null)
+            {
+                request.Logging.ClusterLogging = requestLogging_logging_ClusterLogging;
+                requestLoggingIsNull = false;
+            }
+             // determine if request.Logging should be set to null
+            if (requestLoggingIsNull)
+            {
+                request.Logging = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -258,6 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
             public System.String RoleArn { get; set; }

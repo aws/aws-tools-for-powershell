@@ -28,8 +28,10 @@ using Amazon.MediaConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.EMCN
 {
     /// <summary>
-    /// Associates the specified tags to a resource. If the request does not mention an existing
-    /// tag associated with the resource, that tag is not changed.
+    /// Associates the specified tags to a resource with the specified resourceArn. If existing
+    /// tags on a resource are not specified in the request parameters, they are not changed.
+    /// When a resource is deleted, the tags associated with that resource are deleted as
+    /// well.
     /// </summary>
     [Cmdlet("Add", "EMCNResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EMCN
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of the resource
-        /// that you want to add tags to.
+        /// The Amazon Resource Name (ARN) that identifies
+        /// the AWS Elemental MediaConnect resource to which to add tags.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

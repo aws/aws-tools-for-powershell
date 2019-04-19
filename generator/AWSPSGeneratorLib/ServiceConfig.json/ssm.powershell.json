@@ -15,9 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "ListInventoryEntries"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -1012,9 +1009,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1100,9 +1094,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1148,9 +1139,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1196,9 +1184,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1244,9 +1229,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1274,15 +1256,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -1300,14 +1274,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1409,10 +1380,9 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxResults",
         "forceMaxResultSize": "true",
         "maxResultSize": 5,
         "resultsTruncatedMember": ""
@@ -1436,9 +1406,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1466,15 +1433,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "BaselineId"
@@ -1494,14 +1453,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1544,9 +1500,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1592,9 +1545,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1622,15 +1572,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "InstanceId"
@@ -1650,14 +1592,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1680,15 +1619,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -1706,14 +1637,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1736,15 +1664,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "PatchGroup"
@@ -1764,14 +1684,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1814,9 +1731,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1844,15 +1758,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "WindowId"
@@ -1872,14 +1778,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1902,15 +1805,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "WindowExecutionId"
@@ -1930,14 +1825,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -1960,15 +1852,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "WindowExecutionId"
@@ -1988,14 +1872,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2018,15 +1899,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "Filters"
@@ -2046,14 +1919,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2094,9 +1964,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2142,9 +2009,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2172,15 +2036,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -2198,14 +2054,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2228,15 +2081,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "WindowId"
@@ -2256,14 +2101,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2304,9 +2146,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2334,15 +2173,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -2360,14 +2191,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2390,15 +2218,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "byValueMembers": [
           "Filters"
@@ -2418,14 +2238,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2506,9 +2323,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2792,9 +2606,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -2823,10 +2634,9 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxResults",
         "forceMaxResultSize": "true",
         "maxResultSize": 200,
         "resultsTruncatedMember": ""
@@ -2850,9 +2660,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3140,9 +2947,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3209,10 +3013,9 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
+        "requestMember": "NextToken",
+        "responseMember": "NextToken",
+        "resultLimitMember": "MaxResults",
         "forceMaxResultSize": "true",
         "maxResultSize": 10,
         "resultsTruncatedMember": ""
@@ -3236,9 +3039,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3444,9 +3244,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3494,9 +3291,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3544,9 +3338,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3594,9 +3385,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3624,15 +3412,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -3650,14 +3430,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -3680,15 +3457,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -3706,14 +3475,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -3754,9 +3520,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3804,9 +3567,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -3876,15 +3636,7 @@
         "disableMemoryStreamTypeRemap": "false"
       },
       "outputMetadataMembers": [],
-      "pagination": {
-        "excludedOperations": [],
-        "requestMember": "",
-        "responseMember": "",
-        "resultLimitMember": "",
-        "forceMaxResultSize": "true",
-        "maxResultSize": 100,
-        "resultsTruncatedMember": ""
-      },
+      "pagination": {},
       "pipeline": {
         "omitPipelineByValue": "true",
         "byNameMembers": []
@@ -3902,14 +3654,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 100,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -3950,9 +3699,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListInventoryEntries"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

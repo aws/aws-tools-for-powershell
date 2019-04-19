@@ -110,6 +110,18 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         public System.String DeliveryOptions_SendingPoolName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An object that defines the tags (keys and values) that you want to associate with
+        /// the configuration set.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.PinpointEmail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ConfigurationSetName parameter.
@@ -156,6 +168,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 context.ReputationOptions_ReputationMetricsEnabled = this.ReputationOptions_ReputationMetricsEnabled;
             if (ParameterWasBound("SendingOptions_SendingEnabled"))
                 context.SendingOptions_SendingEnabled = this.SendingOptions_SendingEnabled;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.PinpointEmail.Model.Tag>(this.Tag);
+            }
             context.TrackingOptions_CustomRedirectDomain = this.TrackingOptions_CustomRedirectDomain;
             
             // allow further manipulation of loaded context prior to processing
@@ -243,6 +259,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (requestSendingOptionsIsNull)
             {
                 request.SendingOptions = null;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
              // populate TrackingOptions
@@ -332,6 +352,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             public System.DateTime? ReputationOptions_LastFreshStart { get; set; }
             public System.Boolean? ReputationOptions_ReputationMetricsEnabled { get; set; }
             public System.Boolean? SendingOptions_SendingEnabled { get; set; }
+            public List<Amazon.PinpointEmail.Model.Tag> Tags { get; set; }
             public System.String TrackingOptions_CustomRedirectDomain { get; set; }
         }
         

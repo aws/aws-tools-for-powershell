@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Capacity
         /// <summary>
         /// <para>
-        /// <para>The DB cluster capacity.</para><para>Constraints:</para><ul><li><para>Value must be <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
+        /// <para>The DB cluster capacity.</para><para>When you change the capacity of a paused Aurora Serverless DB cluster, it automatically
+        /// resumes.</para><para>Constraints:</para><ul><li><para>Value must be <code>2</code>, <code>4</code>, <code>8</code>, <code>16</code>, <code>32</code>,
         /// <code>64</code>, <code>128</code>, or <code>256</code>.</para></li></ul>
         /// </para>
         /// </summary>

@@ -83,6 +83,17 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         public Amazon.WorkSpaces.WorkspaceImageIngestionProcess IngestionProcess { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags. Each WorkSpaces resource can have a maximum of 50 tags.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.WorkSpaces.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -116,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             context.ImageDescription = this.ImageDescription;
             context.ImageName = this.ImageName;
             context.IngestionProcess = this.IngestionProcess;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.WorkSpaces.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -147,6 +162,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (cmdletContext.IngestionProcess != null)
             {
                 request.IngestionProcess = cmdletContext.IngestionProcess;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -214,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             public System.String ImageDescription { get; set; }
             public System.String ImageName { get; set; }
             public Amazon.WorkSpaces.WorkspaceImageIngestionProcess IngestionProcess { get; set; }
+            public List<Amazon.WorkSpaces.Model.Tag> Tags { get; set; }
         }
         
     }

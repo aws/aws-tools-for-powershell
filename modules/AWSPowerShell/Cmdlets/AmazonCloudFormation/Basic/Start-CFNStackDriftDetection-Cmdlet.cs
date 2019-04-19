@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// template configuration. Only resource properties explicitly defined in the stack template
     /// are checked for drift. A stack is considered to have drifted if one or more of its
     /// resources differ from their expected template configurations. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
+    /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting
     /// Unregulated Configuration Changes to Stacks and Resources</a>.
     /// 
     ///  
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// Use <code>DetectStackDrift</code> to detect drift on all supported resources for a
     /// given stack, or <a>DetectStackResourceDrift</a> to detect drift on individual resources.
     /// </para><para>
-    /// For a list of stack resources that currently support drift detection, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
+    /// For a list of stack resources that currently support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources
     /// that Support Drift Detection</a>.
     /// </para><para><code>DetectStackDrift</code> can take up to several minutes, depending on the number
     /// of resources contained within the stack. Use <a>DescribeStackDriftDetectionStatus</a>

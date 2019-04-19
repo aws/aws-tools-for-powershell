@@ -28,22 +28,13 @@ using Amazon.Textract.Model;
 namespace Amazon.PowerShell.Cmdlets.TXT
 {
     /// <summary>
-    /// Starts asynchronous analysis of text for relationships in the text and tables that
-    /// are detected in a document. Amazon Textract returns for two types of information:
+    /// Starts asynchronous analysis of an input document for relationships between detected
+    /// items such as key and value pairs, tables, and selection elements.
     /// 
-    /// 
-    ///  <ul><li><para>
-    /// Words and lines that are related to nearby lines and words. The related information
-    /// is returned in two <a>Block</a> objects: A KEY Block object and a VALUE Block object.
-    /// For example, <i>Name: Ana Silva Carolina</i> contains a key and value. <i>Name:</i>
-    /// is the key. <i>Ana Silva Carolina</i> is the value.
-    /// </para></li><li><para>
-    /// Table and table cell data. A TABLE block contains information about a detected table.
-    /// A CELL block is returned for each cell in a table.
-    /// </para></li></ul><para>
-    /// Amazon Textract can analyze text in document images and PDF files that are stored
-    /// in an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and
-    /// file name of the document image. 
+    ///  
+    /// <para><code>StartDocumentAnalysis</code> can analyze text in documents that are in JPG,
+    /// PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
+    /// to specify the bucket name and file name of the document. 
     /// </para><para><code>StartDocumentAnalysis</code> returns a job identifier (<code>JobId</code>)
     /// that you use to get the results of the operation. When text analysis is finished,
     /// Amazon Textract publishes a completion status to the Amazon Simple Notification Service
@@ -51,6 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// results of the text analysis operation, first check that the status value published
     /// to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentAnalysis</a>,
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentAnalysis</code>.
+    /// </para><para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-analyzing.html">Document
+    /// Text Analysis</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "TXTDocumentAnalysis", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -93,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         /// <para>A list of the types of analysis to perform. Add TABLES to the list to return information
         /// about the tables that are detected in the input document. Add FORMS to return detected
         /// fields and the associated text. To perform both types of analysis, add TABLES and
-        /// FORMS to <code>FeatureTypes</code>.</para>
+        /// FORMS to <code>FeatureTypes</code>. All selectable elements (<code>SELECTION_ELEMENT</code>)
+        /// that are detected are returned, whatever the value of <code>FeatureTypes</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -104,8 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobTag
         /// <summary>
         /// <para>
-        /// <para>The unique identifier you specify to identify the job in the completion status that's
-        /// published to the Amazon SNS topic.</para>
+        /// <para>An identifier you specify that's included in the completion notification that's published
+        /// to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify
+        /// the type of document, such as a tax form or a receipt, that the completion notification
+        /// corresponds to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

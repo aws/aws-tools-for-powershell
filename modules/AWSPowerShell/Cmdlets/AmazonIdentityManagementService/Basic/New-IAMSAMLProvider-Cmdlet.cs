@@ -45,11 +45,11 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// that the IdP sends. You must generate the metadata document using the identity management
     /// software that is used as your organization's IdP.
     /// </para><note><para>
-    ///  This operation requires <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
+    ///  This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
     /// Version 4</a>.
     /// </para></note><para>
-    ///  For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling
-    /// SAML 2.0 Federated Users to Access the AWS Management Console</a> and <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+    ///  For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-saml.html">Enabling
+    /// SAML 2.0 Federated Users to Access the AWS Management Console</a> and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
     /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// document includes the issuer's name, expiration information, and keys that can be
         /// used to validate the SAML authentication response (assertions) that are received from
         /// the IdP. You must generate the metadata document using the identity management software
-        /// that is used as your organization's IdP.</para><para>For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
+        /// that is used as your organization's IdP.</para><para>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_saml.html">About
         /// SAML 2.0-based Federation</a> in the <i>IAM User Guide</i></para>
         /// </para>
         /// </summary>

@@ -28,8 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the credit option for CPU usage of one or more of your T2 or T3 instances.
-    /// The credit options are <code>standard</code> and <code>unlimited</code>.
+    /// Describes the credit option for CPU usage of the specified T2 or T3 instances. The
+    /// credit options are <code>standard</code> and <code>unlimited</code>.
     /// 
     ///  
     /// <para>
@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>instance-id</code> - The ID of the instance.</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><code>instance-id</code> - The ID of the instance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 1000 explicitly specified instance IDs.</para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 1000 explicitly specified instance IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -94,9 +94,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// results, make another call with the returned <code>NextToken</code> value. This value
         /// can be between 5 and 1000. You cannot specify this parameter and the instance IDs
         /// parameter in the same call.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,20 +175,27 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 1000. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 1000 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 1000;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
                     }
+                    request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -217,28 +221,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 5));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

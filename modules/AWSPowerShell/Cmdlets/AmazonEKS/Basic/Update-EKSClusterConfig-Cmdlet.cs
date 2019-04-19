@@ -34,10 +34,21 @@ namespace Amazon.PowerShell.Cmdlets.EKS
     /// 
     ///  
     /// <para>
-    /// Currently, the only cluster configuration changes supported are to enable or disable
-    /// Amazon EKS public and private API server endpoints. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
+    /// You can use this API operation to enable or disable public and private access to your
+    /// cluster's Kubernetes API server endpoint. By default, public access is enabled and
+    /// private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon
     /// EKS Cluster Endpoint Access Control</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// 
     /// </para><para>
+    /// You can also use this API operation to enable or disable exporting the Kubernetes
+    /// control plane logs for your cluster to CloudWatch Logs. By default, cluster control
+    /// plane logs are not exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon
+    /// EKS Cluster Control Plane Logs</a> in the <i><i>Amazon EKS User Guide</i></i>.
+    /// </para><note><para>
+    /// CloudWatch Logs ingestion, archive storage, and data scanning rates apply to exported
+    /// control plane logs. For more information, see <a href="http://aws.amazon.com/cloudwatch/pricing/">Amazon
+    /// CloudWatch Pricing</a>.
+    /// </para></note><para>
     /// Cluster updates are asynchronous, and they should finish within a few minutes. During
     /// an update, the cluster status moves to <code>UPDATING</code> (this status transition
     /// is eventually consistent). When the update is complete (either <code>Failed</code>
@@ -63,6 +74,16 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ClientRequestToken { get; set; }
+        #endregion
+        
+        #region Parameter Logging_ClusterLogging
+        /// <summary>
+        /// <para>
+        /// <para>The cluster control plane logging configuration for your cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.EKS.Model.LogSetup[] Logging_ClusterLogging { get; set; }
         #endregion
         
         #region Parameter Name
@@ -115,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             PreExecutionContextLoad(context);
             
             context.ClientRequestToken = this.ClientRequestToken;
+            if (this.Logging_ClusterLogging != null)
+            {
+                context.Logging_ClusterLogging = new List<Amazon.EKS.Model.LogSetup>(this.Logging_ClusterLogging);
+            }
             context.Name = this.Name;
             context.ResourcesVpcConfig = this.ResourcesVpcConfig;
             
@@ -136,6 +161,25 @@ namespace Amazon.PowerShell.Cmdlets.EKS
             if (cmdletContext.ClientRequestToken != null)
             {
                 request.ClientRequestToken = cmdletContext.ClientRequestToken;
+            }
+            
+             // populate Logging
+            bool requestLoggingIsNull = true;
+            request.Logging = new Amazon.EKS.Model.Logging();
+            List<Amazon.EKS.Model.LogSetup> requestLogging_logging_ClusterLogging = null;
+            if (cmdletContext.Logging_ClusterLogging != null)
+            {
+                requestLogging_logging_ClusterLogging = cmdletContext.Logging_ClusterLogging;
+            }
+            if (requestLogging_logging_ClusterLogging != null)
+            {
+                request.Logging.ClusterLogging = requestLogging_logging_ClusterLogging;
+                requestLoggingIsNull = false;
+            }
+             // determine if request.Logging should be set to null
+            if (requestLoggingIsNull)
+            {
+                request.Logging = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -208,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.EKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
+            public List<Amazon.EKS.Model.LogSetup> Logging_ClusterLogging { get; set; }
             public System.String Name { get; set; }
             public Amazon.EKS.Model.VpcConfigRequest ResourcesVpcConfig { get; set; }
         }

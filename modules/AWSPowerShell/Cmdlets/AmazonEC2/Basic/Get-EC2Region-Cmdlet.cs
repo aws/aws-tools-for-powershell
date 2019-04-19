@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more regions that are currently available to you.
+    /// Describes the regions that are currently available to you.
     /// 
     ///  
     /// <para>
@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>endpoint</code> - The endpoint of the region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</para></li><li><para><code>region-name</code> - The name of the region (for example, <code>us-east-1</code>).</para></li></ul>
+        /// <para>The filters.</para><ul><li><para><code>endpoint</code> - The endpoint of the region (for example, <code>ec2.us-east-1.amazonaws.com</code>).</para></li><li><para><code>region-name</code> - The name of the region (for example, <code>us-east-1</code>).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RegionName
         /// <summary>
         /// <para>
-        /// <para>The names of one or more regions.</para>
+        /// <para>The names of the regions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

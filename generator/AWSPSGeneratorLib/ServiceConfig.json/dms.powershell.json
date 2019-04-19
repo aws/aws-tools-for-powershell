@@ -17,10 +17,6 @@
   },
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "DescribeTableStatistics",
-      "DescribeReplicationTaskAssessmentResults"
-    ],
     "requestMember": "Marker",
     "responseMember": "Marker",
     "resultLimitMember": "MaxRecords",
@@ -644,10 +640,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -693,10 +685,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -742,10 +730,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -791,10 +775,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -882,10 +862,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -933,10 +909,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -982,10 +954,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1033,10 +1001,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1122,10 +1086,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1175,10 +1135,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1224,10 +1180,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1315,10 +1267,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",
@@ -1366,10 +1314,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeTableStatistics",
-            "DescribeReplicationTaskAssessmentResults"
-          ],
           "requestMember": "Marker",
           "responseMember": "Marker",
           "resultLimitMember": "MaxRecords",

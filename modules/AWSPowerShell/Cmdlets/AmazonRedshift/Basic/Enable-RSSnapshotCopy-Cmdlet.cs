@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter DestinationRegion
         /// <summary>
         /// <para>
-        /// <para>The destination AWS Region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid AWS Region. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
+        /// <para>The destination AWS Region that you want to copy snapshots to.</para><para>Constraints: Must be the name of a valid AWS Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions
         /// and Endpoints</a> in the Amazon Web Services General Reference. </para>
         /// </para>
         /// </summary>

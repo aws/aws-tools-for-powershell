@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// <para>The number of AWS Glue data processing units (DPUs) that can be allocated when this
         /// job runs. A DPU is a relative measure of processing power that consists of 4 vCPUs
         /// of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">AWS
-        /// Glue pricing page</a>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
+        /// Glue pricing page</a>.</para><para>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</para><para>The value that can be allocated for <code>MaxCapacity</code> depends on whether you
         /// are running a python shell job, or an Apache Spark ETL job:</para><ul><li><para>When you specify a python shell job (<code>JobCommand.Name</code>="pythonshell"),
         /// you can allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</para></li><li><para>When you specify an Apache Spark ETL job (<code>JobCommand.Name</code>="glueetl"),
         /// you can allocate from 2 to 100 DPUs. The default is 10 DPUs. This job type cannot
@@ -102,6 +102,19 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 NotificationProperty_NotifyDelayAfter { get; set; }
+        #endregion
+        
+        #region Parameter NumberOfWorker
+        /// <summary>
+        /// <para>
+        /// <para>The number of workers of a defined <code>workerType</code> that are allocated when
+        /// a job runs.</para><para>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149
+        /// for <code>G.2X</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NumberOfWorkers")]
+        public System.Int32 NumberOfWorker { get; set; }
         #endregion
         
         #region Parameter SecurityConfiguration
@@ -124,6 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 Timeout { get; set; }
+        #endregion
+        
+        #region Parameter WorkerType
+        /// <summary>
+        /// <para>
+        /// <para>The type of predefined worker that is allocated when a job runs. Accepts a value of
+        /// Standard, G.1X, or G.2X.</para><ul><li><para>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory
+        /// and a 50GB disk, and 2 executors per worker.</para></li><li><para>For the <code>G.1X</code> worker type, each worker provides 4 vCPU, 16 GB of memory
+        /// and a 64GB disk, and 1 executor per worker.</para></li><li><para>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory
+        /// and a 128GB disk, and 1 executor per worker.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Glue.WorkerType")]
+        public Amazon.Glue.WorkerType WorkerType { get; set; }
         #endregion
         
         #region Parameter AllocatedCapacity
@@ -189,9 +217,12 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
                 context.MaxCapacity = this.MaxCapacity;
             if (ParameterWasBound("NotificationProperty_NotifyDelayAfter"))
                 context.NotificationProperty_NotifyDelayAfter = this.NotificationProperty_NotifyDelayAfter;
+            if (ParameterWasBound("NumberOfWorker"))
+                context.NumberOfWorkers = this.NumberOfWorker;
             context.SecurityConfiguration = this.SecurityConfiguration;
             if (ParameterWasBound("Timeout"))
                 context.Timeout = this.Timeout;
+            context.WorkerType = this.WorkerType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -249,6 +280,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             {
                 request.NotificationProperty = null;
             }
+            if (cmdletContext.NumberOfWorkers != null)
+            {
+                request.NumberOfWorkers = cmdletContext.NumberOfWorkers.Value;
+            }
             if (cmdletContext.SecurityConfiguration != null)
             {
                 request.SecurityConfiguration = cmdletContext.SecurityConfiguration;
@@ -256,6 +291,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             if (cmdletContext.Timeout != null)
             {
                 request.Timeout = cmdletContext.Timeout.Value;
+            }
+            if (cmdletContext.WorkerType != null)
+            {
+                request.WorkerType = cmdletContext.WorkerType;
             }
             
             CmdletOutput output;
@@ -326,8 +365,10 @@ namespace Amazon.PowerShell.Cmdlets.GLUE
             public System.String JobRunId { get; set; }
             public System.Double? MaxCapacity { get; set; }
             public System.Int32? NotificationProperty_NotifyDelayAfter { get; set; }
+            public System.Int32? NumberOfWorkers { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.Int32? Timeout { get; set; }
+            public Amazon.Glue.WorkerType WorkerType { get; set; }
         }
         
     }

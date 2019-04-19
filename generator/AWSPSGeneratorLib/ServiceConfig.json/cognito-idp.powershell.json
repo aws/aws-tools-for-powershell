@@ -23,12 +23,11 @@
     "NextToken"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
     "forceMaxResultSize": "true",
-    "maxResultSize": 60,
+    "maxResultSize": 50,
     "resultsTruncatedMember": ""
   },
   "pipelineDefaults": {
@@ -627,7 +626,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PaginationToken",
         "responseMember": "PaginationToken",
         "resultLimitMember": "Limit",
@@ -654,7 +652,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "Limit",
@@ -683,7 +680,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "Limit",
@@ -710,7 +706,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
@@ -758,12 +753,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 60,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2743,7 +2737,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PaginationToken",
         "responseMember": "PaginationToken",
         "resultLimitMember": "Limit",
@@ -2770,7 +2763,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "Limit",
@@ -2799,7 +2791,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "Limit",
@@ -2826,7 +2817,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",
@@ -2874,12 +2864,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 60,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2922,12 +2911,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 60,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -2991,7 +2979,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PaginationToken",
         "responseMember": "PaginationToken",
         "resultLimitMember": "MaxResults",
@@ -3018,7 +3005,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "MaxResults",
@@ -3066,12 +3052,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 60,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -3112,12 +3097,11 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
           "forceMaxResultSize": "true",
-          "maxResultSize": 60,
+          "maxResultSize": 50,
           "resultsTruncatedMember": ""
         },
         "memoryStreamParameters": []
@@ -3141,7 +3125,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PaginationToken",
         "responseMember": "PaginationToken",
         "resultLimitMember": "Limit",
@@ -3168,7 +3151,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "Limit",
@@ -3197,7 +3179,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "Limit",
@@ -3224,7 +3205,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "Limit",

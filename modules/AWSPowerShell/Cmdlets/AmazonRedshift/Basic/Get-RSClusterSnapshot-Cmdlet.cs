@@ -60,10 +60,15 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterExist
         /// <summary>
         /// <para>
-        /// <para>A value that indicates whether to return snapshots only for an existing cluster. Table-level
-        /// restore can be performed only using a snapshot of an existing cluster, that is, a
-        /// cluster that has not been deleted. If <code>ClusterExists</code> is set to <code>true</code>,
-        /// <code>ClusterIdentifier</code> is required.</para>
+        /// <para>A value that indicates whether to return snapshots only for an existing cluster. You
+        /// can perform table-level restore only by using a snapshot of an existing cluster, that
+        /// is, a cluster that has not been deleted. Values for this parameter work as follows:
+        /// </para><ul><li><para>If <code>ClusterExists</code> is set to <code>true</code>, <code>ClusterIdentifier</code>
+        /// is required.</para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
+        /// isn't specified, all snapshots associated with deleted clusters (orphaned snapshots)
+        /// are returned. </para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
+        /// is specified for a deleted cluster, snapshots associated with that cluster are returned.</para></li><li><para>If <code>ClusterExists</code> is set to <code>false</code> and <code>ClusterIdentifier</code>
+        /// is specified for an existing cluster, no snapshots are returned. </para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cluster for which information about snapshots is requested.</para>
+        /// <para>The identifier of the cluster which generated the requested snapshots.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -227,9 +232,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// response records exceeds the specified <code>MaxRecords</code> value, a value is returned
         /// in a <code>marker</code> field of the response. You can retrieve the next set of records
         /// by retrying the command with the returned marker value. </para><para>Default: <code>100</code></para><para>Constraints: minimum 20, maximum 100.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -384,7 +386,6 @@ namespace Amazon.PowerShell.Cmdlets.RS
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
@@ -399,32 +400,19 @@ namespace Amazon.PowerShell.Cmdlets.RS
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxRecord");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("Marker");
             
             try
             {
                 do
                 {
                     request.Marker = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 100;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(100, _emitLimit.Value);
                     }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxRecords))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxRecords);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
-                    }
+                    request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -450,37 +438,30 @@ namespace Amazon.PowerShell.Cmdlets.RS
                         }
                         
                         _nextMarker = response.Marker;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

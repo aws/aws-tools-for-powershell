@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// You cannot delete a security group that is associated with any clusters. You cannot
     /// delete the default security group.
     /// </para></note><para>
-    ///  For information about managing security groups, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon
+    ///  For information about managing security groups, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html">Amazon
     /// Redshift Cluster Security Groups</a> in the <i>Amazon Redshift Cluster Management
     /// Guide</i>.
     /// </para>

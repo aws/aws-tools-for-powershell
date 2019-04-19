@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Requests a reboot of one or more instances. This operation is asynchronous; it only
+    /// Requests a reboot of the specified instances. This operation is asynchronous; it only
     /// queues a request to reboot the specified instances. The operation succeeds if the
     /// instances are valid and belong to you. Requests to reboot terminated instances are
     /// ignored.
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs.</para>
+        /// <para>The instance IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

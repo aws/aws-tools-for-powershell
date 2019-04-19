@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SHUB
         #region Parameter StandardsSubscriptionRequest
         /// <summary>
         /// <para>
-        /// <para>The list of standards that you want to enable.</para>
+        /// <para>The list of standards that you want to enable.</para><important><para>In this release, Security Hub only supports the CIS AWS Foundations standard. </para><para>Its ARN is arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// all alarms on EC2 instance status metrics
     /// </para></li><li><para><code>ec2:StopInstances</code> for alarms with stop actions
     /// </para></li><li><para><code>ec2:TerminateInstances</code> for alarms with terminate actions
-    /// </para></li><li><para><code>ec2:DescribeInstanceRecoveryAttribute</code> and <code>ec2:RecoverInstances</code>
-    /// for alarms with recover actions
+    /// </para></li><li><para>
+    /// No specific permissions are needed for alarms with recover actions
     /// </para></li></ul><para>
     /// If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you
     /// can still create an alarm, but the stop or terminate actions are not performed. However,
@@ -95,7 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>ALARM</code> state
         /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
+        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
         /// </para>
@@ -209,7 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code>
         /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code>
-        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>&gt;arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
+        /// | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code>
+        /// | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code>
+        /// | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></para><para>Valid Values (for use with IAM roles): <code>&gt;arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code>
         /// | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></para>
         /// </para>
@@ -237,7 +241,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm
         /// based on the result of a metric math expression. Each item in the <code>Metrics</code>
-        /// array either retrieves a metric or performs a math expression.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>,
+        /// array either retrieves a metric or performs a math expression.</para><para>One item in the <code>Metrics</code> array is the expression that the alarm watches.
+        /// You designate this expression by setting <code>ReturnValue</code> to true for this
+        /// object in the array. For more information, see <a>MetricDataQuery</a>.</para><para>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>,
         /// <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>,
         /// or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the
         /// same operation. Instead, you retrieve the metrics you are using in your math expression
@@ -308,6 +314,20 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.CloudWatch.Statistic")]
         public Amazon.CloudWatch.Statistic Statistic { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of key-value pairs to associate with the alarm. You can associate as many as
+        /// 50 tags with an alarm.</para><para>Tags can help you organize and categorize your resources. You can also use them to
+        /// scope user permissions, by granting a user permission to access or change only resources
+        /// with certain tag values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.CloudWatch.Model.Tag[] Tag { get; set; }
         #endregion
         
         #region Parameter Threshold
@@ -423,6 +443,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (ParameterWasBound("Period"))
                 context.Period = this.Period;
             context.Statistic = this.Statistic;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.CloudWatch.Model.Tag>(this.Tag);
+            }
             if (ParameterWasBound("Threshold"))
                 context.Threshold = this.Threshold;
             context.TreatMissingData = this.TreatMissingData;
@@ -510,6 +534,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.Statistic != null)
             {
                 request.Statistic = cmdletContext.Statistic;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.Threshold != null)
             {
@@ -604,6 +632,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public List<System.String> OKActions { get; set; }
             public System.Int32? Period { get; set; }
             public Amazon.CloudWatch.Statistic Statistic { get; set; }
+            public List<Amazon.CloudWatch.Model.Tag> Tags { get; set; }
             public System.Double? Threshold { get; set; }
             public System.String TreatMissingData { get; set; }
             public Amazon.CloudWatch.StandardUnit Unit { get; set; }

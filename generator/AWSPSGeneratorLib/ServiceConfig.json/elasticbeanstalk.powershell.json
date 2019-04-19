@@ -27,7 +27,6 @@
     "RefreshedAt"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxRecords",
@@ -799,7 +798,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxRecords",
@@ -950,7 +948,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxItems",
@@ -975,7 +972,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxItems",
@@ -1123,7 +1119,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxRecords",
@@ -1204,7 +1199,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxRecords",
@@ -1254,7 +1248,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "",
@@ -1380,7 +1373,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxRecords",

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Removes the specified tags from the user. For more information about tagging, see
-    /// <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
+    /// <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM
     /// Identities</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMUserTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

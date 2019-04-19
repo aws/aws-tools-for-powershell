@@ -28,7 +28,7 @@ using Amazon.MQ.Model;
 namespace Amazon.PowerShell.Cmdlets.MQ
 {
     /// <summary>
-    /// Remove a tag from a resource.
+    /// Removes a tag from a resource.
     /// </summary>
     [Cmdlet("Remove", "MQTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// the Amazon Resource Name (ARN)
+        /// The Amazon Resource Name (ARN) of the resource
+        /// tag.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

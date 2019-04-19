@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For more information about working with server certificates, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
     /// with Server Certificates</a> in the <i>IAM User Guide</i>. This topic also includes
     /// a list of AWS services that can use the server certificates that you manage with IAM.
     /// </para><important><para>
@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// the deletion of bound certificates, it may continue to use the certificates. This
     /// could cause Elastic Load Balancing to stop accepting traffic. We recommend that you
     /// remove the reference to the certificate from Elastic Load Balancing before using this
-    /// command to delete the certificate. For more information, go to <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html">DeleteLoadBalancerListeners</a>
+    /// command to delete the certificate. For more information, go to <a href="https://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html">DeleteLoadBalancerListeners</a>
     /// in the <i>Elastic Load Balancing API Reference</i>.
     /// </para></important>
     /// </summary>

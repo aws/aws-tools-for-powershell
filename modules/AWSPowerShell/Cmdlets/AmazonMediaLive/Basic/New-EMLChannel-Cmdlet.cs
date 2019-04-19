@@ -40,6 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.EML
     public partial class NewEMLChannelCmdlet : AmazonMediaLiveClientCmdlet, IExecutor
     {
         
+        #region Parameter ChannelClass
+        /// <summary>
+        /// <para>
+        /// The class for this channel. STANDARD for
+        /// a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.MediaLive.ChannelClass")]
+        public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
+        #endregion
+        
         #region Parameter InputSpecification_Codec
         /// <summary>
         /// <para>
@@ -202,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ChannelClass = this.ChannelClass;
             if (this.Destination != null)
             {
                 context.Destinations = new List<Amazon.MediaLive.Model.OutputDestination>(this.Destination);
@@ -245,6 +258,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             // create request
             var request = new Amazon.MediaLive.Model.CreateChannelRequest();
             
+            if (cmdletContext.ChannelClass != null)
+            {
+                request.ChannelClass = cmdletContext.ChannelClass;
+            }
             if (cmdletContext.Destinations != null)
             {
                 request.Destinations = cmdletContext.Destinations;
@@ -384,6 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.MediaLive.ChannelClass ChannelClass { get; set; }
             public List<Amazon.MediaLive.Model.OutputDestination> Destinations { get; set; }
             public Amazon.MediaLive.Model.EncoderSettings EncoderSettings { get; set; }
             public List<Amazon.MediaLive.Model.InputAttachment> InputAttachments { get; set; }

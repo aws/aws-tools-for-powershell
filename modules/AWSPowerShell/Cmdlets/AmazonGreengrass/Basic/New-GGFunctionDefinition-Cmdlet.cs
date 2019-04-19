@@ -99,6 +99,17 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// Tag(s) to add to the new resource
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter RunAs_Uid
         /// <summary>
         /// <para>
@@ -151,6 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.GG
                 context.InitialVersion_Functions = new List<Amazon.Greengrass.Model.Function>(this.InitialVersion_Function);
             }
             context.Name = this.Name;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -269,6 +288,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             
             CmdletOutput output;
             
@@ -337,6 +360,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             public System.Int32? InitialVersion_DefaultConfig_Execution_RunAs_Uid { get; set; }
             public List<Amazon.Greengrass.Model.Function> InitialVersion_Functions { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

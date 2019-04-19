@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// For a specified stack that is in the <code>UPDATE_ROLLBACK_FAILED</code> state, continues
     /// rolling it back to the <code>UPDATE_ROLLBACK_COMPLETE</code> state. Depending on the
-    /// cause of the failure, you can manually <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
+    /// cause of the failure, you can manually <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
     /// fix the error</a> and continue the rollback. By continuing the rollback, you can return
     /// your stack to a working state (the <code>UPDATE_ROLLBACK_COMPLETE</code> state), and
     /// then try to update the stack again.
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// that are in the <code>UPDATE_FAILED</code> state for other reasons, for example, because
         /// an update was cancelled. To check why a resource update failed, use the <a>DescribeStackResources</a>
         /// action, and view the resource status reason. </para><important><para>Specify this property to skip rolling back resources that AWS CloudFormation can't
-        /// successfully roll back. We recommend that you <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
+        /// successfully roll back. We recommend that you <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
         /// troubleshoot</a> resources before skipping them. AWS CloudFormation sets the status
         /// of the specified resources to <code>UPDATE_COMPLETE</code> and continues to roll back
         /// the stack. After the rollback is complete, the state of the skipped resources will
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>,
         /// or <code>DELETE_FAILED</code>. </para><note><para>Don't confuse a child stack's name with its corresponding logical ID defined in the
         /// parent stack. For an example of a continue update rollback operation with nested stacks,
-        /// see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks">Using
+        /// see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks">Using
         /// ResourcesToSkip to recover a nested stacks hierarchy</a>. </para></note>
         /// </para>
         /// </summary>

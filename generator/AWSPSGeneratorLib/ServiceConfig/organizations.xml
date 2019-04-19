@@ -32,6 +32,9 @@
         <ServiceOperation MethodName="CreateAccount" Output="DefaultSingleMember" Verb="New" Noun="Account" ShouldProcessTarget="AccountName" PipelineParameter="AccountName" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="CreateGovCloudAccount" Output="DefaultSingleMember" Verb="New" Noun="GovCloudAccount" ShouldProcessTarget="Email" PipelineParameter="Email" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateOrganization" Output="DefaultSingleMember" Verb="New" Noun="Organization" ShouldProcessTarget="FeatureSet" PipelineParameter="FeatureSet" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>

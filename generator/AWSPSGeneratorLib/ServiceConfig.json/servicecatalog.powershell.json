@@ -15,11 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "DescribeProvisionedProductPlan",
-      "DescribeRecord",
-      "SearchProducts"
-    ],
     "requestMember": "PageToken",
     "responseMember": "NextPageToken",
     "resultLimitMember": "PageSize",
@@ -1974,11 +1969,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2025,11 +2015,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2076,11 +2061,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2125,11 +2105,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2216,11 +2191,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2267,11 +2237,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2318,11 +2283,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2367,11 +2327,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2458,11 +2413,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2507,11 +2457,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2539,7 +2484,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PageToken",
         "responseMember": "PageToken",
         "resultLimitMember": "PageSize",
@@ -2565,11 +2509,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "PageToken",
           "resultLimitMember": "PageSize",
@@ -2616,11 +2555,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2665,11 +2599,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2697,7 +2626,6 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "PageToken",
         "responseMember": "PageToken",
         "resultLimitMember": "PageSize",
@@ -2721,11 +2649,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "PageToken",
           "resultLimitMember": "PageSize",
@@ -2850,11 +2773,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2941,11 +2859,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",
@@ -2992,11 +2905,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "DescribeProvisionedProductPlan",
-            "DescribeRecord",
-            "SearchProducts"
-          ],
           "requestMember": "PageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "PageSize",

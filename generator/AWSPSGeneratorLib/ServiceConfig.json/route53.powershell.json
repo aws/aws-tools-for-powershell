@@ -22,13 +22,6 @@
     "MaxItems"
   ],
   "paginationDefaults": {
-    "excludedOperations": [
-      "ListResourceRecordSets",
-      "ListGeoLocationsResult",
-      "ListTrafficPolicyInstances",
-      "ListTrafficPolicyInstancesByHostedZone",
-      "ListTrafficPolicyInstancesByPolicy"
-    ],
     "requestMember": "Marker",
     "responseMember": "NextMarker",
     "resultLimitMember": "MaxItems",
@@ -1614,13 +1607,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1671,13 +1657,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1706,13 +1685,12 @@
       },
       "outputMetadataMembers": [],
       "pagination": {
-        "excludedOperations": [],
         "requestMember": "NextToken",
         "responseMember": "NextToken",
         "resultLimitMember": "MaxResults",
         "forceMaxResultSize": "true",
         "maxResultSize": 100,
-        "resultsTruncatedMember": "IsTruncated"
+        "resultsTruncatedMember": ""
       },
       "pipeline": {
         "byValueMembers": [
@@ -1733,7 +1711,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",
@@ -1839,13 +1816,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListResourceRecordSets",
-            "ListGeoLocationsResult",
-            "ListTrafficPolicyInstances",
-            "ListTrafficPolicyInstancesByHostedZone",
-            "ListTrafficPolicyInstancesByPolicy"
-          ],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1933,6 +1903,61 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "ListTrafficPolicies": {
+      "verb": "Get",
+      "noun": "TrafficPolicyList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicySummaries",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "Get-R53TrafficPolicies",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "MaxItems"
+      ],
+      "pagination": {
+        "requestMember": "TrafficPolicyIdMarker",
+        "responseMember": "TrafficPolicyIdMarker",
+        "resultLimitMember": "MaxItems",
+        "forceMaxResultSize": "true",
+        "maxResultSize": 100,
+        "resultsTruncatedMember": "IsTruncated"
+      },
+      "pipeline": {
+        "byValueMembers": [],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicies",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern3",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "requestMember": "TrafficPolicyIdMarker",
+          "responseMember": "TrafficPolicyIdMarker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": "IsTruncated"
+        },
         "memoryStreamParameters": []
       }
     },
@@ -2074,6 +2099,63 @@
         "memoryStreamParameters": []
       }
     },
+    "ListTrafficPolicyVersions": {
+      "verb": "Get",
+      "noun": "TrafficPolicyVersionList",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "TrafficPolicies",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [],
+      "legacySettings": {
+        "alias": "Get-R53TrafficPolicyVersions",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [
+        "IsTruncated",
+        "MaxItems"
+      ],
+      "pagination": {
+        "requestMember": "TrafficPolicyVersionMarker",
+        "responseMember": "TrafficPolicyVersionMarker",
+        "resultLimitMember": "MaxItems",
+        "forceMaxResultSize": "true",
+        "maxResultSize": 100,
+        "resultsTruncatedMember": "IsTruncated"
+      },
+      "pipeline": {
+        "byValueMembers": [
+          "Id"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": ""
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "TrafficPolicyVersions",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "Pattern3",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {
+          "requestMember": "TrafficPolicyVersionMarker",
+          "responseMember": "TrafficPolicyVersionMarker",
+          "resultLimitMember": "MaxItems",
+          "forceMaxResultSize": "true",
+          "maxResultSize": 100,
+          "resultsTruncatedMember": "IsTruncated"
+        },
+        "memoryStreamParameters": []
+      }
+    },
     "ListVPCAssociationAuthorizations": {
       "verb": "Get",
       "noun": "VPCAssociationAuthorizationList",
@@ -2159,6 +2241,55 @@
       },
       "tempAnalyzerResults": {
         "confirmationMessageNoun": "DNSAnswer",
+        "confirmImpactSetting": "Medium",
+        "iterationPattern": "None",
+        "passThruTypeName": "",
+        "requiresPassThruGeneration": "false",
+        "autoIterateSettings": {},
+        "memoryStreamParameters": []
+      }
+    },
+    "UpdateHealthCheck": {
+      "verb": "Update",
+      "noun": "HealthCheck",
+      "anonymousAuthentication": "Never",
+      "cmdletOutput": {
+        "output": "DefaultSingleMember",
+        "outputMemberSelector": "HealthCheck",
+        "outputMemberWrapper": "",
+        "passThru": {}
+      },
+      "parameterCustomizations": [
+        {
+          "originalName": "Regions",
+          "replacementName": "HealthCheckRegion",
+          "aliases": [],
+          "autoApplOriginalNameAlias": "true",
+          "disableAutoRename": "false",
+          "exclude": "false"
+        }
+      ],
+      "legacySettings": {
+        "alias": "",
+        "positionalParameters": [],
+        "disableMemoryStreamTypeRemap": "false"
+      },
+      "outputMetadataMembers": [],
+      "pagination": {},
+      "pipeline": {
+        "byValueMembers": [
+          "HealthCheckId"
+        ],
+        "byNameMembers": []
+      },
+      "shouldProcess": {
+        "anonymousTargetParameter": "false",
+        "customMessageNoun": "",
+        "suppressShouldProcessConfirmation": "false",
+        "targetParameter": "HealthCheckId"
+      },
+      "tempAnalyzerResults": {
+        "confirmationMessageNoun": "HealthCheck",
         "confirmImpactSetting": "Medium",
         "iterationPattern": "None",
         "passThruTypeName": "",

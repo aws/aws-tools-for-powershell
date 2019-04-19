@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your bundling tasks.
+    /// Describes the specified bundle tasks or all of your bundle tasks.
     /// 
     ///  <note><para>
     /// Completed bundle tasks are listed for only a limited time. If your bundle task is

@@ -53,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         public System.String PoolName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An object that defines the tags (keys and values) that you want to associate with
+        /// the pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.PinpointEmail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the PoolName parameter.
@@ -92,6 +104,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             PreExecutionContextLoad(context);
             
             context.PoolName = this.PoolName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.PinpointEmail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,6 +127,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             if (cmdletContext.PoolName != null)
             {
                 request.PoolName = cmdletContext.PoolName;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -177,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PoolName { get; set; }
+            public List<Amazon.PinpointEmail.Model.Tag> Tags { get; set; }
         }
         
     }

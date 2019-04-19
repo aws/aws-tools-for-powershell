@@ -314,6 +314,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Int32 ScalingConfiguration_SecondsUntilAutoPause { get; set; }
         #endregion
         
+        #region Parameter ScalingConfiguration_TimeoutAction
+        /// <summary>
+        /// <para>
+        /// <para>The action to take when the timeout is reached, either <code>ForceApplyCapacityChange</code>
+        /// or <code>RollbackCapacityChange</code>.</para><para><code>ForceApplyCapacityChange</code>, the default, sets the capacity to the specified
+        /// value as soon as possible.</para><para><code>RollbackCapacityChange</code> ignores the capacity change if a scaling point
+        /// is not found in the timeout period.</para><para>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.auto-scaling">
+        /// Autoscaling for Aurora Serverless</a> in the <i>Amazon Aurora User Guide</i>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ScalingConfiguration_TimeoutAction { get; set; }
+        #endregion
+        
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
@@ -394,6 +408,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.ScalingConfiguration_MinCapacity = this.ScalingConfiguration_MinCapacity;
             if (ParameterWasBound("ScalingConfiguration_SecondsUntilAutoPause"))
                 context.ScalingConfiguration_SecondsUntilAutoPause = this.ScalingConfiguration_SecondsUntilAutoPause;
+            context.ScalingConfiguration_TimeoutAction = this.ScalingConfiguration_TimeoutAction;
             if (this.VpcSecurityGroupId != null)
             {
                 context.VpcSecurityGroupIds = new List<System.String>(this.VpcSecurityGroupId);
@@ -551,6 +566,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 request.ScalingConfiguration.SecondsUntilAutoPause = requestScalingConfiguration_scalingConfiguration_SecondsUntilAutoPause.Value;
                 requestScalingConfigurationIsNull = false;
             }
+            System.String requestScalingConfiguration_scalingConfiguration_TimeoutAction = null;
+            if (cmdletContext.ScalingConfiguration_TimeoutAction != null)
+            {
+                requestScalingConfiguration_scalingConfiguration_TimeoutAction = cmdletContext.ScalingConfiguration_TimeoutAction;
+            }
+            if (requestScalingConfiguration_scalingConfiguration_TimeoutAction != null)
+            {
+                request.ScalingConfiguration.TimeoutAction = requestScalingConfiguration_scalingConfiguration_TimeoutAction;
+                requestScalingConfigurationIsNull = false;
+            }
              // determine if request.ScalingConfiguration should be set to null
             if (requestScalingConfigurationIsNull)
             {
@@ -644,6 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Int32? ScalingConfiguration_MaxCapacity { get; set; }
             public System.Int32? ScalingConfiguration_MinCapacity { get; set; }
             public System.Int32? ScalingConfiguration_SecondsUntilAutoPause { get; set; }
+            public System.String ScalingConfiguration_TimeoutAction { get; set; }
             public List<System.String> VpcSecurityGroupIds { get; set; }
         }
         

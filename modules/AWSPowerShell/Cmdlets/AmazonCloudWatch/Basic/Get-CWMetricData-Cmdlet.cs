@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response
-        /// from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
+        /// from CloudWatch than setting 12:07 or 12:29 as the <code>EndTime</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// that align with the value of the metric's <code>Period</code> and sync up with the
         /// beginning and end of an hour. For example, if the <code>Period</code> of a metric
         /// is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster
-        /// response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
+        /// response from CloudWatch than setting 12:07 or 12:29 as the <code>StartTime</code>.</para>
         /// </para>
         /// <para>This parameter is deprecated.</para>
         /// </summary>

@@ -57,6 +57,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String DBClusterIdentifier { get; set; }
         #endregion
         
+        #region Parameter FeatureName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the feature for the DB cluster that the IAM role is to be disassociated
+        /// from. For the list of supported feature names, see <a>DBEngineVersion</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FeatureName { get; set; }
+        #endregion
+        
         #region Parameter RoleArn
         /// <summary>
         /// <para>
@@ -107,6 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             PreExecutionContextLoad(context);
             
             context.DBClusterIdentifier = this.DBClusterIdentifier;
+            context.FeatureName = this.FeatureName;
             context.RoleArn = this.RoleArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -127,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.DBClusterIdentifier != null)
             {
                 request.DBClusterIdentifier = cmdletContext.DBClusterIdentifier;
+            }
+            if (cmdletContext.FeatureName != null)
+            {
+                request.FeatureName = cmdletContext.FeatureName;
             }
             if (cmdletContext.RoleArn != null)
             {
@@ -197,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBClusterIdentifier { get; set; }
+            public System.String FeatureName { get; set; }
             public System.String RoleArn { get; set; }
         }
         

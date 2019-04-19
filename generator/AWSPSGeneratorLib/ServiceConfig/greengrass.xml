@@ -253,6 +253,9 @@
         <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" Output="DefaultSingleMember" Verb="Get" Noun="SubscriptionDefinitionVersionList" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ResetDeployments" Output="Response" Verb="Reset" Noun="Deployment" ShouldProcessTarget="GroupId" PipelineParameter="GroupId" NoPipelineParameter="false">
             <Params>
                 <Param Name="Force" NewName="BestEffort" AutoApplyAlias="false" />
@@ -262,6 +265,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="StopBulkDeployment" Output="Void" Verb="Stop" Noun="BulkDeployment" ShouldProcessTarget="BulkDeploymentId" PipelineParameter="BulkDeploymentId" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConnectivityInfo" Output="Response" Verb="Update" Noun="ConnectivityInfo" ShouldProcessTarget="ThingName" PipelineParameter="ThingName" NoPipelineParameter="false">

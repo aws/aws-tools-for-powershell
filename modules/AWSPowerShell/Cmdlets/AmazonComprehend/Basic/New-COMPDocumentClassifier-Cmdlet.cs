@@ -75,6 +75,18 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         public System.String DocumentClassifierName { get; set; }
         #endregion
         
+        #region Parameter OutputDataConfig_KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// the output results from an analysis job. The KmsKeyId can be one of the following
+        /// formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>KMS Key Alias: <code>"alias/ExampleAlias"</code></para></li><li><para>ARN of a KMS Key Alias: <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputDataConfig_KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter LanguageCode
         /// <summary>
         /// <para>
@@ -99,6 +111,48 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InputDataConfig_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter OutputDataConfig_S3Uri
+        /// <summary>
+        /// <para>
+        /// <para>When you use the <code>OutputDataConfig</code> object while creating a custom classifier,
+        /// you specify the Amazon S3 location where you want to write the confusion matrix. The
+        /// URI must be in the same region as the API endpoint that you are calling. The location
+        /// is used as the prefix for the actual location of this output file.</para><para>When the custom classifier job is finished, the service creates the output file in
+        /// a directory specific to the job. The <code>S3Uri</code> field contains the location
+        /// of the output file, called <code>output.tar.gz</code>. It is a compressed archive
+        /// that contains the confusion matrix.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OutputDataConfig_S3Uri { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Tags to be associated with the document classifier being created. A tag is a key-value
+        /// pair that adds as a metadata to a resource used by Amazon Comprehend. For example,
+        /// a tag with "Sales" as the key might be added to a resource to indicate its use by
+        /// the sales department. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.Comprehend.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter VolumeKmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt
+        /// data on the storage volume attached to the ML compute instance(s) that process the
+        /// analysis job. The VolumeKmsKeyId can be either of the following formats:</para><ul><li><para>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li><li><para>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VolumeKmsKeyId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -135,6 +189,13 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             context.DocumentClassifierName = this.DocumentClassifierName;
             context.InputDataConfig_S3Uri = this.InputDataConfig_S3Uri;
             context.LanguageCode = this.LanguageCode;
+            context.OutputDataConfig_KmsKeyId = this.OutputDataConfig_KmsKeyId;
+            context.OutputDataConfig_S3Uri = this.OutputDataConfig_S3Uri;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.Comprehend.Model.Tag>(this.Tag);
+            }
+            context.VolumeKmsKeyId = this.VolumeKmsKeyId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -185,6 +246,43 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             if (cmdletContext.LanguageCode != null)
             {
                 request.LanguageCode = cmdletContext.LanguageCode;
+            }
+            
+             // populate OutputDataConfig
+            bool requestOutputDataConfigIsNull = true;
+            request.OutputDataConfig = new Amazon.Comprehend.Model.DocumentClassifierOutputDataConfig();
+            System.String requestOutputDataConfig_outputDataConfig_KmsKeyId = null;
+            if (cmdletContext.OutputDataConfig_KmsKeyId != null)
+            {
+                requestOutputDataConfig_outputDataConfig_KmsKeyId = cmdletContext.OutputDataConfig_KmsKeyId;
+            }
+            if (requestOutputDataConfig_outputDataConfig_KmsKeyId != null)
+            {
+                request.OutputDataConfig.KmsKeyId = requestOutputDataConfig_outputDataConfig_KmsKeyId;
+                requestOutputDataConfigIsNull = false;
+            }
+            System.String requestOutputDataConfig_outputDataConfig_S3Uri = null;
+            if (cmdletContext.OutputDataConfig_S3Uri != null)
+            {
+                requestOutputDataConfig_outputDataConfig_S3Uri = cmdletContext.OutputDataConfig_S3Uri;
+            }
+            if (requestOutputDataConfig_outputDataConfig_S3Uri != null)
+            {
+                request.OutputDataConfig.S3Uri = requestOutputDataConfig_outputDataConfig_S3Uri;
+                requestOutputDataConfigIsNull = false;
+            }
+             // determine if request.OutputDataConfig should be set to null
+            if (requestOutputDataConfigIsNull)
+            {
+                request.OutputDataConfig = null;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.VolumeKmsKeyId != null)
+            {
+                request.VolumeKmsKeyId = cmdletContext.VolumeKmsKeyId;
             }
             
             CmdletOutput output;
@@ -253,6 +351,10 @@ namespace Amazon.PowerShell.Cmdlets.COMP
             public System.String DocumentClassifierName { get; set; }
             public System.String InputDataConfig_S3Uri { get; set; }
             public Amazon.Comprehend.LanguageCode LanguageCode { get; set; }
+            public System.String OutputDataConfig_KmsKeyId { get; set; }
+            public System.String OutputDataConfig_S3Uri { get; set; }
+            public List<Amazon.Comprehend.Model.Tag> Tags { get; set; }
+            public System.String VolumeKmsKeyId { get; set; }
         }
         
     }

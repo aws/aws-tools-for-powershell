@@ -107,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// as a string containing the complete, valid JSON text of an IAM policy. Do not include
         /// any resource-based policies in this parameter. Any resource-based policy must be submitted
         /// with the <code>ResourcePolicy</code> parameter. The policies cannot be "scope-down"
-        /// policies, such as you could include in a call to <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
-        /// or one of the <a href="http://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
+        /// policies, such as you could include in a call to <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetFederationToken.html">GetFederationToken</a>
+        /// or one of the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AssumeRole.html">AssumeRole</a>
         /// API operations. In other words, do not use policies designed to restrict what a user
         /// can do while using the temporary credentials.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> used to validate this
         /// parameter is a string of characters consisting of the following:</para><ul><li><para>Any printable ASCII character ranging from the space character (\u0020) through the
@@ -130,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// and reports it in the response.</para><para>The simulation does not automatically retrieve policies for the specified resources.
         /// If you want to include a resource policy in the simulation, then you must include
         /// the policy as a string in the <code>ResourcePolicy</code> parameter.</para><para>If you include a <code>ResourcePolicy</code>, then it must be applicable to all of
-        /// the resources included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// the resources included in the simulation or you receive an invalid input error.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -152,7 +152,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// resources. If your scenario includes an EBS volume, then you must specify that volume
         /// as a resource. If the EC2 scenario includes VPC, then you must supply the network-interface
         /// resource. If it includes an IP subnet, then you must specify the subnet resource.
-        /// For more information on the EC2 scenario options, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// For more information on the EC2 scenario options, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a> in the <i>Amazon EC2 User Guide</i>.</para><ul><li><para><b>EC2-Classic-InstanceStore</b></para><para>instance, image, security-group</para></li><li><para><b>EC2-Classic-EBS</b></para><para>instance, image, security-group, volume</para></li><li><para><b>EC2-VPC-InstanceStore</b></para><para>instance, image, security-group, network-interface</para></li><li><para><b>EC2-VPC-InstanceStore-Subnet</b></para><para>instance, image, security-group, network-interface, subnet</para></li><li><para><b>EC2-VPC-EBS</b></para><para>instance, image, security-group, network-interface, volume</para></li><li><para><b>EC2-VPC-EBS-Subnet</b></para><para>instance, image, security-group, network-interface, subnet, volume</para></li></ul>
         /// </para>
         /// </summary>
@@ -221,9 +221,6 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// case, the <code>IsTruncated</code> response element returns <code>true</code>, and
         /// <code>Marker</code> contains a value to include in the subsequent call that tells
         /// the service where to continue from.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -326,20 +323,27 @@ namespace Amazon.PowerShell.Cmdlets.IAM
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxItems))
             {
+                // The service has a maximum page size of 1000. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 1000 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxItems;
             }
-            bool _userControllingPaging = ParameterWasBound("Marker") || ParameterWasBound("MaxItem");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("Marker");
             
             try
             {
                 do
                 {
                     request.Marker = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    int correctPageSize = 1000;
+                    if (_emitLimit.HasValue)
                     {
-                        request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        correctPageSize = AutoIterationHelpers.Min(1000, _emitLimit.Value);
                     }
+                    request.MaxItems = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -366,28 +370,30 @@ namespace Amazon.PowerShell.Cmdlets.IAM
                         }
                         
                         _nextMarker = response.Marker;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

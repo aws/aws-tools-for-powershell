@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// AWS Storage Gateway provides the ability to back up point-in-time snapshots of your
     /// data to Amazon Simple Storage (S3) for durable off-site recovery, as well as import
     /// the data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud
-    /// (EC2). You can take snapshots of your gateway volume on a scheduled or ad-hoc basis.
+    /// (EC2). You can take snapshots of your gateway volume on a scheduled or ad hoc basis.
     /// This API enables you to take ad-hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing
     /// a Snapshot Schedule</a>.
     /// </para><para>

@@ -32,12 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// 
     ///  
     /// <para>
-    /// For more information about working with server certificates, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
+    /// For more information about working with server certificates, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs.html">Working
     /// with Server Certificates</a> in the <i>IAM User Guide</i>. This topic also includes
     /// a list of AWS services that can use the server certificates that you manage with IAM.
     /// </para><important><para>
     /// You should understand the implications of changing a server certificate's path or
-    /// name. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming
+    /// name. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_server-certs_manage.html#RenamingServerCerts">Renaming
     /// a Server Certificate</a> in the <i>IAM User Guide</i>.
     /// </para></important><note><para>
     /// The person making the request (the principal), must have permission to change the
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// certificate named <code>ProductionCert</code> to <code>ProdCert</code>, the principal
     /// must have a policy that allows them to update both certificates. If the principal
     /// has permission to update the <code>ProductionCert</code> group, but not the <code>ProdCert</code>
-    /// certificate, then the update fails. For more information about permissions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>
+    /// certificate, then the update fails. For more information about permissions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a>
     /// in the <i>IAM User Guide</i>.
     /// </para></note>
     /// </summary>

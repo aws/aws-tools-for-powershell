@@ -28,8 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the status of one or more instances. By default, only running instances
-    /// are described, unless you specifically indicate to return the status of all instances.
+    /// Describes the status of the specified instances or all of your instances. By default,
+    /// only running instances are described, unless you specifically indicate to return the
+    /// status of all instances.
     /// 
     ///  
     /// <para>
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code>
+        /// <para>The filters.</para><ul><li><para><code>availability-zone</code> - The Availability Zone of the instance.</para></li><li><para><code>event.code</code> - The code for the scheduled event (<code>instance-reboot</code>
         /// | <code>system-reboot</code> | <code>system-maintenance</code> | <code>instance-retirement</code>
         /// | <code>instance-stop</code>).</para></li><li><para><code>event.description</code> - A description of the event.</para></li><li><para><code>event.instance-event-id</code> - The ID of the event whose date and time you
         /// are modifying.</para></li><li><para><code>event.not-after</code> - The latest end time for the scheduled event (for example,
@@ -104,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>One or more instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
+        /// <para>The instance IDs.</para><para>Default: Describes all your instances.</para><para>Constraints: Maximum 100 explicitly specified instance IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -119,9 +120,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// results, make another call with the returned <code>NextToken</code> value. This value
         /// can be between 5 and 1000. You cannot specify this parameter and the instance IDs
         /// parameter in the same call.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,15 +209,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    if (_emitLimit.HasValue)
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
@@ -248,28 +245,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

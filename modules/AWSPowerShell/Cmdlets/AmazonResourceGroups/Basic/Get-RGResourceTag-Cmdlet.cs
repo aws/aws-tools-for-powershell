@@ -28,7 +28,8 @@ using Amazon.ResourceGroups.Model;
 namespace Amazon.PowerShell.Cmdlets.RG
 {
     /// <summary>
-    /// Returns a list of tags that are associated with a resource, specified by an ARN.
+    /// Returns a list of tags that are associated with a resource group, specified by an
+    /// ARN.
     /// </summary>
     [Cmdlet("Get", "RGResourceTag")]
     [OutputType("System.String")]
@@ -44,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RG
         #region Parameter Arn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the resource for which you want a list of tags. The resource must exist
-        /// within the account you are using.</para>
+        /// <para>The ARN of the resource group for which you want a list of tags. The resource must
+        /// exist within the account you are using.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

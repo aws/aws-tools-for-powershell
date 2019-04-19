@@ -15,7 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "NextPageToken",
     "responseMember": "NextPageToken",
     "resultLimitMember": "MaximumPageSize",
@@ -518,7 +517,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextPageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "MaximumPageSize",
@@ -565,7 +563,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextPageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "MaximumPageSize",
@@ -612,7 +609,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextPageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "MaximumPageSize",
@@ -657,7 +653,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextPageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "MaximumPageSize",
@@ -704,7 +699,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "NextPageToken",
           "responseMember": "NextPageToken",
           "resultLimitMember": "MaximumPageSize",

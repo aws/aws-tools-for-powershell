@@ -137,6 +137,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.String SourceVolumeARN { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of up to 50 tags that can be assigned to a cached volume. Each tag is a key-value
+        /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
+        /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
+        /// length of a tag's key is 128 characters, and the maximum length for a tag's value
+        /// is 256.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.StorageGateway.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter TargetName
         /// <summary>
         /// <para>
@@ -198,6 +213,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             context.SnapshotId = this.SnapshotId;
             context.SourceVolumeARN = this.SourceVolumeARN;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.StorageGateway.Model.Tag>(this.Tag);
+            }
             context.TargetName = this.TargetName;
             if (ParameterWasBound("VolumeSizeInBytes"))
                 context.VolumeSizeInBytes = this.VolumeSizeInBytes;
@@ -244,6 +263,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.SourceVolumeARN != null)
             {
                 request.SourceVolumeARN = cmdletContext.SourceVolumeARN;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             if (cmdletContext.TargetName != null)
             {
@@ -322,6 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String NetworkInterfaceId { get; set; }
             public System.String SnapshotId { get; set; }
             public System.String SourceVolumeARN { get; set; }
+            public List<Amazon.StorageGateway.Model.Tag> Tags { get; set; }
             public System.String TargetName { get; set; }
             public System.Int64? VolumeSizeInBytes { get; set; }
         }

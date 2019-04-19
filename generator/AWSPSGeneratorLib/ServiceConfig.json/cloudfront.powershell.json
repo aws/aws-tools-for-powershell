@@ -19,7 +19,6 @@
     "ETag"
   ],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "Marker",
     "responseMember": "NextMarker",
     "resultLimitMember": "MaxItems",
@@ -1241,7 +1240,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1291,7 +1289,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1343,7 +1340,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1391,7 +1387,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1439,7 +1434,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1491,7 +1485,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1539,7 +1532,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",
@@ -1589,7 +1581,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "MaxItems",

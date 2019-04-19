@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// If you restore a cluster into a VPC, you must provide a cluster subnet group where
     /// you want the cluster restored.
     /// </para><para>
-    ///  For more information about working with snapshots, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon
+    ///  For more information about working with snapshots, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html">Amazon
     /// Redshift Snapshots</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
     /// </para>
     /// </summary>
@@ -112,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The name of the parameter group to be associated with this cluster.</para><para>Default: The default Amazon Redshift cluster parameter group. For information about
-        /// the default parameter group, go to <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
+        /// the default parameter group, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Working
         /// with Amazon Redshift Parameter Groups</a>.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>
         /// <para>An option that specifies whether to create the cluster with enhanced VPC routing enabled.
         /// To create a cluster that uses enhanced VPC routing, the cluster must be in a VPC.
-        /// For more information, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
+        /// For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced
         /// VPC Routing</a> in the Amazon Redshift Cluster Management Guide.</para><para>If this option is <code>true</code>, enhanced VPC routing is enabled. </para><para>Default: false</para>
         /// </para>
         /// </summary>
@@ -229,7 +229,9 @@ namespace Amazon.PowerShell.Cmdlets.RS
         #region Parameter ManualSnapshotRetentionPeriod
         /// <summary>
         /// <para>
-        /// The service has not provided documentation for this parameter; please refer to the service's API reference documentation for the latest available information.
+        /// <para>The default number of days to retain a manual snapshot. If the value is -1, the snapshot
+        /// is retained indefinitely. This setting doesn't change the retention period of existing
+        /// snapshots.</para><para>The value must be either -1 or an integer between 1 and 3,653.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -247,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// a dc1.large instance type into another dc1.large instance type or dc2.large instance
         /// type. You can't restore dc1.8xlarge to dc2.8xlarge. First restore to a dc1.8xlareg
         /// cluster, then resize to a dc2.8large cluster. For more information about node types,
-        /// see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
+        /// see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-about-clusters-and-nodes">
         /// About Clusters and Nodes</a> in the <i>Amazon Redshift Cluster Management Guide</i>.
         /// </para>
         /// </para>
@@ -281,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <summary>
         /// <para>
         /// <para>The weekly time range (in UTC) during which automated cluster maintenance can occur.</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: The value selected for the cluster from which the snapshot was taken. For
-        /// more information about the time blocks for each region, see <a href="http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
+        /// more information about the time blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance
         /// Windows</a> in Amazon Redshift Cluster Management Guide. </para><para>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>

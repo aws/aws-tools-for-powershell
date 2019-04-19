@@ -41,11 +41,23 @@ namespace Amazon.PowerShell.Cmdlets.SG
     public partial class UpdateSGMaintenanceStartTimeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter DayOfMonth
+        /// <summary>
+        /// <para>
+        /// <para>The day of the month component of the maintenance start time represented as an ordinal
+        /// number from 1 to 28, where 1 represents the first day of the month and 28 represents
+        /// the last day of the month.</para><note><para>This value is only available for tape and volume gateways.</para></note>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DayOfMonth { get; set; }
+        #endregion
+        
         #region Parameter DayOfWeek
         /// <summary>
         /// <para>
-        /// <para>The maintenance start time day of the week represented as an ordinal number from 0
-        /// to 6, where 0 represents Sunday and 6 Saturday.</para>
+        /// <para>The day of the week component of the maintenance start time week represented as an
+        /// ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -114,6 +126,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DayOfMonth"))
+                context.DayOfMonth = this.DayOfMonth;
             if (ParameterWasBound("DayOfWeek"))
                 context.DayOfWeek = this.DayOfWeek;
             context.GatewayARN = this.GatewayARN;
@@ -137,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // create request
             var request = new Amazon.StorageGateway.Model.UpdateMaintenanceStartTimeRequest();
             
+            if (cmdletContext.DayOfMonth != null)
+            {
+                request.DayOfMonth = cmdletContext.DayOfMonth.Value;
+            }
             if (cmdletContext.DayOfWeek != null)
             {
                 request.DayOfWeek = cmdletContext.DayOfWeek.Value;
@@ -215,6 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? DayOfMonth { get; set; }
             public System.Int32? DayOfWeek { get; set; }
             public System.String GatewayARN { get; set; }
             public System.Int32? HourOfDay { get; set; }

@@ -110,8 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of targets allowed to run the association at the same time. You
         /// can specify a number, for example 10, or a percentage of the target set, for example
         /// 10%. The default value is 100%, which means all targets run the association at the
-        /// same time.</para><para>If a new instance starts and attempts to execute an association while Systems Manager
-        /// is executing MaxConcurrency associations, the association is allowed to run. During
+        /// same time.</para><para>If a new instance starts and attempts to run an association while Systems Manager
+        /// is running MaxConcurrency associations, the association is allowed to run. During
         /// the next association interval, the new instance will process its association within
         /// the limit specified for MaxConcurrency.</para>
         /// </para>
@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The name of the SSM document that contains the configuration information for the instance.
-        /// You can specify Command, Policy, or Automation documents.</para><para>You can specify AWS-predefined documents, documents you created, or a document that
+        /// You can specify Command or Automation documents.</para><para>You can specify AWS-predefined documents, documents you created, or a document that
         /// is shared with you from another account.</para><para>For SSM documents that are shared with you from other AWS accounts, you must specify
         /// the complete SSM document ARN, in the following format:</para><para><code>arn:<i>partition</i>:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i></code></para><para>For example:</para><para><code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code></para><para>For AWS-predefined documents and SSM documents you created in your account, you only
         /// need to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code>
@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The parameters for the documents runtime configuration. </para>
+        /// <para>The parameters for the runtime configuration of the document. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

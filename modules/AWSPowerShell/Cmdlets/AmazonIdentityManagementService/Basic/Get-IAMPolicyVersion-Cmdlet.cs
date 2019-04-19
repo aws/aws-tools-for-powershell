@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// an inline policy that is embedded in a user, group, or role, use the <a>GetUserPolicy</a>,
     /// <a>GetGroupPolicy</a>, or <a>GetRolePolicy</a> API.
     /// </para><para>
-    /// For more information about the types of policies, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
+    /// For more information about the types of policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html">Managed
     /// Policies and Inline Policies</a> in the <i>IAM User Guide</i>.
     /// </para><para>
-    /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+    /// For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
     /// for Managed Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the managed policy that you want information about.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The Amazon Resource Name (ARN) of the managed policy that you want information about.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>

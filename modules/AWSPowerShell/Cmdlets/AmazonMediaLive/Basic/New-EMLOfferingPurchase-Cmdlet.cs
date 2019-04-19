@@ -93,6 +93,17 @@ namespace Amazon.PowerShell.Cmdlets.EML
         public System.String Start { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// A collection of key-value pairs
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -128,6 +139,14 @@ namespace Amazon.PowerShell.Cmdlets.EML
             context.OfferingId = this.OfferingId;
             context.RequestId = this.RequestId;
             context.Start = this.Start;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -163,6 +182,10 @@ namespace Amazon.PowerShell.Cmdlets.EML
             if (cmdletContext.Start != null)
             {
                 request.Start = cmdletContext.Start;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -231,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.EML
             public System.String OfferingId { get; set; }
             public System.String RequestId { get; set; }
             public System.String Start { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

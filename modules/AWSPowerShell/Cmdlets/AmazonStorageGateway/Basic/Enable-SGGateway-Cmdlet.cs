@@ -129,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>A list of up to 10 tags that can be assigned to the gateway. Each tag is a key-value
+        /// <para>A list of up to 50 tags that can be assigned to the gateway. Each tag is a key-value
         /// pair.</para><note><para>Valid characters for key and value are letters, spaces, and numbers representable
         /// in UTF-8 format, and the following special characters: + - = . _ : / @. The maximum
         /// length of a tag's key is 128 characters, and the maximum length for a tag's value

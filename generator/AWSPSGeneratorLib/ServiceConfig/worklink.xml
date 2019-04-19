@@ -20,6 +20,9 @@
     <MetadataProperties />
     <PipelineByNameProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AssociateDomain" Output="Void" Verb="Register" Noun="Domain" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="AssociateWebsiteCertificateAuthority" Output="DefaultSingleMember" Verb="Register" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -41,6 +44,9 @@
         <ServiceOperation MethodName="DescribeDevicePolicyConfiguration" Output="DefaultSingleMember" Verb="Get" Noun="DevicePolicyConfiguration" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomain" Output="Response" Verb="Get" Noun="Domain" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DescribeFleetMetadata" Output="Response" Verb="Get" Noun="FleetMetadata" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -50,16 +56,28 @@
         <ServiceOperation MethodName="DescribeWebsiteCertificateAuthority" Output="Response" Verb="Get" Noun="WebsiteCertificateAuthority" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDomain" Output="Void" Verb="Unregister" Noun="Domain" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="DisassociateWebsiteCertificateAuthority" Output="Void" Verb="Unregister" Noun="WebsiteCertificateAuthority" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListDevices" Output="DefaultSingleMember" Verb="Get" Noun="DeviceList" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListDomains" Output="DefaultSingleMember" Verb="Get" Noun="DomainList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListFleets" Output="DefaultSingleMember" Verb="Get" Noun="FleetList" PipelineParameter="" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListWebsiteCertificateAuthorities" Output="DefaultSingleMember" Verb="Get" Noun="WebsiteCertificateAuthorityList" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDomainAccess" Output="Void" Verb="Restore" Noun="DomainAccess" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeDomainAccess" Output="Void" Verb="Revoke" Noun="DomainAccess" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SignOutUser" Output="Void" Verb="Disconnect" Noun="User" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
@@ -72,6 +90,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDevicePolicyConfiguration" Output="Void" Verb="Update" Noun="DevicePolicyConfiguration" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDomainMetadata" Output="Void" Verb="Update" Noun="DomainMetadata" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateFleetMetadata" Output="Void" Verb="Update" Noun="FleetMetadata" ShouldProcessTarget="FleetArn" PipelineParameter="FleetArn" NoPipelineParameter="false">

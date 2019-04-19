@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
 {
     /// <summary>
     /// Deletes the specified AWS account alias. For information about using an AWS account
-    /// alias, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
+    /// alias, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html">Using
     /// an Alias for Your AWS Account ID</a> in the <i>IAM User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

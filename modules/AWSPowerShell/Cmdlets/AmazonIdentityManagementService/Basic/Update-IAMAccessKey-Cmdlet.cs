@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// access keys under the AWS account. Consequently, you can use this operation to manage
     /// AWS account root user credentials even if the AWS account has no associated users.
     /// </para><para>
-    /// For information about rotating keys, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
+    /// For information about rotating keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingCredentials.html">Managing
     /// Keys and Certificates</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>

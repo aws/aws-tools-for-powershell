@@ -17,16 +17,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "ListFaces",
-      "ListCollections",
-      "GetCelebrityRecognition",
-      "GetContentModeration",
-      "GetFaceDetection",
-      "GetFaceSearch",
-      "GetLabelDetection",
-      "GetPersonTracking"
-    ],
     "requestMember": "NextToken",
     "responseMember": "NextToken",
     "resultLimitMember": "MaxResults",
@@ -1166,16 +1156,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [
-            "ListFaces",
-            "ListCollections",
-            "GetCelebrityRecognition",
-            "GetContentModeration",
-            "GetFaceDetection",
-            "GetFaceSearch",
-            "GetLabelDetection",
-            "GetPersonTracking"
-          ],
           "requestMember": "NextToken",
           "responseMember": "NextToken",
           "resultLimitMember": "MaxResults",

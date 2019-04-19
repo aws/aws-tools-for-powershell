@@ -28,11 +28,14 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of the images (AMIs, AKIs, and ARIs) available to you. Images
-    /// available to you include public images, private images that you own, and private images
-    /// owned by other AWS accounts but for which you have explicit launch permissions.
+    /// Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
+    /// images available to you.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
+    /// The images available to you include public images, private images that you own, and
+    /// private images owned by other AWS accounts for which you have explicit launch permissions.
+    /// </para><note><para>
     /// Deregistered images are included in the returned results for an unspecified interval
     /// after deregistration.
     /// </para></note>

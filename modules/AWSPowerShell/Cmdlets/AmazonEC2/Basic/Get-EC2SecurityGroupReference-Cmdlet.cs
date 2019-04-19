@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>One or more security group IDs in your account.</para>
+        /// <para>The IDs of the security groups in your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

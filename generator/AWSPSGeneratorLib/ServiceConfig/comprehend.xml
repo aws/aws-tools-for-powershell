@@ -107,6 +107,9 @@
         <ServiceOperation MethodName="ListSentimentDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="SentimentDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="DefaultSingleMember" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="ResourceArn">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ListTopicsDetectionJobs" Output="DefaultSingleMember" Verb="Get" Noun="TopicsDetectionJobList" PipelineParameter="Filter" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
@@ -144,6 +147,12 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="StopTrainingEntityRecognizer" Output="Void" Verb="Stop" Noun="TrainingEntityRecognizer" ShouldProcessTarget="EntityRecognizerArn" PipelineParameter="EntityRecognizerArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" Verb="Add" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" Verb="Remove" Noun="ResourceTag" ShouldProcessTarget="ResourceArn" PipelineParameter="ResourceArn" NoPipelineParameter="false">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

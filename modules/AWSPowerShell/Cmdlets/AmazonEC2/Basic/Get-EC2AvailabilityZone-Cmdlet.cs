@@ -28,10 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of the Availability Zones that are available to you. The results
-    /// include zones only for the region you're currently using. If there is an event impacting
-    /// an Availability Zone, you can use this request to view the state and any provided
-    /// message for that Availability Zone.
+    /// Describes the Availability Zones that are available to you. The results include zones
+    /// only for the region you're currently using. If there is an event impacting an Availability
+    /// Zone, you can use this request to view the state and any provided message for that
+    /// Availability Zone.
     /// 
     ///  
     /// <para>
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>message</code> - Information about the Availability Zone.</para></li><li><para><code>region-name</code> - The name of the region for the Availability Zone (for
+        /// <para>The filters.</para><ul><li><para><code>message</code> - Information about the Availability Zone.</para></li><li><para><code>region-name</code> - The name of the region for the Availability Zone (for
         /// example, <code>us-east-1</code>).</para></li><li><para><code>state</code> - The state of the Availability Zone (<code>available</code> |
         /// <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</para></li><li><para><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>).</para></li><li><para><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>).</para></li></ul>
         /// </para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ZoneId
         /// <summary>
         /// <para>
-        /// <para>The IDs of one or more Availability Zones.</para>
+        /// <para>The IDs of the Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ZoneName
         /// <summary>
         /// <para>
-        /// <para>The names of one or more Availability Zones.</para>
+        /// <para>The names of the Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

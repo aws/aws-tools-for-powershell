@@ -82,6 +82,17 @@ namespace Amazon.PowerShell.Cmdlets.GG
         public System.String InputFileUri { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// Tag(s) to add to the new resource
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -114,6 +125,14 @@ namespace Amazon.PowerShell.Cmdlets.GG
             context.AmznClientToken = this.AmznClientToken;
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.InputFileUri = this.InputFileUri;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (cmdletContext.InputFileUri != null)
             {
                 request.InputFileUri = cmdletContext.InputFileUri;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -207,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             public System.String AmznClientToken { get; set; }
             public System.String ExecutionRoleArn { get; set; }
             public System.String InputFileUri { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

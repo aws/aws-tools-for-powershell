@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your Elastic IP addresses.
+    /// Describes the specified Elastic IP addresses or all of your Elastic IP addresses.
     /// 
     ///  
     /// <para>
@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AllocationId
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] One or more allocation IDs.</para><para>Default: Describes all your Elastic IP addresses.</para>
+        /// <para>[EC2-VPC] Information about the allocation IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

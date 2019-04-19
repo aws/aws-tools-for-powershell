@@ -35,8 +35,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// zones.
     /// </para></important><para>
     /// To verify that the reusable delegation set is not associated with any hosted zones,
-    /// submit a <a>GetReusableDelegationSet</a> request and specify the ID of the reusable
-    /// delegation set that you want to delete.
+    /// submit a <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_GetReusableDelegationSet.html">GetReusableDelegationSet</a>
+    /// request and specify the ID of the reusable delegation set that you want to delete.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

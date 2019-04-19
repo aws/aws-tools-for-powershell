@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your security groups.
+    /// Describes the specified security groups or all of your security groups.
     /// 
     ///  
     /// <para>
@@ -53,9 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters. If using multiple filters for rules, the results include security
-        /// groups for which any combination of rules - not necessarily a single rule - match
-        /// all filters.</para><ul><li><para><code>description</code> - The description of the security group.</para></li><li><para><code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound security
+        /// <para>The filters. If using multiple filters for rules, the results include security groups
+        /// for which any combination of rules - not necessarily a single rule - match all filters.</para><ul><li><para><code>description</code> - The description of the security group.</para></li><li><para><code>egress.ip-permission.cidr</code> - An IPv4 CIDR block for an outbound security
         /// group rule.</para></li><li><para><code>egress.ip-permission.from-port</code> - For an outbound rule, the start of
         /// port range for the TCP and UDP protocols, or an ICMP type number.</para></li><li><para><code>egress.ip-permission.group-id</code> - The ID of a security group that has
         /// been referenced in an outbound security group rule.</para></li><li><para><code>egress.ip-permission.group-name</code> - The name of a security group that
@@ -90,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>One or more security group IDs. Required for security groups in a nondefault VPC.</para><para>Default: Describes all your security groups.</para>
+        /// <para>The IDs of the security groups. Required for security groups in a nondefault VPC.</para><para>Default: Describes all your security groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -101,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic and default VPC only] One or more security group names. You can specify
+        /// <para>[EC2-Classic and default VPC only] The names of the security groups. You can specify
         /// either the security group name or the security group ID. For security groups in a
         /// nondefault VPC, use the <code>group-name</code> filter to describe security groups
         /// by name.</para><para>Default: Describes all your security groups.</para>
@@ -119,9 +118,6 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// results, make another request with the returned <code>NextToken</code> value. This
         /// value can be between 5 and 1000. If this parameter is not specified, then all results
         /// are returned.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -212,15 +208,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = ParameterWasBound("NextToken") || ParameterWasBound("MaxResult");
-            bool _continueIteration = true;
+            bool _userControllingPaging = ParameterWasBound("NextToken");
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    if (_emitLimit.HasValue)
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
@@ -249,28 +244,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                         }
                         
                         _nextMarker = response.NextToken;
-                        
                         _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        if (_emitLimit.HasValue)
                         {
-                            _continueIteration = false;
+                            _emitLimit -= _receivedThisCall;
                         }
                     }
                     catch (Exception e)
                     {
-                        output = new CmdletOutput { ErrorResponse = e };
+                        if (_retrievedSoFar == 0 || !_emitLimit.HasValue)
+                        {
+                            output = new CmdletOutput { ErrorResponse = e };
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     
                     ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                } while (!_userControllingPaging && AutoIterationHelpers.HasValue(_nextMarker) && (!_emitLimit.HasValue || _emitLimit.Value >= 1));
                 
             }
             finally
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
             }
             
             return null;

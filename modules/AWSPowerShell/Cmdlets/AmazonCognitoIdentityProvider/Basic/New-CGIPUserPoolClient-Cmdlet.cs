@@ -199,7 +199,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter SupportedIdentityProvider
         /// <summary>
         /// <para>
-        /// <para>A list of provider names for the identity providers that are supported on this client.</para>
+        /// <para>A list of provider names for the identity providers that are supported on this client.
+        /// The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code>
+        /// and <code>LoginWithAmazon</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

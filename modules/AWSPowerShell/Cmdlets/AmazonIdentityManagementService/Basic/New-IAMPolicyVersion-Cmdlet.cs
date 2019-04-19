@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// version is the version that is in effect for the IAM users, groups, and roles to which
     /// the policy is attached.
     /// </para><para>
-    /// For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+    /// For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
     /// for Managed Policies</a> in the <i>IAM User Guide</i>.
     /// </para>
     /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         #region Parameter PolicyArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// <para>The Amazon Resource Name (ARN) of the IAM policy to which you want to add a new version.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// <para>
         /// <para>Specifies whether to set this version as the policy's default version.</para><para>When this parameter is <code>true</code>, the new policy version becomes the operative
         /// version. That is, it becomes the version that is in effect for the IAM users, groups,
-        /// and roles that the policy is attached to.</para><para>For more information about managed policy versions, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
+        /// and roles that the policy is attached to.</para><para>For more information about managed policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning
         /// for Managed Policies</a> in the <i>IAM User Guide</i>.</para>
         /// </para>
         /// </summary>

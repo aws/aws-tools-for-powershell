@@ -29,7 +29,6 @@
   },
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "Marker",
     "responseMember": "NextMarker",
     "resultLimitMember": "PageSize",
@@ -641,7 +640,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "PageSize",
@@ -852,7 +850,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "Marker",
           "responseMember": "NextMarker",
           "resultLimitMember": "PageSize",

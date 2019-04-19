@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// the user is a member of. If you pick a group or a role, then it includes only those
         /// context keys that are found in policies attached to that entity. Note that all parameters
         /// are shown in unencoded form here for clarity, but must be URL encoded to be included
-        /// as a part of a real HTML request.</para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+        /// as a part of a real HTML request.</para><para>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
         /// Resource Names (ARNs) and AWS Service Namespaces</a> in the <i>AWS General Reference</i>.</para>
         /// </para>
         /// </summary>

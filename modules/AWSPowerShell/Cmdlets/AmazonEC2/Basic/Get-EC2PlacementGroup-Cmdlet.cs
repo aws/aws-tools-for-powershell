@@ -28,7 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes one or more of your placement groups. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+    /// Describes the specified placement groups or all of your placement groups. For more
+    /// information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
     /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Get", "EC2PlacementGroup")]
@@ -44,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
+        /// <para>The filters.</para><ul><li><para><code>group-name</code> - The name of the placement group.</para></li><li><para><code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code>
         /// | <code>deleting</code> | <code>deleted</code>).</para></li><li><para><code>strategy</code> - The strategy of the placement group (<code>cluster</code>
         /// | <code>spread</code> | <code>partition</code>).</para></li></ul>
         /// </para>
@@ -57,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>One or more placement group names.</para><para>Default: Describes all your placement groups, or only those otherwise specified.</para>
+        /// <para>The names of the placement groups.</para><para>Default: Describes all your placement groups, or only those otherwise specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

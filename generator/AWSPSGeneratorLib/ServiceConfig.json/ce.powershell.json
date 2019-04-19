@@ -19,14 +19,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [
-      "GetCostAndUsage",
-      "GetDimensionValues",
-      "GetReservationCoverage",
-      "GetReservationPurchaseRecommendation",
-      "GetReservationUtilization",
-      "GetTags"
-    ],
     "requestMember": "NextPageToken",
     "responseMember": "NextPageToken",
     "resultLimitMember": "",

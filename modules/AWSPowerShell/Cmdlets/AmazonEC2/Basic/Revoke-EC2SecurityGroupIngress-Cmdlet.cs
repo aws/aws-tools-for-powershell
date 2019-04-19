@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Removes one or more ingress rules from a security group. To remove a rule, the values
+    /// Removes the specified ingress rules from a security group. To remove a rule, the values
     /// that you specify (for example, ports) must match the existing rule's values exactly.
     /// 
     ///  <note><para>
@@ -82,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>One or more sets of IP permissions. You can't specify a source security group and
-        /// a CIDR IP address range in the same set of permissions.</para>
+        /// <para>The sets of IP permissions. You can't specify a source security group and a CIDR IP
+        /// address range in the same set of permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

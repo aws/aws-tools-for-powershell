@@ -28,8 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the details about a specific task executed as part of a Maintenance Window
-    /// execution.
+    /// Retrieves the details about a specific task run as part of a Maintenance Window execution.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionTask")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowExecutionTaskResponse")]

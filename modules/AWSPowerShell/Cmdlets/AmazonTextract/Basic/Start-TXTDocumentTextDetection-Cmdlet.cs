@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// lines of text and the words that make up a line of text.
     /// 
     ///  
-    /// <para>
-    /// Amazon Textract can detect text in document images and PDF files that are stored in
-    /// an Amazon S3 bucket. Use <a>DocumentLocation</a> to specify the bucket name and the
-    /// file name of the document image. 
+    /// <para><code>StartDocumentTextDetection</code> can analyze text in documents that are in
+    /// JPG, PNG, and PDF format. The documents are stored in an Amazon S3 bucket. Use <a>DocumentLocation</a>
+    /// to specify the bucket name and file name of the document. 
     /// </para><para><code>StartTextDetection</code> returns a job identifier (<code>JobId</code>) that
     /// you use to get the results of the operation. When text detection is finished, Amazon
     /// Textract publishes a completion status to the Amazon Simple Notification Service (Amazon
@@ -44,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.TXT
     /// Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <a>GetDocumentTextDetection</a>,
     /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartDocumentTextDetection</code>.
     /// </para><para>
-    /// For more information, see Document Text Detection in the Amazon Textract Developer
-    /// Guide.
+    /// For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document
+    /// Text Detection</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Start", "TXTDocumentTextDetection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -85,8 +84,10 @@ namespace Amazon.PowerShell.Cmdlets.TXT
         #region Parameter JobTag
         /// <summary>
         /// <para>
-        /// <para>A unique identifier you specify to identify the job in the completion status that's
-        /// published to the Amazon Simple Notification Service (Amazon SNS) topic.</para>
+        /// <para>An identifier you specify that's included in the completion notification that's published
+        /// to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify
+        /// the type of document, such as a tax form or a receipt, that the completion notification
+        /// corresponds to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

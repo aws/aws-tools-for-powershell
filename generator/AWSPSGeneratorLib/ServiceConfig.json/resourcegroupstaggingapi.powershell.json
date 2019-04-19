@@ -15,7 +15,6 @@
   "nounMaps": {},
   "outputMetadataMembers": [],
   "paginationDefaults": {
-    "excludedOperations": [],
     "requestMember": "PaginationToken",
     "responseMember": "PaginationToken",
     "resultLimitMember": "",
@@ -81,7 +80,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "",
@@ -126,7 +124,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "",
@@ -173,7 +170,6 @@
         "passThruTypeName": "",
         "requiresPassThruGeneration": "false",
         "autoIterateSettings": {
-          "excludedOperations": [],
           "requestMember": "PaginationToken",
           "responseMember": "PaginationToken",
           "resultLimitMember": "",

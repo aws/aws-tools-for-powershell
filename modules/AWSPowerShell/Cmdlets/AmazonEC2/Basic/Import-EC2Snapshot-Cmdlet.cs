@@ -109,7 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// to use when creating the encrypted snapshot. This parameter is only required if you
         /// want to use a non-default CMK; if this parameter is not specified, the default CMK
         /// for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code>
-        /// flag must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias, in the form <code>alias/<i>ExampleAlias</i></code></para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// flag must also be set. </para><para>The CMK identifier may be provided in any of the following formats: </para><ul><li><para>Key ID</para></li><li><para>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed
+        /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>
+        /// namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</para></li><li><para>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed
         /// by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code>
         /// namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</para></li><li><para>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace,
         /// followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code>

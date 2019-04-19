@@ -148,13 +148,28 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter RequesterPay
         /// <summary>
         /// <para>
-        /// <para>A value that sets the access control list permission for objects in the Amazon S3
-        /// bucket that a file gateway puts objects into. The default value is <code>private</code>.</para>
+        /// <para>A value that sets who pays the cost of the request and the cost associated with data
+        /// download from the S3 bucket. If this value is set to true, the requester pays the
+        /// costs. Otherwise the S3 bucket owner pays. However, the S3 bucket owner always pays
+        /// the cost of storing data.</para><note><para><code>RequesterPays</code> is a configuration for the S3 bucket that backs the file
+        /// share, so make sure that the configuration on the file share is the same as the S3
+        /// bucket configuration.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("RequesterPays")]
         public System.Boolean RequesterPay { get; set; }
+        #endregion
+        
+        #region Parameter SMBACLEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set this value to "true to enable ACL (access control list) on the SMB file share.
+        /// Set it to "false" to map file and directory permissions to the POSIX permissions.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SMBACLEnabled { get; set; }
         #endregion
         
         #region Parameter ValidUserList
@@ -214,6 +229,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
                 context.ReadOnly = this.ReadOnly;
             if (ParameterWasBound("RequesterPay"))
                 context.RequesterPays = this.RequesterPay;
+            if (ParameterWasBound("SMBACLEnabled"))
+                context.SMBACLEnabled = this.SMBACLEnabled;
             if (this.ValidUserList != null)
             {
                 context.ValidUserList = new List<System.String>(this.ValidUserList);
@@ -269,6 +286,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.RequesterPays != null)
             {
                 request.RequesterPays = cmdletContext.RequesterPays.Value;
+            }
+            if (cmdletContext.SMBACLEnabled != null)
+            {
+                request.SMBACLEnabled = cmdletContext.SMBACLEnabled.Value;
             }
             if (cmdletContext.ValidUserList != null)
             {
@@ -345,6 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public Amazon.StorageGateway.ObjectACL ObjectACL { get; set; }
             public System.Boolean? ReadOnly { get; set; }
             public System.Boolean? RequesterPays { get; set; }
+            public System.Boolean? SMBACLEnabled { get; set; }
             public List<System.String> ValidUserList { get; set; }
         }
         

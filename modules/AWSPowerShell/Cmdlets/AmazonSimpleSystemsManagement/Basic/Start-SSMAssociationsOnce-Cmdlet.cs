@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Use this API action to execute an association immediately and only one time. This
-    /// action can be helpful when troubleshooting associations.
+    /// Use this API action to run an association immediately and only one time. This action
+    /// can be helpful when troubleshooting associations.
     /// </summary>
     [Cmdlet("Start", "SSMAssociationsOnce", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>The association IDs that you want to execute immediately and only one time.</para>
+        /// <para>The association IDs that you want to run immediately and only one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

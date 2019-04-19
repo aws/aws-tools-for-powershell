@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// the Amazon Resource Name (ARN)
+        /// The Amazon Resource Name (ARN) of the resource
+        /// tag.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

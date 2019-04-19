@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
 {
     /// <summary>
     /// Determines the dominant language of the input text for a batch of documents. For a
-    /// list of languages that Amazon Comprehend can detect, see <a href="http://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon
+    /// list of languages that Amazon Comprehend can detect, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-languages.html">Amazon
     /// Comprehend Supported Languages</a>.
     /// </summary>
     [Cmdlet("Find", "COMPDominantLanguageBatch")]

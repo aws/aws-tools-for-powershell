@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves a task invocation. A task invocation is a specific task executing on a specific
+    /// Retrieves a task invocation. A task invocation is a specific task running on a specific
     /// target. Maintenance Windows report status for all invocations.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionTaskInvocation")]

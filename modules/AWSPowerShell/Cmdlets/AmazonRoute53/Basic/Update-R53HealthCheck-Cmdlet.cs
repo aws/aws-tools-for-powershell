@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// corresponding CloudWatch metrics.</para></li></ul><para>After you disable a health check, Route 53 considers the status of the health check
         /// to always be healthy. If you configured DNS failover, Route 53 continues to route
         /// traffic to the corresponding resources. If you want to stop routing traffic to a resource,
-        /// change the value of <a>UpdateHealthCheckRequest$Inverted</a>.</para><para>Charges for a health check still apply when the health check is disabled. For more
+        /// change the value of <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-Inverted">Inverted</a>.
+        /// </para><para>Charges for a health check still apply when the health check is disabled. For more
         /// information, see <a href="http://aws.amazon.com/route53/pricing/">Amazon Route 53
         /// Pricing</a>.</para>
         /// </para>
@@ -241,11 +242,12 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// shorten IPv6 addresses as described in RFC 5952, for example, <code>2001:db8:85a3::abcd:1:2345</code>.</para></li></ul><para>If the endpoint is an EC2 instance, we recommend that you create an Elastic IP address,
         /// associate it with your EC2 instance, and specify the Elastic IP address for <code>IPAddress</code>.
         /// This ensures that the IP address of your instance never changes. For more information,
-        /// see the applicable documentation:</para><ul><li><para>Linux: <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
-        /// IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Linux Instances</i></para></li><li><para>Windows: <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.html">Elastic
+        /// see the applicable documentation:</para><ul><li><para>Linux: <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+        /// IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Linux Instances</i></para></li><li><para>Windows: <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-ip-addresses-eip.html">Elastic
         /// IP Addresses (EIP)</a> in the <i>Amazon EC2 User Guide for Windows Instances</i></para></li></ul><note><para>If a health check already has a value for <code>IPAddress</code>, you can change the
         /// value. However, you can't update an existing health check to add or remove the value
-        /// of <code>IPAddress</code>. </para></note><para>For more information, see <a>UpdateHealthCheckRequest$FullyQualifiedDomainName</a>.</para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
+        /// of <code>IPAddress</code>. </para></note><para>For more information, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
+        /// </para><para>Constraints: Route 53 can't check the health of endpoints for which the IP address
         /// is in local, private, non-routable, or multicast ranges. For more information about
         /// IP addresses for which you can't create health checks, see the following documents:</para><ul><li><para><a href="https://tools.ietf.org/html/rfc5735">RFC 5735, Special Use IPv4 Addresses</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc6598">RFC 6598, IANA-Reserved IPv4 Prefix
         /// for Shared Address Space</a></para></li><li><para><a href="https://tools.ietf.org/html/rfc5156">RFC 5156, Special-Use IPv6 Addresses</a></para></li></ul>
@@ -310,10 +312,10 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// <para>
         /// <para>A complex type that contains one <code>ResettableElementName</code> element for each
         /// element that you want to reset to the default value. Valid values for <code>ResettableElementName</code>
-        /// include the following:</para><ul><li><para><code>ChildHealthChecks</code>: Amazon Route 53 resets <a>HealthCheckConfig$ChildHealthChecks</a>
-        /// to null.</para></li><li><para><code>FullyQualifiedDomainName</code>: Route 53 resets <a>HealthCheckConfig$FullyQualifiedDomainName</a>
-        /// to null.</para></li><li><para><code>Regions</code>: Route 53 resets the <a>HealthCheckConfig$Regions</a> list to
-        /// the default set of regions. </para></li><li><para><code>ResourcePath</code>: Route 53 resets <a>HealthCheckConfig$ResourcePath</a>
+        /// include the following:</para><ul><li><para><code>ChildHealthChecks</code>: Amazon Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-ChildHealthChecks">ChildHealthChecks</a>
+        /// to null.</para></li><li><para><code>FullyQualifiedDomainName</code>: Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_UpdateHealthCheck.html#Route53-UpdateHealthCheck-request-FullyQualifiedDomainName">FullyQualifiedDomainName</a>.
+        /// to null.</para></li><li><para><code>Regions</code>: Route 53 resets the <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-Regions">Regions</a>
+        /// list to the default set of regions. </para></li><li><para><code>ResourcePath</code>: Route 53 resets <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_HealthCheckConfig.html#Route53-Type-HealthCheckConfig-ResourcePath">ResourcePath</a>
         /// to null.</para></li></ul>
         /// </para>
         /// </summary>

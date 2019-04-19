@@ -47,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>Set to <code>code</code> to initiate a code grant flow, which provides an authorization
         /// code as the response. This code can be exchanged for access tokens with the token
-        /// endpoint.</para><para>Set to <code>token</code> to specify that the client should get the access token (and,
-        /// optionally, ID token, based on scopes) directly.</para>
+        /// endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

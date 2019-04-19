@@ -156,6 +156,18 @@ namespace Amazon.PowerShell.Cmdlets.PINE
         public System.String ReportName { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>An object that defines the tags (keys and values) that you want to associate with
+        /// the predictive inbox placement test.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.PinpointEmail.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -194,6 +206,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             context.Content_Simple_Subject_Data = this.Subject_Data;
             context.FromEmailAddress = this.FromEmailAddress;
             context.ReportName = this.ReportName;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.PinpointEmail.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -392,6 +408,10 @@ namespace Amazon.PowerShell.Cmdlets.PINE
                 {
                     request.ReportName = cmdletContext.ReportName;
                 }
+                if (cmdletContext.Tags != null)
+                {
+                    request.Tags = cmdletContext.Tags;
+                }
                 
                 CmdletOutput output;
                 
@@ -471,6 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.PINE
             public System.String Content_Simple_Subject_Data { get; set; }
             public System.String FromEmailAddress { get; set; }
             public System.String ReportName { get; set; }
+            public List<Amazon.PinpointEmail.Model.Tag> Tags { get; set; }
         }
         
     }
