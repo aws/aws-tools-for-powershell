@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
         <code>PS C:\> $filter1 = @{Key="PRODUCT";Values=@("WindowsServer2012")}
@@ -24,7 +25,7 @@ Vendor         : Microsoft
 ...</code>
         <description>This example gets all available patches for Windows Server 2012 that have a MSRC severity of Critical. The syntax used by this example requires PowerShell version 3 or later.</description>
     </example>
-	    <example>
+    <example>
         <code>PS C:\> $filter1 = New-Object Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter
 PS C:\> $filter1.Key = "PRODUCT"
 PS C:\> $filter1.Values = "WindowsServer2012"
@@ -35,4 +36,14 @@ PS C:\> $filter2.Values = "Critical"
 PS C:\> Get-SSMAvailablePatch -Filter $filter1,$filter2</code>
         <description>With PowerShell version 2, you must use New-Object to create each filter.</description>
     </example>
+  <example>
+    <code>Get-SSMAvailablePatch | Where-Object ReleaseDate -ge (Get-Date).AddDays(-20) | Where-Object Product -eq "WindowsServer2019" | Select-Object ReleaseDate, Product, Title
+
+ReleaseDate         Product           Title
+-----------         -------           -----
+4/9/2019 5:00:12 PM WindowsServer2019 2019-04 Security Update for Adobe Flash Player for Windows Server 2019 for x64-based Systems (KB4493478)
+4/9/2019 5:00:06 PM WindowsServer2019 2019-04 Cumulative Update for Windows Server 2019 for x64-based Systems (KB4493509)
+4/2/2019 5:00:06 PM WindowsServer2019 2019-03 Servicing Stack Update for Windows Server 2019 for x64-based Systems (KB4493510)</code>
+    <description>This example fetches all the updates which are released in last 20 days and applicable to products matching WindowsServer2019</description>
+  </example>
 </examples>

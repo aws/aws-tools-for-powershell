@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-SSMAssociationExecutionTarget -AssociationId 123a45a0-c678-9012-3456-78901234db5e -ExecutionId 123a45a0-c678-9012-3456-78901234db5e | Select-Object ResourceId, Status
+
+ResourceId           Status
+----------           ------
+i-0b1b2a3456f7a890b  Success
+i-01c12a45d6fc7a89f  Success
+i-0a1caf234f56d7dc8  Success
+i-012a3fd45af6dbcfe  Failed
+i-0ddc1df23c4a5fb67  Success</code>
+    <description>This example displays the resource ID and its execution status that are part of the the association execution targets</description>
+  </example>
+</examples>

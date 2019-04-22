@@ -1,4 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
 <examples>
     <example>
         <code>PS C:\> Get-SSMAutomationExecution -AutomationExecutionId "4105a4fc-f944-11e6-9d32-8fb2db27a909"
@@ -23,4 +24,25 @@ Parameters                : {[AutomationAssumeRole, Amazon.Runtime.Internal.Util
 StepExecutions            : {launchInstance, updateOSSoftware, stopInstance, createImage...}</code>
         <description>This example displays the details of an Automation Execution.</description>
     </example>
+  <example>
+    <code>Get-SSMAutomationExecution -AutomationExecutionId e1d2bad3-4567-8901-ae23-456c7c8901be | Select-Object -ExpandProperty StepExecutions | Select-Object StepName, Action, StepStatus, ValidNextSteps
+
+StepName                  Action                  StepStatus ValidNextSteps
+--------                  ------                  ---------- --------------
+LaunchInstance            aws:runInstances        Success    {OSCompatibilityCheck}
+OSCompatibilityCheck      aws:runCommand          Success    {RunPreUpdateScript}
+RunPreUpdateScript        aws:runCommand          Success    {UpdateEC2Config}
+UpdateEC2Config           aws:runCommand          Cancelled  {}
+UpdateSSMAgent            aws:runCommand          Pending    {}
+UpdateAWSPVDriver         aws:runCommand          Pending    {}
+UpdateAWSEnaNetworkDriver aws:runCommand          Pending    {}
+UpdateAWSNVMe             aws:runCommand          Pending    {}
+InstallWindowsUpdates     aws:runCommand          Pending    {}
+RunPostUpdateScript       aws:runCommand          Pending    {}
+RunSysprepGeneralize      aws:runCommand          Pending    {}
+StopInstance              aws:changeInstanceState Pending    {}
+CreateImage               aws:createImage         Pending    {}
+TerminateInstance         aws:changeInstanceState Pending    {}</code>
+    <description>This example lists step details for the given automation execution id</description>
+  </example>
 </examples>

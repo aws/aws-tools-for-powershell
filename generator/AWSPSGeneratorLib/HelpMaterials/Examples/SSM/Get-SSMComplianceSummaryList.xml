@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-SSMComplianceSummaryList
+
+ComplianceType CompliantSummary                                      NonCompliantSummary
+-------------- ----------------                                      -------------------
+FleetTotal     Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+Association    Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+Custom:InSpec  Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary
+Patch          Amazon.SimpleSystemsManagement.Model.CompliantSummary Amazon.SimpleSystemsManagement.Model.NonCompliantSummary</code>
+    <description>This example returns a summary count of compliant and non-compliant resources for all compliance types. </description>
+  </example>
+</examples>

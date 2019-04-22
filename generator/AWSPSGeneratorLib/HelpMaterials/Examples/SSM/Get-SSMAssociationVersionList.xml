@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Examples for the AWS PowerShell CmdLets-->
+<examples>
+  <example>
+    <code>Get-SSMAssociationVersionList -AssociationId 123a45a0-c678-9012-3456-78901234db5e
+
+
+AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
+AssociationName    :
+AssociationVersion : 2
+ComplianceSeverity :
+CreatedDate        : 3/12/2019 9:21:01 AM
+DocumentVersion    :
+MaxConcurrency     :
+MaxErrors          :
+Name               : AWS-GatherSoftwareInventory
+OutputLocation     :
+Parameters         : {}
+ScheduleExpression :
+Targets            : {InstanceIds}
+
+AssociationId      : 123a45a0-c678-9012-3456-78901234db5e
+AssociationName    : test-case-1234567890
+AssociationVersion : 1
+ComplianceSeverity :
+CreatedDate        : 3/2/2019 8:53:29 AM
+DocumentVersion    :
+MaxConcurrency     :
+MaxErrors          :
+Name               : AWS-GatherSoftwareInventory
+OutputLocation     :
+Parameters         : {}
+ScheduleExpression : rate(30minutes)
+Targets            : {InstanceIds}</code>
+    <description>This example retrieves all versions of the association provided.</description>
+  </example>
+</examples>
