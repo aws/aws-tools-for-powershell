@@ -1,4 +1,114 @@
-﻿### 3.3.485.0 (2019-03-28)
+﻿### 3.3.498.0 (2019-04-24)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * SAML Configuration Cmdlets Set-AWSSamlEndpoint and Set-AWSSamlRoleProfile are now available in the AWSPowerShell.NetCore module when used under Windows.
+  * Modified cmdlet Set-AWSCredential: added parameters Scope. Using Set-AWSCredential with _-Scope Global_ allows to make credentials available to the whole PowerShell session.
+  * Amazon Alexa For Business
+    * Added cmdlet Get-ALXBGateway leveraging the GetGateway service API.
+    * Added cmdlet Get-ALXBGatewayGroup leveraging the GetGatewayGroup service API.
+    * Added cmdlet Get-ALXBGatewayGroupList leveraging the ListGatewayGroups service API.
+    * Added cmdlet Get-ALXBGatewayList leveraging the ListGateways service API.
+    * Added cmdlet New-ALXBGatewayGroup leveraging the CreateGatewayGroup service API.
+    * Added cmdlet Remove-ALXBGatewayGroup leveraging the DeleteGatewayGroup service API.
+    * Added cmdlet Update-ALXBGateway leveraging the UpdateGateway service API.
+    * Added cmdlet Update-ALXBGatewayGroup leveraging the UpdateGatewayGroup service API.
+  * Amazon Batch
+    * Modified cmdlet Register-BATJobDefinition: added parameter ContainerProperties_ResourceRequirement.
+    * Modified cmdlet Submit-BATJob: added parameters ContainerOverrides_ResourceRequirement and NodeOverrides_NumNode.
+  * Amazon CloudWatch
+    * Added cmdlet Add-CWResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CWResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CWResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Write-CWMetricAlarm: added parameter Tag.
+  * Amazon Cognito Identity Provider
+    * Modified cmdlet New-CGIPUserPool: added parameter EmailConfiguration_EmailSendingAccount.
+    * Modified cmdlet Update-CGIPUserPool: added parameter EmailConfiguration_EmailSendingAccount.
+  * Amazon Comprehend
+    * Added cmdlet Add-COMPResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-COMPResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-COMPResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-COMPDocumentClassifier: added parameters OutputDataConfig_KmsKeyId, OutputDataConfig_S3Uri, Tag and VolumeKmsKeyId.
+    * Modified cmdlet New-COMPEntityRecognizer: added parameters Tag and VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPDocumentClassificationJob: added parameter VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPDominantLanguageDetectionJob: added parameter VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPEntitiesDetectionJob: added parameter VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPKeyPhrasesDetectionJob: added parameter VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPSentimentDetectionJob: added parameter VolumeKmsKeyId.
+    * Modified cmdlet Start-COMPTopicsDetectionJob: added parameter VolumeKmsKeyId.
+  * Amazon Elastic Container Service for Kubernetes
+    * Modified cmdlet New-EKSCluster: added parameter Logging_ClusterLogging.
+    * Modified cmdlet Update-EKSClusterConfig: added parameter Logging_ClusterLogging.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Update-EMLReservation leveraging the UpdateReservation service API.
+    * Modified cmdlet Get-EMLOfferingList: added parameter ChannelClass.
+    * Modified cmdlet Get-EMLReservationList: added parameter ChannelClass.
+    * Modified cmdlet New-EMLChannel: added parameter ChannelClass.
+    * Modified cmdlet New-EMLOfferingPurchase: added parameter Tag.
+  * Amazon Glue
+    * Modified cmdlet New-GLUEJob: added parameters NumberOfWorker and WorkerType.
+    * Modified cmdlet Start-GLUEJobRun: added parameters NumberOfWorker and WorkerType.
+  * Amazon Greengrass
+    * Added cmdlet Add-GGResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-GGResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-GGResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-GGConnectorDefinition: added parameter Tag.
+    * Modified cmdlet New-GGCoreDefinition: added parameter Tag.
+    * Modified cmdlet New-GGDeviceDefinition: added parameter Tag.
+    * Modified cmdlet New-GGFunctionDefinition: added parameter Tag.
+    * Modified cmdlet New-GGGroup: added parameter Tag.
+    * Modified cmdlet New-GGLoggerDefinition: added parameter Tag.
+    * Modified cmdlet New-GGResourceDefinition: added parameter Tag.
+    * Modified cmdlet New-GGSubscriptionDefinition: added parameter Tag.
+    * Modified cmdlet Start-GGBulkDeployment: added parameter Tag.
+  * Amazon Managed Streaming for Kafka
+    * Added cmdlet Add-MSKResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-MSKResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-MSKResourceTag leveraging the UntagResource service API.
+  * Amazon MQ
+    * Added cmdlet Get-MQBrokerEngineType leveraging the DescribeBrokerEngineTypes service API.
+    * Added cmdlet Get-MQBrokerInstanceOption leveraging the DescribeBrokerInstanceOptions service API.
+  * Amazon Organizations
+    * Added cmdlet New-ORGGovCloudAccount leveraging the CreateGovCloudAccount service API.
+  * Amazon Pinpoint Email
+    * Added cmdlet Add-PINEResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-PINEResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-PINEResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-PINEConfigurationSet: added parameter Tag.
+    * Modified cmdlet New-PINEDedicatedIpPool: added parameter Tag.
+    * Modified cmdlet New-PINEDeliverabilityTestReport: added parameter Tag.
+    * Modified cmdlet New-PINEEmailIdentity: added parameter Tag.
+  * Amazon Relational Database Service
+    * Modified cmdlet Add-RDSRoleToDBCluster: added parameter FeatureName.
+    * Modified cmdlet Edit-RDSDBCluster: added parameter ScalingConfiguration_TimeoutAction.
+    * Modified cmdlet New-RDSDBCluster: added parameter ScalingConfiguration_TimeoutAction.
+    * Modified cmdlet Remove-RDSRoleFromDBCluster: added parameter FeatureName.
+    * Modified cmdlet Restore-RDSDBClusterFromSnapshot: added parameter ScalingConfiguration_TimeoutAction.
+  * Amazon Route 53
+    * Modified cmdlet Update-R53HealthCheck: added parameters Disabled and ResetElement.
+  * Amazon Service Catalog
+    * Modified cmdlet Update-SCProvisionedProduct: added parameter Tag.
+  * Amazon Storage Gateway
+    * Modified cmdlet New-SGCachediSCSIVolume: added parameter Tag.
+    * Modified cmdlet New-SGSMBFileShare: added parameter SMBACLEnabled.
+    * Modified cmdlet New-SGStorediSCSIVolume: added parameter Tag.
+    * Modified cmdlet New-SGTape: added parameter Tag.
+    * Modified cmdlet New-SGTapeWithBarcode: added parameter Tag.
+    * Modified cmdlet Update-SGMaintenanceStartTime: added parameter DayOfMonth.
+    * Modified cmdlet Update-SGSMBFileShare: added parameter SMBACLEnabled.
+  * Amazon Systems Manager
+    * Modified cmdlet Write-SSMParameter: added parameters Policy and Tier.
+  * Amazon WorkLink
+    * Added cmdlet Get-WLDomain leveraging the DescribeDomain service API.
+    * Added cmdlet Get-WLDomainList leveraging the ListDomains service API.
+    * Added cmdlet Register-WLDomain leveraging the AssociateDomain service API.
+    * Added cmdlet Restore-WLDomainAccess leveraging the RestoreDomainAccess service API.
+    * Added cmdlet Revoke-WLDomainAccess leveraging the RevokeDomainAccess service API.
+    * Added cmdlet Unregister-WLDomain leveraging the DisassociateDomain service API.
+    * Added cmdlet Update-WLDomainMetadata leveraging the UpdateDomainMetadata service API.
+  * Amazon WorkSpaces
+    * Modified cmdlet Import-WKSWorkspaceImage: added parameter Tag.
+    * Modified cmdlet New-WKSIpGroup: added parameter Tag.
+
+### 3.3.485.0 (2019-03-28)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.485.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * AWSPowerShell.NetCore now targets PowerShell Standard (https://github.com/PowerShell/PowerShellStandard). As a preview feature, you can test using the AWSPowerShell.NetCore module under older version of PowerShell starting with PowerShell 3.0 when at least .NET Framework 4.7.2 is installed.
   * AWSPowerShell.NetCore now targets AWS .NET SDK for NetStandard 2.0.
