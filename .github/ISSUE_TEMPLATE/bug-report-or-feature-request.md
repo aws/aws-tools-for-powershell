@@ -18,7 +18,7 @@ Include full errors, uncaught exceptions, stack traces, and relevant logs.
 If service responses are relevant, please include Fiddler-captured wirelogs.
 If suggesting a change/improvement, explain the difference from current behavior.
 
-*Possible Solution***
+**Possible Solution***
 Not required, but suggest a fix/reason for the bug, or ideas how to implement the addition or change.
 
 **Steps to Reproduce (for bugs)**
