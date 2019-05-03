@@ -36,4 +36,4 @@ Follow us on twitter!
 
 ## License
 
-Exclusively the content of this repository is licensed under the Apache 2.0 License. This license doesn't extend to the source code or binaries of the _AWS Tools for PowerShell_ modules or to other artifacts not included in this repository.
+The content of this repository is licensed under the Apache 2.0 License.
