@@ -1,4 +1,96 @@
-﻿### 3.3.498.0 (2019-04-24)
+﻿### 3.3.509.0 (2019-05-14)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * AWSPowerShell cmdlets
+    * [Breaking Change] Modified cmdlets Use-STSRoleWithSAML and Use-STSWebIdentityRole to honor the Set-AWSProxy configuration.
+    * Modified cmdlets Clear-AWSDefaultConfiguration, Clear-AWSCredential, Set-AWSProxy, Clear-AWSProxy, Set-DefaultAWSRegion and Clear-DefaultAWSRegion: added parameter Scope.
+  * Amazon Alexa For Business
+    * Added cmdlet Remove-ALXBDeviceUsageData leveraging the DeleteDeviceUsageData service API.
+    * Added cmdlet Send-ALXBAnnouncement leveraging the SendAnnouncement service API.
+  * Amazon AppSync
+    * Added cmdlet Add-ASYNResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-ASYNResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-ASYNResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet Get-ASYNIntrospectionSchema: added parameter IncludeDirective.
+    * Modified cmdlet New-ASYNGraphqlApi: added parameters AdditionalAuthenticationProvider and Tag.
+    * Modified cmdlet Update-ASYNGraphqlApi: added parameter AdditionalAuthenticationProvider.
+  * Amazon Cognito Identity Provider
+    * Added cmdlet Set-CGIPUserPasswordAdmin leveraging the AdminSetUserPassword service API.
+    * Modified cmdlet New-CGIPUserPool: added parameter PasswordPolicy_TemporaryPasswordValidityDay.
+    * Modified cmdlet Update-CGIPUserPool: added parameter PasswordPolicy_TemporaryPasswordValidityDay.
+  * Amazon Config
+    * Modified cmdlet Write-CFGAggregationAuthorization: added parameter Tag.
+    * Modified cmdlet Write-CFGConfigRule: added parameter Tag.
+    * Modified cmdlet Write-CFGConfigurationAggregator: added parameter Tag.
+  * Amazon Direct Connect
+    * Added cmdlet Confirm-DCTransitVirtualInterface leveraging the ConfirmTransitVirtualInterface service API.
+    * Added cmdlet Enable-DCTransitVirtualInterface leveraging the AllocateTransitVirtualInterface service API.
+    * Added cmdlet New-DCTransitVirtualInterface leveraging the CreateTransitVirtualInterface service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Edit-EC2VpnConnection leveraging the ModifyVpnConnection service API.
+    * Modified cmdlet New-EC2NetworkInterface: added parameter InterfaceType.
+  * Amazon Elemental MediaLive
+    * Added cmdlet Remove-EMLSchedule leveraging the DeleteSchedule service API.
+    * Added cmdlet Update-EMLChannelClass leveraging the UpdateChannelClass service API.
+  * Amazon GameLift Service
+    * Added cmdlet Get-GMLScript leveraging the DescribeScript service API.
+    * Added cmdlet Get-GMLScriptList leveraging the ListScripts service API.
+    * Added cmdlet New-GMLScript leveraging the CreateScript service API.
+    * Added cmdlet Remove-GMLScript leveraging the DeleteScript service API.
+    * Added cmdlet Update-GMLScript leveraging the UpdateScript service API.
+    * Modified cmdlet Get-GMLFleet: added parameter ScriptId.
+    * Modified cmdlet New-GMLBuild: added parameter StorageLocation_ObjectVersion.
+    * Modified cmdlet New-GMLFleet: added parameter ScriptId.
+  * Amazon Identity and Access Management
+    * Added cmdlet Set-IAMSecurityTokenServicePreference leveraging the SetSecurityTokenServicePreferences service API.
+  * Amazon Kinesis Analytics
+    * Added cmdlet Add-KINAResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-KINAResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-KINAResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-KINAApplication: added parameter Tag.
+  * Amazon Kinesis Analytics (v2)
+    * Added cmdlet Add-KINA2ResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-KINA2ResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-KINA2ResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-KINA2Application: added parameter Tag.
+  * Amazon Lambda
+    * Added cmdlet Get-LMLayerVersionByArn leveraging the GetLayerVersionByArn service API.
+  * Amazon Managed Blockchain. Added cmdlets to support the service. Cmdlets for the service have the noun prefix MBC and can be listed using the command 'Get-AWSCmdletName -Service MBC'. Amazon Managed Blockchain is a fully managed service that makes it easy to create and manage scalable blockchain networks using popular open source frameworks.
+  * Amazon Neptune
+    * Modified cmdlet Restore-NPTDBClusterFromSnapshot: added parameter DBClusterParameterGroupName.
+    * Modified cmdlet Restore-NPTDBClusterToPointInTime: added parameter DBClusterParameterGroupName.
+  * Amazon S3 Control
+    * Added cmdlet Get-S3CJob leveraging the DescribeJob service API.
+    * Added cmdlet Get-S3CJobList leveraging the ListJobs service API.
+    * Added cmdlet New-S3CJob leveraging the CreateJob service API.
+    * Added cmdlet Update-S3CJobPriority leveraging the UpdateJobPriority service API.
+    * Added cmdlet Update-S3CJobStatus leveraging the UpdateJobStatus service API.
+  * Amazon Service Catalog
+    * Added cmdlet Get-SCBudgetsForResource leveraging the ListBudgetsForResource service API.
+    * Added cmdlet Register-SCBudgetWithResource leveraging the AssociateBudgetWithResource service API.
+    * Added cmdlet Unregister-SCBudgetFromResource leveraging the DisassociateBudgetFromResource service API.
+    * Modified cmdlet New-SCProduct: added parameter ProvisioningArtifactParameters_DisableTemplateValidation.
+    * Modified cmdlet New-SCProvisioningArtifact: added parameter Parameters_DisableTemplateValidation.
+  * Amazon Simple Notification Service
+    * Added cmdlet Add-SNSResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-SNSResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-SNSResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-SNSTopic: added parameter Tag.
+  * Amazon Storage Gateway
+    * Modified cmdlet New-SGSMBFileShare: added parameter AdminUserList.
+    * Modified cmdlet Update-SGSMBFileShare: added parameter AdminUserList.
+  * Amazon Systems Manager
+    * Added cmdlet Get-SSMPatchProperty leveraging the DescribePatchProperties service API.
+  * Amazon Transfer for SFTP
+    * Modified cmdlet New-TFRServer: added parameter HostKey.
+    * Modified cmdlet Update-TFRServer: added parameter HostKey.
+  * Amazon WorkMail
+    * Added cmdlet Get-WMMailboxDetail leveraging the GetMailboxDetails service API.
+    * Added cmdlet Update-WMMailboxQuota leveraging the UpdateMailboxQuota service API.
+  * Amazon X-Ray
+    * Added cmdlet Get-XRTimeSeriesServiceStatistic leveraging the GetTimeSeriesServiceStatistics service API.
+    * Modified cmdlet Get-XRTraceSummary: added parameters SamplingStrategy_Name, SamplingStrategy_Value and TimeRangeType.
+
+### 3.3.498.0 (2019-04-24)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.498.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * SAML Configuration Cmdlets Set-AWSSamlEndpoint and Set-AWSSamlRoleProfile are now available in the AWSPowerShell.NetCore module when used under Windows.
   * Modified cmdlet Set-AWSCredential: added parameters Scope. Using Set-AWSCredential with _-Scope Global_ allows to make credentials available to the whole PowerShell session.
