@@ -24,7 +24,7 @@ Check out this user guide to get started quickly.
 
 [AWS Tools for Powershell Cmdlet Reference](https://docs.aws.amazon.com/powershell/latest/reference/Index.html)
 
-Take a look at the this reference for more in-depth documentation for each Powershell Cmdlet.
+Take a look at this reference for more in-depth documentation for each Powershell Cmdlet.
 
 [AWS Developer Blog](https://aws.amazon.com/blogs/developer/category/programing-language/dot-net/)
 
