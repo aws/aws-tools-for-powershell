@@ -1,4 +1,138 @@
-﻿### 3.3.509.0 (2019-05-14)
+﻿### 3.3.522.0 (2019-05-31)
+  * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.522.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
+  * Amazon Alexa For Business
+    * Added cmdlet Add-ALXBContactToAddressBook leveraging the AssociateContactWithAddressBook service API.
+    * Added cmdlet Add-ALXBDeviceToNetworkProfile leveraging the AssociateDeviceWithNetworkProfile service API.
+    * Added cmdlet Get-ALXBNetworkProfile leveraging the GetNetworkProfile service API.
+    * Added cmdlet New-ALXBNetworkProfile leveraging the CreateNetworkProfile service API.
+    * Added cmdlet Remove-ALXBNetworkProfile leveraging the DeleteNetworkProfile service API.
+    * Added cmdlet Search-ALXBNetworkProfile leveraging the SearchNetworkProfiles service API.
+    * Added cmdlet Update-ALXBNetworkProfile leveraging the UpdateNetworkProfile service API.
+  * Amazon API Gateway
+    * Modified cmdlet New-AGApiKey: added parameter Tag.
+    * Modified cmdlet New-AGClientCertificate: added parameter Tag.
+    * Modified cmdlet New-AGDomainName: added parameter Tag.
+    * Modified cmdlet New-AGRestApi: added parameter Tag.
+    * Modified cmdlet New-AGUsagePlan: added parameter Tag.
+    * Modified cmdlet New-AGVpcLink: added parameter Tag.
+  * Amazon AppStream
+    * Added cmdlet Get-APSUsageReportSubscription leveraging the DescribeUsageReportSubscriptions service API.
+    * Added cmdlet New-APSUsageReportSubscription leveraging the CreateUsageReportSubscription service API.
+    * Added cmdlet Remove-APSUsageReportSubscription leveraging the DeleteUsageReportSubscription service API.
+    * Modified cmdlet New-APSFleet: added parameter IdleDisconnectTimeoutInSecond.
+    * Modified cmdlet Update-APSFleet: added parameter IdleDisconnectTimeoutInSecond.
+  * Amazon Budgets
+    * Modified cmdlet New-BGTBudget: added parameter Budget_PlannedBudgetLimit.
+    * Modified cmdlet Update-BGTBudget: added parameter NewBudget_PlannedBudgetLimit.
+  * Amazon Chime
+    * Added cmdlet Get-CHMBot leveraging the GetBot service API.
+    * Added cmdlet Get-CHMBotList leveraging the ListBots service API.
+    * Added cmdlet Get-CHMEventsConfiguration leveraging the GetEventsConfiguration service API.
+    * Added cmdlet New-CHMBot leveraging the CreateBot service API.
+    * Added cmdlet Remove-CHMEventsConfiguration leveraging the DeleteEventsConfiguration service API.
+    * Added cmdlet Update-CHMBot leveraging the UpdateBot service API.
+    * Added cmdlet Update-CHMSecurityToken leveraging the RegenerateSecurityToken service API.
+    * Added cmdlet Write-CHMEventsConfiguration leveraging the PutEventsConfiguration service API.
+    * Modified cmdlet Search-CHMAvailablePhoneNumber: added parameter TollFreePrefix.
+  * Amazon CodeCommit
+    * Added cmdlet Add-CCResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CCResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CCResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CCRepository: added parameter Tag.
+  * Amazon CodeDeploy
+    * Added cmdlet Add-CDResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CDResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CDResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CDApplication: added parameter Tag.
+    * Modified cmdlet New-CDDeploymentGroup: added parameter Tag.
+  * Amazon CodePipeline
+    * Added cmdlet Add-CPResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-CPResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-CPResourceTag leveraging the UntagResource service API.
+    * Modified cmdlet New-CPCustomActionType: added parameter Tag.
+    * Modified cmdlet New-CPPipeline: added parameter Tag.
+    * Modified cmdlet Write-CPWebhook: added parameter Tag.
+  * Amazon Comprehend
+    * Modified cmdlet New-COMPDocumentClassifier: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet New-COMPEntityRecognizer: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPDocumentClassificationJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPDominantLanguageDetectionJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPEntitiesDetectionJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPKeyPhrasesDetectionJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPSentimentDetectionJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+    * Modified cmdlet Start-COMPTopicsDetectionJob: added parameters VpcConfig_SecurityGroupId and VpcConfig_Subnet.
+  * Amazon Data Lifecycle Manager
+    * Modified cmdlet New-DLMLifecyclePolicy: added parameters Parameters_ExcludeBootVolume and PolicyDetails_PolicyType.
+    * Modified cmdlet Update-DLMLifecyclePolicy: added parameters Parameters_ExcludeBootVolume and PolicyDetails_PolicyType.
+  * Amazon Device Farm
+    * Added cmdlet Add-DFResourceTag leveraging the TagResource service API.
+    * Added cmdlet Get-DFResourceTag leveraging the ListTagsForResource service API.
+    * Added cmdlet Remove-DFResourceTag leveraging the UntagResource service API.
+  * Amazon Elastic Compute Cloud
+    * Added cmdlet Disable-EC2EbsEncryptionByDefault leveraging the DisableEbsEncryptionByDefault service API.
+    * Added cmdlet Edit-EC2EbsDefaultKmsKeyId leveraging the ModifyEbsDefaultKmsKeyId service API.
+    * Added cmdlet Enable-EC2EbsEncryptionByDefault leveraging the EnableEbsEncryptionByDefault service API.
+    * Added cmdlet Get-EC2EbsDefaultKmsKeyId leveraging the GetEbsDefaultKmsKeyId service API.
+    * Added cmdlet Get-EC2EbsEncryptionByDefault leveraging the GetEbsEncryptionByDefault service API.
+    * Added cmdlet New-EC2SnapshotBatch leveraging the CreateSnapshots service API.
+    * Added cmdlet Reset-EC2EbsDefaultKmsKeyId leveraging the ResetEbsDefaultKmsKeyId service API.
+    * Modified cmdlet Get-EC2DhcpOption: added parameters MaxResult and NextToken.
+    * Modified cmdlet Get-EC2Subnet: added parameters MaxResult and NextToken.
+    * Modified cmdlet Grant-EC2ClientVpnIngress: added parameter ClientToken.
+    * Modified cmdlet New-EC2ClientVpnRoute: added parameter ClientToken.
+    * Modified cmdlet Register-EC2ClientVpnTargetNetwork: added parameter ClientToken.
+  * Amazon Elemental MediaPackage VOD. Added cmdlets to support the service. Cmdlets for the service have the noun prefix EMPV and can be listed using the command 'Get-AWSCmdletName -Service EMPV'. AWS Elemental MediaPackage now supports Video-on-Demand (VOD) workflows. These new features allow you to easily deliver a vast library of source video Assets stored in your own S3 buckets using a small set of simple to set up Packaging Configurations and Packaging Groups.
+  * Amazon Ground Station. Added cmdlets to support the service. Cmdlets for the service have the noun prefix GS and can be listed using the command 'Get-AWSCmdletName -Service GS'. AWS Ground Station is a fully managed service that enables you to control satellite communications, downlink and process satellite data, and scale your satellite operations efficiently and cost-effectively without having to build or manage your own ground station infrastructure.
+  * Amazon IoT Events. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IOTE and can be listed using the command 'Get-AWSCmdletName -Service IOTE'. The AWS IoT Events service allows customers to monitor their IoT devices and sensors to detect failures or changes in operation and to trigger actions when these events occur.
+  * Amazon IoT Events Data. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IOTED and can be listed using the command 'Get-AWSCmdletName -Service IOTED'.
+  * Amazon IoT Things Graph. Added cmdlets to support the service. Cmdlets for the service have the noun prefix IOTTG and can be listed using the command 'Get-AWSCmdletName -Service IOTTG'.
+  * Amazon Managed Streaming for Kafka
+    * Added cmdlet Get-MSKClusterOperation leveraging the DescribeClusterOperation service API.
+    * Added cmdlet Get-MSKClusterOperationList leveraging the ListClusterOperations service API.
+    * Added cmdlet Get-MSKConfiguration leveraging the DescribeConfiguration service API.
+    * Added cmdlet Get-MSKConfigurationList leveraging the ListConfigurations service API.
+    * Added cmdlet Get-MSKConfigurationRevision leveraging the DescribeConfigurationRevision service API.
+    * Added cmdlet Get-MSKConfigurationRevisionList leveraging the ListConfigurationRevisions service API.
+    * Added cmdlet New-MSKConfiguration leveraging the CreateConfiguration service API.
+    * Added cmdlet Update-MSKBrokerStorage leveraging the UpdateBrokerStorage service API.
+    * Added cmdlet Update-MSKClusterConfiguration leveraging the UpdateClusterConfiguration service API.
+    * Modified cmdlet New-MSKCluster: added parameters ConfigurationInfo_Arn, ConfigurationInfo_Revision, EncryptionInTransit_ClientBroker, EncryptionInTransit_InCluster, Tag and Tls_CertificateAuthorityArnList.
+  * Amazon Pinpoint Email
+    * Added cmdlet Get-PINEDomainDeliverabilityCampaign leveraging the GetDomainDeliverabilityCampaign service API.
+    * Added cmdlet Get-PINEDomainDeliverabilityCampaignList leveraging the ListDomainDeliverabilityCampaigns service API.
+    * [Breaking Change] Modified cmdlet Get-PINEDeliverabilityDashboardOption: output changed from System.Boolean to Amazon.PinpointEmail.Model.GetDeliverabilityDashboardOptionsResponse.
+    * Modified cmdlet New-PINEConfigurationSet: added parameter DeliveryOptions_TlsPolicy.
+    * Modified cmdlet Write-PINEConfigurationSetDeliveryOption: added parameter TlsPolicy.
+    * Modified cmdlet Write-PINEDeliverabilityDashboardOption: added parameter SubscribedDomain.
+  * Amazon RDS DataService
+    * Added cmdlet Confirm-RDSDTransaction leveraging the CommitTransaction service API.
+    * Added cmdlet Invoke-RDSDStatement leveraging the ExecuteStatement service API.
+    * Added cmdlet Invoke-RDSDStatementBatch leveraging the BatchExecuteStatement service API.
+    * Added cmdlet Reset-RDSDTransaction leveraging the RollbackTransaction service API.
+  * Amazon Relational Database Service
+    * Added cmdlet Start-RDSActivityStream leveraging the StartActivityStream service API.
+    * Added cmdlet Stop-RDSActivityStream leveraging the StopActivityStream service API.
+    * Modified cmdlet Get-RDSDBEngineVersion: added parameter IncludeAll.
+  * Amazon RoboMaker
+    * Added cmdlet Stop-ROBODeploymentJob leveraging the CancelDeploymentJob service API.
+  * Amazon Security Hub
+    * Added cmdlet Get-SHUBProduct leveraging the DescribeProducts service API.
+    * Added cmdlet Get-SHUBProductSubscriberList leveraging the ListProductSubscribers service API.
+  * Amazon Service Catalog
+    * Added cmdlet Get-SCStackInstancesForProvisionedProduct leveraging the ListStackInstancesForProvisionedProduct service API.
+    * Added cmdlet Update-SCProvisionedProductProperty leveraging the UpdateProvisionedProductProperties service API.
+  * Amazon Simple Storage Service
+    * Modified cmdlet Write-S3BucketReplication: added parameter Token.
+  * Amazon Storage Gateway
+    * Added cmdlet Add-SGTapeToTapePool leveraging the AssignTapePool service API.
+    * Modified cmdlet New-SGSnapshot: added parameter Tag.
+    * Modified cmdlet Update-SGSnapshotSchedule: added parameter Tag.
+  * Amazon WorkLink
+    * Added cmdlet Add-WLWebsiteAuthorizationProviderToFleet leveraging the AssociateWebsiteAuthorizationProvider service API.
+    * Added cmdlet Get-WLWebsiteAuthorizationProviderList leveraging the ListWebsiteAuthorizationProviders service API.
+    * Added cmdlet Remove-WLWebsiteAuthorizationProviderFromFleet leveraging the DisassociateWebsiteAuthorizationProvider service API.
+
+### 3.3.509.0 (2019-05-14)
   * AWSPowerShell and AWSPowerShell.NetCore now use AWS .NET SDK 3.3.509.0 and leverage its new features and improvements. Please find a description of the changes at https://github.com/aws/aws-sdk-net/blob/master/SDK.CHANGELOG.md.
   * AWSPowerShell cmdlets
     * [Breaking Change] Modified cmdlets Use-STSRoleWithSAML and Use-STSWebIdentityRole to honor the Set-AWSProxy configuration.
